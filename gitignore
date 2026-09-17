@@ -1,0 +1,31 @@
+# =========================================================
+# กันไฟล์ที่หนักหรือสร้างจาก script อัตโนมัติ ไม่ให้เข้า git
+# (เก็บไว้แค่ในเครื่อง/Docker volume ของแต่ละคนตามที่ตกลงกัน)
+# =========================================================
+
+# Metadata catalog ที่ extract มาจาก Defects4J (เบา แต่ยังไม่จำเป็นต้อง commit)
+target_benchmark/
+
+# โปรเจกต์ที่ checkout เต็มจาก Defects4J (หนักมาก ห้าม commit เด็ดขาด)
+checkouts/
+*_buggy/
+*_fixed/
+
+# ผลลัพธ์การรันที่ generate อัตโนมัติ (เก็บเฉพาะไฟล์สรุปที่ใส่ Result_Round1/2 เอง)
+results/
+logs/
+progress.json
+
+# ไฟล์ build ของ Kex / Maven
+kex/target/
+*.class
+*.jar
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# macOS / Windows junk
+.DS_Store
+Thumbs.db

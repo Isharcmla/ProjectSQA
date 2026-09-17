@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  sqa_kex:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sqa_kex_container
+    volumes:
+      - ../:/workspace
+      - kex_home_data:/root/kex-testing
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+
+volumes:
+  kex_home_data:
