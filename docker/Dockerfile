@@ -1,23 +1,39 @@
 # =========================================================
-# Dockerfile: Environment รวมสำหรับทั้งกลุ่ม
-# ใช้ได้กับทั้ง 4 สาย: DynaMOSA(EvoSuite), Reanimator(Kex), Gemini, Claude
+# Dockerfile: Environment รวมสำหรับ ProjectSQA
 #
-# หมายเหตุสำคัญ:
-# - EvoSuite ไม่ต้องติดตั้งแยก เพราะ defects4j init.sh ดาวน์โหลดให้อัตโนมัติ
-#   (รวมถึง Randoop และ Major mutation tool ด้วย)
-# - Kex รองรับ JDK 8/11/17 และ build ด้วย Maven (ไม่ใช่ Gradle)
-# - Java 8 ตัวเดียวใช้ได้ทั้งคู่ ไม่ต้อง Multi-JDK
+# ใช้สำหรับ:
+#   1. Defects4J
+#   2. DynaMOSA ผ่าน EvoSuite
+#   3. Reanimator ผ่าน Kex 0.0.11
+#   4. Benchmark / Python scripts
+#   5. เตรียม environment สำหรับ Gemini / Claude
+#
+# Java:
+#   - Java 11 = default สำหรับ Defects4J
+#   - Java 8  = ติดตั้งไว้สำหรับ compatibility
+#   - Java 17 = ติดตั้งไว้สำหรับ compatibility
+#
+# Kex:
+#   - ใช้ Kex 0.0.11 จาก GitHub Release
+#   - ไม่ build Kex จาก source ด้วย Maven
+#   - หลีกเลี่ยง dependency repository ที่มีปัญหา
 # =========================================================
+
 FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# ---------- ติดตั้งพื้นฐาน ----------
+# =========================================================
+# 1. Basic tools + Java 8/11/17
+# =========================================================
+
 RUN apt-get update && apt-get install -y \
     git \
     curl \
     wget \
     unzip \
+    zip \
+    ca-certificates \
     build-essential \
     cpanminus \
     perl \
@@ -25,38 +41,136 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     maven \
     ant \
+    tzdata \
     openjdk-8-jdk \
+    openjdk-11-jdk \
+    openjdk-17-jdk \
     && rm -rf /var/lib/apt/lists/*
 
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+# =========================================================
+# 2. Default Java = Java 11
+#    Defects4J ที่ติดตั้งอยู่ใน environment นี้ต้องการ Java 11
+# =========================================================
+
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
+
+# =========================================================
+# 3. Timezone
+# =========================================================
+
+ENV TZ=America/Los_Angeles
+
+RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime \
+    && echo ${TZ} > /etc/timezone
+
+# =========================================================
+# 4. Workspace
+# =========================================================
 
 WORKDIR /workspace
 
-# ---------- ติดตั้ง Defects4J ----------
-# ขั้นตอนนี้จะดาวน์โหลด EvoSuite + Randoop + Major มาให้ครบอัตโนมัติ
-# ผ่าน framework/lib/ ของ Defects4J เอง (ใช้เวลานานสุดในขั้นตอนทั้งหมด)
+# =========================================================
+# 5. Defects4J
+# =========================================================
+
 RUN git clone https://github.com/rjust/defects4j.git /opt/defects4j
+
 WORKDIR /opt/defects4j
+
+# ติดตั้ง Perl dependencies ของ Defects4J
 RUN cpanm --installdeps . --notest
+
+# Initialize Defects4J
 RUN ./init.sh
-ENV PATH="/opt/defects4j/framework/bin:${PATH}"
 
-# ---------- ยืนยันว่า EvoSuite jar ถูกดาวน์โหลดมาจริง ----------
-RUN ls -la /opt/defects4j/framework/lib/test_generation/generation/ || \
-    echo "WARNING: ตรวจสอบ path ของ EvoSuite jar อีกครั้งหลัง build เสร็จ"
+# Defects4J requires Subversion (svn)
+RUN apt-get update \
+    && apt-get install -y subversion \
+    && rm -rf /var/lib/apt/lists/*
+RUN svn --version --quiet
 
-# ---------- ติดตั้ง Kex (Maven build ตาม README จริง) ----------
+# Defects4J command
+ENV DEFECTS4J_HOME=/opt/defects4j
+ENV PATH="${DEFECTS4J_HOME}/framework/bin:${PATH}"
+
+# =========================================================
+# 6. ตรวจสอบ Defects4J
+# =========================================================
+
+RUN java -version
+
+RUN defects4j info -p Chart
+
+# =========================================================
+# 7. ตรวจสอบ test-generation tools ที่ Defects4J เตรียมไว้
+#    init.sh จะจัดเตรียมเครื่องมือที่ framework ต้องใช้
+# =========================================================
+
+RUN ls -la \
+    /opt/defects4j/framework/lib/test_generation/generation/ \
+    || echo "WARNING: ตรวจสอบ path ของ test-generation tools"
+
+# =========================================================
+# 8. ติดตั้ง Kex 0.0.11 จาก GitHub Release
+#
+# IMPORTANT:
+# ไม่ใช้:
+#   git clone Kex source + mvn clean package
+#
+# เพราะ source build ของ Kex อ้าง repository
+# maven.apal-research.com ซึ่ง environment ปัจจุบัน resolve ไม่ได้
+#
+# Release ZIP มี compiled target/ มาให้แล้ว
+# =========================================================
+
 WORKDIR /opt
-RUN git clone https://github.com/vorpal-research/kex.git /opt/kex
-WORKDIR /opt/kex
-RUN mvn clean package -Psolver -Dsolver=z3 -DskipTests
+
+RUN curl -fL \
+    https://github.com/vorpal-research/kex/releases/download/0.0.11/kex-0.0.11.zip \
+    -o /tmp/kex-0.0.11.zip \
+    && mkdir -p /opt/kex \
+    && unzip -q /tmp/kex-0.0.11.zip -d /opt/kex \
+    && rm -f /tmp/kex-0.0.11.zip
 
 ENV KEX_HOME=/opt/kex
 ENV PATH="${KEX_HOME}:${PATH}"
 
-# ---------- ติดตั้ง Python dependencies (ใช้ทั้ง Kex script และ KKU IntelSphere API script) ----------
-RUN pip3 install --no-cache-dir requests pandas
+# =========================================================
+# 9. ตรวจสอบ Kex release
+# =========================================================
+
+RUN test -f /opt/kex/kex.py
+
+RUN test -f \
+    /opt/kex/kex-annotation-processor/target/kex-annotation-processor-0.0.11.jar
+
+RUN test -f \
+    /opt/kex/kex-runner/target/kex-runner-0.0.11-jar-with-dependencies.jar
+
+RUN test -f \
+    /opt/kex/runtime-deps/lib/kex-intrinsics-0.1.2.jar
+
+# ตรวจสอบ Python script ของ Kex
+RUN python3 --version
+
+# =========================================================
+# 10. Python dependencies
+#
+# ใช้สำหรับ:
+#   - benchmark runner
+#   - result parser
+#   - API scripts
+# =========================================================
+
+RUN pip3 install --no-cache-dir \
+    requests \
+    pandas
+
+# =========================================================
+# 11. Final workspace
+# =========================================================
 
 WORKDIR /workspace
+
 CMD ["/bin/bash"]
