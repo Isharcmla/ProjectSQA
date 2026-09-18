@@ -8,16 +8,19 @@
 
 ## 👥 รายชื่อสมาชิกและบทบาทหน้าที่ (Team Roles & Responsibilities)
 
+ปัจจุบันโครงการมีสมาชิก **3 คน** โดยปรับหน้าที่หลังจากนายจิรภัทร สีสารออกจากกลุ่ม ดังนี้:
+
 | ลำดับ | รหัสนักศึกษา | ชื่อ - สกุล | บทบาทในโครงการ | หน้าที่หลัก & สิ่งที่ต้องส่งมอบ (Deliverables) |
 |---|---|---|---|---|
-| 1 | 673380415-5 | นายพัชรพล กองแก้ว | **Member 1: Algorithm Lead 1** (DynaMOSA / Search-Based Testing) | • ติดตั้งและ config EvoSuite ให้รันผ่าน Defects4J interface โดยตรง<br>• รัน DynaMOSA (default algorithm ของ EvoSuite ≥1.2.0) กับทุก target class<br>• บันทึกค่า Line/Branch/Mutation coverage และ generation time<br>• **Output:** วางไฟล์ไว้ที่ `DynaMOSA-EvoSuite/TestCode/` |
-| 2 | 673380425-2 | นายวงศธร ธน.ยอด | **Member 2: Algorithm Lead 2** (Reanimator / Symbolic Execution) | • ติดตั้งและ build Kex ผ่าน Gradle<br>• รัน symbolic execution เพื่อหา target input แล้วส่งต่อให้ Reanimator แปลงเป็น JUnit<br>• บันทึกกรณีที่ Reanimator แปลง input ไม่สำเร็จ (state explosion, unsupported feature)<br>• **Output:** วางไฟล์ไว้ที่ `Reanimator-Kex/TestCode/` |
-| 3 | 673380430-9 | นายอนันต์เอกก์ ใหญ่พงศกร | **Member 3: AI Prompt Engineer** (Gemini & Claude) | • ออกแบบ Prompt Template (Generic + Guideline เฉพาะกรณี) ตามพฤติกรรมเฉพาะของแต่ละโมเดล<br>• ยิง prompt กับทุก target class ผ่าน API/UI และเก็บ response<br>• จัดการ feedback loop (compile error, coverage ต่ำ)<br>• **Output:** วางไฟล์ที่ `Gemini/TestCode/` และ `Claude/TestCode/` |
-| 4 | 673380574-5 | นายจิรภัทร สีสาร | **Member 4: Infrastructure & Data Lead** (Defects4J & Repository Manager) | • จัดเตรียม Docker Environment (Multi-JDK, EvoSuite, Kex, Python)<br>• สกัด Target Classes และ Ground Truth บั๊กจาก Defects4J<br>• พัฒนา Universal Runner (`run_benchmark.py`) พร้อมระบบ Resume<br>• ประเมินผล Coverage, Fault Detection Rate และรวบรวมเล่มรายงาน |
+| 1 | 673380415-5 | นายพัชรพล กองแก้ว | **Member 1: Reanimator/Kex Lead & Infrastructure / Data / Repository Manager** | • รับผิดชอบ **Reanimator ผ่าน Kex** และการทดสอบ Symbolic Execution<br>• จัดเตรียมและดูแล **Defects4J** รวมถึงการสกัด Metadata, Target Classes และ Ground Truth ของบั๊ก<br>• ดูแล **Docker Environment / Workspace** ให้สมาชิกใช้สภาพแวดล้อมและโครงสร้างงานร่วมกัน<br>• ดูแล **GitHub Repository**, โครงสร้างไฟล์, benchmark protocol และการรวมผลจากสมาชิก<br>• พัฒนา/ดูแล **Universal Runner (`run_benchmark.py`)** และระบบ Resume สำหรับ benchmark อัตโนมัติ<br>• **Output:** `Reanimator-Kex/TestCode/`, configuration/result ที่เกี่ยวข้อง และ infrastructure/benchmark scripts |
+| 2 | 673380430-9 | นายอนันต์เอกก์ ใหญ่พงศกร | **Member 2: DynaMOSA / Search-Based Testing Lead** | • รับผิดชอบ **DynaMOSA ผ่าน EvoSuite**<br>• ตั้งค่าและรัน EvoSuite/DynaMOSA กับ Target Modified Classes ตาม benchmark protocol<br>• ตรวจสอบ generated JUnit tests และเก็บผล Line/Branch Coverage, Fault Detection และ Generation Time<br>• **Output:** `DynaMOSA-EvoSuite/TestCode/` และผลการทดลองที่เกี่ยวข้อง |
+| 3 | 673380425-2 | นายวงศธร ธน.ยอด | **Member 3: AI Prompt Engineer (Gemini & Claude)** | • ออกแบบและดูแล Prompt Template สำหรับ **Gemini และ Claude** ภายใต้ข้อมูลและข้อจำกัดเดียวกัน<br>• สร้าง JUnit 4 tests สำหรับ Target Modified Classes และจัดการ feedback loop เมื่อ compile/test ไม่ผ่าน<br>• เก็บผล generation time, token usage, compile/test status และผล benchmark ของ AI ทั้งสองโมเดล<br>• **Output:** `Gemini/TestCode/`, `Claude/TestCode/` และผลการทดลองที่เกี่ยวข้อง |
 
 ---
 
 > **📖 สำหรับสมาชิกทุกคนในทีม:** ดูขั้นตอนการทำงานแบบละเอียดรายบุคคล คำสั่งที่ต้องใช้ และตำแหน่งส่งมอบไฟล์ได้ที่ [TEAM_WORKFLOW_GUIDE.md](./TEAM_WORKFLOW_GUIDE.md)
+>
+> **📐 Benchmark Protocol:** ใช้ [BENCHMARK_PROTOCOL_v2.md](./BENCHMARK_PROTOCOL_v2.md) เป็นข้อกำหนดกลางของการทดลอง เพื่อให้ทั้ง 4 เทคนิคใช้ target, environment และเกณฑ์ประเมินเดียวกัน
 
 ---
 
@@ -26,6 +29,7 @@
 ### 1. ขอบเขตระดับโปรเจกต์ (Project-Level Scope)
 
 - **ชุดข้อมูลทดสอบ:** Java projects ใน Defects4J Dataset ทั้ง **17 Projects** ได้แก่ `Chart`, `Cli`, `Closure`, `Codec`, `Collections`, `Compress`, `Csv`, `Gson`, `JacksonCore`, `JacksonDatabind`, `JacksonXml`, `Jsoup`, `JxPath`, `Lang`, `Math`, `Mockito`, `Time`
+- **Validation ปัจจุบัน:** ก่อนรัน benchmark เต็ม ให้ตรวจ pipeline แบบ End-to-End กับ `Lang 1b` ก่อน และสำหรับชุด Lang ให้ใช้เฉพาะ **61 active bugs**; `Lang 2, 18, 25, 48` เป็น deprecated และไม่รวมในการทดลอง
 - **คลาสเป้าหมาย (Target Classes Under Test):** โฟกัสการสร้างชุดทดสอบที่ **Target Modified Classes (`classes.modified`)** ซึ่งเป็นคลาสที่มีข้อบกพร่องจริงตามที่ระบุใน Defects4J Ground Truth
 - **โหมดการประเมินผล:**
   1. **Sample Benchmark Mode (`--sample-17`):** คัดเลือกบั๊กตัวแทนโปรเจกต์ละ 1 บั๊ก (17 Projects × 4 Techniques = 68 Experiment Units) — ใช้ทดสอบ pipeline ก่อน
@@ -56,9 +60,13 @@
 ```
 ProjectSQA/
 ├── README.md                          # เอกสารหลักแนะนำโปรเจกต์และข้อกำหนด
+├── BENCHMARK_PROTOCOL_v2.md           # Protocol กลางสำหรับ benchmark
 ├── TEAM_WORKFLOW_GUIDE.md             # คู่มือขั้นตอนการทำงานรายบุคคล
 ├── Report_Round1_Draft.md             # รายงานการส่งมอบรอบที่ 1
-├── progress.json                      # สถานะการรันระดับ Project-Bug-Technique (Resume State)
+├── dataset/                            # Metadata / benchmark dataset ที่สกัดจาก Defects4J
+│   └── defects4j/
+│       └── Lang_metadata.csv           # Metadata ของ Lang active bugs (61 bugs)
+├── progress.json                      # สถานะการรันระดับ Project-Bug-Technique (Resume State; generated/local)
 ├── results/                           # ผลลัพธ์การทดลอง
 │   ├── benchmark_results.csv          # ตารางสรุปผลรวมทั้งหมด
 │   └── <Project>/<Bug_ID>/            # ผลลัพธ์ละเอียดรายบั๊ก (.json)
@@ -70,7 +78,7 @@ ProjectSQA/
 │   ├── catalog_17_projects.json       # สารบัญ Machine-Readable ให้ทั้ง 4 สาย
 │   └── <Project>_<BugID>b/            # โฟลเดอร์ของแต่ละบั๊ก
 ├── docker/                            # สภาพแวดล้อมมาตรฐานสำหรับรัน Defects4J
-│   ├── Dockerfile                     # Multi-JDK (8 & 17) + EvoSuite + Kex + Python
+│   ├── Dockerfile                     # Multi-JDK (8/11/17; Java 11 default) + EvoSuite + Kex + Python
 │   ├── docker-compose.yml
 │   └── README_DOCKER.md
 ├── DynaMOSA-EvoSuite/                 # Algorithm 1: DynaMOSA (ผ่าน EvoSuite)
@@ -102,14 +110,16 @@ ProjectSQA/
 ### 1. เปิดใช้งาน Docker Environment (Multi-JDK & Dependencies Ready)
 
 ```bash
-git clone https://github.com/<your-username>/ProjectSQA.git
+git clone https://github.com/Isharcmla/ProjectSQA.git
 cd ProjectSQA
 
-docker-compose -f docker/docker-compose.yml up -d --build
-docker exec -it sqa_container bash
+docker compose -f docker/docker-compose.yml up -d --build sqa_kex
+docker compose -f docker/docker-compose.yml exec sqa_kex bash
 ```
 
 ### 2. การสั่งรัน Benchmark ผ่าน Universal Runner
+
+> **สถานะ:** คำสั่งด้านล่างเป็น interface เป้าหมายของ Universal Runner และต้องผ่านการตรวจ End-to-End กับ `Lang 1b` ก่อนจึงค่อยใช้ `--sample-17` หรือ `--all-bugs`
 
 ```bash
 # ทดสอบเดี่ยวเฉพาะบั๊กเป้าหมาย (เช่น Lang Bug 1)
