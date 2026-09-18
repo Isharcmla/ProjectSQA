@@ -19,10 +19,10 @@ import java.lang.NumberFormatException;
 import static org.apache.commons.lang3.math.ReflectionUtils.*;
 import static org.junit.Assert.assertTrue;
 
-public class NumberUtils_createNumber_427878474122 {
+public class NumberUtils_createNumber_427878474130 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
 
-    public NumberUtils_createNumber_427878474122() {
+    public NumberUtils_createNumber_427878474130() {
     }
 
     public <T> T unknown() {
@@ -39,7 +39,7 @@ public class NumberUtils_createNumber_427878474122 {
         Class<?>[] argTypes = new Class<?>[1];
         argTypes[0] = Class.forName("java.lang.String");
         Object[] args = new Object[1];
-        args[0] = " d";
+        args[0] = " \uFFF6\uFFF6\uFFF6\uFFF6\uFFF6\uFFF6l";
         try {
             callMethod(klass, "createNumber", argTypes, null, args);
             assertTrue(false);

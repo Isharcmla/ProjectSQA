@@ -15,14 +15,14 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
-import java.lang.NumberFormatException;
+import java.lang.StringIndexOutOfBoundsException;
 import static org.apache.commons.lang3.math.ReflectionUtils.*;
 import static org.junit.Assert.assertTrue;
 
-public class NumberUtils_createNumber_427878474122 {
+public class NumberUtils_createNumber_427878474116 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
 
-    public NumberUtils_createNumber_427878474122() {
+    public NumberUtils_createNumber_427878474116() {
     }
 
     public <T> T unknown() {
@@ -39,12 +39,12 @@ public class NumberUtils_createNumber_427878474122 {
         Class<?>[] argTypes = new Class<?>[1];
         argTypes[0] = Class.forName("java.lang.String");
         Object[] args = new Object[1];
-        args[0] = " d";
+        args[0] = "L";
         try {
             callMethod(klass, "createNumber", argTypes, null, args);
             assertTrue(false);
         }
-        catch (NumberFormatException e) {
+        catch (StringIndexOutOfBoundsException e) {
         }
 
     }

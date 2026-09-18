@@ -15,14 +15,15 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
-import java.lang.NumberFormatException;
+import java.lang.IllegalArgumentException;
 import static org.apache.commons.lang3.math.ReflectionUtils.*;
 import static org.junit.Assert.assertTrue;
 
-public class NumberUtils_createNumber_427878474122 {
+public class NumberUtils_max_758539203157 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term34116;
 
-    public NumberUtils_createNumber_427878474122() {
+    public NumberUtils_max_758539203157() {
     }
 
     public <T> T unknown() {
@@ -31,20 +32,21 @@ public class NumberUtils_createNumber_427878474122 {
 
     @Before
     public void setup() throws Throwable {
+        term34116 = (double[]) newDoubleArray(0);
     }
 
     @Test
     public void test() throws Throwable, Throwable {
         Class<?> klass = Class.forName("org.apache.commons.lang3.math.NumberUtils");
         Class<?>[] argTypes = new Class<?>[1];
-        argTypes[0] = Class.forName("java.lang.String");
+        argTypes[0] = Array.newInstance(double.class, 0).getClass();
         Object[] args = new Object[1];
-        args[0] = " d";
+        args[0] = term34116;
         try {
-            callMethod(klass, "createNumber", argTypes, null, args);
+            callMethod(klass, "max", argTypes, null, args);
             assertTrue(false);
         }
-        catch (NumberFormatException e) {
+        catch (IllegalArgumentException e) {
         }
 
     }

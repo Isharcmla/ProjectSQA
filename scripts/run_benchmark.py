@@ -202,9 +202,13 @@ def run_kex(work_dir, classes_dir, target_class, log_file, timeout_sec=BENCHMARK
     mode ที่ใช้ได้: crash, symbolic, concolic, libchecker, defectchecker
     """
     kex_script = KEX_HOME / "kex.py"
-    output_dir = work_dir / "kex-output"
 
-    # ล้าง output จากการรันครั้งก่อน ป้องกัน test เก่าปนกับ benchmark รอบใหม่
+    # แยก output ตาม target class
+    # ป้องกันผลของ class ก่อนหน้าถูกลบเมื่อ bug มีหลาย classes.modified
+    safe_target = target_class.replace(".", "_").replace("$", "_")
+    output_dir = work_dir / "kex-output" / safe_target
+
+    # ล้างเฉพาะ output ของ target class นี้จากการรันครั้งก่อน
     if output_dir.exists():
         shutil.rmtree(output_dir)
 
@@ -433,6 +437,13 @@ def run_one_bug(project, bug_id, progress, tool="kex", resume=False):
         classes_dir = get_classes_dir(work_dir)
         bug_result["kex_results"] = {}
 
+        # ล้าง Kex artifacts ของ bug นี้หนึ่งครั้งก่อนเริ่ม benchmark
+        # จากนั้น run_kex() จะแยก output ของแต่ละ target class
+        kex_output_root = work_dir / "kex-output"
+        if kex_output_root.exists():
+            shutil.rmtree(kex_output_root)
+        kex_output_root.mkdir(parents=True, exist_ok=True)
+
         for tc in target_classes:
             status = run_kex(
                 work_dir,
@@ -536,7 +547,12 @@ def main():
         sys.exit(1)
 
     print("\n=========================================")
-    print(f"เสร็จสิ้น: {len(progress['completed'])} สำเร็จ, {len(progress['failed'])} ล้มเหลว")
+    print(
+        f"เสร็จสิ้น: "
+        f"{len(progress.get('completed', []))} สำเร็จ, "
+        f"{len(progress.get('failed', []))} ล้มเหลว, "
+        f"{len(progress.get('timed_out', []))} timeout"
+    )
     print(f"ดูรายละเอียดที่ {RESULT_DIR}")
     print("=========================================")
 

@@ -39,7 +39,7 @@ public class NumberUtils_createNumber_427878474145 {
         Class<?>[] argTypes = new Class<?>[1];
         argTypes[0] = Class.forName("java.lang.String");
         Object[] args = new Object[1];
-        args[0] = " \uFFF6\uFFF6\uFFF6\uFFF6\uFFF6\uFFF6d";
+        args[0] = "-";
         try {
             callMethod(klass, "createNumber", argTypes, null, args);
             assertTrue(false);

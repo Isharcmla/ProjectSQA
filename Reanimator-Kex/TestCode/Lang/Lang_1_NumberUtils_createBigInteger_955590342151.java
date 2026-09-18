@@ -15,14 +15,15 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
-import java.lang.NumberFormatException;
 import static org.apache.commons.lang3.math.ReflectionUtils.*;
 import static org.junit.Assert.assertTrue;
+import static org.apache.commons.lang3.math.EqualityUtils.*;
 
-public class NumberUtils_createNumber_427878474122 {
+public class NumberUtils_createBigInteger_955590342151 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term33703;
 
-    public NumberUtils_createNumber_427878474122() {
+    public NumberUtils_createBigInteger_955590342151() {
     }
 
     public <T> T unknown() {
@@ -31,6 +32,14 @@ public class NumberUtils_createNumber_427878474122 {
 
     @Before
     public void setup() throws Throwable {
+        term33703 = newInstance(Class.forName("java.math.BigInteger"));
+        int[] term33705 = (int[]) newIntArray(0);
+        setIntField(term33703, term33703.getClass(), "signum", 0);
+        setField(term33703, term33703.getClass(), "mag", term33705);
+        setIntField(term33703, term33703.getClass(), "bitCountPlusOne", 0);
+        setIntField(term33703, term33703.getClass(), "bitLengthPlusOne", 0);
+        setIntField(term33703, term33703.getClass(), "lowestSetBitPlusTwo", 0);
+        setIntField(term33703, term33703.getClass(), "firstNonzeroIntNumPlusTwo", 0);
     }
 
     @Test
@@ -39,14 +48,9 @@ public class NumberUtils_createNumber_427878474122 {
         Class<?>[] argTypes = new Class<?>[1];
         argTypes[0] = Class.forName("java.lang.String");
         Object[] args = new Object[1];
-        args[0] = " d";
-        try {
-            callMethod(klass, "createNumber", argTypes, null, args);
-            assertTrue(false);
-        }
-        catch (NumberFormatException e) {
-        }
-
+        args[0] = "0";
+        Object retValue = callMethod(klass, "createBigInteger", argTypes, null, args);
+        assertTrue(recursiveEquals(retValue, term33703));
     }
 
 };

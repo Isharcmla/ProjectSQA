@@ -15,14 +15,14 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
-import java.lang.NumberFormatException;
 import static org.apache.commons.lang3.math.ReflectionUtils.*;
 import static org.junit.Assert.assertTrue;
+import static org.apache.commons.lang3.math.EqualityUtils.*;
 
-public class NumberUtils_createNumber_427878474122 {
+public class NumberUtils_toShort_1402154851126 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
 
-    public NumberUtils_createNumber_427878474122() {
+    public NumberUtils_toShort_1402154851126() {
     }
 
     public <T> T unknown() {
@@ -36,17 +36,14 @@ public class NumberUtils_createNumber_427878474122 {
     @Test
     public void test() throws Throwable, Throwable {
         Class<?> klass = Class.forName("org.apache.commons.lang3.math.NumberUtils");
-        Class<?>[] argTypes = new Class<?>[1];
+        Class<?>[] argTypes = new Class<?>[2];
         argTypes[0] = Class.forName("java.lang.String");
-        Object[] args = new Object[1];
-        args[0] = " d";
-        try {
-            callMethod(klass, "createNumber", argTypes, null, args);
-            assertTrue(false);
-        }
-        catch (NumberFormatException e) {
-        }
-
+        argTypes[1] = short.class;
+        Object[] args = new Object[2];
+        args[0] = null;
+        args[1] = (short) 0;
+        Object retValue = callMethod(klass, "toShort", argTypes, null, args);
+        assertTrue(recursiveEquals(retValue, (short) 0));
     }
 
 };

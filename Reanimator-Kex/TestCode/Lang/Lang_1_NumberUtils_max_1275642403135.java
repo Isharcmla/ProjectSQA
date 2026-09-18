@@ -15,14 +15,14 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
-import java.lang.NumberFormatException;
 import static org.apache.commons.lang3.math.ReflectionUtils.*;
 import static org.junit.Assert.assertTrue;
+import static org.apache.commons.lang3.math.EqualityUtils.*;
 
-public class NumberUtils_createNumber_427878474122 {
+public class NumberUtils_max_1275642403135 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
 
-    public NumberUtils_createNumber_427878474122() {
+    public NumberUtils_max_1275642403135() {
     }
 
     public <T> T unknown() {
@@ -36,17 +36,16 @@ public class NumberUtils_createNumber_427878474122 {
     @Test
     public void test() throws Throwable, Throwable {
         Class<?> klass = Class.forName("org.apache.commons.lang3.math.NumberUtils");
-        Class<?>[] argTypes = new Class<?>[1];
-        argTypes[0] = Class.forName("java.lang.String");
-        Object[] args = new Object[1];
-        args[0] = " d";
-        try {
-            callMethod(klass, "createNumber", argTypes, null, args);
-            assertTrue(false);
-        }
-        catch (NumberFormatException e) {
-        }
-
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = int.class;
+        argTypes[1] = int.class;
+        argTypes[2] = int.class;
+        Object[] args = new Object[3];
+        args[0] = -2147483648;
+        args[1] = -2147483648;
+        args[2] = -2147483647;
+        Object retValue = callMethod(klass, "max", argTypes, null, args);
+        assertTrue(recursiveEquals(retValue, -2147483647));
     }
 
 };
