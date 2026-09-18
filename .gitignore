@@ -31,3 +31,9 @@ __pycache__/
 Thumbs.db
 
 smoke/
+# =========================================================
+# Local benchmark / tool-generated artifacts
+# =========================================================
+coverage.json
+evosuite-report/
+kex-test

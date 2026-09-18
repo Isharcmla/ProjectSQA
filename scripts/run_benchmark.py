@@ -23,6 +23,7 @@ import os
 import shutil
 import subprocess
 import sys
+import tarfile
 import time
 from datetime import datetime
 from pathlib import Path
@@ -33,7 +34,8 @@ CHECKOUT_DIR = BASE_DIR / "checkouts"
 RESULT_DIR = BASE_DIR / "results"
 LOG_DIR = BASE_DIR / "logs"
 PROGRESS_FILE = BASE_DIR / "progress.json"
-KEX_HOME = Path.home() / "kex"
+KEX_HOME = Path("/opt/kex")
+BENCHMARK_TIMEOUT = 300
 
 ALL_PROJECTS = [
     "Chart", "Cli", "Closure", "Codec", "Collections", "Compress", "Csv",
@@ -59,16 +61,19 @@ def load_progress():
     if PROGRESS_FILE.exists():
         with open(PROGRESS_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
-    return {"completed": [], "failed": []}
+    return {"completed": [], "failed": [], "timed_out": []}
 
 
 def save_progress(progress):
+    progress.setdefault("completed", [])
+    progress.setdefault("failed", [])
+    progress.setdefault("timed_out", [])
     with open(PROGRESS_FILE, "w", encoding="utf-8") as f:
         json.dump(progress, f, indent=2, ensure_ascii=False)
 
 
 def already_done(progress, task_id):
-    return task_id in progress["completed"] or task_id in progress["failed"]
+    return task_id in progress["completed"]
 
 
 # ---------- Defects4J helpers ----------
@@ -123,27 +128,74 @@ def get_classes_dir(work_dir):
     return result.stdout.strip()
 
 
-# ---------- EvoSuite runner (ผ่าน Defects4J integration สำเร็จรูป) ----------
-def run_evosuite(work_dir, log_file, timeout_sec=300):
-    """รัน EvoSuite ผ่าน `defects4j test -tool evosuite`
-    Defects4J จัดการ DynaMOSA (default algorithm ของ EvoSuite >=1.2.0) ให้เอง
-    ไม่ต้อง config อะไรเพิ่มเติม คืนค่า True/False ว่าสำเร็จไหม
-    """
+# ---------- EvoSuite / DynaMOSA runner ----------
+def run_evosuite(project, bug_id, target_classes, log_file,
+                  timeout_sec=BENCHMARK_TIMEOUT):
+    """Generate tests using Defects4J gen_tests.pl + EvoSuite DynaMOSA."""
+
+    gen_tests = Path("/opt/defects4j/framework/bin/gen_tests.pl")
+
+    # แยก output ของแต่ละ bug เพื่อไม่ให้ artifact เก่าปนกัน
+    output_root = RESULT_DIR / "evosuite_raw" / project / str(bug_id)
+
+    if output_root.exists():
+        shutil.rmtree(output_root)
+    output_root.mkdir(parents=True, exist_ok=True)
+
+    # gen_tests.pl -c ต้องการไฟล์ class ละ 1 บรรทัด
+    classes_file = output_root / "target_classes.txt"
+    classes_file.write_text(
+        "".join(f"{c}\n" for c in target_classes),
+        encoding="utf-8"
+    )
+
+    cmd = [
+        str(gen_tests),
+        "-g", "evosuite",
+        "-p", project,
+        "-v", f"{bug_id}b",
+        "-n", "1",
+        "-o", str(output_root),
+        "-b", str(timeout_sec),
+        "-c", str(classes_file),
+    ]
+
     with open(log_file, "a", encoding="utf-8") as log:
-        log.write(f"\n=== Run EvoSuite (DynaMOSA) on {work_dir} ===\n")
+        log.write(
+            f"\n=== Run EvoSuite/DynaMOSA on {project}-{bug_id}b ===\n"
+        )
+        log.write(f"Target classes: {target_classes}\n")
+        log.write(f"Command: {' '.join(cmd)}\n")
+
         try:
+            # gen_tests.pl มี budget ภายในอยู่แล้ว
+            # เพิ่ม grace period สำหรับ checkout/compile/archive
+            process_timeout = timeout_sec + 180
+
             result = subprocess.run(
-                ["defects4j", "test", "-w", str(work_dir), "-tool", "evosuite"],
-                stdout=log, stderr=log, timeout=timeout_sec
+                cmd,
+                stdout=log,
+                stderr=log,
+                timeout=process_timeout
             )
-            return result.returncode == 0
+
+            log.write(f"\n[EVOSUITE EXIT CODE] {result.returncode}\n")
+
+            if result.returncode == 0:
+                return "success", output_root
+
+            return "failed", output_root
+
         except subprocess.TimeoutExpired:
-            log.write(f"\n[TIMEOUT] EvoSuite เกิน {timeout_sec} วินาที ข้ามไป\n")
-            return False
+            log.write(
+                f"\n[TIMEOUT] EvoSuite/DynaMOSA เกิน "
+                f"{process_timeout} วินาที\n"
+            )
+            return "timeout", output_root
 
 
 # ---------- Kex runner ----------
-def run_kex(work_dir, classes_dir, target_class, log_file, timeout_sec=120):
+def run_kex(work_dir, classes_dir, target_class, log_file, timeout_sec=BENCHMARK_TIMEOUT):
     """รัน Kex กับ target class เดียว คืนค่า True/False ว่าสำเร็จไหม
     อ้างอิง syntax จริงจาก https://github.com/vorpal-research/kex README:
       python ./kex.py --classpath <arg> --target <arg> --output <arg> --mode <arg>
@@ -151,7 +203,12 @@ def run_kex(work_dir, classes_dir, target_class, log_file, timeout_sec=120):
     """
     kex_script = KEX_HOME / "kex.py"
     output_dir = work_dir / "kex-output"
-    output_dir.mkdir(exist_ok=True)
+
+    # ล้าง output จากการรันครั้งก่อน ป้องกัน test เก่าปนกับ benchmark รอบใหม่
+    if output_dir.exists():
+        shutil.rmtree(output_dir)
+
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     cmd = [
         "python3", str(kex_script),
@@ -168,46 +225,107 @@ def run_kex(work_dir, classes_dir, target_class, log_file, timeout_sec=120):
             result = subprocess.run(
                 cmd, stdout=log, stderr=log, timeout=timeout_sec
             )
-            return result.returncode == 0
+            log.write(f"\n[KEX EXIT CODE] {result.returncode}\n")
+            if result.returncode == 0:
+                return "success"
+            return "failed"
         except subprocess.TimeoutExpired:
             log.write(f"\n[TIMEOUT] Kex เกิน {timeout_sec} วินาที ข้ามไป\n")
-            return False
+            return "timeout"
 
 
 def find_generated_test_files(work_dir, tool):
-    """หาไฟล์ .java (test) ที่ถูกสร้างขึ้นใหม่จากการรัน tool นี้
-    - kex: อยู่ที่ work_dir/kex-output แน่นอน (เรากำหนดเอง)
-    - evosuite: ตำแหน่งจริงอาจต่างกันตาม version ของ Defects4J
-      ใช้วิธี "หาไฟล์ .java ทั้งหมดใต้ work_dir ที่ชื่อลงท้ายด้วย ESTest หรือ Test
-      และถูกแก้ไขล่าสุด" เป็น fallback ที่ปลอดภัยกว่าการ hardcode path เดียว
-      *** ควรตรวจสอบ path จริงหลังรันครั้งแรก แล้วปรับโค้ดส่วนนี้ให้เจาะจงขึ้น ***
-    """
+    """ค้นหา generated Java tests ของ Kex หรือ EvoSuite/DynaMOSA."""
+
+    work_dir = Path(work_dir)
+
     if tool == "kex":
         output_dir = work_dir / "kex-output"
         return list(output_dir.rglob("*.java")) if output_dir.exists() else []
 
-    elif tool == "evosuite":
-        # EvoSuite ผ่าน defects4j มักตั้งชื่อไฟล์ลงท้ายด้วย ESTest.java
-        candidates = list(work_dir.rglob("*ESTest.java"))
-        if not candidates:
-            # fallback: หาไฟล์ที่มีคำว่า Test ในชื่อ ที่ไม่ใช่ test เดิมของโปรเจกต์
-            candidates = list(work_dir.rglob("*_ESTest*.java"))
-        return candidates
+    if tool == "evosuite":
+        # gen_tests.pl คืน test suite เป็น .tar.bz2
+        archives = list(work_dir.rglob("*.tar.bz2"))
+
+        if not archives:
+            return []
+
+        extract_dir = work_dir / "extracted_tests"
+
+        if extract_dir.exists():
+            shutil.rmtree(extract_dir)
+
+        extract_dir.mkdir(parents=True, exist_ok=True)
+
+        for archive in archives:
+            with tarfile.open(archive, "r:bz2") as tar:
+                tar.extractall(extract_dir)
+
+        # รวม ESTest.java และ ESTest_scaffolding.java
+        return sorted(extract_dir.rglob("*ESTest*.java"))
 
     return []
 
 
+
 def append_to_summary_csv(repo_folder, row):
-    """เพิ่มแถวผลลัพธ์ลงใน Result_Round2/summary.csv ของสายนั้นๆ"""
+    """เพิ่มหรืออัปเดตผล benchmark ใน summary.csv
+
+    ใช้ (project, bug_id) เป็น key:
+    - ถ้ายังไม่มี -> เพิ่มแถวใหม่
+    - ถ้ามีแล้ว -> แทนที่แถวเดิม
+    เพื่อป้องกันผล benchmark ของ bug เดิมซ้ำกัน
+    """
     summary_path = REPO_DIR / repo_folder / "Result_Round2" / "summary.csv"
     summary_path.parent.mkdir(parents=True, exist_ok=True)
-    file_exists = summary_path.exists()
 
-    with open(summary_path, "a", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=row.keys())
-        if not file_exists:
-            writer.writeheader()
-        writer.writerow(row)
+    fieldnames = [
+        "project",
+        "bug_id",
+        "status",
+        "num_test_files_generated",
+        "elapsed_sec",
+        "timestamp",
+    ]
+
+    rows = []
+
+    if summary_path.exists():
+        with open(summary_path, "r", newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            rows = list(reader)
+
+    # ลบ record เก่าของ project + bug เดียวกัน
+    rows = [
+        r for r in rows
+        if not (
+            r.get("project") == str(row["project"])
+            and r.get("bug_id") == str(row["bug_id"])
+        )
+    ]
+
+    # เพิ่มผลล่าสุด
+    rows.append({
+        key: row.get(key, "")
+        for key in fieldnames
+    })
+
+    # เรียง project และ bug id เพื่อให้อ่านง่าย
+    def sort_key(r):
+        try:
+            bug = int(r.get("bug_id", 0))
+        except ValueError:
+            bug = 0
+        return (r.get("project", ""), bug)
+
+    rows.sort(key=sort_key)
+
+    # เขียนไฟล์ใหม่ทั้งหมด
+    with open(summary_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
 
 
 def copy_to_repo(tool, project, bug_id, work_dir, bug_result):
@@ -233,6 +351,13 @@ def copy_to_repo(tool, project, bug_id, work_dir, bug_result):
     # 2) Copy ไฟล์ test code เข้า TestCode/<Project>/
     test_target_dir = REPO_DIR / repo_folder / "TestCode" / project
     test_target_dir.mkdir(parents=True, exist_ok=True)
+
+    # ลบ generated tests ของ bug นี้จากรอบก่อน
+    # เพื่อป้องกัน artifact เก่าปนกับ benchmark รอบใหม่
+    prefix = f"{project}_{bug_id}_"
+    for old_file in test_target_dir.glob(f"{prefix}*.java"):
+        old_file.unlink()
+
     test_files = find_generated_test_files(work_dir, tool)
     copied_count = 0
     for tf in test_files:
@@ -245,8 +370,8 @@ def copy_to_repo(tool, project, bug_id, work_dir, bug_result):
               f"— ตรวจสอบ path ใน find_generated_test_files() อีกครั้ง")
 
     # 3) อัปเดต summary.csv
-    status = bug_result.get(f"{tool}_result") or \
-        ("success" if any(v == "success" for v in bug_result.get(f"{tool}_results", {}).values()) else "failed")
+    # ใช้สถานะรวมที่ run_one_bug() คำนวณไว้
+    status = bug_result.get("status", "unknown")
 
     append_to_summary_csv(repo_folder, {
         "project": project,
@@ -261,12 +386,12 @@ def copy_to_repo(tool, project, bug_id, work_dir, bug_result):
 
 
 # ---------- Main task runner (ใช้ร่วมกันทุกโหมด) ----------
-def run_one_bug(project, bug_id, progress, tool="kex"):
+def run_one_bug(project, bug_id, progress, tool="kex", resume=False):
     """tool: 'kex' (Reanimator/Member 2) หรือ 'evosuite' (DynaMOSA/Member 1)"""
     task_id = f"{project}-{bug_id}-{tool}"
     log_file = LOG_DIR / f"{project}_{bug_id}_{tool}.log"
 
-    if already_done(progress, task_id):
+    if resume and already_done(progress, task_id):
         print(f"  [SKIP] {task_id} (ทำไปแล้ว)")
         return
 
@@ -287,18 +412,35 @@ def run_one_bug(project, bug_id, progress, tool="kex"):
         "elapsed_sec": None,
     }
 
+    # classes.modified ใช้เป็น target เดียวกันทั้ง Kex และ DynaMOSA
+    target_classes = get_target_classes(work_dir, log_file)
+    bug_result["target_classes"] = target_classes
+
+    # ตำแหน่งที่ copy_to_repo() จะค้นหา generated tests
+    artifact_dir = work_dir
+
     if tool == "evosuite":
-        success = run_evosuite(work_dir, log_file)
-        bug_result["evosuite_result"] = "success" if success else "failed"
+        status, evosuite_output = run_evosuite(
+            project,
+            bug_id,
+            target_classes,
+            log_file
+        )
+        bug_result["evosuite_result"] = status
+        artifact_dir = evosuite_output
 
     elif tool == "kex":
         classes_dir = get_classes_dir(work_dir)
-        target_classes = get_target_classes(work_dir, log_file)
-        bug_result["target_classes"] = target_classes
         bug_result["kex_results"] = {}
+
         for tc in target_classes:
-            success = run_kex(work_dir, classes_dir, tc, log_file)
-            bug_result["kex_results"][tc] = "success" if success else "failed"
+            status = run_kex(
+                work_dir,
+                classes_dir,
+                tc,
+                log_file
+            )
+            bug_result["kex_results"][tc] = status
 
     else:
         print(f"  [ERROR] ไม่รู้จัก tool: {tool}")
@@ -311,12 +453,49 @@ def run_one_bug(project, bug_id, progress, tool="kex"):
     with open(result_dir / f"{tool}_result.json", "w", encoding="utf-8") as f:
         json.dump(bug_result, f, indent=2, ensure_ascii=False)
 
-    print(f"  [DONE] {task_id} ({bug_result['elapsed_sec']}s)")
+    # ตัดสินสถานะรวมของ task
+    if tool == "kex":
+        statuses = list(bug_result["kex_results"].values())
 
-    # Copy ผลลัพธ์เข้า repo จริงอัตโนมัติ (Reanimator-Kex/ หรือ DynaMOSA-EvoSuite/)
-    copy_to_repo(tool, project, bug_id, work_dir, bug_result)
+        if statuses and all(s == "success" for s in statuses):
+            task_status = "success"
+        elif "timeout" in statuses:
+            task_status = "timeout"
+        else:
+            task_status = "failed"
 
-    progress["completed"].append(task_id)
+    elif tool == "evosuite":
+        task_status = bug_result["evosuite_result"]
+
+    bug_result["status"] = task_status
+
+    # เขียน JSON ใหม่อีกครั้งหลังทราบสถานะรวม
+    with open(result_dir / f"{tool}_result.json", "w", encoding="utf-8") as f:
+        json.dump(bug_result, f, indent=2, ensure_ascii=False)
+
+    # Copy artifacts ไม่ว่าสถานะใด เพื่อเก็บหลักฐานการทดลอง
+    copy_to_repo(tool, project, bug_id, artifact_dir, bug_result)
+
+    # Task หนึ่งต้องอยู่ใน progress ได้เพียงสถานะเดียว
+    for key in ("completed", "failed", "timed_out"):
+        progress.setdefault(key, [])
+        progress[key] = [
+            x for x in progress[key]
+            if x != task_id
+        ]
+
+    if task_status == "success":
+        print(f"  [DONE] {task_id} ({bug_result['elapsed_sec']}s)")
+        progress.setdefault("completed", []).append(task_id)
+
+    elif task_status == "timeout":
+        print(f"  [TIMEOUT] {task_id} ({bug_result['elapsed_sec']}s)")
+        progress.setdefault("timed_out", []).append(task_id)
+
+    else:
+        print(f"  [FAIL] {task_id} ({bug_result['elapsed_sec']}s)")
+        progress.setdefault("failed", []).append(task_id)
+
     save_progress(progress)
 
 
@@ -332,24 +511,25 @@ def main():
                          help="เลือกเครื่องมือ: kex (Reanimator, default) หรือ evosuite (DynaMOSA)")
     args = parser.parse_args()
 
-    progress = load_progress() if args.resume else {"completed": [], "failed": []}
+    # โหลด progress เดิมเสมอ เพื่อไม่ให้ผลของ tool/project ก่อนหน้าถูกเขียนทับ
+    progress = load_progress()
 
     if args.project and args.bug:
-        run_one_bug(args.project, args.bug, progress, tool=args.tool)
+        run_one_bug(args.project, args.bug, progress, tool=args.tool, resume=args.resume)
 
     elif args.sample_17:
         for project in ALL_PROJECTS:
             bug_ids = get_bug_ids(project)
             if bug_ids:
                 print(f"\n[Project: {project}] เลือก bug ตัวแทน: {bug_ids[0]}")
-                run_one_bug(project, bug_ids[0], progress, tool=args.tool)
+                run_one_bug(project, bug_ids[0], progress, tool=args.tool, resume=args.resume)
 
     elif args.all_bugs:
         for project in ALL_PROJECTS:
             bug_ids = get_bug_ids(project)
             print(f"\n[Project: {project}] พบ {len(bug_ids)} bugs")
             for bug_id in bug_ids:
-                run_one_bug(project, bug_id, progress, tool=args.tool)
+                run_one_bug(project, bug_id, progress, tool=args.tool, resume=args.resume)
 
     else:
         parser.print_help()

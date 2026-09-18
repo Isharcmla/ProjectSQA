@@ -35,6 +35,7 @@ RUN apt-get update && apt-get install -y \
     zip \
     ca-certificates \
     build-essential \
+    bc \
     cpanminus \
     perl \
     python3 \
@@ -83,6 +84,26 @@ RUN cpanm --installdeps . --notest
 
 # Initialize Defects4J
 RUN ./init.sh
+
+# =========================================================
+# EvoSuite / DynaMOSA benchmark configuration
+#
+# gen_tests.pl เรียก evosuite.sh ซึ่งอ่าน evosuite.config
+# กำหนด DYNAMOSA แบบ explicit เพื่อให้ benchmark reproducible
+# =========================================================
+
+RUN grep -q '^-Dalgorithm=DYNAMOSA$' \
+    /opt/defects4j/framework/lib/test_generation/bin/evosuite.config \
+    || echo '-Dalgorithm=DYNAMOSA' >> \
+    /opt/defects4j/framework/lib/test_generation/bin/evosuite.config
+
+# ตรวจสอบ dependency ที่ gen_tests.pl / evosuite.sh ต้องใช้
+RUN command -v bc \
+    && echo "300/2/1" | bc | grep -qx "150"
+
+# ตรวจสอบว่า DynaMOSA ถูกตั้งค่าไว้จริง
+RUN grep -qx -- '-Dalgorithm=DYNAMOSA' \
+    /opt/defects4j/framework/lib/test_generation/bin/evosuite.config
 
 # Defects4J requires Subversion (svn)
 RUN apt-get update \
