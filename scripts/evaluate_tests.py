@@ -593,6 +593,7 @@ def evaluate(project, bug_id, tool, timeout_sec):
         with csv_path.open("w", newline="") as f:
             writer = csv.DictWriter(
                 f,
+                lineterminator="\n",
                 fieldnames=[
                     "test",
                     "fqcn",
