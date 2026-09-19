@@ -143,12 +143,34 @@ def ensure_checkout(project, bug_id, version):
     return work_dir
 
 
-def get_test_source_dir(tool, project):
+def get_test_source_dir(tool, project, bug_id=None):
     if tool == "kex":
         return REPO_DIR / "Reanimator-Kex" / "TestCode" / project
 
     if tool == "evosuite":
         return REPO_DIR / "DynaMOSA-EvoSuite" / "TestCode" / project
+
+    if tool == "gemini":
+        if bug_id is None:
+            raise ValueError("bug_id is required for Gemini")
+        return (
+            REPO_DIR
+            / "Gemini"
+            / "TestCode"
+            / project
+            / str(bug_id)
+        )
+
+    if tool == "claude":
+        if bug_id is None:
+            raise ValueError("bug_id is required for Claude")
+        return (
+            REPO_DIR
+            / "Claude"
+            / "TestCode"
+            / project
+            / str(bug_id)
+        )
 
     raise ValueError(f"Unknown tool: {tool}")
 
@@ -256,6 +278,84 @@ def prepare_evosuite_sources(project, bug_id, source_dir, eval_src):
         })
 
     return prepared
+
+
+def prepare_ai_sources(project, bug_id, source_dir, eval_src):
+    """Prepare Gemini/Claude generated JUnit Java sources."""
+    files = sorted(source_dir.glob("*.java"))
+
+    if not files:
+        raise RuntimeError(
+            f"No AI generated Java files found: {source_dir}/*.java"
+        )
+
+    prepared = []
+
+    for src in files:
+        text = src.read_text(errors="replace")
+
+        match = re.search(
+            r"^\s*public\s+class\s+([A-Za-z_$][A-Za-z0-9_$]*)",
+            text,
+            flags=re.MULTILINE,
+        )
+
+        if not match:
+            print(f"  [SKIP] no public class: {src.name}")
+            continue
+
+        class_name = match.group(1)
+
+        package_match = re.search(
+            r"^\s*package\s+([A-Za-z0-9_.$]+)\s*;",
+            text,
+            flags=re.MULTILINE,
+        )
+
+        package = package_match.group(1) if package_match else ""
+
+        dest = eval_src / f"{class_name}.java"
+        shutil.copy2(src, dest)
+
+        prepared.append({
+            "source": dest,
+            "class_name": class_name,
+            "package": package,
+            "fqcn": f"{package}.{class_name}" if package else class_name,
+        })
+
+    if not prepared:
+        raise RuntimeError(
+            f"No executable AI test classes found: {source_dir}"
+        )
+
+    return prepared
+
+
+def expand_ai_methods(tests):
+    """Expand Gemini/Claude JUnit 4 classes into individual test methods."""
+    expanded = []
+
+    for test in tests:
+        text = test["source"].read_text(errors="replace")
+
+        methods = re.findall(
+            r"@Test(?:\s*\([^)]*\))?\s*"
+            r"(?:public\s+)?void\s+"
+            r"([A-Za-z_$][A-Za-z0-9_$]*)\s*\(",
+            text,
+            flags=re.MULTILINE,
+        )
+
+        for method_name in methods:
+            item = dict(test)
+            item["method_name"] = method_name
+            item["display_name"] = (
+                f"{test['class_name']}#{method_name}"
+            )
+            expanded.append(item)
+
+    return expanded
 
 
 def expand_evosuite_methods(tests):
@@ -416,7 +516,11 @@ def evaluate(project, bug_id, tool, timeout_sec):
     print("  [CLASSPATH] fixed")
     cp_fixed = defects4j_export(fixed_dir, "cp.test")
 
-    source_dir = get_test_source_dir(tool, project)
+    source_dir = get_test_source_dir(
+        tool,
+        project,
+        bug_id,
+    )
 
     eval_root = Path(
         tempfile.mkdtemp(
@@ -445,7 +549,7 @@ def evaluate(project, bug_id, tool, timeout_sec):
                 if not is_kex_helper(t)
             ]
 
-        else:
+        elif tool == "evosuite":
             evosuite_classes = prepare_evosuite_sources(
                 project,
                 bug_id,
@@ -457,10 +561,31 @@ def evaluate(project, bug_id, tool, timeout_sec):
                 evosuite_classes
             )
 
+        elif tool in ("gemini", "claude"):
+            ai_classes = prepare_ai_sources(
+                project,
+                bug_id,
+                source_dir,
+                eval_src,
+            )
+
+            executable_tests = expand_ai_methods(
+                ai_classes
+            )
+
+        else:
+            raise ValueError(f"Unknown tool: {tool}")
+
         prepared_file_count = len(list(eval_src.glob("*.java")))
 
         print(f"  [FILES] {prepared_file_count}")
         print(f"  [TESTS] {len(executable_tests)}")
+
+        if not executable_tests:
+            raise RuntimeError(
+                f"No executable tests found for "
+                f"{tool}/{project}/{bug_id}"
+            )
 
         print("  [JAVAC]")
 
@@ -504,7 +629,7 @@ def evaluate(project, bug_id, tool, timeout_sec):
 
         print("  [JAVAC] SUCCESS")
 
-        if tool == "evosuite":
+        if tool in ("evosuite", "gemini", "claude"):
             runner_code, runner_output = (
                 compile_single_method_runner(
                     eval_src,
@@ -526,7 +651,7 @@ def evaluate(project, bug_id, tool, timeout_sec):
         for index, test in enumerate(executable_tests, start=1):
             runner = (
                 run_junit_method
-                if tool == "evosuite"
+                if tool in ("evosuite", "gemini", "claude")
                 else run_junit
             )
 
@@ -685,7 +810,7 @@ def main():
     parser.add_argument(
         "--tool",
         required=True,
-        choices=["kex", "evosuite"],
+        choices=["kex", "evosuite", "gemini", "claude"],
     )
 
     parser.add_argument(
