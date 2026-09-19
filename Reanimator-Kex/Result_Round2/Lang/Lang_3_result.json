@@ -1,0 +1,13 @@
+{
+  "project": "Lang",
+  "bug_id": "3",
+  "tool": "kex",
+  "elapsed_sec": 308.91,
+  "target_classes": [
+    "org.apache.commons.lang3.math.NumberUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang3.math.NumberUtils": "success"
+  },
+  "status": "success"
+}

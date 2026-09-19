@@ -2,7 +2,9 @@
 """
 run_benchmark.py
 =========================================================
-Universal Benchmark Runner สำหรับรัน Kex (Reanimator) กับ Defects4J
+Universal Benchmark Runner สำหรับเปรียบเทียบ
+Kex (Reanimator) และ EvoSuite/DynaMOSA บน Defects4J
+
 รองรับ 3 โหมด:
   --project X --bug N     รันเดี่ยวเฉพาะบั๊กเดียว
   --sample-17             รันตัวแทนโปรเจกต์ละ 1 บั๊ก (17 บั๊ก)
@@ -10,16 +12,21 @@ Universal Benchmark Runner สำหรับรัน Kex (Reanimator) กั�
 เพิ่ม --resume เพื่อรันต่อจากจุดที่ค้างไว้ (อ่านจาก progress.json)
 
 ตัวอย่างการใช้:
-  python3 run_benchmark.py --project Lang --bug 1
-  python3 run_benchmark.py --sample-17
-  python3 run_benchmark.py --all-bugs --resume
+  python3 run_benchmark.py --project Lang --bug 1 --tool kex
+  python3 run_benchmark.py --project Lang --bug 1 --tool evosuite
+  python3 run_benchmark.py --sample-17 --tool kex
+  python3 run_benchmark.py --all-bugs --tool kex --resume
+
+สถานะของแต่ละ task:
+  success  = tool ทำงานสำเร็จ
+  failed   = tool หรือ checkout/compile ล้มเหลว
+  timeout  = tool ใช้เวลาเกิน benchmark timeout
 =========================================================
 """
 
 import argparse
 import csv
 import json
-import os
 import shutil
 import subprocess
 import sys
@@ -76,6 +83,27 @@ def already_done(progress, task_id):
     return task_id in progress["completed"]
 
 
+def set_task_status(progress, task_id, status):
+    """ให้ task หนึ่งอยู่ได้เพียงสถานะเดียวใน progress.json"""
+    progress.setdefault("completed", [])
+    progress.setdefault("failed", [])
+    progress.setdefault("timed_out", [])
+
+    # ลบสถานะเก่าของ task ก่อน
+    for key in ("completed", "failed", "timed_out"):
+        progress[key] = [x for x in progress[key] if x != task_id]
+
+    # เพิ่มสถานะใหม่
+    if status == "success":
+        progress["completed"].append(task_id)
+    elif status == "timeout":
+        progress["timed_out"].append(task_id)
+    elif status == "failed":
+        progress["failed"].append(task_id)
+    else:
+        raise ValueError(f"Unknown task status: {status}")
+
+
 # ---------- Defects4J helpers ----------
 def get_bug_ids(project):
     """ดึงรายชื่อ bug id ทั้งหมดของ project"""
@@ -89,6 +117,11 @@ def get_bug_ids(project):
 def checkout_and_compile(project, bug_id, log_file):
     """checkout + compile 1 bug คืนค่า (success, work_dir)"""
     work_dir = CHECKOUT_DIR / f"{project}_{bug_id}_buggy"
+
+    # ทุก attempt ต้องเริ่มจาก fresh Defects4J checkout
+    # ป้องกัน source/build/generated artifacts จากรอบก่อนปนกับรอบใหม่
+    if work_dir.exists():
+        shutil.rmtree(work_dir)
 
     with open(log_file, "a", encoding="utf-8") as log:
         log.write(f"\n=== Checkout {project}-{bug_id} ===\n")
@@ -196,7 +229,9 @@ def run_evosuite(project, bug_id, target_classes, log_file,
 
 # ---------- Kex runner ----------
 def run_kex(work_dir, classes_dir, target_class, log_file, timeout_sec=BENCHMARK_TIMEOUT):
-    """รัน Kex กับ target class เดียว คืนค่า True/False ว่าสำเร็จไหม
+    """รัน Kex กับ target class เดียว
+
+    คืนสถานะ "success", "failed" หรือ "timeout"
     อ้างอิง syntax จริงจาก https://github.com/vorpal-research/kex README:
       python ./kex.py --classpath <arg> --target <arg> --output <arg> --mode <arg>
     mode ที่ใช้ได้: crash, symbolic, concolic, libchecker, defectchecker
@@ -326,7 +361,11 @@ def append_to_summary_csv(repo_folder, row):
 
     # เขียนไฟล์ใหม่ทั้งหมด
     with open(summary_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(
+            f,
+            fieldnames=fieldnames,
+            lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
 
@@ -405,7 +444,7 @@ def run_one_bug(project, bug_id, progress, tool="kex", resume=False):
     ok, work_dir = checkout_and_compile(project, bug_id, log_file)
     if not ok:
         print(f"  [FAIL] {task_id} -> checkout/compile ไม่ผ่าน (ดู log ที่ {log_file})")
-        progress["failed"].append(task_id)
+        set_task_status(progress, task_id, "failed")
         save_progress(progress)
         return
 
@@ -487,32 +526,26 @@ def run_one_bug(project, bug_id, progress, tool="kex", resume=False):
     # Copy artifacts ไม่ว่าสถานะใด เพื่อเก็บหลักฐานการทดลอง
     copy_to_repo(tool, project, bug_id, artifact_dir, bug_result)
 
-    # Task หนึ่งต้องอยู่ใน progress ได้เพียงสถานะเดียว
-    for key in ("completed", "failed", "timed_out"):
-        progress.setdefault(key, [])
-        progress[key] = [
-            x for x in progress[key]
-            if x != task_id
-        ]
-
     if task_status == "success":
         print(f"  [DONE] {task_id} ({bug_result['elapsed_sec']}s)")
-        progress.setdefault("completed", []).append(task_id)
+        set_task_status(progress, task_id, "success")
 
     elif task_status == "timeout":
         print(f"  [TIMEOUT] {task_id} ({bug_result['elapsed_sec']}s)")
-        progress.setdefault("timed_out", []).append(task_id)
+        set_task_status(progress, task_id, "timeout")
 
     else:
         print(f"  [FAIL] {task_id} ({bug_result['elapsed_sec']}s)")
-        progress.setdefault("failed", []).append(task_id)
+        set_task_status(progress, task_id, "failed")
 
     save_progress(progress)
 
 
 # ---------- CLI ----------
 def main():
-    parser = argparse.ArgumentParser(description="Kex Benchmark Runner on Defects4J")
+    parser = argparse.ArgumentParser(
+        description="Kex + EvoSuite/DynaMOSA Benchmark Runner on Defects4J"
+    )
     parser.add_argument("--project", type=str, help="ระบุ project เดียว เช่น Lang")
     parser.add_argument("--bug", type=str, help="ระบุ bug id เดียว เช่น 1")
     parser.add_argument("--sample-17", action="store_true", help="รันตัวแทนโปรเจกต์ละ 1 บั๊ก")
@@ -546,12 +579,29 @@ def main():
         parser.print_help()
         sys.exit(1)
 
+    # สรุปเฉพาะ tool ที่กำลังรัน
+    tool_suffix = f"-{args.tool}"
+
+    completed_count = sum(
+        1 for task in progress.get("completed", [])
+        if task.endswith(tool_suffix)
+    )
+    failed_count = sum(
+        1 for task in progress.get("failed", [])
+        if task.endswith(tool_suffix)
+    )
+    timed_out_count = sum(
+        1 for task in progress.get("timed_out", [])
+        if task.endswith(tool_suffix)
+    )
+
     print("\n=========================================")
+    print(f"Tool: {args.tool}")
     print(
         f"เสร็จสิ้น: "
-        f"{len(progress.get('completed', []))} สำเร็จ, "
-        f"{len(progress.get('failed', []))} ล้มเหลว, "
-        f"{len(progress.get('timed_out', []))} timeout"
+        f"{completed_count} สำเร็จ, "
+        f"{failed_count} ล้มเหลว, "
+        f"{timed_out_count} timeout"
     )
     print(f"ดูรายละเอียดที่ {RESULT_DIR}")
     print("=========================================")

@@ -1,2 +1,4 @@
 project,bug_id,status,num_test_files_generated,elapsed_sec,timestamp
+Cli,1,success,56,193.45,2026-09-18T23:46:43
 Lang,1,success,93,278.12,2026-09-18T11:35:53
+Lang,3,success,105,308.91,2026-09-18T23:18:51
