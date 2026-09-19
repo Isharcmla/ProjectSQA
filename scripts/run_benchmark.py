@@ -428,6 +428,50 @@ def copy_to_repo(tool, project, bug_id, work_dir, bug_result):
     print(f"      [REPO] copy ผลลัพธ์ + {copied_count} test files เข้า {repo_folder}/ เรียบร้อย")
 
 
+def run_evaluation(project, bug_id, tool, timeout_sec=15):
+    """
+    Evaluate generated tests against buggy and fixed versions.
+
+    Evaluation failure does NOT change generation status.
+    """
+    evaluator = REPO_DIR / "scripts" / "evaluate_tests.py"
+
+    if not evaluator.is_file():
+        print(f"  [EVAL] evaluator not found: {evaluator}")
+        return "not_found"
+
+    print(f"  [EVAL] {project}-{bug_id}-{tool}")
+
+    cmd = [
+        sys.executable,
+        str(evaluator),
+        "--project", str(project),
+        "--bug", str(bug_id),
+        "--tool", str(tool),
+        "--timeout", str(timeout_sec),
+    ]
+
+    try:
+        result = subprocess.run(
+            cmd,
+            cwd=str(REPO_DIR),
+            text=True,
+        )
+    except Exception as exc:
+        print(f"  [EVAL] ERROR: {exc}")
+        return "error"
+
+    if result.returncode == 0:
+        print(f"  [EVAL] SUCCESS")
+        return "success"
+
+    print(
+        f"  [EVAL] FAILED "
+        f"(exit={result.returncode})"
+    )
+    return "failed"
+
+
 # ---------- Main task runner (ใช้ร่วมกันทุกโหมด) ----------
 def run_one_bug(project, bug_id, progress, tool="kex", resume=False):
     """tool: 'kex' (Reanimator/Member 2) หรือ 'evosuite' (DynaMOSA/Member 1)"""
@@ -525,6 +569,32 @@ def run_one_bug(project, bug_id, progress, tool="kex", resume=False):
 
     # Copy artifacts ไม่ว่าสถานะใด เพื่อเก็บหลักฐานการทดลอง
     copy_to_repo(tool, project, bug_id, artifact_dir, bug_result)
+
+    # Evaluate generated tests only when generation succeeded.
+    # Evaluation status is intentionally separate from generation status.
+    if task_status == "success":
+        evaluation_status = run_evaluation(
+            project,
+            bug_id,
+            tool,
+        )
+    else:
+        evaluation_status = "not_run"
+
+    bug_result["evaluation_status"] = evaluation_status
+
+    # Update benchmark result JSON with evaluation status.
+    with open(
+        result_dir / f"{tool}_result.json",
+        "w",
+        encoding="utf-8",
+    ) as f:
+        json.dump(
+            bug_result,
+            f,
+            indent=2,
+            ensure_ascii=False,
+        )
 
     if task_status == "success":
         print(f"  [DONE] {task_id} ({bug_result['elapsed_sec']}s)")
