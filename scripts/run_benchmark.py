@@ -81,7 +81,16 @@ def save_progress(progress):
 
 
 def already_done(progress, task_id):
-    return task_id in progress["completed"]
+    """Return True when this task already finished an attempt.
+
+    With --resume, success, timeout, and failed tasks are all skipped.
+    This prevents long full-benchmark runs from retrying previously
+    attempted cases every time the runner is resumed.
+    """
+    return any(
+        task_id in progress.get(key, [])
+        for key in ("completed", "failed", "timed_out")
+    )
 
 
 def set_task_status(progress, task_id, status):
