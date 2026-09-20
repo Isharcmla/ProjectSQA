@@ -1,0 +1,14 @@
+{
+  "project": "Lang",
+  "bug_id": "1",
+  "tool": "gemini",
+  "generated_files": 1,
+  "candidate_tests": 81,
+  "classification_counts": {
+    "valid_non_revealing": 81
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "unknown",
+  "evaluation_status": "success"
+}
