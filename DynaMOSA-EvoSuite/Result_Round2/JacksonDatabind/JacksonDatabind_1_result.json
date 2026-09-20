@@ -1,0 +1,11 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "1",
+  "tool": "evosuite",
+  "elapsed_sec": 200.6,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.BeanPropertyWriter"
+  ],
+  "evosuite_result": "success",
+  "status": "success"
+}

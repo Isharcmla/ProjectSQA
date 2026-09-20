@@ -1,0 +1,12 @@
+{
+  "project": "Time",
+  "bug_id": "1",
+  "tool": "evosuite",
+  "elapsed_sec": 160.38,
+  "target_classes": [
+    "org.joda.time.field.UnsupportedDurationField",
+    "org.joda.time.Partial"
+  ],
+  "evosuite_result": "success",
+  "status": "success"
+}

@@ -1,0 +1,11 @@
+{
+  "project": "Gson",
+  "bug_id": "1",
+  "tool": "evosuite",
+  "elapsed_sec": 162.18,
+  "target_classes": [
+    "com.google.gson.TypeInfoFactory"
+  ],
+  "evosuite_result": "success",
+  "status": "success"
+}

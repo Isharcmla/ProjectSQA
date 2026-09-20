@@ -1,0 +1,13 @@
+{
+  "project": "Codec",
+  "bug_id": "1",
+  "tool": "evosuite",
+  "elapsed_sec": 73.38,
+  "target_classes": [
+    "org.apache.commons.codec.language.Caverphone",
+    "org.apache.commons.codec.language.Metaphone",
+    "org.apache.commons.codec.language.SoundexUtils"
+  ],
+  "evosuite_result": "success",
+  "status": "success"
+}

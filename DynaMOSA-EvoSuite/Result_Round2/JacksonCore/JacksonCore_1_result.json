@@ -1,0 +1,12 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "1",
+  "tool": "evosuite",
+  "elapsed_sec": 181.05,
+  "target_classes": [
+    "com.fasterxml.jackson.core.io.NumberInput",
+    "com.fasterxml.jackson.core.util.TextBuffer"
+  ],
+  "evosuite_result": "success",
+  "status": "success"
+}
