@@ -63,6 +63,17 @@ public class SingleMethodRunner {
 
 
 
+
+KEX_RUNTIME_DEPS_DIR = Path("/opt/kex/runtime-deps/lib")
+
+KEX_RUNTIME_JARS = [
+    KEX_RUNTIME_DEPS_DIR / "hamcrest-core-1.3.jar",
+    KEX_RUNTIME_DEPS_DIR / "junit-4.13.2.jar",
+    KEX_RUNTIME_DEPS_DIR / "kex-intrinsics-0.1.2.jar",
+    KEX_RUNTIME_DEPS_DIR / "kex-rt-0.0.1.jar",
+    KEX_RUNTIME_DEPS_DIR / "mockito-core-4.11.0.jar",
+]
+
 def run_command(cmd, timeout=None):
     """Run command and return (exit_code, stdout+stderr)."""
     try:
@@ -185,6 +196,29 @@ def prepare_kex_sources(project, bug_id, source_dir, eval_src):
         )
 
     prepared = []
+
+    # Copy package-aware Kex support/helper sources.
+    # These files are compiled but are NOT executable candidate tests.
+    support_dir = source_dir / "_support" / str(bug_id)
+
+    if support_dir.is_dir():
+        for support_src in sorted(
+            support_dir.rglob("*.java")
+        ):
+            relative_path = support_src.relative_to(
+                support_dir
+            )
+            support_dest = eval_src / relative_path
+
+            support_dest.parent.mkdir(
+                parents=True,
+                exist_ok=True,
+            )
+
+            shutil.copy2(
+                support_src,
+                support_dest,
+            )
 
     for src in files:
         text = src.read_text(errors="replace")
@@ -412,7 +446,7 @@ def compile_single_method_runner(
 
 
 def compile_sources(eval_src, eval_classes, classpath):
-    java_files = sorted(eval_src.glob("*.java"))
+    java_files = sorted(eval_src.rglob("*.java"))
 
     if not java_files:
         raise RuntimeError("No Java files prepared for compilation")
@@ -576,7 +610,7 @@ def evaluate(project, bug_id, tool, timeout_sec):
         else:
             raise ValueError(f"Unknown tool: {tool}")
 
-        prepared_file_count = len(list(eval_src.glob("*.java")))
+        prepared_file_count = len(list(eval_src.rglob("*.java")))
 
         print(f"  [FILES] {prepared_file_count}")
         print(f"  [TESTS] {len(executable_tests)}")
@@ -605,6 +639,28 @@ def evaluate(project, bug_id, tool, timeout_sec):
                 f"{JUNIT4_JAR}:"
                 f"{EVOSUITE_RUNTIME_JAR}"
             )
+
+        elif tool == "kex":
+            missing_kex_jars = [
+                jar
+                for jar in KEX_RUNTIME_JARS
+                if not jar.is_file()
+            ]
+
+            if missing_kex_jars:
+                raise RuntimeError(
+                    "Kex runtime JARs not found: "
+                    + ", ".join(
+                        str(jar)
+                        for jar in missing_kex_jars
+                    )
+                )
+
+            extra_cp = ":".join(
+                str(jar)
+                for jar in KEX_RUNTIME_JARS
+            )
+
         else:
             extra_cp = str(JUNIT4_JAR)
 

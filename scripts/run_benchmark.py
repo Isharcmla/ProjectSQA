@@ -29,6 +29,7 @@ import csv
 import json
 import shutil
 import subprocess
+import os
 import sys
 import tarfile
 import time
@@ -227,6 +228,34 @@ def run_evosuite(project, bug_id, target_classes, log_file,
             return "timeout", output_root
 
 
+def defects4j_export(work_dir, prop):
+    """Export a property from Defects4J."""
+    result = subprocess.run(
+        ["defects4j", "export", "-p", prop, "-w", str(work_dir)],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+    )
+
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"defects4j export {prop} failed for {work_dir}\n"
+            f"{result.stdout}"
+        )
+
+    lines = [
+        line.strip()
+        for line in result.stdout.splitlines()
+        if line.strip()
+        and not line.startswith("Running ant")
+    ]
+
+    if not lines:
+        raise RuntimeError(f"No value returned for {prop}")
+
+    return lines[-1]
+
+
 # ---------- Kex runner ----------
 def run_kex(work_dir, classes_dir, target_class, log_file, timeout_sec=BENCHMARK_TIMEOUT):
     """รัน Kex กับ target class เดียว
@@ -249,9 +278,23 @@ def run_kex(work_dir, classes_dir, target_class, log_file, timeout_sec=BENCHMARK
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Kex needs both project classes and compile-time dependencies.
+    project_classes = str(Path(work_dir) / classes_dir)
+
+    try:
+        compile_cp = defects4j_export(work_dir, "cp.compile")
+    except Exception as exc:
+        compile_cp = ""
+        print(f"[WARN] Cannot export cp.compile: {exc}")
+
+    if compile_cp:
+        kex_classpath = project_classes + os.pathsep + compile_cp
+    else:
+        kex_classpath = project_classes
+
     cmd = [
         "python3", str(kex_script),
-        "--classpath", str(Path(work_dir) / classes_dir),
+        "--classpath", kex_classpath,
         "--target", target_class,
         "--mode", "concolic",   # concolic ให้ผลใกล้เคียง Reanimator paper มากที่สุด
         "--output", str(output_dir),
@@ -259,6 +302,7 @@ def run_kex(work_dir, classes_dir, target_class, log_file, timeout_sec=BENCHMARK
 
     with open(log_file, "a", encoding="utf-8") as log:
         log.write(f"\n=== Run Kex on {target_class} ===\n")
+        log.write(f"Kex classpath: {kex_classpath}\n")
         log.write(f"Command: {' '.join(cmd)}\n")
         try:
             result = subprocess.run(
@@ -403,8 +447,61 @@ def copy_to_repo(tool, project, bug_id, work_dir, bug_result):
 
     test_files = find_generated_test_files(work_dir, tool)
     copied_count = 0
+
+    # Detect duplicate basenames. Kex may generate helper classes with the
+    # same filename in different Java packages (e.g. ReflectionUtils.java).
+    basename_counts = {}
     for tf in test_files:
-        dest = test_target_dir / f"{project}_{bug_id}_{tf.name}"
+        basename_counts[tf.name] = (
+            basename_counts.get(tf.name, 0) + 1
+        )
+
+    for tf in test_files:
+        if tool == "kex" and basename_counts[tf.name] > 1:
+            # Preserve the Java package path for duplicate helper files.
+            package_parts = []
+
+            try:
+                text = tf.read_text(
+                    encoding="utf-8",
+                    errors="replace",
+                )
+                for line in text.splitlines():
+                    line = line.strip()
+                    if line.startswith("package ") and line.endswith(";"):
+                        package_name = line[8:-1].strip()
+                        package_parts = package_name.split(".")
+                        break
+            except OSError:
+                package_parts = []
+
+            if package_parts:
+                dest = (
+                    test_target_dir
+                    / "_support"
+                    / str(bug_id)
+                    / Path(*package_parts)
+                    / tf.name
+                )
+            else:
+                dest = (
+                    test_target_dir
+                    / "_support"
+                    / str(bug_id)
+                    / tf.parent.name
+                    / tf.name
+                )
+
+            dest.parent.mkdir(
+                parents=True,
+                exist_ok=True,
+            )
+        else:
+            dest = (
+                test_target_dir
+                / f"{project}_{bug_id}_{tf.name}"
+            )
+
         shutil.copy2(tf, dest)
         copied_count += 1
 
@@ -544,8 +641,17 @@ def run_one_bug(project, bug_id, progress, tool="kex", resume=False):
 
     result_dir = RESULT_DIR / tool / project / str(bug_id)
     result_dir.mkdir(parents=True, exist_ok=True)
-    with open(result_dir / f"{tool}_result.json", "w", encoding="utf-8") as f:
-        json.dump(bug_result, f, indent=2, ensure_ascii=False)
+
+    # Count generated test files before deciding final task status.
+    generated_test_files = find_generated_test_files(
+        artifact_dir,
+        tool,
+    )
+    num_test_files_generated = len(generated_test_files)
+
+    bug_result["num_test_files_generated"] = (
+        num_test_files_generated
+    )
 
     # ตัดสินสถานะรวมของ task
     if tool == "kex":
@@ -561,9 +667,20 @@ def run_one_bug(project, bug_id, progress, tool="kex", resume=False):
     elif tool == "evosuite":
         task_status = bug_result["evosuite_result"]
 
+    # A successful generator run must produce at least one test file.
+    if (
+        task_status == "success"
+        and num_test_files_generated == 0
+    ):
+        print(
+            f"  [FAIL] {task_id} -> generator reported success "
+            f"but generated 0 test files"
+        )
+        task_status = "failed"
+
     bug_result["status"] = task_status
 
-    # เขียน JSON ใหม่อีกครั้งหลังทราบสถานะรวม
+    # เขียน JSON หลังทราบสถานะรวม
     with open(result_dir / f"{tool}_result.json", "w", encoding="utf-8") as f:
         json.dump(bug_result, f, indent=2, ensure_ascii=False)
 
