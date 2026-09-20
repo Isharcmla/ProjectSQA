@@ -22,18 +22,24 @@ import argparse
 import json
 import os
 import requests
+import subprocess
+import re
+import time
 from pathlib import Path
 from datetime import datetime
 
-BASE_DIR = Path.home() / "kex-testing"          # ใช้โฟลเดอร์ checkout ร่วมกับสาย Kex
-AI_RESULT_DIR = Path.home() / "ai-results"
+REPO_DIR = Path(__file__).resolve().parent
+# รองรับกรณีไฟล์อยู่ใน scripts/ หรืออยู่ที่ root ของ repo
+if REPO_DIR.name == "scripts":
+    REPO_DIR = REPO_DIR.parent
+
+BASE_DIR = Path.home() / "kex-testing"
+AI_RESULT_DIR = REPO_DIR
 
 KKU_API_BASE = "https://gen.ai.kku.ac.th/api/v1"
 KKU_API_KEY = os.environ.get("KKU_API_KEY")
 
-for d in (AI_RESULT_DIR / "Gemini/Prompt", AI_RESULT_DIR / "Gemini/Result", AI_RESULT_DIR / "Gemini/TestCode",
-          AI_RESULT_DIR / "Claude/Prompt", AI_RESULT_DIR / "Claude/Result", AI_RESULT_DIR / "Claude/TestCode"):
-    d.mkdir(parents=True, exist_ok=True)
+
 
 
 # ---------- Prompt Templates (คัดลอกจากรายงานรอบ 1) ----------
@@ -139,8 +145,10 @@ def find_model_id(exact_name):
 
 
 def call_kku_api(model_id, prompt, max_tokens=4096, temperature=0.2):
-    """เรียก POST /chat/completions (OpenAI-compatible) ใช้ได้ทั้ง Gemini และ Claude
-    เพราะ KKU IntelSphere รวมทุกโมเดลไว้ใน endpoint เดียว
+    """เรียก POST /chat/completions (OpenAI-compatible).
+
+    คืนค่า text/quota/usage/finish_reason เพื่อให้ Result JSON เก็บหลักฐาน
+    ของ generation ได้ครบ และตรวจกรณี output ถูกตัดเพราะ token limit ได้
     """
     check_api_key()
     resp = requests.post(
@@ -160,30 +168,61 @@ def call_kku_api(model_id, prompt, max_tokens=4096, temperature=0.2):
     resp.raise_for_status()
     data = resp.json()
 
-    text = data["choices"][0]["message"]["content"]
+    choice = data["choices"][0]
+    text = choice["message"]["content"]
+    finish_reason = choice.get("finish_reason")
     quota = data.get("model_quota", {})
     usage = data.get("usage", {})
-    return text, quota, usage
+    return text, quota, usage, finish_reason
 
 
 # ---------- Source code extraction ----------
 
-def get_source_code(project, bug_id, class_name):
-    """ดึง source code จริงจาก Defects4J checkout (ต้อง checkout ไว้ก่อนแล้วผ่าน run_benchmark.py)"""
+def get_work_dir(project, bug_id):
     work_dir = BASE_DIR / "checkouts" / f"{project}_{bug_id}_buggy"
     if not work_dir.exists():
         raise FileNotFoundError(
-            f"ยังไม่ได้ checkout {project}-{bug_id} — รัน run_benchmark.py --project {project} --bug {bug_id} ก่อน"
+            f"ยังไม่ได้ checkout {project}-{bug_id}: {work_dir}\n"
+            f"ให้รัน run_benchmark.py สำหรับ bug นี้ก่อน"
         )
+    return work_dir
 
-    class_path = class_name.replace(".", "/") + ".java"
-    matches = list(work_dir.rglob(Path(class_path).name))
+
+def get_modified_classes(project, bug_id):
+    """อ่าน classes.modified จาก Defects4J เพื่อใช้ target เดียวกับ Kex/EvoSuite"""
+    work_dir = get_work_dir(project, bug_id)
+    result = subprocess.run(
+        ["defects4j", "export", "-p", "classes.modified", "-w", str(work_dir)],
+        capture_output=True, text=True, timeout=60,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(
+            "อ่าน classes.modified ไม่สำเร็จ:\n" + (result.stderr or result.stdout)
+        )
+    classes = [line.strip() for line in result.stdout.splitlines() if line.strip()]
+    if not classes:
+        raise RuntimeError(f"ไม่พบ classes.modified สำหรับ {project}-{bug_id}")
+    return classes
+
+
+def get_source_code(project, bug_id, class_name):
+    """ดึง source ตาม fully-qualified class name โดยตรวจ package path เพื่อลดโอกาสหยิบไฟล์ผิด"""
+    work_dir = get_work_dir(project, bug_id)
+    relative = Path(*class_name.split(".")).with_suffix(".java")
+
+    matches = [p for p in work_dir.rglob(relative.name) if str(p).replace("\\", "/").endswith(str(relative).replace("\\", "/"))]
     if not matches:
-        raise FileNotFoundError(f"ไม่พบไฟล์ {class_path} ใน {work_dir}")
+        raise FileNotFoundError(f"ไม่พบ source ของ {class_name} ใน {work_dir}")
+    if len(matches) > 1:
+        raise RuntimeError(f"พบ source มากกว่า 1 ไฟล์สำหรับ {class_name}: {matches}")
+    return matches[0].read_text(encoding="utf-8", errors="ignore")
 
-    with open(matches[0], "r", encoding="utf-8", errors="ignore") as f:
-        return f.read()
 
+def clean_java_response(text):
+    """ตัด markdown fence ที่โมเดลอาจส่งมาแม้ prompt จะสั่งไม่ให้ส่ง"""
+    text = text.strip()
+    m = re.match(r"^```(?:java)?\s*(.*?)\s*```$", text, flags=re.DOTALL | re.IGNORECASE)
+    return (m.group(1) if m else text).strip() + "\n"
 
 def build_prompt(model, package_name, class_name, source_code, related_classes="(ไม่มีข้อมูลเพิ่มเติม)"):
     template = GEMINI_TEMPLATE if model == "gemini" else CLAUDE_TEMPLATE
@@ -195,64 +234,220 @@ def build_prompt(model, package_name, class_name, source_code, related_classes="
     )
 
 
+def generate_one(project, bug_id, class_name, model, model_name_override, related,
+                 max_tokens=4096, temperature=0.2):
+    """Generate test สำหรับ target class เดียวและบันทึก metadata ตาม benchmark schema กลาง.
+
+    หมายเหตุ: compile_result = not_run ที่ stage นี้เสมอ เพราะการ compile/buggy-fixed
+    evaluation เป็นหน้าที่ของ evaluate_tests.py ไม่ใช่ generator.
+    """
+    package_name = ".".join(class_name.split(".")[:-1])
+    simple_class_name = class_name.split(".")[-1]
+    model_folder = "Gemini" if model == "gemini" else "Claude"
+
+    base = AI_RESULT_DIR / model_folder
+    prompt_dir = base / "Prompt" / project / str(bug_id)
+    result_dir = base / "Result" / project / str(bug_id)
+    test_dir = base / "TestCode" / project / str(bug_id)
+    for d in (prompt_dir, result_dir, test_dir):
+        d.mkdir(parents=True, exist_ok=True)
+
+    print(f"[1/5] ดึง source: {project}-{bug_id} / {class_name}")
+    source_code = get_source_code(project, bug_id, class_name)
+
+    print(f"[2/5] สร้าง Prompt สำหรับ {model}")
+    prompt = build_prompt(model, package_name, simple_class_name, source_code, related)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    prompt_file = prompt_dir / f"{simple_class_name}_{timestamp}.txt"
+    prompt_file.write_text(prompt, encoding="utf-8")
+
+    print("[3/5] ค้นหา model id")
+    search_name = model_name_override or DEFAULT_MODEL_NAME[model]
+    model_id, actual_model_name = find_model_id(search_name)
+    print(f"      ใช้โมเดล: {actual_model_name} (id={model_id})")
+
+    print("[4/5] เรียก KKU IntelSphere API")
+    api_started = time.perf_counter()
+    try:
+        result_text, quota, usage, finish_reason = call_kku_api(
+            model_id, prompt, max_tokens=max_tokens, temperature=temperature
+        )
+        elapsed_sec = round(time.perf_counter() - api_started, 2)
+    except Exception:
+        # ให้ caller เป็นผู้บันทึก aggregate failure; ไม่มี test file ถูกสร้าง
+        raise
+
+    result_text = clean_java_response(result_text)
+
+    # ถ้า API ระบุชัดว่าหยุดเพราะ token limit อย่านับเป็น generation success
+    truncated = str(finish_reason).lower() in {"length", "max_tokens", "max_token"}
+    generation_status = "failed" if truncated else "success"
+    status = generation_status
+
+    print("[5/5] บันทึกผลลัพธ์")
+    test_file = test_dir / f"{simple_class_name}Test.java"
+    num_test_files_generated = 0
+    if generation_status == "success":
+        test_file.write_text(result_text, encoding="utf-8")
+        num_test_files_generated = 1
+    else:
+        # เก็บ response ที่ถูกตัดเป็นหลักฐาน แต่ไม่วางใน TestCode เพื่อไม่ให้ evaluator
+        # เข้าใจผิดว่าเป็น generated test ที่สมบูรณ์
+        truncated_file = result_dir / f"{simple_class_name}_{timestamp}_truncated.java.txt"
+        truncated_file.write_text(result_text, encoding="utf-8")
+
+    result_log = result_dir / f"{simple_class_name}_{timestamp}.json"
+    result_payload = {
+        "project": project,
+        "bug_id": str(bug_id),
+        "tool": model,
+        "class": class_name,
+        "target_classes": [class_name],
+        "status": status,
+        "generation_status": generation_status,
+        "compile_result": "not_run",
+        "elapsed_sec": elapsed_sec,
+        "num_test_files_generated": num_test_files_generated,
+        "model_requested": model,
+        "model_id": model_id,
+        "model_name": actual_model_name,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+        "finish_reason": finish_reason,
+        "prompt_file": str(prompt_file.relative_to(REPO_DIR)),
+        "test_file": (
+            str(test_file.relative_to(REPO_DIR))
+            if num_test_files_generated else None
+        ),
+        "usage": usage,
+        "model_quota": quota,
+        "timestamp": timestamp,
+    }
+    result_log.write_text(
+        json.dumps(result_payload, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+    if generation_status == "success":
+        print(f"      Test: {test_file}")
+    else:
+        print(f"      [FAILED] output ถูกตัด (finish_reason={finish_reason})")
+    if quota:
+        print(f"      Token: {quota.get('daily_remaining_tokens', '?')}/{quota.get('daily_quota_tokens', '?')}")
+
+    return result_payload
+
+
 def main():
-    parser = argparse.ArgumentParser(description="AI Test Generation Script (ผ่าน KKU IntelSphere API)")
+    parser = argparse.ArgumentParser(
+        description="AI JUnit generation for Defects4J via KKU IntelSphere"
+    )
     parser.add_argument("--project", required=True, help="เช่น Lang")
     parser.add_argument("--bug", required=True, help="เช่น 1")
-    parser.add_argument("--class", dest="class_name", required=True,
-                         help="Fully qualified class name เช่น org.apache.commons.lang3.StringUtils")
-    parser.add_argument("--model", required=True, choices=["gemini", "claude"],
-                         help="เลือกใช้ Gemini หรือ Claude (ทั้งคู่เรียกผ่าน endpoint เดียวกันของ KKU)")
-    parser.add_argument("--model-name", default=None,
-                         help="ระบุชื่อโมเดลเจาะจง (override ค่า default ของกลุ่ม) "
-                              "ค่า default: gemini -> gemini-3.7-flash, claude -> claude-sonnet-5")
-    parser.add_argument("--related", default="(ไม่มีข้อมูลเพิ่มเติม)", help="Dependency signature เพิ่มเติมถ้ามี")
+    parser.add_argument(
+        "--class", dest="class_name", default=None,
+        help="target class; ถ้าไม่ระบุจะใช้ Defects4J classes.modified อัตโนมัติ",
+    )
+    parser.add_argument("--model", required=True, choices=["gemini", "claude"])
+    parser.add_argument("--model-name", default=None, help="override default model name")
+    parser.add_argument("--related", default="(ไม่มีข้อมูลเพิ่มเติม)")
+    parser.add_argument(
+        "--max-tokens", type=int, default=4096,
+        help="output token limit ของ AI (default: 4096; ต้อง freeze ค่าเดียวกันในการทดลองจริง)",
+    )
+    parser.add_argument(
+        "--temperature", type=float, default=0.2,
+        help="sampling temperature (default: 0.2; ต้อง freeze ค่าเดียวกันในการทดลองจริง)",
+    )
     args = parser.parse_args()
 
-    package_name = ".".join(args.class_name.split(".")[:-1])
-    simple_class_name = args.class_name.split(".")[-1]
+    targets = [args.class_name] if args.class_name else get_modified_classes(args.project, args.bug)
+    print(f"TARGETS ({len(targets)}):")
+    for target in targets:
+        print(f"  - {target}")
 
-    print(f"[1/5] ดึง source code ของ {args.class_name} จาก {args.project}-{args.bug} ...")
-    source_code = get_source_code(args.project, args.bug, args.class_name)
+    run_started = time.perf_counter()
+    class_results = []
+    failures = []
 
-    print(f"[2/5] สร้าง Prompt สำหรับ {args.model} ...")
-    prompt = build_prompt(args.model, package_name, simple_class_name, source_code, args.related)
+    for i, target in enumerate(targets, 1):
+        print("\n" + "=" * 70)
+        print(f"AI GENERATE {i}/{len(targets)}: {target}")
+        print("=" * 70)
+        try:
+            result = generate_one(
+                args.project, args.bug, target, args.model,
+                args.model_name, args.related,
+                max_tokens=args.max_tokens,
+                temperature=args.temperature,
+            )
+            class_results.append(result)
+            if result["generation_status"] != "success":
+                failures.append((target, f"finish_reason={result.get('finish_reason')}"))
+        except Exception as exc:
+            failures.append((target, str(exc)))
+            print(f"[FAILED] {target}: {exc}")
+
+    total_elapsed_sec = round(time.perf_counter() - run_started, 2)
+    successful_results = [
+        r for r in class_results if r.get("generation_status") == "success"
+    ]
+    generated_count = sum(
+        int(r.get("num_test_files_generated", 0)) for r in successful_results
+    )
+
+    generation_status = (
+        "success" if len(successful_results) == len(targets) and targets else "failed"
+    )
 
     model_folder = "Gemini" if args.model == "gemini" else "Claude"
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    prompt_file = AI_RESULT_DIR / model_folder / "Prompt" / f"{args.project}_{args.bug}_{simple_class_name}_{timestamp}.txt"
-    with open(prompt_file, "w", encoding="utf-8") as f:
-        f.write(prompt)
-    print(f"      บันทึก prompt ที่ {prompt_file}")
+    aggregate_dir = AI_RESULT_DIR / model_folder / "Result" / args.project / str(args.bug)
+    aggregate_dir.mkdir(parents=True, exist_ok=True)
+    aggregate_file = aggregate_dir / f"{args.project}_{args.bug}_result.json"
 
-    print(f"[3/5] ค้นหา model id จาก KKU IntelSphere API ...")
-    search_name = args.model_name if args.model_name else DEFAULT_MODEL_NAME[args.model]
-    model_id, model_name = find_model_id(search_name)
-    print(f"      ใช้โมเดล: {model_name} (id={model_id})")
+    # Aggregate schema ให้รูปแบบหลักสอดคล้องกับ Kex/EvoSuite benchmark result.
+    aggregate_payload = {
+        "project": args.project,
+        "bug_id": str(args.bug),
+        "tool": args.model,
+        "status": generation_status,
+        "generation_status": generation_status,
+        "compile_result": "not_run",
+        "elapsed_sec": total_elapsed_sec,
+        "num_test_files_generated": generated_count,
+        "target_classes": targets,
+        "model_name": (
+            successful_results[0].get("model_name") if successful_results else
+            (args.model_name or DEFAULT_MODEL_NAME[args.model])
+        ),
+        "max_tokens": args.max_tokens,
+        "temperature": args.temperature,
+        "class_results": class_results,
+        "failures": [
+            {"class": target, "error": error}
+            for target, error in failures
+        ],
+        "timestamp": datetime.now().isoformat(timespec="seconds"),
+    }
+    aggregate_file.write_text(
+        json.dumps(aggregate_payload, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
 
-    print(f"[4/5] ยิง prompt ไปยัง KKU IntelSphere API ...")
-    result_text, quota, usage = call_kku_api(model_id, prompt)
+    print("\n" + "=" * 70)
+    print(f"Generated: {generated_count}/{len(targets)} test files")
+    print(f"Status: {generation_status}")
+    print(f"Elapsed: {total_elapsed_sec}s")
+    print(f"Result: {aggregate_file}")
+    if failures:
+        for target, error in failures:
+            print(f"FAILED: {target}: {error}")
+        return 2
 
-    print(f"[5/5] บันทึกผลลัพธ์ ...")
-    test_file = AI_RESULT_DIR / model_folder / "TestCode" / f"{simple_class_name}Test.java"
-    with open(test_file, "w", encoding="utf-8") as f:
-        f.write(result_text)
-
-    result_log = AI_RESULT_DIR / model_folder / "Result" / f"{args.project}_{args.bug}_{simple_class_name}_{timestamp}.json"
-    with open(result_log, "w", encoding="utf-8") as f:
-        json.dump({
-            "project": args.project, "bug": args.bug, "class": args.class_name,
-            "model_requested": args.model, "model_id": model_id, "model_name": model_name,
-            "prompt_file": str(prompt_file), "test_file": str(test_file),
-            "usage": usage, "model_quota": quota,
-            "timestamp": timestamp,
-        }, f, indent=2, ensure_ascii=False)
-
-    print(f"\nเสร็จสิ้น! Test code อยู่ที่: {test_file}")
-    if quota:
-        print(f"Token คงเหลือวันนี้: {quota.get('daily_remaining_tokens', '?')}/{quota.get('daily_quota_tokens', '?')}")
-    print(f"ขั้นตอนถัดไป: นำไฟล์นี้ไปวางใน source tree ของ Defects4J แล้วรัน defects4j compile + coverage")
+    print(f"Output: {AI_RESULT_DIR / model_folder}")
+    print("Next: evaluate generated tests with the shared buggy/fixed evaluator.")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
