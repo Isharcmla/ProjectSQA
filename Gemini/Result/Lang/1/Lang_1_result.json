@@ -1,0 +1,53 @@
+{
+  "project": "Lang",
+  "bug_id": "1",
+  "tool": "gemini",
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 53.27,
+  "num_test_files_generated": 1,
+  "target_classes": [
+    "org.apache.commons.lang3.math.NumberUtils"
+  ],
+  "model_name": "Gemini",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "class_results": [
+    {
+      "project": "Lang",
+      "bug_id": "1",
+      "tool": "gemini",
+      "class": "org.apache.commons.lang3.math.NumberUtils",
+      "target_classes": [
+        "org.apache.commons.lang3.math.NumberUtils"
+      ],
+      "status": "success",
+      "generation_status": "success",
+      "compile_result": "not_run",
+      "elapsed_sec": 52.75,
+      "num_test_files_generated": 1,
+      "model_requested": "gemini",
+      "model_id": "gemini-3.7-flash",
+      "model_name": "Gemini",
+      "max_tokens": 16384,
+      "temperature": 0.2,
+      "finish_reason": "stop",
+      "prompt_file": "Gemini/Prompt/Lang/1/NumberUtils_20260919_112000.txt",
+      "test_file": "Gemini/TestCode/Lang/1/NumberUtilsTest.java",
+      "usage": {
+        "prompt_tokens": 13800,
+        "completion_tokens": 9288,
+        "total_tokens": 24176
+      },
+      "model_quota": {
+        "daily_quota_tokens": 350000,
+        "daily_usage_tokens": 24176,
+        "daily_remaining_tokens": 325824
+      },
+      "timestamp": "20260919_112000"
+    }
+  ],
+  "failures": [],
+  "timestamp": "2026-09-19T11:20:53"
+}
