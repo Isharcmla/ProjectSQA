@@ -50,5 +50,3 @@ public class NumberUtils_createDouble_176853228264 {
     }
 
 };
-
-

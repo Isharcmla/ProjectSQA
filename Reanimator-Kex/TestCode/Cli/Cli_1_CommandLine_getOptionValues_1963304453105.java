@@ -15,15 +15,14 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
-import java.lang.ClassCastException;
+import java.lang.NullPointerException;
 import static org.apache.commons.cli.ReflectionUtils.*;
 import static org.junit.Assert.assertTrue;
 import java.util.HashMap;
-import java.lang.Object;
 
 public class CommandLine_getOptionValues_1963304453105 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
-     Object term30969;
+     Object term31160;
 
     public CommandLine_getOptionValues_1963304453105() {
     }
@@ -34,169 +33,10 @@ public class CommandLine_getOptionValues_1963304453105 {
 
     @Before
     public void setup() throws Throwable {
-        HashMap term31017 = new HashMap();
-        HashMap term31169 = new HashMap();
-        ((HashMap) term31169).put("", "");
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        ((HashMap) term31169).put((Object)null, (Object)null);
-        term30969 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
-        setField(term30969, term30969.getClass(), "names", term31017);
-        setField(term30969, term30969.getClass(), "options", term31169);
+        HashMap term31208 = new HashMap();
+        term31160 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
+        setField(term31160, term31160.getClass(), "names", term31208);
+        setField(term31160, term31160.getClass(), "options", null);
     }
 
     @Test
@@ -205,16 +45,14 @@ public class CommandLine_getOptionValues_1963304453105 {
         Class<?>[] argTypes = new Class<?>[1];
         argTypes[0] = Class.forName("java.lang.String");
         Object[] args = new Object[1];
-        args[0] = "";
+        args[0] = "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ";
         try {
-            callMethod(klass, "getOptionValues", argTypes, term30969, args);
+            callMethod(klass, "getOptionValues", argTypes, term31160, args);
             assertTrue(false);
         }
-        catch (ClassCastException e) {
+        catch (NullPointerException e) {
         }
 
     }
 
 };
-
-

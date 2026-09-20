@@ -21,8 +21,8 @@ import static org.junit.Assert.assertTrue;
 
 public class CommandLine_addOption_15694463161 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
-     Object term14120;
-     Object term14184;
+     Object term14065;
+     Object term14129;
 
     public CommandLine_addOption_15694463161() {
     }
@@ -33,11 +33,11 @@ public class CommandLine_addOption_15694463161 {
 
     @Before
     public void setup() throws Throwable {
-        term14120 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
-        setField(term14120, term14120.getClass(), "hashcodeMap", null);
-        term14184 = newInstance(Class.forName("org.apache.commons.cli.Option"));
-        setField(term14184, term14184.getClass(), "opt", "");
-        setField(term14184, term14184.getClass(), "longOpt", null);
+        term14065 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
+        setField(term14065, term14065.getClass(), "hashcodeMap", null);
+        term14129 = newInstance(Class.forName("org.apache.commons.cli.Option"));
+        setField(term14129, term14129.getClass(), "opt", "");
+        setField(term14129, term14129.getClass(), "longOpt", null);
     }
 
     @Test
@@ -46,9 +46,9 @@ public class CommandLine_addOption_15694463161 {
         Class<?>[] argTypes = new Class<?>[1];
         argTypes[0] = Class.forName("org.apache.commons.cli.Option");
         Object[] args = new Object[1];
-        args[0] = term14184;
+        args[0] = term14129;
         try {
-            callMethod(klass, "addOption", argTypes, term14120, args);
+            callMethod(klass, "addOption", argTypes, term14065, args);
             assertTrue(false);
         }
         catch (NullPointerException e) {
@@ -57,5 +57,3 @@ public class CommandLine_addOption_15694463161 {
     }
 
 };
-
-

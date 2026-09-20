@@ -1,0 +1,13 @@
+{
+  "project": "Chart",
+  "bug_id": "1",
+  "tool": "kex",
+  "elapsed_sec": 23.41,
+  "target_classes": [
+    "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer"
+  ],
+  "kex_results": {
+    "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer": "success"
+  },
+  "status": "success"
+}

@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 public class CommandLine_getOptionValue_2780776457 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
-     Object term13264;
+     Object term13210;
 
     public CommandLine_getOptionValue_2780776457() {
     }
@@ -32,7 +32,7 @@ public class CommandLine_getOptionValue_2780776457 {
 
     @Before
     public void setup() throws Throwable {
-        term13264 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
+        term13210 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class CommandLine_getOptionValue_2780776457 {
         Object[] args = new Object[1];
         args[0] = "";
         try {
-            callMethod(klass, "getOptionValue", argTypes, term13264, args);
+            callMethod(klass, "getOptionValue", argTypes, term13210, args);
             assertTrue(false);
         }
         catch (NullPointerException e) {
@@ -52,5 +52,3 @@ public class CommandLine_getOptionValue_2780776457 {
     }
 
 };
-
-

@@ -26,7 +26,7 @@ public class CommandLine_getOptionValue_18006181723 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
      Object term166;
      Object term185;
-     Object term923;
+     Object term922;
 
     public CommandLine_getOptionValue_18006181723() {
     }
@@ -47,15 +47,15 @@ public class CommandLine_getOptionValue_18006181723 {
         setField(term166, term166.getClass(), "names", term175);
         setField(term166, term166.getClass(), "hashcodeMap", term180);
         term185 = new Character('E');
-        LinkedList term924 = new LinkedList();
+        LinkedList term923 = new LinkedList();
+        HashMap term924 = new HashMap();
         HashMap term925 = new HashMap();
         HashMap term926 = new HashMap();
-        HashMap term927 = new HashMap();
-        term923 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
-        setField(term923, term923.getClass(), "args", term924);
-        setField(term923, term923.getClass(), "options", term925);
-        setField(term923, term923.getClass(), "names", term926);
-        setField(term923, term923.getClass(), "hashcodeMap", term927);
+        term922 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
+        setField(term922, term922.getClass(), "args", term923);
+        setField(term922, term922.getClass(), "options", term924);
+        setField(term922, term922.getClass(), "names", term925);
+        setField(term922, term922.getClass(), "hashcodeMap", term926);
     }
 
     @Test
@@ -66,11 +66,9 @@ public class CommandLine_getOptionValue_18006181723 {
         Object[] args = new Object[1];
         args[0] = term185;
         Object retValue = callMethod(klass, "getOptionValue", argTypes, term166, args);
-        assertTrue(recursiveEquals(term166, term923));
+        assertTrue(recursiveEquals(term166, term922));
         assertTrue(recursiveEquals(term185, 'E'));
         assertTrue(recursiveEquals(retValue, null));
     }
 
 };
-
-

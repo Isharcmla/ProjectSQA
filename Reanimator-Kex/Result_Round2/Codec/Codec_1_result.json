@@ -1,0 +1,17 @@
+{
+  "project": "Codec",
+  "bug_id": "1",
+  "tool": "kex",
+  "elapsed_sec": 204.16,
+  "target_classes": [
+    "org.apache.commons.codec.language.Caverphone",
+    "org.apache.commons.codec.language.Metaphone",
+    "org.apache.commons.codec.language.SoundexUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.codec.language.Caverphone": "success",
+    "org.apache.commons.codec.language.Metaphone": "success",
+    "org.apache.commons.codec.language.SoundexUtils": "success"
+  },
+  "status": "success"
+}

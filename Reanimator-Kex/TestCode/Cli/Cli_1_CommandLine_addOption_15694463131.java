@@ -27,8 +27,8 @@ public class CommandLine_addOption_15694463131 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
      Object term434;
      Object term453;
-     Object term1507;
-     Object term1523;
+     Object term1474;
+     Object term1490;
 
     public CommandLine_addOption_15694463131() {
     }
@@ -62,27 +62,27 @@ public class CommandLine_addOption_15694463131 {
         setField(term453, term453.getClass(), "type", term506);
         setField(term453, term453.getClass(), "values", term507);
         setCharField(term453, term453.getClass(), "valuesep", 'n');
-        LinkedList term1508 = new LinkedList();
-        HashMap term1509 = new HashMap();
-        HashMap term1514 = new HashMap();
-        HashMap term1519 = new HashMap();
-        term1507 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
-        setField(term1507, term1507.getClass(), "args", term1508);
-        setField(term1507, term1507.getClass(), "options", term1509);
-        setField(term1507, term1507.getClass(), "names", term1514);
-        setField(term1507, term1507.getClass(), "hashcodeMap", term1519);
-        term1523 = newInstance(Class.forName("org.apache.commons.cli.Option"));
-        setField(term1523, term1523.getClass(), "opt", null);
-        setField(term1523, term1523.getClass(), "longOpt", null);
-        setBooleanField(term1523, term1523.getClass(), "hasArg", false);
-        setField(term1523, term1523.getClass(), "argName", null);
-        setField(term1523, term1523.getClass(), "description", null);
-        setBooleanField(term1523, term1523.getClass(), "required", false);
-        setBooleanField(term1523, term1523.getClass(), "optionalArg", false);
-        setIntField(term1523, term1523.getClass(), "numberOfArgs", 568599855);
-        setField(term1523, term1523.getClass(), "type", null);
-        setField(term1523, term1523.getClass(), "values", null);
-        setCharField(term1523, term1523.getClass(), "valuesep", 'n');
+        LinkedList term1475 = new LinkedList();
+        HashMap term1476 = new HashMap();
+        HashMap term1481 = new HashMap();
+        HashMap term1486 = new HashMap();
+        term1474 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
+        setField(term1474, term1474.getClass(), "args", term1475);
+        setField(term1474, term1474.getClass(), "options", term1476);
+        setField(term1474, term1474.getClass(), "names", term1481);
+        setField(term1474, term1474.getClass(), "hashcodeMap", term1486);
+        term1490 = newInstance(Class.forName("org.apache.commons.cli.Option"));
+        setField(term1490, term1490.getClass(), "opt", null);
+        setField(term1490, term1490.getClass(), "longOpt", null);
+        setBooleanField(term1490, term1490.getClass(), "hasArg", false);
+        setField(term1490, term1490.getClass(), "argName", null);
+        setField(term1490, term1490.getClass(), "description", null);
+        setBooleanField(term1490, term1490.getClass(), "required", false);
+        setBooleanField(term1490, term1490.getClass(), "optionalArg", false);
+        setIntField(term1490, term1490.getClass(), "numberOfArgs", 568599855);
+        setField(term1490, term1490.getClass(), "type", null);
+        setField(term1490, term1490.getClass(), "values", null);
+        setCharField(term1490, term1490.getClass(), "valuesep", 'n');
     }
 
     @Test
@@ -93,10 +93,8 @@ public class CommandLine_addOption_15694463131 {
         Object[] args = new Object[1];
         args[0] = term453;
         callMethod(klass, "addOption", argTypes, term434, args);
-        assertTrue(recursiveEquals(term434, term1507));
-        assertTrue(recursiveEquals(term453, term1523));
+        assertTrue(recursiveEquals(term434, term1474));
+        assertTrue(recursiveEquals(term453, term1490));
     }
 
 };
-
-

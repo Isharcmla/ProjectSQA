@@ -67,5 +67,3 @@ public class CommandLine_hasOption_175604180018 {
     }
 
 };
-
-

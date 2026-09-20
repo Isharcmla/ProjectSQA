@@ -1,0 +1,15 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "1",
+  "tool": "kex",
+  "elapsed_sec": 38.07,
+  "target_classes": [
+    "com.fasterxml.jackson.core.io.NumberInput",
+    "com.fasterxml.jackson.core.util.TextBuffer"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.core.io.NumberInput": "success",
+    "com.fasterxml.jackson.core.util.TextBuffer": "success"
+  },
+  "status": "success"
+}

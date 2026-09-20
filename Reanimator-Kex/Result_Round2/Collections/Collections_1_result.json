@@ -1,0 +1,13 @@
+{
+  "project": "Collections",
+  "bug_id": "1",
+  "tool": "kex",
+  "elapsed_sec": 200.24,
+  "target_classes": [
+    "org.apache.commons.collections.map.Flat3Map"
+  ],
+  "kex_results": {
+    "org.apache.commons.collections.map.Flat3Map": "success"
+  },
+  "status": "success"
+}

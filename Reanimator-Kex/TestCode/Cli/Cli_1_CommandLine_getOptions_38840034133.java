@@ -25,8 +25,8 @@ import java.lang.Object;
 public class CommandLine_getOptions_38840034133 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
      Object term571;
-     Object term1614;
-     Object term1593;
+     Object term1613;
+     Object term1592;
 
     public CommandLine_getOptions_38840034133() {
     }
@@ -46,16 +46,16 @@ public class CommandLine_getOptions_38840034133 {
         setField(term571, term571.getClass(), "options", term575);
         setField(term571, term571.getClass(), "names", term580);
         setField(term571, term571.getClass(), "hashcodeMap", term585);
-        LinkedList term1615 = new LinkedList();
-        HashMap term1616 = new HashMap();
+        LinkedList term1614 = new LinkedList();
+        HashMap term1615 = new HashMap();
+        HashMap term1617 = new HashMap();
         HashMap term1618 = new HashMap();
-        HashMap term1619 = new HashMap();
-        term1614 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
-        setField(term1614, term1614.getClass(), "args", term1615);
-        setField(term1614, term1614.getClass(), "options", term1616);
-        setField(term1614, term1614.getClass(), "names", term1618);
-        setField(term1614, term1614.getClass(), "hashcodeMap", term1619);
-        term1593 = (Object[]) newArray("org.apache.commons.cli.Option", 0);
+        term1613 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
+        setField(term1613, term1613.getClass(), "args", term1614);
+        setField(term1613, term1613.getClass(), "options", term1615);
+        setField(term1613, term1613.getClass(), "names", term1617);
+        setField(term1613, term1613.getClass(), "hashcodeMap", term1618);
+        term1592 = (Object[]) newArray("org.apache.commons.cli.Option", 0);
     }
 
     @Test
@@ -64,10 +64,8 @@ public class CommandLine_getOptions_38840034133 {
         Class<?>[] argTypes = new Class<?>[0];
         Object[] args = new Object[0];
         Object retValue = callMethod(klass, "getOptions", argTypes, term571, args);
-        assertTrue(recursiveEquals(term571, term1614));
-        assertTrue(recursiveEquals(retValue, term1593));
+        assertTrue(recursiveEquals(term571, term1613));
+        assertTrue(recursiveEquals(retValue, term1592));
     }
 
 };
-
-

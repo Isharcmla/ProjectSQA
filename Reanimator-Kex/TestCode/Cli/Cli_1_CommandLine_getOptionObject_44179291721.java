@@ -72,5 +72,3 @@ public class CommandLine_getOptionObject_44179291721 {
     }
 
 };
-
-

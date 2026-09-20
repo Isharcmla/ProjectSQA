@@ -26,7 +26,7 @@ public class CommandLine_getOptionValues_181105040025 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
      Object term228;
      Object term247;
-     Object term1032;
+     Object term1031;
 
     public CommandLine_getOptionValues_181105040025() {
     }
@@ -47,15 +47,15 @@ public class CommandLine_getOptionValues_181105040025 {
         setField(term228, term228.getClass(), "names", term237);
         setField(term228, term228.getClass(), "hashcodeMap", term242);
         term247 = new Character('B');
-        LinkedList term1033 = new LinkedList();
+        LinkedList term1032 = new LinkedList();
+        HashMap term1033 = new HashMap();
         HashMap term1034 = new HashMap();
         HashMap term1035 = new HashMap();
-        HashMap term1036 = new HashMap();
-        term1032 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
-        setField(term1032, term1032.getClass(), "args", term1033);
-        setField(term1032, term1032.getClass(), "options", term1034);
-        setField(term1032, term1032.getClass(), "names", term1035);
-        setField(term1032, term1032.getClass(), "hashcodeMap", term1036);
+        term1031 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
+        setField(term1031, term1031.getClass(), "args", term1032);
+        setField(term1031, term1031.getClass(), "options", term1033);
+        setField(term1031, term1031.getClass(), "names", term1034);
+        setField(term1031, term1031.getClass(), "hashcodeMap", term1035);
     }
 
     @Test
@@ -66,11 +66,9 @@ public class CommandLine_getOptionValues_181105040025 {
         Object[] args = new Object[1];
         args[0] = term247;
         Object retValue = callMethod(klass, "getOptionValues", argTypes, term228, args);
-        assertTrue(recursiveEquals(term228, term1032));
+        assertTrue(recursiveEquals(term228, term1031));
         assertTrue(recursiveEquals(term247, 'B'));
         assertTrue(recursiveEquals(retValue, null));
     }
 
 };
-
-

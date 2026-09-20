@@ -50,5 +50,3 @@ public class NumberUtils_createLong_37308466 {
     }
 
 };
-
-

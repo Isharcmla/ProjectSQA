@@ -1,0 +1,13 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "1",
+  "tool": "kex",
+  "elapsed_sec": 143.61,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.BeanPropertyWriter"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.ser.BeanPropertyWriter": "success"
+  },
+  "status": "success"
+}

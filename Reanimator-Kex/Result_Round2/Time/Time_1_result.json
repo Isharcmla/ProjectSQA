@@ -1,0 +1,15 @@
+{
+  "project": "Time",
+  "bug_id": "1",
+  "tool": "kex",
+  "elapsed_sec": 408.91,
+  "target_classes": [
+    "org.joda.time.field.UnsupportedDurationField",
+    "org.joda.time.Partial"
+  ],
+  "kex_results": {
+    "org.joda.time.field.UnsupportedDurationField": "success",
+    "org.joda.time.Partial": "timeout"
+  },
+  "status": "timeout"
+}

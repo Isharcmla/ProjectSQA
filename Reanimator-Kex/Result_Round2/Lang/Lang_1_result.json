@@ -2,12 +2,12 @@
   "project": "Lang",
   "bug_id": "1",
   "tool": "kex",
-  "elapsed_sec": 278.12,
+  "elapsed_sec": 309.67,
   "target_classes": [
     "org.apache.commons.lang3.math.NumberUtils"
   ],
   "kex_results": {
-    "org.apache.commons.lang3.math.NumberUtils": "success"
+    "org.apache.commons.lang3.math.NumberUtils": "timeout"
   },
-  "status": "success"
+  "status": "timeout"
 }

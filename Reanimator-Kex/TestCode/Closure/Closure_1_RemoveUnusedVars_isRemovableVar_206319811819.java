@@ -1,0 +1,244 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.util.HashMap;
+import java.util.Map;
+import java.lang.Object;
+import java.util.Set;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.ArrayList;
+
+public class RemoveUnusedVars_isRemovableVar_206319811819 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term282;
+     Object term339;
+
+    public RemoveUnusedVars_isRemovableVar_206319811819() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        HashMap term286 = new HashMap();
+        Set<Object> term3041 =  ((Map) term286).keySet();
+        HashSet term285 = new HashSet((Collection<? extends Object>) term3041);
+        Object term296 = newInstance(Class.forName("com.google.javascript.jscomp.Scope$Var"));
+        setField(term296, term296.getClass(), "name", null);
+        setField(term296, term296.getClass(), "nameNode", null);
+        setField(term296, term296.getClass(), "type", null);
+        setBooleanField(term296, term296.getClass(), "typeInferred", false);
+        setField(term296, term296.getClass(), "input", null);
+        setIntField(term296, term296.getClass(), "index", 0);
+        setField(term296, term296.getClass(), "scope", null);
+        setBooleanField(term296, term296.getClass(), "markedEscaped", false);
+        setBooleanField(term296, term296.getClass(), "markedAssignedExactlyOnce", false);
+        Object term301 = newInstance(Class.forName("com.google.javascript.jscomp.Scope$Var"));
+        setField(term301, term301.getClass(), "name", null);
+        setField(term301, term301.getClass(), "nameNode", null);
+        setField(term301, term301.getClass(), "type", null);
+        setBooleanField(term301, term301.getClass(), "typeInferred", false);
+        setField(term301, term301.getClass(), "input", null);
+        setIntField(term301, term301.getClass(), "index", 0);
+        setField(term301, term301.getClass(), "scope", null);
+        setBooleanField(term301, term301.getClass(), "markedEscaped", false);
+        setBooleanField(term301, term301.getClass(), "markedAssignedExactlyOnce", false);
+        Object term306 = newInstance(Class.forName("com.google.javascript.jscomp.Scope$Var"));
+        setField(term306, term306.getClass(), "name", null);
+        setField(term306, term306.getClass(), "nameNode", null);
+        setField(term306, term306.getClass(), "type", null);
+        setBooleanField(term306, term306.getClass(), "typeInferred", false);
+        setField(term306, term306.getClass(), "input", null);
+        setIntField(term306, term306.getClass(), "index", 0);
+        setField(term306, term306.getClass(), "scope", null);
+        setBooleanField(term306, term306.getClass(), "markedEscaped", false);
+        setBooleanField(term306, term306.getClass(), "markedAssignedExactlyOnce", false);
+        Object term311 = newInstance(Class.forName("com.google.javascript.jscomp.Scope$Var"));
+        setField(term311, term311.getClass(), "name", null);
+        setField(term311, term311.getClass(), "nameNode", null);
+        setField(term311, term311.getClass(), "type", null);
+        setBooleanField(term311, term311.getClass(), "typeInferred", false);
+        setField(term311, term311.getClass(), "input", null);
+        setIntField(term311, term311.getClass(), "index", 0);
+        setField(term311, term311.getClass(), "scope", null);
+        setBooleanField(term311, term311.getClass(), "markedEscaped", false);
+        setBooleanField(term311, term311.getClass(), "markedAssignedExactlyOnce", false);
+        Object term316 = newInstance(Class.forName("com.google.javascript.jscomp.Scope$Var"));
+        setField(term316, term316.getClass(), "name", null);
+        setField(term316, term316.getClass(), "nameNode", null);
+        setField(term316, term316.getClass(), "type", null);
+        setBooleanField(term316, term316.getClass(), "typeInferred", false);
+        setField(term316, term316.getClass(), "input", null);
+        setIntField(term316, term316.getClass(), "index", 0);
+        setField(term316, term316.getClass(), "scope", null);
+        setBooleanField(term316, term316.getClass(), "markedEscaped", false);
+        setBooleanField(term316, term316.getClass(), "markedAssignedExactlyOnce", false);
+        Object term321 = newInstance(Class.forName("com.google.javascript.jscomp.Scope$Var"));
+        setField(term321, term321.getClass(), "name", null);
+        setField(term321, term321.getClass(), "nameNode", null);
+        setField(term321, term321.getClass(), "type", null);
+        setBooleanField(term321, term321.getClass(), "typeInferred", false);
+        setField(term321, term321.getClass(), "input", null);
+        setIntField(term321, term321.getClass(), "index", 0);
+        setField(term321, term321.getClass(), "scope", null);
+        setBooleanField(term321, term321.getClass(), "markedEscaped", false);
+        setBooleanField(term321, term321.getClass(), "markedAssignedExactlyOnce", false);
+        ArrayList term294 = new ArrayList();
+        ((ArrayList) term294).add(term296);
+        ((ArrayList) term294).add(term301);
+        ((ArrayList) term294).add(term306);
+        ((ArrayList) term294).add(term311);
+        ((ArrayList) term294).add(term316);
+        ((ArrayList) term294).add(term321);
+        Object term330 = newInstance(Class.forName("com.google.javascript.jscomp.Scope"));
+        setField(term330, term330.getClass(), "vars", null);
+        setField(term330, term330.getClass(), "parent", null);
+        setIntField(term330, term330.getClass(), "depth", 0);
+        setField(term330, term330.getClass(), "rootNode", null);
+        setBooleanField(term330, term330.getClass(), "isBottom", false);
+        setField(term330, term330.getClass(), "arguments", null);
+        Object term333 = newInstance(Class.forName("com.google.javascript.jscomp.Scope"));
+        setField(term333, term333.getClass(), "vars", null);
+        setField(term333, term333.getClass(), "parent", null);
+        setIntField(term333, term333.getClass(), "depth", 0);
+        setField(term333, term333.getClass(), "rootNode", null);
+        setBooleanField(term333, term333.getClass(), "isBottom", false);
+        setField(term333, term333.getClass(), "arguments", null);
+        ArrayList term328 = new ArrayList();
+        ((ArrayList) term328).add(term330);
+        ((ArrayList) term328).add(term333);
+        term282 = newInstance(Class.forName("com.google.javascript.jscomp.RemoveUnusedVars"));
+        setField(term282, term282.getClass(), "compiler", null);
+        setField(term282, term282.getClass(), "codingConvention", null);
+        setBooleanField(term282, term282.getClass(), "removeGlobals", false);
+        setBooleanField(term282, term282.getClass(), "preserveFunctionExpressionNames", true);
+        setField(term282, term282.getClass(), "referenced", term285);
+        setField(term282, term282.getClass(), "maybeUnreferenced", term294);
+        setField(term282, term282.getClass(), "allFunctionScopes", term328);
+        setField(term282, term282.getClass(), "assignsByVar", null);
+        setField(term282, term282.getClass(), "assignsByNode", null);
+        setField(term282, term282.getClass(), "classDefiningCalls", null);
+        setField(term282, term282.getClass(), "continuations", null);
+        setBooleanField(term282, term282.getClass(), "modifyCallSites", false);
+        setField(term282, term282.getClass(), "callSiteOptimizer", null);
+        term339 = newInstance(Class.forName("com.google.javascript.jscomp.Scope$Var"));
+        Object term352 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term354 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term356 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term358 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term361 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term364 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term368 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term372 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setField(term339, term339.getClass(), "name", "MjGYSRKTNF");
+        setIntField(term352, term352.getClass(), "type", -1963434938);
+        setIntField(term354, term354.getClass(), "type", 906181092);
+        setIntField(term356, term356.getClass(), "type", 1045657203);
+        setIntField(term358, term358.getClass(), "type", 1386130016);
+        setField(term358, term358.getClass(), "next", null);
+        setField(term358, term358.getClass(), "first", null);
+        setField(term358, term358.getClass(), "last", null);
+        setField(term358, term358.getClass(), "propListHead", null);
+        setIntField(term358, term358.getClass(), "sourcePosition", 0);
+        setField(term358, term358.getClass(), "jsType", null);
+        setField(term358, term358.getClass(), "parent", null);
+        setField(term356, term356.getClass(), "next", term358);
+        setIntField(term361, term361.getClass(), "type", 568954359);
+        setField(term361, term361.getClass(), "next", null);
+        setField(term361, term361.getClass(), "first", term352);
+        setField(term361, term361.getClass(), "last", null);
+        setField(term361, term361.getClass(), "propListHead", null);
+        setIntField(term361, term361.getClass(), "sourcePosition", 0);
+        setField(term361, term361.getClass(), "jsType", null);
+        setField(term361, term361.getClass(), "parent", null);
+        setField(term356, term356.getClass(), "first", term361);
+        setIntField(term364, term364.getClass(), "type", 1861318859);
+        setField(term364, term364.getClass(), "next", null);
+        setField(term364, term364.getClass(), "first", term354);
+        setField(term364, term364.getClass(), "last", null);
+        setField(term364, term364.getClass(), "propListHead", null);
+        setIntField(term364, term364.getClass(), "sourcePosition", 0);
+        setField(term364, term364.getClass(), "jsType", null);
+        setField(term364, term364.getClass(), "parent", null);
+        setField(term356, term356.getClass(), "last", term364);
+        setField(term356, term356.getClass(), "propListHead", null);
+        setIntField(term356, term356.getClass(), "sourcePosition", 0);
+        setField(term356, term356.getClass(), "jsType", null);
+        setField(term356, term356.getClass(), "parent", null);
+        setField(term354, term354.getClass(), "next", term356);
+        setField(term354, term354.getClass(), "first", term356);
+        setIntField(term368, term368.getClass(), "type", 1072005683);
+        setField(term368, term368.getClass(), "next", term364);
+        setField(term368, term368.getClass(), "first", term361);
+        setField(term368, term368.getClass(), "last", term361);
+        setField(term368, term368.getClass(), "propListHead", null);
+        setIntField(term368, term368.getClass(), "sourcePosition", 0);
+        setField(term368, term368.getClass(), "jsType", null);
+        setField(term368, term368.getClass(), "parent", null);
+        setField(term354, term354.getClass(), "last", term368);
+        setField(term354, term354.getClass(), "propListHead", null);
+        setIntField(term354, term354.getClass(), "sourcePosition", 0);
+        setField(term354, term354.getClass(), "jsType", null);
+        setField(term354, term354.getClass(), "parent", null);
+        setField(term352, term352.getClass(), "next", term354);
+        setField(term352, term352.getClass(), "first", term361);
+        setIntField(term372, term372.getClass(), "type", 0);
+        setField(term372, term372.getClass(), "next", null);
+        setField(term372, term372.getClass(), "first", null);
+        setField(term372, term372.getClass(), "last", null);
+        setField(term372, term372.getClass(), "propListHead", null);
+        setIntField(term372, term372.getClass(), "sourcePosition", 0);
+        setField(term372, term372.getClass(), "jsType", null);
+        setField(term372, term372.getClass(), "parent", null);
+        setField(term352, term352.getClass(), "last", term372);
+        setField(term352, term352.getClass(), "propListHead", null);
+        setIntField(term352, term352.getClass(), "sourcePosition", 0);
+        setField(term352, term352.getClass(), "jsType", null);
+        setField(term352, term352.getClass(), "parent", null);
+        setField(term339, term339.getClass(), "nameNode", term352);
+        setField(term339, term339.getClass(), "type", null);
+        setBooleanField(term339, term339.getClass(), "typeInferred", false);
+        setField(term339, term339.getClass(), "input", null);
+        setIntField(term339, term339.getClass(), "index", 0);
+        setField(term339, term339.getClass(), "scope", null);
+        setBooleanField(term339, term339.getClass(), "markedEscaped", false);
+        setBooleanField(term339, term339.getClass(), "markedAssignedExactlyOnce", false);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.RemoveUnusedVars");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("com.google.javascript.jscomp.Scope$Var");
+        Object[] args = new Object[1];
+        args[0] = term339;
+        try {
+            callMethod(klass, "isRemovableVar", argTypes, term282, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};

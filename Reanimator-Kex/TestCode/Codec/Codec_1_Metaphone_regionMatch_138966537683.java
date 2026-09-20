@@ -1,0 +1,68 @@
+package org.apache.commons.codec.language;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.codec.language.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.codec.language.EqualityUtils.*;
+import java.lang.StringBuffer;
+
+public class Metaphone_regionMatch_138966537683 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term43839;
+     Object term43897;
+     Object term43987;
+     Object term43988;
+
+    public Metaphone_regionMatch_138966537683() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term43839 = newInstance(Class.forName("org.apache.commons.codec.language.Metaphone"));
+        term43897 = new StringBuffer();
+        term43987 = newInstance(Class.forName("org.apache.commons.codec.language.Metaphone"));
+        setIntField(term43987, term43987.getClass(), "maxCodeLen", 0);
+        term43988 = newInstance(Class.forName("java.lang.StringBuffer"));
+        byte[] term43989 = (byte[]) newByteArray(16);
+        setField(term43988, term43988.getClass(), "toStringCache", null);
+        setField(term43988, term43988.getClass(), "value", term43989);
+        setByteField(term43988, term43988.getClass(), "coder", (byte) 0);
+        setIntField(term43988, term43988.getClass(), "count", 0);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.codec.language.Metaphone");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Class.forName("java.lang.StringBuffer");
+        argTypes[1] = int.class;
+        argTypes[2] = Class.forName("java.lang.String");
+        Object[] args = new Object[3];
+        args[0] = term43897;
+        args[1] = 0;
+        args[2] = "";
+        Object retValue = callMethod(klass, "regionMatch", argTypes, term43839, args);
+        assertTrue(recursiveEquals(term43839, term43987));
+        assertTrue(recursiveEquals(term43897, term43988));
+        assertTrue(recursiveEquals(retValue, true));
+    }
+
+};

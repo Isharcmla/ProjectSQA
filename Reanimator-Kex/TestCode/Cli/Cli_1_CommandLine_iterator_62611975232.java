@@ -24,8 +24,8 @@ import java.util.HashMap;
 public class CommandLine_iterator_62611975232 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
      Object term552;
-     Object term1587;
-     Object term1564;
+     Object term1554;
+     Object term1531;
 
     public CommandLine_iterator_62611975232() {
     }
@@ -45,22 +45,22 @@ public class CommandLine_iterator_62611975232 {
         setField(term552, term552.getClass(), "options", term556);
         setField(term552, term552.getClass(), "names", term561);
         setField(term552, term552.getClass(), "hashcodeMap", term566);
-        LinkedList term1588 = new LinkedList();
-        HashMap term1589 = new HashMap();
-        HashMap term1590 = new HashMap();
-        HashMap term1591 = new HashMap();
-        term1587 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
-        setField(term1587, term1587.getClass(), "args", term1588);
-        setField(term1587, term1587.getClass(), "options", term1589);
-        setField(term1587, term1587.getClass(), "names", term1590);
-        setField(term1587, term1587.getClass(), "hashcodeMap", term1591);
-        HashMap term1565 = new HashMap();
-        term1564 = newInstance(Class.forName("java.util.HashMap$ValueIterator"));
-        setField(term1564, term1564.getClass(), "this$0", term1565);
-        setField(term1564, term1564.getClass(), "next", null);
-        setField(term1564, term1564.getClass(), "current", null);
-        setIntField(term1564, term1564.getClass(), "expectedModCount", 0);
-        setIntField(term1564, term1564.getClass(), "index", 0);
+        LinkedList term1555 = new LinkedList();
+        HashMap term1556 = new HashMap();
+        HashMap term1557 = new HashMap();
+        HashMap term1558 = new HashMap();
+        term1554 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
+        setField(term1554, term1554.getClass(), "args", term1555);
+        setField(term1554, term1554.getClass(), "options", term1556);
+        setField(term1554, term1554.getClass(), "names", term1557);
+        setField(term1554, term1554.getClass(), "hashcodeMap", term1558);
+        HashMap term1532 = new HashMap();
+        term1531 = newInstance(Class.forName("java.util.HashMap$ValueIterator"));
+        setField(term1531, term1531.getClass(), "this$0", term1532);
+        setField(term1531, term1531.getClass(), "next", null);
+        setField(term1531, term1531.getClass(), "current", null);
+        setIntField(term1531, term1531.getClass(), "expectedModCount", 0);
+        setIntField(term1531, term1531.getClass(), "index", 0);
     }
 
     @Test
@@ -69,10 +69,8 @@ public class CommandLine_iterator_62611975232 {
         Class<?>[] argTypes = new Class<?>[0];
         Object[] args = new Object[0];
         Object retValue = callMethod(klass, "iterator", argTypes, term552, args);
-        assertTrue(recursiveEquals(term552, term1587));
-        assertTrue(recursiveEquals(retValue, term1564));
+        assertTrue(recursiveEquals(term552, term1554));
+        assertTrue(recursiveEquals(retValue, term1531));
     }
 
 };
-
-

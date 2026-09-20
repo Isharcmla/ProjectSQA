@@ -1,0 +1,13 @@
+{
+  "project": "Gson",
+  "bug_id": "1",
+  "tool": "kex",
+  "elapsed_sec": 174.03,
+  "target_classes": [
+    "com.google.gson.TypeInfoFactory"
+  ],
+  "kex_results": {
+    "com.google.gson.TypeInfoFactory": "success"
+  },
+  "status": "success"
+}

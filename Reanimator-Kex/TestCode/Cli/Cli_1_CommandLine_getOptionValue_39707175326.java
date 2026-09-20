@@ -24,7 +24,7 @@ import java.util.HashMap;
 public class CommandLine_getOptionValue_39707175326 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
      Object term249;
-     Object term1110;
+     Object term1109;
 
     public CommandLine_getOptionValue_39707175326() {
     }
@@ -44,15 +44,15 @@ public class CommandLine_getOptionValue_39707175326 {
         setField(term249, term249.getClass(), "options", term253);
         setField(term249, term249.getClass(), "names", term258);
         setField(term249, term249.getClass(), "hashcodeMap", term263);
-        LinkedList term1111 = new LinkedList();
+        LinkedList term1110 = new LinkedList();
+        HashMap term1111 = new HashMap();
         HashMap term1112 = new HashMap();
         HashMap term1113 = new HashMap();
-        HashMap term1114 = new HashMap();
-        term1110 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
-        setField(term1110, term1110.getClass(), "args", term1111);
-        setField(term1110, term1110.getClass(), "options", term1112);
-        setField(term1110, term1110.getClass(), "names", term1113);
-        setField(term1110, term1110.getClass(), "hashcodeMap", term1114);
+        term1109 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
+        setField(term1109, term1109.getClass(), "args", term1110);
+        setField(term1109, term1109.getClass(), "options", term1111);
+        setField(term1109, term1109.getClass(), "names", term1112);
+        setField(term1109, term1109.getClass(), "hashcodeMap", term1113);
     }
 
     @Test
@@ -65,10 +65,8 @@ public class CommandLine_getOptionValue_39707175326 {
         args[0] = "jJCZpVmanW";
         args[1] = "EGtDIRbSSb";
         Object retValue = callMethod(klass, "getOptionValue", argTypes, term249, args);
-        assertTrue(recursiveEquals(term249, term1110));
+        assertTrue(recursiveEquals(term249, term1109));
         assertTrue(recursiveEquals(retValue, "EGtDIRbSSb"));
     }
 
 };
-
-

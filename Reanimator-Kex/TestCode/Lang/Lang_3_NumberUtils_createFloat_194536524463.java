@@ -50,5 +50,3 @@ public class NumberUtils_createFloat_194536524463 {
     }
 
 };
-
-

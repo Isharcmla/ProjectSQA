@@ -24,7 +24,7 @@ import java.util.HashMap;
 public class CommandLine_getOptionValue_2780776422 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
      Object term125;
-     Object term865;
+     Object term864;
 
     public CommandLine_getOptionValue_2780776422() {
     }
@@ -44,15 +44,15 @@ public class CommandLine_getOptionValue_2780776422 {
         setField(term125, term125.getClass(), "options", term129);
         setField(term125, term125.getClass(), "names", term134);
         setField(term125, term125.getClass(), "hashcodeMap", term139);
-        LinkedList term866 = new LinkedList();
+        LinkedList term865 = new LinkedList();
+        HashMap term866 = new HashMap();
         HashMap term867 = new HashMap();
         HashMap term868 = new HashMap();
-        HashMap term869 = new HashMap();
-        term865 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
-        setField(term865, term865.getClass(), "args", term866);
-        setField(term865, term865.getClass(), "options", term867);
-        setField(term865, term865.getClass(), "names", term868);
-        setField(term865, term865.getClass(), "hashcodeMap", term869);
+        term864 = newInstance(Class.forName("org.apache.commons.cli.CommandLine"));
+        setField(term864, term864.getClass(), "args", term865);
+        setField(term864, term864.getClass(), "options", term866);
+        setField(term864, term864.getClass(), "names", term867);
+        setField(term864, term864.getClass(), "hashcodeMap", term868);
     }
 
     @Test
@@ -63,10 +63,8 @@ public class CommandLine_getOptionValue_2780776422 {
         Object[] args = new Object[1];
         args[0] = "MuLcgQHgqz";
         Object retValue = callMethod(klass, "getOptionValue", argTypes, term125, args);
-        assertTrue(recursiveEquals(term125, term865));
+        assertTrue(recursiveEquals(term125, term864));
         assertTrue(recursiveEquals(retValue, null));
     }
 
 };
-
-

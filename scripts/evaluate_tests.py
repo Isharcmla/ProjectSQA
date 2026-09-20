@@ -788,6 +788,45 @@ def evaluate(project, bug_id, tool, timeout_sec):
             writer.writeheader()
             writer.writerows(rows)
 
+        # Generation status comes from the benchmark runner result.
+        # Evaluation success is a separate concept: partial tests from a
+        # timed-out generation may still be evaluated successfully.
+        generation_status = "unknown"
+
+        repo_folder = {
+            "kex": "Reanimator-Kex",
+            "evosuite": "DynaMOSA",
+        }.get(tool)
+
+        if repo_folder is not None:
+            generation_result = (
+                REPO_DIR
+                / repo_folder
+                / "Result_Round2"
+                / project
+                / f"{project}_{bug_id}_result.json"
+            )
+
+            if generation_result.is_file():
+                try:
+                    generation_data = json.loads(
+                        generation_result.read_text(
+                            encoding="utf-8",
+                            errors="replace",
+                        )
+                    )
+                    generation_status = str(
+                        generation_data.get(
+                            "status",
+                            "unknown",
+                        )
+                    )
+                except (
+                    OSError,
+                    json.JSONDecodeError,
+                ):
+                    generation_status = "unknown"
+
         summary = {
             "project": project,
             "bug_id": str(bug_id),
@@ -801,7 +840,7 @@ def evaluate(project, bug_id, tool, timeout_sec):
             "bug_detected": counts.get(
                 "bug_revealing", 0
             ) > 0,
-            "generation_status": "success",
+            "generation_status": generation_status,
             "evaluation_status": "success",
         }
 

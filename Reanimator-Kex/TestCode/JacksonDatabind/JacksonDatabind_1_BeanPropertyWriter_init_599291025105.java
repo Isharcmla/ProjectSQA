@@ -1,0 +1,96 @@
+package com.fasterxml.jackson.databind.ser;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.reflect.InaccessibleObjectException;
+import static com.fasterxml.jackson.databind.ser.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.lang.String;
+
+public class BeanPropertyWriter_init_599291025105 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term31175;
+     Object term31331;
+     Object term31479;
+
+    public BeanPropertyWriter_init_599291025105() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Object term30943 = newInstance(Class.forName("com.fasterxml.jackson.databind.ser.BeanPropertyWriter"));
+        Object term31041 = newInstance(Class.forName("com.fasterxml.jackson.core.io.SerializedString"));
+        setField(term30943, term30943.getClass(), "_member", null);
+        setField(term30943, term30943.getClass(), "_contextAnnotations", null);
+        setField(term31041, term31041.getClass(), "_value", null);
+        setField(term30943, term30943.getClass(), "_name", term31041);
+        setField(term30943, term30943.getClass(), "_wrapperName", null);
+        setField(term30943, term30943.getClass(), "_declaredType", null);
+        setField(term30943, term30943.getClass(), "_serializer", null);
+        setField(term30943, term30943.getClass(), "_dynamicSerializers", null);
+        setField(term30943, term30943.getClass(), "_typeSerializer", null);
+        setField(term30943, term30943.getClass(), "_cfgSerializationType", null);
+        setBooleanField(term30943, term30943.getClass(), "_isRequired", false);
+        setField(term30943, term30943.getClass(), "_accessorMethod", null);
+        term31175 = newInstance(Class.forName("com.fasterxml.jackson.databind.util.SimpleBeanPropertyDefinition"));
+        setField(term31175, term31175.getClass(), "_name", "");
+        setField(term31175, term31175.getClass(), "_introspector", null);
+        Class<? extends Object> term32237 = Class.forName((String) "java.io.FilterReader");
+        Field term31383 = ((Class) term32237).getDeclaredField((String) "in");
+        ((Field) term31383).setAccessible(false);
+        term31331 = newInstance(Class.forName("com.fasterxml.jackson.databind.introspect.AnnotatedField"));
+        setField(term31331, term31331.getClass(), "_field", term31383);
+        term31479 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ArrayType"));
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.databind.ser.BeanPropertyWriter");
+        Class<?>[] argTypes = new Class<?>[9];
+        argTypes[0] = Class.forName("com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition");
+        argTypes[1] = Class.forName("com.fasterxml.jackson.databind.introspect.AnnotatedMember");
+        argTypes[2] = Class.forName("com.fasterxml.jackson.databind.util.Annotations");
+        argTypes[3] = Class.forName("com.fasterxml.jackson.databind.JavaType");
+        argTypes[4] = Class.forName("com.fasterxml.jackson.databind.JsonSerializer");
+        argTypes[5] = Class.forName("com.fasterxml.jackson.databind.jsontype.TypeSerializer");
+        argTypes[6] = Class.forName("com.fasterxml.jackson.databind.JavaType");
+        argTypes[7] = boolean.class;
+        argTypes[8] = Class.forName("java.lang.Object");
+        Object[] args = new Object[9];
+        args[0] = term31175;
+        args[1] = term31331;
+        args[2] = null;
+        args[3] = null;
+        args[4] = null;
+        args[5] = null;
+        args[6] = term31479;
+        args[7] = false;
+        args[8] = null;
+        try {
+            Object instance = callConstructor(klass, argTypes, args);
+            assertTrue(false);
+        }
+        catch (InaccessibleObjectException e) {
+        }
+
+    }
+
+};

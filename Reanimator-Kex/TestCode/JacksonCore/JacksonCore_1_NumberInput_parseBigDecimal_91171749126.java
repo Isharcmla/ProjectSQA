@@ -1,0 +1,58 @@
+package com.fasterxml.jackson.core.io;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NumberFormatException;
+import static com.fasterxml.jackson.core.io.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class NumberInput_parseBigDecimal_91171749126 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term226;
+
+    public NumberInput_parseBigDecimal_91171749126() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term226 = (char[]) newCharArray(4);
+        setCharElement(term226, 0, 'l');
+        setCharElement(term226, 1, 'J');
+        setCharElement(term226, 2, 'A');
+        setCharElement(term226, 3, 'E');
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.core.io.NumberInput");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Array.newInstance(char.class, 0).getClass();
+        Object[] args = new Object[1];
+        args[0] = term226;
+        try {
+            callMethod(klass, "parseBigDecimal", argTypes, null, args);
+            assertTrue(false);
+        }
+        catch (NumberFormatException e) {
+        }
+
+    }
+
+};

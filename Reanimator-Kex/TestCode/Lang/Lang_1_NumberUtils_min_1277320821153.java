@@ -15,14 +15,12 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.stream.Stream;
 import java.util.stream.Collectors;
+import java.lang.IllegalArgumentException;
 import static org.apache.commons.lang3.math.ReflectionUtils.*;
 import static org.junit.Assert.assertTrue;
-import static org.apache.commons.lang3.math.EqualityUtils.*;
 
 public class NumberUtils_min_1277320821153 {
     @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
-     Object term33766;
-     Object term33816;
 
     public NumberUtils_min_1277320821153() {
     }
@@ -33,12 +31,6 @@ public class NumberUtils_min_1277320821153 {
 
     @Before
     public void setup() throws Throwable {
-        term33766 = (short[]) newShortArray(3);
-        setShortElement(term33766, 0, (short) 1);
-        setShortElement(term33766, 1, (short) 32767);
-        term33816 = (short[]) newShortArray(3);
-        setShortElement(term33816, 0, (short) 1);
-        setShortElement(term33816, 1, (short) 32767);
     }
 
     @Test
@@ -47,11 +39,14 @@ public class NumberUtils_min_1277320821153 {
         Class<?>[] argTypes = new Class<?>[1];
         argTypes[0] = Array.newInstance(short.class, 0).getClass();
         Object[] args = new Object[1];
-        args[0] = term33766;
-        callMethod(klass, "min", argTypes, null, args);
-        assertTrue(recursiveEquals(term33766, term33816));
+        args[0] = null;
+        try {
+            callMethod(klass, "min", argTypes, null, args);
+            assertTrue(false);
+        }
+        catch (IllegalArgumentException e) {
+        }
+
     }
 
 };
-
-

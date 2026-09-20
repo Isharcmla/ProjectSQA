@@ -45,5 +45,3 @@ public class NumberUtils_toDouble_152003422355 {
     }
 
 };
-
-
