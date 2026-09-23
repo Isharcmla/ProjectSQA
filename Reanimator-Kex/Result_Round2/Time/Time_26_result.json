@@ -1,0 +1,21 @@
+{
+  "project": "Time",
+  "bug_id": "26",
+  "tool": "kex",
+  "elapsed_sec": 709.42,
+  "target_classes": [
+    "org.joda.time.chrono.ZonedChronology",
+    "org.joda.time.DateTimeZone",
+    "org.joda.time.field.LenientDateTimeField"
+  ],
+  "kex_results": {
+    "org.joda.time.chrono.ZonedChronology": "success",
+    "org.joda.time.DateTimeZone": "success",
+    "org.joda.time.field.LenientDateTimeField": "success"
+  },
+  "num_test_files_generated": 472,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

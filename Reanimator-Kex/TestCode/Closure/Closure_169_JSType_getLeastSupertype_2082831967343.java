@@ -1,0 +1,61 @@
+package com.google.javascript.rhino.jstype;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.rhino.jstype.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class JSType_getLeastSupertype_2082831967343 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term52708;
+     Object term52798;
+
+    public JSType_getLeastSupertype_2082831967343() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term52708 = newInstance(Class.forName("com.google.javascript.rhino.jstype.PrototypeObjectType"));
+        setBooleanField(term52708, term52708.getClass(), "unknown", false);
+        term52798 = newInstance(Class.forName("com.google.javascript.rhino.jstype.AllType"));
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.rhino.jstype.JSType");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("com.google.javascript.rhino.jstype.JSType");
+        argTypes[1] = Class.forName("com.google.javascript.rhino.jstype.JSType");
+        Object[] args = new Object[2];
+        args[0] = term52708;
+        args[1] = term52798;
+        try {
+            callMethod(klass, "getLeastSupertype", argTypes, null, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

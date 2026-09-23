@@ -1,0 +1,68 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class TypeCheck_visit_8595247841098 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term314213;
+     Object term314305;
+
+    public TypeCheck_visit_8595247841098() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term314213 = newInstance(Class.forName("com.google.javascript.jscomp.TypeCheck"));
+        term314305 = newInstance(Class.forName("com.google.javascript.rhino.Node$NumberNode"));
+        Object term314397 = newInstance(Class.forName("com.google.javascript.rhino.Node$NumberNode"));
+        Object term314489 = newInstance(Class.forName("com.google.javascript.rhino.Node$NumberNode"));
+        setIntField(term314305, term314305.getClass(), "type", 52);
+        setField(term314305, term314305.getClass(), "first", term314397);
+        setField(term314305, term314305.getClass(), "last", term314489);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.TypeCheck");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Class.forName("com.google.javascript.jscomp.NodeTraversal");
+        argTypes[1] = Class.forName("com.google.javascript.rhino.Node");
+        argTypes[2] = Class.forName("com.google.javascript.rhino.Node");
+        Object[] args = new Object[3];
+        args[0] = null;
+        args[1] = term314305;
+        args[2] = null;
+        try {
+            callMethod(klass, "visit", argTypes, term314213, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

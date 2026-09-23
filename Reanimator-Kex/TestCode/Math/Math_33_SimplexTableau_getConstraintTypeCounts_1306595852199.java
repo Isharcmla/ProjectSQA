@@ -1,0 +1,214 @@
+package org.apache.commons.math3.optimization.linear;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.math3.optimization.linear.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.math3.optimization.linear.EqualityUtils.*;
+import java.util.ArrayList;
+import java.lang.Object;
+import java.lang.String;
+
+public class SimplexTableau_getConstraintTypeCounts_1306595852199 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term110450;
+     Object enum136;
+     Object term113306;
+     Object enum138;
+
+    public SimplexTableau_getConstraintTypeCounts_1306595852199() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Class<? extends Object> term113327 = Class.forName((String) "org.apache.commons.math3.optimization.linear.Relationship");
+        Field term113326 = ((Class) term113327).getDeclaredField((String) "GEQ");
+        ((Field) term113326).setAccessible(true);
+        enum136 = ((Field) term113326).get((Object) null);
+        Object term110630 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term110630, term110630.getClass(), "relationship", enum136);
+        Object term110916 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term110916, term110916.getClass(), "relationship", enum136);
+        Object term111044 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term111044, term111044.getClass(), "relationship", enum136);
+        Object term111172 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term111172, term111172.getClass(), "relationship", enum136);
+        Object term111300 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term111300, term111300.getClass(), "relationship", enum136);
+        Object term111428 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term111428, term111428.getClass(), "relationship", enum136);
+        Object term111556 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term111556, term111556.getClass(), "relationship", enum136);
+        Object term111684 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term111684, term111684.getClass(), "relationship", enum136);
+        Object term111812 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term111812, term111812.getClass(), "relationship", enum136);
+        Object term111940 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term111940, term111940.getClass(), "relationship", enum136);
+        Object term112068 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term112068, term112068.getClass(), "relationship", enum136);
+        Object term112196 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term112196, term112196.getClass(), "relationship", enum136);
+        Object term112324 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term112324, term112324.getClass(), "relationship", enum136);
+        Object term112452 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term112452, term112452.getClass(), "relationship", enum136);
+        Object term112580 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term112580, term112580.getClass(), "relationship", enum136);
+        ArrayList term110502 = new ArrayList();
+        ((ArrayList) term110502).add(term110630);
+        ((ArrayList) term110502).add(term110916);
+        ((ArrayList) term110502).add(term111044);
+        ((ArrayList) term110502).add(term111172);
+        ((ArrayList) term110502).add(term111300);
+        ((ArrayList) term110502).add(term111428);
+        ((ArrayList) term110502).add(term111556);
+        ((ArrayList) term110502).add(term111684);
+        ((ArrayList) term110502).add(term110916);
+        ((ArrayList) term110502).add(term111812);
+        ((ArrayList) term110502).add(term111172);
+        ((ArrayList) term110502).add(term111940);
+        ((ArrayList) term110502).add(term112068);
+        ((ArrayList) term110502).add(term112196);
+        ((ArrayList) term110502).add(term110916);
+        ((ArrayList) term110502).add(term112324);
+        ((ArrayList) term110502).add(term112452);
+        ((ArrayList) term110502).add(term111044);
+        ((ArrayList) term110502).add(term111556);
+        ((ArrayList) term110502).add(term112580);
+        term110450 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.SimplexTableau"));
+        setField(term110450, term110450.getClass(), "constraints", term110502);
+        Class<? extends Object> term113628 = Class.forName((String) "org.apache.commons.math3.optimization.linear.Relationship");
+        Field term113627 = ((Class) term113628).getDeclaredField((String) "EQ");
+        ((Field) term113627).setAccessible(true);
+        Object enum137 = ((Field) term113627).get((Object) null);
+        Object term113309 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113309, term113309.getClass(), "coefficients", null);
+        setField(term113309, term113309.getClass(), "relationship", enum137);
+        setDoubleField(term113309, term113309.getClass(), "value", 0.0);
+        Object term113311 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113311, term113311.getClass(), "coefficients", null);
+        setField(term113311, term113311.getClass(), "relationship", enum137);
+        setDoubleField(term113311, term113311.getClass(), "value", 0.0);
+        Object term113312 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113312, term113312.getClass(), "coefficients", null);
+        setField(term113312, term113312.getClass(), "relationship", enum137);
+        setDoubleField(term113312, term113312.getClass(), "value", 0.0);
+        Object term113313 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113313, term113313.getClass(), "coefficients", null);
+        setField(term113313, term113313.getClass(), "relationship", enum137);
+        setDoubleField(term113313, term113313.getClass(), "value", 0.0);
+        Object term113314 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113314, term113314.getClass(), "coefficients", null);
+        setField(term113314, term113314.getClass(), "relationship", enum137);
+        setDoubleField(term113314, term113314.getClass(), "value", 0.0);
+        Object term113315 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113315, term113315.getClass(), "coefficients", null);
+        setField(term113315, term113315.getClass(), "relationship", enum137);
+        setDoubleField(term113315, term113315.getClass(), "value", 0.0);
+        Object term113316 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113316, term113316.getClass(), "coefficients", null);
+        setField(term113316, term113316.getClass(), "relationship", enum137);
+        setDoubleField(term113316, term113316.getClass(), "value", 0.0);
+        Object term113317 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113317, term113317.getClass(), "coefficients", null);
+        setField(term113317, term113317.getClass(), "relationship", enum137);
+        setDoubleField(term113317, term113317.getClass(), "value", 0.0);
+        Object term113318 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113318, term113318.getClass(), "coefficients", null);
+        setField(term113318, term113318.getClass(), "relationship", enum137);
+        setDoubleField(term113318, term113318.getClass(), "value", 0.0);
+        Object term113319 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113319, term113319.getClass(), "coefficients", null);
+        setField(term113319, term113319.getClass(), "relationship", enum137);
+        setDoubleField(term113319, term113319.getClass(), "value", 0.0);
+        Object term113320 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113320, term113320.getClass(), "coefficients", null);
+        setField(term113320, term113320.getClass(), "relationship", enum137);
+        setDoubleField(term113320, term113320.getClass(), "value", 0.0);
+        Object term113321 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113321, term113321.getClass(), "coefficients", null);
+        setField(term113321, term113321.getClass(), "relationship", enum137);
+        setDoubleField(term113321, term113321.getClass(), "value", 0.0);
+        Object term113322 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113322, term113322.getClass(), "coefficients", null);
+        setField(term113322, term113322.getClass(), "relationship", enum137);
+        setDoubleField(term113322, term113322.getClass(), "value", 0.0);
+        Object term113323 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113323, term113323.getClass(), "coefficients", null);
+        setField(term113323, term113323.getClass(), "relationship", enum137);
+        setDoubleField(term113323, term113323.getClass(), "value", 0.0);
+        Object term113324 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.LinearConstraint"));
+        setField(term113324, term113324.getClass(), "coefficients", null);
+        setField(term113324, term113324.getClass(), "relationship", enum137);
+        setDoubleField(term113324, term113324.getClass(), "value", 0.0);
+        ArrayList term113307 = new ArrayList();
+        ((ArrayList) term113307).add(term113309);
+        ((ArrayList) term113307).add(term113311);
+        ((ArrayList) term113307).add(term113312);
+        ((ArrayList) term113307).add(term113313);
+        ((ArrayList) term113307).add(term113314);
+        ((ArrayList) term113307).add(term113315);
+        ((ArrayList) term113307).add(term113316);
+        ((ArrayList) term113307).add(term113317);
+        ((ArrayList) term113307).add(term113311);
+        ((ArrayList) term113307).add(term113318);
+        ((ArrayList) term113307).add(term113313);
+        ((ArrayList) term113307).add(term113319);
+        ((ArrayList) term113307).add(term113320);
+        ((ArrayList) term113307).add(term113321);
+        ((ArrayList) term113307).add(term113311);
+        ((ArrayList) term113307).add(term113322);
+        ((ArrayList) term113307).add(term113323);
+        ((ArrayList) term113307).add(term113312);
+        ((ArrayList) term113307).add(term113316);
+        ((ArrayList) term113307).add(term113324);
+        term113306 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.SimplexTableau"));
+        setField(term113306, term113306.getClass(), "f", null);
+        setField(term113306, term113306.getClass(), "constraints", term113307);
+        setBooleanField(term113306, term113306.getClass(), "restrictToNonNegative", false);
+        setField(term113306, term113306.getClass(), "columnLabels", null);
+        setField(term113306, term113306.getClass(), "tableau", null);
+        setIntField(term113306, term113306.getClass(), "numDecisionVariables", 0);
+        setIntField(term113306, term113306.getClass(), "numSlackVariables", 0);
+        setIntField(term113306, term113306.getClass(), "numArtificialVariables", 0);
+        setDoubleField(term113306, term113306.getClass(), "epsilon", 0.0);
+        setIntField(term113306, term113306.getClass(), "maxUlps", 0);
+        Class<? extends Object> term113926 = Class.forName((String) "org.apache.commons.math3.optimization.linear.Relationship");
+        Field term113925 = ((Class) term113926).getDeclaredField((String) "LEQ");
+        ((Field) term113925).setAccessible(true);
+        enum138 = ((Field) term113925).get((Object) null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math3.optimization.linear.SimplexTableau");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("org.apache.commons.math3.optimization.linear.Relationship");
+        Object[] args = new Object[1];
+        args[0] = enum136;
+        callMethod(klass, "getConstraintTypeCounts", argTypes, term110450, args);
+        assertTrue(recursiveEquals(term110450, term113306));
+        assertTrue(recursiveEquals(enum136, enum138));
+    }
+
+};
+
+

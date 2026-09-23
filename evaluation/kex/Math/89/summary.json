@@ -1,0 +1,15 @@
+{
+  "project": "Math",
+  "bug_id": "89",
+  "tool": "kex",
+  "generated_files": 98,
+  "candidate_tests": 96,
+  "classification_counts": {
+    "valid_non_revealing": 93,
+    "fixed_regression_or_unstable": 3
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

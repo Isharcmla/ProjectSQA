@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "55",
+  "tool": "kex",
+  "elapsed_sec": 103.35,
+  "target_classes": [
+    "org.apache.commons.lang.time.StopWatch"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang.time.StopWatch": "success"
+  },
+  "num_test_files_generated": 32,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

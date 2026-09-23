@@ -9,5 +9,8 @@
   "kex_results": {
     "org.apache.commons.lang3.math.NumberUtils": "timeout"
   },
-  "status": "timeout"
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
 }

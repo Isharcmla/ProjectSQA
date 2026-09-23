@@ -1,0 +1,16 @@
+{
+  "project": "Mockito",
+  "bug_id": "36",
+  "tool": "kex",
+  "generated_files": 32,
+  "candidate_tests": 30,
+  "classification_counts": {
+    "invalid_or_unstable": 8,
+    "fixed_regression_or_unstable": 1,
+    "valid_non_revealing": 21
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

@@ -1,0 +1,17 @@
+{
+  "project": "Jsoup",
+  "bug_id": "89",
+  "tool": "kex",
+  "elapsed_sec": 189.78,
+  "target_classes": [
+    "org.jsoup.nodes.Attribute"
+  ],
+  "kex_results": {
+    "org.jsoup.nodes.Attribute": "success"
+  },
+  "num_test_files_generated": 90,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

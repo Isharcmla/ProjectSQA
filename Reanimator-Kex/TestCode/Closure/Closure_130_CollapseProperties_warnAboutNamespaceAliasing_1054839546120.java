@@ -1,0 +1,68 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class CollapseProperties_warnAboutNamespaceAliasing_1054839546120 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term254033;
+     Object term254217;
+     Object term254319;
+
+    public CollapseProperties_warnAboutNamespaceAliasing_1054839546120() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term254033 = newInstance(Class.forName("com.google.javascript.jscomp.CollapseProperties"));
+        Object term254113 = newInstance(Class.forName("com.google.javascript.jscomp.Compiler"));
+        setField(term254033, term254033.getClass(), "compiler", term254113);
+        term254217 = newInstance(Class.forName("com.google.javascript.jscomp.GlobalNamespace$Name"));
+        term254319 = newInstance(Class.forName("com.google.javascript.jscomp.GlobalNamespace$Ref"));
+        Object term254389 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setField(term254319, term254319.getClass(), "source", null);
+        setField(term254319, term254319.getClass(), "node", term254389);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.CollapseProperties");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("com.google.javascript.jscomp.GlobalNamespace$Name");
+        argTypes[1] = Class.forName("com.google.javascript.jscomp.GlobalNamespace$Ref");
+        Object[] args = new Object[2];
+        args[0] = term254217;
+        args[1] = term254319;
+        try {
+            callMethod(klass, "warnAboutNamespaceAliasing", argTypes, term254033, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

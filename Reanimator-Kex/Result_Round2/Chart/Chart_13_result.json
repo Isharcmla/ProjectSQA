@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "13",
+  "tool": "kex",
+  "elapsed_sec": 169.93,
+  "target_classes": [
+    "org.jfree.chart.block.BorderArrangement"
+  ],
+  "kex_results": {
+    "org.jfree.chart.block.BorderArrangement": "success"
+  },
+  "num_test_files_generated": 190,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

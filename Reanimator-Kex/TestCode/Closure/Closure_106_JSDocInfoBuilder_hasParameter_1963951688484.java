@@ -1,0 +1,82 @@
+package com.google.javascript.rhino;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.javascript.rhino.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.google.javascript.rhino.EqualityUtils.*;
+import java.lang.Object;
+
+public class JSDocInfoBuilder_hasParameter_1963951688484 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term175321;
+     Object term175541;
+
+    public JSDocInfoBuilder_hasParameter_1963951688484() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term175321 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfoBuilder"));
+        Object term175401 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfo"));
+        Object term175525 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfo$LazilyInitializedInfo"));
+        setField(term175525, term175525.getClass(), "parameters", null);
+        setField(term175401, term175401.getClass(), "info", term175525);
+        setField(term175321, term175321.getClass(), "currentInfo", term175401);
+        term175541 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfoBuilder"));
+        Object term175542 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfo"));
+        Object term175543 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfo$LazilyInitializedInfo"));
+        setField(term175543, term175543.getClass(), "baseType", null);
+        setField(term175543, term175543.getClass(), "implementedInterfaces", null);
+        setField(term175543, term175543.getClass(), "parameters", null);
+        setField(term175543, term175543.getClass(), "thrownTypes", null);
+        setField(term175543, term175543.getClass(), "templateTypeName", null);
+        setField(term175543, term175543.getClass(), "description", null);
+        setField(term175543, term175543.getClass(), "deprecated", null);
+        setField(term175543, term175543.getClass(), "license", null);
+        setField(term175543, term175543.getClass(), "suppressions", null);
+        setField(term175542, term175542.getClass(), "info", term175543);
+        setField(term175542, term175542.getClass(), "documentation", null);
+        setField(term175542, term175542.getClass(), "sourceName", null);
+        setField(term175542, term175542.getClass(), "visibility", null);
+        setIntField(term175542, term175542.getClass(), "bitset", 0);
+        setField(term175542, term175542.getClass(), "type", null);
+        setField(term175542, term175542.getClass(), "thisType", null);
+        setBooleanField(term175542, term175542.getClass(), "includeDocumentation", false);
+        setField(term175541, term175541.getClass(), "currentInfo", term175542);
+        setBooleanField(term175541, term175541.getClass(), "populated", false);
+        setBooleanField(term175541, term175541.getClass(), "parseDocumentation", false);
+        setField(term175541, term175541.getClass(), "currentMarker", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.rhino.JSDocInfoBuilder");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("java.lang.String");
+        Object[] args = new Object[1];
+        args[0] = null;
+        callMethod(klass, "hasParameter", argTypes, term175321, args);
+        assertTrue(recursiveEquals(term175321, term175541));
+    }
+
+};
+
+

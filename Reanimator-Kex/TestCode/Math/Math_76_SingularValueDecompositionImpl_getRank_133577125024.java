@@ -1,0 +1,215 @@
+package org.apache.commons.math.linear;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.math.linear.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.math.linear.EqualityUtils.*;
+import java.lang.Object;
+
+public class SingularValueDecompositionImpl_getRank_133577125024 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term1041;
+     Object term4506;
+
+    public SingularValueDecompositionImpl_getRank_133577125024() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term1041 = newInstance(Class.forName("org.apache.commons.math.linear.SingularValueDecompositionImpl"));
+        Object term1044 = newInstance(Class.forName("org.apache.commons.math.linear.BiDiagonalTransformer"));
+        Object[] term1045 = (Object[]) newArray("[D", 4);
+        double[] term1046 = (double[]) newDoubleArray(8);
+        double[] term1055 = (double[]) newDoubleArray(0);
+        double[] term1056 = (double[]) newDoubleArray(5);
+        double[] term1062 = (double[]) newDoubleArray(4);
+        double[] term1067 = (double[]) newDoubleArray(1);
+        double[] term1069 = (double[]) newDoubleArray(0);
+        double[] term1070 = (double[]) newDoubleArray(6);
+        double[] term1077 = (double[]) newDoubleArray(3);
+        double[] term1081 = (double[]) newDoubleArray(4);
+        double[] term1086 = (double[]) newDoubleArray(5);
+        double[] term1092 = (double[]) newDoubleArray(8);
+        setIntField(term1041, term1041.getClass(), "m", 1048535127);
+        setIntField(term1041, term1041.getClass(), "n", -655067527);
+        setDoubleElement(term1046, 0, 0.8067108928296716);
+        setDoubleElement(term1046, 1, 0.6293118636954493);
+        setDoubleElement(term1046, 2, 0.7705839211434976);
+        setDoubleElement(term1046, 3, 0.08858836329417497);
+        setDoubleElement(term1046, 4, 0.8582456540284578);
+        setDoubleElement(term1046, 5, 0.061434557058998585);
+        setDoubleElement(term1046, 6, 0.1621025751381594);
+        setDoubleElement(term1046, 7, 0.8809657273235505);
+        setElement(term1045, 0, term1046);
+        setElement(term1045, 1, term1055);
+        setDoubleElement(term1056, 0, 0.33296332053567956);
+        setDoubleElement(term1056, 1, 0.593079122289713);
+        setDoubleElement(term1056, 2, 0.7455431255888774);
+        setDoubleElement(term1056, 3, 0.9459012738750242);
+        setDoubleElement(term1056, 4, 0.967474946781822);
+        setElement(term1045, 2, term1056);
+        setDoubleElement(term1062, 0, 0.4429892630967539);
+        setDoubleElement(term1062, 1, 0.10126144382177782);
+        setDoubleElement(term1062, 2, 0.5029736700336335);
+        setDoubleElement(term1062, 3, 0.2617673558897229);
+        setElement(term1045, 3, term1062);
+        setField(term1044, term1044.getClass(), "householderVectors", term1045);
+        setDoubleElement(term1067, 0, 0.052590327313127294);
+        setField(term1044, term1044.getClass(), "main", term1067);
+        setField(term1044, term1044.getClass(), "secondary", term1069);
+        setField(term1044, term1044.getClass(), "cachedU", null);
+        setField(term1044, term1044.getClass(), "cachedB", null);
+        setField(term1044, term1044.getClass(), "cachedV", null);
+        setField(term1041, term1041.getClass(), "transformer", term1044);
+        setDoubleElement(term1070, 0, 0.004207750553928968);
+        setDoubleElement(term1070, 1, 0.9107074560109533);
+        setDoubleElement(term1070, 2, 0.22308265923522352);
+        setDoubleElement(term1070, 3, 0.46226950865842764);
+        setDoubleElement(term1070, 4, 0.6482086250011448);
+        setDoubleElement(term1070, 5, 0.3154346482211354);
+        setField(term1041, term1041.getClass(), "mainBidiagonal", term1070);
+        setDoubleElement(term1077, 0, 0.020103660328398276);
+        setDoubleElement(term1077, 1, 0.6530844366661772);
+        setDoubleElement(term1077, 2, 0.7368078667856154);
+        setField(term1041, term1041.getClass(), "secondaryBidiagonal", term1077);
+        setDoubleElement(term1081, 0, 0.6799679189320558);
+        setDoubleElement(term1081, 1, 0.8342190257129791);
+        setDoubleElement(term1081, 2, 0.1057616236613994);
+        setDoubleElement(term1081, 3, 0.6517567007639319);
+        setField(term1041, term1041.getClass(), "mainTridiagonal", term1081);
+        setDoubleElement(term1086, 0, 0.7471692213461502);
+        setDoubleElement(term1086, 1, 0.20733693951275556);
+        setDoubleElement(term1086, 2, 0.6618543228332953);
+        setDoubleElement(term1086, 3, 0.8760632597672348);
+        setDoubleElement(term1086, 4, 0.4046308665116508);
+        setField(term1041, term1041.getClass(), "secondaryTridiagonal", term1086);
+        setField(term1041, term1041.getClass(), "eigenDecomposition", null);
+        setDoubleElement(term1092, 0, 0.3546618953364844);
+        setDoubleElement(term1092, 1, 0.011186829850474256);
+        setDoubleElement(term1092, 2, 0.47058253607311484);
+        setDoubleElement(term1092, 3, 0.7340691331467901);
+        setDoubleElement(term1092, 4, 0.23604395020255575);
+        setDoubleElement(term1092, 5, 0.7752202944026838);
+        setDoubleElement(term1092, 6, 0.6814473488244137);
+        setDoubleElement(term1092, 7, 0.7526628774283542);
+        setField(term1041, term1041.getClass(), "singularValues", term1092);
+        setField(term1041, term1041.getClass(), "cachedU", null);
+        setField(term1041, term1041.getClass(), "cachedUt", null);
+        setField(term1041, term1041.getClass(), "cachedS", null);
+        setField(term1041, term1041.getClass(), "cachedV", null);
+        setField(term1041, term1041.getClass(), "cachedVt", null);
+        term4506 = newInstance(Class.forName("org.apache.commons.math.linear.SingularValueDecompositionImpl"));
+        Object term4507 = newInstance(Class.forName("org.apache.commons.math.linear.BiDiagonalTransformer"));
+        Object[] term4508 = (Object[]) newArray("[D", 4);
+        double[] term4509 = (double[]) newDoubleArray(8);
+        double[] term4510 = (double[]) newDoubleArray(0);
+        double[] term4511 = (double[]) newDoubleArray(5);
+        double[] term4512 = (double[]) newDoubleArray(4);
+        double[] term4513 = (double[]) newDoubleArray(1);
+        double[] term4514 = (double[]) newDoubleArray(0);
+        double[] term4515 = (double[]) newDoubleArray(6);
+        double[] term4516 = (double[]) newDoubleArray(3);
+        double[] term4517 = (double[]) newDoubleArray(4);
+        double[] term4518 = (double[]) newDoubleArray(5);
+        double[] term4519 = (double[]) newDoubleArray(8);
+        setIntField(term4506, term4506.getClass(), "m", 1048535127);
+        setIntField(term4506, term4506.getClass(), "n", -655067527);
+        setDoubleElement(term4509, 0, 0.8067108928296716);
+        setDoubleElement(term4509, 1, 0.6293118636954493);
+        setDoubleElement(term4509, 2, 0.7705839211434976);
+        setDoubleElement(term4509, 3, 0.08858836329417497);
+        setDoubleElement(term4509, 4, 0.8582456540284578);
+        setDoubleElement(term4509, 5, 0.061434557058998585);
+        setDoubleElement(term4509, 6, 0.1621025751381594);
+        setDoubleElement(term4509, 7, 0.8809657273235505);
+        setElement(term4508, 0, term4509);
+        setElement(term4508, 1, term4510);
+        setDoubleElement(term4511, 0, 0.33296332053567956);
+        setDoubleElement(term4511, 1, 0.593079122289713);
+        setDoubleElement(term4511, 2, 0.7455431255888774);
+        setDoubleElement(term4511, 3, 0.9459012738750242);
+        setDoubleElement(term4511, 4, 0.967474946781822);
+        setElement(term4508, 2, term4511);
+        setDoubleElement(term4512, 0, 0.4429892630967539);
+        setDoubleElement(term4512, 1, 0.10126144382177782);
+        setDoubleElement(term4512, 2, 0.5029736700336335);
+        setDoubleElement(term4512, 3, 0.2617673558897229);
+        setElement(term4508, 3, term4512);
+        setField(term4507, term4507.getClass(), "householderVectors", term4508);
+        setDoubleElement(term4513, 0, 0.052590327313127294);
+        setField(term4507, term4507.getClass(), "main", term4513);
+        setField(term4507, term4507.getClass(), "secondary", term4514);
+        setField(term4507, term4507.getClass(), "cachedU", null);
+        setField(term4507, term4507.getClass(), "cachedB", null);
+        setField(term4507, term4507.getClass(), "cachedV", null);
+        setField(term4506, term4506.getClass(), "transformer", term4507);
+        setDoubleElement(term4515, 0, 0.004207750553928968);
+        setDoubleElement(term4515, 1, 0.9107074560109533);
+        setDoubleElement(term4515, 2, 0.22308265923522352);
+        setDoubleElement(term4515, 3, 0.46226950865842764);
+        setDoubleElement(term4515, 4, 0.6482086250011448);
+        setDoubleElement(term4515, 5, 0.3154346482211354);
+        setField(term4506, term4506.getClass(), "mainBidiagonal", term4515);
+        setDoubleElement(term4516, 0, 0.020103660328398276);
+        setDoubleElement(term4516, 1, 0.6530844366661772);
+        setDoubleElement(term4516, 2, 0.7368078667856154);
+        setField(term4506, term4506.getClass(), "secondaryBidiagonal", term4516);
+        setDoubleElement(term4517, 0, 0.6799679189320558);
+        setDoubleElement(term4517, 1, 0.8342190257129791);
+        setDoubleElement(term4517, 2, 0.1057616236613994);
+        setDoubleElement(term4517, 3, 0.6517567007639319);
+        setField(term4506, term4506.getClass(), "mainTridiagonal", term4517);
+        setDoubleElement(term4518, 0, 0.7471692213461502);
+        setDoubleElement(term4518, 1, 0.20733693951275556);
+        setDoubleElement(term4518, 2, 0.6618543228332953);
+        setDoubleElement(term4518, 3, 0.8760632597672348);
+        setDoubleElement(term4518, 4, 0.4046308665116508);
+        setField(term4506, term4506.getClass(), "secondaryTridiagonal", term4518);
+        setField(term4506, term4506.getClass(), "eigenDecomposition", null);
+        setDoubleElement(term4519, 0, 0.3546618953364844);
+        setDoubleElement(term4519, 1, 0.011186829850474256);
+        setDoubleElement(term4519, 2, 0.47058253607311484);
+        setDoubleElement(term4519, 3, 0.7340691331467901);
+        setDoubleElement(term4519, 4, 0.23604395020255575);
+        setDoubleElement(term4519, 5, 0.7752202944026838);
+        setDoubleElement(term4519, 6, 0.6814473488244137);
+        setDoubleElement(term4519, 7, 0.7526628774283542);
+        setField(term4506, term4506.getClass(), "singularValues", term4519);
+        setField(term4506, term4506.getClass(), "cachedU", null);
+        setField(term4506, term4506.getClass(), "cachedUt", null);
+        setField(term4506, term4506.getClass(), "cachedS", null);
+        setField(term4506, term4506.getClass(), "cachedV", null);
+        setField(term4506, term4506.getClass(), "cachedVt", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math.linear.SingularValueDecompositionImpl");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        Object retValue = callMethod(klass, "getRank", argTypes, term1041, args);
+        assertTrue(recursiveEquals(term1041, term4506));
+        assertTrue(recursiveEquals(retValue, 8));
+    }
+
+};
+
+

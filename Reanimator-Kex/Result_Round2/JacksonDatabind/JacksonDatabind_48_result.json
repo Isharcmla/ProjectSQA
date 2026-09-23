@@ -1,0 +1,19 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "48",
+  "tool": "kex",
+  "elapsed_sec": 613.22,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.DeserializationConfig",
+    "com.fasterxml.jackson.databind.SerializationConfig"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.DeserializationConfig": "timeout",
+    "com.fasterxml.jackson.databind.SerializationConfig": "timeout"
+  },
+  "num_test_files_generated": 228,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

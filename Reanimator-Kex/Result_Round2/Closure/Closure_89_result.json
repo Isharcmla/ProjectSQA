@@ -1,0 +1,19 @@
+{
+  "project": "Closure",
+  "bug_id": "89",
+  "tool": "kex",
+  "elapsed_sec": 31.8,
+  "target_classes": [
+    "com.google.javascript.jscomp.CollapseProperties",
+    "com.google.javascript.jscomp.GlobalNamespace"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.CollapseProperties": "failed",
+    "com.google.javascript.jscomp.GlobalNamespace": "failed"
+  },
+  "num_test_files_generated": 4,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

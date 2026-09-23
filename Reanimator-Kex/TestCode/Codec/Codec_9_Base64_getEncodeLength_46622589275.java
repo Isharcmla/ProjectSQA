@@ -1,0 +1,83 @@
+package org.apache.commons.codec.binary;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.codec.binary.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.codec.binary.EqualityUtils.*;
+import java.lang.Integer;
+
+public class Base64_getEncodeLength_46622589275 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term2291;
+     Object term2295;
+     Object term2297;
+     Object term11753;
+     Object term11754;
+
+    public Base64_getEncodeLength_46622589275() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term2291 = (byte[]) newByteArray(3);
+        setByteElement(term2291, 0, (byte) 2);
+        setByteElement(term2291, 1, (byte) -120);
+        setByteElement(term2291, 2, (byte) 96);
+        term2295 = new Integer(1114000454);
+        term2297 = (byte[]) newByteArray(5);
+        setByteElement(term2297, 0, (byte) -41);
+        setByteElement(term2297, 1, (byte) -88);
+        setByteElement(term2297, 2, (byte) 39);
+        setByteElement(term2297, 3, (byte) -1);
+        setByteElement(term2297, 4, (byte) 117);
+        term11753 = (byte[]) newByteArray(3);
+        setByteElement(term11753, 0, (byte) 2);
+        setByteElement(term11753, 1, (byte) -120);
+        setByteElement(term11753, 2, (byte) 96);
+        term11754 = (byte[]) newByteArray(5);
+        setByteElement(term11754, 0, (byte) -41);
+        setByteElement(term11754, 1, (byte) -88);
+        setByteElement(term11754, 2, (byte) 39);
+        setByteElement(term11754, 3, (byte) -1);
+        setByteElement(term11754, 4, (byte) 117);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.codec.binary.Base64");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Array.newInstance(byte.class, 0).getClass();
+        argTypes[1] = int.class;
+        argTypes[2] = Array.newInstance(byte.class, 0).getClass();
+        Object[] args = new Object[3];
+        args[0] = term2291;
+        args[1] = term2295;
+        args[2] = term2297;
+        Object retValue = callMethod(klass, "getEncodeLength", argTypes, null, args);
+        assertTrue(recursiveEquals(term2291, term11753));
+        assertTrue(recursiveEquals(term2295, 1114000454));
+        assertTrue(recursiveEquals(term2297, term11754));
+        assertTrue(recursiveEquals(retValue, 9L));
+    }
+
+};
+
+

@@ -1,0 +1,4 @@
+test,fqcn,method,buggy,fixed,classification
+SubTypeValidator_init_1649448783,com.fasterxml.jackson.databind.jsontype.impl.SubTypeValidator_init_1649448783,,FAIL,FAIL,invalid_or_unstable
+SubTypeValidator_instance_138010444,com.fasterxml.jackson.databind.jsontype.impl.SubTypeValidator_instance_138010444,,FAIL,FAIL,invalid_or_unstable
+SubTypeValidator_validateSubType_2975213725,com.fasterxml.jackson.databind.jsontype.impl.SubTypeValidator_validateSubType_2975213725,,PASS,PASS,valid_non_revealing

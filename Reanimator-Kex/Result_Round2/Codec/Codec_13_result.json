@@ -1,0 +1,21 @@
+{
+  "project": "Codec",
+  "bug_id": "13",
+  "tool": "kex",
+  "elapsed_sec": 291.47,
+  "target_classes": [
+    "org.apache.commons.codec.binary.CharSequenceUtils",
+    "org.apache.commons.codec.binary.StringUtils",
+    "org.apache.commons.codec.language.DoubleMetaphone"
+  ],
+  "kex_results": {
+    "org.apache.commons.codec.binary.CharSequenceUtils": "failed",
+    "org.apache.commons.codec.binary.StringUtils": "success",
+    "org.apache.commons.codec.language.DoubleMetaphone": "success"
+  },
+  "num_test_files_generated": 147,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

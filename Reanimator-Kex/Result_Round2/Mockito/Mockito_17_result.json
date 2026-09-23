@@ -1,0 +1,19 @@
+{
+  "project": "Mockito",
+  "bug_id": "17",
+  "tool": "kex",
+  "elapsed_sec": 31.1,
+  "target_classes": [
+    "org.mockito.internal.creation.MockSettingsImpl",
+    "org.mockito.internal.util.MockUtil"
+  ],
+  "kex_results": {
+    "org.mockito.internal.creation.MockSettingsImpl": "success",
+    "org.mockito.internal.util.MockUtil": "success"
+  },
+  "num_test_files_generated": 25,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

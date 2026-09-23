@@ -1,0 +1,80 @@
+package com.google.javascript.rhino.jstype;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.rhino.jstype.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.String;
+import java.lang.Object;
+
+public class FunctionType_isSubtype_2101002158964 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term1196242;
+     Object term1197002;
+
+    public FunctionType_isSubtype_2101002158964() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Class<? extends Object> term1199638 = Class.forName((String) "com.google.javascript.rhino.jstype.FunctionType$Kind");
+        Field term1199637 = ((Class) term1199638).getDeclaredField((String) "ORDINARY");
+        ((Field) term1199637).setAccessible(true);
+        Object enum2151 = ((Field) term1199637).get((Object) null);
+        term1196242 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$1"));
+        Object term1196786 = newInstance(Class.forName("com.google.javascript.rhino.jstype.FunctionType"));
+        Object term1196894 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$1"));
+        setField(term1196242, term1196242.getClass(), "kind", enum2151);
+        setField(term1196786, term1196786.getClass(), "kind", enum2151);
+        setField(term1196786, term1196786.getClass(), "typeOfThis", term1196894);
+        setField(term1196242, term1196242.getClass(), "typeOfThis", term1196786);
+        Class<? extends Object> term1199929 = Class.forName((String) "com.google.javascript.rhino.jstype.FunctionType$Kind");
+        Field term1199928 = ((Class) term1199929).getDeclaredField((String) "CONSTRUCTOR");
+        ((Field) term1199928).setAccessible(true);
+        Object enum2152 = ((Field) term1199928).get((Object) null);
+        term1197002 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$1"));
+        Object term1197334 = newInstance(Class.forName("com.google.javascript.rhino.jstype.ErrorFunctionType"));
+        Object term1197444 = newInstance(Class.forName("com.google.javascript.rhino.jstype.ErrorFunctionType"));
+        setField(term1197002, term1197002.getClass(), "kind", enum2151);
+        setField(term1197334, term1197334.getClass(), "kind", enum2152);
+        setField(term1197334, term1197334.getClass(), "typeOfThis", term1197444);
+        setField(term1197002, term1197002.getClass(), "typeOfThis", term1197334);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.rhino.jstype.FunctionType");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("com.google.javascript.rhino.jstype.JSType");
+        Object[] args = new Object[1];
+        args[0] = term1197002;
+        try {
+            callMethod(klass, "isSubtype", argTypes, term1196242, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

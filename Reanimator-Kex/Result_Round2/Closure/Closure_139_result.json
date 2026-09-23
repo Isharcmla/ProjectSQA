@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "139",
+  "tool": "kex",
+  "elapsed_sec": 145.04,
+  "target_classes": [
+    "com.google.javascript.jscomp.Normalize"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.Normalize": "failed"
+  },
+  "num_test_files_generated": 16,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

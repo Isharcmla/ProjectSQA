@@ -1,0 +1,214 @@
+package org.apache.commons.math.linear;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.math.linear.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.math.linear.EqualityUtils.*;
+import java.lang.Object;
+import java.lang.Integer;
+
+public class RealMatrixImpl_isValidCoordinate_76088679493 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term5014;
+     Object term5077;
+     Object term5079;
+     Object term25528;
+
+    public RealMatrixImpl_isValidCoordinate_76088679493() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term5014 = newInstance(Class.forName("org.apache.commons.math.linear.RealMatrixImpl"));
+        Object[] term5015 = (Object[]) newArray("[D", 4);
+        double[] term5016 = (double[]) newDoubleArray(0);
+        double[] term5017 = (double[]) newDoubleArray(9);
+        double[] term5027 = (double[]) newDoubleArray(8);
+        double[] term5036 = (double[]) newDoubleArray(1);
+        Object[] term5038 = (Object[]) newArray("[D", 6);
+        double[] term5039 = (double[]) newDoubleArray(4);
+        double[] term5044 = (double[]) newDoubleArray(1);
+        double[] term5046 = (double[]) newDoubleArray(7);
+        double[] term5054 = (double[]) newDoubleArray(1);
+        double[] term5056 = (double[]) newDoubleArray(8);
+        double[] term5065 = (double[]) newDoubleArray(7);
+        int[] term5073 = (int[]) newIntArray(2);
+        setElement(term5015, 0, term5016);
+        setDoubleElement(term5017, 0, 0.16118654728307136);
+        setDoubleElement(term5017, 1, 0.21454117227433023);
+        setDoubleElement(term5017, 2, 0.46586481983387695);
+        setDoubleElement(term5017, 3, 0.7450939404554896);
+        setDoubleElement(term5017, 4, 0.5626230381451691);
+        setDoubleElement(term5017, 5, 0.691683258601906);
+        setDoubleElement(term5017, 6, 0.03487955738253701);
+        setDoubleElement(term5017, 7, 0.7841154033456191);
+        setDoubleElement(term5017, 8, 0.38777118683579215);
+        setElement(term5015, 1, term5017);
+        setDoubleElement(term5027, 0, 0.16492853840013189);
+        setDoubleElement(term5027, 1, 0.21802764917100825);
+        setDoubleElement(term5027, 2, 0.1655057678881775);
+        setDoubleElement(term5027, 3, 0.9125403831916415);
+        setDoubleElement(term5027, 4, 0.5210540264393367);
+        setDoubleElement(term5027, 5, 0.14318570347313864);
+        setDoubleElement(term5027, 6, 0.5724978508519074);
+        setDoubleElement(term5027, 7, 0.20905115833247412);
+        setElement(term5015, 2, term5027);
+        setDoubleElement(term5036, 0, 0.26644888792640953);
+        setElement(term5015, 3, term5036);
+        setField(term5014, term5014.getClass(), "data", term5015);
+        setDoubleElement(term5039, 0, 0.4683337919743189);
+        setDoubleElement(term5039, 1, 0.09960446090587338);
+        setDoubleElement(term5039, 2, 0.39321378735034407);
+        setDoubleElement(term5039, 3, 0.7614009834017179);
+        setElement(term5038, 0, term5039);
+        setDoubleElement(term5044, 0, 0.6924641910636379);
+        setElement(term5038, 1, term5044);
+        setDoubleElement(term5046, 0, 0.26181731843076583);
+        setDoubleElement(term5046, 1, 0.07706926858567276);
+        setDoubleElement(term5046, 2, 0.14633587088724542);
+        setDoubleElement(term5046, 3, 0.5204498621462832);
+        setDoubleElement(term5046, 4, 0.8067967304857403);
+        setDoubleElement(term5046, 5, 0.7919144654608262);
+        setDoubleElement(term5046, 6, 0.4079153488596283);
+        setElement(term5038, 2, term5046);
+        setDoubleElement(term5054, 0, 0.9526798422512842);
+        setElement(term5038, 3, term5054);
+        setDoubleElement(term5056, 0, 0.03040018689432178);
+        setDoubleElement(term5056, 1, 0.8093660326394945);
+        setDoubleElement(term5056, 2, 0.9518466347294469);
+        setDoubleElement(term5056, 3, 0.7595257736544744);
+        setDoubleElement(term5056, 4, 0.6679678799052108);
+        setDoubleElement(term5056, 5, 0.3549004318065442);
+        setDoubleElement(term5056, 6, 0.124450071598591);
+        setDoubleElement(term5056, 7, 0.39621272551742337);
+        setElement(term5038, 4, term5056);
+        setDoubleElement(term5065, 0, 0.46210382875739175);
+        setDoubleElement(term5065, 1, 0.6820400822344057);
+        setDoubleElement(term5065, 2, 0.3564769700832985);
+        setDoubleElement(term5065, 3, 0.21542404953260907);
+        setDoubleElement(term5065, 4, 0.19226136632115187);
+        setDoubleElement(term5065, 5, 0.855238964355623);
+        setDoubleElement(term5065, 6, 0.9903661251227007);
+        setElement(term5038, 5, term5065);
+        setField(term5014, term5014.getClass(), "lu", term5038);
+        setIntElement(term5073, 0, -1476644457);
+        setIntElement(term5073, 1, 1270666529);
+        setField(term5014, term5014.getClass(), "permutation", term5073);
+        setIntField(term5014, term5014.getClass(), "parity", 1);
+        term5077 = new Integer(-1146679443);
+        term5079 = new Integer(-860131894);
+        term25528 = newInstance(Class.forName("org.apache.commons.math.linear.RealMatrixImpl"));
+        Object[] term25529 = (Object[]) newArray("[D", 4);
+        double[] term25530 = (double[]) newDoubleArray(0);
+        double[] term25531 = (double[]) newDoubleArray(9);
+        double[] term25532 = (double[]) newDoubleArray(8);
+        double[] term25533 = (double[]) newDoubleArray(1);
+        Object[] term25534 = (Object[]) newArray("[D", 6);
+        double[] term25535 = (double[]) newDoubleArray(4);
+        double[] term25536 = (double[]) newDoubleArray(1);
+        double[] term25537 = (double[]) newDoubleArray(7);
+        double[] term25538 = (double[]) newDoubleArray(1);
+        double[] term25539 = (double[]) newDoubleArray(8);
+        double[] term25540 = (double[]) newDoubleArray(7);
+        int[] term25541 = (int[]) newIntArray(2);
+        setElement(term25529, 0, term25530);
+        setDoubleElement(term25531, 0, 0.16118654728307136);
+        setDoubleElement(term25531, 1, 0.21454117227433023);
+        setDoubleElement(term25531, 2, 0.46586481983387695);
+        setDoubleElement(term25531, 3, 0.7450939404554896);
+        setDoubleElement(term25531, 4, 0.5626230381451691);
+        setDoubleElement(term25531, 5, 0.691683258601906);
+        setDoubleElement(term25531, 6, 0.03487955738253701);
+        setDoubleElement(term25531, 7, 0.7841154033456191);
+        setDoubleElement(term25531, 8, 0.38777118683579215);
+        setElement(term25529, 1, term25531);
+        setDoubleElement(term25532, 0, 0.16492853840013189);
+        setDoubleElement(term25532, 1, 0.21802764917100825);
+        setDoubleElement(term25532, 2, 0.1655057678881775);
+        setDoubleElement(term25532, 3, 0.9125403831916415);
+        setDoubleElement(term25532, 4, 0.5210540264393367);
+        setDoubleElement(term25532, 5, 0.14318570347313864);
+        setDoubleElement(term25532, 6, 0.5724978508519074);
+        setDoubleElement(term25532, 7, 0.20905115833247412);
+        setElement(term25529, 2, term25532);
+        setDoubleElement(term25533, 0, 0.26644888792640953);
+        setElement(term25529, 3, term25533);
+        setField(term25528, term25528.getClass(), "data", term25529);
+        setDoubleElement(term25535, 0, 0.4683337919743189);
+        setDoubleElement(term25535, 1, 0.09960446090587338);
+        setDoubleElement(term25535, 2, 0.39321378735034407);
+        setDoubleElement(term25535, 3, 0.7614009834017179);
+        setElement(term25534, 0, term25535);
+        setDoubleElement(term25536, 0, 0.6924641910636379);
+        setElement(term25534, 1, term25536);
+        setDoubleElement(term25537, 0, 0.26181731843076583);
+        setDoubleElement(term25537, 1, 0.07706926858567276);
+        setDoubleElement(term25537, 2, 0.14633587088724542);
+        setDoubleElement(term25537, 3, 0.5204498621462832);
+        setDoubleElement(term25537, 4, 0.8067967304857403);
+        setDoubleElement(term25537, 5, 0.7919144654608262);
+        setDoubleElement(term25537, 6, 0.4079153488596283);
+        setElement(term25534, 2, term25537);
+        setDoubleElement(term25538, 0, 0.9526798422512842);
+        setElement(term25534, 3, term25538);
+        setDoubleElement(term25539, 0, 0.03040018689432178);
+        setDoubleElement(term25539, 1, 0.8093660326394945);
+        setDoubleElement(term25539, 2, 0.9518466347294469);
+        setDoubleElement(term25539, 3, 0.7595257736544744);
+        setDoubleElement(term25539, 4, 0.6679678799052108);
+        setDoubleElement(term25539, 5, 0.3549004318065442);
+        setDoubleElement(term25539, 6, 0.124450071598591);
+        setDoubleElement(term25539, 7, 0.39621272551742337);
+        setElement(term25534, 4, term25539);
+        setDoubleElement(term25540, 0, 0.46210382875739175);
+        setDoubleElement(term25540, 1, 0.6820400822344057);
+        setDoubleElement(term25540, 2, 0.3564769700832985);
+        setDoubleElement(term25540, 3, 0.21542404953260907);
+        setDoubleElement(term25540, 4, 0.19226136632115187);
+        setDoubleElement(term25540, 5, 0.855238964355623);
+        setDoubleElement(term25540, 6, 0.9903661251227007);
+        setElement(term25534, 5, term25540);
+        setField(term25528, term25528.getClass(), "lu", term25534);
+        setIntElement(term25541, 0, -1476644457);
+        setIntElement(term25541, 1, 1270666529);
+        setField(term25528, term25528.getClass(), "permutation", term25541);
+        setIntField(term25528, term25528.getClass(), "parity", 1);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math.linear.RealMatrixImpl");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = int.class;
+        argTypes[1] = int.class;
+        Object[] args = new Object[2];
+        args[0] = term5077;
+        args[1] = term5079;
+        Object retValue = callMethod(klass, "isValidCoordinate", argTypes, term5014, args);
+        assertTrue(recursiveEquals(term5014, term25528));
+        assertTrue(recursiveEquals(term5077, -1146679443));
+        assertTrue(recursiveEquals(term5079, -860131894));
+        assertTrue(recursiveEquals(retValue, false));
+    }
+
+};
+
+

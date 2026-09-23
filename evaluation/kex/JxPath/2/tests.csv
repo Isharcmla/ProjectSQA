@@ -1,0 +1,4 @@
+test,fqcn,method,buggy,fixed,classification
+Expression_isContextDependent_13987932263,org.apache.commons.jxpath.ri.compiler.Expression_isContextDependent_13987932263,,PASS,PASS,valid_non_revealing
+Expression_iteratePointers_20052050785,org.apache.commons.jxpath.ri.compiler.Expression_iteratePointers_20052050785,,PASS,PASS,valid_non_revealing
+Expression_iterate_13328921284,org.apache.commons.jxpath.ri.compiler.Expression_iterate_13328921284,,PASS,PASS,valid_non_revealing

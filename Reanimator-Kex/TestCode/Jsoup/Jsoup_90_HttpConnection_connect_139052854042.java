@@ -1,0 +1,210 @@
+package org.jsoup.helper;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.jsoup.helper.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.jsoup.helper.EqualityUtils.*;
+import java.lang.Object;
+import java.util.ArrayList;
+import java.lang.String;
+import java.util.LinkedHashMap;
+
+public class HttpConnection_connect_139052854042 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term23;
+     Object term13090;
+     Object term12782;
+
+    public HttpConnection_connect_139052854042() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term23 = newInstance(Class.forName("java.net.URL"));
+        Object term67 = newInstance(Class.forName("sun.net.www.protocol.http.Handler"));
+        setField(term23, term23.getClass(), "protocol", "http");
+        setField(term23, term23.getClass(), "host", "www.oracle.com");
+        setIntField(term23, term23.getClass(), "port", -1);
+        setField(term23, term23.getClass(), "file", "");
+        setField(term23, term23.getClass(), "query", null);
+        setField(term23, term23.getClass(), "authority", "www.oracle.com");
+        setField(term23, term23.getClass(), "path", "");
+        setField(term23, term23.getClass(), "userInfo", null);
+        setField(term23, term23.getClass(), "ref", null);
+        setField(term23, term23.getClass(), "hostAddress", null);
+        setField(term67, term67.getClass(), "proxy", null);
+        setIntField(term67, term67.getClass(), "proxyPort", -1);
+        setField(term23, term23.getClass(), "handler", term67);
+        setField(term23, term23.getClass(), "tempState", null);
+        term13090 = newInstance(Class.forName("java.net.URL"));
+        Object term13101 = newInstance(Class.forName("sun.net.www.protocol.http.Handler"));
+        setField(term13090, term13090.getClass(), "protocol", "http");
+        setField(term13090, term13090.getClass(), "host", "www.oracle.com");
+        setIntField(term13090, term13090.getClass(), "port", -1);
+        setField(term13090, term13090.getClass(), "file", "");
+        setField(term13090, term13090.getClass(), "query", null);
+        setField(term13090, term13090.getClass(), "authority", "www.oracle.com");
+        setField(term13090, term13090.getClass(), "path", "");
+        setField(term13090, term13090.getClass(), "userInfo", null);
+        setField(term13090, term13090.getClass(), "ref", null);
+        setField(term13090, term13090.getClass(), "hostAddress", null);
+        setField(term13101, term13101.getClass(), "proxy", null);
+        setIntField(term13101, term13101.getClass(), "proxyPort", -1);
+        setField(term13090, term13090.getClass(), "handler", term13101);
+        setField(term13090, term13090.getClass(), "tempState", null);
+        ArrayList term12787 = new ArrayList();
+        Class<? extends Object> term13204 = Class.forName((String) "org.jsoup.Connection$Method");
+        Field term13203 = ((Class) term13204).getDeclaredField((String) "GET");
+        ((Field) term13203).setAccessible(true);
+        Object enum34 = ((Field) term13203).get((Object) null);
+        LinkedHashMap term12878 = new LinkedHashMap();
+        LinkedHashMap term12894 = new LinkedHashMap();
+        LinkedHashMap term12905 = new LinkedHashMap();
+        LinkedHashMap term12911 = new LinkedHashMap();
+        term12782 = newInstance(Class.forName("org.jsoup.helper.HttpConnection"));
+        Object term12783 = newInstance(Class.forName("org.jsoup.helper.HttpConnection$Request"));
+        Object term12793 = newInstance(Class.forName("org.jsoup.parser.Parser"));
+        Object term12794 = newInstance(Class.forName("org.jsoup.parser.HtmlTreeBuilder"));
+        Object[] term12799 = (Object[]) newArray("java.lang.String", 1);
+        Object term12800 = newInstance(Class.forName("org.jsoup.parser.Token$StartTag"));
+        Object term12804 = newInstance(Class.forName("org.jsoup.parser.Token$EndTag"));
+        Object term12808 = newInstance(Class.forName("org.jsoup.parser.ParseErrorList"));
+        Object[] term12810 = (Object[]) newArray("java.lang.Object", 0);
+        Object term12813 = newInstance(Class.forName("org.jsoup.parser.ParseSettings"));
+        Object term12824 = newInstance(Class.forName("java.net.URL"));
+        Object term12868 = newInstance(Class.forName("sun.net.www.protocol.http.Handler"));
+        Object term12900 = newInstance(Class.forName("org.jsoup.helper.HttpConnection$Response"));
+        setField(term12783, term12783.getClass(), "proxy", null);
+        setIntField(term12783, term12783.getClass(), "timeoutMilliseconds", 30000);
+        setIntField(term12783, term12783.getClass(), "maxBodySizeBytes", 1048576);
+        setBooleanField(term12783, term12783.getClass(), "followRedirects", true);
+        setField(term12783, term12783.getClass(), "data", term12787);
+        setField(term12783, term12783.getClass(), "body", null);
+        setBooleanField(term12783, term12783.getClass(), "ignoreHttpErrors", false);
+        setBooleanField(term12783, term12783.getClass(), "ignoreContentType", false);
+        setField(term12794, term12794.getClass(), "state", null);
+        setField(term12794, term12794.getClass(), "originalState", null);
+        setBooleanField(term12794, term12794.getClass(), "baseUriSetFromDoc", false);
+        setField(term12794, term12794.getClass(), "headElement", null);
+        setField(term12794, term12794.getClass(), "formElement", null);
+        setField(term12794, term12794.getClass(), "contextElement", null);
+        setField(term12794, term12794.getClass(), "formattingElements", null);
+        setField(term12794, term12794.getClass(), "pendingTableCharacters", null);
+        setField(term12794, term12794.getClass(), "emptyEnd", null);
+        setBooleanField(term12794, term12794.getClass(), "framesetOk", false);
+        setBooleanField(term12794, term12794.getClass(), "fosterInserts", false);
+        setBooleanField(term12794, term12794.getClass(), "fragmentParsing", false);
+        setField(term12794, term12794.getClass(), "specificScopeTarget", term12799);
+        setField(term12794, term12794.getClass(), "parser", null);
+        setField(term12794, term12794.getClass(), "reader", null);
+        setField(term12794, term12794.getClass(), "tokeniser", null);
+        setField(term12794, term12794.getClass(), "doc", null);
+        setField(term12794, term12794.getClass(), "stack", null);
+        setField(term12794, term12794.getClass(), "baseUri", null);
+        setField(term12794, term12794.getClass(), "currentToken", null);
+        setField(term12794, term12794.getClass(), "settings", null);
+        setField(term12800, term12800.getClass(), "tagName", null);
+        setField(term12800, term12800.getClass(), "normalName", null);
+        setField(term12800, term12800.getClass(), "pendingAttributeName", null);
+        setField(term12800, term12800.getClass(), "pendingAttributeValue", null);
+        setField(term12800, term12800.getClass(), "pendingAttributeValueS", null);
+        setBooleanField(term12800, term12800.getClass(), "hasEmptyAttributeValue", false);
+        setBooleanField(term12800, term12800.getClass(), "hasPendingAttributeValue", false);
+        setBooleanField(term12800, term12800.getClass(), "selfClosing", false);
+        setField(term12800, term12800.getClass(), "attributes", null);
+        setField(term12800, term12800.getClass(), "type", null);
+        setField(term12794, term12794.getClass(), "start", term12800);
+        setField(term12804, term12804.getClass(), "tagName", null);
+        setField(term12804, term12804.getClass(), "normalName", null);
+        setField(term12804, term12804.getClass(), "pendingAttributeName", null);
+        setField(term12804, term12804.getClass(), "pendingAttributeValue", null);
+        setField(term12804, term12804.getClass(), "pendingAttributeValueS", null);
+        setBooleanField(term12804, term12804.getClass(), "hasEmptyAttributeValue", false);
+        setBooleanField(term12804, term12804.getClass(), "hasPendingAttributeValue", false);
+        setBooleanField(term12804, term12804.getClass(), "selfClosing", false);
+        setField(term12804, term12804.getClass(), "attributes", null);
+        setField(term12804, term12804.getClass(), "type", null);
+        setField(term12794, term12794.getClass(), "end", term12804);
+        setField(term12793, term12793.getClass(), "treeBuilder", term12794);
+        setIntField(term12808, term12808.getClass(), "maxSize", 0);
+        setField(term12808, term12808.getClass(), "elementData", term12810);
+        setIntField(term12808, term12808.getClass(), "size", 0);
+        setIntField(term12808, term12808.getClass(), "modCount", 0);
+        setField(term12793, term12793.getClass(), "errors", term12808);
+        setBooleanField(term12813, term12813.getClass(), "preserveTagCase", false);
+        setBooleanField(term12813, term12813.getClass(), "preserveAttributeCase", false);
+        setField(term12793, term12793.getClass(), "settings", term12813);
+        setField(term12783, term12783.getClass(), "parser", term12793);
+        setBooleanField(term12783, term12783.getClass(), "parserDefined", false);
+        setField(term12783, term12783.getClass(), "postDataCharset", "UTF-8");
+        setField(term12783, term12783.getClass(), "sslSocketFactory", null);
+        setField(term12824, term12824.getClass(), "protocol", "http");
+        setField(term12824, term12824.getClass(), "host", "www.oracle.com");
+        setIntField(term12824, term12824.getClass(), "port", -1);
+        setField(term12824, term12824.getClass(), "file", "");
+        setField(term12824, term12824.getClass(), "query", null);
+        setField(term12824, term12824.getClass(), "authority", "www.oracle.com");
+        setField(term12824, term12824.getClass(), "path", "");
+        setField(term12824, term12824.getClass(), "userInfo", null);
+        setField(term12824, term12824.getClass(), "ref", null);
+        setField(term12824, term12824.getClass(), "hostAddress", null);
+        setField(term12868, term12868.getClass(), "proxy", null);
+        setIntField(term12868, term12868.getClass(), "proxyPort", -1);
+        setField(term12824, term12824.getClass(), "handler", term12868);
+        setField(term12824, term12824.getClass(), "tempState", null);
+        setField(term12783, term12783.getClass(), "url", term12824);
+        setField(term12783, term12783.getClass(), "method", enum34);
+        setField(term12783, term12783.getClass(), "headers", term12878);
+        setField(term12783, term12783.getClass(), "cookies", term12894);
+        setField(term12782, term12782.getClass(), "req", term12783);
+        setIntField(term12900, term12900.getClass(), "statusCode", 0);
+        setField(term12900, term12900.getClass(), "statusMessage", null);
+        setField(term12900, term12900.getClass(), "byteData", null);
+        setField(term12900, term12900.getClass(), "bodyStream", null);
+        setField(term12900, term12900.getClass(), "conn", null);
+        setField(term12900, term12900.getClass(), "charset", null);
+        setField(term12900, term12900.getClass(), "contentType", null);
+        setBooleanField(term12900, term12900.getClass(), "executed", false);
+        setBooleanField(term12900, term12900.getClass(), "inputStreamRead", false);
+        setIntField(term12900, term12900.getClass(), "numRedirects", 0);
+        setField(term12900, term12900.getClass(), "req", null);
+        setField(term12900, term12900.getClass(), "url", null);
+        setField(term12900, term12900.getClass(), "method", null);
+        setField(term12900, term12900.getClass(), "headers", term12905);
+        setField(term12900, term12900.getClass(), "cookies", term12911);
+        setField(term12782, term12782.getClass(), "res", term12900);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jsoup.helper.HttpConnection");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("java.net.URL");
+        Object[] args = new Object[1];
+        args[0] = term23;
+        Object retValue = callMethod(klass, "connect", argTypes, null, args);
+        assertTrue(recursiveEquals(term23, term13090));
+        assertTrue(recursiveEquals(retValue, term12782));
+    }
+
+};
+
+

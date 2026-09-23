@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "16",
+  "tool": "kex",
+  "elapsed_sec": 247.74,
+  "target_classes": [
+    "org.jfree.data.category.DefaultIntervalCategoryDataset"
+  ],
+  "kex_results": {
+    "org.jfree.data.category.DefaultIntervalCategoryDataset": "success"
+  },
+  "num_test_files_generated": 91,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

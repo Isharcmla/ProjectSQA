@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "7",
+  "tool": "kex",
+  "elapsed_sec": 244.71,
+  "target_classes": [
+    "org.jfree.data.time.TimePeriodValues"
+  ],
+  "kex_results": {
+    "org.jfree.data.time.TimePeriodValues": "success"
+  },
+  "num_test_files_generated": 82,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

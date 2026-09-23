@@ -1,0 +1,72 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.RuntimeException;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class ReferenceCollectingCallback_hotSwapScript_316460051643 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term208778;
+     Object term209134;
+
+    public ReferenceCollectingCallback_hotSwapScript_316460051643() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term208778 = newInstance(Class.forName("com.google.javascript.jscomp.ReferenceCollectingCallback"));
+        Object term208858 = newInstance(Class.forName("com.google.javascript.jscomp.Compiler"));
+        Object term208950 = newInstance(Class.forName("com.google.javascript.jscomp.PhaseOptimizer"));
+        Object term209180 = newInstance(Class.forName("com.google.javascript.rhino.Node$StringNode"));
+        setBooleanField(term208950, term208950.getClass(), "inLoop", true);
+        setIntField(term209180, term209180.getClass(), "type", 0);
+        setField(term209180, term209180.getClass(), "parent", null);
+        setField(term208950, term208950.getClass(), "jsRoot", term209180);
+        setField(term208858, term208858.getClass(), "phaseOptimizer", term208950);
+        setField(term208778, term208778.getClass(), "compiler", term208858);
+        term209134 = newInstance(Class.forName("com.google.javascript.rhino.Node$StringNode"));
+        setIntField(term209134, term209134.getClass(), "type", 0);
+        setField(term209134, term209134.getClass(), "parent", term209180);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.ReferenceCollectingCallback");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("com.google.javascript.rhino.Node");
+        argTypes[1] = Class.forName("com.google.javascript.rhino.Node");
+        Object[] args = new Object[2];
+        args[0] = term209134;
+        args[1] = null;
+        try {
+            callMethod(klass, "hotSwapScript", argTypes, term208778, args);
+            assertTrue(false);
+        }
+        catch (RuntimeException e) {
+        }
+
+    }
+
+};
+
+

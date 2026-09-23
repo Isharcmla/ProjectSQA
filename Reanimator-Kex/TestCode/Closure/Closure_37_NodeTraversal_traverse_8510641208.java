@@ -1,0 +1,67 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.RuntimeException;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class NodeTraversal_traverse_8510641208 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term48737;
+     Object term48925;
+
+    public NodeTraversal_traverse_8510641208() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term48737 = newInstance(Class.forName("com.google.javascript.jscomp.NodeTraversal"));
+        Object term48855 = newInstance(Class.forName("com.google.javascript.jscomp.Compiler"));
+        setField(term48737, term48737.getClass(), "inputId", null);
+        setField(term48737, term48737.getClass(), "sourceName", "");
+        setField(term48737, term48737.getClass(), "curNode", null);
+        setField(term48737, term48737.getClass(), "scopeRoots", null);
+        setField(term48737, term48737.getClass(), "compiler", term48855);
+        term48925 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setIntField(term48925, term48925.getClass(), "type", -133);
+        setField(term48925, term48925.getClass(), "parent", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.NodeTraversal");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("com.google.javascript.rhino.Node");
+        Object[] args = new Object[1];
+        args[0] = term48925;
+        try {
+            callMethod(klass, "traverse", argTypes, term48737, args);
+            assertTrue(false);
+        }
+        catch (RuntimeException e) {
+        }
+
+    }
+
+};
+
+

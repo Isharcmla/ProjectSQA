@@ -1,0 +1,7 @@
+test,fqcn,method,buggy,fixed,classification
+Equality_areArrayElementsEqual_152423126510,org.mockito.internal.matchers.Equality_areArrayElementsEqual_152423126510,,PASS,PASS,valid_non_revealing
+Equality_areArrayLengthsEqual_15189394459,org.mockito.internal.matchers.Equality_areArrayLengthsEqual_15189394459,,PASS,PASS,valid_non_revealing
+Equality_areArraysEqual_161412958,org.mockito.internal.matchers.Equality_areArraysEqual_161412958,,PASS,PASS,valid_non_revealing
+Equality_areEqual_16454767451,org.mockito.internal.matchers.Equality_areEqual_16454767451,,PASS,PASS,valid_non_revealing
+Equality_init_2401566556,org.mockito.internal.matchers.Equality_init_2401566556,,PASS,PASS,valid_non_revealing
+Equality_isArray_1505710655,org.mockito.internal.matchers.Equality_isArray_1505710655,,PASS,PASS,valid_non_revealing

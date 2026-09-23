@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "146",
+  "tool": "kex",
+  "elapsed_sec": 175.5,
+  "target_classes": [
+    "com.google.javascript.rhino.jstype.JSType"
+  ],
+  "kex_results": {
+    "com.google.javascript.rhino.jstype.JSType": "failed"
+  },
+  "num_test_files_generated": 322,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,73 @@
+package org.jsoup.parser;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.jsoup.parser.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.util.ArrayList;
+import java.lang.Object;
+import java.lang.StringBuilder;
+
+public class XmlTreeBuilder_insert_196792529288 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term211127;
+     Object term211299;
+
+    public XmlTreeBuilder_insert_196792529288() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Object term211233 = newInstance(Class.forName("org.jsoup.nodes.Document"));
+        ArrayList term211179 = new ArrayList();
+        ((ArrayList) term211179).add((Object)null);
+        ((ArrayList) term211179).add((Object)null);
+        ((ArrayList) term211179).add((Object)null);
+        ((ArrayList) term211179).add(term211233);
+        term211127 = newInstance(Class.forName("org.jsoup.parser.XmlTreeBuilder"));
+        setField(term211127, term211127.getClass(), "stack", term211179);
+        char[] term210685 = (char[]) newCharArray(106);
+        StringBuilder term211359 = new StringBuilder();
+        ((StringBuilder) term211359).append(term210685);
+        term211299 = newInstance(Class.forName("org.jsoup.parser.Token$Comment"));
+        setField(term211299, term211299.getClass(), "data", term211359);
+        setBooleanField(term211299, term211299.getClass(), "bogus", false);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jsoup.parser.XmlTreeBuilder");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("org.jsoup.parser.Token$Comment");
+        Object[] args = new Object[1];
+        args[0] = term211299;
+        try {
+            callMethod(klass, "insert", argTypes, term211127, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

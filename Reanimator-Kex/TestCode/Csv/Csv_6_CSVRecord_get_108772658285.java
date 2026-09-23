@@ -1,0 +1,66 @@
+package org.apache.commons.csv;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.IllegalArgumentException;
+import static org.apache.commons.csv.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.util.HashMap;
+import java.lang.String;
+import java.lang.Object;
+
+public class CSVRecord_get_108772658285 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term21264;
+     Object enum19;
+
+    public CSVRecord_get_108772658285() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        HashMap term21312 = new HashMap();
+        term21264 = newInstance(Class.forName("org.apache.commons.csv.CSVRecord"));
+        setField(term21264, term21264.getClass(), "mapping", term21312);
+        Class<? extends Object> term21880 = Class.forName((String) "org.apache.commons.csv.Token$Type");
+        Field term21879 = ((Class) term21880).getDeclaredField((String) "INVALID");
+        ((Field) term21879).setAccessible(true);
+        enum19 = ((Field) term21879).get((Object) null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.csv.CSVRecord");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("java.lang.Enum");
+        Object[] args = new Object[1];
+        args[0] = enum19;
+        try {
+            callMethod(klass, "get", argTypes, term21264, args);
+            assertTrue(false);
+        }
+        catch (IllegalArgumentException e) {
+        }
+
+    }
+
+};
+
+

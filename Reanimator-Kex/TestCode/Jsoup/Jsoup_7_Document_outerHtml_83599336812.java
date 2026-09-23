@@ -1,0 +1,216 @@
+package org.jsoup.nodes;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.jsoup.nodes.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+
+public class Document_outerHtml_83599336812 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term10661;
+
+    public Document_outerHtml_83599336812() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Class<? extends Object> term10828 = Class.forName((String) "org.jsoup.nodes.Entities$EscapeMode");
+        Field term10827 = ((Class) term10828).getDeclaredField((String) "extended");
+        ((Field) term10827).setAccessible(true);
+        Object enum8 = ((Field) term10827).get((Object) null);
+        ArrayList term10701 = new ArrayList();
+        Object term10707 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term10707, term10707.getClass(), "tagName", null);
+        setBooleanField(term10707, term10707.getClass(), "knownTag", false);
+        setBooleanField(term10707, term10707.getClass(), "isBlock", false);
+        setBooleanField(term10707, term10707.getClass(), "canContainBlock", false);
+        setBooleanField(term10707, term10707.getClass(), "canContainInline", false);
+        setBooleanField(term10707, term10707.getClass(), "optionalClosing", false);
+        setBooleanField(term10707, term10707.getClass(), "empty", false);
+        setBooleanField(term10707, term10707.getClass(), "selfClosing", true);
+        setBooleanField(term10707, term10707.getClass(), "preserveWhitespace", true);
+        setField(term10707, term10707.getClass(), "ancestors", null);
+        setField(term10707, term10707.getClass(), "excludes", null);
+        setField(term10707, term10707.getClass(), "ignoreEndTags", null);
+        setBooleanField(term10707, term10707.getClass(), "directDescendant", true);
+        setBooleanField(term10707, term10707.getClass(), "limitChildren", false);
+        Object term10718 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term10718, term10718.getClass(), "tagName", null);
+        setBooleanField(term10718, term10718.getClass(), "knownTag", false);
+        setBooleanField(term10718, term10718.getClass(), "isBlock", true);
+        setBooleanField(term10718, term10718.getClass(), "canContainBlock", true);
+        setBooleanField(term10718, term10718.getClass(), "canContainInline", false);
+        setBooleanField(term10718, term10718.getClass(), "optionalClosing", false);
+        setBooleanField(term10718, term10718.getClass(), "empty", true);
+        setBooleanField(term10718, term10718.getClass(), "selfClosing", true);
+        setBooleanField(term10718, term10718.getClass(), "preserveWhitespace", true);
+        setField(term10718, term10718.getClass(), "ancestors", null);
+        setField(term10718, term10718.getClass(), "excludes", null);
+        setField(term10718, term10718.getClass(), "ignoreEndTags", null);
+        setBooleanField(term10718, term10718.getClass(), "directDescendant", false);
+        setBooleanField(term10718, term10718.getClass(), "limitChildren", false);
+        Object term10729 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term10729, term10729.getClass(), "tagName", null);
+        setBooleanField(term10729, term10729.getClass(), "knownTag", true);
+        setBooleanField(term10729, term10729.getClass(), "isBlock", true);
+        setBooleanField(term10729, term10729.getClass(), "canContainBlock", false);
+        setBooleanField(term10729, term10729.getClass(), "canContainInline", true);
+        setBooleanField(term10729, term10729.getClass(), "optionalClosing", false);
+        setBooleanField(term10729, term10729.getClass(), "empty", false);
+        setBooleanField(term10729, term10729.getClass(), "selfClosing", true);
+        setBooleanField(term10729, term10729.getClass(), "preserveWhitespace", false);
+        setField(term10729, term10729.getClass(), "ancestors", null);
+        setField(term10729, term10729.getClass(), "excludes", null);
+        setField(term10729, term10729.getClass(), "ignoreEndTags", null);
+        setBooleanField(term10729, term10729.getClass(), "directDescendant", true);
+        setBooleanField(term10729, term10729.getClass(), "limitChildren", true);
+        Object term10740 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term10740, term10740.getClass(), "tagName", null);
+        setBooleanField(term10740, term10740.getClass(), "knownTag", false);
+        setBooleanField(term10740, term10740.getClass(), "isBlock", true);
+        setBooleanField(term10740, term10740.getClass(), "canContainBlock", true);
+        setBooleanField(term10740, term10740.getClass(), "canContainInline", true);
+        setBooleanField(term10740, term10740.getClass(), "optionalClosing", false);
+        setBooleanField(term10740, term10740.getClass(), "empty", true);
+        setBooleanField(term10740, term10740.getClass(), "selfClosing", false);
+        setBooleanField(term10740, term10740.getClass(), "preserveWhitespace", true);
+        setField(term10740, term10740.getClass(), "ancestors", null);
+        setField(term10740, term10740.getClass(), "excludes", null);
+        setField(term10740, term10740.getClass(), "ignoreEndTags", null);
+        setBooleanField(term10740, term10740.getClass(), "directDescendant", true);
+        setBooleanField(term10740, term10740.getClass(), "limitChildren", false);
+        Object term10751 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term10751, term10751.getClass(), "tagName", null);
+        setBooleanField(term10751, term10751.getClass(), "knownTag", false);
+        setBooleanField(term10751, term10751.getClass(), "isBlock", true);
+        setBooleanField(term10751, term10751.getClass(), "canContainBlock", true);
+        setBooleanField(term10751, term10751.getClass(), "canContainInline", true);
+        setBooleanField(term10751, term10751.getClass(), "optionalClosing", false);
+        setBooleanField(term10751, term10751.getClass(), "empty", true);
+        setBooleanField(term10751, term10751.getClass(), "selfClosing", true);
+        setBooleanField(term10751, term10751.getClass(), "preserveWhitespace", true);
+        setField(term10751, term10751.getClass(), "ancestors", null);
+        setField(term10751, term10751.getClass(), "excludes", null);
+        setField(term10751, term10751.getClass(), "ignoreEndTags", null);
+        setBooleanField(term10751, term10751.getClass(), "directDescendant", false);
+        setBooleanField(term10751, term10751.getClass(), "limitChildren", false);
+        Object term10762 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term10762, term10762.getClass(), "tagName", null);
+        setBooleanField(term10762, term10762.getClass(), "knownTag", false);
+        setBooleanField(term10762, term10762.getClass(), "isBlock", false);
+        setBooleanField(term10762, term10762.getClass(), "canContainBlock", false);
+        setBooleanField(term10762, term10762.getClass(), "canContainInline", false);
+        setBooleanField(term10762, term10762.getClass(), "optionalClosing", false);
+        setBooleanField(term10762, term10762.getClass(), "empty", false);
+        setBooleanField(term10762, term10762.getClass(), "selfClosing", false);
+        setBooleanField(term10762, term10762.getClass(), "preserveWhitespace", false);
+        setField(term10762, term10762.getClass(), "ancestors", null);
+        setField(term10762, term10762.getClass(), "excludes", null);
+        setField(term10762, term10762.getClass(), "ignoreEndTags", null);
+        setBooleanField(term10762, term10762.getClass(), "directDescendant", false);
+        setBooleanField(term10762, term10762.getClass(), "limitChildren", false);
+        ArrayList term10705 = new ArrayList();
+        ((ArrayList) term10705).add(term10707);
+        ((ArrayList) term10705).add(term10718);
+        ((ArrayList) term10705).add(term10729);
+        ((ArrayList) term10705).add(term10707);
+        ((ArrayList) term10705).add(term10740);
+        ((ArrayList) term10705).add(term10729);
+        ((ArrayList) term10705).add(term10751);
+        ((ArrayList) term10705).add(term10740);
+        ((ArrayList) term10705).add(term10762);
+        Object term10777 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term10777, term10777.getClass(), "tagName", null);
+        setBooleanField(term10777, term10777.getClass(), "knownTag", false);
+        setBooleanField(term10777, term10777.getClass(), "isBlock", false);
+        setBooleanField(term10777, term10777.getClass(), "canContainBlock", true);
+        setBooleanField(term10777, term10777.getClass(), "canContainInline", false);
+        setBooleanField(term10777, term10777.getClass(), "optionalClosing", false);
+        setBooleanField(term10777, term10777.getClass(), "empty", true);
+        setBooleanField(term10777, term10777.getClass(), "selfClosing", false);
+        setBooleanField(term10777, term10777.getClass(), "preserveWhitespace", false);
+        setField(term10777, term10777.getClass(), "ancestors", null);
+        setField(term10777, term10777.getClass(), "excludes", null);
+        setField(term10777, term10777.getClass(), "ignoreEndTags", null);
+        setBooleanField(term10777, term10777.getClass(), "directDescendant", true);
+        setBooleanField(term10777, term10777.getClass(), "limitChildren", false);
+        ArrayList term10775 = new ArrayList();
+        ((ArrayList) term10775).add(term10777);
+        ((ArrayList) term10775).add(term10762);
+        HashMap term10793 = new HashMap();
+        Set<Object> term11043 =  ((Map) term10793).keySet();
+        HashSet term10792 = new HashSet((Collection<? extends Object>) term11043);
+        ArrayList term10803 = new ArrayList();
+        LinkedHashMap term10808 = new LinkedHashMap();
+        term10661 = newInstance(Class.forName("org.jsoup.nodes.Document"));
+        Object term10662 = newInstance(Class.forName("org.jsoup.nodes.Document$OutputSettings"));
+        Object term10680 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        Object term10807 = newInstance(Class.forName("org.jsoup.nodes.Attributes"));
+        setField(term10662, term10662.getClass(), "escapeMode", enum8);
+        setField(term10662, term10662.getClass(), "charset", null);
+        setField(term10662, term10662.getClass(), "charsetEncoder", null);
+        setBooleanField(term10662, term10662.getClass(), "prettyPrint", true);
+        setIntField(term10662, term10662.getClass(), "indentAmount", -1456670397);
+        setField(term10662, term10662.getClass(), "this$0", null);
+        setField(term10661, term10661.getClass(), "outputSettings", term10662);
+        setField(term10680, term10680.getClass(), "tagName", "mXGCWJDOqA");
+        setBooleanField(term10680, term10680.getClass(), "knownTag", false);
+        setBooleanField(term10680, term10680.getClass(), "isBlock", false);
+        setBooleanField(term10680, term10680.getClass(), "canContainBlock", false);
+        setBooleanField(term10680, term10680.getClass(), "canContainInline", false);
+        setBooleanField(term10680, term10680.getClass(), "optionalClosing", false);
+        setBooleanField(term10680, term10680.getClass(), "empty", true);
+        setBooleanField(term10680, term10680.getClass(), "selfClosing", true);
+        setBooleanField(term10680, term10680.getClass(), "preserveWhitespace", false);
+        setField(term10680, term10680.getClass(), "ancestors", term10701);
+        setField(term10680, term10680.getClass(), "excludes", term10705);
+        setField(term10680, term10680.getClass(), "ignoreEndTags", term10775);
+        setBooleanField(term10680, term10680.getClass(), "directDescendant", false);
+        setBooleanField(term10680, term10680.getClass(), "limitChildren", true);
+        setField(term10661, term10661.getClass(), "tag", term10680);
+        setField(term10661, term10661.getClass(), "classNames", term10792);
+        setField(term10661, term10661.getClass(), "parentNode", null);
+        setField(term10661, term10661.getClass(), "childNodes", term10803);
+        setField(term10807, term10807.getClass(), "attributes", term10808);
+        setField(term10661, term10661.getClass(), "attributes", term10807);
+        setField(term10661, term10661.getClass(), "baseUri", "xIeFjkHkOe");
+        setIntField(term10661, term10661.getClass(), "siblingIndex", 1622346318);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jsoup.nodes.Document");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        callMethod(klass, "outerHtml", argTypes, term10661, args);
+    }
+
+};
+
+

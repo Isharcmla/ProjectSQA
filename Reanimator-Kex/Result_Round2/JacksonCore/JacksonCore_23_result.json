@@ -1,0 +1,17 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "23",
+  "tool": "kex",
+  "elapsed_sec": 30.54,
+  "target_classes": [
+    "com.fasterxml.jackson.core.util.DefaultPrettyPrinter"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.core.util.DefaultPrettyPrinter": "success"
+  },
+  "num_test_files_generated": 30,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

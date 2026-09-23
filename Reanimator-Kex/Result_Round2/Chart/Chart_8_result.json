@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "8",
+  "tool": "kex",
+  "elapsed_sec": 134.92,
+  "target_classes": [
+    "org.jfree.data.time.Week"
+  ],
+  "kex_results": {
+    "org.jfree.data.time.Week": "success"
+  },
+  "num_test_files_generated": 51,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

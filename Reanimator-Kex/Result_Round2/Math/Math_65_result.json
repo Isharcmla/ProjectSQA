@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "65",
+  "tool": "kex",
+  "elapsed_sec": 20.66,
+  "target_classes": [
+    "org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer": "success"
+  },
+  "num_test_files_generated": 19,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

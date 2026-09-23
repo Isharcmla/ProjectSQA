@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "22",
+  "tool": "kex",
+  "elapsed_sec": 309.34,
+  "target_classes": [
+    "org.apache.commons.lang3.math.Fraction"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang3.math.Fraction": "timeout"
+  },
+  "num_test_files_generated": 1353,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

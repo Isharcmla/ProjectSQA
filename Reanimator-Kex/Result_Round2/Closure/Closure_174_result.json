@@ -1,0 +1,21 @@
+{
+  "project": "Closure",
+  "bug_id": "174",
+  "tool": "kex",
+  "elapsed_sec": 585.88,
+  "target_classes": [
+    "com.google.javascript.jscomp.JsAst",
+    "com.google.javascript.jscomp.NodeUtil",
+    "com.google.javascript.jscomp.ScopedAliases"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.JsAst": "success",
+    "com.google.javascript.jscomp.NodeUtil": "timeout",
+    "com.google.javascript.jscomp.ScopedAliases": "success"
+  },
+  "num_test_files_generated": 378,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

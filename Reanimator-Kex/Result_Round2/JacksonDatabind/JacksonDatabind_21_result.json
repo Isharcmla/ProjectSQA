@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "21",
+  "tool": "kex",
+  "elapsed_sec": 23.28,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector": "success"
+  },
+  "num_test_files_generated": 79,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "7",
+  "tool": "kex",
+  "elapsed_sec": 309.76,
+  "target_classes": [
+    "org.apache.commons.lang3.math.NumberUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang3.math.NumberUtils": "timeout"
+  },
+  "num_test_files_generated": 94,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

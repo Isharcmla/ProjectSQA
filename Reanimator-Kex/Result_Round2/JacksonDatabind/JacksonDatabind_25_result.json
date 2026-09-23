@@ -1,0 +1,23 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "25",
+  "tool": "kex",
+  "elapsed_sec": 47.33,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.BasicDeserializerFactory",
+    "com.fasterxml.jackson.databind.deser.DeserializerCache",
+    "com.fasterxml.jackson.databind.jsontype.impl.TypeDeserializerBase",
+    "com.fasterxml.jackson.databind.module.SimpleAbstractTypeResolver"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.deser.BasicDeserializerFactory": "success",
+    "com.fasterxml.jackson.databind.deser.DeserializerCache": "success",
+    "com.fasterxml.jackson.databind.jsontype.impl.TypeDeserializerBase": "success",
+    "com.fasterxml.jackson.databind.module.SimpleAbstractTypeResolver": "success"
+  },
+  "num_test_files_generated": 95,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

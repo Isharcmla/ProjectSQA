@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "10",
+  "tool": "kex",
+  "elapsed_sec": 17.65,
+  "target_classes": [
+    "org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator"
+  ],
+  "kex_results": {
+    "org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator": "success"
+  },
+  "num_test_files_generated": 4,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

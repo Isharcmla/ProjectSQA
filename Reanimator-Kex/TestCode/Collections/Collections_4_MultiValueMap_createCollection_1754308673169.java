@@ -1,0 +1,65 @@
+package org.apache.commons.collections.map;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.IllegalArgumentException;
+import static org.apache.commons.collections.map.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.lang.String;
+
+public class MultiValueMap_createCollection_1754308673169 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term36579;
+
+    public MultiValueMap_createCollection_1754308673169() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Class<? extends Object> term36737 = Class.forName((String) "java.util.stream.PipelineHelper");
+        term36579 = newInstance(Class.forName("org.apache.commons.collections.map.MultiValueMap"));
+        Object term36701 = newInstance(Class.forName("org.apache.commons.collections.functors.InstantiateFactory"));
+        Object[] term36435 = (Object[]) newArray("java.lang.Class", 0);
+        setField(term36701, term36701.getClass(), "iConstructor", null);
+        setField(term36701, term36701.getClass(), "iClassToInstantiate", term36737);
+        setField(term36701, term36701.getClass(), "iParamTypes", term36435);
+        setField(term36579, term36579.getClass(), "collectionFactory", term36701);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.collections.map.MultiValueMap");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = int.class;
+        Object[] args = new Object[1];
+        args[0] = 0;
+        try {
+            callMethod(klass, "createCollection", argTypes, term36579, args);
+            assertTrue(false);
+        }
+        catch (IllegalArgumentException e) {
+        }
+
+    }
+
+};
+
+

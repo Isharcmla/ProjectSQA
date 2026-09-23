@@ -1,0 +1,213 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class PeepholeFoldConstants_tryConvertOperandsToNumber_210635661393 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term616024;
+     Object term616094;
+
+    public PeepholeFoldConstants_tryConvertOperandsToNumber_210635661393() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term616024 = newInstance(Class.forName("com.google.javascript.jscomp.PeepholeFoldConstants"));
+        term616094 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term616164 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term616234 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term616304 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term616374 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term616444 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term616514 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term616584 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term616654 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term616724 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term616794 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term616864 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term616934 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617004 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617074 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617144 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617214 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617300 = newInstance(Class.forName("com.google.javascript.rhino.FunctionNode"));
+        Object term617370 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617440 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617510 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617580 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617650 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617720 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617790 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617860 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term617930 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term618000 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term618070 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term618156 = newInstance(Class.forName("com.google.javascript.rhino.FunctionNode"));
+        Object term618242 = newInstance(Class.forName("com.google.javascript.rhino.FunctionNode"));
+        Object term618312 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term618382 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term618452 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term618522 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term618592 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term618662 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term618732 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term618802 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term618872 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term618942 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term619012 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term619082 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term619152 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term619242 = newInstance(Class.forName("com.google.javascript.rhino.ScriptOrFnNode"));
+        Object term619312 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term619382 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term619452 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term619522 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term619592 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term619662 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term619732 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term619802 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term619872 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setField(term616164, term616164.getClass(), "next", null);
+        setIntField(term616164, term616164.getClass(), "type", 85);
+        setIntField(term616234, term616234.getClass(), "type", 85);
+        setIntField(term616304, term616304.getClass(), "type", 85);
+        setIntField(term616374, term616374.getClass(), "type", 85);
+        setIntField(term616444, term616444.getClass(), "type", 85);
+        setIntField(term616514, term616514.getClass(), "type", 85);
+        setIntField(term616584, term616584.getClass(), "type", 85);
+        setIntField(term616654, term616654.getClass(), "type", 85);
+        setIntField(term616724, term616724.getClass(), "type", 85);
+        setIntField(term616794, term616794.getClass(), "type", 85);
+        setIntField(term616864, term616864.getClass(), "type", 85);
+        setIntField(term616934, term616934.getClass(), "type", 85);
+        setIntField(term617004, term617004.getClass(), "type", 85);
+        setIntField(term617074, term617074.getClass(), "type", 85);
+        setIntField(term617144, term617144.getClass(), "type", 85);
+        setIntField(term617214, term617214.getClass(), "type", 85);
+        setIntField(term617300, term617300.getClass(), "type", 85);
+        setIntField(term617370, term617370.getClass(), "type", 85);
+        setIntField(term617440, term617440.getClass(), "type", 85);
+        setIntField(term617510, term617510.getClass(), "type", 85);
+        setIntField(term617580, term617580.getClass(), "type", 85);
+        setIntField(term617650, term617650.getClass(), "type", 85);
+        setIntField(term617720, term617720.getClass(), "type", 85);
+        setIntField(term617790, term617790.getClass(), "type", 85);
+        setIntField(term617860, term617860.getClass(), "type", 85);
+        setIntField(term617930, term617930.getClass(), "type", 85);
+        setIntField(term618000, term618000.getClass(), "type", 85);
+        setIntField(term618070, term618070.getClass(), "type", 85);
+        setIntField(term618156, term618156.getClass(), "type", 85);
+        setIntField(term618242, term618242.getClass(), "type", 85);
+        setIntField(term618312, term618312.getClass(), "type", 85);
+        setIntField(term618382, term618382.getClass(), "type", 85);
+        setIntField(term618452, term618452.getClass(), "type", 85);
+        setIntField(term618522, term618522.getClass(), "type", 85);
+        setIntField(term618592, term618592.getClass(), "type", 85);
+        setIntField(term618662, term618662.getClass(), "type", 85);
+        setIntField(term618732, term618732.getClass(), "type", 85);
+        setIntField(term618802, term618802.getClass(), "type", 85);
+        setIntField(term618872, term618872.getClass(), "type", 85);
+        setIntField(term618942, term618942.getClass(), "type", 85);
+        setIntField(term619012, term619012.getClass(), "type", 85);
+        setIntField(term619082, term619082.getClass(), "type", 85);
+        setIntField(term619152, term619152.getClass(), "type", 85);
+        setIntField(term619242, term619242.getClass(), "type", 85);
+        setIntField(term619312, term619312.getClass(), "type", 85);
+        setIntField(term619382, term619382.getClass(), "type", 85);
+        setIntField(term619452, term619452.getClass(), "type", 85);
+        setIntField(term619522, term619522.getClass(), "type", 85);
+        setIntField(term619592, term619592.getClass(), "type", 85);
+        setIntField(term619662, term619662.getClass(), "type", 85);
+        setIntField(term619732, term619732.getClass(), "type", 85);
+        setIntField(term619802, term619802.getClass(), "type", 85);
+        setIntField(term619872, term619872.getClass(), "type", 85);
+        setField(term619872, term619872.getClass(), "last", term617790);
+        setField(term619802, term619802.getClass(), "last", term619872);
+        setField(term619732, term619732.getClass(), "last", term619802);
+        setField(term619662, term619662.getClass(), "last", term619732);
+        setField(term619592, term619592.getClass(), "last", term619662);
+        setField(term619522, term619522.getClass(), "last", term619592);
+        setField(term619452, term619452.getClass(), "last", term619522);
+        setField(term619382, term619382.getClass(), "last", term619452);
+        setField(term619312, term619312.getClass(), "last", term619382);
+        setField(term619242, term619242.getClass(), "last", term619312);
+        setField(term619152, term619152.getClass(), "last", term619242);
+        setField(term619082, term619082.getClass(), "last", term619152);
+        setField(term619012, term619012.getClass(), "last", term619082);
+        setField(term618942, term618942.getClass(), "last", term619012);
+        setField(term618872, term618872.getClass(), "last", term618942);
+        setField(term618802, term618802.getClass(), "last", term618872);
+        setField(term618732, term618732.getClass(), "last", term618802);
+        setField(term618662, term618662.getClass(), "last", term618732);
+        setField(term618592, term618592.getClass(), "last", term618662);
+        setField(term618522, term618522.getClass(), "last", term618592);
+        setField(term618452, term618452.getClass(), "last", term618522);
+        setField(term618382, term618382.getClass(), "last", term618452);
+        setField(term618312, term618312.getClass(), "last", term618382);
+        setField(term618242, term618242.getClass(), "last", term618312);
+        setField(term618156, term618156.getClass(), "last", term618242);
+        setField(term618070, term618070.getClass(), "last", term618156);
+        setField(term618000, term618000.getClass(), "last", term618070);
+        setField(term617930, term617930.getClass(), "last", term618000);
+        setField(term617860, term617860.getClass(), "last", term617930);
+        setField(term617790, term617790.getClass(), "last", term617860);
+        setField(term617720, term617720.getClass(), "last", term617790);
+        setField(term617650, term617650.getClass(), "last", term617720);
+        setField(term617580, term617580.getClass(), "last", term617650);
+        setField(term617510, term617510.getClass(), "last", term617580);
+        setField(term617440, term617440.getClass(), "last", term617510);
+        setField(term617370, term617370.getClass(), "last", term617440);
+        setField(term617300, term617300.getClass(), "last", term617370);
+        setField(term617214, term617214.getClass(), "last", term617300);
+        setField(term617144, term617144.getClass(), "last", term617214);
+        setField(term617074, term617074.getClass(), "last", term617144);
+        setField(term617004, term617004.getClass(), "last", term617074);
+        setField(term616934, term616934.getClass(), "last", term617004);
+        setField(term616864, term616864.getClass(), "last", term616934);
+        setField(term616794, term616794.getClass(), "last", term616864);
+        setField(term616724, term616724.getClass(), "last", term616794);
+        setField(term616654, term616654.getClass(), "last", term616724);
+        setField(term616584, term616584.getClass(), "last", term616654);
+        setField(term616514, term616514.getClass(), "last", term616584);
+        setField(term616444, term616444.getClass(), "last", term616514);
+        setField(term616374, term616374.getClass(), "last", term616444);
+        setField(term616304, term616304.getClass(), "last", term616374);
+        setField(term616234, term616234.getClass(), "last", term616304);
+        setField(term616164, term616164.getClass(), "last", term616234);
+        setField(term616094, term616094.getClass(), "first", term616164);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.PeepholeFoldConstants");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("com.google.javascript.rhino.Node");
+        Object[] args = new Object[1];
+        args[0] = term616094;
+        callMethod(klass, "tryConvertOperandsToNumber", argTypes, term616024, args);
+    }
+
+};
+
+

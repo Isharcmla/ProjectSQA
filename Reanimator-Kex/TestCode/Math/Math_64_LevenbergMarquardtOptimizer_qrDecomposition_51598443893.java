@@ -1,0 +1,261 @@
+package org.apache.commons.math.optimization.general;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.apache.commons.math.optimization.general.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class LevenbergMarquardtOptimizer_qrDecomposition_51598443893 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term2255235;
+
+    public LevenbergMarquardtOptimizer_qrDecomposition_51598443893() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term2255235 = newInstance(Class.forName("org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizer"));
+        int[] term2153690 = (int[]) newIntArray(489);
+        Object[] term2154181 = (Object[]) newArray("[D", 200);
+        double[] term2154182 = (double[]) newDoubleArray(489);
+        setIntField(term2255235, term2255235.getClass(), "cols", 1);
+        setField(term2255235, term2255235.getClass(), "permutation", term2153690);
+        setElement(term2154181, 0, term2154182);
+        setElement(term2154181, 1, term2154182);
+        setElement(term2154181, 2, term2154182);
+        setElement(term2154181, 3, term2154182);
+        setElement(term2154181, 4, term2154182);
+        setElement(term2154181, 5, term2154182);
+        setElement(term2154181, 6, term2154182);
+        setElement(term2154181, 7, term2154182);
+        setElement(term2154181, 8, term2154182);
+        setElement(term2154181, 9, term2154182);
+        setElement(term2154181, 10, term2154182);
+        setElement(term2154181, 11, term2154182);
+        setElement(term2154181, 12, term2154182);
+        setElement(term2154181, 13, term2154182);
+        setElement(term2154181, 14, term2154182);
+        setElement(term2154181, 15, term2154182);
+        setElement(term2154181, 16, term2154182);
+        setElement(term2154181, 17, term2154182);
+        setElement(term2154181, 18, term2154182);
+        setElement(term2154181, 19, term2154182);
+        setElement(term2154181, 20, term2154182);
+        setElement(term2154181, 21, term2154182);
+        setElement(term2154181, 22, term2154182);
+        setElement(term2154181, 23, term2154182);
+        setElement(term2154181, 24, term2154182);
+        setElement(term2154181, 25, term2154182);
+        setElement(term2154181, 26, term2154182);
+        setElement(term2154181, 27, term2154182);
+        setElement(term2154181, 28, term2154182);
+        setElement(term2154181, 29, term2154182);
+        setElement(term2154181, 30, term2154182);
+        setElement(term2154181, 31, term2154182);
+        setElement(term2154181, 32, term2154182);
+        setElement(term2154181, 33, term2154182);
+        setElement(term2154181, 34, term2154182);
+        setElement(term2154181, 35, term2154182);
+        setElement(term2154181, 36, term2154182);
+        setElement(term2154181, 37, term2154182);
+        setElement(term2154181, 38, term2154182);
+        setElement(term2154181, 39, term2154182);
+        setElement(term2154181, 40, term2154182);
+        setElement(term2154181, 41, term2154182);
+        setElement(term2154181, 42, term2154182);
+        setElement(term2154181, 43, term2154182);
+        setElement(term2154181, 44, term2154182);
+        setElement(term2154181, 45, term2154182);
+        setElement(term2154181, 46, term2154182);
+        setElement(term2154181, 47, term2154182);
+        setElement(term2154181, 48, term2154182);
+        setElement(term2154181, 49, term2154182);
+        setElement(term2154181, 50, term2154182);
+        setElement(term2154181, 51, term2154182);
+        setElement(term2154181, 52, term2154182);
+        setElement(term2154181, 53, term2154182);
+        setElement(term2154181, 54, term2154182);
+        setElement(term2154181, 55, term2154182);
+        setElement(term2154181, 56, term2154182);
+        setElement(term2154181, 57, term2154182);
+        setElement(term2154181, 58, term2154182);
+        setElement(term2154181, 59, term2154182);
+        setElement(term2154181, 60, term2154182);
+        setElement(term2154181, 61, term2154182);
+        setElement(term2154181, 62, term2154182);
+        setElement(term2154181, 63, term2154182);
+        setElement(term2154181, 64, term2154182);
+        setElement(term2154181, 65, term2154182);
+        setElement(term2154181, 66, term2154182);
+        setElement(term2154181, 67, term2154182);
+        setElement(term2154181, 68, term2154182);
+        setElement(term2154181, 69, term2154182);
+        setElement(term2154181, 70, term2154182);
+        setElement(term2154181, 71, term2154182);
+        setElement(term2154181, 72, term2154182);
+        setElement(term2154181, 73, term2154182);
+        setElement(term2154181, 74, term2154182);
+        setElement(term2154181, 75, term2154182);
+        setElement(term2154181, 76, term2154182);
+        setElement(term2154181, 77, term2154182);
+        setElement(term2154181, 78, term2154182);
+        setElement(term2154181, 79, term2154182);
+        setElement(term2154181, 80, term2154182);
+        setElement(term2154181, 81, term2154182);
+        setElement(term2154181, 82, term2154182);
+        setElement(term2154181, 83, term2154182);
+        setElement(term2154181, 84, term2154182);
+        setElement(term2154181, 85, term2154182);
+        setElement(term2154181, 86, term2154182);
+        setElement(term2154181, 87, term2154182);
+        setElement(term2154181, 88, term2154182);
+        setElement(term2154181, 89, term2154182);
+        setElement(term2154181, 90, term2154182);
+        setElement(term2154181, 91, term2154182);
+        setElement(term2154181, 92, term2154182);
+        setElement(term2154181, 93, term2154182);
+        setElement(term2154181, 94, term2154182);
+        setElement(term2154181, 95, term2154182);
+        setElement(term2154181, 96, term2154182);
+        setElement(term2154181, 97, term2154182);
+        setElement(term2154181, 98, term2154182);
+        setElement(term2154181, 99, term2154182);
+        setElement(term2154181, 100, term2154182);
+        setElement(term2154181, 101, term2154182);
+        setElement(term2154181, 102, term2154182);
+        setElement(term2154181, 103, term2154182);
+        setElement(term2154181, 104, term2154182);
+        setElement(term2154181, 105, term2154182);
+        setElement(term2154181, 106, term2154182);
+        setElement(term2154181, 107, term2154182);
+        setElement(term2154181, 108, term2154182);
+        setElement(term2154181, 109, term2154182);
+        setElement(term2154181, 110, term2154182);
+        setElement(term2154181, 111, term2154182);
+        setElement(term2154181, 112, term2154182);
+        setElement(term2154181, 113, term2154182);
+        setElement(term2154181, 114, term2154182);
+        setElement(term2154181, 115, term2154182);
+        setElement(term2154181, 116, term2154182);
+        setElement(term2154181, 117, term2154182);
+        setElement(term2154181, 118, term2154182);
+        setElement(term2154181, 119, term2154182);
+        setElement(term2154181, 120, term2154182);
+        setElement(term2154181, 121, term2154182);
+        setElement(term2154181, 122, term2154182);
+        setElement(term2154181, 123, term2154182);
+        setElement(term2154181, 124, term2154182);
+        setElement(term2154181, 125, term2154182);
+        setElement(term2154181, 126, term2154182);
+        setElement(term2154181, 127, term2154182);
+        setElement(term2154181, 128, term2154182);
+        setElement(term2154181, 129, term2154182);
+        setElement(term2154181, 130, term2154182);
+        setElement(term2154181, 131, term2154182);
+        setElement(term2154181, 132, term2154182);
+        setElement(term2154181, 133, term2154182);
+        setElement(term2154181, 134, term2154182);
+        setElement(term2154181, 135, term2154182);
+        setElement(term2154181, 136, term2154182);
+        setElement(term2154181, 137, term2154182);
+        setElement(term2154181, 138, term2154182);
+        setElement(term2154181, 139, term2154182);
+        setElement(term2154181, 140, term2154182);
+        setElement(term2154181, 141, term2154182);
+        setElement(term2154181, 142, term2154182);
+        setElement(term2154181, 143, term2154182);
+        setElement(term2154181, 144, term2154182);
+        setElement(term2154181, 145, term2154182);
+        setElement(term2154181, 146, term2154182);
+        setElement(term2154181, 147, term2154182);
+        setElement(term2154181, 148, term2154182);
+        setElement(term2154181, 149, term2154182);
+        setElement(term2154181, 150, term2154182);
+        setElement(term2154181, 151, term2154182);
+        setElement(term2154181, 152, term2154182);
+        setElement(term2154181, 153, term2154182);
+        setElement(term2154181, 154, term2154182);
+        setElement(term2154181, 155, term2154182);
+        setElement(term2154181, 156, term2154182);
+        setElement(term2154181, 157, term2154182);
+        setElement(term2154181, 158, term2154182);
+        setElement(term2154181, 159, term2154182);
+        setElement(term2154181, 160, term2154182);
+        setElement(term2154181, 161, term2154182);
+        setElement(term2154181, 162, term2154182);
+        setElement(term2154181, 163, term2154182);
+        setElement(term2154181, 164, term2154182);
+        setElement(term2154181, 165, term2154182);
+        setElement(term2154181, 166, term2154182);
+        setElement(term2154181, 167, term2154182);
+        setElement(term2154181, 168, term2154182);
+        setElement(term2154181, 169, term2154182);
+        setElement(term2154181, 170, term2154182);
+        setElement(term2154181, 171, term2154182);
+        setElement(term2154181, 172, term2154182);
+        setElement(term2154181, 173, term2154182);
+        setElement(term2154181, 174, term2154182);
+        setElement(term2154181, 175, term2154182);
+        setElement(term2154181, 176, term2154182);
+        setElement(term2154181, 177, term2154182);
+        setElement(term2154181, 178, term2154182);
+        setElement(term2154181, 179, term2154182);
+        setElement(term2154181, 180, term2154182);
+        setElement(term2154181, 181, term2154182);
+        setElement(term2154181, 182, term2154182);
+        setElement(term2154181, 183, term2154182);
+        setElement(term2154181, 184, term2154182);
+        setElement(term2154181, 185, term2154182);
+        setElement(term2154181, 186, term2154182);
+        setElement(term2154181, 187, term2154182);
+        setElement(term2154181, 188, term2154182);
+        setElement(term2154181, 189, term2154182);
+        setElement(term2154181, 190, term2154182);
+        setElement(term2154181, 191, term2154182);
+        setElement(term2154181, 192, term2154182);
+        setElement(term2154181, 193, term2154182);
+        setElement(term2154181, 194, term2154182);
+        setElement(term2154181, 195, term2154182);
+        setElement(term2154181, 196, term2154182);
+        setElement(term2154181, 197, term2154182);
+        setElement(term2154181, 198, term2154182);
+        setElement(term2154181, 199, term2154182);
+        setField(term2255235, term2255235.getClass(), "jacobian", term2154181);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizer");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        try {
+            callMethod(klass, "qrDecomposition", argTypes, term2255235, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

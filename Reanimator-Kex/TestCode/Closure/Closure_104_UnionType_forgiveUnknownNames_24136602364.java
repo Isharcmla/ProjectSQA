@@ -1,0 +1,69 @@
+package com.google.javascript.rhino.jstype;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.rhino.jstype.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.util.HashSet;
+import java.lang.Object;
+
+public class UnionType_forgiveUnknownNames_24136602364 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term12762;
+
+    public UnionType_forgiveUnknownNames_24136602364() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Object term12948 = newInstance(Class.forName("java.lang.Object"));
+        HashSet term12810 = new HashSet();
+        ((HashSet) term12810).add((Object)null);
+        ((HashSet) term12810).add(term12948);
+        ((HashSet) term12810).add(term12948);
+        ((HashSet) term12810).add(term12948);
+        ((HashSet) term12810).add(term12948);
+        ((HashSet) term12810).add(term12948);
+        ((HashSet) term12810).add(term12948);
+        ((HashSet) term12810).add(term12948);
+        ((HashSet) term12810).add(term12948);
+        ((HashSet) term12810).add(term12948);
+        term12762 = newInstance(Class.forName("com.google.javascript.rhino.jstype.UnionType"));
+        setField(term12762, term12762.getClass(), "alternates", term12810);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.rhino.jstype.UnionType");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        try {
+            callMethod(klass, "forgiveUnknownNames", argTypes, term12762, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

@@ -1,0 +1,17 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "8",
+  "tool": "kex",
+  "elapsed_sec": 16.2,
+  "target_classes": [
+    "com.fasterxml.jackson.core.util.TextBuffer"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.core.util.TextBuffer": "success"
+  },
+  "num_test_files_generated": 35,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

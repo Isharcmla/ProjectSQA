@@ -1,0 +1,17 @@
+{
+  "project": "Time",
+  "bug_id": "15",
+  "tool": "kex",
+  "elapsed_sec": 42.94,
+  "target_classes": [
+    "org.joda.time.field.FieldUtils"
+  ],
+  "kex_results": {
+    "org.joda.time.field.FieldUtils": "success"
+  },
+  "num_test_files_generated": 86,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

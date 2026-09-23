@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "63",
+  "tool": "kex",
+  "elapsed_sec": 159.09,
+  "target_classes": [
+    "org.apache.commons.lang.time.DurationFormatUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang.time.DurationFormatUtils": "success"
+  },
+  "num_test_files_generated": 266,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,86 @@
+package org.jsoup.nodes;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.jsoup.nodes.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.util.ArrayList;
+
+public class Element_hasClass_65056046997 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term7467;
+
+    public Element_hasClass_65056046997() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        ArrayList term7493 = new ArrayList();
+        ((ArrayList) term7493).add((Object)null);
+        term7467 = newInstance(Class.forName("org.jsoup.nodes.Element"));
+        Object term7468 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        Object term7489 = newInstance(Class.forName("java.lang.ref.WeakReference"));
+        Object term7490 = newInstance(Class.forName("java.lang.ref.ReferenceQueue"));
+        Object term7491 = newInstance(Class.forName("java.lang.ref.ReferenceQueue$Lock"));
+        Object term7497 = newInstance(Class.forName("org.jsoup.nodes.Attributes"));
+        Object[] term7499 = (Object[]) newArray("java.lang.String", 0);
+        Object[] term7500 = (Object[]) newArray("java.lang.String", 0);
+        setField(term7468, term7468.getClass(), "tagName", "OcJCIDNIXA");
+        setBooleanField(term7468, term7468.getClass(), "isBlock", false);
+        setBooleanField(term7468, term7468.getClass(), "formatAsBlock", true);
+        setBooleanField(term7468, term7468.getClass(), "canContainInline", false);
+        setBooleanField(term7468, term7468.getClass(), "empty", true);
+        setBooleanField(term7468, term7468.getClass(), "selfClosing", true);
+        setBooleanField(term7468, term7468.getClass(), "preserveWhitespace", true);
+        setBooleanField(term7468, term7468.getClass(), "formList", false);
+        setBooleanField(term7468, term7468.getClass(), "formSubmit", true);
+        setField(term7467, term7467.getClass(), "tag", term7468);
+        setField(term7489, term7489.getClass(), "referent", null);
+        setField(term7490, term7490.getClass(), "lock", term7491);
+        setField(term7490, term7490.getClass(), "head", null);
+        setLongField(term7490, term7490.getClass(), "queueLength", 6689117472719450333L);
+        setField(term7489, term7489.getClass(), "queue", term7490);
+        setField(term7489, term7489.getClass(), "next", null);
+        setField(term7489, term7489.getClass(), "discovered", null);
+        setField(term7467, term7467.getClass(), "shadowChildrenRef", term7489);
+        setField(term7467, term7467.getClass(), "childNodes", term7493);
+        setIntField(term7497, term7497.getClass(), "size", -310528004);
+        setField(term7497, term7497.getClass(), "keys", term7499);
+        setField(term7497, term7497.getClass(), "vals", term7500);
+        setField(term7467, term7467.getClass(), "attributes", term7497);
+        setField(term7467, term7467.getClass(), "baseUri", "XfRABIFVEp");
+        setField(term7467, term7467.getClass(), "parentNode", null);
+        setIntField(term7467, term7467.getClass(), "siblingIndex", -634976996);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jsoup.nodes.Element");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("java.lang.String");
+        Object[] args = new Object[1];
+        args[0] = "MHGKyEnwKc";
+        callMethod(klass, "hasClass", argTypes, term7467, args);
+    }
+
+};
+
+

@@ -1,0 +1,213 @@
+package org.apache.commons.csv;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.csv.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.csv.EqualityUtils.*;
+import java.lang.Character;
+import java.lang.String;
+import java.lang.Object;
+import java.lang.Boolean;
+
+public class CSVFormat_init_137915833080 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term29;
+     Object term31;
+     Object enum74;
+     Object term44;
+     Object term46;
+     Object term48;
+     Object term50;
+     Object term76;
+     Object term82;
+     Object term131;
+     Object term133;
+     Object term135;
+     Object term137;
+     Object term139;
+     Object term141;
+     Object term34505;
+     Object term34536;
+     Object term34542;
+     Object enum76;
+     Object term34546;
+     Object term34547;
+     Object term34552;
+
+    public CSVFormat_init_137915833080() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term29 = new Character('B');
+        term31 = new Character('t');
+        Class<? extends Object> term34562 = Class.forName((String) "org.apache.commons.csv.QuoteMode");
+        Field term34561 = ((Class) term34562).getDeclaredField((String) "MINIMAL");
+        ((Field) term34561).setAccessible(true);
+        enum74 = ((Field) term34561).get((Object) null);
+        term44 = new Character('n');
+        term46 = new Character('Z');
+        term48 = new Boolean(false);
+        term50 = new Boolean(false);
+        term76 = (Object[]) newArray("java.lang.Object", 5);
+        Object term77 = newInstance(Class.forName("java.lang.Object"));
+        Object term78 = newInstance(Class.forName("java.lang.Object"));
+        Object term79 = newInstance(Class.forName("java.lang.Object"));
+        Object term80 = newInstance(Class.forName("java.lang.Object"));
+        Object term81 = newInstance(Class.forName("java.lang.Object"));
+        setElement(term76, 0, term77);
+        setElement(term76, 1, term78);
+        setElement(term76, 2, term79);
+        setElement(term76, 3, term80);
+        setElement(term76, 4, term81);
+        term82 = (Object[]) newArray("java.lang.String", 4);
+        setElement(term82, 0, "xxtlPwDYFs");
+        setElement(term82, 1, "jJCZpVmanW");
+        setElement(term82, 2, "EGtDIRbSSb");
+        setElement(term82, 3, "SzjVpOQTyS");
+        term131 = new Boolean(false);
+        term133 = new Boolean(false);
+        term135 = new Boolean(true);
+        term137 = new Boolean(true);
+        term139 = new Boolean(true);
+        term141 = new Boolean(true);
+        Character term34506 = new Character('n');
+        Character term34507 = new Character('Z');
+        Character term34530 = new Character('t');
+        Class<? extends Object> term34983 = Class.forName((String) "org.apache.commons.csv.QuoteMode");
+        Field term34982 = ((Class) term34983).getDeclaredField((String) "MINIMAL");
+        ((Field) term34982).setAccessible(true);
+        Object enum75 = ((Field) term34982).get((Object) null);
+        term34505 = newInstance(Class.forName("org.apache.commons.csv.CSVFormat"));
+        Object[] term34508 = (Object[]) newArray("java.lang.String", 4);
+        Object[] term34517 = (Object[]) newArray("java.lang.String", 5);
+        setBooleanField(term34505, term34505.getClass(), "allowMissingColumnNames", false);
+        setField(term34505, term34505.getClass(), "commentMarker", term34506);
+        setCharField(term34505, term34505.getClass(), "delimiter", 'B');
+        setField(term34505, term34505.getClass(), "escapeCharacter", term34507);
+        setElement(term34508, 0, "xxtlPwDYFs");
+        setElement(term34508, 1, "jJCZpVmanW");
+        setElement(term34508, 2, "EGtDIRbSSb");
+        setElement(term34508, 3, "SzjVpOQTyS");
+        setField(term34505, term34505.getClass(), "header", term34508);
+        setElement(term34517, 0, "java.lang.Object@21437d22");
+        setElement(term34517, 1, "java.lang.Object@3da647ac");
+        setElement(term34517, 2, "java.lang.Object@16a4801");
+        setElement(term34517, 3, "java.lang.Object@9cf9f6a");
+        setElement(term34517, 4, "java.lang.Object@2d66cb64");
+        setField(term34505, term34505.getClass(), "headerComments", term34517);
+        setBooleanField(term34505, term34505.getClass(), "ignoreEmptyLines", false);
+        setBooleanField(term34505, term34505.getClass(), "ignoreHeaderCase", true);
+        setBooleanField(term34505, term34505.getClass(), "ignoreSurroundingSpaces", false);
+        setField(term34505, term34505.getClass(), "nullString", "MuLcgQHgqz");
+        setField(term34505, term34505.getClass(), "quoteCharacter", term34530);
+        setField(term34505, term34505.getClass(), "quoteMode", enum75);
+        setField(term34505, term34505.getClass(), "recordSeparator", "sjlJAEtRrb");
+        setBooleanField(term34505, term34505.getClass(), "skipHeaderRecord", false);
+        setBooleanField(term34505, term34505.getClass(), "trailingDelimiter", true);
+        setBooleanField(term34505, term34505.getClass(), "trim", true);
+        setBooleanField(term34505, term34505.getClass(), "autoFlush", true);
+        term34536 = (Object[]) newArray("java.lang.Object", 5);
+        Object term34537 = newInstance(Class.forName("java.lang.Object"));
+        Object term34538 = newInstance(Class.forName("java.lang.Object"));
+        Object term34539 = newInstance(Class.forName("java.lang.Object"));
+        Object term34540 = newInstance(Class.forName("java.lang.Object"));
+        Object term34541 = newInstance(Class.forName("java.lang.Object"));
+        setElement(term34536, 0, term34537);
+        setElement(term34536, 1, term34538);
+        setElement(term34536, 2, term34539);
+        setElement(term34536, 3, term34540);
+        setElement(term34536, 4, term34541);
+        term34542 = new Character('t');
+        Class<? extends Object> term35181 = Class.forName((String) "org.apache.commons.csv.QuoteMode");
+        Field term35180 = ((Class) term35181).getDeclaredField((String) "MINIMAL");
+        ((Field) term35180).setAccessible(true);
+        enum76 = ((Field) term35180).get((Object) null);
+        term34546 = new Character('n');
+        term34547 = new Character('Z');
+        term34552 = (Object[]) newArray("java.lang.String", 4);
+        setElement(term34552, 0, "xxtlPwDYFs");
+        setElement(term34552, 1, "jJCZpVmanW");
+        setElement(term34552, 2, "EGtDIRbSSb");
+        setElement(term34552, 3, "SzjVpOQTyS");
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.csv.CSVFormat");
+        Class<?>[] argTypes = new Class<?>[17];
+        argTypes[0] = char.class;
+        argTypes[1] = Class.forName("java.lang.Character");
+        argTypes[2] = Class.forName("org.apache.commons.csv.QuoteMode");
+        argTypes[3] = Class.forName("java.lang.Character");
+        argTypes[4] = Class.forName("java.lang.Character");
+        argTypes[5] = boolean.class;
+        argTypes[6] = boolean.class;
+        argTypes[7] = Class.forName("java.lang.String");
+        argTypes[8] = Class.forName("java.lang.String");
+        argTypes[9] = Array.newInstance(Class.forName("java.lang.Object"), 0).getClass();
+        argTypes[10] = Array.newInstance(Class.forName("java.lang.String"), 0).getClass();
+        argTypes[11] = boolean.class;
+        argTypes[12] = boolean.class;
+        argTypes[13] = boolean.class;
+        argTypes[14] = boolean.class;
+        argTypes[15] = boolean.class;
+        argTypes[16] = boolean.class;
+        Object[] args = new Object[17];
+        args[0] = term29;
+        args[1] = term31;
+        args[2] = enum74;
+        args[3] = term44;
+        args[4] = term46;
+        args[5] = term48;
+        args[6] = term50;
+        args[7] = "sjlJAEtRrb";
+        args[8] = "MuLcgQHgqz";
+        args[9] = term76;
+        args[10] = term82;
+        args[11] = term131;
+        args[12] = term133;
+        args[13] = term135;
+        args[14] = term137;
+        args[15] = term139;
+        args[16] = term141;
+        Object instance = callConstructor(klass, argTypes, args);
+        assertTrue(recursiveEquals(instance, term34505));
+        assertTrue(recursiveEquals(term29, term34536));
+        assertTrue(recursiveEquals(term31, 'B'));
+        assertTrue(recursiveEquals(enum74, term34542));
+        assertTrue(recursiveEquals(term44, enum76));
+        assertTrue(recursiveEquals(term46, term34546));
+        assertTrue(recursiveEquals(term48, term34547));
+        assertTrue(recursiveEquals(term50, false));
+        assertTrue(recursiveEquals(term76, "MuLcgQHgqz"));
+        assertTrue(recursiveEquals(term82, term34552));
+        assertTrue(recursiveEquals(term131, false));
+        assertTrue(recursiveEquals(term133, false));
+        assertTrue(recursiveEquals(term135, true));
+        assertTrue(recursiveEquals(term137, true));
+        assertTrue(recursiveEquals(term139, true));
+        assertTrue(recursiveEquals(term141, true));
+    }
+
+};
+
+

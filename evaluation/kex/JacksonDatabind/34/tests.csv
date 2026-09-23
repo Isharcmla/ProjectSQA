@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+NumberSerializer_acceptJsonFormatVisitor_12232442247,com.fasterxml.jackson.databind.ser.std.NumberSerializer_acceptJsonFormatVisitor_12232442247,,PASS,PASS,valid_non_revealing
+NumberSerializer_getSchema_12705044706,com.fasterxml.jackson.databind.ser.std.NumberSerializer_getSchema_12705044706,,PASS,PASS,valid_non_revealing
+NumberSerializer_init_15711488164,com.fasterxml.jackson.databind.ser.std.NumberSerializer_init_15711488164,,FAIL,FAIL,invalid_or_unstable
+NumberSerializer_serialize_13281597655,com.fasterxml.jackson.databind.ser.std.NumberSerializer_serialize_13281597655,,PASS,PASS,valid_non_revealing

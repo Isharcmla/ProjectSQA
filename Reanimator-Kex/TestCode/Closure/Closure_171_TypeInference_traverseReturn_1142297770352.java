@@ -1,0 +1,262 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class TypeInference_traverseReturn_1142297770352 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term862048;
+     Object term862118;
+
+    public TypeInference_traverseReturn_1142297770352() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term862048 = newInstance(Class.forName("com.google.javascript.jscomp.TypeInference"));
+        term862118 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term862188 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term862258 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term862328 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term862398 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term862468 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term862538 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term862608 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term862678 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term862748 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term862818 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term862888 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term862958 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863028 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863098 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863168 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863238 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863308 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863378 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863448 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863518 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863588 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863658 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863728 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863798 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863868 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term863938 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864008 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864078 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864148 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864218 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864288 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864358 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864428 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864498 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864568 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864638 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864708 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864778 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864848 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864918 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term864988 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865058 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865128 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865198 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865268 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865338 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865408 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865478 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865548 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865618 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865688 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865758 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865828 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865898 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term865968 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term866038 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term866108 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term866178 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term866248 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term866318 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term866388 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term866458 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term866528 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term866598 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term866668 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term866738 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term866808 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setIntField(term862188, term862188.getClass(), "type", 92);
+        setIntField(term862258, term862258.getClass(), "type", 92);
+        setIntField(term862328, term862328.getClass(), "type", 92);
+        setIntField(term862398, term862398.getClass(), "type", 92);
+        setIntField(term862468, term862468.getClass(), "type", 92);
+        setIntField(term862538, term862538.getClass(), "type", 92);
+        setIntField(term862608, term862608.getClass(), "type", 92);
+        setIntField(term862678, term862678.getClass(), "type", 92);
+        setIntField(term862748, term862748.getClass(), "type", 92);
+        setIntField(term862818, term862818.getClass(), "type", 92);
+        setIntField(term862888, term862888.getClass(), "type", 92);
+        setIntField(term862958, term862958.getClass(), "type", 92);
+        setIntField(term863028, term863028.getClass(), "type", 92);
+        setIntField(term863098, term863098.getClass(), "type", 92);
+        setIntField(term863168, term863168.getClass(), "type", 92);
+        setIntField(term863238, term863238.getClass(), "type", 92);
+        setIntField(term863308, term863308.getClass(), "type", 92);
+        setIntField(term863378, term863378.getClass(), "type", 92);
+        setIntField(term863448, term863448.getClass(), "type", 92);
+        setIntField(term863518, term863518.getClass(), "type", 92);
+        setIntField(term863588, term863588.getClass(), "type", 92);
+        setIntField(term863658, term863658.getClass(), "type", 92);
+        setIntField(term863728, term863728.getClass(), "type", 92);
+        setIntField(term863798, term863798.getClass(), "type", 92);
+        setIntField(term863868, term863868.getClass(), "type", 92);
+        setIntField(term863938, term863938.getClass(), "type", 92);
+        setIntField(term864008, term864008.getClass(), "type", 92);
+        setIntField(term864078, term864078.getClass(), "type", 92);
+        setIntField(term864148, term864148.getClass(), "type", 92);
+        setIntField(term864218, term864218.getClass(), "type", 92);
+        setIntField(term864288, term864288.getClass(), "type", 92);
+        setIntField(term864358, term864358.getClass(), "type", 92);
+        setIntField(term864428, term864428.getClass(), "type", 92);
+        setIntField(term864498, term864498.getClass(), "type", 92);
+        setIntField(term864568, term864568.getClass(), "type", 92);
+        setIntField(term864638, term864638.getClass(), "type", 92);
+        setIntField(term864708, term864708.getClass(), "type", 92);
+        setIntField(term864778, term864778.getClass(), "type", 92);
+        setIntField(term864848, term864848.getClass(), "type", 92);
+        setIntField(term864918, term864918.getClass(), "type", 92);
+        setIntField(term864988, term864988.getClass(), "type", 92);
+        setIntField(term865058, term865058.getClass(), "type", 92);
+        setIntField(term865128, term865128.getClass(), "type", 92);
+        setIntField(term865198, term865198.getClass(), "type", 92);
+        setIntField(term865268, term865268.getClass(), "type", 92);
+        setIntField(term865338, term865338.getClass(), "type", 92);
+        setIntField(term865408, term865408.getClass(), "type", 92);
+        setIntField(term865478, term865478.getClass(), "type", 92);
+        setIntField(term865548, term865548.getClass(), "type", 92);
+        setIntField(term865618, term865618.getClass(), "type", 92);
+        setIntField(term865688, term865688.getClass(), "type", 92);
+        setIntField(term865758, term865758.getClass(), "type", 92);
+        setIntField(term865828, term865828.getClass(), "type", 92);
+        setIntField(term865898, term865898.getClass(), "type", 92);
+        setIntField(term865968, term865968.getClass(), "type", 92);
+        setIntField(term866038, term866038.getClass(), "type", 92);
+        setIntField(term866108, term866108.getClass(), "type", 92);
+        setIntField(term866178, term866178.getClass(), "type", 92);
+        setIntField(term866248, term866248.getClass(), "type", 92);
+        setIntField(term866318, term866318.getClass(), "type", 92);
+        setIntField(term866388, term866388.getClass(), "type", 92);
+        setIntField(term866458, term866458.getClass(), "type", 92);
+        setIntField(term866528, term866528.getClass(), "type", 92);
+        setIntField(term866598, term866598.getClass(), "type", 92);
+        setIntField(term866668, term866668.getClass(), "type", 92);
+        setIntField(term866738, term866738.getClass(), "type", 92);
+        setIntField(term866808, term866808.getClass(), "type", 60);
+        setField(term866738, term866738.getClass(), "first", term866808);
+        setField(term866668, term866668.getClass(), "first", term866738);
+        setField(term866598, term866598.getClass(), "first", term866668);
+        setField(term866528, term866528.getClass(), "first", term866598);
+        setField(term866458, term866458.getClass(), "first", term866528);
+        setField(term866388, term866388.getClass(), "first", term866458);
+        setField(term866318, term866318.getClass(), "first", term866388);
+        setField(term866248, term866248.getClass(), "first", term866318);
+        setField(term866178, term866178.getClass(), "first", term866248);
+        setField(term866108, term866108.getClass(), "first", term866178);
+        setField(term866038, term866038.getClass(), "first", term866108);
+        setField(term865968, term865968.getClass(), "first", term866038);
+        setField(term865898, term865898.getClass(), "first", term865968);
+        setField(term865828, term865828.getClass(), "first", term865898);
+        setField(term865758, term865758.getClass(), "first", term865828);
+        setField(term865688, term865688.getClass(), "first", term865758);
+        setField(term865618, term865618.getClass(), "first", term865688);
+        setField(term865548, term865548.getClass(), "first", term865618);
+        setField(term865478, term865478.getClass(), "first", term865548);
+        setField(term865408, term865408.getClass(), "first", term865478);
+        setField(term865338, term865338.getClass(), "first", term865408);
+        setField(term865268, term865268.getClass(), "first", term865338);
+        setField(term865198, term865198.getClass(), "first", term865268);
+        setField(term865128, term865128.getClass(), "first", term865198);
+        setField(term865058, term865058.getClass(), "first", term865128);
+        setField(term864988, term864988.getClass(), "first", term865058);
+        setField(term864918, term864918.getClass(), "first", term864988);
+        setField(term864848, term864848.getClass(), "first", term864918);
+        setField(term864778, term864778.getClass(), "first", term864848);
+        setField(term864708, term864708.getClass(), "first", term864778);
+        setField(term864638, term864638.getClass(), "first", term864708);
+        setField(term864568, term864568.getClass(), "first", term864638);
+        setField(term864498, term864498.getClass(), "first", term864568);
+        setField(term864428, term864428.getClass(), "first", term864498);
+        setField(term864358, term864358.getClass(), "first", term864428);
+        setField(term864288, term864288.getClass(), "first", term864358);
+        setField(term864218, term864218.getClass(), "first", term864288);
+        setField(term864148, term864148.getClass(), "first", term864218);
+        setField(term864078, term864078.getClass(), "first", term864148);
+        setField(term864008, term864008.getClass(), "first", term864078);
+        setField(term863938, term863938.getClass(), "first", term864008);
+        setField(term863868, term863868.getClass(), "first", term863938);
+        setField(term863798, term863798.getClass(), "first", term863868);
+        setField(term863728, term863728.getClass(), "first", term863798);
+        setField(term863658, term863658.getClass(), "first", term863728);
+        setField(term863588, term863588.getClass(), "first", term863658);
+        setField(term863518, term863518.getClass(), "first", term863588);
+        setField(term863448, term863448.getClass(), "first", term863518);
+        setField(term863378, term863378.getClass(), "first", term863448);
+        setField(term863308, term863308.getClass(), "first", term863378);
+        setField(term863238, term863238.getClass(), "first", term863308);
+        setField(term863168, term863168.getClass(), "first", term863238);
+        setField(term863098, term863098.getClass(), "first", term863168);
+        setField(term863028, term863028.getClass(), "first", term863098);
+        setField(term862958, term862958.getClass(), "first", term863028);
+        setField(term862888, term862888.getClass(), "first", term862958);
+        setField(term862818, term862818.getClass(), "first", term862888);
+        setField(term862748, term862748.getClass(), "first", term862818);
+        setField(term862678, term862678.getClass(), "first", term862748);
+        setField(term862608, term862608.getClass(), "first", term862678);
+        setField(term862538, term862538.getClass(), "first", term862608);
+        setField(term862468, term862468.getClass(), "first", term862538);
+        setField(term862398, term862398.getClass(), "first", term862468);
+        setField(term862328, term862328.getClass(), "first", term862398);
+        setField(term862258, term862258.getClass(), "first", term862328);
+        setField(term862188, term862188.getClass(), "first", term862258);
+        setField(term862118, term862118.getClass(), "first", term862188);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.TypeInference");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("com.google.javascript.rhino.Node");
+        argTypes[1] = Class.forName("com.google.javascript.jscomp.type.FlowScope");
+        Object[] args = new Object[2];
+        args[0] = term862118;
+        args[1] = null;
+        try {
+            callMethod(klass, "traverseReturn", argTypes, term862048, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

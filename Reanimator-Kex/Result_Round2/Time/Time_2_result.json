@@ -1,0 +1,19 @@
+{
+  "project": "Time",
+  "bug_id": "2",
+  "tool": "kex",
+  "elapsed_sec": 402.52,
+  "target_classes": [
+    "org.joda.time.field.UnsupportedDurationField",
+    "org.joda.time.Partial"
+  ],
+  "kex_results": {
+    "org.joda.time.field.UnsupportedDurationField": "success",
+    "org.joda.time.Partial": "timeout"
+  },
+  "num_test_files_generated": 132,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

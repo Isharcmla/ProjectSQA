@@ -1,0 +1,266 @@
+package com.google.gson.internal.bind;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.gson.internal.bind.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.util.HashMap;
+import java.util.ArrayList;
+
+public class JsonAdapterAnnotationTypeAdapterFactory_create_5997240374 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term7;
+     Object term14;
+     Object term83;
+
+    public JsonAdapterAnnotationTypeAdapterFactory_create_5997240374() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        HashMap term9 = new HashMap();
+        term7 = newInstance(Class.forName("com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory"));
+        Object term8 = newInstance(Class.forName("com.google.gson.internal.ConstructorConstructor"));
+        setField(term8, term8.getClass(), "instanceCreators", term9);
+        setField(term7, term7.getClass(), "constructorConstructor", term8);
+        HashMap term18 = new HashMap();
+        Object term26 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$35"));
+        setField(term26, term26.getClass(), "val$clazz", null);
+        setField(term26, term26.getClass(), "val$typeAdapter", null);
+        Object term27 = newInstance(Class.forName("com.google.gson.internal.bind.ObjectTypeAdapter$1"));
+        Object term28 = newInstance(Class.forName("com.google.gson.internal.Excluder"));
+        setDoubleField(term28, term28.getClass(), "version", -1.0);
+        setIntField(term28, term28.getClass(), "modifiers", 136);
+        setBooleanField(term28, term28.getClass(), "serializeInnerClasses", true);
+        setBooleanField(term28, term28.getClass(), "requireExpose", false);
+        setField(term28, term28.getClass(), "serializationStrategies", null);
+        setField(term28, term28.getClass(), "deserializationStrategies", null);
+        Object term33 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term33, term33.getClass(), "val$type", null);
+        setField(term33, term33.getClass(), "val$typeAdapter", null);
+        Object term34 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$33"));
+        setField(term34, term34.getClass(), "val$unboxed", null);
+        setField(term34, term34.getClass(), "val$boxed", null);
+        setField(term34, term34.getClass(), "val$typeAdapter", null);
+        Object term35 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$33"));
+        setField(term35, term35.getClass(), "val$unboxed", null);
+        setField(term35, term35.getClass(), "val$boxed", null);
+        setField(term35, term35.getClass(), "val$typeAdapter", null);
+        Object term36 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$33"));
+        setField(term36, term36.getClass(), "val$unboxed", null);
+        setField(term36, term36.getClass(), "val$boxed", null);
+        setField(term36, term36.getClass(), "val$typeAdapter", null);
+        Object term37 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$33"));
+        setField(term37, term37.getClass(), "val$unboxed", null);
+        setField(term37, term37.getClass(), "val$boxed", null);
+        setField(term37, term37.getClass(), "val$typeAdapter", null);
+        Object term38 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$33"));
+        setField(term38, term38.getClass(), "val$unboxed", null);
+        setField(term38, term38.getClass(), "val$boxed", null);
+        setField(term38, term38.getClass(), "val$typeAdapter", null);
+        Object term39 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$33"));
+        setField(term39, term39.getClass(), "val$unboxed", null);
+        setField(term39, term39.getClass(), "val$boxed", null);
+        setField(term39, term39.getClass(), "val$typeAdapter", null);
+        Object term40 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$33"));
+        setField(term40, term40.getClass(), "val$unboxed", null);
+        setField(term40, term40.getClass(), "val$boxed", null);
+        setField(term40, term40.getClass(), "val$typeAdapter", null);
+        Object term41 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term41, term41.getClass(), "val$type", null);
+        setField(term41, term41.getClass(), "val$typeAdapter", null);
+        Object term42 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term42, term42.getClass(), "val$type", null);
+        setField(term42, term42.getClass(), "val$typeAdapter", null);
+        Object term43 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term43, term43.getClass(), "val$type", null);
+        setField(term43, term43.getClass(), "val$typeAdapter", null);
+        Object term44 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term44, term44.getClass(), "val$type", null);
+        setField(term44, term44.getClass(), "val$typeAdapter", null);
+        Object term45 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term45, term45.getClass(), "val$type", null);
+        setField(term45, term45.getClass(), "val$typeAdapter", null);
+        Object term46 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term46, term46.getClass(), "val$type", null);
+        setField(term46, term46.getClass(), "val$typeAdapter", null);
+        Object term47 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$33"));
+        setField(term47, term47.getClass(), "val$unboxed", null);
+        setField(term47, term47.getClass(), "val$boxed", null);
+        setField(term47, term47.getClass(), "val$typeAdapter", null);
+        Object term48 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term48, term48.getClass(), "val$type", null);
+        setField(term48, term48.getClass(), "val$typeAdapter", null);
+        Object term49 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term49, term49.getClass(), "val$type", null);
+        setField(term49, term49.getClass(), "val$typeAdapter", null);
+        Object term50 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term50, term50.getClass(), "val$type", null);
+        setField(term50, term50.getClass(), "val$typeAdapter", null);
+        Object term51 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term51, term51.getClass(), "val$type", null);
+        setField(term51, term51.getClass(), "val$typeAdapter", null);
+        Object term52 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term52, term52.getClass(), "val$type", null);
+        setField(term52, term52.getClass(), "val$typeAdapter", null);
+        Object term53 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term53, term53.getClass(), "val$type", null);
+        setField(term53, term53.getClass(), "val$typeAdapter", null);
+        Object term54 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term54, term54.getClass(), "val$type", null);
+        setField(term54, term54.getClass(), "val$typeAdapter", null);
+        Object term55 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term55, term55.getClass(), "val$type", null);
+        setField(term55, term55.getClass(), "val$typeAdapter", null);
+        Object term56 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term56, term56.getClass(), "val$type", null);
+        setField(term56, term56.getClass(), "val$typeAdapter", null);
+        Object term57 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$35"));
+        setField(term57, term57.getClass(), "val$clazz", null);
+        setField(term57, term57.getClass(), "val$typeAdapter", null);
+        Object term58 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term58, term58.getClass(), "val$type", null);
+        setField(term58, term58.getClass(), "val$typeAdapter", null);
+        Object term59 = newInstance(Class.forName("com.google.gson.internal.bind.DateTypeAdapter$1"));
+        Object term60 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$34"));
+        setField(term60, term60.getClass(), "val$base", null);
+        setField(term60, term60.getClass(), "val$sub", null);
+        setField(term60, term60.getClass(), "val$typeAdapter", null);
+        Object term61 = newInstance(Class.forName("com.google.gson.internal.bind.TimeTypeAdapter$1"));
+        Object term62 = newInstance(Class.forName("com.google.gson.internal.bind.SqlDateTypeAdapter$1"));
+        Object term63 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$26"));
+        Object term64 = newInstance(Class.forName("com.google.gson.internal.bind.ArrayTypeAdapter$1"));
+        Object term65 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$32"));
+        setField(term65, term65.getClass(), "val$type", null);
+        setField(term65, term65.getClass(), "val$typeAdapter", null);
+        Object term66 = newInstance(Class.forName("com.google.gson.internal.bind.CollectionTypeAdapterFactory"));
+        setField(term66, term66.getClass(), "constructorConstructor", null);
+        Object term67 = newInstance(Class.forName("com.google.gson.internal.bind.MapTypeAdapterFactory"));
+        setField(term67, term67.getClass(), "constructorConstructor", null);
+        setBooleanField(term67, term67.getClass(), "complexMapKeySerialization", false);
+        Object term69 = newInstance(Class.forName("com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory"));
+        setField(term69, term69.getClass(), "constructorConstructor", null);
+        Object term70 = newInstance(Class.forName("com.google.gson.internal.bind.TypeAdapters$30"));
+        Object term71 = newInstance(Class.forName("com.google.gson.internal.bind.ReflectiveTypeAdapterFactory"));
+        setField(term71, term71.getClass(), "constructorConstructor", null);
+        setField(term71, term71.getClass(), "fieldNamingPolicy", null);
+        setField(term71, term71.getClass(), "excluder", term28);
+        ArrayList term24 = new ArrayList();
+        ((ArrayList) term24).add(term26);
+        ((ArrayList) term24).add(term27);
+        ((ArrayList) term24).add(term28);
+        ((ArrayList) term24).add(term33);
+        ((ArrayList) term24).add(term34);
+        ((ArrayList) term24).add(term35);
+        ((ArrayList) term24).add(term36);
+        ((ArrayList) term24).add(term37);
+        ((ArrayList) term24).add(term38);
+        ((ArrayList) term24).add(term39);
+        ((ArrayList) term24).add(term40);
+        ((ArrayList) term24).add(term41);
+        ((ArrayList) term24).add(term42);
+        ((ArrayList) term24).add(term43);
+        ((ArrayList) term24).add(term44);
+        ((ArrayList) term24).add(term45);
+        ((ArrayList) term24).add(term46);
+        ((ArrayList) term24).add(term47);
+        ((ArrayList) term24).add(term48);
+        ((ArrayList) term24).add(term49);
+        ((ArrayList) term24).add(term50);
+        ((ArrayList) term24).add(term51);
+        ((ArrayList) term24).add(term52);
+        ((ArrayList) term24).add(term53);
+        ((ArrayList) term24).add(term54);
+        ((ArrayList) term24).add(term55);
+        ((ArrayList) term24).add(term56);
+        ((ArrayList) term24).add(term57);
+        ((ArrayList) term24).add(term58);
+        ((ArrayList) term24).add(term59);
+        ((ArrayList) term24).add(term60);
+        ((ArrayList) term24).add(term61);
+        ((ArrayList) term24).add(term62);
+        ((ArrayList) term24).add(term63);
+        ((ArrayList) term24).add(term64);
+        ((ArrayList) term24).add(term65);
+        ((ArrayList) term24).add(term66);
+        ((ArrayList) term24).add(term67);
+        ((ArrayList) term24).add(term69);
+        ((ArrayList) term24).add(term70);
+        ((ArrayList) term24).add(term71);
+        term14 = newInstance(Class.forName("com.google.gson.Gson"));
+        Object term15 = newInstance(Class.forName("java.lang.ThreadLocal"));
+        Object term17 = newInstance(Class.forName("java.util.Collections$SynchronizedMap"));
+        Object term23 = newInstance(Class.forName("java.util.Collections$UnmodifiableRandomAccessList"));
+        Object term74 = newInstance(Class.forName("com.google.gson.internal.ConstructorConstructor"));
+        Object term75 = newInstance(Class.forName("java.util.Collections$EmptyMap"));
+        Object term81 = newInstance(Class.forName("com.google.gson.Gson$1"));
+        Object term82 = newInstance(Class.forName("com.google.gson.Gson$2"));
+        setIntField(term15, term15.getClass(), "threadLocalHashCode", -204429559);
+        setField(term14, term14.getClass(), "calls", term15);
+        setField(term17, term17.getClass(), "m", term18);
+        setField(term17, term17.getClass(), "mutex", term17);
+        setField(term17, term17.getClass(), "keySet", null);
+        setField(term17, term17.getClass(), "entrySet", null);
+        setField(term17, term17.getClass(), "values", null);
+        setField(term14, term14.getClass(), "typeTokenCache", term17);
+        setField(term23, term23.getClass(), "list", term24);
+        setField(term23, term23.getClass(), "c", term24);
+        setField(term14, term14.getClass(), "factories", term23);
+        setField(term75, term75.getClass(), "keySet", null);
+        setField(term75, term75.getClass(), "values", null);
+        setField(term74, term74.getClass(), "instanceCreators", term75);
+        setField(term14, term14.getClass(), "constructorConstructor", term74);
+        setBooleanField(term14, term14.getClass(), "serializeNulls", true);
+        setBooleanField(term14, term14.getClass(), "htmlSafe", true);
+        setBooleanField(term14, term14.getClass(), "generateNonExecutableJson", true);
+        setBooleanField(term14, term14.getClass(), "prettyPrinting", false);
+        setBooleanField(term14, term14.getClass(), "lenient", true);
+        setField(term81, term81.getClass(), "this$0", term14);
+        setField(term14, term14.getClass(), "deserializationContext", term81);
+        setField(term82, term82.getClass(), "this$0", term14);
+        setField(term14, term14.getClass(), "serializationContext", term82);
+        term83 = newInstance(Class.forName("com.google.gson.reflect.TypeToken"));
+        setField(term83, term83.getClass(), "rawType", null);
+        setField(term83, term83.getClass(), "type", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("com.google.gson.Gson");
+        argTypes[1] = Class.forName("com.google.gson.reflect.TypeToken");
+        Object[] args = new Object[2];
+        args[0] = term14;
+        args[1] = term83;
+        try {
+            callMethod(klass, "create", argTypes, term7, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

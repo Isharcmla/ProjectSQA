@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "102",
+  "tool": "kex",
+  "elapsed_sec": 142.1,
+  "target_classes": [
+    "org.apache.commons.math.stat.inference.ChiSquareTestImpl"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.stat.inference.ChiSquareTestImpl": "success"
+  },
+  "num_test_files_generated": 62,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

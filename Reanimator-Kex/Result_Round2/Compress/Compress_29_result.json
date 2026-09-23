@@ -1,0 +1,29 @@
+{
+  "project": "Compress",
+  "bug_id": "29",
+  "tool": "kex",
+  "elapsed_sec": 1120.41,
+  "target_classes": [
+    "org.apache.commons.compress.archivers.ArchiveStreamFactory",
+    "org.apache.commons.compress.archivers.cpio.CpioArchiveInputStream",
+    "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream",
+    "org.apache.commons.compress.archivers.dump.DumpArchiveInputStream",
+    "org.apache.commons.compress.archivers.tar.TarArchiveInputStream",
+    "org.apache.commons.compress.archivers.tar.TarArchiveOutputStream",
+    "org.apache.commons.compress.archivers.zip.ZipArchiveInputStream"
+  ],
+  "kex_results": {
+    "org.apache.commons.compress.archivers.ArchiveStreamFactory": "success",
+    "org.apache.commons.compress.archivers.cpio.CpioArchiveInputStream": "success",
+    "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream": "success",
+    "org.apache.commons.compress.archivers.dump.DumpArchiveInputStream": "success",
+    "org.apache.commons.compress.archivers.tar.TarArchiveInputStream": "success",
+    "org.apache.commons.compress.archivers.tar.TarArchiveOutputStream": "success",
+    "org.apache.commons.compress.archivers.zip.ZipArchiveInputStream": "success"
+  },
+  "num_test_files_generated": 920,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

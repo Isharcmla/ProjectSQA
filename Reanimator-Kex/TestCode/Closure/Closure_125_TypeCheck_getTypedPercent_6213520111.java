@@ -1,0 +1,217 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.google.javascript.jscomp.EqualityUtils.*;
+import java.lang.Object;
+
+public class TypeCheck_getTypedPercent_6213520111 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term12514;
+     Object term26928;
+
+    public TypeCheck_getTypedPercent_6213520111() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term12514 = newInstance(Class.forName("com.google.javascript.jscomp.TypeCheck"));
+        Object term12515 = newInstance(Class.forName("com.google.javascript.jscomp.TypeValidator"));
+        Object term12516 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry"));
+        Object term12517 = newInstance(Class.forName("com.google.javascript.rhino.jstype.TemplateType"));
+        Object term12520 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfo"));
+        Object term12526 = newInstance(Class.forName("com.google.javascript.rhino.jstype.TemplateTypeMap"));
+        Object term12528 = newInstance(Class.forName("com.google.javascript.rhino.jstype.TemplateType"));
+        setField(term12514, term12514.getClass(), "compiler", null);
+        setField(term12515, term12515.getClass(), "compiler", null);
+        setField(term12517, term12517.getClass(), "name", "");
+        setField(term12517, term12517.getClass(), "referencedType", null);
+        setField(term12517, term12517.getClass(), "referencedObjType", null);
+        setBooleanField(term12517, term12517.getClass(), "visited", false);
+        setField(term12520, term12520.getClass(), "info", null);
+        setField(term12520, term12520.getClass(), "documentation", null);
+        setField(term12520, term12520.getClass(), "associatedNode", null);
+        setField(term12520, term12520.getClass(), "visibility", null);
+        setIntField(term12520, term12520.getClass(), "bitset", -337504086);
+        setField(term12520, term12520.getClass(), "type", null);
+        setField(term12520, term12520.getClass(), "thisType", null);
+        setBooleanField(term12520, term12520.getClass(), "includeDocumentation", false);
+        setIntField(term12520, term12520.getClass(), "originalCommentPosition", 2074130991);
+        setField(term12517, term12517.getClass(), "docInfo", term12520);
+        setBooleanField(term12517, term12517.getClass(), "unknown", true);
+        setBooleanField(term12517, term12517.getClass(), "resolved", true);
+        setField(term12517, term12517.getClass(), "resolveResult", null);
+        setField(term12526, term12526.getClass(), "templateKeys", null);
+        setField(term12526, term12526.getClass(), "templateValues", null);
+        setField(term12526, term12526.getClass(), "resolvedTemplateValues", null);
+        setField(term12526, term12526.getClass(), "registry", null);
+        setField(term12517, term12517.getClass(), "templateTypeMap", term12526);
+        setBooleanField(term12517, term12517.getClass(), "inTemplatedCheckVisit", false);
+        setField(term12517, term12517.getClass(), "registry", null);
+        setField(term12516, term12516.getClass(), "objectIndexTemplateKey", term12517);
+        setField(term12528, term12528.getClass(), "name", null);
+        setField(term12528, term12528.getClass(), "referencedType", null);
+        setField(term12528, term12528.getClass(), "referencedObjType", null);
+        setBooleanField(term12528, term12528.getClass(), "visited", false);
+        setField(term12528, term12528.getClass(), "docInfo", null);
+        setBooleanField(term12528, term12528.getClass(), "unknown", false);
+        setBooleanField(term12528, term12528.getClass(), "resolved", false);
+        setField(term12528, term12528.getClass(), "resolveResult", null);
+        setField(term12528, term12528.getClass(), "templateTypeMap", null);
+        setBooleanField(term12528, term12528.getClass(), "inTemplatedCheckVisit", false);
+        setField(term12528, term12528.getClass(), "registry", null);
+        setField(term12516, term12516.getClass(), "objectElementTemplateKey", term12528);
+        setField(term12516, term12516.getClass(), "reporter", null);
+        setField(term12516, term12516.getClass(), "nativeTypes", null);
+        setField(term12516, term12516.getClass(), "namesToTypes", null);
+        setField(term12516, term12516.getClass(), "namespaces", null);
+        setField(term12516, term12516.getClass(), "nonNullableTypeNames", null);
+        setField(term12516, term12516.getClass(), "forwardDeclaredTypes", null);
+        setField(term12516, term12516.getClass(), "typesIndexedByProperty", null);
+        setField(term12516, term12516.getClass(), "eachRefTypeIndexedByProperty", null);
+        setField(term12516, term12516.getClass(), "greatestSubtypeByProperty", null);
+        setField(term12516, term12516.getClass(), "interfaceToImplementors", null);
+        setField(term12516, term12516.getClass(), "unresolvedNamedTypes", null);
+        setField(term12516, term12516.getClass(), "resolvedNamedTypes", null);
+        setBooleanField(term12516, term12516.getClass(), "lastGeneration", false);
+        setField(term12516, term12516.getClass(), "templateTypes", null);
+        setField(term12516, term12516.getClass(), "emptyTemplateTypeMap", null);
+        setBooleanField(term12516, term12516.getClass(), "tolerateUndefinedValues", false);
+        setField(term12516, term12516.getClass(), "resolveMode", null);
+        setField(term12515, term12515.getClass(), "typeRegistry", term12516);
+        setField(term12515, term12515.getClass(), "allValueTypes", null);
+        setBooleanField(term12515, term12515.getClass(), "shouldReport", false);
+        setField(term12515, term12515.getClass(), "nullOrUndefined", null);
+        setField(term12515, term12515.getClass(), "mismatches", null);
+        setField(term12514, term12514.getClass(), "validator", term12515);
+        setField(term12514, term12514.getClass(), "reverseInterpreter", null);
+        setField(term12514, term12514.getClass(), "typeRegistry", null);
+        setField(term12514, term12514.getClass(), "topScope", null);
+        setField(term12514, term12514.getClass(), "scopeCreator", null);
+        setField(term12514, term12514.getClass(), "reportMissingOverride", null);
+        setBooleanField(term12514, term12514.getClass(), "reportUnknownTypes", false);
+        setBooleanField(term12514, term12514.getClass(), "reportMissingProperties", false);
+        setField(term12514, term12514.getClass(), "inferJSDocInfo", null);
+        setIntField(term12514, term12514.getClass(), "typedCount", 0);
+        setIntField(term12514, term12514.getClass(), "nullCount", 0);
+        setIntField(term12514, term12514.getClass(), "unknownCount", 0);
+        setBooleanField(term12514, term12514.getClass(), "inExterns", false);
+        setIntField(term12514, term12514.getClass(), "noTypeCheckSection", 0);
+        setField(term12514, term12514.getClass(), "editDistance", null);
+        term26928 = newInstance(Class.forName("com.google.javascript.jscomp.TypeCheck"));
+        Object term26929 = newInstance(Class.forName("com.google.javascript.jscomp.TypeValidator"));
+        Object term26930 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry"));
+        Object term26931 = newInstance(Class.forName("com.google.javascript.rhino.jstype.TemplateType"));
+        Object term26933 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfo"));
+        Object term26934 = newInstance(Class.forName("com.google.javascript.rhino.jstype.TemplateTypeMap"));
+        Object term26935 = newInstance(Class.forName("com.google.javascript.rhino.jstype.TemplateType"));
+        setField(term26928, term26928.getClass(), "compiler", null);
+        setField(term26929, term26929.getClass(), "compiler", null);
+        setField(term26931, term26931.getClass(), "name", "");
+        setField(term26931, term26931.getClass(), "referencedType", null);
+        setField(term26931, term26931.getClass(), "referencedObjType", null);
+        setBooleanField(term26931, term26931.getClass(), "visited", false);
+        setField(term26933, term26933.getClass(), "info", null);
+        setField(term26933, term26933.getClass(), "documentation", null);
+        setField(term26933, term26933.getClass(), "associatedNode", null);
+        setField(term26933, term26933.getClass(), "visibility", null);
+        setIntField(term26933, term26933.getClass(), "bitset", -337504086);
+        setField(term26933, term26933.getClass(), "type", null);
+        setField(term26933, term26933.getClass(), "thisType", null);
+        setBooleanField(term26933, term26933.getClass(), "includeDocumentation", false);
+        setIntField(term26933, term26933.getClass(), "originalCommentPosition", 2074130991);
+        setField(term26931, term26931.getClass(), "docInfo", term26933);
+        setBooleanField(term26931, term26931.getClass(), "unknown", true);
+        setBooleanField(term26931, term26931.getClass(), "resolved", true);
+        setField(term26931, term26931.getClass(), "resolveResult", null);
+        setField(term26934, term26934.getClass(), "templateKeys", null);
+        setField(term26934, term26934.getClass(), "templateValues", null);
+        setField(term26934, term26934.getClass(), "resolvedTemplateValues", null);
+        setField(term26934, term26934.getClass(), "registry", null);
+        setField(term26931, term26931.getClass(), "templateTypeMap", term26934);
+        setBooleanField(term26931, term26931.getClass(), "inTemplatedCheckVisit", false);
+        setField(term26931, term26931.getClass(), "registry", null);
+        setField(term26930, term26930.getClass(), "objectIndexTemplateKey", term26931);
+        setField(term26935, term26935.getClass(), "name", null);
+        setField(term26935, term26935.getClass(), "referencedType", null);
+        setField(term26935, term26935.getClass(), "referencedObjType", null);
+        setBooleanField(term26935, term26935.getClass(), "visited", false);
+        setField(term26935, term26935.getClass(), "docInfo", null);
+        setBooleanField(term26935, term26935.getClass(), "unknown", false);
+        setBooleanField(term26935, term26935.getClass(), "resolved", false);
+        setField(term26935, term26935.getClass(), "resolveResult", null);
+        setField(term26935, term26935.getClass(), "templateTypeMap", null);
+        setBooleanField(term26935, term26935.getClass(), "inTemplatedCheckVisit", false);
+        setField(term26935, term26935.getClass(), "registry", null);
+        setField(term26930, term26930.getClass(), "objectElementTemplateKey", term26935);
+        setField(term26930, term26930.getClass(), "reporter", null);
+        setField(term26930, term26930.getClass(), "nativeTypes", null);
+        setField(term26930, term26930.getClass(), "namesToTypes", null);
+        setField(term26930, term26930.getClass(), "namespaces", null);
+        setField(term26930, term26930.getClass(), "nonNullableTypeNames", null);
+        setField(term26930, term26930.getClass(), "forwardDeclaredTypes", null);
+        setField(term26930, term26930.getClass(), "typesIndexedByProperty", null);
+        setField(term26930, term26930.getClass(), "eachRefTypeIndexedByProperty", null);
+        setField(term26930, term26930.getClass(), "greatestSubtypeByProperty", null);
+        setField(term26930, term26930.getClass(), "interfaceToImplementors", null);
+        setField(term26930, term26930.getClass(), "unresolvedNamedTypes", null);
+        setField(term26930, term26930.getClass(), "resolvedNamedTypes", null);
+        setBooleanField(term26930, term26930.getClass(), "lastGeneration", false);
+        setField(term26930, term26930.getClass(), "templateTypes", null);
+        setField(term26930, term26930.getClass(), "emptyTemplateTypeMap", null);
+        setBooleanField(term26930, term26930.getClass(), "tolerateUndefinedValues", false);
+        setField(term26930, term26930.getClass(), "resolveMode", null);
+        setField(term26929, term26929.getClass(), "typeRegistry", term26930);
+        setField(term26929, term26929.getClass(), "allValueTypes", null);
+        setBooleanField(term26929, term26929.getClass(), "shouldReport", false);
+        setField(term26929, term26929.getClass(), "nullOrUndefined", null);
+        setField(term26929, term26929.getClass(), "mismatches", null);
+        setField(term26928, term26928.getClass(), "validator", term26929);
+        setField(term26928, term26928.getClass(), "reverseInterpreter", null);
+        setField(term26928, term26928.getClass(), "typeRegistry", null);
+        setField(term26928, term26928.getClass(), "topScope", null);
+        setField(term26928, term26928.getClass(), "scopeCreator", null);
+        setField(term26928, term26928.getClass(), "reportMissingOverride", null);
+        setBooleanField(term26928, term26928.getClass(), "reportUnknownTypes", false);
+        setBooleanField(term26928, term26928.getClass(), "reportMissingProperties", false);
+        setField(term26928, term26928.getClass(), "inferJSDocInfo", null);
+        setIntField(term26928, term26928.getClass(), "typedCount", 0);
+        setIntField(term26928, term26928.getClass(), "nullCount", 0);
+        setIntField(term26928, term26928.getClass(), "unknownCount", 0);
+        setBooleanField(term26928, term26928.getClass(), "inExterns", false);
+        setIntField(term26928, term26928.getClass(), "noTypeCheckSection", 0);
+        setField(term26928, term26928.getClass(), "editDistance", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.TypeCheck");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        Object retValue = callMethod(klass, "getTypedPercent", argTypes, term12514, args);
+        assertTrue(recursiveEquals(term12514, term26928));
+        assertTrue(recursiveEquals(retValue, 0.0));
+    }
+
+};
+
+

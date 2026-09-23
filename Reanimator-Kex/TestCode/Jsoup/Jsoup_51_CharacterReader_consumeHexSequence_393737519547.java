@@ -1,0 +1,260 @@
+package org.jsoup.parser;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.ArrayIndexOutOfBoundsException;
+import static org.jsoup.parser.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class CharacterReader_consumeHexSequence_393737519547 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term4373678;
+
+    public CharacterReader_consumeHexSequence_393737519547() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term4373678 = newInstance(Class.forName("org.jsoup.parser.CharacterReader"));
+        char[] term4372727 = (char[]) newCharArray(202);
+        setIntField(term4373678, term4373678.getClass(), "pos", 71);
+        setIntField(term4373678, term4373678.getClass(), "length", 262511);
+        setCharElement(term4372727, 0, 'b');
+        setCharElement(term4372727, 1, 'b');
+        setCharElement(term4372727, 2, 'b');
+        setCharElement(term4372727, 3, 'b');
+        setCharElement(term4372727, 4, 'b');
+        setCharElement(term4372727, 5, 'b');
+        setCharElement(term4372727, 6, 'b');
+        setCharElement(term4372727, 7, 'b');
+        setCharElement(term4372727, 8, 'b');
+        setCharElement(term4372727, 9, 'b');
+        setCharElement(term4372727, 10, 'b');
+        setCharElement(term4372727, 11, 'b');
+        setCharElement(term4372727, 12, 'b');
+        setCharElement(term4372727, 13, 'b');
+        setCharElement(term4372727, 14, 'b');
+        setCharElement(term4372727, 15, 'b');
+        setCharElement(term4372727, 16, 'b');
+        setCharElement(term4372727, 17, 'b');
+        setCharElement(term4372727, 18, 'b');
+        setCharElement(term4372727, 19, 'b');
+        setCharElement(term4372727, 20, 'b');
+        setCharElement(term4372727, 21, 'b');
+        setCharElement(term4372727, 22, 'b');
+        setCharElement(term4372727, 23, 'b');
+        setCharElement(term4372727, 24, 'b');
+        setCharElement(term4372727, 25, 'b');
+        setCharElement(term4372727, 26, 'b');
+        setCharElement(term4372727, 27, 'b');
+        setCharElement(term4372727, 28, 'b');
+        setCharElement(term4372727, 29, 'b');
+        setCharElement(term4372727, 30, 'b');
+        setCharElement(term4372727, 31, 'b');
+        setCharElement(term4372727, 32, 'b');
+        setCharElement(term4372727, 33, 'b');
+        setCharElement(term4372727, 34, 'b');
+        setCharElement(term4372727, 35, 'b');
+        setCharElement(term4372727, 36, 'b');
+        setCharElement(term4372727, 37, 'b');
+        setCharElement(term4372727, 38, 'b');
+        setCharElement(term4372727, 39, 'b');
+        setCharElement(term4372727, 40, 'b');
+        setCharElement(term4372727, 41, 'b');
+        setCharElement(term4372727, 42, 'b');
+        setCharElement(term4372727, 43, 'b');
+        setCharElement(term4372727, 44, 'b');
+        setCharElement(term4372727, 45, 'b');
+        setCharElement(term4372727, 46, 'b');
+        setCharElement(term4372727, 47, 'b');
+        setCharElement(term4372727, 48, 'b');
+        setCharElement(term4372727, 49, 'b');
+        setCharElement(term4372727, 50, 'b');
+        setCharElement(term4372727, 51, 'b');
+        setCharElement(term4372727, 52, 'b');
+        setCharElement(term4372727, 53, 'b');
+        setCharElement(term4372727, 54, 'b');
+        setCharElement(term4372727, 55, 'b');
+        setCharElement(term4372727, 56, 'b');
+        setCharElement(term4372727, 57, 'b');
+        setCharElement(term4372727, 58, 'b');
+        setCharElement(term4372727, 59, 'b');
+        setCharElement(term4372727, 60, 'b');
+        setCharElement(term4372727, 61, 'b');
+        setCharElement(term4372727, 62, 'b');
+        setCharElement(term4372727, 63, 'b');
+        setCharElement(term4372727, 64, 'b');
+        setCharElement(term4372727, 65, 'b');
+        setCharElement(term4372727, 66, 'b');
+        setCharElement(term4372727, 67, 'b');
+        setCharElement(term4372727, 68, 'b');
+        setCharElement(term4372727, 69, 'b');
+        setCharElement(term4372727, 70, 'b');
+        setCharElement(term4372727, 71, 'b');
+        setCharElement(term4372727, 72, (char) 48);
+        setCharElement(term4372727, 73, (char) 48);
+        setCharElement(term4372727, 74, (char) 48);
+        setCharElement(term4372727, 75, 'b');
+        setCharElement(term4372727, 76, 'b');
+        setCharElement(term4372727, 77, 'b');
+        setCharElement(term4372727, 78, 'b');
+        setCharElement(term4372727, 79, 'b');
+        setCharElement(term4372727, 80, 'b');
+        setCharElement(term4372727, 81, 'b');
+        setCharElement(term4372727, 82, 'b');
+        setCharElement(term4372727, 83, 'b');
+        setCharElement(term4372727, 84, 'b');
+        setCharElement(term4372727, 85, 'b');
+        setCharElement(term4372727, 86, 'b');
+        setCharElement(term4372727, 87, 'b');
+        setCharElement(term4372727, 88, 'b');
+        setCharElement(term4372727, 89, 'b');
+        setCharElement(term4372727, 90, 'b');
+        setCharElement(term4372727, 91, 'b');
+        setCharElement(term4372727, 92, 'b');
+        setCharElement(term4372727, 93, 'b');
+        setCharElement(term4372727, 94, 'b');
+        setCharElement(term4372727, 95, 'b');
+        setCharElement(term4372727, 96, 'b');
+        setCharElement(term4372727, 97, 'b');
+        setCharElement(term4372727, 98, 'b');
+        setCharElement(term4372727, 99, 'b');
+        setCharElement(term4372727, 100, 'b');
+        setCharElement(term4372727, 101, 'b');
+        setCharElement(term4372727, 102, 'b');
+        setCharElement(term4372727, 103, 'b');
+        setCharElement(term4372727, 104, 'b');
+        setCharElement(term4372727, 105, 'b');
+        setCharElement(term4372727, 106, 'b');
+        setCharElement(term4372727, 107, 'b');
+        setCharElement(term4372727, 108, 'b');
+        setCharElement(term4372727, 109, 'b');
+        setCharElement(term4372727, 110, 'b');
+        setCharElement(term4372727, 111, 'b');
+        setCharElement(term4372727, 112, 'b');
+        setCharElement(term4372727, 113, 'b');
+        setCharElement(term4372727, 114, 'b');
+        setCharElement(term4372727, 115, 'b');
+        setCharElement(term4372727, 116, 'b');
+        setCharElement(term4372727, 117, 'b');
+        setCharElement(term4372727, 118, 'b');
+        setCharElement(term4372727, 119, 'b');
+        setCharElement(term4372727, 120, 'b');
+        setCharElement(term4372727, 121, 'b');
+        setCharElement(term4372727, 122, 'b');
+        setCharElement(term4372727, 123, 'b');
+        setCharElement(term4372727, 124, 'b');
+        setCharElement(term4372727, 125, 'b');
+        setCharElement(term4372727, 126, 'b');
+        setCharElement(term4372727, 127, 'b');
+        setCharElement(term4372727, 128, 'b');
+        setCharElement(term4372727, 129, 'b');
+        setCharElement(term4372727, 130, 'b');
+        setCharElement(term4372727, 131, 'b');
+        setCharElement(term4372727, 132, 'b');
+        setCharElement(term4372727, 133, 'b');
+        setCharElement(term4372727, 134, 'b');
+        setCharElement(term4372727, 135, 'b');
+        setCharElement(term4372727, 136, 'b');
+        setCharElement(term4372727, 137, 'b');
+        setCharElement(term4372727, 138, 'b');
+        setCharElement(term4372727, 139, 'b');
+        setCharElement(term4372727, 140, 'b');
+        setCharElement(term4372727, 141, 'b');
+        setCharElement(term4372727, 142, 'b');
+        setCharElement(term4372727, 143, 'b');
+        setCharElement(term4372727, 144, 'b');
+        setCharElement(term4372727, 145, 'b');
+        setCharElement(term4372727, 146, 'b');
+        setCharElement(term4372727, 147, 'b');
+        setCharElement(term4372727, 148, 'b');
+        setCharElement(term4372727, 149, 'b');
+        setCharElement(term4372727, 150, 'b');
+        setCharElement(term4372727, 151, 'b');
+        setCharElement(term4372727, 152, 'b');
+        setCharElement(term4372727, 153, 'b');
+        setCharElement(term4372727, 154, 'b');
+        setCharElement(term4372727, 155, 'b');
+        setCharElement(term4372727, 156, 'b');
+        setCharElement(term4372727, 157, 'b');
+        setCharElement(term4372727, 158, 'b');
+        setCharElement(term4372727, 159, 'b');
+        setCharElement(term4372727, 160, 'b');
+        setCharElement(term4372727, 161, 'b');
+        setCharElement(term4372727, 162, 'b');
+        setCharElement(term4372727, 163, 'b');
+        setCharElement(term4372727, 164, 'b');
+        setCharElement(term4372727, 165, 'b');
+        setCharElement(term4372727, 166, 'b');
+        setCharElement(term4372727, 167, 'b');
+        setCharElement(term4372727, 168, 'b');
+        setCharElement(term4372727, 169, 'b');
+        setCharElement(term4372727, 170, 'b');
+        setCharElement(term4372727, 171, 'b');
+        setCharElement(term4372727, 172, 'b');
+        setCharElement(term4372727, 173, 'b');
+        setCharElement(term4372727, 174, 'b');
+        setCharElement(term4372727, 175, 'b');
+        setCharElement(term4372727, 176, 'b');
+        setCharElement(term4372727, 177, 'b');
+        setCharElement(term4372727, 178, 'b');
+        setCharElement(term4372727, 179, 'b');
+        setCharElement(term4372727, 180, 'b');
+        setCharElement(term4372727, 181, 'b');
+        setCharElement(term4372727, 182, 'b');
+        setCharElement(term4372727, 183, 'b');
+        setCharElement(term4372727, 184, 'b');
+        setCharElement(term4372727, 185, 'b');
+        setCharElement(term4372727, 186, 'b');
+        setCharElement(term4372727, 187, 'b');
+        setCharElement(term4372727, 188, 'b');
+        setCharElement(term4372727, 189, 'b');
+        setCharElement(term4372727, 190, 'b');
+        setCharElement(term4372727, 191, 'b');
+        setCharElement(term4372727, 192, 'b');
+        setCharElement(term4372727, 193, 'b');
+        setCharElement(term4372727, 194, 'b');
+        setCharElement(term4372727, 195, 'b');
+        setCharElement(term4372727, 196, 'b');
+        setCharElement(term4372727, 197, 'b');
+        setCharElement(term4372727, 198, 'b');
+        setCharElement(term4372727, 199, 'b');
+        setCharElement(term4372727, 200, 'b');
+        setCharElement(term4372727, 201, 'b');
+        setField(term4373678, term4373678.getClass(), "input", term4372727);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jsoup.parser.CharacterReader");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        try {
+            callMethod(klass, "consumeHexSequence", argTypes, term4373678, args);
+            assertTrue(false);
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+        }
+
+    }
+
+};
+
+

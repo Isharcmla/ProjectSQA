@@ -1,0 +1,23 @@
+{
+  "project": "Closure",
+  "bug_id": "144",
+  "tool": "kex",
+  "elapsed_sec": 692.41,
+  "target_classes": [
+    "com.google.javascript.jscomp.FunctionTypeBuilder",
+    "com.google.javascript.jscomp.TypedScopeCreator",
+    "com.google.javascript.rhino.jstype.FunctionBuilder",
+    "com.google.javascript.rhino.jstype.FunctionType"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.FunctionTypeBuilder": "failed",
+    "com.google.javascript.jscomp.TypedScopeCreator": "failed",
+    "com.google.javascript.rhino.jstype.FunctionBuilder": "failed",
+    "com.google.javascript.rhino.jstype.FunctionType": "timeout"
+  },
+  "num_test_files_generated": 1159,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

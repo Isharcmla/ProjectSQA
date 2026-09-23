@@ -1,0 +1,261 @@
+package org.apache.commons.compress.archivers.sevenz;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.apache.commons.compress.archivers.sevenz.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class SevenZFile_readSubStreamsInfo_1404604771143 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term59315;
+     Object term59425;
+
+    public SevenZFile_readSubStreamsInfo_1404604771143() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term59315 = newInstance(Class.forName("org.apache.commons.compress.archivers.sevenz.SevenZFile"));
+        term59425 = newInstance(Class.forName("org.apache.commons.compress.archivers.sevenz.Archive"));
+        Object[] term58013 = (Object[]) newArray("org.apache.commons.compress.archivers.sevenz.Folder", 196);
+        Object term59533 = newInstance(Class.forName("org.apache.commons.compress.archivers.sevenz.Folder"));
+        setIntField(term59533, term59533.getClass(), "numUnpackSubStreams", 0);
+        setElement(term58013, 0, term59533);
+        setElement(term58013, 1, term59533);
+        setElement(term58013, 2, term59533);
+        setElement(term58013, 3, term59533);
+        setElement(term58013, 4, term59533);
+        setElement(term58013, 5, term59533);
+        setElement(term58013, 6, term59533);
+        setElement(term58013, 7, term59533);
+        setElement(term58013, 8, term59533);
+        setElement(term58013, 9, term59533);
+        setElement(term58013, 10, term59533);
+        setElement(term58013, 11, term59533);
+        setElement(term58013, 12, term59533);
+        setElement(term58013, 13, term59533);
+        setElement(term58013, 14, term59533);
+        setElement(term58013, 15, term59533);
+        setElement(term58013, 16, term59533);
+        setElement(term58013, 17, term59533);
+        setElement(term58013, 18, term59533);
+        setElement(term58013, 19, term59533);
+        setElement(term58013, 20, term59533);
+        setElement(term58013, 21, term59533);
+        setElement(term58013, 22, term59533);
+        setElement(term58013, 23, term59533);
+        setElement(term58013, 24, term59533);
+        setElement(term58013, 25, term59533);
+        setElement(term58013, 26, term59533);
+        setElement(term58013, 27, term59533);
+        setElement(term58013, 28, term59533);
+        setElement(term58013, 29, term59533);
+        setElement(term58013, 30, term59533);
+        setElement(term58013, 31, term59533);
+        setElement(term58013, 32, term59533);
+        setElement(term58013, 33, term59533);
+        setElement(term58013, 34, term59533);
+        setElement(term58013, 35, term59533);
+        setElement(term58013, 36, term59533);
+        setElement(term58013, 37, term59533);
+        setElement(term58013, 38, term59533);
+        setElement(term58013, 39, term59533);
+        setElement(term58013, 40, term59533);
+        setElement(term58013, 41, term59533);
+        setElement(term58013, 42, term59533);
+        setElement(term58013, 43, term59533);
+        setElement(term58013, 44, term59533);
+        setElement(term58013, 45, term59533);
+        setElement(term58013, 46, term59533);
+        setElement(term58013, 47, term59533);
+        setElement(term58013, 48, term59533);
+        setElement(term58013, 49, term59533);
+        setElement(term58013, 50, term59533);
+        setElement(term58013, 51, term59533);
+        setElement(term58013, 52, term59533);
+        setElement(term58013, 53, term59533);
+        setElement(term58013, 54, term59533);
+        setElement(term58013, 55, term59533);
+        setElement(term58013, 56, term59533);
+        setElement(term58013, 57, term59533);
+        setElement(term58013, 58, term59533);
+        setElement(term58013, 59, term59533);
+        setElement(term58013, 60, term59533);
+        setElement(term58013, 61, term59533);
+        setElement(term58013, 62, term59533);
+        setElement(term58013, 63, term59533);
+        setElement(term58013, 64, term59533);
+        setElement(term58013, 65, term59533);
+        setElement(term58013, 66, term59533);
+        setElement(term58013, 67, term59533);
+        setElement(term58013, 68, term59533);
+        setElement(term58013, 69, term59533);
+        setElement(term58013, 70, term59533);
+        setElement(term58013, 71, term59533);
+        setElement(term58013, 72, term59533);
+        setElement(term58013, 73, term59533);
+        setElement(term58013, 74, term59533);
+        setElement(term58013, 75, term59533);
+        setElement(term58013, 76, term59533);
+        setElement(term58013, 77, term59533);
+        setElement(term58013, 78, term59533);
+        setElement(term58013, 79, term59533);
+        setElement(term58013, 80, term59533);
+        setElement(term58013, 81, term59533);
+        setElement(term58013, 82, term59533);
+        setElement(term58013, 83, term59533);
+        setElement(term58013, 84, term59533);
+        setElement(term58013, 85, term59533);
+        setElement(term58013, 86, term59533);
+        setElement(term58013, 87, term59533);
+        setElement(term58013, 88, term59533);
+        setElement(term58013, 89, term59533);
+        setElement(term58013, 90, term59533);
+        setElement(term58013, 91, term59533);
+        setElement(term58013, 92, term59533);
+        setElement(term58013, 93, term59533);
+        setElement(term58013, 94, term59533);
+        setElement(term58013, 95, term59533);
+        setElement(term58013, 96, term59533);
+        setElement(term58013, 97, term59533);
+        setElement(term58013, 98, term59533);
+        setElement(term58013, 99, term59533);
+        setElement(term58013, 100, term59533);
+        setElement(term58013, 101, term59533);
+        setElement(term58013, 102, term59533);
+        setElement(term58013, 103, term59533);
+        setElement(term58013, 104, term59533);
+        setElement(term58013, 105, term59533);
+        setElement(term58013, 106, term59533);
+        setElement(term58013, 107, term59533);
+        setElement(term58013, 108, term59533);
+        setElement(term58013, 109, term59533);
+        setElement(term58013, 110, term59533);
+        setElement(term58013, 111, term59533);
+        setElement(term58013, 112, term59533);
+        setElement(term58013, 113, term59533);
+        setElement(term58013, 114, term59533);
+        setElement(term58013, 115, term59533);
+        setElement(term58013, 116, term59533);
+        setElement(term58013, 117, term59533);
+        setElement(term58013, 118, term59533);
+        setElement(term58013, 119, term59533);
+        setElement(term58013, 120, term59533);
+        setElement(term58013, 121, term59533);
+        setElement(term58013, 122, term59533);
+        setElement(term58013, 123, term59533);
+        setElement(term58013, 124, term59533);
+        setElement(term58013, 125, term59533);
+        setElement(term58013, 126, term59533);
+        setElement(term58013, 127, term59533);
+        setElement(term58013, 128, term59533);
+        setElement(term58013, 129, term59533);
+        setElement(term58013, 130, term59533);
+        setElement(term58013, 131, term59533);
+        setElement(term58013, 132, term59533);
+        setElement(term58013, 133, term59533);
+        setElement(term58013, 134, term59533);
+        setElement(term58013, 135, term59533);
+        setElement(term58013, 136, term59533);
+        setElement(term58013, 137, term59533);
+        setElement(term58013, 138, term59533);
+        setElement(term58013, 139, term59533);
+        setElement(term58013, 140, term59533);
+        setElement(term58013, 141, term59533);
+        setElement(term58013, 142, term59533);
+        setElement(term58013, 143, term59533);
+        setElement(term58013, 144, term59533);
+        setElement(term58013, 145, term59533);
+        setElement(term58013, 146, term59533);
+        setElement(term58013, 147, term59533);
+        setElement(term58013, 148, term59533);
+        setElement(term58013, 149, term59533);
+        setElement(term58013, 150, term59533);
+        setElement(term58013, 151, term59533);
+        setElement(term58013, 152, term59533);
+        setElement(term58013, 153, term59533);
+        setElement(term58013, 154, term59533);
+        setElement(term58013, 155, term59533);
+        setElement(term58013, 156, term59533);
+        setElement(term58013, 157, term59533);
+        setElement(term58013, 158, term59533);
+        setElement(term58013, 159, term59533);
+        setElement(term58013, 160, term59533);
+        setElement(term58013, 161, term59533);
+        setElement(term58013, 162, term59533);
+        setElement(term58013, 163, term59533);
+        setElement(term58013, 164, term59533);
+        setElement(term58013, 165, term59533);
+        setElement(term58013, 166, term59533);
+        setElement(term58013, 167, term59533);
+        setElement(term58013, 168, term59533);
+        setElement(term58013, 169, term59533);
+        setElement(term58013, 170, term59533);
+        setElement(term58013, 171, term59533);
+        setElement(term58013, 172, term59533);
+        setElement(term58013, 173, term59533);
+        setElement(term58013, 174, term59533);
+        setElement(term58013, 175, term59533);
+        setElement(term58013, 176, term59533);
+        setElement(term58013, 177, term59533);
+        setElement(term58013, 178, term59533);
+        setElement(term58013, 179, term59533);
+        setElement(term58013, 180, term59533);
+        setElement(term58013, 181, term59533);
+        setElement(term58013, 182, term59533);
+        setElement(term58013, 183, term59533);
+        setElement(term58013, 184, term59533);
+        setElement(term58013, 185, term59533);
+        setElement(term58013, 186, term59533);
+        setElement(term58013, 187, term59533);
+        setElement(term58013, 188, term59533);
+        setElement(term58013, 189, term59533);
+        setElement(term58013, 190, term59533);
+        setElement(term58013, 191, term59533);
+        setElement(term58013, 192, term59533);
+        setElement(term58013, 193, term59533);
+        setElement(term58013, 194, term59533);
+        setElement(term58013, 195, term59533);
+        setField(term59425, term59425.getClass(), "folders", term58013);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.compress.archivers.sevenz.SevenZFile");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("java.io.DataInput");
+        argTypes[1] = Class.forName("org.apache.commons.compress.archivers.sevenz.Archive");
+        Object[] args = new Object[2];
+        args[0] = null;
+        args[1] = term59425;
+        try {
+            callMethod(klass, "readSubStreamsInfo", argTypes, term59315, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

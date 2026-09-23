@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "62",
+  "tool": "kex",
+  "elapsed_sec": 158.19,
+  "target_classes": [
+    "org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer": "success"
+  },
+  "num_test_files_generated": 38,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

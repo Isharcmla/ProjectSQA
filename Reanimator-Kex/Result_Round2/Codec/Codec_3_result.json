@@ -1,0 +1,17 @@
+{
+  "project": "Codec",
+  "bug_id": "3",
+  "tool": "kex",
+  "elapsed_sec": 279.39,
+  "target_classes": [
+    "org.apache.commons.codec.language.DoubleMetaphone"
+  ],
+  "kex_results": {
+    "org.apache.commons.codec.language.DoubleMetaphone": "success"
+  },
+  "num_test_files_generated": 111,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

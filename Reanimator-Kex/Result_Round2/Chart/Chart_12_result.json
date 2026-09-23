@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "12",
+  "tool": "kex",
+  "elapsed_sec": 127.46,
+  "target_classes": [
+    "org.jfree.chart.plot.MultiplePiePlot"
+  ],
+  "kex_results": {
+    "org.jfree.chart.plot.MultiplePiePlot": "success"
+  },
+  "num_test_files_generated": 40,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

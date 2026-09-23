@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "91",
+  "tool": "kex",
+  "elapsed_sec": 138.69,
+  "target_classes": [
+    "com.google.javascript.jscomp.CheckGlobalThis"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.CheckGlobalThis": "failed"
+  },
+  "num_test_files_generated": 73,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

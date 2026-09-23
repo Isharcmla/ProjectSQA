@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "33",
+  "tool": "kex",
+  "elapsed_sec": 263.42,
+  "target_classes": [
+    "org.apache.commons.lang3.ClassUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang3.ClassUtils": "success"
+  },
+  "num_test_files_generated": 84,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

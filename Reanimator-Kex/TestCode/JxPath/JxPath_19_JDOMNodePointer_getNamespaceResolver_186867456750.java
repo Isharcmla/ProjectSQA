@@ -1,0 +1,215 @@
+package org.apache.commons.jxpath.ri.model.jdom;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.jxpath.ri.model.jdom.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.jxpath.ri.model.jdom.EqualityUtils.*;
+import java.lang.Object;
+import java.util.HashMap;
+
+public class JDOMNodePointer_getNamespaceResolver_186867456750 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term659;
+     Object term5268;
+     Object term5177;
+
+    public JDOMNodePointer_getNamespaceResolver_186867456750() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        HashMap term678 = new HashMap();
+        HashMap term683 = new HashMap();
+        HashMap term689 = new HashMap();
+        HashMap term694 = new HashMap();
+        HashMap term700 = new HashMap();
+        HashMap term705 = new HashMap();
+        HashMap term716 = new HashMap();
+        HashMap term721 = new HashMap();
+        HashMap term727 = new HashMap();
+        HashMap term732 = new HashMap();
+        HashMap term738 = new HashMap();
+        HashMap term743 = new HashMap();
+        term659 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer"));
+        Object term660 = newInstance(Class.forName("java.lang.Object"));
+        Object term673 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term674 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term675 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term676 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term713 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term714 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term715 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term749 = newInstance(Class.forName("java.lang.Object"));
+        setField(term659, term659.getClass(), "node", term660);
+        setField(term659, term659.getClass(), "id", "NRdvgJlhkX");
+        setField(term676, term676.getClass(), "parent", null);
+        setField(term676, term676.getClass(), "namespaceMap", null);
+        setField(term676, term676.getClass(), "reverseMap", null);
+        setField(term676, term676.getClass(), "pointer", null);
+        setBooleanField(term676, term676.getClass(), "sealed", false);
+        setField(term675, term675.getClass(), "parent", term676);
+        setField(term675, term675.getClass(), "namespaceMap", term678);
+        setField(term675, term675.getClass(), "reverseMap", term683);
+        setField(term675, term675.getClass(), "pointer", null);
+        setBooleanField(term675, term675.getClass(), "sealed", false);
+        setField(term674, term674.getClass(), "parent", term675);
+        setField(term674, term674.getClass(), "namespaceMap", term689);
+        setField(term674, term674.getClass(), "reverseMap", term694);
+        setField(term674, term674.getClass(), "pointer", null);
+        setBooleanField(term674, term674.getClass(), "sealed", false);
+        setField(term673, term673.getClass(), "parent", term674);
+        setField(term673, term673.getClass(), "namespaceMap", term700);
+        setField(term673, term673.getClass(), "reverseMap", term705);
+        setField(term673, term673.getClass(), "pointer", null);
+        setBooleanField(term673, term673.getClass(), "sealed", false);
+        setField(term659, term659.getClass(), "localNamespaceResolver", term673);
+        setIntField(term659, term659.getClass(), "index", -616727354);
+        setBooleanField(term659, term659.getClass(), "attribute", true);
+        setField(term715, term715.getClass(), "parent", null);
+        setField(term715, term715.getClass(), "namespaceMap", term716);
+        setField(term715, term715.getClass(), "reverseMap", term721);
+        setField(term715, term715.getClass(), "pointer", null);
+        setBooleanField(term715, term715.getClass(), "sealed", false);
+        setField(term714, term714.getClass(), "parent", term715);
+        setField(term714, term714.getClass(), "namespaceMap", term727);
+        setField(term714, term714.getClass(), "reverseMap", term732);
+        setField(term714, term714.getClass(), "pointer", null);
+        setBooleanField(term714, term714.getClass(), "sealed", false);
+        setField(term713, term713.getClass(), "parent", term714);
+        setField(term713, term713.getClass(), "namespaceMap", term738);
+        setField(term713, term713.getClass(), "reverseMap", term743);
+        setField(term713, term713.getClass(), "pointer", null);
+        setBooleanField(term713, term713.getClass(), "sealed", false);
+        setField(term659, term659.getClass(), "namespaceResolver", term713);
+        setField(term659, term659.getClass(), "rootNode", term749);
+        setField(term659, term659.getClass(), "parent", null);
+        setField(term659, term659.getClass(), "locale", null);
+        HashMap term5276 = new HashMap();
+        HashMap term5277 = new HashMap();
+        HashMap term5278 = new HashMap();
+        HashMap term5279 = new HashMap();
+        HashMap term5280 = new HashMap();
+        HashMap term5281 = new HashMap();
+        HashMap term5285 = new HashMap();
+        HashMap term5286 = new HashMap();
+        HashMap term5287 = new HashMap();
+        HashMap term5288 = new HashMap();
+        HashMap term5289 = new HashMap();
+        HashMap term5290 = new HashMap();
+        term5268 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer"));
+        Object term5269 = newInstance(Class.forName("java.lang.Object"));
+        Object term5272 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term5273 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term5274 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term5275 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term5282 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term5283 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term5284 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term5291 = newInstance(Class.forName("java.lang.Object"));
+        setField(term5268, term5268.getClass(), "node", term5269);
+        setField(term5268, term5268.getClass(), "id", "NRdvgJlhkX");
+        setField(term5275, term5275.getClass(), "parent", null);
+        setField(term5275, term5275.getClass(), "namespaceMap", null);
+        setField(term5275, term5275.getClass(), "reverseMap", null);
+        setField(term5275, term5275.getClass(), "pointer", null);
+        setBooleanField(term5275, term5275.getClass(), "sealed", false);
+        setField(term5274, term5274.getClass(), "parent", term5275);
+        setField(term5274, term5274.getClass(), "namespaceMap", term5276);
+        setField(term5274, term5274.getClass(), "reverseMap", term5277);
+        setField(term5274, term5274.getClass(), "pointer", null);
+        setBooleanField(term5274, term5274.getClass(), "sealed", false);
+        setField(term5273, term5273.getClass(), "parent", term5274);
+        setField(term5273, term5273.getClass(), "namespaceMap", term5278);
+        setField(term5273, term5273.getClass(), "reverseMap", term5279);
+        setField(term5273, term5273.getClass(), "pointer", null);
+        setBooleanField(term5273, term5273.getClass(), "sealed", false);
+        setField(term5272, term5272.getClass(), "parent", term5273);
+        setField(term5272, term5272.getClass(), "namespaceMap", term5280);
+        setField(term5272, term5272.getClass(), "reverseMap", term5281);
+        setField(term5272, term5272.getClass(), "pointer", null);
+        setBooleanField(term5272, term5272.getClass(), "sealed", false);
+        setField(term5268, term5268.getClass(), "localNamespaceResolver", term5272);
+        setIntField(term5268, term5268.getClass(), "index", -616727354);
+        setBooleanField(term5268, term5268.getClass(), "attribute", true);
+        setField(term5284, term5284.getClass(), "parent", null);
+        setField(term5284, term5284.getClass(), "namespaceMap", term5285);
+        setField(term5284, term5284.getClass(), "reverseMap", term5286);
+        setField(term5284, term5284.getClass(), "pointer", null);
+        setBooleanField(term5284, term5284.getClass(), "sealed", false);
+        setField(term5283, term5283.getClass(), "parent", term5284);
+        setField(term5283, term5283.getClass(), "namespaceMap", term5287);
+        setField(term5283, term5283.getClass(), "reverseMap", term5288);
+        setField(term5283, term5283.getClass(), "pointer", null);
+        setBooleanField(term5283, term5283.getClass(), "sealed", false);
+        setField(term5282, term5282.getClass(), "parent", term5283);
+        setField(term5282, term5282.getClass(), "namespaceMap", term5289);
+        setField(term5282, term5282.getClass(), "reverseMap", term5290);
+        setField(term5282, term5282.getClass(), "pointer", null);
+        setBooleanField(term5282, term5282.getClass(), "sealed", false);
+        setField(term5268, term5268.getClass(), "namespaceResolver", term5282);
+        setField(term5268, term5268.getClass(), "rootNode", term5291);
+        setField(term5268, term5268.getClass(), "parent", null);
+        setField(term5268, term5268.getClass(), "locale", null);
+        HashMap term5182 = new HashMap();
+        HashMap term5187 = new HashMap();
+        HashMap term5193 = new HashMap();
+        HashMap term5198 = new HashMap();
+        HashMap term5204 = new HashMap();
+        HashMap term5209 = new HashMap();
+        term5177 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term5178 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term5179 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        Object term5180 = newInstance(Class.forName("org.apache.commons.jxpath.ri.NamespaceResolver"));
+        setField(term5180, term5180.getClass(), "parent", null);
+        setField(term5180, term5180.getClass(), "namespaceMap", null);
+        setField(term5180, term5180.getClass(), "reverseMap", null);
+        setField(term5180, term5180.getClass(), "pointer", null);
+        setBooleanField(term5180, term5180.getClass(), "sealed", false);
+        setField(term5179, term5179.getClass(), "parent", term5180);
+        setField(term5179, term5179.getClass(), "namespaceMap", term5182);
+        setField(term5179, term5179.getClass(), "reverseMap", term5187);
+        setField(term5179, term5179.getClass(), "pointer", null);
+        setBooleanField(term5179, term5179.getClass(), "sealed", false);
+        setField(term5178, term5178.getClass(), "parent", term5179);
+        setField(term5178, term5178.getClass(), "namespaceMap", term5193);
+        setField(term5178, term5178.getClass(), "reverseMap", term5198);
+        setField(term5178, term5178.getClass(), "pointer", null);
+        setBooleanField(term5178, term5178.getClass(), "sealed", false);
+        setField(term5177, term5177.getClass(), "parent", term5178);
+        setField(term5177, term5177.getClass(), "namespaceMap", term5204);
+        setField(term5177, term5177.getClass(), "reverseMap", term5209);
+        setField(term5177, term5177.getClass(), "pointer", null);
+        setBooleanField(term5177, term5177.getClass(), "sealed", false);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        Object retValue = callMethod(klass, "getNamespaceResolver", argTypes, term659, args);
+        assertTrue(recursiveEquals(term659, term5268));
+        assertTrue(recursiveEquals(retValue, term5177));
+    }
+
+};
+
+

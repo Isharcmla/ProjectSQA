@@ -1,0 +1,17 @@
+{
+  "project": "Mockito",
+  "bug_id": "5",
+  "tool": "kex",
+  "elapsed_sec": 188.82,
+  "target_classes": [
+    "org.mockito.internal.verification.VerificationOverTimeImpl"
+  ],
+  "kex_results": {
+    "org.mockito.internal.verification.VerificationOverTimeImpl": "success"
+  },
+  "num_test_files_generated": 15,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

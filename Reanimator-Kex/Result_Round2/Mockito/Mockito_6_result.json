@@ -1,0 +1,17 @@
+{
+  "project": "Mockito",
+  "bug_id": "6",
+  "tool": "kex",
+  "elapsed_sec": 62.5,
+  "target_classes": [
+    "org.mockito.Matchers"
+  ],
+  "kex_results": {
+    "org.mockito.Matchers": "success"
+  },
+  "num_test_files_generated": 56,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

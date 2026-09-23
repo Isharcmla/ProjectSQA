@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "7",
+  "tool": "kex",
+  "elapsed_sec": 46.09,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.util.TokenBuffer"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.util.TokenBuffer": "failed"
+  },
+  "num_test_files_generated": 4,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

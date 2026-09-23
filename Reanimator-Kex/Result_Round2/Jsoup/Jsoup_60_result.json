@@ -1,0 +1,19 @@
+{
+  "project": "Jsoup",
+  "bug_id": "60",
+  "tool": "kex",
+  "elapsed_sec": 357.99,
+  "target_classes": [
+    "org.jsoup.parser.TokenQueue",
+    "org.jsoup.select.QueryParser"
+  ],
+  "kex_results": {
+    "org.jsoup.parser.TokenQueue": "success",
+    "org.jsoup.select.QueryParser": "success"
+  },
+  "num_test_files_generated": 134,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,215 @@
+package org.jsoup.parser;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.jsoup.parser.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.jsoup.parser.EqualityUtils.*;
+import java.util.ArrayList;
+import java.lang.Object;
+
+public class Tag_setOptionalClosing_8641336245 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term1333;
+     Object term4394;
+     Object term4338;
+
+    public Tag_setOptionalClosing_8641336245() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        ArrayList term1362 = new ArrayList();
+        ((ArrayList) term1362).add((Object)null);
+        ((ArrayList) term1362).add((Object)null);
+        ((ArrayList) term1362).add((Object)null);
+        ((ArrayList) term1362).add((Object)null);
+        ((ArrayList) term1362).add((Object)null);
+        ((ArrayList) term1362).add((Object)null);
+        ((ArrayList) term1362).add((Object)null);
+        ((ArrayList) term1362).add((Object)null);
+        Object term1354 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term1354, term1354.getClass(), "tagName", "");
+        setBooleanField(term1354, term1354.getClass(), "isBlock", true);
+        setBooleanField(term1354, term1354.getClass(), "canContainBlock", true);
+        setBooleanField(term1354, term1354.getClass(), "canContainInline", true);
+        setBooleanField(term1354, term1354.getClass(), "optionalClosing", false);
+        setBooleanField(term1354, term1354.getClass(), "empty", true);
+        setBooleanField(term1354, term1354.getClass(), "preserveWhitespace", false);
+        setField(term1354, term1354.getClass(), "ancestors", term1362);
+        ArrayList term1373 = new ArrayList();
+        Object term1365 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term1365, term1365.getClass(), "tagName", "");
+        setBooleanField(term1365, term1365.getClass(), "isBlock", true);
+        setBooleanField(term1365, term1365.getClass(), "canContainBlock", false);
+        setBooleanField(term1365, term1365.getClass(), "canContainInline", false);
+        setBooleanField(term1365, term1365.getClass(), "optionalClosing", false);
+        setBooleanField(term1365, term1365.getClass(), "empty", false);
+        setBooleanField(term1365, term1365.getClass(), "preserveWhitespace", true);
+        setField(term1365, term1365.getClass(), "ancestors", term1373);
+        ArrayList term1384 = new ArrayList();
+        ((ArrayList) term1384).add((Object)null);
+        ((ArrayList) term1384).add((Object)null);
+        Object term1376 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term1376, term1376.getClass(), "tagName", "");
+        setBooleanField(term1376, term1376.getClass(), "isBlock", true);
+        setBooleanField(term1376, term1376.getClass(), "canContainBlock", true);
+        setBooleanField(term1376, term1376.getClass(), "canContainInline", false);
+        setBooleanField(term1376, term1376.getClass(), "optionalClosing", false);
+        setBooleanField(term1376, term1376.getClass(), "empty", false);
+        setBooleanField(term1376, term1376.getClass(), "preserveWhitespace", true);
+        setField(term1376, term1376.getClass(), "ancestors", term1384);
+        ArrayList term1352 = new ArrayList();
+        ((ArrayList) term1352).add(term1354);
+        ((ArrayList) term1352).add(term1365);
+        ((ArrayList) term1352).add(term1376);
+        ((ArrayList) term1352).add(term1354);
+        term1333 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term1333, term1333.getClass(), "tagName", "lihXWlGDxk");
+        setBooleanField(term1333, term1333.getClass(), "isBlock", false);
+        setBooleanField(term1333, term1333.getClass(), "canContainBlock", true);
+        setBooleanField(term1333, term1333.getClass(), "canContainInline", true);
+        setBooleanField(term1333, term1333.getClass(), "optionalClosing", false);
+        setBooleanField(term1333, term1333.getClass(), "empty", true);
+        setBooleanField(term1333, term1333.getClass(), "preserveWhitespace", true);
+        setField(term1333, term1333.getClass(), "ancestors", term1352);
+        ArrayList term4401 = new ArrayList();
+        ((ArrayList) term4401).add((Object)null);
+        ((ArrayList) term4401).add((Object)null);
+        ((ArrayList) term4401).add((Object)null);
+        ((ArrayList) term4401).add((Object)null);
+        ((ArrayList) term4401).add((Object)null);
+        ((ArrayList) term4401).add((Object)null);
+        ((ArrayList) term4401).add((Object)null);
+        ((ArrayList) term4401).add((Object)null);
+        Object term4399 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term4399, term4399.getClass(), "tagName", "");
+        setBooleanField(term4399, term4399.getClass(), "isBlock", true);
+        setBooleanField(term4399, term4399.getClass(), "canContainBlock", true);
+        setBooleanField(term4399, term4399.getClass(), "canContainInline", true);
+        setBooleanField(term4399, term4399.getClass(), "optionalClosing", false);
+        setBooleanField(term4399, term4399.getClass(), "empty", true);
+        setBooleanField(term4399, term4399.getClass(), "preserveWhitespace", false);
+        setField(term4399, term4399.getClass(), "ancestors", term4401);
+        ArrayList term4404 = new ArrayList();
+        Object term4402 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term4402, term4402.getClass(), "tagName", "");
+        setBooleanField(term4402, term4402.getClass(), "isBlock", true);
+        setBooleanField(term4402, term4402.getClass(), "canContainBlock", false);
+        setBooleanField(term4402, term4402.getClass(), "canContainInline", false);
+        setBooleanField(term4402, term4402.getClass(), "optionalClosing", false);
+        setBooleanField(term4402, term4402.getClass(), "empty", false);
+        setBooleanField(term4402, term4402.getClass(), "preserveWhitespace", true);
+        setField(term4402, term4402.getClass(), "ancestors", term4404);
+        ArrayList term4407 = new ArrayList();
+        ((ArrayList) term4407).add((Object)null);
+        ((ArrayList) term4407).add((Object)null);
+        Object term4405 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term4405, term4405.getClass(), "tagName", "");
+        setBooleanField(term4405, term4405.getClass(), "isBlock", true);
+        setBooleanField(term4405, term4405.getClass(), "canContainBlock", true);
+        setBooleanField(term4405, term4405.getClass(), "canContainInline", false);
+        setBooleanField(term4405, term4405.getClass(), "optionalClosing", false);
+        setBooleanField(term4405, term4405.getClass(), "empty", false);
+        setBooleanField(term4405, term4405.getClass(), "preserveWhitespace", true);
+        setField(term4405, term4405.getClass(), "ancestors", term4407);
+        ArrayList term4397 = new ArrayList();
+        ((ArrayList) term4397).add(term4399);
+        ((ArrayList) term4397).add(term4402);
+        ((ArrayList) term4397).add(term4405);
+        ((ArrayList) term4397).add(term4399);
+        term4394 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term4394, term4394.getClass(), "tagName", "lihXWlGDxk");
+        setBooleanField(term4394, term4394.getClass(), "isBlock", false);
+        setBooleanField(term4394, term4394.getClass(), "canContainBlock", true);
+        setBooleanField(term4394, term4394.getClass(), "canContainInline", true);
+        setBooleanField(term4394, term4394.getClass(), "optionalClosing", true);
+        setBooleanField(term4394, term4394.getClass(), "empty", true);
+        setBooleanField(term4394, term4394.getClass(), "preserveWhitespace", true);
+        setField(term4394, term4394.getClass(), "ancestors", term4397);
+        ArrayList term4367 = new ArrayList();
+        ((ArrayList) term4367).add((Object)null);
+        ((ArrayList) term4367).add((Object)null);
+        ((ArrayList) term4367).add((Object)null);
+        ((ArrayList) term4367).add((Object)null);
+        ((ArrayList) term4367).add((Object)null);
+        ((ArrayList) term4367).add((Object)null);
+        ((ArrayList) term4367).add((Object)null);
+        ((ArrayList) term4367).add((Object)null);
+        Object term4359 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term4359, term4359.getClass(), "tagName", "");
+        setBooleanField(term4359, term4359.getClass(), "isBlock", true);
+        setBooleanField(term4359, term4359.getClass(), "canContainBlock", true);
+        setBooleanField(term4359, term4359.getClass(), "canContainInline", true);
+        setBooleanField(term4359, term4359.getClass(), "optionalClosing", false);
+        setBooleanField(term4359, term4359.getClass(), "empty", true);
+        setBooleanField(term4359, term4359.getClass(), "preserveWhitespace", false);
+        setField(term4359, term4359.getClass(), "ancestors", term4367);
+        ArrayList term4378 = new ArrayList();
+        Object term4370 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term4370, term4370.getClass(), "tagName", "");
+        setBooleanField(term4370, term4370.getClass(), "isBlock", true);
+        setBooleanField(term4370, term4370.getClass(), "canContainBlock", false);
+        setBooleanField(term4370, term4370.getClass(), "canContainInline", false);
+        setBooleanField(term4370, term4370.getClass(), "optionalClosing", false);
+        setBooleanField(term4370, term4370.getClass(), "empty", false);
+        setBooleanField(term4370, term4370.getClass(), "preserveWhitespace", true);
+        setField(term4370, term4370.getClass(), "ancestors", term4378);
+        ArrayList term4389 = new ArrayList();
+        ((ArrayList) term4389).add((Object)null);
+        ((ArrayList) term4389).add((Object)null);
+        Object term4381 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term4381, term4381.getClass(), "tagName", "");
+        setBooleanField(term4381, term4381.getClass(), "isBlock", true);
+        setBooleanField(term4381, term4381.getClass(), "canContainBlock", true);
+        setBooleanField(term4381, term4381.getClass(), "canContainInline", false);
+        setBooleanField(term4381, term4381.getClass(), "optionalClosing", false);
+        setBooleanField(term4381, term4381.getClass(), "empty", false);
+        setBooleanField(term4381, term4381.getClass(), "preserveWhitespace", true);
+        setField(term4381, term4381.getClass(), "ancestors", term4389);
+        ArrayList term4357 = new ArrayList();
+        ((ArrayList) term4357).add(term4359);
+        ((ArrayList) term4357).add(term4370);
+        ((ArrayList) term4357).add(term4381);
+        ((ArrayList) term4357).add(term4359);
+        term4338 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term4338, term4338.getClass(), "tagName", "lihXWlGDxk");
+        setBooleanField(term4338, term4338.getClass(), "isBlock", false);
+        setBooleanField(term4338, term4338.getClass(), "canContainBlock", true);
+        setBooleanField(term4338, term4338.getClass(), "canContainInline", true);
+        setBooleanField(term4338, term4338.getClass(), "optionalClosing", true);
+        setBooleanField(term4338, term4338.getClass(), "empty", true);
+        setBooleanField(term4338, term4338.getClass(), "preserveWhitespace", true);
+        setField(term4338, term4338.getClass(), "ancestors", term4357);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jsoup.parser.Tag");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        Object retValue = callMethod(klass, "setOptionalClosing", argTypes, term1333, args);
+        assertTrue(recursiveEquals(term1333, term4394));
+        assertTrue(recursiveEquals(retValue, term4338));
+    }
+
+};
+
+

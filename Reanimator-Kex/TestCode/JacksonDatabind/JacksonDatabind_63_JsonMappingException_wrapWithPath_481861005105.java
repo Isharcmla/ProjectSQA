@@ -1,0 +1,210 @@
+package com.fasterxml.jackson.databind;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.fasterxml.jackson.databind.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.fasterxml.jackson.databind.EqualityUtils.*;
+import java.util.LinkedList;
+import java.lang.Object;
+import java.lang.String;
+
+public class JsonMappingException_wrapWithPath_481861005105 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term205008;
+     Object term205478;
+     Object term205285;
+
+    public JsonMappingException_wrapWithPath_481861005105() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term205008 = newInstance(Class.forName("com.fasterxml.jackson.core.JsonProcessingException"));
+        term205478 = newInstance(Class.forName("com.fasterxml.jackson.core.JsonProcessingException"));
+        setField(term205478, term205478.getClass(), "_location", null);
+        setField(term205478, term205478.getClass(), "backtrace", null);
+        setField(term205478, term205478.getClass(), "detailMessage", null);
+        setField(term205478, term205478.getClass(), "cause", null);
+        setField(term205478, term205478.getClass(), "stackTrace", null);
+        setIntField(term205478, term205478.getClass(), "depth", 0);
+        setField(term205478, term205478.getClass(), "suppressedExceptions", null);
+        LinkedList term205286 = new LinkedList();
+        ((LinkedList) term205286).add((Object)null);
+        Class<? extends Object> term205358 = Class.forName((String) "com.fasterxml.jackson.databind.jsontype.impl.AsWrapperTypeDeserializer");
+        Class<? extends Object> term205365 = Class.forName((String) "java.lang.module.ResolvedModule");
+        Class<? extends Object> term205369 = Class.forName((String) "java.util.concurrent.atomic.AtomicLong");
+        Class<? extends Object> term205372 = Class.forName((String) "java.util.stream.Collectors");
+        Class<? extends Object> term205376 = Class.forName((String) "java.lang.ProcessEnvironment$ExternalData");
+        Class<? extends Object> term205380 = Class.forName((String) "java.lang.SecurityManager$2");
+        Class<? extends Object> term205386 = Class.forName((String) "com.fasterxml.jackson.databind.ser.std.NumberSerializers$LongSerializer");
+        Class<? extends Object> term205391 = Class.forName((String) "com.fasterxml.jackson.databind.deser.std.PrimitiveArrayDeserializers$BooleanDeser");
+        Class<? extends Object> term205395 = Class.forName((String) "com.fasterxml.jackson.databind.ser.PropertyWriter");
+        Class<? extends Object> term205399 = Class.forName((String) "java.nio.file.SecureDirectoryStream");
+        Class<? extends Object> term205403 = Class.forName((String) "com.fasterxml.jackson.databind.cfg.MutableConfigOverride");
+        Class<? extends Object> term205407 = Class.forName((String) "com.fasterxml.jackson.databind.ser.DefaultSerializerProvider$Impl");
+        Class<? extends Object> term205411 = Class.forName((String) "java.lang.invoke.MethodType$OffsetHolder");
+        Class<? extends Object> term205414 = Class.forName((String) "java.util.concurrent.ConcurrentHashMap$MapReduceEntriesToIntTask");
+        Class<? extends Object> term205417 = Class.forName((String) "java.math.BigInteger$UnsafeHolder");
+        Class<? extends Object> term205421 = Class.forName((String) "java.util.TreeMap$NavigableSubMap$DescendingSubMapEntryIterator");
+        Class<? extends Object> term205425 = Class.forName((String) "java.nio.file.attribute.AclFileAttributeView");
+        Class<? extends Object> term205428 = Class.forName((String) "java.util.ArraysParallelSortHelpers$FJChar$Sorter");
+        Class<? extends Object> term205432 = Class.forName((String) "com.fasterxml.jackson.databind.SerializerProvider");
+        term205285 = newInstance(Class.forName("com.fasterxml.jackson.databind.JsonMappingException"));
+        Object[] term205290 = (Object[]) newArray("java.lang.Object", 5);
+        short[] term205291 = (short[]) newShortArray(32);
+        int[] term205324 = (int[]) newIntArray(32);
+        Object[] term205357 = (Object[]) newArray("java.lang.Object", 32);
+        long[] term205436 = (long[]) newLongArray(32);
+        Object term205070 = newInstance(Class.forName("com.fasterxml.jackson.core.JsonProcessingException"));
+        Object[] term205474 = (Object[]) newArray("java.lang.StackTraceElement", 0);
+        Object term205476 = newInstance(Class.forName("java.util.Collections$EmptyList"));
+        setField(term205285, term205285.getClass(), "_path", term205286);
+        setField(term205285, term205285.getClass(), "_processor", null);
+        setField(term205285, term205285.getClass(), "_location", null);
+        setShortElement(term205291, 0, (short) 20);
+        setShortElement(term205291, 1, (short) 3);
+        setShortElement(term205291, 5, (short) 27);
+        setShortElement(term205291, 6, (short) 2);
+        setShortElement(term205291, 7, (short) 3);
+        setShortElement(term205291, 11, (short) 2);
+        setShortElement(term205291, 12, (short) 4);
+        setShortElement(term205291, 13, (short) 4);
+        setShortElement(term205291, 14, (short) 3);
+        setShortElement(term205291, 15, (short) 4);
+        setShortElement(term205291, 16, (short) 4);
+        setShortElement(term205291, 17, (short) 1);
+        setShortElement(term205291, 18, (short) 2);
+        setShortElement(term205291, 19, (short) 3);
+        setShortElement(term205291, 20, (short) 3);
+        setShortElement(term205291, 21, (short) 13);
+        setShortElement(term205291, 22, (short) 1);
+        setShortElement(term205291, 23, (short) 2);
+        setShortElement(term205291, 24, (short) 12);
+        setElement(term205290, 0, term205291);
+        setIntElement(term205324, 0, 128385024);
+        setIntElement(term205324, 2, 6553600);
+        setIntElement(term205324, 3, 393216);
+        setIntElement(term205324, 4, 3866630);
+        setIntElement(term205324, 5, 1245184);
+        setIntElement(term205324, 6, 3211264);
+        setIntElement(term205324, 8, 6553600);
+        setIntElement(term205324, 9, 393216);
+        setIntElement(term205324, 10, 3866630);
+        setIntElement(term205324, 11, 14352384);
+        setIntElement(term205324, 12, 10354688);
+        setIntElement(term205324, 13, 2883584);
+        setIntElement(term205324, 14, 786432);
+        setIntElement(term205324, 15, 1441792);
+        setIntElement(term205324, 16, 7733248);
+        setIntElement(term205324, 17, 20774912);
+        setIntElement(term205324, 18, 262144);
+        setIntElement(term205324, 19, 2555904);
+        setIntElement(term205324, 20, 1835008);
+        setIntElement(term205324, 21, 6029312);
+        setIntElement(term205324, 22, 327680);
+        setIntElement(term205324, 23, 1638400);
+        setIntElement(term205324, 24, 720907);
+        setElement(term205290, 1, term205324);
+        setElement(term205357, 0, term205358);
+        setElement(term205357, 1, term205365);
+        setElement(term205357, 2, term205365);
+        setElement(term205357, 3, term205369);
+        setElement(term205357, 4, term205372);
+        setElement(term205357, 5, term205376);
+        setElement(term205357, 6, term205380);
+        setElement(term205357, 7, term205365);
+        setElement(term205357, 8, term205365);
+        setElement(term205357, 9, term205369);
+        setElement(term205357, 10, term205372);
+        setElement(term205357, 11, term205386);
+        setElement(term205357, 12, term205391);
+        setElement(term205357, 13, term205395);
+        setElement(term205357, 14, term205399);
+        setElement(term205357, 15, term205403);
+        setElement(term205357, 16, term205395);
+        setElement(term205357, 17, term205407);
+        setElement(term205357, 18, term205411);
+        setElement(term205357, 19, term205414);
+        setElement(term205357, 20, term205417);
+        setElement(term205357, 21, term205421);
+        setElement(term205357, 22, term205425);
+        setElement(term205357, 23, term205428);
+        setElement(term205357, 24, term205432);
+        setElement(term205290, 2, term205357);
+        setLongElement(term205436, 0, 132578328546864L);
+        setLongElement(term205436, 1, 34364798256L);
+        setLongElement(term205436, 2, 34363739368L);
+        setLongElement(term205436, 3, 34363739368L);
+        setLongElement(term205436, 4, 34363739368L);
+        setLongElement(term205436, 5, 132578328998496L);
+        setLongElement(term205436, 6, 34363820048L);
+        setLongElement(term205436, 7, 34364798256L);
+        setLongElement(term205436, 8, 34363739368L);
+        setLongElement(term205436, 9, 34363739368L);
+        setLongElement(term205436, 10, 34363739368L);
+        setLongElement(term205436, 11, 132582552571296L);
+        setLongElement(term205436, 12, 132582552640272L);
+        setLongElement(term205436, 13, 132582550089488L);
+        setLongElement(term205436, 14, 132582552759024L);
+        setLongElement(term205436, 15, 132582550089488L);
+        setLongElement(term205436, 16, 132582550089488L);
+        setLongElement(term205436, 17, 34363745472L);
+        setLongElement(term205436, 18, 34364710216L);
+        setLongElement(term205436, 19, 34363745472L);
+        setLongElement(term205436, 20, 34363745472L);
+        setLongElement(term205436, 21, 34364896224L);
+        setLongElement(term205436, 22, 34363745472L);
+        setLongElement(term205436, 23, 34363745472L);
+        setLongElement(term205436, 24, 34363745472L);
+        setElement(term205290, 3, term205436);
+        setField(term205285, term205285.getClass(), "backtrace", term205290);
+        setField(term205285, term205285.getClass(), "detailMessage", "N/A");
+        setField(term205070, term205070.getClass(), "_location", null);
+        setField(term205070, term205070.getClass(), "backtrace", null);
+        setField(term205070, term205070.getClass(), "detailMessage", null);
+        setField(term205070, term205070.getClass(), "cause", null);
+        setField(term205070, term205070.getClass(), "stackTrace", null);
+        setIntField(term205070, term205070.getClass(), "depth", 0);
+        setField(term205070, term205070.getClass(), "suppressedExceptions", null);
+        setField(term205285, term205285.getClass(), "cause", term205070);
+        setField(term205285, term205285.getClass(), "stackTrace", term205474);
+        setIntField(term205285, term205285.getClass(), "depth", 25);
+        setIntField(term205476, term205476.getClass(), "modCount", 0);
+        setField(term205285, term205285.getClass(), "suppressedExceptions", term205476);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.databind.JsonMappingException");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("java.lang.Throwable");
+        argTypes[1] = Class.forName("com.fasterxml.jackson.databind.JsonMappingException$Reference");
+        Object[] args = new Object[2];
+        args[0] = term205008;
+        args[1] = null;
+        Object retValue = callMethod(klass, "wrapWithPath", argTypes, null, args);
+        assertTrue(recursiveEquals(term205008, term205478));
+        assertTrue(recursiveEquals(retValue, term205285));
+    }
+
+};
+
+

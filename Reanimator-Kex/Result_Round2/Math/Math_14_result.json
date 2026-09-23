@@ -1,0 +1,19 @@
+{
+  "project": "Math",
+  "bug_id": "14",
+  "tool": "kex",
+  "elapsed_sec": 121.38,
+  "target_classes": [
+    "org.apache.commons.math3.optim.nonlinear.vector.jacobian.AbstractLeastSquaresOptimizer",
+    "org.apache.commons.math3.optim.nonlinear.vector.Weight"
+  ],
+  "kex_results": {
+    "org.apache.commons.math3.optim.nonlinear.vector.jacobian.AbstractLeastSquaresOptimizer": "success",
+    "org.apache.commons.math3.optim.nonlinear.vector.Weight": "failed"
+  },
+  "num_test_files_generated": 26,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

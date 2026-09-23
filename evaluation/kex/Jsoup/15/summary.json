@@ -1,0 +1,15 @@
+{
+  "project": "Jsoup",
+  "bug_id": "15",
+  "tool": "kex",
+  "generated_files": 74,
+  "candidate_tests": 72,
+  "classification_counts": {
+    "valid_non_revealing": 66,
+    "invalid_or_unstable": 6
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

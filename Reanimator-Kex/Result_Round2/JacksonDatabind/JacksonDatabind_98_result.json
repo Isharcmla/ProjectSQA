@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "98",
+  "tool": "kex",
+  "elapsed_sec": 35.39,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler": "success"
+  },
+  "num_test_files_generated": 15,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

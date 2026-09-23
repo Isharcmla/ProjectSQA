@@ -1,0 +1,19 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "30",
+  "tool": "kex",
+  "elapsed_sec": 583.21,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ObjectMapper",
+    "com.fasterxml.jackson.databind.util.TokenBuffer"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.ObjectMapper": "timeout",
+    "com.fasterxml.jackson.databind.util.TokenBuffer": "success"
+  },
+  "num_test_files_generated": 315,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

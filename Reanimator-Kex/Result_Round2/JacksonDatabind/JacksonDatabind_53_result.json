@@ -1,0 +1,19 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "53",
+  "tool": "kex",
+  "elapsed_sec": 230.42,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.type.TypeBindings",
+    "com.fasterxml.jackson.databind.type.TypeFactory"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.type.TypeBindings": "success",
+    "com.fasterxml.jackson.databind.type.TypeFactory": "success"
+  },
+  "num_test_files_generated": 361,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

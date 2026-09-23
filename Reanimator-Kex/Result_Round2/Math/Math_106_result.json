@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "106",
+  "tool": "kex",
+  "elapsed_sec": 30.55,
+  "target_classes": [
+    "org.apache.commons.math.fraction.ProperFractionFormat"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.fraction.ProperFractionFormat": "failed"
+  },
+  "num_test_files_generated": 21,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

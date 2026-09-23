@@ -1,0 +1,210 @@
+package com.fasterxml.jackson.core.json;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.fasterxml.jackson.core.json.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.fasterxml.jackson.core.json.EqualityUtils.*;
+import java.lang.Object;
+
+public class UTF8JsonGenerator_init_25805811225 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term139648;
+     Object term139018;
+     Object term164069;
+     Object term164083;
+     Object term164088;
+
+    public UTF8JsonGenerator_init_25805811225() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Object term139564 = newInstance(Class.forName("com.fasterxml.jackson.core.json.UTF8JsonGenerator"));
+        setIntField(term139564, term139564.getClass(), "_features", 0);
+        setField(term139564, term139564.getClass(), "_objectCodec", null);
+        setField(term139564, term139564.getClass(), "_writeContext", null);
+        setBooleanField(term139564, term139564.getClass(), "_cfgNumbersAsStrings", false);
+        setField(term139564, term139564.getClass(), "_outputEscapes", null);
+        setField(term139564, term139564.getClass(), "_rootValueSeparator", null);
+        setField(term139564, term139564.getClass(), "_ioContext", null);
+        setIntField(term139564, term139564.getClass(), "_maximumNonEscapedChar", 0);
+        setBooleanField(term139564, term139564.getClass(), "_cfgUnqNames", false);
+        setField(term139564, term139564.getClass(), "_outputStream", null);
+        setBooleanField(term139564, term139564.getClass(), "_bufferRecyclable", false);
+        setIntField(term139564, term139564.getClass(), "_outputTail", 0);
+        setField(term139564, term139564.getClass(), "_outputBuffer", null);
+        setIntField(term139564, term139564.getClass(), "_outputEnd", 0);
+        setIntField(term139564, term139564.getClass(), "_outputMaxContiguous", 0);
+        term139648 = newInstance(Class.forName("com.fasterxml.jackson.core.io.IOContext"));
+        Object term139746 = newInstance(Class.forName("com.fasterxml.jackson.core.util.BufferRecycler"));
+        Object[] term139311 = (Object[]) newArray("[C", 4);
+        char[] term139312 = (char[]) newCharArray(0);
+        setField(term139648, term139648.getClass(), "_concatCBuffer", null);
+        setElement(term139311, 1, term139312);
+        setField(term139746, term139746.getClass(), "_charBuffers", term139311);
+        setField(term139648, term139648.getClass(), "_bufferRecycler", term139746);
+        term139018 = (byte[]) newByteArray(0);
+        term164069 = newInstance(Class.forName("com.fasterxml.jackson.core.json.UTF8JsonGenerator"));
+        byte[] term164070 = (byte[]) newByteArray(0);
+        char[] term164071 = (char[]) newCharArray(4000);
+        Object term164072 = newInstance(Class.forName("com.fasterxml.jackson.core.io.IOContext"));
+        Object term164073 = newInstance(Class.forName("com.fasterxml.jackson.core.util.BufferRecycler"));
+        Object[] term164074 = (Object[]) newArray("[C", 4);
+        char[] term164075 = (char[]) newCharArray(0);
+        char[] term164076 = (char[]) newCharArray(4000);
+        int[] term164077 = (int[]) newIntArray(128);
+        Object term164078 = newInstance(Class.forName("com.fasterxml.jackson.core.io.SerializedString"));
+        Object term164081 = newInstance(Class.forName("com.fasterxml.jackson.core.json.JsonWriteContext"));
+        Object term164082 = newInstance(Class.forName("com.fasterxml.jackson.core.json.DupDetector"));
+        setField(term164069, term164069.getClass(), "_outputStream", null);
+        setField(term164069, term164069.getClass(), "_outputBuffer", term164070);
+        setIntField(term164069, term164069.getClass(), "_outputTail", 0);
+        setIntField(term164069, term164069.getClass(), "_outputEnd", 0);
+        setIntField(term164069, term164069.getClass(), "_outputMaxContiguous", 0);
+        setField(term164069, term164069.getClass(), "_charBuffer", term164071);
+        setIntField(term164069, term164069.getClass(), "_charBufferLength", 4000);
+        setField(term164069, term164069.getClass(), "_entityBuffer", null);
+        setBooleanField(term164069, term164069.getClass(), "_bufferRecyclable", true);
+        setField(term164072, term164072.getClass(), "_sourceRef", null);
+        setField(term164072, term164072.getClass(), "_encoding", null);
+        setBooleanField(term164072, term164072.getClass(), "_managedResource", false);
+        setField(term164073, term164073.getClass(), "_byteBuffers", null);
+        setElement(term164074, 1, term164075);
+        setField(term164073, term164073.getClass(), "_charBuffers", term164074);
+        setField(term164072, term164072.getClass(), "_bufferRecycler", term164073);
+        setField(term164072, term164072.getClass(), "_readIOBuffer", null);
+        setField(term164072, term164072.getClass(), "_writeEncodingBuffer", null);
+        setField(term164072, term164072.getClass(), "_base64Buffer", null);
+        setField(term164072, term164072.getClass(), "_tokenCBuffer", null);
+        setField(term164072, term164072.getClass(), "_concatCBuffer", term164076);
+        setField(term164072, term164072.getClass(), "_nameCopyBuffer", null);
+        setField(term164069, term164069.getClass(), "_ioContext", term164072);
+        setIntElement(term164077, 0, -1);
+        setIntElement(term164077, 1, -1);
+        setIntElement(term164077, 2, -1);
+        setIntElement(term164077, 3, -1);
+        setIntElement(term164077, 4, -1);
+        setIntElement(term164077, 5, -1);
+        setIntElement(term164077, 6, -1);
+        setIntElement(term164077, 7, -1);
+        setIntElement(term164077, 8, 98);
+        setIntElement(term164077, 9, 116);
+        setIntElement(term164077, 10, 110);
+        setIntElement(term164077, 11, -1);
+        setIntElement(term164077, 12, 102);
+        setIntElement(term164077, 13, 114);
+        setIntElement(term164077, 14, -1);
+        setIntElement(term164077, 15, -1);
+        setIntElement(term164077, 16, -1);
+        setIntElement(term164077, 17, -1);
+        setIntElement(term164077, 18, -1);
+        setIntElement(term164077, 19, -1);
+        setIntElement(term164077, 20, -1);
+        setIntElement(term164077, 21, -1);
+        setIntElement(term164077, 22, -1);
+        setIntElement(term164077, 23, -1);
+        setIntElement(term164077, 24, -1);
+        setIntElement(term164077, 25, -1);
+        setIntElement(term164077, 26, -1);
+        setIntElement(term164077, 27, -1);
+        setIntElement(term164077, 28, -1);
+        setIntElement(term164077, 29, -1);
+        setIntElement(term164077, 30, -1);
+        setIntElement(term164077, 31, -1);
+        setIntElement(term164077, 34, 34);
+        setIntElement(term164077, 92, 92);
+        setField(term164069, term164069.getClass(), "_outputEscapes", term164077);
+        setIntField(term164069, term164069.getClass(), "_maximumNonEscapedChar", 127);
+        setField(term164069, term164069.getClass(), "_characterEscapes", null);
+        setField(term164078, term164078.getClass(), "_value", " ");
+        setField(term164078, term164078.getClass(), "_quotedUTF8Ref", null);
+        setField(term164078, term164078.getClass(), "_unquotedUTF8Ref", null);
+        setField(term164078, term164078.getClass(), "_quotedChars", null);
+        setField(term164078, term164078.getClass(), "_jdkSerializeValue", null);
+        setField(term164069, term164069.getClass(), "_rootValueSeparator", term164078);
+        setBooleanField(term164069, term164069.getClass(), "_cfgUnqNames", false);
+        setField(term164069, term164069.getClass(), "_objectCodec", null);
+        setIntField(term164069, term164069.getClass(), "_features", -1);
+        setBooleanField(term164069, term164069.getClass(), "_cfgNumbersAsStrings", true);
+        setField(term164081, term164081.getClass(), "_parent", null);
+        setField(term164082, term164082.getClass(), "_source", term164069);
+        setField(term164082, term164082.getClass(), "_firstName", null);
+        setField(term164082, term164082.getClass(), "_secondName", null);
+        setField(term164082, term164082.getClass(), "_seen", null);
+        setField(term164081, term164081.getClass(), "_dups", term164082);
+        setField(term164081, term164081.getClass(), "_child", null);
+        setField(term164081, term164081.getClass(), "_currentName", null);
+        setField(term164081, term164081.getClass(), "_currentValue", null);
+        setBooleanField(term164081, term164081.getClass(), "_gotName", false);
+        setIntField(term164081, term164081.getClass(), "_type", 0);
+        setIntField(term164081, term164081.getClass(), "_index", -1);
+        setField(term164069, term164069.getClass(), "_writeContext", term164081);
+        setBooleanField(term164069, term164069.getClass(), "_closed", false);
+        setField(term164069, term164069.getClass(), "_cfgPrettyPrinter", null);
+        term164083 = newInstance(Class.forName("com.fasterxml.jackson.core.io.IOContext"));
+        Object term164084 = newInstance(Class.forName("com.fasterxml.jackson.core.util.BufferRecycler"));
+        Object[] term164085 = (Object[]) newArray("[C", 4);
+        char[] term164086 = (char[]) newCharArray(0);
+        char[] term164087 = (char[]) newCharArray(4000);
+        setField(term164083, term164083.getClass(), "_sourceRef", null);
+        setField(term164083, term164083.getClass(), "_encoding", null);
+        setBooleanField(term164083, term164083.getClass(), "_managedResource", false);
+        setField(term164084, term164084.getClass(), "_byteBuffers", null);
+        setElement(term164085, 1, term164086);
+        setField(term164084, term164084.getClass(), "_charBuffers", term164085);
+        setField(term164083, term164083.getClass(), "_bufferRecycler", term164084);
+        setField(term164083, term164083.getClass(), "_readIOBuffer", null);
+        setField(term164083, term164083.getClass(), "_writeEncodingBuffer", null);
+        setField(term164083, term164083.getClass(), "_base64Buffer", null);
+        setField(term164083, term164083.getClass(), "_tokenCBuffer", null);
+        setField(term164083, term164083.getClass(), "_concatCBuffer", term164087);
+        setField(term164083, term164083.getClass(), "_nameCopyBuffer", null);
+        term164088 = (byte[]) newByteArray(0);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.core.json.UTF8JsonGenerator");
+        Class<?>[] argTypes = new Class<?>[7];
+        argTypes[0] = Class.forName("com.fasterxml.jackson.core.io.IOContext");
+        argTypes[1] = int.class;
+        argTypes[2] = Class.forName("com.fasterxml.jackson.core.ObjectCodec");
+        argTypes[3] = Class.forName("java.io.OutputStream");
+        argTypes[4] = Array.newInstance(byte.class, 0).getClass();
+        argTypes[5] = int.class;
+        argTypes[6] = boolean.class;
+        Object[] args = new Object[7];
+        args[0] = term139648;
+        args[1] = -1;
+        args[2] = null;
+        args[3] = null;
+        args[4] = term139018;
+        args[5] = 0;
+        args[6] = true;
+        Object instance = callConstructor(klass, argTypes, args);
+        assertTrue(recursiveEquals(instance, term164069));
+        assertTrue(recursiveEquals(term139648, -1));
+        assertTrue(recursiveEquals(term139018, term164088));
+    }
+
+};
+
+

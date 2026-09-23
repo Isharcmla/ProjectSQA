@@ -1,0 +1,212 @@
+package org.apache.commons.collections;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.collections.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.collections.EqualityUtils.*;
+import java.lang.Object;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.Collection;
+import java.util.HashSet;
+
+public class ExtendedProperties_put_1938713278123 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term28106;
+     Object term28331;
+     Object term28332;
+     Object term76969;
+     Object term77017;
+     Object term77018;
+
+    public ExtendedProperties_put_1938713278123() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        ArrayList term28112 = new ArrayList();
+        ArrayList term28161 = new ArrayList();
+        ((ArrayList) term28161).add("java.lang.Object@6b1ca2b9");
+        ((ArrayList) term28161).add("java.lang.Object@1d91775c");
+        ((ArrayList) term28161).add("java.lang.Object@7a92743e");
+        HashMap term28316 = new HashMap();
+        Set<Object> term77176 =  ((Map) term28316).keySet();
+        HashSet term28315 = new HashSet((Collection<? extends Object>) term77176);
+        HashMap term28322 = new HashMap();
+        Set<Object> term77177 =  ((Map) term28322).keySet();
+        HashSet term28321 = new HashSet((Collection<? extends Object>) term77177);
+        ArrayList term28327 = new ArrayList();
+        term28106 = newInstance(Class.forName("org.apache.commons.collections.ExtendedProperties"));
+        Object term28107 = newInstance(Class.forName("org.apache.commons.collections.ExtendedProperties"));
+        Object[] term28116 = (Object[]) newArray("java.util.Hashtable$Entry", 11);
+        Object[] term28246 = (Object[]) newArray("java.util.Hashtable$Entry", 95);
+        Object term28247 = newInstance(Class.forName("java.util.Hashtable$Entry"));
+        Object term28276 = newInstance(Class.forName("java.lang.Object"));
+        Object term28277 = newInstance(Class.forName("java.util.Hashtable$Entry"));
+        Object term28280 = newInstance(Class.forName("java.lang.Object"));
+        Object term28281 = newInstance(Class.forName("java.util.Hashtable$Entry"));
+        Object term28310 = newInstance(Class.forName("java.lang.Object"));
+        setField(term28107, term28107.getClass(), "defaults", null);
+        setField(term28107, term28107.getClass(), "file", null);
+        setField(term28107, term28107.getClass(), "basePath", null);
+        setField(term28107, term28107.getClass(), "fileSeparator", "/");
+        setBooleanField(term28107, term28107.getClass(), "isInitialized", false);
+        setField(term28107, term28107.getClass(), "includePropertyName", null);
+        setField(term28107, term28107.getClass(), "keysAsListed", term28112);
+        setField(term28107, term28107.getClass(), "table", term28116);
+        setIntField(term28107, term28107.getClass(), "count", 0);
+        setIntField(term28107, term28107.getClass(), "threshold", 8);
+        setFloatField(term28107, term28107.getClass(), "loadFactor", 0.75F);
+        setIntField(term28107, term28107.getClass(), "modCount", 0);
+        setField(term28107, term28107.getClass(), "keySet", null);
+        setField(term28107, term28107.getClass(), "entrySet", null);
+        setField(term28107, term28107.getClass(), "values", null);
+        setField(term28106, term28106.getClass(), "defaults", term28107);
+        setField(term28106, term28106.getClass(), "file", "NnpwZBUTvx");
+        setField(term28106, term28106.getClass(), "basePath", "tlQSNgTkQX");
+        setField(term28106, term28106.getClass(), "fileSeparator", "/");
+        setBooleanField(term28106, term28106.getClass(), "isInitialized", true);
+        setField(term28106, term28106.getClass(), "includePropertyName", "PCipZnmBOF");
+        setField(term28106, term28106.getClass(), "keysAsListed", term28161);
+        setIntField(term28247, term28247.getClass(), "hash", -718139297);
+        setField(term28247, term28247.getClass(), "key", "java.lang.Object@7a92743e");
+        setField(term28247, term28247.getClass(), "value", term28276);
+        setIntField(term28277, term28277.getClass(), "hash", -1755975917);
+        setField(term28277, term28277.getClass(), "key", "");
+        setField(term28277, term28277.getClass(), "value", term28280);
+        setField(term28277, term28277.getClass(), "next", null);
+        setField(term28247, term28247.getClass(), "next", term28277);
+        setElement(term28246, 1, term28247);
+        setIntField(term28281, term28281.getClass(), "hash", 76523750);
+        setField(term28281, term28281.getClass(), "key", "java.lang.Object@1d91775c");
+        setField(term28281, term28281.getClass(), "value", term28310);
+        setField(term28281, term28281.getClass(), "next", null);
+        setElement(term28246, 15, term28281);
+        setField(term28106, term28106.getClass(), "table", term28246);
+        setIntField(term28106, term28106.getClass(), "count", 1398204343);
+        setIntField(term28106, term28106.getClass(), "threshold", 71);
+        setFloatField(term28106, term28106.getClass(), "loadFactor", 0.75F);
+        setIntField(term28106, term28106.getClass(), "modCount", 229204371);
+        setField(term28106, term28106.getClass(), "keySet", term28315);
+        setField(term28106, term28106.getClass(), "entrySet", term28321);
+        setField(term28106, term28106.getClass(), "values", term28327);
+        term28331 = newInstance(Class.forName("java.lang.Object"));
+        term28332 = newInstance(Class.forName("java.lang.Object"));
+        ArrayList term76973 = new ArrayList();
+        ArrayList term76984 = new ArrayList();
+        ((ArrayList) term76984).add("java.lang.Object@6b1ca2b9");
+        ((ArrayList) term76984).add("java.lang.Object@1d91775c");
+        ((ArrayList) term76984).add("java.lang.Object@7a92743e");
+        ((ArrayList) term76984).add("java.lang.Object@3a4b59ec");
+        HashMap term77012 = new HashMap();
+        Set<Object> term77385 =  ((Map) term77012).keySet();
+        HashSet term77011 = new HashSet((Collection<? extends Object>) term77385);
+        HashMap term77014 = new HashMap();
+        Set<Object> term77386 =  ((Map) term77014).keySet();
+        HashSet term77013 = new HashSet((Collection<? extends Object>) term77386);
+        ArrayList term77015 = new ArrayList();
+        term76969 = newInstance(Class.forName("org.apache.commons.collections.ExtendedProperties"));
+        Object term76970 = newInstance(Class.forName("org.apache.commons.collections.ExtendedProperties"));
+        Object[] term76975 = (Object[]) newArray("java.util.Hashtable$Entry", 11);
+        Object[] term76994 = (Object[]) newArray("java.util.Hashtable$Entry", 191);
+        Object term76995 = newInstance(Class.forName("java.util.Hashtable$Entry"));
+        Object term76998 = newInstance(Class.forName("java.lang.Object"));
+        Object term76999 = newInstance(Class.forName("java.util.Hashtable$Entry"));
+        Object term77002 = newInstance(Class.forName("java.lang.Object"));
+        Object term77003 = newInstance(Class.forName("java.util.Hashtable$Entry"));
+        Object term77006 = newInstance(Class.forName("java.lang.Object"));
+        Object term77007 = newInstance(Class.forName("java.util.Hashtable$Entry"));
+        Object term77010 = newInstance(Class.forName("java.lang.Object"));
+        setField(term76970, term76970.getClass(), "defaults", null);
+        setField(term76970, term76970.getClass(), "file", null);
+        setField(term76970, term76970.getClass(), "basePath", null);
+        setField(term76970, term76970.getClass(), "fileSeparator", "/");
+        setBooleanField(term76970, term76970.getClass(), "isInitialized", false);
+        setField(term76970, term76970.getClass(), "includePropertyName", null);
+        setField(term76970, term76970.getClass(), "keysAsListed", term76973);
+        setField(term76970, term76970.getClass(), "table", term76975);
+        setIntField(term76970, term76970.getClass(), "count", 0);
+        setIntField(term76970, term76970.getClass(), "threshold", 8);
+        setFloatField(term76970, term76970.getClass(), "loadFactor", 0.75F);
+        setIntField(term76970, term76970.getClass(), "modCount", 0);
+        setField(term76970, term76970.getClass(), "keySet", null);
+        setField(term76970, term76970.getClass(), "entrySet", null);
+        setField(term76970, term76970.getClass(), "values", null);
+        setField(term76969, term76969.getClass(), "defaults", term76970);
+        setField(term76969, term76969.getClass(), "file", "NnpwZBUTvx");
+        setField(term76969, term76969.getClass(), "basePath", "tlQSNgTkQX");
+        setField(term76969, term76969.getClass(), "fileSeparator", "/");
+        setBooleanField(term76969, term76969.getClass(), "isInitialized", true);
+        setField(term76969, term76969.getClass(), "includePropertyName", "PCipZnmBOF");
+        setField(term76969, term76969.getClass(), "keysAsListed", term76984);
+        setIntField(term76995, term76995.getClass(), "hash", -718139297);
+        setField(term76995, term76995.getClass(), "key", "java.lang.Object@7a92743e");
+        setField(term76995, term76995.getClass(), "value", term76998);
+        setField(term76995, term76995.getClass(), "next", null);
+        setElement(term76994, 53, term76995);
+        setIntField(term76999, term76999.getClass(), "hash", 801683979);
+        setField(term76999, term76999.getClass(), "key", "java.lang.Object@3a4b59ec");
+        setField(term76999, term76999.getClass(), "value", term77002);
+        setField(term76999, term76999.getClass(), "next", null);
+        setElement(term76994, 61, term76999);
+        setIntField(term77003, term77003.getClass(), "hash", -1755975917);
+        setField(term77003, term77003.getClass(), "key", "");
+        setField(term77003, term77003.getClass(), "value", term77006);
+        setField(term77003, term77003.getClass(), "next", null);
+        setElement(term76994, 133, term77003);
+        setIntField(term77007, term77007.getClass(), "hash", 76523750);
+        setField(term77007, term77007.getClass(), "key", "java.lang.Object@1d91775c");
+        setField(term77007, term77007.getClass(), "value", term77010);
+        setField(term77007, term77007.getClass(), "next", null);
+        setElement(term76994, 173, term77007);
+        setField(term76969, term76969.getClass(), "table", term76994);
+        setIntField(term76969, term76969.getClass(), "count", 1398204344);
+        setIntField(term76969, term76969.getClass(), "threshold", 143);
+        setFloatField(term76969, term76969.getClass(), "loadFactor", 0.75F);
+        setIntField(term76969, term76969.getClass(), "modCount", 229204373);
+        setField(term76969, term76969.getClass(), "keySet", term77011);
+        setField(term76969, term76969.getClass(), "entrySet", term77013);
+        setField(term76969, term76969.getClass(), "values", term77015);
+        term77017 = newInstance(Class.forName("java.lang.Object"));
+        term77018 = newInstance(Class.forName("java.lang.Object"));
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.collections.ExtendedProperties");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("java.lang.Object");
+        argTypes[1] = Class.forName("java.lang.Object");
+        Object[] args = new Object[2];
+        args[0] = term28331;
+        args[1] = term28332;
+        Object retValue = callMethod(klass, "put", argTypes, term28106, args);
+        assertTrue(recursiveEquals(term28106, term76969));
+        assertTrue(recursiveEquals(term28331, term77017));
+        assertTrue(recursiveEquals(term28332, term77018));
+        assertTrue(recursiveEquals(retValue, null));
+    }
+
+};
+
+

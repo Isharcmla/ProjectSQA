@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "45",
+  "tool": "kex",
+  "elapsed_sec": 207.04,
+  "target_classes": [
+    "org.apache.commons.math.linear.OpenMapRealMatrix"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.linear.OpenMapRealMatrix": "success"
+  },
+  "num_test_files_generated": 58,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

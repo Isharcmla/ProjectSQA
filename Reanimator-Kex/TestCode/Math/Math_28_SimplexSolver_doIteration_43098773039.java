@@ -1,0 +1,60 @@
+package org.apache.commons.math3.optimization.linear;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.apache.commons.math3.optimization.linear.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class SimplexSolver_doIteration_43098773039 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term29398;
+     Object term29522;
+
+    public SimplexSolver_doIteration_43098773039() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term29398 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.SimplexSolver"));
+        setIntField(term29398, term29398.getClass(), "iterations", 2147483646);
+        setIntField(term29398, term29398.getClass(), "maxIterations", 2147483647);
+        term29522 = newInstance(Class.forName("org.apache.commons.math3.optimization.linear.SimplexTableau"));
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math3.optimization.linear.SimplexSolver");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("org.apache.commons.math3.optimization.linear.SimplexTableau");
+        Object[] args = new Object[1];
+        args[0] = term29522;
+        try {
+            callMethod(klass, "doIteration", argTypes, term29398, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

@@ -1,0 +1,19 @@
+{
+  "project": "Math",
+  "bug_id": "98",
+  "tool": "kex",
+  "elapsed_sec": 398.53,
+  "target_classes": [
+    "org.apache.commons.math.linear.BigMatrixImpl",
+    "org.apache.commons.math.linear.RealMatrixImpl"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.linear.BigMatrixImpl": "timeout",
+    "org.apache.commons.math.linear.RealMatrixImpl": "failed"
+  },
+  "num_test_files_generated": 306,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

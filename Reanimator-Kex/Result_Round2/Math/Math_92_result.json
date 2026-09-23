@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "92",
+  "tool": "kex",
+  "elapsed_sec": 155.72,
+  "target_classes": [
+    "org.apache.commons.math.util.MathUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.util.MathUtils": "success"
+  },
+  "num_test_files_generated": 92,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

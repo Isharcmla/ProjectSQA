@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "22",
+  "tool": "kex",
+  "elapsed_sec": 50.27,
+  "target_classes": [
+    "org.jfree.data.KeyedObjects2D"
+  ],
+  "kex_results": {
+    "org.jfree.data.KeyedObjects2D": "success"
+  },
+  "num_test_files_generated": 58,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

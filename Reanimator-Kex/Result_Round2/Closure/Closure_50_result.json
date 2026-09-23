@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "50",
+  "tool": "kex",
+  "elapsed_sec": 318.75,
+  "target_classes": [
+    "com.google.javascript.jscomp.PeepholeReplaceKnownMethods"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.PeepholeReplaceKnownMethods": "timeout"
+  },
+  "num_test_files_generated": 570,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

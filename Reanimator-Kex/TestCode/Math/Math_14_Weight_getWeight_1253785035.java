@@ -1,0 +1,55 @@
+package org.apache.commons.math3.optim.nonlinear.vector;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.apache.commons.math3.optim.nonlinear.vector.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class Weight_getWeight_1253785035 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term12;
+
+    public Weight_getWeight_1253785035() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term12 = newInstance(Class.forName("org.apache.commons.math3.optim.nonlinear.vector.Weight"));
+        setField(term12, term12.getClass(), "weightMatrix", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math3.optim.nonlinear.vector.Weight");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        try {
+            callMethod(klass, "getWeight", argTypes, term12, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

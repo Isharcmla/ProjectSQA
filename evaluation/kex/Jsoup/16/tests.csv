@@ -1,0 +1,8 @@
+test,fqcn,method,buggy,fixed,classification
+DocumentType_init_88759564110,org.jsoup.nodes.DocumentType_init_88759564110,,FAIL,FAIL,invalid_or_unstable
+DocumentType_init_88759564111,org.jsoup.nodes.DocumentType_init_88759564111,,FAIL,FAIL,invalid_or_unstable
+DocumentType_init_8875956414,org.jsoup.nodes.DocumentType_init_8875956414,,FAIL,FAIL,invalid_or_unstable
+DocumentType_nodeName_18602329975,org.jsoup.nodes.DocumentType_nodeName_18602329975,,PASS,PASS,valid_non_revealing
+DocumentType_outerHtmlHead_160988761913,org.jsoup.nodes.DocumentType_outerHtmlHead_160988761913,,PASS,PASS,valid_non_revealing
+DocumentType_outerHtmlHead_16098876198,org.jsoup.nodes.DocumentType_outerHtmlHead_16098876198,,PASS,PASS,valid_non_revealing
+DocumentType_outerHtmlTail_19499893639,org.jsoup.nodes.DocumentType_outerHtmlTail_19499893639,,FAIL,FAIL,invalid_or_unstable

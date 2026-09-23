@@ -1,0 +1,13 @@
+test,fqcn,method,buggy,fixed,classification
+Lexer_getLineNumber_117121070813,org.apache.commons.csv.Lexer_getLineNumber_117121070813,,PASS,PASS,valid_non_revealing
+Lexer_isCommentStart_79432554423,org.apache.commons.csv.Lexer_isCommentStart_79432554423,,PASS,PASS,valid_non_revealing
+Lexer_isDelimiter_166436797620,org.apache.commons.csv.Lexer_isDelimiter_166436797620,,PASS,PASS,valid_non_revealing
+Lexer_isEndOfFile_35820966519,org.apache.commons.csv.Lexer_isEndOfFile_35820966519,,PASS,PASS,valid_non_revealing
+Lexer_isEscape_102322621421,org.apache.commons.csv.Lexer_isEscape_102322621421,,PASS,PASS,valid_non_revealing
+Lexer_isQuoteChar_114470354922,org.apache.commons.csv.Lexer_isQuoteChar_114470354922,,PASS,PASS,valid_non_revealing
+Lexer_isStartOfLine_76150451018,org.apache.commons.csv.Lexer_isStartOfLine_76150451018,,PASS,PASS,valid_non_revealing
+Lexer_isWhitespace_96182185417,org.apache.commons.csv.Lexer_isWhitespace_96182185417,,PASS,PASS,valid_non_revealing
+Lexer_mapNullToDisabled_88273872012,org.apache.commons.csv.Lexer_mapNullToDisabled_88273872012,,PASS,PASS,valid_non_revealing
+Lexer_readEndOfLine_76500890716,org.apache.commons.csv.Lexer_readEndOfLine_76500890716,,PASS,PASS,valid_non_revealing
+Lexer_readEscape_36944548814,org.apache.commons.csv.Lexer_readEscape_36944548814,,PASS,PASS,valid_non_revealing
+Lexer_trimTrailingSpaces_174337712415,org.apache.commons.csv.Lexer_trimTrailingSpaces_174337712415,,PASS,PASS,valid_non_revealing

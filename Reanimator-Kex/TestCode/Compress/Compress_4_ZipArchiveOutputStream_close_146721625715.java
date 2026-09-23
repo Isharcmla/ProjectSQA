@@ -1,0 +1,215 @@
+package org.apache.commons.compress.archivers.zip;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.compress.archivers.zip.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.util.LinkedHashMap;
+import java.lang.String;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class ZipArchiveOutputStream_close_146721625715 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term10354;
+
+    public ZipArchiveOutputStream_close_146721625715() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        LinkedHashMap term10359 = new LinkedHashMap();
+        Class<? extends Object> term10572 = Class.forName((String) "java.util.concurrent.TimeUnit");
+        Field term10571 = ((Class) term10572).getDeclaredField((String) "MILLISECONDS");
+        ((Field) term10571).setAccessible(true);
+        Object enum35 = ((Field) term10571).get((Object) null);
+        Class<? extends Object> term10770 = Class.forName((String) "java.util.concurrent.TimeUnit");
+        Field term10769 = ((Class) term10770).getDeclaredField((String) "MILLISECONDS");
+        ((Field) term10769).setAccessible(true);
+        Object enum36 = ((Field) term10769).get((Object) null);
+        Class<? extends Object> term10968 = Class.forName((String) "java.util.concurrent.TimeUnit");
+        Field term10967 = ((Class) term10968).getDeclaredField((String) "HOURS");
+        ((Field) term10967).setAccessible(true);
+        Object enum37 = ((Field) term10967).get((Object) null);
+        ArrayList term10498 = new ArrayList();
+        HashMap term10509 = new HashMap();
+        term10354 = newInstance(Class.forName("org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream"));
+        Object term10355 = newInstance(Class.forName("org.apache.commons.compress.archivers.zip.ZipArchiveEntry"));
+        Object term10380 = newInstance(Class.forName("java.nio.file.attribute.FileTime"));
+        Object term10393 = newInstance(Class.forName("java.time.Instant"));
+        Object term10408 = newInstance(Class.forName("java.nio.file.attribute.FileTime"));
+        Object term10421 = newInstance(Class.forName("java.time.Instant"));
+        Object term10436 = newInstance(Class.forName("java.nio.file.attribute.FileTime"));
+        Object term10449 = newInstance(Class.forName("java.time.Instant"));
+        byte[] term10469 = (byte[]) newByteArray(0);
+        Object term10502 = newInstance(Class.forName("java.util.zip.CRC32"));
+        Object term10526 = newInstance(Class.forName("java.util.zip.Deflater"));
+        Object term10527 = newInstance(Class.forName("java.util.zip.Deflater$DeflaterZStreamRef"));
+        Object term10529 = newInstance(Class.forName("jdk.internal.ref.CleanerImpl$PhantomCleanableRef"));
+        Object term10530 = newInstance(Class.forName("jdk.internal.ref.CleanerImpl$PhantomCleanableRef"));
+        Object term10531 = newInstance(Class.forName("jdk.internal.ref.CleanerImpl$PhantomCleanableRef"));
+        Object term10532 = newInstance(Class.forName("java.lang.ref.ReferenceQueue"));
+        Object term10534 = newInstance(Class.forName("java.nio.HeapByteBuffer"));
+        byte[] term10535 = (byte[]) newByteArray(0);
+        byte[] term10545 = (byte[]) newByteArray(5);
+        byte[] term10560 = (byte[]) newByteArray(1);
+        Object term10562 = newInstance(Class.forName("java.io.RandomAccessFile"));
+        Object term10563 = newInstance(Class.forName("java.io.FileDescriptor"));
+        setIntField(term10355, term10355.getClass(), "internalAttributes", -426764678);
+        setIntField(term10355, term10355.getClass(), "platform", -1222614956);
+        setLongField(term10355, term10355.getClass(), "externalAttributes", -3948863953565024517L);
+        setField(term10355, term10355.getClass(), "extraFields", term10359);
+        setField(term10355, term10355.getClass(), "name", "");
+        setLongField(term10355, term10355.getClass(), "xdostime", -1L);
+        setField(term10380, term10380.getClass(), "unit", enum35);
+        setLongField(term10380, term10380.getClass(), "value", -6587807377747738663L);
+        setLongField(term10393, term10393.getClass(), "seconds", 1464439789L);
+        setIntField(term10393, term10393.getClass(), "nanos", 888000000);
+        setField(term10380, term10380.getClass(), "instant", term10393);
+        setField(term10380, term10380.getClass(), "valueAsString", "XqgfKFvPSD");
+        setField(term10355, term10355.getClass(), "mtime", term10380);
+        setField(term10408, term10408.getClass(), "unit", enum36);
+        setLongField(term10408, term10408.getClass(), "value", -6301101997917060727L);
+        setLongField(term10421, term10421.getClass(), "seconds", 1405297189L);
+        setIntField(term10421, term10421.getClass(), "nanos", 488000000);
+        setField(term10408, term10408.getClass(), "instant", term10421);
+        setField(term10408, term10408.getClass(), "valueAsString", "JiVRgTZvKc");
+        setField(term10355, term10355.getClass(), "atime", term10408);
+        setField(term10436, term10436.getClass(), "unit", enum37);
+        setLongField(term10436, term10436.getClass(), "value", 8166095254618543564L);
+        setLongField(term10449, term10449.getClass(), "seconds", 1822722644L);
+        setIntField(term10449, term10449.getClass(), "nanos", 50000000);
+        setField(term10436, term10436.getClass(), "instant", term10449);
+        setField(term10436, term10436.getClass(), "valueAsString", "XPKmummaqg");
+        setField(term10355, term10355.getClass(), "ctime", term10436);
+        setLongField(term10355, term10355.getClass(), "crc", -1L);
+        setLongField(term10355, term10355.getClass(), "size", -1L);
+        setLongField(term10355, term10355.getClass(), "csize", -1L);
+        setIntField(term10355, term10355.getClass(), "method", -1);
+        setIntField(term10355, term10355.getClass(), "flag", -1870495012);
+        setField(term10355, term10355.getClass(), "extra", term10469);
+        setField(term10355, term10355.getClass(), "comment", "BKLfkLiZTH");
+        setField(term10354, term10354.getClass(), "entry", term10355);
+        setField(term10354, term10354.getClass(), "comment", "SPpkrGcPRr");
+        setIntField(term10354, term10354.getClass(), "level", -2104981311);
+        setBooleanField(term10354, term10354.getClass(), "hasCompressionLevelChanged", true);
+        setIntField(term10354, term10354.getClass(), "method", -571169753);
+        setField(term10354, term10354.getClass(), "entries", term10498);
+        setIntField(term10502, term10502.getClass(), "crc", 318591690);
+        setField(term10354, term10354.getClass(), "crc", term10502);
+        setLongField(term10354, term10354.getClass(), "written", -4598158870068953328L);
+        setLongField(term10354, term10354.getClass(), "dataStart", 138235087558060686L);
+        setLongField(term10354, term10354.getClass(), "localDataStart", 5381386339318883012L);
+        setLongField(term10354, term10354.getClass(), "cdOffset", -1333707622307134180L);
+        setLongField(term10354, term10354.getClass(), "cdLength", -4360569253593381888L);
+        setField(term10354, term10354.getClass(), "offsets", term10509);
+        setField(term10354, term10354.getClass(), "encoding", "sEccwbJKYE");
+        setField(term10354, term10354.getClass(), "zipEncoding", null);
+        setLongField(term10527, term10527.getClass(), "address", 124986780437296L);
+        setField(term10529, term10529.getClass(), "action", term10527);
+        setField(term10530, term10530.getClass(), "action", null);
+        setField(term10530, term10530.getClass(), "prev", null);
+        setField(term10530, term10530.getClass(), "next", term10529);
+        setField(term10530, term10530.getClass(), "list", term10530);
+        setField(term10530, term10530.getClass(), "referent", null);
+        setField(term10530, term10530.getClass(), "queue", null);
+        setField(term10530, term10530.getClass(), "next", null);
+        setField(term10530, term10530.getClass(), "discovered", null);
+        setField(term10529, term10529.getClass(), "prev", term10530);
+        setField(term10531, term10531.getClass(), "action", null);
+        setField(term10531, term10531.getClass(), "prev", term10529);
+        setField(term10531, term10531.getClass(), "next", null);
+        setField(term10531, term10531.getClass(), "list", term10530);
+        setField(term10531, term10531.getClass(), "referent", null);
+        setField(term10531, term10531.getClass(), "queue", null);
+        setField(term10531, term10531.getClass(), "next", null);
+        setField(term10531, term10531.getClass(), "discovered", null);
+        setField(term10529, term10529.getClass(), "next", term10531);
+        setField(term10529, term10529.getClass(), "list", term10530);
+        setField(term10529, term10529.getClass(), "referent", term10526);
+        setField(term10532, term10532.getClass(), "lock", null);
+        setField(term10532, term10532.getClass(), "head", null);
+        setLongField(term10532, term10532.getClass(), "queueLength", 0L);
+        setField(term10529, term10529.getClass(), "queue", term10532);
+        setField(term10529, term10529.getClass(), "next", null);
+        setField(term10529, term10529.getClass(), "discovered", null);
+        setField(term10527, term10527.getClass(), "cleanable", term10529);
+        setField(term10526, term10526.getClass(), "zsRef", term10527);
+        setField(term10534, term10534.getClass(), "hb", term10535);
+        setIntField(term10534, term10534.getClass(), "offset", 0);
+        setBooleanField(term10534, term10534.getClass(), "isReadOnly", false);
+        setBooleanField(term10534, term10534.getClass(), "bigEndian", true);
+        setBooleanField(term10534, term10534.getClass(), "nativeByteOrder", false);
+        setIntField(term10534, term10534.getClass(), "mark", -1);
+        setIntField(term10534, term10534.getClass(), "position", 0);
+        setIntField(term10534, term10534.getClass(), "limit", 0);
+        setIntField(term10534, term10534.getClass(), "capacity", 0);
+        setLongField(term10534, term10534.getClass(), "address", 16L);
+        setField(term10526, term10526.getClass(), "input", term10534);
+        setByteElement(term10545, 0, (byte) 99);
+        setByteElement(term10545, 1, (byte) -121);
+        setByteElement(term10545, 2, (byte) -50);
+        setByteElement(term10545, 3, (byte) -79);
+        setByteElement(term10545, 4, (byte) 110);
+        setField(term10526, term10526.getClass(), "inputArray", term10545);
+        setIntField(term10526, term10526.getClass(), "inputPos", -165587447);
+        setIntField(term10526, term10526.getClass(), "inputLim", -1347358701);
+        setIntField(term10526, term10526.getClass(), "level", -1);
+        setIntField(term10526, term10526.getClass(), "strategy", 806595993);
+        setBooleanField(term10526, term10526.getClass(), "setParams", false);
+        setBooleanField(term10526, term10526.getClass(), "finish", false);
+        setBooleanField(term10526, term10526.getClass(), "finished", true);
+        setLongField(term10526, term10526.getClass(), "bytesRead", 1457594663983990440L);
+        setLongField(term10526, term10526.getClass(), "bytesWritten", 3452833434644634217L);
+        setField(term10354, term10354.getClass(), "def", term10526);
+        setByteElement(term10560, 0, (byte) -111);
+        setField(term10354, term10354.getClass(), "buf", term10560);
+        setIntField(term10563, term10563.getClass(), "fd", -1);
+        setLongField(term10563, term10563.getClass(), "handle", -1L);
+        setField(term10563, term10563.getClass(), "parent", null);
+        setField(term10563, term10563.getClass(), "otherParents", null);
+        setBooleanField(term10563, term10563.getClass(), "closed", false);
+        setBooleanField(term10563, term10563.getClass(), "append", false);
+        setField(term10563, term10563.getClass(), "cleanup", null);
+        setField(term10562, term10562.getClass(), "fd", term10563);
+        setField(term10562, term10562.getClass(), "channel", null);
+        setBooleanField(term10562, term10562.getClass(), "rw", false);
+        setField(term10562, term10562.getClass(), "path", null);
+        setField(term10562, term10562.getClass(), "closed", null);
+        setField(term10354, term10354.getClass(), "raf", term10562);
+        setField(term10354, term10354.getClass(), "out", null);
+        setBooleanField(term10354, term10354.getClass(), "useEFS", false);
+        setBooleanField(term10354, term10354.getClass(), "fallbackToUTF8", false);
+        setField(term10354, term10354.getClass(), "createUnicodeExtraFields", null);
+        setField(term10354, term10354.getClass(), "oneByte", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        callMethod(klass, "close", argTypes, term10354, args);
+    }
+
+};
+
+

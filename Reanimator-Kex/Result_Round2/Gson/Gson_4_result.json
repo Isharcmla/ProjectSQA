@@ -1,0 +1,19 @@
+{
+  "project": "Gson",
+  "bug_id": "4",
+  "tool": "kex",
+  "elapsed_sec": 408.59,
+  "target_classes": [
+    "com.google.gson.stream.JsonReader",
+    "com.google.gson.stream.JsonWriter"
+  ],
+  "kex_results": {
+    "com.google.gson.stream.JsonReader": "success",
+    "com.google.gson.stream.JsonWriter": "success"
+  },
+  "num_test_files_generated": 580,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,4 @@
+test,fqcn,method,buggy,fixed,classification
+InlineCostEstimator_getCost_11796937124,com.google.javascript.jscomp.InlineCostEstimator_getCost_11796937124,,PASS,PASS,valid_non_revealing
+InlineCostEstimator_getCost_4752941725,com.google.javascript.jscomp.InlineCostEstimator_getCost_4752941725,,PASS,PASS,valid_non_revealing
+InlineCostEstimator_init_11534770323,com.google.javascript.jscomp.InlineCostEstimator_init_11534770323,,PASS,PASS,valid_non_revealing

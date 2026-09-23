@@ -1,0 +1,17 @@
+{
+  "project": "Compress",
+  "bug_id": "20",
+  "tool": "kex",
+  "elapsed_sec": 135.42,
+  "target_classes": [
+    "org.apache.commons.compress.archivers.cpio.CpioArchiveInputStream"
+  ],
+  "kex_results": {
+    "org.apache.commons.compress.archivers.cpio.CpioArchiveInputStream": "success"
+  },
+  "num_test_files_generated": 153,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

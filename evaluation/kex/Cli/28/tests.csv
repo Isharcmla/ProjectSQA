@@ -1,0 +1,12 @@
+test,fqcn,method,buggy,fixed,classification
+Parser_checkRequiredOptions_140067184119,org.apache.commons.cli.Parser_checkRequiredOptions_140067184119,,PASS,PASS,valid_non_revealing
+Parser_getOptions_61913985412,org.apache.commons.cli.Parser_getOptions_61913985412,,PASS,PASS,valid_non_revealing
+Parser_getRequiredOptions_73095616513,org.apache.commons.cli.Parser_getRequiredOptions_73095616513,,PASS,PASS,valid_non_revealing
+Parser_parse_138277789215,org.apache.commons.cli.Parser_parse_138277789215,,PASS,PASS,valid_non_revealing
+Parser_parse_178972289516,org.apache.commons.cli.Parser_parse_178972289516,,PASS,PASS,valid_non_revealing
+Parser_parse_23011437417,org.apache.commons.cli.Parser_parse_23011437417,,PASS,PASS,valid_non_revealing
+Parser_parse_89913546314,org.apache.commons.cli.Parser_parse_89913546314,,PASS,PASS,valid_non_revealing
+Parser_processArgs_36922360720,org.apache.commons.cli.Parser_processArgs_36922360720,,PASS,PASS,valid_non_revealing
+Parser_processOption_199780140321,org.apache.commons.cli.Parser_processOption_199780140321,,PASS,PASS,valid_non_revealing
+Parser_processProperties_123320895318,org.apache.commons.cli.Parser_processProperties_123320895318,,PASS,PASS,valid_non_revealing
+Parser_setOptions_145160868411,org.apache.commons.cli.Parser_setOptions_145160868411,,PASS,PASS,valid_non_revealing

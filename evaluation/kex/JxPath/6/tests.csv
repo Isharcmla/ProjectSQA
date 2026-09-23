@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+CoreOperationCompare_contains_4081198135,org.apache.commons.jxpath.ri.compiler.CoreOperationCompare_contains_4081198135,,PASS,PASS,valid_non_revealing
+CoreOperationCompare_equal_17862654974,org.apache.commons.jxpath.ri.compiler.CoreOperationCompare_equal_17862654974,,PASS,PASS,valid_non_revealing
+CoreOperationCompare_equal_3659233297,org.apache.commons.jxpath.ri.compiler.CoreOperationCompare_equal_3659233297,,PASS,PASS,valid_non_revealing
+CoreOperationCompare_findMatch_14958138796,org.apache.commons.jxpath.ri.compiler.CoreOperationCompare_findMatch_14958138796,,PASS,PASS,valid_non_revealing

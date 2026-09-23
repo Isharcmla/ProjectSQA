@@ -1,0 +1,15 @@
+{
+  "project": "Csv",
+  "bug_id": "6",
+  "tool": "kex",
+  "generated_files": 56,
+  "candidate_tests": 54,
+  "classification_counts": {
+    "valid_non_revealing": 50,
+    "invalid_or_unstable": 4
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

@@ -1,0 +1,17 @@
+{
+  "project": "Mockito",
+  "bug_id": "26",
+  "tool": "kex",
+  "elapsed_sec": 27.66,
+  "target_classes": [
+    "org.mockito.internal.util.Primitives"
+  ],
+  "kex_results": {
+    "org.mockito.internal.util.Primitives": "success"
+  },
+  "num_test_files_generated": 7,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

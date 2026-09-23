@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "55",
+  "tool": "kex",
+  "elapsed_sec": 144.38,
+  "target_classes": [
+    "com.google.javascript.jscomp.FunctionRewriter"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.FunctionRewriter": "success"
+  },
+  "num_test_files_generated": 12,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

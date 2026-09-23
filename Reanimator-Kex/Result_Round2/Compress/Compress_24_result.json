@@ -1,0 +1,17 @@
+{
+  "project": "Compress",
+  "bug_id": "24",
+  "tool": "kex",
+  "elapsed_sec": 269.64,
+  "target_classes": [
+    "org.apache.commons.compress.archivers.tar.TarUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.compress.archivers.tar.TarUtils": "success"
+  },
+  "num_test_files_generated": 69,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

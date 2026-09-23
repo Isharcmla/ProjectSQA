@@ -1,0 +1,21 @@
+{
+  "project": "Jsoup",
+  "bug_id": "71",
+  "tool": "kex",
+  "elapsed_sec": 190.5,
+  "target_classes": [
+    "org.jsoup.nodes.PseudoTextElement",
+    "org.jsoup.select.Evaluator",
+    "org.jsoup.select.QueryParser"
+  ],
+  "kex_results": {
+    "org.jsoup.nodes.PseudoTextElement": "failed",
+    "org.jsoup.select.Evaluator": "success",
+    "org.jsoup.select.QueryParser": "success"
+  },
+  "num_test_files_generated": 49,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

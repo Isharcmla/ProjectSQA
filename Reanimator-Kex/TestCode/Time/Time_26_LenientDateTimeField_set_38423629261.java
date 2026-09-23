@@ -1,0 +1,66 @@
+package org.joda.time.field;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.joda.time.field.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class LenientDateTimeField_set_38423629261 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term11154;
+
+    public LenientDateTimeField_set_38423629261() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term11154 = newInstance(Class.forName("org.joda.time.field.LenientDateTimeField"));
+        Object term11232 = newInstance(Class.forName("org.joda.time.chrono.LimitChronology"));
+        Object term11316 = newInstance(Class.forName("org.joda.time.chrono.EthiopicChronology"));
+        Object term11402 = newInstance(Class.forName("org.joda.time.field.LenientDateTimeField"));
+        setField(term11316, term11316.getClass(), "iBase", null);
+        setField(term11232, term11232.getClass(), "iBase", term11316);
+        setField(term11154, term11154.getClass(), "iBase", term11232);
+        setField(term11154, term11154.getClass(), "iField", term11402);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.joda.time.field.LenientDateTimeField");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = long.class;
+        argTypes[1] = int.class;
+        Object[] args = new Object[2];
+        args[0] = 2147483647L;
+        args[1] = 0;
+        try {
+            callMethod(klass, "set", argTypes, term11154, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

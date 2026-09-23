@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+WritableObjectId_generateId_3748871246,com.fasterxml.jackson.databind.ser.impl.WritableObjectId_generateId_3748871246,,PASS,PASS,valid_non_revealing
+WritableObjectId_init_837618504,com.fasterxml.jackson.databind.ser.impl.WritableObjectId_init_837618504,,PASS,PASS,valid_non_revealing
+WritableObjectId_writeAsField_15180447797,com.fasterxml.jackson.databind.ser.impl.WritableObjectId_writeAsField_15180447797,,PASS,PASS,valid_non_revealing
+WritableObjectId_writeAsId_6161811265,com.fasterxml.jackson.databind.ser.impl.WritableObjectId_writeAsId_6161811265,,PASS,PASS,valid_non_revealing

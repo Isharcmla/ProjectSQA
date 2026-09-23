@@ -1,0 +1,21 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "38",
+  "tool": "kex",
+  "elapsed_sec": 90.49,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.type.CollectionType",
+    "com.fasterxml.jackson.databind.type.MapType",
+    "com.fasterxml.jackson.databind.type.SimpleType"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.type.CollectionType": "success",
+    "com.fasterxml.jackson.databind.type.MapType": "success",
+    "com.fasterxml.jackson.databind.type.SimpleType": "success"
+  },
+  "num_test_files_generated": 203,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

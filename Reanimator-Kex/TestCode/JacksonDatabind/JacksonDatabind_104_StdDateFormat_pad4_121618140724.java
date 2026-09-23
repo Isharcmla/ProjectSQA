@@ -1,0 +1,59 @@
+package com.fasterxml.jackson.databind.util;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.fasterxml.jackson.databind.util.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Integer;
+
+public class StdDateFormat_pad4_121618140724 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term1900;
+     Object term1932;
+
+    public StdDateFormat_pad4_121618140724() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term1900 = newInstance(Class.forName("java.lang.StringBuffer"));
+        byte[] term1913 = (byte[]) newByteArray(16);
+        setField(term1900, term1900.getClass(), "toStringCache", "hRNSzYYIrc");
+        setField(term1900, term1900.getClass(), "value", term1913);
+        setByteField(term1900, term1900.getClass(), "coder", (byte) 18);
+        setIntField(term1900, term1900.getClass(), "count", -883034806);
+        term1932 = new Integer(1585847225);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.databind.util.StdDateFormat");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("java.lang.StringBuffer");
+        argTypes[1] = int.class;
+        Object[] args = new Object[2];
+        args[0] = term1900;
+        args[1] = term1932;
+        callMethod(klass, "pad4", argTypes, null, args);
+    }
+
+};
+
+

@@ -1,0 +1,265 @@
+package org.apache.commons.jxpath.ri.model.beans;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.apache.commons.jxpath.ri.model.beans.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class NullPropertyPointer_createPath_2025174512135 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term529264;
+
+    public NullPropertyPointer_createPath_2025174512135() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term529264 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term529390 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term529516 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term529642 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term529768 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term529894 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term530020 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term530146 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term530272 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term530398 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term530524 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term530650 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term530776 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term530902 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term531028 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term531154 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term531280 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term531406 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term531532 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term531658 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term531784 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term531910 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term532036 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term532162 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term532288 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term532414 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term532540 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term532666 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term532792 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term532918 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term533044 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term533170 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term533296 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term533422 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term533548 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term533674 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term533800 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term533926 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term534052 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term534178 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term534304 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term534430 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term534556 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term534682 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term534808 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term534934 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term535060 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term535186 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term535312 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term535438 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term535564 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term535690 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term535816 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term535942 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term536068 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term536194 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term536320 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term536446 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term536572 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term536698 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term536824 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term536950 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term537076 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term537202 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term537328 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term537454 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term537580 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term537706 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term537832 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term537958 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term538084 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term538210 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term538336 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term538462 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term538588 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term538714 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term538840 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term538966 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term539092 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term539218 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term539344 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term539470 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term539596 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term539722 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term539848 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term539974 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term540100 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term540226 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term540352 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term540478 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term540604 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term540730 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term540856 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term540982 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term541108 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term541234 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term541360 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term541486 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term541612 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term541738 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term541864 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term541990 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term542116 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"));
+        Object term542242 = newInstance(Class.forName("org.apache.commons.jxpath.ri.model.jdom.JDOMAttributePointer"));
+        setField(term542116, term542116.getClass(), "parent", term542242);
+        setField(term541990, term541990.getClass(), "parent", term542116);
+        setField(term541864, term541864.getClass(), "parent", term541990);
+        setField(term541738, term541738.getClass(), "parent", term541864);
+        setField(term541612, term541612.getClass(), "parent", term541738);
+        setField(term541486, term541486.getClass(), "parent", term541612);
+        setField(term541360, term541360.getClass(), "parent", term541486);
+        setField(term541234, term541234.getClass(), "parent", term541360);
+        setField(term541108, term541108.getClass(), "parent", term541234);
+        setField(term540982, term540982.getClass(), "parent", term541108);
+        setField(term540856, term540856.getClass(), "parent", term540982);
+        setField(term540730, term540730.getClass(), "parent", term540856);
+        setField(term540604, term540604.getClass(), "parent", term540730);
+        setField(term540478, term540478.getClass(), "parent", term540604);
+        setField(term540352, term540352.getClass(), "parent", term540478);
+        setField(term540226, term540226.getClass(), "parent", term540352);
+        setField(term540100, term540100.getClass(), "parent", term540226);
+        setField(term539974, term539974.getClass(), "parent", term540100);
+        setField(term539848, term539848.getClass(), "parent", term539974);
+        setField(term539722, term539722.getClass(), "parent", term539848);
+        setField(term539596, term539596.getClass(), "parent", term539722);
+        setField(term539470, term539470.getClass(), "parent", term539596);
+        setField(term539344, term539344.getClass(), "parent", term539470);
+        setField(term539218, term539218.getClass(), "parent", term539344);
+        setField(term539092, term539092.getClass(), "parent", term539218);
+        setField(term538966, term538966.getClass(), "parent", term539092);
+        setField(term538840, term538840.getClass(), "parent", term538966);
+        setField(term538714, term538714.getClass(), "parent", term538840);
+        setField(term538588, term538588.getClass(), "parent", term538714);
+        setField(term538462, term538462.getClass(), "parent", term538588);
+        setField(term538336, term538336.getClass(), "parent", term538462);
+        setField(term538210, term538210.getClass(), "parent", term538336);
+        setField(term538084, term538084.getClass(), "parent", term538210);
+        setField(term537958, term537958.getClass(), "parent", term538084);
+        setField(term537832, term537832.getClass(), "parent", term537958);
+        setField(term537706, term537706.getClass(), "parent", term537832);
+        setField(term537580, term537580.getClass(), "parent", term537706);
+        setField(term537454, term537454.getClass(), "parent", term537580);
+        setField(term537328, term537328.getClass(), "parent", term537454);
+        setField(term537202, term537202.getClass(), "parent", term537328);
+        setField(term537076, term537076.getClass(), "parent", term537202);
+        setField(term536950, term536950.getClass(), "parent", term537076);
+        setField(term536824, term536824.getClass(), "parent", term536950);
+        setField(term536698, term536698.getClass(), "parent", term536824);
+        setField(term536572, term536572.getClass(), "parent", term536698);
+        setField(term536446, term536446.getClass(), "parent", term536572);
+        setField(term536320, term536320.getClass(), "parent", term536446);
+        setField(term536194, term536194.getClass(), "parent", term536320);
+        setField(term536068, term536068.getClass(), "parent", term536194);
+        setField(term535942, term535942.getClass(), "parent", term536068);
+        setField(term535816, term535816.getClass(), "parent", term535942);
+        setField(term535690, term535690.getClass(), "parent", term535816);
+        setField(term535564, term535564.getClass(), "parent", term535690);
+        setField(term535438, term535438.getClass(), "parent", term535564);
+        setField(term535312, term535312.getClass(), "parent", term535438);
+        setField(term535186, term535186.getClass(), "parent", term535312);
+        setField(term535060, term535060.getClass(), "parent", term535186);
+        setField(term534934, term534934.getClass(), "parent", term535060);
+        setField(term534808, term534808.getClass(), "parent", term534934);
+        setField(term534682, term534682.getClass(), "parent", term534808);
+        setField(term534556, term534556.getClass(), "parent", term534682);
+        setField(term534430, term534430.getClass(), "parent", term534556);
+        setField(term534304, term534304.getClass(), "parent", term534430);
+        setField(term534178, term534178.getClass(), "parent", term534304);
+        setField(term534052, term534052.getClass(), "parent", term534178);
+        setField(term533926, term533926.getClass(), "parent", term534052);
+        setField(term533800, term533800.getClass(), "parent", term533926);
+        setField(term533674, term533674.getClass(), "parent", term533800);
+        setField(term533548, term533548.getClass(), "parent", term533674);
+        setField(term533422, term533422.getClass(), "parent", term533548);
+        setField(term533296, term533296.getClass(), "parent", term533422);
+        setField(term533170, term533170.getClass(), "parent", term533296);
+        setField(term533044, term533044.getClass(), "parent", term533170);
+        setField(term532918, term532918.getClass(), "parent", term533044);
+        setField(term532792, term532792.getClass(), "parent", term532918);
+        setField(term532666, term532666.getClass(), "parent", term532792);
+        setField(term532540, term532540.getClass(), "parent", term532666);
+        setField(term532414, term532414.getClass(), "parent", term532540);
+        setField(term532288, term532288.getClass(), "parent", term532414);
+        setField(term532162, term532162.getClass(), "parent", term532288);
+        setField(term532036, term532036.getClass(), "parent", term532162);
+        setField(term531910, term531910.getClass(), "parent", term532036);
+        setField(term531784, term531784.getClass(), "parent", term531910);
+        setField(term531658, term531658.getClass(), "parent", term531784);
+        setField(term531532, term531532.getClass(), "parent", term531658);
+        setField(term531406, term531406.getClass(), "parent", term531532);
+        setField(term531280, term531280.getClass(), "parent", term531406);
+        setField(term531154, term531154.getClass(), "parent", term531280);
+        setField(term531028, term531028.getClass(), "parent", term531154);
+        setField(term530902, term530902.getClass(), "parent", term531028);
+        setField(term530776, term530776.getClass(), "parent", term530902);
+        setField(term530650, term530650.getClass(), "parent", term530776);
+        setField(term530524, term530524.getClass(), "parent", term530650);
+        setField(term530398, term530398.getClass(), "parent", term530524);
+        setField(term530272, term530272.getClass(), "parent", term530398);
+        setField(term530146, term530146.getClass(), "parent", term530272);
+        setField(term530020, term530020.getClass(), "parent", term530146);
+        setField(term529894, term529894.getClass(), "parent", term530020);
+        setField(term529768, term529768.getClass(), "parent", term529894);
+        setField(term529642, term529642.getClass(), "parent", term529768);
+        setField(term529516, term529516.getClass(), "parent", term529642);
+        setField(term529390, term529390.getClass(), "parent", term529516);
+        setField(term529264, term529264.getClass(), "parent", term529390);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("org.apache.commons.jxpath.JXPathContext");
+        argTypes[1] = Class.forName("java.lang.Object");
+        Object[] args = new Object[2];
+        args[0] = null;
+        args[1] = null;
+        try {
+            callMethod(klass, "createPath", argTypes, term529264, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

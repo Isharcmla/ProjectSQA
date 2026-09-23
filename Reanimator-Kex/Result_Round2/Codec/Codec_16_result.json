@@ -1,0 +1,17 @@
+{
+  "project": "Codec",
+  "bug_id": "16",
+  "tool": "kex",
+  "elapsed_sec": 138.1,
+  "target_classes": [
+    "org.apache.commons.codec.binary.Base32"
+  ],
+  "kex_results": {
+    "org.apache.commons.codec.binary.Base32": "success"
+  },
+  "num_test_files_generated": 239,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,11 @@
+test,fqcn,method,buggy,fixed,classification
+Entities_addEntities_11465105912,org.apache.commons.lang.Entities_addEntities_11465105912,,PASS,PASS,valid_non_revealing
+Entities_addEntity_198641744913,org.apache.commons.lang.Entities_addEntity_198641744913,,FAIL,FAIL,invalid_or_unstable
+Entities_entityName_180699114,org.apache.commons.lang.Entities_entityName_180699114,,PASS,PASS,valid_non_revealing
+Entities_entityValue_47384054915,org.apache.commons.lang.Entities_entityValue_47384054915,,PASS,PASS,valid_non_revealing
+Entities_escape_111703628516,org.apache.commons.lang.Entities_escape_111703628516,,PASS,PASS,valid_non_revealing
+Entities_escape_48662826317,org.apache.commons.lang.Entities_escape_48662826317,,PASS,PASS,valid_non_revealing
+Entities_fillWithHtml40Entities_30147567611,org.apache.commons.lang.Entities_fillWithHtml40Entities_30147567611,,FAIL,FAIL,invalid_or_unstable
+Entities_init_65757747210,org.apache.commons.lang.Entities_init_65757747210,,PASS,PASS,valid_non_revealing
+Entities_unescape_103960011419,org.apache.commons.lang.Entities_unescape_103960011419,,PASS,PASS,valid_non_revealing
+Entities_unescape_165170263418,org.apache.commons.lang.Entities_unescape_165170263418,,PASS,PASS,valid_non_revealing

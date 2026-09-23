@@ -1,0 +1,260 @@
+package com.google.javascript.jscomp.parsing;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.jscomp.parsing.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.lang.String;
+
+public class JsDocInfoParser_parseBasicTypeExpression_930290175104 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term20283;
+     Object enum225;
+
+    public JsDocInfoParser_parseBasicTypeExpression_930290175104() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        ArrayList term20336 = new ArrayList();
+        ((ArrayList) term20336).add((Object)null);
+        ((ArrayList) term20336).add((Object)null);
+        ((ArrayList) term20336).add((Object)null);
+        ((ArrayList) term20336).add((Object)null);
+        ((ArrayList) term20336).add((Object)null);
+        ArrayList term20339 = new ArrayList();
+        ((ArrayList) term20339).add((Object)null);
+        HashMap term20342 = new HashMap();
+        ArrayList term20347 = new ArrayList();
+        ((ArrayList) term20347).add((Object)null);
+        ((ArrayList) term20347).add((Object)null);
+        ((ArrayList) term20347).add((Object)null);
+        HashSet term20350 = new HashSet();
+        HashSet term20355 = new HashSet();
+        HashSet term20356 = new HashSet();
+        ArrayList term20365 = new ArrayList();
+        ((ArrayList) term20365).add((Object)null);
+        ((ArrayList) term20365).add((Object)null);
+        ((ArrayList) term20365).add((Object)null);
+        ((ArrayList) term20365).add((Object)null);
+        HashMap term20368 = new HashMap();
+        Class<? extends Object> term151794 = Class.forName((String) "com.google.javascript.rhino.JSDocInfo$Visibility");
+        Field term151793 = ((Class) term151794).getDeclaredField((String) "INHERITED");
+        ((Field) term151793).setAccessible(true);
+        Object enum224 = ((Field) term151793).get((Object) null);
+        term20283 = newInstance(Class.forName("com.google.javascript.jscomp.parsing.JsDocInfoParser"));
+        Object term20284 = newInstance(Class.forName("com.google.javascript.jscomp.parsing.JsDocTokenStream"));
+        char[] term20297 = (char[]) newCharArray(3);
+        int[] term20302 = (int[]) newIntArray(4);
+        Object term20332 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfoBuilder"));
+        Object term20333 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfo"));
+        Object term20334 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfo$LazilyInitializedInfo"));
+        Object term20335 = newInstance(Class.forName("com.google.javascript.rhino.JSTypeExpression"));
+        Object term20363 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfo$LazilyInitializedDocumentation"));
+        Object term20373 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term20380 = newInstance(Class.forName("com.google.javascript.rhino.JSTypeExpression"));
+        Object term20381 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term20385 = newInstance(Class.forName("com.google.javascript.rhino.JSTypeExpression"));
+        Object term20386 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term20394 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfo$Marker"));
+        Object term20395 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfo$TrimmedStringPosition"));
+        Object term20400 = newInstance(Class.forName("com.google.javascript.rhino.JSDocInfo$TrimmedStringPosition"));
+        Object term20405 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term20407 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term20410 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setField(term20284, term20284.getClass(), "string", "EhlWSobaco");
+        setCharElement(term20297, 0, 'R');
+        setCharElement(term20297, 1, 'o');
+        setCharElement(term20297, 2, 'V');
+        setField(term20284, term20284.getClass(), "stringBuffer", term20297);
+        setIntField(term20284, term20284.getClass(), "stringBufferTop", -1641244494);
+        setIntElement(term20302, 0, 1124282188);
+        setIntElement(term20302, 1, -489441521);
+        setIntElement(term20302, 2, 225873732);
+        setIntElement(term20302, 3, 529879356);
+        setField(term20284, term20284.getClass(), "ungetBuffer", term20302);
+        setIntField(term20284, term20284.getClass(), "ungetCursor", 18072182);
+        setBooleanField(term20284, term20284.getClass(), "hitEOF", true);
+        setIntField(term20284, term20284.getClass(), "lineStart", 1544768934);
+        setIntField(term20284, term20284.getClass(), "lineEndChar", -383508597);
+        setIntField(term20284, term20284.getClass(), "lineno", -819372164);
+        setIntField(term20284, term20284.getClass(), "charno", 958132675);
+        setIntField(term20284, term20284.getClass(), "initCharno", -689879283);
+        setIntField(term20284, term20284.getClass(), "initLineno", 1985432430);
+        setField(term20284, term20284.getClass(), "sourceString", "hEuycunsSe");
+        setIntField(term20284, term20284.getClass(), "sourceEnd", -1769933499);
+        setIntField(term20284, term20284.getClass(), "sourceCursor", -1510932472);
+        setIntField(term20284, term20284.getClass(), "cursor", 1970654816);
+        setIntField(term20284, term20284.getClass(), "tokenBeg", 1354781442);
+        setIntField(term20284, term20284.getClass(), "tokenEnd", -393590701);
+        setField(term20283, term20283.getClass(), "stream", term20284);
+        setField(term20335, term20335.getClass(), "root", null);
+        setField(term20335, term20335.getClass(), "sourceName", null);
+        setField(term20334, term20334.getClass(), "baseType", term20335);
+        setField(term20334, term20334.getClass(), "extendedInterfaces", term20336);
+        setField(term20334, term20334.getClass(), "implementedInterfaces", term20339);
+        setField(term20334, term20334.getClass(), "parameters", term20342);
+        setField(term20334, term20334.getClass(), "thrownTypes", term20347);
+        setField(term20334, term20334.getClass(), "templateTypeNames", null);
+        setField(term20334, term20334.getClass(), "disposedParameters", term20350);
+        setField(term20334, term20334.getClass(), "description", "");
+        setField(term20334, term20334.getClass(), "meaning", "");
+        setField(term20334, term20334.getClass(), "deprecated", "");
+        setField(term20334, term20334.getClass(), "license", "");
+        setField(term20334, term20334.getClass(), "suppressions", term20355);
+        setField(term20334, term20334.getClass(), "modifies", term20356);
+        setField(term20334, term20334.getClass(), "lendsName", "");
+        setBooleanField(term20334, term20334.getClass(), "ngInject", true);
+        setBooleanField(term20334, term20334.getClass(), "wizaction", true);
+        setBooleanField(term20334, term20334.getClass(), "jaggerInject", true);
+        setBooleanField(term20334, term20334.getClass(), "jaggerProvide", true);
+        setBooleanField(term20334, term20334.getClass(), "jaggerModule", true);
+        setField(term20333, term20333.getClass(), "info", term20334);
+        setField(term20363, term20363.getClass(), "sourceComment", "");
+        setField(term20363, term20363.getClass(), "markers", term20365);
+        setField(term20363, term20363.getClass(), "parameters", term20368);
+        setField(term20363, term20363.getClass(), "throwsDescriptions", null);
+        setField(term20363, term20363.getClass(), "blockDescription", null);
+        setField(term20363, term20363.getClass(), "fileOverview", null);
+        setField(term20363, term20363.getClass(), "returnDescription", null);
+        setField(term20363, term20363.getClass(), "version", null);
+        setField(term20363, term20363.getClass(), "authors", null);
+        setField(term20363, term20363.getClass(), "sees", null);
+        setField(term20333, term20333.getClass(), "documentation", term20363);
+        setIntField(term20373, term20373.getClass(), "type", 0);
+        setField(term20373, term20373.getClass(), "next", null);
+        setField(term20373, term20373.getClass(), "first", null);
+        setField(term20373, term20373.getClass(), "last", null);
+        setField(term20373, term20373.getClass(), "propListHead", null);
+        setIntField(term20373, term20373.getClass(), "sourcePosition", 0);
+        setField(term20373, term20373.getClass(), "jsType", null);
+        setField(term20373, term20373.getClass(), "parent", null);
+        setField(term20333, term20333.getClass(), "associatedNode", term20373);
+        setField(term20333, term20333.getClass(), "visibility", enum224);
+        setIntField(term20333, term20333.getClass(), "bitset", -316771104);
+        setIntField(term20381, term20381.getClass(), "type", -1489991025);
+        setField(term20381, term20381.getClass(), "next", null);
+        setField(term20381, term20381.getClass(), "first", null);
+        setField(term20381, term20381.getClass(), "last", null);
+        setField(term20381, term20381.getClass(), "propListHead", null);
+        setIntField(term20381, term20381.getClass(), "sourcePosition", 0);
+        setField(term20381, term20381.getClass(), "jsType", null);
+        setField(term20381, term20381.getClass(), "parent", null);
+        setField(term20380, term20380.getClass(), "root", term20381);
+        setField(term20380, term20380.getClass(), "sourceName", "");
+        setField(term20333, term20333.getClass(), "type", term20380);
+        setIntField(term20386, term20386.getClass(), "type", 0);
+        setField(term20386, term20386.getClass(), "next", null);
+        setField(term20386, term20386.getClass(), "first", null);
+        setField(term20386, term20386.getClass(), "last", null);
+        setField(term20386, term20386.getClass(), "propListHead", null);
+        setIntField(term20386, term20386.getClass(), "sourcePosition", 0);
+        setField(term20386, term20386.getClass(), "jsType", null);
+        setField(term20386, term20386.getClass(), "parent", null);
+        setField(term20385, term20385.getClass(), "root", term20386);
+        setField(term20385, term20385.getClass(), "sourceName", "");
+        setField(term20333, term20333.getClass(), "thisType", term20385);
+        setBooleanField(term20333, term20333.getClass(), "includeDocumentation", true);
+        setIntField(term20333, term20333.getClass(), "originalCommentPosition", -1374527319);
+        setField(term20332, term20332.getClass(), "currentInfo", term20333);
+        setBooleanField(term20332, term20332.getClass(), "populated", false);
+        setBooleanField(term20332, term20332.getClass(), "parseDocumentation", false);
+        setField(term20395, term20395.getClass(), "item", null);
+        setIntField(term20395, term20395.getClass(), "startLineno", 0);
+        setIntField(term20395, term20395.getClass(), "startCharno", 0);
+        setIntField(term20395, term20395.getClass(), "endLineno", 0);
+        setIntField(term20395, term20395.getClass(), "endCharno", 0);
+        setField(term20394, term20394.getClass(), "annotation", term20395);
+        setField(term20400, term20400.getClass(), "item", null);
+        setIntField(term20400, term20400.getClass(), "startLineno", 0);
+        setIntField(term20400, term20400.getClass(), "startCharno", 0);
+        setIntField(term20400, term20400.getClass(), "endLineno", 0);
+        setIntField(term20400, term20400.getClass(), "endCharno", 0);
+        setField(term20394, term20394.getClass(), "name", term20400);
+        setField(term20394, term20394.getClass(), "nameNode", null);
+        setField(term20394, term20394.getClass(), "description", null);
+        setField(term20394, term20394.getClass(), "type", null);
+        setField(term20332, term20332.getClass(), "currentMarker", term20394);
+        setField(term20283, term20283.getClass(), "jsdocBuilder", term20332);
+        setField(term20283, term20283.getClass(), "sourceFile", null);
+        setIntField(term20405, term20405.getClass(), "type", -1130401612);
+        setIntField(term20407, term20407.getClass(), "type", 0);
+        setField(term20407, term20407.getClass(), "next", null);
+        setField(term20407, term20407.getClass(), "first", null);
+        setField(term20407, term20407.getClass(), "last", null);
+        setField(term20407, term20407.getClass(), "propListHead", null);
+        setIntField(term20407, term20407.getClass(), "sourcePosition", 0);
+        setField(term20407, term20407.getClass(), "jsType", null);
+        setField(term20407, term20407.getClass(), "parent", null);
+        setField(term20405, term20405.getClass(), "next", term20407);
+        setIntField(term20410, term20410.getClass(), "type", 0);
+        setField(term20410, term20410.getClass(), "next", null);
+        setField(term20410, term20410.getClass(), "first", null);
+        setField(term20410, term20410.getClass(), "last", null);
+        setField(term20410, term20410.getClass(), "propListHead", null);
+        setIntField(term20410, term20410.getClass(), "sourcePosition", 0);
+        setField(term20410, term20410.getClass(), "jsType", null);
+        setField(term20410, term20410.getClass(), "parent", null);
+        setField(term20405, term20405.getClass(), "first", term20410);
+        setField(term20405, term20405.getClass(), "last", term20386);
+        setField(term20405, term20405.getClass(), "propListHead", null);
+        setIntField(term20405, term20405.getClass(), "sourcePosition", 0);
+        setField(term20405, term20405.getClass(), "jsType", null);
+        setField(term20405, term20405.getClass(), "parent", null);
+        setField(term20283, term20283.getClass(), "associatedNode", term20405);
+        setField(term20283, term20283.getClass(), "errorReporter", null);
+        setField(term20283, term20283.getClass(), "parser", null);
+        setField(term20283, term20283.getClass(), "templateNode", null);
+        setField(term20283, term20283.getClass(), "fileOverviewJSDocInfo", null);
+        setField(term20283, term20283.getClass(), "state", null);
+        setField(term20283, term20283.getClass(), "annotationNames", null);
+        setField(term20283, term20283.getClass(), "suppressionNames", null);
+        setField(term20283, term20283.getClass(), "fileLevelJsDocBuilder", null);
+        setField(term20283, term20283.getClass(), "unreadToken", null);
+        Class<? extends Object> term152068 = Class.forName((String) "com.google.javascript.jscomp.parsing.JsDocToken");
+        Field term152067 = ((Class) term152068).getDeclaredField((String) "COLON");
+        ((Field) term152067).setAccessible(true);
+        enum225 = ((Field) term152067).get((Object) null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.parsing.JsDocInfoParser");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("com.google.javascript.jscomp.parsing.JsDocToken");
+        Object[] args = new Object[1];
+        args[0] = enum225;
+        try {
+            callMethod(klass, "parseBasicTypeExpression", argTypes, term20283, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

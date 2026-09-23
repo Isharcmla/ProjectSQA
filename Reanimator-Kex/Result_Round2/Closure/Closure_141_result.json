@@ -1,0 +1,19 @@
+{
+  "project": "Closure",
+  "bug_id": "141",
+  "tool": "kex",
+  "elapsed_sec": 384.56,
+  "target_classes": [
+    "com.google.javascript.jscomp.NodeUtil",
+    "com.google.javascript.jscomp.PureFunctionIdentifier"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.NodeUtil": "failed",
+    "com.google.javascript.jscomp.PureFunctionIdentifier": "failed"
+  },
+  "num_test_files_generated": 414,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

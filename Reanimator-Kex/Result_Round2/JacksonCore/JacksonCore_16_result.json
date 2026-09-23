@@ -1,0 +1,17 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "16",
+  "tool": "kex",
+  "elapsed_sec": 49.54,
+  "target_classes": [
+    "com.fasterxml.jackson.core.util.JsonParserSequence"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.core.util.JsonParserSequence": "success"
+  },
+  "num_test_files_generated": 20,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

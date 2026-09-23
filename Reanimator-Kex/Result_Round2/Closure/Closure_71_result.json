@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "71",
+  "tool": "kex",
+  "elapsed_sec": 313.8,
+  "target_classes": [
+    "com.google.javascript.jscomp.CheckAccessControls"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.CheckAccessControls": "timeout"
+  },
+  "num_test_files_generated": 239,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,215 @@
+package org.apache.commons.compress.archivers.zip;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.compress.archivers.zip.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class ZipArchiveInputStream_closeEntry_141827822617 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term2084;
+
+    public ZipArchiveInputStream_closeEntry_141827822617() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term2084 = newInstance(Class.forName("org.apache.commons.compress.archivers.zip.ZipArchiveInputStream"));
+        Object term2098 = newInstance(Class.forName("java.util.zip.Inflater"));
+        Object term2099 = newInstance(Class.forName("java.util.zip.Inflater$InflaterZStreamRef"));
+        Object term2101 = newInstance(Class.forName("jdk.internal.ref.CleanerImpl$PhantomCleanableRef"));
+        Object term2102 = newInstance(Class.forName("jdk.internal.ref.CleanerImpl$PhantomCleanableRef"));
+        Object term2103 = newInstance(Class.forName("jdk.internal.ref.CleanerImpl$PhantomCleanableRef"));
+        Object term2104 = newInstance(Class.forName("java.lang.ref.ReferenceQueue"));
+        Object term2106 = newInstance(Class.forName("java.nio.HeapByteBuffer"));
+        byte[] term2107 = (byte[]) newByteArray(0);
+        byte[] term2117 = (byte[]) newByteArray(7);
+        Object term2133 = newInstance(Class.forName("org.apache.commons.compress.archivers.zip.ZipArchiveInputStream$CurrentEntry"));
+        Object term2134 = newInstance(Class.forName("org.apache.commons.compress.archivers.zip.ZipArchiveEntry"));
+        Object term2145 = newInstance(Class.forName("org.apache.commons.compress.archivers.zip.GeneralPurposeBit"));
+        Object term2165 = newInstance(Class.forName("java.util.zip.CRC32"));
+        Object term2169 = newInstance(Class.forName("java.io.ByteArrayInputStream"));
+        byte[] term2170 = (byte[]) newByteArray(6);
+        byte[] term2181 = (byte[]) newByteArray(5);
+        byte[] term2187 = (byte[]) newByteArray(3);
+        byte[] term2191 = (byte[]) newByteArray(4);
+        byte[] term2196 = (byte[]) newByteArray(8);
+        byte[] term2205 = (byte[]) newByteArray(0);
+        byte[] term2207 = (byte[]) newByteArray(4);
+        setField(term2084, term2084.getClass(), "zipEncoding", null);
+        setField(term2084, term2084.getClass(), "encoding", "oVcInYnLWB");
+        setBooleanField(term2084, term2084.getClass(), "useUnicodeExtraFields", true);
+        setField(term2084, term2084.getClass(), "in", null);
+        setLongField(term2099, term2099.getClass(), "address", 131118848082976L);
+        setField(term2101, term2101.getClass(), "action", term2099);
+        setField(term2102, term2102.getClass(), "action", null);
+        setField(term2102, term2102.getClass(), "prev", null);
+        setField(term2102, term2102.getClass(), "next", term2101);
+        setField(term2102, term2102.getClass(), "list", term2102);
+        setField(term2102, term2102.getClass(), "referent", null);
+        setField(term2102, term2102.getClass(), "queue", null);
+        setField(term2102, term2102.getClass(), "next", null);
+        setField(term2102, term2102.getClass(), "discovered", null);
+        setField(term2101, term2101.getClass(), "prev", term2102);
+        setField(term2103, term2103.getClass(), "action", null);
+        setField(term2103, term2103.getClass(), "prev", term2101);
+        setField(term2103, term2103.getClass(), "next", null);
+        setField(term2103, term2103.getClass(), "list", term2102);
+        setField(term2103, term2103.getClass(), "referent", null);
+        setField(term2103, term2103.getClass(), "queue", null);
+        setField(term2103, term2103.getClass(), "next", null);
+        setField(term2103, term2103.getClass(), "discovered", null);
+        setField(term2101, term2101.getClass(), "next", term2103);
+        setField(term2101, term2101.getClass(), "list", term2102);
+        setField(term2101, term2101.getClass(), "referent", term2098);
+        setField(term2104, term2104.getClass(), "lock", null);
+        setField(term2104, term2104.getClass(), "head", null);
+        setLongField(term2104, term2104.getClass(), "queueLength", 0L);
+        setField(term2101, term2101.getClass(), "queue", term2104);
+        setField(term2101, term2101.getClass(), "next", null);
+        setField(term2101, term2101.getClass(), "discovered", null);
+        setField(term2099, term2099.getClass(), "cleanable", term2101);
+        setField(term2098, term2098.getClass(), "zsRef", term2099);
+        setField(term2106, term2106.getClass(), "hb", term2107);
+        setIntField(term2106, term2106.getClass(), "offset", 0);
+        setBooleanField(term2106, term2106.getClass(), "isReadOnly", false);
+        setBooleanField(term2106, term2106.getClass(), "bigEndian", true);
+        setBooleanField(term2106, term2106.getClass(), "nativeByteOrder", false);
+        setIntField(term2106, term2106.getClass(), "mark", -1);
+        setIntField(term2106, term2106.getClass(), "position", 0);
+        setIntField(term2106, term2106.getClass(), "limit", 0);
+        setIntField(term2106, term2106.getClass(), "capacity", 0);
+        setLongField(term2106, term2106.getClass(), "address", 16L);
+        setField(term2098, term2098.getClass(), "input", term2106);
+        setByteElement(term2117, 0, (byte) -100);
+        setByteElement(term2117, 1, (byte) 23);
+        setByteElement(term2117, 2, (byte) -30);
+        setByteElement(term2117, 3, (byte) -37);
+        setByteElement(term2117, 4, (byte) -123);
+        setByteElement(term2117, 5, (byte) 51);
+        setByteElement(term2117, 6, (byte) 90);
+        setField(term2098, term2098.getClass(), "inputArray", term2117);
+        setIntField(term2098, term2098.getClass(), "inputPos", -1263114719);
+        setIntField(term2098, term2098.getClass(), "inputLim", -894662986);
+        setBooleanField(term2098, term2098.getClass(), "finished", true);
+        setBooleanField(term2098, term2098.getClass(), "needDict", true);
+        setLongField(term2098, term2098.getClass(), "bytesRead", -3838084482494604218L);
+        setLongField(term2098, term2098.getClass(), "bytesWritten", 3892018155439224435L);
+        setIntField(term2098, term2098.getClass(), "inputConsumed", 304775596);
+        setIntField(term2098, term2098.getClass(), "outputConsumed", -1347665717);
+        setField(term2084, term2084.getClass(), "inf", term2098);
+        setField(term2084, term2084.getClass(), "buf", null);
+        setIntField(term2134, term2134.getClass(), "method", -1);
+        setLongField(term2134, term2134.getClass(), "size", -1L);
+        setIntField(term2134, term2134.getClass(), "internalAttributes", 0);
+        setIntField(term2134, term2134.getClass(), "versionRequired", 0);
+        setIntField(term2134, term2134.getClass(), "versionMadeBy", 0);
+        setIntField(term2134, term2134.getClass(), "platform", 0);
+        setIntField(term2134, term2134.getClass(), "rawFlag", 0);
+        setLongField(term2134, term2134.getClass(), "externalAttributes", 0L);
+        setField(term2134, term2134.getClass(), "extraFields", null);
+        setField(term2134, term2134.getClass(), "unparseableExtra", null);
+        setField(term2134, term2134.getClass(), "name", "");
+        setField(term2134, term2134.getClass(), "rawName", null);
+        setBooleanField(term2145, term2145.getClass(), "languageEncodingFlag", false);
+        setBooleanField(term2145, term2145.getClass(), "dataDescriptorFlag", false);
+        setBooleanField(term2145, term2145.getClass(), "encryptionFlag", false);
+        setBooleanField(term2145, term2145.getClass(), "strongEncryptionFlag", false);
+        setIntField(term2145, term2145.getClass(), "slidingDictionarySize", 0);
+        setIntField(term2145, term2145.getClass(), "numberOfShannonFanoTrees", 0);
+        setField(term2134, term2134.getClass(), "gpb", term2145);
+        setLongField(term2134, term2134.getClass(), "xdostime", -1L);
+        setField(term2134, term2134.getClass(), "mtime", null);
+        setField(term2134, term2134.getClass(), "atime", null);
+        setField(term2134, term2134.getClass(), "ctime", null);
+        setLongField(term2134, term2134.getClass(), "crc", -1L);
+        setLongField(term2134, term2134.getClass(), "csize", -1L);
+        setIntField(term2134, term2134.getClass(), "flag", 0);
+        setField(term2134, term2134.getClass(), "extra", null);
+        setField(term2134, term2134.getClass(), "comment", null);
+        setField(term2133, term2133.getClass(), "entry", term2134);
+        setBooleanField(term2133, term2133.getClass(), "hasDataDescriptor", false);
+        setBooleanField(term2133, term2133.getClass(), "usesZip64", false);
+        setLongField(term2133, term2133.getClass(), "bytesRead", 5953383087795962419L);
+        setLongField(term2133, term2133.getClass(), "bytesReadFromStream", 7994303628307559416L);
+        setIntField(term2165, term2165.getClass(), "crc", 0);
+        setField(term2133, term2133.getClass(), "crc", term2165);
+        setField(term2133, term2133.getClass(), "in", null);
+        setField(term2084, term2084.getClass(), "current", term2133);
+        setBooleanField(term2084, term2084.getClass(), "closed", true);
+        setBooleanField(term2084, term2084.getClass(), "hitCentralDirectory", true);
+        setByteElement(term2170, 0, (byte) 66);
+        setByteElement(term2170, 1, (byte) -79);
+        setByteElement(term2170, 2, (byte) 44);
+        setByteElement(term2170, 3, (byte) -66);
+        setByteElement(term2170, 4, (byte) 122);
+        setByteElement(term2170, 5, (byte) -30);
+        setField(term2169, term2169.getClass(), "buf", term2170);
+        setIntField(term2169, term2169.getClass(), "pos", -1888585309);
+        setIntField(term2169, term2169.getClass(), "mark", 683666002);
+        setIntField(term2169, term2169.getClass(), "count", 1596213415);
+        setField(term2084, term2084.getClass(), "lastStoredEntry", term2169);
+        setBooleanField(term2084, term2084.getClass(), "allowStoredEntriesWithDataDescriptor", true);
+        setByteElement(term2181, 0, (byte) 102);
+        setByteElement(term2181, 1, (byte) 59);
+        setByteElement(term2181, 2, (byte) -79);
+        setByteElement(term2181, 3, (byte) -33);
+        setByteElement(term2181, 4, (byte) 1);
+        setField(term2084, term2084.getClass(), "LFH_BUF", term2181);
+        setByteElement(term2187, 0, (byte) -88);
+        setByteElement(term2187, 1, (byte) -53);
+        setByteElement(term2187, 2, (byte) -120);
+        setField(term2084, term2084.getClass(), "SKIP_BUF", term2187);
+        setByteElement(term2191, 0, (byte) 94);
+        setByteElement(term2191, 1, (byte) -76);
+        setByteElement(term2191, 2, (byte) -122);
+        setByteElement(term2191, 3, (byte) 43);
+        setField(term2084, term2084.getClass(), "SHORT_BUF", term2191);
+        setByteElement(term2196, 0, (byte) -31);
+        setByteElement(term2196, 1, (byte) 95);
+        setByteElement(term2196, 2, (byte) -33);
+        setByteElement(term2196, 3, (byte) 21);
+        setByteElement(term2196, 4, (byte) -8);
+        setByteElement(term2196, 5, (byte) -85);
+        setByteElement(term2196, 6, (byte) -77);
+        setByteElement(term2196, 7, (byte) 106);
+        setField(term2084, term2084.getClass(), "WORD_BUF", term2196);
+        setField(term2084, term2084.getClass(), "TWO_DWORD_BUF", term2205);
+        setIntField(term2084, term2084.getClass(), "entriesRead", -268815336);
+        setByteElement(term2207, 0, (byte) 92);
+        setByteElement(term2207, 1, (byte) -110);
+        setByteElement(term2207, 2, (byte) -88);
+        setByteElement(term2207, 3, (byte) 56);
+        setField(term2084, term2084.getClass(), "SINGLE", term2207);
+        setLongField(term2084, term2084.getClass(), "bytesRead", 2443640364875054177L);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.compress.archivers.zip.ZipArchiveInputStream");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        callMethod(klass, "closeEntry", argTypes, term2084, args);
+    }
+
+};
+
+

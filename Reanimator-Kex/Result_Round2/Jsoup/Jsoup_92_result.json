@@ -1,0 +1,25 @@
+{
+  "project": "Jsoup",
+  "bug_id": "92",
+  "tool": "kex",
+  "elapsed_sec": 896.68,
+  "target_classes": [
+    "org.jsoup.nodes.Attributes",
+    "org.jsoup.parser.HtmlTreeBuilder",
+    "org.jsoup.parser.ParseSettings",
+    "org.jsoup.parser.Token",
+    "org.jsoup.parser.XmlTreeBuilder"
+  ],
+  "kex_results": {
+    "org.jsoup.nodes.Attributes": "success",
+    "org.jsoup.parser.HtmlTreeBuilder": "timeout",
+    "org.jsoup.parser.ParseSettings": "success",
+    "org.jsoup.parser.Token": "success",
+    "org.jsoup.parser.XmlTreeBuilder": "success"
+  },
+  "num_test_files_generated": 950,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

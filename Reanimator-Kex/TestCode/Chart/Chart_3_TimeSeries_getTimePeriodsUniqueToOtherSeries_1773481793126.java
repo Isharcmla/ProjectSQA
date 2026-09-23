@@ -1,0 +1,72 @@
+package org.jfree.data.time;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.jfree.data.time.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.util.ArrayList;
+import java.lang.Object;
+
+public class TimeSeries_getTimePeriodsUniqueToOtherSeries_1773481793126 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term20822;
+     Object term20888;
+
+    public TimeSeries_getTimePeriodsUniqueToOtherSeries_1773481793126() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term20822 = newInstance(Class.forName("org.jfree.data.time.TimeSeries"));
+        ArrayList term20940 = new ArrayList();
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        ((ArrayList) term20940).add((Object)null);
+        term20888 = newInstance(Class.forName("org.jfree.data.time.TimeSeries"));
+        setField(term20888, term20888.getClass(), "data", term20940);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jfree.data.time.TimeSeries");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("org.jfree.data.time.TimeSeries");
+        Object[] args = new Object[1];
+        args[0] = term20888;
+        callMethod(klass, "getTimePeriodsUniqueToOtherSeries", argTypes, term20822, args);
+    }
+
+};
+
+

@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "32",
+  "tool": "kex",
+  "elapsed_sec": 259.79,
+  "target_classes": [
+    "org.apache.commons.lang3.builder.HashCodeBuilder"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang3.builder.HashCodeBuilder": "success"
+  },
+  "num_test_files_generated": 65,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,4 @@
+test,fqcn,method,buggy,fixed,classification
+NullifyingDeserializer_deserializeWithType_17473046585,com.fasterxml.jackson.databind.deser.std.NullifyingDeserializer_deserializeWithType_17473046585,,PASS,PASS,valid_non_revealing
+NullifyingDeserializer_deserialize_21039132414,com.fasterxml.jackson.databind.deser.std.NullifyingDeserializer_deserialize_21039132414,,PASS,PASS,valid_non_revealing
+NullifyingDeserializer_init_15357454843,com.fasterxml.jackson.databind.deser.std.NullifyingDeserializer_init_15357454843,,FAIL,FAIL,invalid_or_unstable

@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "26",
+  "tool": "kex",
+  "elapsed_sec": 138.73,
+  "target_classes": [
+    "org.apache.commons.lang3.time.FastDateFormat"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang3.time.FastDateFormat": "success"
+  },
+  "num_test_files_generated": 86,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,58 @@
+package com.fasterxml.jackson.databind.deser.impl;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.fasterxml.jackson.databind.deser.impl.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.util.ArrayList;
+import java.lang.Object;
+
+public class BeanPropertyMap_init_124161835099 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term15096;
+     Object term15148;
+
+    public BeanPropertyMap_init_124161835099() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term15096 = newInstance(Class.forName("com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap"));
+        setIntField(term15096, term15096.getClass(), "_size", 0);
+        setIntField(term15096, term15096.getClass(), "_hashMask", 0);
+        Object term15186 = newInstance(Class.forName("java.lang.Object"));
+        term15148 = new ArrayList();
+        ((ArrayList) term15148).add(term15186);
+        ((ArrayList) term15148).add((Object)null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("java.util.Collection");
+        Object[] args = new Object[1];
+        args[0] = term15148;
+        callMethod(klass, "init", argTypes, term15096, args);
+    }
+
+};
+
+

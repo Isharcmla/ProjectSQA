@@ -1,0 +1,7 @@
+test,fqcn,method,buggy,fixed,classification
+TypeAdapters_init_1909331416,com.google.gson.internal.bind.TypeAdapters_init_1909331416,,FAIL,FAIL,invalid_or_unstable
+TypeAdapters_newFactoryForMultipleTypes_4039140110,com.google.gson.internal.bind.TypeAdapters_newFactoryForMultipleTypes_4039140110,,PASS,PASS,valid_non_revealing
+TypeAdapters_newFactory_20724170799,com.google.gson.internal.bind.TypeAdapters_newFactory_20724170799,,PASS,PASS,valid_non_revealing
+TypeAdapters_newFactory_5457356378,com.google.gson.internal.bind.TypeAdapters_newFactory_5457356378,,PASS,PASS,valid_non_revealing
+TypeAdapters_newFactory_7422868247,com.google.gson.internal.bind.TypeAdapters_newFactory_7422868247,,PASS,PASS,valid_non_revealing
+TypeAdapters_newTypeHierarchyFactory_147536440011,com.google.gson.internal.bind.TypeAdapters_newTypeHierarchyFactory_147536440011,,PASS,PASS,valid_non_revealing

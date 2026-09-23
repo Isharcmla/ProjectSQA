@@ -1,0 +1,14 @@
+{
+  "project": "Lang",
+  "bug_id": "28",
+  "tool": "kex",
+  "generated_files": 5,
+  "candidate_tests": 3,
+  "classification_counts": {
+    "valid_non_revealing": 3
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

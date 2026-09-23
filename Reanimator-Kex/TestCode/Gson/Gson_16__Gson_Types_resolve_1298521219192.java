@@ -1,0 +1,214 @@
+package com.google.gson.internal;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.gson.internal.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.google.gson.internal.EqualityUtils.*;
+import java.lang.Object;
+
+public class _Gson_Types_resolve_1298521219192 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term367718;
+     Object term407461;
+     Object term407456;
+
+    public _Gson_Types_resolve_1298521219192() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term367718 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term367838 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term367958 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term368078 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term368198 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term368318 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term368438 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term368558 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term368678 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term368798 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term368918 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term369038 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term369158 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term369278 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term369398 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term369518 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term369638 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term369758 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term369878 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term369998 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term370118 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term370238 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term370358 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term370478 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term370598 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term370718 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term370838 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term370958 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term371078 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term371198 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term371318 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term371438 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term371558 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term371678 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term371798 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term371918 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term372038 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term372158 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term372278 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term372398 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term372518 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term372638 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term372758 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term372878 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term372998 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term373118 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term373238 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term373358 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term373478 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term373598 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term373718 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term373838 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term373958 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term374078 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term374198 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term374318 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term374438 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term374558 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term374678 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term374798 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term374918 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term375038 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term375158 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term375278 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term375398 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term375518 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term375638 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term375758 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        setField(term375758, term375758.getClass(), "componentType", null);
+        setField(term375638, term375638.getClass(), "componentType", term375758);
+        setField(term375518, term375518.getClass(), "componentType", term375638);
+        setField(term375398, term375398.getClass(), "componentType", term375518);
+        setField(term375278, term375278.getClass(), "componentType", term375398);
+        setField(term375158, term375158.getClass(), "componentType", term375278);
+        setField(term375038, term375038.getClass(), "componentType", term375158);
+        setField(term374918, term374918.getClass(), "componentType", term375038);
+        setField(term374798, term374798.getClass(), "componentType", term374918);
+        setField(term374678, term374678.getClass(), "componentType", term374798);
+        setField(term374558, term374558.getClass(), "componentType", term374678);
+        setField(term374438, term374438.getClass(), "componentType", term374558);
+        setField(term374318, term374318.getClass(), "componentType", term374438);
+        setField(term374198, term374198.getClass(), "componentType", term374318);
+        setField(term374078, term374078.getClass(), "componentType", term374198);
+        setField(term373958, term373958.getClass(), "componentType", term374078);
+        setField(term373838, term373838.getClass(), "componentType", term373958);
+        setField(term373718, term373718.getClass(), "componentType", term373838);
+        setField(term373598, term373598.getClass(), "componentType", term373718);
+        setField(term373478, term373478.getClass(), "componentType", term373598);
+        setField(term373358, term373358.getClass(), "componentType", term373478);
+        setField(term373238, term373238.getClass(), "componentType", term373358);
+        setField(term373118, term373118.getClass(), "componentType", term373238);
+        setField(term372998, term372998.getClass(), "componentType", term373118);
+        setField(term372878, term372878.getClass(), "componentType", term372998);
+        setField(term372758, term372758.getClass(), "componentType", term372878);
+        setField(term372638, term372638.getClass(), "componentType", term372758);
+        setField(term372518, term372518.getClass(), "componentType", term372638);
+        setField(term372398, term372398.getClass(), "componentType", term372518);
+        setField(term372278, term372278.getClass(), "componentType", term372398);
+        setField(term372158, term372158.getClass(), "componentType", term372278);
+        setField(term372038, term372038.getClass(), "componentType", term372158);
+        setField(term371918, term371918.getClass(), "componentType", term372038);
+        setField(term371798, term371798.getClass(), "componentType", term371918);
+        setField(term371678, term371678.getClass(), "componentType", term371798);
+        setField(term371558, term371558.getClass(), "componentType", term371678);
+        setField(term371438, term371438.getClass(), "componentType", term371558);
+        setField(term371318, term371318.getClass(), "componentType", term371438);
+        setField(term371198, term371198.getClass(), "componentType", term371318);
+        setField(term371078, term371078.getClass(), "componentType", term371198);
+        setField(term370958, term370958.getClass(), "componentType", term371078);
+        setField(term370838, term370838.getClass(), "componentType", term370958);
+        setField(term370718, term370718.getClass(), "componentType", term370838);
+        setField(term370598, term370598.getClass(), "componentType", term370718);
+        setField(term370478, term370478.getClass(), "componentType", term370598);
+        setField(term370358, term370358.getClass(), "componentType", term370478);
+        setField(term370238, term370238.getClass(), "componentType", term370358);
+        setField(term370118, term370118.getClass(), "componentType", term370238);
+        setField(term369998, term369998.getClass(), "componentType", term370118);
+        setField(term369878, term369878.getClass(), "componentType", term369998);
+        setField(term369758, term369758.getClass(), "componentType", term369878);
+        setField(term369638, term369638.getClass(), "componentType", term369758);
+        setField(term369518, term369518.getClass(), "componentType", term369638);
+        setField(term369398, term369398.getClass(), "componentType", term369518);
+        setField(term369278, term369278.getClass(), "componentType", term369398);
+        setField(term369158, term369158.getClass(), "componentType", term369278);
+        setField(term369038, term369038.getClass(), "componentType", term369158);
+        setField(term368918, term368918.getClass(), "componentType", term369038);
+        setField(term368798, term368798.getClass(), "componentType", term368918);
+        setField(term368678, term368678.getClass(), "componentType", term368798);
+        setField(term368558, term368558.getClass(), "componentType", term368678);
+        setField(term368438, term368438.getClass(), "componentType", term368558);
+        setField(term368318, term368318.getClass(), "componentType", term368438);
+        setField(term368198, term368198.getClass(), "componentType", term368318);
+        setField(term368078, term368078.getClass(), "componentType", term368198);
+        setField(term367958, term367958.getClass(), "componentType", term368078);
+        setField(term367838, term367838.getClass(), "componentType", term367958);
+        setField(term367718, term367718.getClass(), "componentType", term367838);
+        term407461 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term407462 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term407463 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term407464 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term407465 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        setField(term407465, term407465.getClass(), "componentType", null);
+        setField(term407464, term407464.getClass(), "componentType", term407465);
+        setField(term407463, term407463.getClass(), "componentType", term407464);
+        setField(term407462, term407462.getClass(), "componentType", term407463);
+        setField(term407461, term407461.getClass(), "componentType", term407462);
+        term407456 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term407457 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term407458 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term407459 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        Object term407460 = newInstance(Class.forName("com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl"));
+        setField(term407460, term407460.getClass(), "componentType", null);
+        setField(term407459, term407459.getClass(), "componentType", term407460);
+        setField(term407458, term407458.getClass(), "componentType", term407459);
+        setField(term407457, term407457.getClass(), "componentType", term407458);
+        setField(term407456, term407456.getClass(), "componentType", term407457);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.gson.internal.$Gson$Types");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Class.forName("java.lang.reflect.Type");
+        argTypes[1] = Class.forName("java.lang.Class");
+        argTypes[2] = Class.forName("java.lang.reflect.Type");
+        Object[] args = new Object[3];
+        args[0] = null;
+        args[1] = null;
+        args[2] = term367718;
+        Object retValue = callMethod(klass, "resolve", argTypes, null, args);
+        assertTrue(recursiveEquals(term367718, term407461));
+        assertTrue(recursiveEquals(retValue, term407456));
+    }
+
+};
+
+

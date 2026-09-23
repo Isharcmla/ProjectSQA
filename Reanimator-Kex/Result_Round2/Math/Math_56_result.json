@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "56",
+  "tool": "kex",
+  "elapsed_sec": 167.4,
+  "target_classes": [
+    "org.apache.commons.math.util.MultidimensionalCounter"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.util.MultidimensionalCounter": "success"
+  },
+  "num_test_files_generated": 40,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

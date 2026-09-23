@@ -1,0 +1,66 @@
+package com.google.javascript.rhino.jstype;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.rhino.jstype.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class JSType_getGreatestSubtype_1951394506489 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term130351;
+     Object term130541;
+
+    public JSType_getGreatestSubtype_1951394506489() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term130351 = newInstance(Class.forName("com.google.javascript.rhino.jstype.IndexedType"));
+        Object term130443 = newInstance(Class.forName("com.google.javascript.rhino.jstype.EnumType"));
+        setBooleanField(term130443, term130443.getClass(), "unknown", false);
+        setField(term130351, term130351.getClass(), "referencedType", term130443);
+        term130541 = newInstance(Class.forName("com.google.javascript.rhino.jstype.IndexedType"));
+        Object term130633 = newInstance(Class.forName("com.google.javascript.rhino.jstype.EnumType"));
+        setField(term130541, term130541.getClass(), "referencedType", term130633);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.rhino.jstype.JSType");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("com.google.javascript.rhino.jstype.JSType");
+        argTypes[1] = Class.forName("com.google.javascript.rhino.jstype.JSType");
+        Object[] args = new Object[2];
+        args[0] = term130351;
+        args[1] = term130541;
+        try {
+            callMethod(klass, "getGreatestSubtype", argTypes, null, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

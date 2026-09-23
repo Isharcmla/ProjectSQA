@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "24",
+  "tool": "kex",
+  "elapsed_sec": 29.72,
+  "target_classes": [
+    "org.jfree.chart.renderer.GrayPaintScale"
+  ],
+  "kex_results": {
+    "org.jfree.chart.renderer.GrayPaintScale": "success"
+  },
+  "num_test_files_generated": 14,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

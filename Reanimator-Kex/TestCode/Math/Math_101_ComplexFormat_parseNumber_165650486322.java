@@ -1,0 +1,216 @@
+package org.apache.commons.math.complex;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.math.complex.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.lang.String;
+import java.lang.Double;
+
+public class ComplexFormat_parseNumber_165650486322 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term4506;
+     Object term4719;
+     Object term4721;
+
+    public ComplexFormat_parseNumber_165650486322() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Class<? extends Object> term4745 = Class.forName((String) "java.math.RoundingMode");
+        Field term4744 = ((Class) term4745).getDeclaredField((String) "FLOOR");
+        ((Field) term4744).setAccessible(true);
+        Object enum10 = ((Field) term4744).get((Object) null);
+        term4506 = newInstance(Class.forName("org.apache.commons.math.complex.ComplexFormat"));
+        Object term4510 = newInstance(Class.forName("java.text.DecimalFormat"));
+        Object term4511 = newInstance(Class.forName("java.text.DigitList"));
+        char[] term4514 = (char[]) newCharArray(19);
+        Object term4563 = newInstance(Class.forName("java.text.DecimalFormatSymbols"));
+        Object term4586 = newInstance(Class.forName("java.util.Locale"));
+        Object term4587 = newInstance(Class.forName("sun.util.locale.BaseLocale"));
+        Object term4613 = newInstance(Class.forName("java.text.DecimalFormat"));
+        Object term4614 = newInstance(Class.forName("java.text.DigitList"));
+        char[] term4617 = (char[]) newCharArray(19);
+        Object term4662 = newInstance(Class.forName("java.text.DecimalFormatSymbols"));
+        setField(term4506, term4506.getClass(), "imaginaryCharacter", "i");
+        setField(term4510, term4510.getClass(), "bigIntegerMultiplier", null);
+        setField(term4510, term4510.getClass(), "bigDecimalMultiplier", null);
+        setIntField(term4511, term4511.getClass(), "decimalAt", 0);
+        setIntField(term4511, term4511.getClass(), "count", 0);
+        setField(term4511, term4511.getClass(), "digits", term4514);
+        setField(term4511, term4511.getClass(), "data", null);
+        setField(term4511, term4511.getClass(), "roundingMode", enum10);
+        setBooleanField(term4511, term4511.getClass(), "isNegative", false);
+        setField(term4511, term4511.getClass(), "tempBuffer", null);
+        setField(term4510, term4510.getClass(), "digitList", term4511);
+        setField(term4510, term4510.getClass(), "positivePrefix", "");
+        setField(term4510, term4510.getClass(), "positiveSuffix", "");
+        setField(term4510, term4510.getClass(), "negativePrefix", "-");
+        setField(term4510, term4510.getClass(), "negativeSuffix", "");
+        setField(term4510, term4510.getClass(), "posPrefixPattern", "");
+        setField(term4510, term4510.getClass(), "posSuffixPattern", "");
+        setField(term4510, term4510.getClass(), "negPrefixPattern", "\'-");
+        setField(term4510, term4510.getClass(), "negSuffixPattern", "");
+        setIntField(term4510, term4510.getClass(), "multiplier", 1);
+        setByteField(term4510, term4510.getClass(), "groupingSize", (byte) 3);
+        setBooleanField(term4510, term4510.getClass(), "decimalSeparatorAlwaysShown", false);
+        setBooleanField(term4510, term4510.getClass(), "parseBigDecimal", false);
+        setBooleanField(term4510, term4510.getClass(), "isCurrencyFormat", false);
+        setCharField(term4563, term4563.getClass(), "zeroDigit", (char) 48);
+        setCharField(term4563, term4563.getClass(), "groupingSeparator", (char) 44);
+        setCharField(term4563, term4563.getClass(), "decimalSeparator", (char) 46);
+        setCharField(term4563, term4563.getClass(), "perMill", (char) 8240);
+        setCharField(term4563, term4563.getClass(), "percent", (char) 37);
+        setCharField(term4563, term4563.getClass(), "digit", (char) 35);
+        setCharField(term4563, term4563.getClass(), "patternSeparator", (char) 59);
+        setField(term4563, term4563.getClass(), "infinity", "\u001E\"");
+        setField(term4563, term4563.getClass(), "NaN", "NaN");
+        setCharField(term4563, term4563.getClass(), "minusSign", (char) 45);
+        setField(term4563, term4563.getClass(), "currencySymbol", null);
+        setField(term4563, term4563.getClass(), "intlCurrencySymbol", null);
+        setCharField(term4563, term4563.getClass(), "monetarySeparator", (char) 46);
+        setCharField(term4563, term4563.getClass(), "exponential", 'E');
+        setField(term4563, term4563.getClass(), "exponentialSeparator", "E");
+        setField(term4587, term4587.getClass(), "language", null);
+        setField(term4587, term4587.getClass(), "script", null);
+        setField(term4587, term4587.getClass(), "region", null);
+        setField(term4587, term4587.getClass(), "variant", null);
+        setIntField(term4587, term4587.getClass(), "hash", 96636889);
+        setField(term4586, term4586.getClass(), "baseLocale", term4587);
+        setField(term4586, term4586.getClass(), "localeExtensions", null);
+        setIntField(term4586, term4586.getClass(), "hashCodeValue", 96636889);
+        setField(term4586, term4586.getClass(), "languageTag", "");
+        setField(term4563, term4563.getClass(), "locale", term4586);
+        setField(term4563, term4563.getClass(), "currency", null);
+        setBooleanField(term4563, term4563.getClass(), "currencyInitialized", false);
+        setIntField(term4563, term4563.getClass(), "serialVersionOnStream", 3);
+        setField(term4510, term4510.getClass(), "symbols", term4563);
+        setBooleanField(term4510, term4510.getClass(), "useExponentialNotation", false);
+        setField(term4510, term4510.getClass(), "positivePrefixFieldPositions", null);
+        setField(term4510, term4510.getClass(), "positiveSuffixFieldPositions", null);
+        setField(term4510, term4510.getClass(), "negativePrefixFieldPositions", null);
+        setField(term4510, term4510.getClass(), "negativeSuffixFieldPositions", null);
+        setByteField(term4510, term4510.getClass(), "minExponentDigits", (byte) 0);
+        setIntField(term4510, term4510.getClass(), "maximumIntegerDigits", 309);
+        setIntField(term4510, term4510.getClass(), "minimumIntegerDigits", 1);
+        setIntField(term4510, term4510.getClass(), "maximumFractionDigits", 2);
+        setIntField(term4510, term4510.getClass(), "minimumFractionDigits", 0);
+        setField(term4510, term4510.getClass(), "roundingMode", enum10);
+        setBooleanField(term4510, term4510.getClass(), "isFastPath", false);
+        setBooleanField(term4510, term4510.getClass(), "fastPathCheckNeeded", true);
+        setField(term4510, term4510.getClass(), "fastPathData", null);
+        setIntField(term4510, term4510.getClass(), "serialVersionOnStream", 1);
+        setBooleanField(term4510, term4510.getClass(), "groupingUsed", true);
+        setByteField(term4510, term4510.getClass(), "maxIntegerDigits", (byte) 40);
+        setByteField(term4510, term4510.getClass(), "minIntegerDigits", (byte) 1);
+        setByteField(term4510, term4510.getClass(), "maxFractionDigits", (byte) 3);
+        setByteField(term4510, term4510.getClass(), "minFractionDigits", (byte) 0);
+        setBooleanField(term4510, term4510.getClass(), "parseIntegerOnly", false);
+        setField(term4506, term4506.getClass(), "imaginaryFormat", term4510);
+        setField(term4613, term4613.getClass(), "bigIntegerMultiplier", null);
+        setField(term4613, term4613.getClass(), "bigDecimalMultiplier", null);
+        setIntField(term4614, term4614.getClass(), "decimalAt", 0);
+        setIntField(term4614, term4614.getClass(), "count", 0);
+        setField(term4614, term4614.getClass(), "digits", term4617);
+        setField(term4614, term4614.getClass(), "data", null);
+        setField(term4614, term4614.getClass(), "roundingMode", enum10);
+        setBooleanField(term4614, term4614.getClass(), "isNegative", false);
+        setField(term4614, term4614.getClass(), "tempBuffer", null);
+        setField(term4613, term4613.getClass(), "digitList", term4614);
+        setField(term4613, term4613.getClass(), "positivePrefix", "");
+        setField(term4613, term4613.getClass(), "positiveSuffix", "");
+        setField(term4613, term4613.getClass(), "negativePrefix", "-");
+        setField(term4613, term4613.getClass(), "negativeSuffix", "");
+        setField(term4613, term4613.getClass(), "posPrefixPattern", "");
+        setField(term4613, term4613.getClass(), "posSuffixPattern", "");
+        setField(term4613, term4613.getClass(), "negPrefixPattern", "\'-");
+        setField(term4613, term4613.getClass(), "negSuffixPattern", "");
+        setIntField(term4613, term4613.getClass(), "multiplier", 1);
+        setByteField(term4613, term4613.getClass(), "groupingSize", (byte) 3);
+        setBooleanField(term4613, term4613.getClass(), "decimalSeparatorAlwaysShown", false);
+        setBooleanField(term4613, term4613.getClass(), "parseBigDecimal", false);
+        setBooleanField(term4613, term4613.getClass(), "isCurrencyFormat", false);
+        setCharField(term4662, term4662.getClass(), "zeroDigit", (char) 48);
+        setCharField(term4662, term4662.getClass(), "groupingSeparator", (char) 44);
+        setCharField(term4662, term4662.getClass(), "decimalSeparator", (char) 46);
+        setCharField(term4662, term4662.getClass(), "perMill", (char) 8240);
+        setCharField(term4662, term4662.getClass(), "percent", (char) 37);
+        setCharField(term4662, term4662.getClass(), "digit", (char) 35);
+        setCharField(term4662, term4662.getClass(), "patternSeparator", (char) 59);
+        setField(term4662, term4662.getClass(), "infinity", "\u001E\"");
+        setField(term4662, term4662.getClass(), "NaN", "NaN");
+        setCharField(term4662, term4662.getClass(), "minusSign", (char) 45);
+        setField(term4662, term4662.getClass(), "currencySymbol", null);
+        setField(term4662, term4662.getClass(), "intlCurrencySymbol", null);
+        setCharField(term4662, term4662.getClass(), "monetarySeparator", (char) 46);
+        setCharField(term4662, term4662.getClass(), "exponential", 'E');
+        setField(term4662, term4662.getClass(), "exponentialSeparator", "E");
+        setField(term4662, term4662.getClass(), "locale", term4586);
+        setField(term4662, term4662.getClass(), "currency", null);
+        setBooleanField(term4662, term4662.getClass(), "currencyInitialized", false);
+        setIntField(term4662, term4662.getClass(), "serialVersionOnStream", 3);
+        setField(term4613, term4613.getClass(), "symbols", term4662);
+        setBooleanField(term4613, term4613.getClass(), "useExponentialNotation", false);
+        setField(term4613, term4613.getClass(), "positivePrefixFieldPositions", null);
+        setField(term4613, term4613.getClass(), "positiveSuffixFieldPositions", null);
+        setField(term4613, term4613.getClass(), "negativePrefixFieldPositions", null);
+        setField(term4613, term4613.getClass(), "negativeSuffixFieldPositions", null);
+        setByteField(term4613, term4613.getClass(), "minExponentDigits", (byte) 0);
+        setIntField(term4613, term4613.getClass(), "maximumIntegerDigits", 309);
+        setIntField(term4613, term4613.getClass(), "minimumIntegerDigits", 1);
+        setIntField(term4613, term4613.getClass(), "maximumFractionDigits", 2);
+        setIntField(term4613, term4613.getClass(), "minimumFractionDigits", 0);
+        setField(term4613, term4613.getClass(), "roundingMode", enum10);
+        setBooleanField(term4613, term4613.getClass(), "isFastPath", false);
+        setBooleanField(term4613, term4613.getClass(), "fastPathCheckNeeded", true);
+        setField(term4613, term4613.getClass(), "fastPathData", null);
+        setIntField(term4613, term4613.getClass(), "serialVersionOnStream", 1);
+        setBooleanField(term4613, term4613.getClass(), "groupingUsed", true);
+        setByteField(term4613, term4613.getClass(), "maxIntegerDigits", (byte) 40);
+        setByteField(term4613, term4613.getClass(), "minIntegerDigits", (byte) 1);
+        setByteField(term4613, term4613.getClass(), "maxFractionDigits", (byte) 3);
+        setByteField(term4613, term4613.getClass(), "minFractionDigits", (byte) 0);
+        setBooleanField(term4613, term4613.getClass(), "parseIntegerOnly", false);
+        setField(term4506, term4506.getClass(), "realFormat", term4613);
+        term4719 = new Double(0.40176586625454525);
+        term4721 = newInstance(Class.forName("java.text.ParsePosition"));
+        setIntField(term4721, term4721.getClass(), "index", 1622346318);
+        setIntField(term4721, term4721.getClass(), "errorIndex", 1048535127);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math.complex.ComplexFormat");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Class.forName("java.lang.String");
+        argTypes[1] = double.class;
+        argTypes[2] = Class.forName("java.text.ParsePosition");
+        Object[] args = new Object[3];
+        args[0] = "LQFpaHEwXR";
+        args[1] = term4719;
+        args[2] = term4721;
+        callMethod(klass, "parseNumber", argTypes, term4506, args);
+    }
+
+};
+
+

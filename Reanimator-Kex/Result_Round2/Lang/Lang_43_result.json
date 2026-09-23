@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "43",
+  "tool": "kex",
+  "elapsed_sec": 217.33,
+  "target_classes": [
+    "org.apache.commons.lang.text.ExtendedMessageFormat"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang.text.ExtendedMessageFormat": "success"
+  },
+  "num_test_files_generated": 28,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

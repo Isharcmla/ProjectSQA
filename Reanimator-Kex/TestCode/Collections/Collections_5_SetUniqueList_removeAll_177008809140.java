@@ -1,0 +1,262 @@
+package org.apache.commons.collections.list;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.apache.commons.collections.list.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class SetUniqueList_removeAll_177008809140 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term36393;
+
+    public SetUniqueList_removeAll_177008809140() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term36393 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term36497 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term36601 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term36705 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term36809 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term36913 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term37017 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term37121 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term37225 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term37329 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term37433 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term37537 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term37641 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term37745 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term37849 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term37953 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term38057 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term38161 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term38265 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term38369 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term38473 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term38577 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term38681 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term38785 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term38889 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term38993 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term39097 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term39201 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term39305 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term39409 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term39513 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term39617 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term39721 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term39825 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term39929 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term40033 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term40137 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term40241 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term40345 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term40449 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term40553 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term40657 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term40761 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term40865 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term40969 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term41073 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term41177 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term41281 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term41385 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term41489 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term41593 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term41697 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term41801 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term41905 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term42009 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term42113 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term42217 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term42321 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term42425 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term42529 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term42633 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term42737 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term42841 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term42945 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term43049 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term43153 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term43257 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term43361 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term43465 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term43569 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term43673 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term43777 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term43881 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term43985 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term44089 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term44193 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term44297 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term44401 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term44505 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term44609 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term44713 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term44817 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term44921 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term45025 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term45129 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term45233 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term45337 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term45441 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term45545 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term45649 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term45753 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term45857 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term45961 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term46065 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term46169 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term46273 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term46377 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term46481 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term46585 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term46689 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term46793 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term46897 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        Object term47001 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        setField(term47001, term47001.getClass(), "collection", null);
+        setField(term46897, term46897.getClass(), "collection", term47001);
+        setField(term46793, term46793.getClass(), "collection", term46897);
+        setField(term46689, term46689.getClass(), "collection", term46793);
+        setField(term46585, term46585.getClass(), "collection", term46689);
+        setField(term46481, term46481.getClass(), "collection", term46585);
+        setField(term46377, term46377.getClass(), "collection", term46481);
+        setField(term46273, term46273.getClass(), "collection", term46377);
+        setField(term46169, term46169.getClass(), "collection", term46273);
+        setField(term46065, term46065.getClass(), "collection", term46169);
+        setField(term45961, term45961.getClass(), "collection", term46065);
+        setField(term45857, term45857.getClass(), "collection", term45961);
+        setField(term45753, term45753.getClass(), "collection", term45857);
+        setField(term45649, term45649.getClass(), "collection", term45753);
+        setField(term45545, term45545.getClass(), "collection", term45649);
+        setField(term45441, term45441.getClass(), "collection", term45545);
+        setField(term45337, term45337.getClass(), "collection", term45441);
+        setField(term45233, term45233.getClass(), "collection", term45337);
+        setField(term45129, term45129.getClass(), "collection", term45233);
+        setField(term45025, term45025.getClass(), "collection", term45129);
+        setField(term44921, term44921.getClass(), "collection", term45025);
+        setField(term44817, term44817.getClass(), "collection", term44921);
+        setField(term44713, term44713.getClass(), "collection", term44817);
+        setField(term44609, term44609.getClass(), "collection", term44713);
+        setField(term44505, term44505.getClass(), "collection", term44609);
+        setField(term44401, term44401.getClass(), "collection", term44505);
+        setField(term44297, term44297.getClass(), "collection", term44401);
+        setField(term44193, term44193.getClass(), "collection", term44297);
+        setField(term44089, term44089.getClass(), "collection", term44193);
+        setField(term43985, term43985.getClass(), "collection", term44089);
+        setField(term43881, term43881.getClass(), "collection", term43985);
+        setField(term43777, term43777.getClass(), "collection", term43881);
+        setField(term43673, term43673.getClass(), "collection", term43777);
+        setField(term43569, term43569.getClass(), "collection", term43673);
+        setField(term43465, term43465.getClass(), "collection", term43569);
+        setField(term43361, term43361.getClass(), "collection", term43465);
+        setField(term43257, term43257.getClass(), "collection", term43361);
+        setField(term43153, term43153.getClass(), "collection", term43257);
+        setField(term43049, term43049.getClass(), "collection", term43153);
+        setField(term42945, term42945.getClass(), "collection", term43049);
+        setField(term42841, term42841.getClass(), "collection", term42945);
+        setField(term42737, term42737.getClass(), "collection", term42841);
+        setField(term42633, term42633.getClass(), "collection", term42737);
+        setField(term42529, term42529.getClass(), "collection", term42633);
+        setField(term42425, term42425.getClass(), "collection", term42529);
+        setField(term42321, term42321.getClass(), "collection", term42425);
+        setField(term42217, term42217.getClass(), "collection", term42321);
+        setField(term42113, term42113.getClass(), "collection", term42217);
+        setField(term42009, term42009.getClass(), "collection", term42113);
+        setField(term41905, term41905.getClass(), "collection", term42009);
+        setField(term41801, term41801.getClass(), "collection", term41905);
+        setField(term41697, term41697.getClass(), "collection", term41801);
+        setField(term41593, term41593.getClass(), "collection", term41697);
+        setField(term41489, term41489.getClass(), "collection", term41593);
+        setField(term41385, term41385.getClass(), "collection", term41489);
+        setField(term41281, term41281.getClass(), "collection", term41385);
+        setField(term41177, term41177.getClass(), "collection", term41281);
+        setField(term41073, term41073.getClass(), "collection", term41177);
+        setField(term40969, term40969.getClass(), "collection", term41073);
+        setField(term40865, term40865.getClass(), "collection", term40969);
+        setField(term40761, term40761.getClass(), "collection", term40865);
+        setField(term40657, term40657.getClass(), "collection", term40761);
+        setField(term40553, term40553.getClass(), "collection", term40657);
+        setField(term40449, term40449.getClass(), "collection", term40553);
+        setField(term40345, term40345.getClass(), "collection", term40449);
+        setField(term40241, term40241.getClass(), "collection", term40345);
+        setField(term40137, term40137.getClass(), "collection", term40241);
+        setField(term40033, term40033.getClass(), "collection", term40137);
+        setField(term39929, term39929.getClass(), "collection", term40033);
+        setField(term39825, term39825.getClass(), "collection", term39929);
+        setField(term39721, term39721.getClass(), "collection", term39825);
+        setField(term39617, term39617.getClass(), "collection", term39721);
+        setField(term39513, term39513.getClass(), "collection", term39617);
+        setField(term39409, term39409.getClass(), "collection", term39513);
+        setField(term39305, term39305.getClass(), "collection", term39409);
+        setField(term39201, term39201.getClass(), "collection", term39305);
+        setField(term39097, term39097.getClass(), "collection", term39201);
+        setField(term38993, term38993.getClass(), "collection", term39097);
+        setField(term38889, term38889.getClass(), "collection", term38993);
+        setField(term38785, term38785.getClass(), "collection", term38889);
+        setField(term38681, term38681.getClass(), "collection", term38785);
+        setField(term38577, term38577.getClass(), "collection", term38681);
+        setField(term38473, term38473.getClass(), "collection", term38577);
+        setField(term38369, term38369.getClass(), "collection", term38473);
+        setField(term38265, term38265.getClass(), "collection", term38369);
+        setField(term38161, term38161.getClass(), "collection", term38265);
+        setField(term38057, term38057.getClass(), "collection", term38161);
+        setField(term37953, term37953.getClass(), "collection", term38057);
+        setField(term37849, term37849.getClass(), "collection", term37953);
+        setField(term37745, term37745.getClass(), "collection", term37849);
+        setField(term37641, term37641.getClass(), "collection", term37745);
+        setField(term37537, term37537.getClass(), "collection", term37641);
+        setField(term37433, term37433.getClass(), "collection", term37537);
+        setField(term37329, term37329.getClass(), "collection", term37433);
+        setField(term37225, term37225.getClass(), "collection", term37329);
+        setField(term37121, term37121.getClass(), "collection", term37225);
+        setField(term37017, term37017.getClass(), "collection", term37121);
+        setField(term36913, term36913.getClass(), "collection", term37017);
+        setField(term36809, term36809.getClass(), "collection", term36913);
+        setField(term36705, term36705.getClass(), "collection", term36809);
+        setField(term36601, term36601.getClass(), "collection", term36705);
+        setField(term36497, term36497.getClass(), "collection", term36601);
+        setField(term36393, term36393.getClass(), "collection", term36497);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.collections.list.SetUniqueList");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("java.util.Collection");
+        Object[] args = new Object[1];
+        args[0] = null;
+        try {
+            callMethod(klass, "removeAll", argTypes, term36393, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

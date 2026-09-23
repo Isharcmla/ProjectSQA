@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "17",
+  "tool": "kex",
+  "elapsed_sec": 265.21,
+  "target_classes": [
+    "org.apache.commons.math3.dfp.Dfp"
+  ],
+  "kex_results": {
+    "org.apache.commons.math3.dfp.Dfp": "success"
+  },
+  "num_test_files_generated": 116,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

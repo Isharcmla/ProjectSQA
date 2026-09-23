@@ -1,0 +1,218 @@
+package org.apache.commons.csv;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.csv.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.csv.EqualityUtils.*;
+import java.lang.Object;
+import java.lang.Character;
+import java.lang.String;
+import java.util.HashMap;
+import java.util.ArrayList;
+
+public class CSVParser_isClosed_50131111427 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term7008;
+     Object term22875;
+
+    public CSVParser_isClosed_50131111427() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Character term7011 = new Character('W');
+        Class<? extends Object> term22931 = Class.forName((String) "org.apache.commons.csv.Quote");
+        Field term22930 = ((Class) term22931).getDeclaredField((String) "MINIMAL");
+        ((Field) term22930).setAccessible(true);
+        Object enum59 = ((Field) term22930).get((Object) null);
+        Character term7024 = new Character('B');
+        Character term7026 = new Character('a');
+        HashMap term7116 = new HashMap();
+        ArrayList term7148 = new ArrayList();
+        ((ArrayList) term7148).add("WzMEhMXkKx");
+        ((ArrayList) term7148).add("XOiDvlDhdc");
+        ((ArrayList) term7148).add("AdxvLJhNLe");
+        ((ArrayList) term7148).add("lHfTrWKMPk");
+        ((ArrayList) term7148).add("JDaAnsVTGV");
+        ((ArrayList) term7148).add("mLUZFTfjle");
+        ((ArrayList) term7148).add("xIeFjkHkOe");
+        ((ArrayList) term7148).add("SdCKLMIYnX");
+        ((ArrayList) term7148).add("OJJtVNPyKZ");
+        Class<? extends Object> term23260 = Class.forName((String) "org.apache.commons.csv.Token$Type");
+        Field term23259 = ((Class) term23260).getDeclaredField((String) "INVALID");
+        ((Field) term23259).setAccessible(true);
+        Object enum60 = ((Field) term23259).get((Object) null);
+        term7008 = newInstance(Class.forName("org.apache.commons.csv.CSVParser"));
+        Object term7009 = newInstance(Class.forName("org.apache.commons.csv.CSVFormat"));
+        Object[] term7054 = (Object[]) newArray("java.lang.String", 5);
+        Object term7127 = newInstance(Class.forName("org.apache.commons.csv.Lexer"));
+        Object term7134 = newInstance(Class.forName("org.apache.commons.csv.ExtendedBufferedReader"));
+        char[] term7138 = (char[]) newCharArray(1);
+        Object term7146 = newInstance(Class.forName("java.lang.Object"));
+        char[] term7147 = (char[]) newCharArray(0);
+        Object term7261 = newInstance(Class.forName("org.apache.commons.csv.Token"));
+        Object term7273 = newInstance(Class.forName("java.lang.StringBuilder"));
+        byte[] term7274 = (byte[]) newByteArray(50);
+        setCharField(term7009, term7009.getClass(), "delimiter", 'L');
+        setField(term7009, term7009.getClass(), "quoteChar", term7011);
+        setField(term7009, term7009.getClass(), "quotePolicy", enum59);
+        setField(term7009, term7009.getClass(), "commentStart", term7024);
+        setField(term7009, term7009.getClass(), "escape", term7026);
+        setBooleanField(term7009, term7009.getClass(), "ignoreSurroundingSpaces", true);
+        setBooleanField(term7009, term7009.getClass(), "ignoreEmptyLines", false);
+        setField(term7009, term7009.getClass(), "recordSeparator", "yGtHPyvYiQ");
+        setField(term7009, term7009.getClass(), "nullString", "MvRIxilFMJ");
+        setElement(term7054, 0, "iNwOJRBEjp");
+        setElement(term7054, 1, "XylxrMBraH");
+        setElement(term7054, 2, "pORebkoRdD");
+        setElement(term7054, 3, "mXGCWJDOqA");
+        setElement(term7054, 4, "dpNsDgfPso");
+        setField(term7009, term7009.getClass(), "header", term7054);
+        setBooleanField(term7009, term7009.getClass(), "skipHeaderRecord", true);
+        setField(term7008, term7008.getClass(), "format", term7009);
+        setField(term7008, term7008.getClass(), "headerMap", term7116);
+        setCharField(term7127, term7127.getClass(), "delimiter", 'J');
+        setCharField(term7127, term7127.getClass(), "escape", 'l');
+        setCharField(term7127, term7127.getClass(), "quoteChar", 'i');
+        setCharField(term7127, term7127.getClass(), "commentStart", 'e');
+        setBooleanField(term7127, term7127.getClass(), "ignoreSurroundingSpaces", false);
+        setBooleanField(term7127, term7127.getClass(), "ignoreEmptyLines", false);
+        setIntField(term7134, term7134.getClass(), "lastChar", 767834723);
+        setLongField(term7134, term7134.getClass(), "eolCounter", -316468845751588286L);
+        setBooleanField(term7134, term7134.getClass(), "closed", true);
+        setField(term7134, term7134.getClass(), "in", null);
+        setCharElement(term7138, 0, 'C');
+        setField(term7134, term7134.getClass(), "cb", term7138);
+        setIntField(term7134, term7134.getClass(), "nChars", -602026508);
+        setIntField(term7134, term7134.getClass(), "nextChar", -157887805);
+        setIntField(term7134, term7134.getClass(), "markedChar", 1876565163);
+        setIntField(term7134, term7134.getClass(), "readAheadLimit", -817164822);
+        setBooleanField(term7134, term7134.getClass(), "skipLF", true);
+        setBooleanField(term7134, term7134.getClass(), "markedSkipLF", true);
+        setField(term7134, term7134.getClass(), "lock", term7146);
+        setField(term7134, term7134.getClass(), "skipBuffer", term7147);
+        setField(term7127, term7127.getClass(), "reader", term7134);
+        setField(term7008, term7008.getClass(), "lexer", term7127);
+        setField(term7008, term7008.getClass(), "record", term7148);
+        setLongField(term7008, term7008.getClass(), "recordNumber", 5127676408959197577L);
+        setField(term7261, term7261.getClass(), "type", enum60);
+        setField(term7273, term7273.getClass(), "value", term7274);
+        setByteField(term7273, term7273.getClass(), "coder", (byte) 0);
+        setIntField(term7273, term7273.getClass(), "count", 0);
+        setField(term7261, term7261.getClass(), "content", term7273);
+        setBooleanField(term7261, term7261.getClass(), "isReady", true);
+        setField(term7008, term7008.getClass(), "reusableToken", term7261);
+        Character term22877 = new Character('W');
+        Class<? extends Object> term23653 = Class.forName((String) "org.apache.commons.csv.Quote");
+        Field term23652 = ((Class) term23653).getDeclaredField((String) "MINIMAL");
+        ((Field) term23652).setAccessible(true);
+        Object enum61 = ((Field) term23652).get((Object) null);
+        Character term22881 = new Character('B');
+        Character term22882 = new Character('a');
+        HashMap term22898 = new HashMap();
+        ArrayList term22904 = new ArrayList();
+        ((ArrayList) term22904).add("WzMEhMXkKx");
+        ((ArrayList) term22904).add("XOiDvlDhdc");
+        ((ArrayList) term22904).add("AdxvLJhNLe");
+        ((ArrayList) term22904).add("lHfTrWKMPk");
+        ((ArrayList) term22904).add("JDaAnsVTGV");
+        ((ArrayList) term22904).add("mLUZFTfjle");
+        ((ArrayList) term22904).add("xIeFjkHkOe");
+        ((ArrayList) term22904).add("SdCKLMIYnX");
+        ((ArrayList) term22904).add("OJJtVNPyKZ");
+        Class<? extends Object> term24012 = Class.forName((String) "org.apache.commons.csv.Token$Type");
+        Field term24011 = ((Class) term24012).getDeclaredField((String) "INVALID");
+        ((Field) term24011).setAccessible(true);
+        Object enum62 = ((Field) term24011).get((Object) null);
+        term22875 = newInstance(Class.forName("org.apache.commons.csv.CSVParser"));
+        Object term22876 = newInstance(Class.forName("org.apache.commons.csv.CSVFormat"));
+        Object[] term22887 = (Object[]) newArray("java.lang.String", 5);
+        Object term22899 = newInstance(Class.forName("org.apache.commons.csv.Lexer"));
+        Object term22900 = newInstance(Class.forName("org.apache.commons.csv.ExtendedBufferedReader"));
+        char[] term22901 = (char[]) newCharArray(1);
+        Object term22902 = newInstance(Class.forName("java.lang.Object"));
+        char[] term22903 = (char[]) newCharArray(0);
+        Object term22924 = newInstance(Class.forName("org.apache.commons.csv.Token"));
+        Object term22928 = newInstance(Class.forName("java.lang.StringBuilder"));
+        byte[] term22929 = (byte[]) newByteArray(50);
+        setCharField(term22876, term22876.getClass(), "delimiter", 'L');
+        setField(term22876, term22876.getClass(), "quoteChar", term22877);
+        setField(term22876, term22876.getClass(), "quotePolicy", enum61);
+        setField(term22876, term22876.getClass(), "commentStart", term22881);
+        setField(term22876, term22876.getClass(), "escape", term22882);
+        setBooleanField(term22876, term22876.getClass(), "ignoreSurroundingSpaces", true);
+        setBooleanField(term22876, term22876.getClass(), "ignoreEmptyLines", false);
+        setField(term22876, term22876.getClass(), "recordSeparator", "yGtHPyvYiQ");
+        setField(term22876, term22876.getClass(), "nullString", "MvRIxilFMJ");
+        setElement(term22887, 0, "iNwOJRBEjp");
+        setElement(term22887, 1, "XylxrMBraH");
+        setElement(term22887, 2, "pORebkoRdD");
+        setElement(term22887, 3, "mXGCWJDOqA");
+        setElement(term22887, 4, "dpNsDgfPso");
+        setField(term22876, term22876.getClass(), "header", term22887);
+        setBooleanField(term22876, term22876.getClass(), "skipHeaderRecord", true);
+        setField(term22875, term22875.getClass(), "format", term22876);
+        setField(term22875, term22875.getClass(), "headerMap", term22898);
+        setCharField(term22899, term22899.getClass(), "delimiter", 'J');
+        setCharField(term22899, term22899.getClass(), "escape", 'l');
+        setCharField(term22899, term22899.getClass(), "quoteChar", 'i');
+        setCharField(term22899, term22899.getClass(), "commentStart", 'e');
+        setBooleanField(term22899, term22899.getClass(), "ignoreSurroundingSpaces", false);
+        setBooleanField(term22899, term22899.getClass(), "ignoreEmptyLines", false);
+        setIntField(term22900, term22900.getClass(), "lastChar", 767834723);
+        setLongField(term22900, term22900.getClass(), "eolCounter", -316468845751588286L);
+        setBooleanField(term22900, term22900.getClass(), "closed", true);
+        setField(term22900, term22900.getClass(), "in", null);
+        setCharElement(term22901, 0, 'C');
+        setField(term22900, term22900.getClass(), "cb", term22901);
+        setIntField(term22900, term22900.getClass(), "nChars", -602026508);
+        setIntField(term22900, term22900.getClass(), "nextChar", -157887805);
+        setIntField(term22900, term22900.getClass(), "markedChar", 1876565163);
+        setIntField(term22900, term22900.getClass(), "readAheadLimit", -817164822);
+        setBooleanField(term22900, term22900.getClass(), "skipLF", true);
+        setBooleanField(term22900, term22900.getClass(), "markedSkipLF", true);
+        setField(term22900, term22900.getClass(), "lock", term22902);
+        setField(term22900, term22900.getClass(), "skipBuffer", term22903);
+        setField(term22899, term22899.getClass(), "reader", term22900);
+        setField(term22875, term22875.getClass(), "lexer", term22899);
+        setField(term22875, term22875.getClass(), "record", term22904);
+        setLongField(term22875, term22875.getClass(), "recordNumber", 5127676408959197577L);
+        setField(term22924, term22924.getClass(), "type", enum62);
+        setField(term22928, term22928.getClass(), "value", term22929);
+        setByteField(term22928, term22928.getClass(), "coder", (byte) 0);
+        setIntField(term22928, term22928.getClass(), "count", 0);
+        setField(term22924, term22924.getClass(), "content", term22928);
+        setBooleanField(term22924, term22924.getClass(), "isReady", true);
+        setField(term22875, term22875.getClass(), "reusableToken", term22924);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.csv.CSVParser");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        callMethod(klass, "isClosed", argTypes, term7008, args);
+        assertTrue(recursiveEquals(term7008, term22875));
+    }
+
+};
+
+

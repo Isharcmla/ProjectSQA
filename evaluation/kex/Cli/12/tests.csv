@@ -1,0 +1,9 @@
+test,fqcn,method,buggy,fixed,classification
+GnuParser_flatten_140485421211,org.apache.commons.cli.GnuParser_flatten_140485421211,,PASS,PASS,valid_non_revealing
+GnuParser_flatten_140485421213,org.apache.commons.cli.GnuParser_flatten_140485421213,,PASS,PASS,valid_non_revealing
+GnuParser_flatten_140485421215,org.apache.commons.cli.GnuParser_flatten_140485421215,,PASS,PASS,valid_non_revealing
+GnuParser_flatten_14048542123,org.apache.commons.cli.GnuParser_flatten_14048542123,,PASS,PASS,valid_non_revealing
+GnuParser_flatten_14048542125,org.apache.commons.cli.GnuParser_flatten_14048542125,,PASS,PASS,valid_non_revealing
+GnuParser_flatten_14048542127,org.apache.commons.cli.GnuParser_flatten_14048542127,,PASS,PASS,valid_non_revealing
+GnuParser_flatten_14048542129,org.apache.commons.cli.GnuParser_flatten_14048542129,,PASS,PASS,valid_non_revealing
+GnuParser_init_11339324122,org.apache.commons.cli.GnuParser_init_11339324122,,PASS,PASS,valid_non_revealing

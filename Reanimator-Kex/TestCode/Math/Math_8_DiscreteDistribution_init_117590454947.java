@@ -1,0 +1,264 @@
+package org.apache.commons.math3.distribution;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.apache.commons.math3.distribution.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+public class DiscreteDistribution_init_117590454947 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term27538;
+     Object term27592;
+
+    public DiscreteDistribution_init_117590454947() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        ArrayList term27448 = new ArrayList();
+        Object term27396 = newInstance(Class.forName("org.apache.commons.math3.distribution.DiscreteDistribution"));
+        setField(term27396, term27396.getClass(), "random", null);
+        setField(term27396, term27396.getClass(), "singletons", term27448);
+        term27538 = newInstance(Class.forName("org.apache.commons.math3.random.Well19937c"));
+        Object term27752 = newInstance(Class.forName("org.apache.commons.math3.optim.PointVectorValuePair"));
+        term27592 = new LinkedList();
+        ((LinkedList) term27592).add(term27752);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+        ((LinkedList) term27592).add((Object)null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math3.distribution.DiscreteDistribution");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("org.apache.commons.math3.random.RandomGenerator");
+        argTypes[1] = Class.forName("java.util.List");
+        Object[] args = new Object[2];
+        args[0] = term27538;
+        args[1] = term27592;
+        try {
+            Object instance = callConstructor(klass, argTypes, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

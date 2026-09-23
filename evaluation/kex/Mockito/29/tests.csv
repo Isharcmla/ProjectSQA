@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+Same_appendQuoting_6809030817,org.mockito.internal.matchers.Same_appendQuoting_6809030817,,FAIL,FAIL,invalid_or_unstable
+Same_describeTo_20420220186,org.mockito.internal.matchers.Same_describeTo_20420220186,,FAIL,FAIL,invalid_or_unstable
+Same_init_13836748340,org.mockito.internal.matchers.Same_init_13836748340,,PASS,PASS,valid_non_revealing
+Same_matches_14431199371,org.mockito.internal.matchers.Same_matches_14431199371,,PASS,PASS,valid_non_revealing

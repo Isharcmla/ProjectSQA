@@ -1,0 +1,210 @@
+package org.apache.commons.compress.compressors.bzip2;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.compress.compressors.bzip2.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class BZip2CompressorInputStream_setupRandPartB_189075015723 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term7083;
+
+    public BZip2CompressorInputStream_setupRandPartB_189075015723() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term7083 = newInstance(Class.forName("org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream"));
+        Object term7090 = newInstance(Class.forName("org.apache.commons.compress.compressors.bzip2.CRC"));
+        Object term7108 = newInstance(Class.forName("org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream$Data"));
+        boolean[] term7109 = (boolean[]) newBooleanArray(6);
+        byte[] term7116 = (byte[]) newByteArray(0);
+        byte[] term7117 = (byte[]) newByteArray(6);
+        byte[] term7124 = (byte[]) newByteArray(6);
+        int[] term7131 = (int[]) newIntArray(0);
+        Object[] term7132 = (Object[]) newArray("[I", 4);
+        int[] term7133 = (int[]) newIntArray(9);
+        int[] term7143 = (int[]) newIntArray(3);
+        int[] term7147 = (int[]) newIntArray(2);
+        int[] term7150 = (int[]) newIntArray(0);
+        Object[] term7151 = (Object[]) newArray("[I", 2);
+        int[] term7152 = (int[]) newIntArray(3);
+        int[] term7156 = (int[]) newIntArray(3);
+        Object[] term7160 = (Object[]) newArray("[I", 8);
+        int[] term7161 = (int[]) newIntArray(2);
+        int[] term7164 = (int[]) newIntArray(0);
+        int[] term7165 = (int[]) newIntArray(0);
+        int[] term7166 = (int[]) newIntArray(0);
+        int[] term7167 = (int[]) newIntArray(9);
+        int[] term7177 = (int[]) newIntArray(6);
+        int[] term7184 = (int[]) newIntArray(0);
+        int[] term7185 = (int[]) newIntArray(7);
+        int[] term7193 = (int[]) newIntArray(7);
+        int[] term7201 = (int[]) newIntArray(1);
+        char[] term7203 = (char[]) newCharArray(0);
+        Object[] term7204 = (Object[]) newArray("[C", 0);
+        byte[] term7205 = (byte[]) newByteArray(1);
+        int[] term7207 = (int[]) newIntArray(7);
+        byte[] term7215 = (byte[]) newByteArray(0);
+        setIntField(term7083, term7083.getClass(), "last", 280202002);
+        setIntField(term7083, term7083.getClass(), "origPtr", -1074402599);
+        setIntField(term7083, term7083.getClass(), "blockSize100k", -1867539151);
+        setBooleanField(term7083, term7083.getClass(), "blockRandomised", true);
+        setIntField(term7083, term7083.getClass(), "bsBuff", -816430246);
+        setIntField(term7083, term7083.getClass(), "bsLive", 1754193865);
+        setIntField(term7090, term7090.getClass(), "globalCrc", -1);
+        setField(term7083, term7083.getClass(), "crc", term7090);
+        setIntField(term7083, term7083.getClass(), "nInUse", 25277058);
+        setField(term7083, term7083.getClass(), "in", null);
+        setBooleanField(term7083, term7083.getClass(), "decompressConcatenated", true);
+        setIntField(term7083, term7083.getClass(), "currentState", 1495471055);
+        setIntField(term7083, term7083.getClass(), "storedBlockCRC", -583415628);
+        setIntField(term7083, term7083.getClass(), "storedCombinedCRC", -1488660931);
+        setIntField(term7083, term7083.getClass(), "computedBlockCRC", 1899095931);
+        setIntField(term7083, term7083.getClass(), "computedCombinedCRC", 145571200);
+        setIntField(term7083, term7083.getClass(), "su_count", -81919234);
+        setIntField(term7083, term7083.getClass(), "su_ch2", 41779745);
+        setIntField(term7083, term7083.getClass(), "su_chPrev", 908188015);
+        setIntField(term7083, term7083.getClass(), "su_i2", 1448289766);
+        setIntField(term7083, term7083.getClass(), "su_j2", 1377148923);
+        setIntField(term7083, term7083.getClass(), "su_rNToGo", 540775467);
+        setIntField(term7083, term7083.getClass(), "su_rTPos", -2083028527);
+        setIntField(term7083, term7083.getClass(), "su_tPos", 1631605263);
+        setCharField(term7083, term7083.getClass(), "su_z", 'x');
+        setBooleanElement(term7109, 0, true);
+        setBooleanElement(term7109, 2, true);
+        setBooleanElement(term7109, 5, true);
+        setField(term7108, term7108.getClass(), "inUse", term7109);
+        setField(term7108, term7108.getClass(), "seqToUnseq", term7116);
+        setByteElement(term7117, 0, (byte) -110);
+        setByteElement(term7117, 1, (byte) -88);
+        setByteElement(term7117, 2, (byte) 56);
+        setByteElement(term7117, 3, (byte) -106);
+        setByteElement(term7117, 4, (byte) 58);
+        setByteElement(term7117, 5, (byte) 77);
+        setField(term7108, term7108.getClass(), "selector", term7117);
+        setByteElement(term7124, 0, (byte) -54);
+        setByteElement(term7124, 1, (byte) -59);
+        setByteElement(term7124, 2, (byte) 103);
+        setByteElement(term7124, 3, (byte) 127);
+        setByteElement(term7124, 4, (byte) 58);
+        setByteElement(term7124, 5, (byte) -98);
+        setField(term7108, term7108.getClass(), "selectorMtf", term7124);
+        setField(term7108, term7108.getClass(), "unzftab", term7131);
+        setIntElement(term7133, 0, -1378134881);
+        setIntElement(term7133, 1, -1887131478);
+        setIntElement(term7133, 2, 1916020077);
+        setIntElement(term7133, 3, -1842191454);
+        setIntElement(term7133, 4, 384551988);
+        setIntElement(term7133, 5, -2021521187);
+        setIntElement(term7133, 6, -2139205197);
+        setIntElement(term7133, 7, -584949216);
+        setIntElement(term7133, 8, 1646064199);
+        setElement(term7132, 0, term7133);
+        setIntElement(term7143, 0, -1135845415);
+        setIntElement(term7143, 1, -1361921586);
+        setIntElement(term7143, 2, 593679468);
+        setElement(term7132, 1, term7143);
+        setIntElement(term7147, 0, 747491);
+        setIntElement(term7147, 1, 734222768);
+        setElement(term7132, 2, term7147);
+        setElement(term7132, 3, term7150);
+        setField(term7108, term7108.getClass(), "limit", term7132);
+        setIntElement(term7152, 0, 1545425140);
+        setIntElement(term7152, 1, -1580765555);
+        setIntElement(term7152, 2, -1295149055);
+        setElement(term7151, 0, term7152);
+        setIntElement(term7156, 0, -769814321);
+        setIntElement(term7156, 1, 114898432);
+        setIntElement(term7156, 2, -193767503);
+        setElement(term7151, 1, term7156);
+        setField(term7108, term7108.getClass(), "base", term7151);
+        setIntElement(term7161, 0, -2090918082);
+        setIntElement(term7161, 1, 1505717672);
+        setElement(term7160, 0, term7161);
+        setElement(term7160, 1, term7164);
+        setElement(term7160, 2, term7165);
+        setElement(term7160, 3, term7166);
+        setIntElement(term7167, 0, -1683274691);
+        setIntElement(term7167, 1, -935900044);
+        setIntElement(term7167, 2, 1747876558);
+        setIntElement(term7167, 3, 833477776);
+        setIntElement(term7167, 4, 2043960707);
+        setIntElement(term7167, 5, 272179554);
+        setIntElement(term7167, 6, 1717711536);
+        setIntElement(term7167, 7, -606339607);
+        setIntElement(term7167, 8, 800440712);
+        setElement(term7160, 4, term7167);
+        setIntElement(term7177, 0, -1976407622);
+        setIntElement(term7177, 1, -552996061);
+        setIntElement(term7177, 2, -153013117);
+        setIntElement(term7177, 3, 712181359);
+        setIntElement(term7177, 4, -1943255435);
+        setIntElement(term7177, 5, 868436312);
+        setElement(term7160, 5, term7177);
+        setElement(term7160, 6, term7184);
+        setIntElement(term7185, 0, 1737963071);
+        setIntElement(term7185, 1, 6456997);
+        setIntElement(term7185, 2, -797269627);
+        setIntElement(term7185, 3, -224331928);
+        setIntElement(term7185, 4, -587857163);
+        setIntElement(term7185, 5, -2018093075);
+        setIntElement(term7185, 6, 135879009);
+        setElement(term7160, 7, term7185);
+        setField(term7108, term7108.getClass(), "perm", term7160);
+        setIntElement(term7193, 0, 1923027847);
+        setIntElement(term7193, 1, -1652693609);
+        setIntElement(term7193, 2, -824893512);
+        setIntElement(term7193, 3, -55435071);
+        setIntElement(term7193, 4, -673356166);
+        setIntElement(term7193, 5, 1876812694);
+        setIntElement(term7193, 6, 461068473);
+        setField(term7108, term7108.getClass(), "minLens", term7193);
+        setIntElement(term7201, 0, -1833298266);
+        setField(term7108, term7108.getClass(), "cftab", term7201);
+        setField(term7108, term7108.getClass(), "getAndMoveToFrontDecode_yy", term7203);
+        setField(term7108, term7108.getClass(), "temp_charArray2d", term7204);
+        setByteElement(term7205, 0, (byte) 48);
+        setField(term7108, term7108.getClass(), "recvDecodingTables_pos", term7205);
+        setIntElement(term7207, 0, 746372422);
+        setIntElement(term7207, 1, 1921465988);
+        setIntElement(term7207, 2, -164438599);
+        setIntElement(term7207, 3, -444441955);
+        setIntElement(term7207, 4, -544005591);
+        setIntElement(term7207, 5, -1379603462);
+        setIntElement(term7207, 6, -1304965721);
+        setField(term7108, term7108.getClass(), "tt", term7207);
+        setField(term7108, term7108.getClass(), "ll8", term7215);
+        setField(term7083, term7083.getClass(), "data", term7108);
+        setLongField(term7083, term7083.getClass(), "bytesRead", 8428634514691209827L);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        callMethod(klass, "setupRandPartB", argTypes, term7083, args);
+    }
+
+};
+
+

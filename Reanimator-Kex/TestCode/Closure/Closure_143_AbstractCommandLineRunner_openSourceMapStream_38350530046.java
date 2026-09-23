@@ -1,0 +1,264 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.String;
+import java.lang.Object;
+import java.util.HashMap;
+import java.util.ArrayList;
+
+public class AbstractCommandLineRunner_openSourceMapStream_38350530046 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term18622;
+
+    public AbstractCommandLineRunner_openSourceMapStream_38350530046() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Class<? extends Object> term77456 = Class.forName((String) "com.google.javascript.jscomp.CompilerOptions$DevMode");
+        Field term77455 = ((Class) term77456).getDeclaredField((String) "OFF");
+        ((Field) term77455).setAccessible(true);
+        Object enum144 = ((Field) term77455).get((Object) null);
+        Class<? extends Object> term77732 = Class.forName((String) "com.google.javascript.jscomp.CheckLevel");
+        Field term77731 = ((Class) term77732).getDeclaredField((String) "OFF");
+        ((Field) term77731).setAccessible(true);
+        Object enum145 = ((Field) term77731).get((Object) null);
+        Class<? extends Object> term77943 = Class.forName((String) "com.google.javascript.jscomp.CheckLevel");
+        Field term77942 = ((Class) term77943).getDeclaredField((String) "ERROR");
+        ((Field) term77942).setAccessible(true);
+        Object enum146 = ((Field) term77942).get((Object) null);
+        Class<? extends Object> term78160 = Class.forName((String) "com.google.javascript.jscomp.CheckLevel");
+        Field term78159 = ((Class) term78160).getDeclaredField((String) "WARNING");
+        ((Field) term78159).setAccessible(true);
+        Object enum147 = ((Field) term78159).get((Object) null);
+        Class<? extends Object> term78413 = Class.forName((String) "com.google.javascript.jscomp.VariableRenamingPolicy");
+        Field term78412 = ((Class) term78413).getDeclaredField((String) "OFF");
+        ((Field) term78412).setAccessible(true);
+        Object enum148 = ((Field) term78412).get((Object) null);
+        Class<? extends Object> term78684 = Class.forName((String) "com.google.javascript.jscomp.PropertyRenamingPolicy");
+        Field term78683 = ((Class) term78684).getDeclaredField((String) "OFF");
+        ((Field) term78683).setAccessible(true);
+        Object enum149 = ((Field) term78683).get((Object) null);
+        Class<? extends Object> term78975 = Class.forName((String) "com.google.javascript.jscomp.AnonymousFunctionNamingPolicy");
+        Field term78974 = ((Class) term78975).getDeclaredField((String) "OFF");
+        ((Field) term78974).setAccessible(true);
+        Object enum150 = ((Field) term78974).get((Object) null);
+        HashMap term18880 = new HashMap();
+        Class<? extends Object> term79372 = Class.forName((String) "com.google.javascript.jscomp.CompilerOptions$TracerMode");
+        Field term79371 = ((Class) term79372).getDeclaredField((String) "OFF");
+        ((Field) term79371).setAccessible(true);
+        Object enum151 = ((Field) term79371).get((Object) null);
+        Class<? extends Object> term79663 = Class.forName((String) "com.google.javascript.jscomp.ErrorFormat");
+        Field term79662 = ((Class) term79663).getDeclaredField((String) "SINGLELINE");
+        ((Field) term79662).setAccessible(true);
+        Object enum152 = ((Field) term79662).get((Object) null);
+        ArrayList term18959 = new ArrayList();
+        ((ArrayList) term18959).add((Object)null);
+        ((ArrayList) term18959).add((Object)null);
+        ((ArrayList) term18959).add((Object)null);
+        ((ArrayList) term18959).add((Object)null);
+        ((ArrayList) term18959).add((Object)null);
+        ((ArrayList) term18959).add((Object)null);
+        ((ArrayList) term18959).add((Object)null);
+        term18622 = newInstance(Class.forName("com.google.javascript.jscomp.CompilerOptions"));
+        Object term18736 = newInstance(Class.forName("java.util.Collections$EmptySet"));
+        byte[] term18801 = (byte[]) newByteArray(8);
+        byte[] term18810 = (byte[]) newByteArray(9);
+        Object term18958 = newInstance(Class.forName("com.google.javascript.jscomp.ComposeWarningsGuard"));
+        setBooleanField(term18622, term18622.getClass(), "ideMode", false);
+        setBooleanField(term18622, term18622.getClass(), "skipAllPasses", true);
+        setBooleanField(term18622, term18622.getClass(), "nameAnonymousFunctionsOnly", true);
+        setField(term18622, term18622.getClass(), "devMode", enum144);
+        setBooleanField(term18622, term18622.getClass(), "checkSymbols", false);
+        setField(term18622, term18622.getClass(), "checkShadowVars", enum145);
+        setField(term18622, term18622.getClass(), "aggressiveVarCheck", enum145);
+        setField(term18622, term18622.getClass(), "checkFunctions", enum145);
+        setField(term18622, term18622.getClass(), "checkMethods", enum145);
+        setBooleanField(term18622, term18622.getClass(), "checkDuplicateMessages", true);
+        setBooleanField(term18622, term18622.getClass(), "allowLegacyJsMessages", false);
+        setBooleanField(term18622, term18622.getClass(), "strictMessageReplacement", false);
+        setBooleanField(term18622, term18622.getClass(), "checkSuspiciousCode", true);
+        setBooleanField(term18622, term18622.getClass(), "checkControlStructures", false);
+        setField(term18622, term18622.getClass(), "checkUndefinedProperties", enum145);
+        setBooleanField(term18622, term18622.getClass(), "checkUnusedPropertiesEarly", false);
+        setBooleanField(term18622, term18622.getClass(), "checkTypes", true);
+        setBooleanField(term18622, term18622.getClass(), "tightenTypes", false);
+        setBooleanField(term18622, term18622.getClass(), "inferTypesInGlobalScope", true);
+        setBooleanField(term18622, term18622.getClass(), "checkTypedPropertyCalls", false);
+        setField(term18622, term18622.getClass(), "reportMissingOverride", enum145);
+        setField(term18622, term18622.getClass(), "reportUnknownTypes", enum145);
+        setField(term18622, term18622.getClass(), "checkRequires", enum145);
+        setField(term18622, term18622.getClass(), "checkProvides", enum145);
+        setField(term18622, term18622.getClass(), "checkGlobalNamesLevel", enum145);
+        setField(term18622, term18622.getClass(), "brokenClosureRequiresLevel", enum146);
+        setField(term18622, term18622.getClass(), "checkGlobalThisLevel", enum147);
+        setField(term18622, term18622.getClass(), "checkMissingGetCssNameLevel", enum145);
+        setField(term18622, term18622.getClass(), "checkMissingGetCssNameBlacklist", "WZzvmIHhzZ");
+        setBooleanField(term18622, term18622.getClass(), "checkEs5Strict", false);
+        setBooleanField(term18622, term18622.getClass(), "checkCaja", true);
+        setBooleanField(term18622, term18622.getClass(), "foldConstants", true);
+        setBooleanField(term18622, term18622.getClass(), "removeConstantExpressions", true);
+        setBooleanField(term18622, term18622.getClass(), "deadAssignmentElimination", false);
+        setBooleanField(term18622, term18622.getClass(), "inlineConstantVars", true);
+        setBooleanField(term18622, term18622.getClass(), "inlineFunctions", true);
+        setBooleanField(term18622, term18622.getClass(), "decomposeExpressions", false);
+        setBooleanField(term18622, term18622.getClass(), "inlineAnonymousFunctionExpressions", false);
+        setBooleanField(term18622, term18622.getClass(), "inlineLocalFunctions", true);
+        setBooleanField(term18622, term18622.getClass(), "crossModuleCodeMotion", false);
+        setBooleanField(term18622, term18622.getClass(), "coalesceVariableNames", true);
+        setBooleanField(term18622, term18622.getClass(), "crossModuleMethodMotion", false);
+        setBooleanField(term18622, term18622.getClass(), "inlineGetters", false);
+        setBooleanField(term18622, term18622.getClass(), "inlineVariables", true);
+        setBooleanField(term18622, term18622.getClass(), "inlineLocalVariables", true);
+        setBooleanField(term18622, term18622.getClass(), "flowSensitiveInlineVariables", false);
+        setBooleanField(term18622, term18622.getClass(), "smartNameRemoval", true);
+        setBooleanField(term18622, term18622.getClass(), "removeDeadCode", true);
+        setField(term18622, term18622.getClass(), "checkUnreachableCode", enum145);
+        setField(term18622, term18622.getClass(), "checkMissingReturn", enum145);
+        setBooleanField(term18622, term18622.getClass(), "extractPrototypeMemberDeclarations", false);
+        setBooleanField(term18622, term18622.getClass(), "removeEmptyFunctions", false);
+        setBooleanField(term18622, term18622.getClass(), "removeUnusedPrototypeProperties", false);
+        setBooleanField(term18622, term18622.getClass(), "removeUnusedPrototypePropertiesInExterns", false);
+        setBooleanField(term18622, term18622.getClass(), "removeUnusedVars", true);
+        setBooleanField(term18622, term18622.getClass(), "removeUnusedVarsInGlobalScope", true);
+        setBooleanField(term18622, term18622.getClass(), "aliasExternals", false);
+        setField(term18622, term18622.getClass(), "aliasableGlobals", "doQLHkjpNm");
+        setField(term18622, term18622.getClass(), "unaliasableGlobals", "lCyLIcSuom");
+        setBooleanField(term18622, term18622.getClass(), "collapseVariableDeclarations", false);
+        setBooleanField(term18622, term18622.getClass(), "groupVariableDeclarations", false);
+        setBooleanField(term18622, term18622.getClass(), "collapseAnonymousFunctions", false);
+        setField(term18622, term18622.getClass(), "aliasableStrings", term18736);
+        setField(term18622, term18622.getClass(), "aliasStringsBlacklist", "");
+        setBooleanField(term18622, term18622.getClass(), "aliasAllStrings", true);
+        setBooleanField(term18622, term18622.getClass(), "outputJsStringUsage", false);
+        setBooleanField(term18622, term18622.getClass(), "convertToDottedProperties", false);
+        setBooleanField(term18622, term18622.getClass(), "rewriteFunctionExpressions", true);
+        setBooleanField(term18622, term18622.getClass(), "optimizeParameters", true);
+        setBooleanField(term18622, term18622.getClass(), "optimizeArgumentsArray", false);
+        setBooleanField(term18622, term18622.getClass(), "chainCalls", false);
+        setField(term18622, term18622.getClass(), "variableRenaming", enum148);
+        setField(term18622, term18622.getClass(), "propertyRenaming", enum149);
+        setBooleanField(term18622, term18622.getClass(), "labelRenaming", true);
+        setBooleanField(term18622, term18622.getClass(), "reserveRawExports", true);
+        setBooleanField(term18622, term18622.getClass(), "generatePseudoNames", false);
+        setField(term18622, term18622.getClass(), "renamePrefix", "CGOpQSZZwI");
+        setBooleanField(term18622, term18622.getClass(), "aliasKeywords", true);
+        setBooleanField(term18622, term18622.getClass(), "collapseProperties", false);
+        setBooleanField(term18622, term18622.getClass(), "collapsePropertiesOnExternTypes", true);
+        setBooleanField(term18622, term18622.getClass(), "devirtualizePrototypeMethods", true);
+        setBooleanField(term18622, term18622.getClass(), "computeFunctionSideEffects", true);
+        setField(term18622, term18622.getClass(), "debugFunctionSideEffectsPath", "ypEdrstygY");
+        setBooleanField(term18622, term18622.getClass(), "disambiguateProperties", false);
+        setBooleanField(term18622, term18622.getClass(), "ambiguateProperties", true);
+        setField(term18622, term18622.getClass(), "anonymousFunctionNaming", enum150);
+        setByteElement(term18801, 0, (byte) 69);
+        setByteElement(term18801, 1, (byte) -74);
+        setByteElement(term18801, 2, (byte) -123);
+        setByteElement(term18801, 3, (byte) -23);
+        setByteElement(term18801, 4, (byte) 100);
+        setByteElement(term18801, 5, (byte) 106);
+        setByteElement(term18801, 6, (byte) -57);
+        setByteElement(term18801, 7, (byte) -103);
+        setField(term18622, term18622.getClass(), "inputVariableMapSerialized", term18801);
+        setByteElement(term18810, 0, (byte) 98);
+        setByteElement(term18810, 1, (byte) 79);
+        setByteElement(term18810, 2, (byte) 61);
+        setByteElement(term18810, 3, (byte) -92);
+        setByteElement(term18810, 4, (byte) -42);
+        setByteElement(term18810, 5, (byte) 116);
+        setByteElement(term18810, 6, (byte) -81);
+        setByteElement(term18810, 7, (byte) 102);
+        setByteElement(term18810, 8, (byte) -118);
+        setField(term18622, term18622.getClass(), "inputPropertyMapSerialized", term18810);
+        setBooleanField(term18622, term18622.getClass(), "exportTestFunctions", true);
+        setBooleanField(term18622, term18622.getClass(), "runtimeTypeCheck", true);
+        setField(term18622, term18622.getClass(), "runtimeTypeCheckLogFunction", "sNQFlATEeQ");
+        setField(term18622, term18622.getClass(), "codingConvention", null);
+        setBooleanField(term18622, term18622.getClass(), "instrumentForCoverage", false);
+        setBooleanField(term18622, term18622.getClass(), "instrumentForCoverageOnly", false);
+        setBooleanField(term18622, term18622.getClass(), "ignoreCajaProperties", false);
+        setField(term18622, term18622.getClass(), "syntheticBlockStartMarker", "ZKMLioamsY");
+        setField(term18622, term18622.getClass(), "syntheticBlockEndMarker", "WVbxuoDBcn");
+        setField(term18622, term18622.getClass(), "locale", "pvDEABOxLt");
+        setBooleanField(term18622, term18622.getClass(), "markAsCompiled", false);
+        setBooleanField(term18622, term18622.getClass(), "removeTryCatchFinally", false);
+        setBooleanField(term18622, term18622.getClass(), "closurePass", false);
+        setBooleanField(term18622, term18622.getClass(), "rewriteNewDateGoogNow", true);
+        setBooleanField(term18622, term18622.getClass(), "removeAbstractMethods", true);
+        setBooleanField(term18622, term18622.getClass(), "gatherCssNames", true);
+        setField(term18622, term18622.getClass(), "stripTypes", term18736);
+        setField(term18622, term18622.getClass(), "stripNameSuffixes", term18736);
+        setField(term18622, term18622.getClass(), "stripNamePrefixes", term18736);
+        setField(term18622, term18622.getClass(), "stripTypePrefixes", term18736);
+        setField(term18622, term18622.getClass(), "customPasses", null);
+        setBooleanField(term18622, term18622.getClass(), "markNoSideEffectCalls", false);
+        setField(term18622, term18622.getClass(), "defineReplacements", term18880);
+        setBooleanField(term18622, term18622.getClass(), "moveFunctionDeclarations", false);
+        setField(term18622, term18622.getClass(), "instrumentationTemplate", "beAMpkroCQ");
+        setField(term18622, term18622.getClass(), "appNameStr", "");
+        setBooleanField(term18622, term18622.getClass(), "recordFunctionInformation", true);
+        setBooleanField(term18622, term18622.getClass(), "generateExports", false);
+        setField(term18622, term18622.getClass(), "cssRenamingMap", null);
+        setBooleanField(term18622, term18622.getClass(), "processObjectPropertyString", false);
+        setField(term18622, term18622.getClass(), "idGenerators", term18736);
+        setBooleanField(term18622, term18622.getClass(), "prettyPrint", false);
+        setBooleanField(term18622, term18622.getClass(), "lineBreak", false);
+        setBooleanField(term18622, term18622.getClass(), "printInputDelimiter", true);
+        setField(term18622, term18622.getClass(), "inputDelimiter", "// Input %num%");
+        setField(term18622, term18622.getClass(), "reportPath", "uSUvKAyuvd");
+        setField(term18622, term18622.getClass(), "tracer", enum151);
+        setBooleanField(term18622, term18622.getClass(), "colorizeErrorOutput", true);
+        setField(term18622, term18622.getClass(), "errorFormat", enum152);
+        setField(term18622, term18622.getClass(), "jsOutputFile", "");
+        setField(term18958, term18958.getClass(), "guards", term18959);
+        setField(term18622, term18622.getClass(), "warningsGuard", term18958);
+        setIntField(term18622, term18622.getClass(), "summaryDetailLevel", 1);
+        setField(term18622, term18622.getClass(), "externExportsPath", "onQLVONGuf");
+        setField(term18622, term18622.getClass(), "nameReferenceReportPath", "SOrEHbcbmn");
+        setField(term18622, term18622.getClass(), "nameReferenceGraphPath", "bnsyeQXFdu");
+        setField(term18622, term18622.getClass(), "sourceMapOutputPath", "BwtdjiefJn");
+        setField(term18622, term18622.getClass(), "outputCharset", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.AbstractCommandLineRunner");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("com.google.javascript.jscomp.CompilerOptions");
+        argTypes[1] = Class.forName("java.lang.String");
+        Object[] args = new Object[2];
+        args[0] = term18622;
+        args[1] = "jDmhBrIoDa";
+        try {
+            callMethod(klass, "openSourceMapStream", argTypes, null, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

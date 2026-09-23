@@ -1,0 +1,4 @@
+test,fqcn,method,buggy,fixed,classification
+UnsafeAllocator_create_13735884751,com.google.gson.internal.UnsafeAllocator_create_13735884751,,FAIL,FAIL,invalid_or_unstable
+UnsafeAllocator_create_13735884753,com.google.gson.internal.UnsafeAllocator_create_13735884753,,FAIL,FAIL,invalid_or_unstable
+UnsafeAllocator_create_13735884755,com.google.gson.internal.UnsafeAllocator_create_13735884755,,FAIL,FAIL,invalid_or_unstable

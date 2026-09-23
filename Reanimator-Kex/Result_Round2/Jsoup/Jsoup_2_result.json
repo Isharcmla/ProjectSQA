@@ -1,0 +1,17 @@
+{
+  "project": "Jsoup",
+  "bug_id": "2",
+  "tool": "kex",
+  "elapsed_sec": 195.43,
+  "target_classes": [
+    "org.jsoup.parser.Parser"
+  ],
+  "kex_results": {
+    "org.jsoup.parser.Parser": "success"
+  },
+  "num_test_files_generated": 67,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

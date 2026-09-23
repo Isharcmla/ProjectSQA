@@ -1,0 +1,264 @@
+package org.jsoup.parser;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.ArrayIndexOutOfBoundsException;
+import static org.jsoup.parser.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.lang.String;
+
+public class TokeniserState_readEndTag_86702548412 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term8441;
+     Object term8897;
+     Object enum131;
+     Object enum132;
+
+    public TokeniserState_readEndTag_86702548412() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Class<? extends Object> term38462 = Class.forName((String) "org.jsoup.parser.TokeniserState");
+        Field term38461 = ((Class) term38462).getDeclaredField((String) "BogusComment");
+        ((Field) term38461).setAccessible(true);
+        Object enum125 = ((Field) term38461).get((Object) null);
+        Class<? extends Object> term38758 = Class.forName((String) "org.jsoup.parser.Token$TokenType");
+        Field term38757 = ((Class) term38758).getDeclaredField((String) "StartTag");
+        ((Field) term38757).setAccessible(true);
+        Object enum126 = ((Field) term38757).get((Object) null);
+        Class<? extends Object> term39005 = Class.forName((String) "org.jsoup.parser.Token$TokenType");
+        Field term39004 = ((Class) term39005).getDeclaredField((String) "EndTag");
+        ((Field) term39004).setAccessible(true);
+        Object enum127 = ((Field) term39004).get((Object) null);
+        Class<? extends Object> term39200 = Class.forName((String) "org.jsoup.parser.Token$TokenType");
+        Field term39199 = ((Class) term39200).getDeclaredField((String) "Character");
+        ((Field) term39199).setAccessible(true);
+        Object enum128 = ((Field) term39199).get((Object) null);
+        Class<? extends Object> term39452 = Class.forName((String) "org.jsoup.parser.Token$TokenType");
+        Field term39451 = ((Class) term39452).getDeclaredField((String) "Doctype");
+        ((Field) term39451).setAccessible(true);
+        Object enum129 = ((Field) term39451).get((Object) null);
+        Class<? extends Object> term39656 = Class.forName((String) "org.jsoup.parser.Token$TokenType");
+        Field term39655 = ((Class) term39656).getDeclaredField((String) "Comment");
+        ((Field) term39655).setAccessible(true);
+        Object enum130 = ((Field) term39655).get((Object) null);
+        term8441 = newInstance(Class.forName("org.jsoup.parser.Tokeniser"));
+        Object term8442 = newInstance(Class.forName("org.jsoup.parser.CharacterReader"));
+        char[] term8443 = (char[]) newCharArray(6);
+        Object[] term8455 = (Object[]) newArray("java.lang.String", 2);
+        Object term8480 = newInstance(Class.forName("org.jsoup.parser.ParseErrorList"));
+        Object term8513 = newInstance(Class.forName("java.lang.StringBuilder"));
+        byte[] term8514 = (byte[]) newByteArray(16);
+        Object term8533 = newInstance(Class.forName("java.lang.StringBuilder"));
+        byte[] term8534 = (byte[]) newByteArray(16);
+        Object term8553 = newInstance(Class.forName("org.jsoup.parser.Token$StartTag"));
+        Object term8590 = newInstance(Class.forName("java.lang.StringBuilder"));
+        byte[] term8591 = (byte[]) newByteArray(16);
+        Object term8625 = newInstance(Class.forName("org.jsoup.nodes.Attributes"));
+        Object[] term8627 = (Object[]) newArray("java.lang.String", 0);
+        Object[] term8628 = (Object[]) newArray("java.lang.String", 0);
+        Object term8641 = newInstance(Class.forName("org.jsoup.parser.Token$EndTag"));
+        Object term8678 = newInstance(Class.forName("java.lang.StringBuilder"));
+        byte[] term8679 = (byte[]) newByteArray(16);
+        Object term8713 = newInstance(Class.forName("org.jsoup.nodes.Attributes"));
+        Object[] term8715 = (Object[]) newArray("java.lang.String", 0);
+        Object[] term8716 = (Object[]) newArray("java.lang.String", 0);
+        Object term8727 = newInstance(Class.forName("org.jsoup.parser.Token$Character"));
+        Object term8753 = newInstance(Class.forName("org.jsoup.parser.Token$Doctype"));
+        Object term8754 = newInstance(Class.forName("java.lang.StringBuilder"));
+        byte[] term8755 = (byte[]) newByteArray(16);
+        Object term8786 = newInstance(Class.forName("java.lang.StringBuilder"));
+        byte[] term8787 = (byte[]) newByteArray(16);
+        Object term8806 = newInstance(Class.forName("java.lang.StringBuilder"));
+        byte[] term8807 = (byte[]) newByteArray(16);
+        Object term8838 = newInstance(Class.forName("org.jsoup.parser.Token$Comment"));
+        Object term8839 = newInstance(Class.forName("java.lang.StringBuilder"));
+        byte[] term8840 = (byte[]) newByteArray(16);
+        int[] term8883 = (int[]) newIntArray(9);
+        int[] term8893 = (int[]) newIntArray(3);
+        setCharElement(term8443, 0, 'Q');
+        setCharElement(term8443, 1, 'H');
+        setCharElement(term8443, 2, 'g');
+        setCharElement(term8443, 3, 'q');
+        setCharElement(term8443, 4, 'z');
+        setCharElement(term8443, 5, 'x');
+        setField(term8442, term8442.getClass(), "charBuf", term8443);
+        setField(term8442, term8442.getClass(), "reader", null);
+        setIntField(term8442, term8442.getClass(), "bufLength", 1596070772);
+        setIntField(term8442, term8442.getClass(), "bufSplitPoint", 97029295);
+        setIntField(term8442, term8442.getClass(), "bufPos", -1371869594);
+        setIntField(term8442, term8442.getClass(), "readerPos", -2095575670);
+        setIntField(term8442, term8442.getClass(), "bufMark", 1225272962);
+        setElement(term8455, 0, "JDswTTCZHV");
+        setElement(term8455, 1, "onpbIeEKoi");
+        setField(term8442, term8442.getClass(), "stringCache", term8455);
+        setField(term8441, term8441.getClass(), "reader", term8442);
+        setIntField(term8480, term8480.getClass(), "maxSize", 0);
+        setField(term8480, term8480.getClass(), "elementData", null);
+        setIntField(term8480, term8480.getClass(), "size", 0);
+        setIntField(term8480, term8480.getClass(), "modCount", 0);
+        setField(term8441, term8441.getClass(), "errors", term8480);
+        setField(term8441, term8441.getClass(), "state", enum125);
+        setField(term8441, term8441.getClass(), "emitPending", null);
+        setBooleanField(term8441, term8441.getClass(), "isEmitPending", false);
+        setField(term8441, term8441.getClass(), "charsString", "YRHGsAkhxb");
+        setField(term8513, term8513.getClass(), "value", term8514);
+        setByteField(term8513, term8513.getClass(), "coder", (byte) -29);
+        setIntField(term8513, term8513.getClass(), "count", 1324040357);
+        setField(term8441, term8441.getClass(), "charsBuilder", term8513);
+        setField(term8533, term8533.getClass(), "value", term8534);
+        setByteField(term8533, term8533.getClass(), "coder", (byte) -54);
+        setIntField(term8533, term8533.getClass(), "count", -1588772968);
+        setField(term8441, term8441.getClass(), "dataBuffer", term8533);
+        setField(term8441, term8441.getClass(), "tagPending", null);
+        setField(term8553, term8553.getClass(), "tagName", "ffYhPOzlUs");
+        setField(term8553, term8553.getClass(), "normalName", "MLqYREekMl");
+        setField(term8553, term8553.getClass(), "pendingAttributeName", "ytSBIKXogI");
+        setField(term8590, term8590.getClass(), "value", term8591);
+        setByteField(term8590, term8590.getClass(), "coder", (byte) 0);
+        setIntField(term8590, term8590.getClass(), "count", 0);
+        setField(term8553, term8553.getClass(), "pendingAttributeValue", term8590);
+        setField(term8553, term8553.getClass(), "pendingAttributeValueS", "nHXjMycHlU");
+        setBooleanField(term8553, term8553.getClass(), "hasEmptyAttributeValue", true);
+        setBooleanField(term8553, term8553.getClass(), "hasPendingAttributeValue", true);
+        setBooleanField(term8553, term8553.getClass(), "selfClosing", true);
+        setIntField(term8625, term8625.getClass(), "size", 0);
+        setField(term8625, term8625.getClass(), "keys", term8627);
+        setField(term8625, term8625.getClass(), "vals", term8628);
+        setField(term8553, term8553.getClass(), "attributes", term8625);
+        setField(term8553, term8553.getClass(), "type", enum126);
+        setField(term8441, term8441.getClass(), "startPending", term8553);
+        setField(term8641, term8641.getClass(), "tagName", "ieCtQFdkii");
+        setField(term8641, term8641.getClass(), "normalName", "dEnhdmILtU");
+        setField(term8641, term8641.getClass(), "pendingAttributeName", "hoicvmsovO");
+        setField(term8678, term8678.getClass(), "value", term8679);
+        setByteField(term8678, term8678.getClass(), "coder", (byte) 0);
+        setIntField(term8678, term8678.getClass(), "count", 0);
+        setField(term8641, term8641.getClass(), "pendingAttributeValue", term8678);
+        setField(term8641, term8641.getClass(), "pendingAttributeValueS", "eqJfYWRaEL");
+        setBooleanField(term8641, term8641.getClass(), "hasEmptyAttributeValue", true);
+        setBooleanField(term8641, term8641.getClass(), "hasPendingAttributeValue", true);
+        setBooleanField(term8641, term8641.getClass(), "selfClosing", true);
+        setIntField(term8713, term8713.getClass(), "size", -93135961);
+        setField(term8713, term8713.getClass(), "keys", term8715);
+        setField(term8713, term8713.getClass(), "vals", term8716);
+        setField(term8641, term8641.getClass(), "attributes", term8713);
+        setField(term8641, term8641.getClass(), "type", enum127);
+        setField(term8441, term8441.getClass(), "endPending", term8641);
+        setField(term8727, term8727.getClass(), "data", "fhkbdRViHi");
+        setField(term8727, term8727.getClass(), "type", enum128);
+        setField(term8441, term8441.getClass(), "charPending", term8727);
+        setField(term8754, term8754.getClass(), "value", term8755);
+        setByteField(term8754, term8754.getClass(), "coder", (byte) 0);
+        setIntField(term8754, term8754.getClass(), "count", 0);
+        setField(term8753, term8753.getClass(), "name", term8754);
+        setField(term8753, term8753.getClass(), "pubSysKey", "uWHnvSvaPl");
+        setField(term8786, term8786.getClass(), "value", term8787);
+        setByteField(term8786, term8786.getClass(), "coder", (byte) 0);
+        setIntField(term8786, term8786.getClass(), "count", 0);
+        setField(term8753, term8753.getClass(), "publicIdentifier", term8786);
+        setField(term8806, term8806.getClass(), "value", term8807);
+        setByteField(term8806, term8806.getClass(), "coder", (byte) 0);
+        setIntField(term8806, term8806.getClass(), "count", 0);
+        setField(term8753, term8753.getClass(), "systemIdentifier", term8806);
+        setBooleanField(term8753, term8753.getClass(), "forceQuirks", false);
+        setField(term8753, term8753.getClass(), "type", enum129);
+        setField(term8441, term8441.getClass(), "doctypePending", term8753);
+        setField(term8839, term8839.getClass(), "value", term8840);
+        setByteField(term8839, term8839.getClass(), "coder", (byte) 0);
+        setIntField(term8839, term8839.getClass(), "count", 0);
+        setField(term8838, term8838.getClass(), "data", term8839);
+        setBooleanField(term8838, term8838.getClass(), "bogus", true);
+        setField(term8838, term8838.getClass(), "type", enum130);
+        setField(term8441, term8441.getClass(), "commentPending", term8838);
+        setField(term8441, term8441.getClass(), "lastStartTag", "kBdSllIBVz");
+        setIntElement(term8883, 0, -112921587);
+        setIntElement(term8883, 1, 933028652);
+        setIntElement(term8883, 2, 287287233);
+        setIntElement(term8883, 3, 962840079);
+        setIntElement(term8883, 4, 1540719661);
+        setIntElement(term8883, 5, 1265463001);
+        setIntElement(term8883, 6, 335112684);
+        setIntElement(term8883, 7, 1551099402);
+        setIntElement(term8883, 8, -2027534003);
+        setField(term8441, term8441.getClass(), "codepointHolder", term8883);
+        setIntElement(term8893, 0, 1063420942);
+        setIntElement(term8893, 1, 1375330971);
+        setIntElement(term8893, 2, -478195677);
+        setField(term8441, term8441.getClass(), "multipointHolder", term8893);
+        term8897 = newInstance(Class.forName("org.jsoup.parser.CharacterReader"));
+        char[] term8898 = (char[]) newCharArray(5);
+        Object[] term8909 = (Object[]) newArray("java.lang.String", 6);
+        setCharElement(term8898, 0, 'x');
+        setCharElement(term8898, 1, 't');
+        setCharElement(term8898, 2, 'l');
+        setCharElement(term8898, 3, 'P');
+        setCharElement(term8898, 4, 'w');
+        setField(term8897, term8897.getClass(), "charBuf", term8898);
+        setField(term8897, term8897.getClass(), "reader", null);
+        setIntField(term8897, term8897.getClass(), "bufLength", 972867650);
+        setIntField(term8897, term8897.getClass(), "bufSplitPoint", 1655935355);
+        setIntField(term8897, term8897.getClass(), "bufPos", -481533957);
+        setIntField(term8897, term8897.getClass(), "readerPos", 1240914516);
+        setIntField(term8897, term8897.getClass(), "bufMark", -1465035361);
+        setElement(term8909, 0, "TJmVBGfTML");
+        setElement(term8909, 1, "tPlsykYBqO");
+        setElement(term8909, 2, "bLPjGVBhlX");
+        setElement(term8909, 3, "whBvTVIIlC");
+        setElement(term8909, 4, "IgRJUzaCwW");
+        setElement(term8909, 5, "JUmudUmaaV");
+        setField(term8897, term8897.getClass(), "stringCache", term8909);
+        Class<? extends Object> term39931 = Class.forName((String) "org.jsoup.parser.TokeniserState");
+        Field term39930 = ((Class) term39931).getDeclaredField((String) "AttributeValue_doubleQuoted");
+        ((Field) term39930).setAccessible(true);
+        enum131 = ((Field) term39930).get((Object) null);
+        Class<? extends Object> term40174 = Class.forName((String) "org.jsoup.parser.TokeniserState");
+        Field term40173 = ((Class) term40174).getDeclaredField((String) "AfterDoctypePublicIdentifier");
+        ((Field) term40173).setAccessible(true);
+        enum132 = ((Field) term40173).get((Object) null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jsoup.parser.TokeniserState");
+        Class<?>[] argTypes = new Class<?>[4];
+        argTypes[0] = Class.forName("org.jsoup.parser.Tokeniser");
+        argTypes[1] = Class.forName("org.jsoup.parser.CharacterReader");
+        argTypes[2] = Class.forName("org.jsoup.parser.TokeniserState");
+        argTypes[3] = Class.forName("org.jsoup.parser.TokeniserState");
+        Object[] args = new Object[4];
+        args[0] = term8441;
+        args[1] = term8897;
+        args[2] = enum131;
+        args[3] = enum132;
+        try {
+            callMethod(klass, "readEndTag", argTypes, null, args);
+            assertTrue(false);
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+        }
+
+    }
+
+};
+
+

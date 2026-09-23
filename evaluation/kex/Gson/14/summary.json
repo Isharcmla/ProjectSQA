@@ -1,0 +1,15 @@
+{
+  "project": "Gson",
+  "bug_id": "14",
+  "tool": "kex",
+  "generated_files": 116,
+  "candidate_tests": 114,
+  "classification_counts": {
+    "invalid_or_unstable": 43,
+    "valid_non_revealing": 71
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

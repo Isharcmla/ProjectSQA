@@ -1,0 +1,17 @@
+{
+  "project": "JxPath",
+  "bug_id": "21",
+  "tool": "kex",
+  "elapsed_sec": 13.74,
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.model.beans.PropertyPointer"
+  ],
+  "kex_results": {
+    "org.apache.commons.jxpath.ri.model.beans.PropertyPointer": "success"
+  },
+  "num_test_files_generated": 19,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

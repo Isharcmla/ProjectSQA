@@ -1,0 +1,29 @@
+{
+  "project": "Math",
+  "bug_id": "6",
+  "tool": "kex",
+  "elapsed_sec": 1061.6,
+  "target_classes": [
+    "org.apache.commons.math3.optim.BaseOptimizer",
+    "org.apache.commons.math3.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizer",
+    "org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizer",
+    "org.apache.commons.math3.optim.nonlinear.scalar.noderiv.PowellOptimizer",
+    "org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizer",
+    "org.apache.commons.math3.optim.nonlinear.vector.jacobian.GaussNewtonOptimizer",
+    "org.apache.commons.math3.optim.nonlinear.vector.jacobian.LevenbergMarquardtOptimizer"
+  ],
+  "kex_results": {
+    "org.apache.commons.math3.optim.BaseOptimizer": "success",
+    "org.apache.commons.math3.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizer": "success",
+    "org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizer": "success",
+    "org.apache.commons.math3.optim.nonlinear.scalar.noderiv.PowellOptimizer": "success",
+    "org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizer": "success",
+    "org.apache.commons.math3.optim.nonlinear.vector.jacobian.GaussNewtonOptimizer": "success",
+    "org.apache.commons.math3.optim.nonlinear.vector.jacobian.LevenbergMarquardtOptimizer": "success"
+  },
+  "num_test_files_generated": 395,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,17 @@
+{
+  "project": "Gson",
+  "bug_id": "17",
+  "tool": "kex",
+  "elapsed_sec": 37.09,
+  "target_classes": [
+    "com.google.gson.DefaultDateTypeAdapter"
+  ],
+  "kex_results": {
+    "com.google.gson.DefaultDateTypeAdapter": "success"
+  },
+  "num_test_files_generated": 81,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,84 @@
+package org.joda.time;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.joda.time.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.joda.time.EqualityUtils.*;
+
+public class DateTimeZone_forTimeZone_70719263045 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term31;
+     Object term3024;
+     Object term2995;
+
+    public DateTimeZone_forTimeZone_70719263045() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term31 = newInstance(Class.forName("sun.util.calendar.ZoneInfo"));
+        setIntField(term31, term31.getClass(), "rawOffset", 18000000);
+        setIntField(term31, term31.getClass(), "rawOffsetDiff", 0);
+        setIntField(term31, term31.getClass(), "checksum", 0);
+        setIntField(term31, term31.getClass(), "dstSavings", 0);
+        setField(term31, term31.getClass(), "transitions", null);
+        setField(term31, term31.getClass(), "offsets", null);
+        setField(term31, term31.getClass(), "simpleTimeZoneParams", null);
+        setBooleanField(term31, term31.getClass(), "willGMTOffsetChange", false);
+        setBooleanField(term31, term31.getClass(), "dirty", false);
+        setField(term31, term31.getClass(), "lastRule", null);
+        setField(term31, term31.getClass(), "ID", "Etc/GMT-5");
+        setField(term31, term31.getClass(), "zoneId", null);
+        term3024 = newInstance(Class.forName("sun.util.calendar.ZoneInfo"));
+        setIntField(term3024, term3024.getClass(), "rawOffset", 18000000);
+        setIntField(term3024, term3024.getClass(), "rawOffsetDiff", 0);
+        setIntField(term3024, term3024.getClass(), "checksum", 0);
+        setIntField(term3024, term3024.getClass(), "dstSavings", 0);
+        setField(term3024, term3024.getClass(), "transitions", null);
+        setField(term3024, term3024.getClass(), "offsets", null);
+        setField(term3024, term3024.getClass(), "simpleTimeZoneParams", null);
+        setBooleanField(term3024, term3024.getClass(), "willGMTOffsetChange", false);
+        setBooleanField(term3024, term3024.getClass(), "dirty", false);
+        setField(term3024, term3024.getClass(), "lastRule", null);
+        setField(term3024, term3024.getClass(), "ID", "Etc/GMT-5");
+        setField(term3024, term3024.getClass(), "zoneId", null);
+        term2995 = newInstance(Class.forName("org.joda.time.tz.FixedDateTimeZone"));
+        setField(term2995, term2995.getClass(), "iNameKey", null);
+        setIntField(term2995, term2995.getClass(), "iWallOffset", 18000000);
+        setIntField(term2995, term2995.getClass(), "iStandardOffset", 18000000);
+        setField(term2995, term2995.getClass(), "iID", "+05:00");
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.joda.time.DateTimeZone");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("java.util.TimeZone");
+        Object[] args = new Object[1];
+        args[0] = term31;
+        Object retValue = callMethod(klass, "forTimeZone", argTypes, null, args);
+        assertTrue(recursiveEquals(term31, term3024));
+        assertTrue(recursiveEquals(retValue, term2995));
+    }
+
+};
+
+

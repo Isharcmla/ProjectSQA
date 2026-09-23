@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "54",
+  "tool": "kex",
+  "elapsed_sec": 146.43,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.PropertyBuilder"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.ser.PropertyBuilder": "success"
+  },
+  "num_test_files_generated": 38,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

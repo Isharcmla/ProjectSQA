@@ -1,0 +1,17 @@
+{
+  "project": "Time",
+  "bug_id": "3",
+  "tool": "kex",
+  "elapsed_sec": 145.61,
+  "target_classes": [
+    "org.joda.time.MutableDateTime"
+  ],
+  "kex_results": {
+    "org.joda.time.MutableDateTime": "failed"
+  },
+  "num_test_files_generated": 173,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

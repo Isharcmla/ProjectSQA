@@ -1,0 +1,19 @@
+{
+  "project": "Closure",
+  "bug_id": "106",
+  "tool": "kex",
+  "elapsed_sec": 217.19,
+  "target_classes": [
+    "com.google.javascript.jscomp.GlobalNamespace",
+    "com.google.javascript.rhino.JSDocInfoBuilder"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.GlobalNamespace": "success",
+    "com.google.javascript.rhino.JSDocInfoBuilder": "success"
+  },
+  "num_test_files_generated": 393,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

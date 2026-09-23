@@ -1,0 +1,69 @@
+package org.apache.commons.lang.text;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.lang.text.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.lang.text.EqualityUtils.*;
+
+public class StrBuilder_reverse_1810590847243 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term8880;
+     Object term75837;
+     Object term75778;
+
+    public StrBuilder_reverse_1810590847243() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term8880 = newInstance(Class.forName("org.apache.commons.lang.text.StrBuilder"));
+        char[] term8881 = (char[]) newCharArray(32);
+        setField(term8880, term8880.getClass(), "buffer", term8881);
+        setIntField(term8880, term8880.getClass(), "size", -343325701);
+        setField(term8880, term8880.getClass(), "newLine", "sQvGcVjdEx");
+        setField(term8880, term8880.getClass(), "nullText", "rLHAoqXgPh");
+        term75837 = newInstance(Class.forName("org.apache.commons.lang.text.StrBuilder"));
+        char[] term75838 = (char[]) newCharArray(32);
+        setField(term75837, term75837.getClass(), "buffer", term75838);
+        setIntField(term75837, term75837.getClass(), "size", -343325701);
+        setField(term75837, term75837.getClass(), "newLine", "sQvGcVjdEx");
+        setField(term75837, term75837.getClass(), "nullText", "rLHAoqXgPh");
+        term75778 = newInstance(Class.forName("org.apache.commons.lang.text.StrBuilder"));
+        char[] term75779 = (char[]) newCharArray(32);
+        setField(term75778, term75778.getClass(), "buffer", term75779);
+        setIntField(term75778, term75778.getClass(), "size", -343325701);
+        setField(term75778, term75778.getClass(), "newLine", "sQvGcVjdEx");
+        setField(term75778, term75778.getClass(), "nullText", "rLHAoqXgPh");
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.lang.text.StrBuilder");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        Object retValue = callMethod(klass, "reverse", argTypes, term8880, args);
+        assertTrue(recursiveEquals(term8880, term75837));
+        assertTrue(recursiveEquals(retValue, term75778));
+    }
+
+};
+
+

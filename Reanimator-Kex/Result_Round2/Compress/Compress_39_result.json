@@ -1,0 +1,17 @@
+{
+  "project": "Compress",
+  "bug_id": "39",
+  "tool": "kex",
+  "elapsed_sec": 172.82,
+  "target_classes": [
+    "org.apache.commons.compress.utils.ArchiveUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.compress.utils.ArchiveUtils": "success"
+  },
+  "num_test_files_generated": 47,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

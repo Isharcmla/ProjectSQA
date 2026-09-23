@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+ContinuedFraction_evaluate_17890466145,org.apache.commons.math3.util.ContinuedFraction_evaluate_17890466145,,PASS,PASS,valid_non_revealing
+ContinuedFraction_evaluate_4295524234,org.apache.commons.math3.util.ContinuedFraction_evaluate_4295524234,,PASS,PASS,valid_non_revealing
+ContinuedFraction_evaluate_559214336,org.apache.commons.math3.util.ContinuedFraction_evaluate_559214336,,PASS,PASS,valid_non_revealing
+ContinuedFraction_evaluate_8612744727,org.apache.commons.math3.util.ContinuedFraction_evaluate_8612744727,,PASS,PASS,valid_non_revealing

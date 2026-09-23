@@ -1,0 +1,19 @@
+{
+  "project": "Closure",
+  "bug_id": "90",
+  "tool": "kex",
+  "elapsed_sec": 422.92,
+  "target_classes": [
+    "com.google.javascript.jscomp.FunctionTypeBuilder",
+    "com.google.javascript.rhino.jstype.FunctionType"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.FunctionTypeBuilder": "failed",
+    "com.google.javascript.rhino.jstype.FunctionType": "failed"
+  },
+  "num_test_files_generated": 412,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

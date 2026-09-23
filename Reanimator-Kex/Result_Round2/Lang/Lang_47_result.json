@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "47",
+  "tool": "kex",
+  "elapsed_sec": 309.23,
+  "target_classes": [
+    "org.apache.commons.lang.text.StrBuilder"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang.text.StrBuilder": "timeout"
+  },
+  "num_test_files_generated": 276,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

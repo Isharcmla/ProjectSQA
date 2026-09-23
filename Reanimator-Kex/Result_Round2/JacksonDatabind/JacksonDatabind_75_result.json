@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "75",
+  "tool": "kex",
+  "elapsed_sec": 35.93,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.std.EnumSerializer"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.ser.std.EnumSerializer": "success"
+  },
+  "num_test_files_generated": 30,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

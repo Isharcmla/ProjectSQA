@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "87",
+  "tool": "kex",
+  "elapsed_sec": 276.34,
+  "target_classes": [
+    "org.apache.commons.math.optimization.linear.SimplexTableau"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.optimization.linear.SimplexTableau": "success"
+  },
+  "num_test_files_generated": 119,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

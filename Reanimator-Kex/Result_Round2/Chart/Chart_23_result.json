@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "23",
+  "tool": "kex",
+  "elapsed_sec": 118.13,
+  "target_classes": [
+    "org.jfree.chart.renderer.category.MinMaxCategoryRenderer"
+  ],
+  "kex_results": {
+    "org.jfree.chart.renderer.category.MinMaxCategoryRenderer": "success"
+  },
+  "num_test_files_generated": 38,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

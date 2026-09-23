@@ -1,0 +1,213 @@
+package org.apache.commons.math.dfp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.math.dfp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.lang.String;
+import java.lang.Integer;
+
+public class Dfp_round_62076807646 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term32540;
+     Object term32623;
+
+    public Dfp_round_62076807646() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Class<? extends Object> term32637 = Class.forName((String) "org.apache.commons.math.dfp.DfpField$RoundingMode");
+        Field term32636 = ((Class) term32637).getDeclaredField((String) "ROUND_FLOOR");
+        ((Field) term32636).setAccessible(true);
+        Object enum95 = ((Field) term32636).get((Object) null);
+        Class<? extends Object> term32922 = Class.forName((String) "org.apache.commons.math.dfp.DfpField$RoundingMode");
+        Field term32921 = ((Class) term32922).getDeclaredField((String) "ROUND_UP");
+        ((Field) term32921).setAccessible(true);
+        Object enum96 = ((Field) term32921).get((Object) null);
+        term32540 = newInstance(Class.forName("org.apache.commons.math.dfp.Dfp"));
+        int[] term32541 = (int[]) newIntArray(2);
+        Object term32547 = newInstance(Class.forName("org.apache.commons.math.dfp.DfpField"));
+        Object term32549 = newInstance(Class.forName("org.apache.commons.math.dfp.Dfp"));
+        int[] term32550 = (int[]) newIntArray(9);
+        Object term32563 = newInstance(Class.forName("org.apache.commons.math.dfp.DfpField"));
+        Object term32565 = newInstance(Class.forName("org.apache.commons.math.dfp.Dfp"));
+        Object term32569 = newInstance(Class.forName("org.apache.commons.math.dfp.Dfp"));
+        Object term32573 = newInstance(Class.forName("org.apache.commons.math.dfp.Dfp"));
+        Object[] term32577 = (Object[]) newArray("org.apache.commons.math.dfp.Dfp", 4);
+        Object term32578 = newInstance(Class.forName("org.apache.commons.math.dfp.Dfp"));
+        Object term32582 = newInstance(Class.forName("org.apache.commons.math.dfp.Dfp"));
+        Object term32586 = newInstance(Class.forName("org.apache.commons.math.dfp.Dfp"));
+        Object[] term32590 = (Object[]) newArray("org.apache.commons.math.dfp.Dfp", 6);
+        Object[] term32591 = (Object[]) newArray("org.apache.commons.math.dfp.Dfp", 5);
+        Object[] term32592 = (Object[]) newArray("org.apache.commons.math.dfp.Dfp", 0);
+        Object[] term32593 = (Object[]) newArray("org.apache.commons.math.dfp.Dfp", 3);
+        Object term32597 = newInstance(Class.forName("org.apache.commons.math.dfp.Dfp"));
+        Object[] term32601 = (Object[]) newArray("org.apache.commons.math.dfp.Dfp", 7);
+        Object term32602 = newInstance(Class.forName("org.apache.commons.math.dfp.Dfp"));
+        Object[] term32606 = (Object[]) newArray("org.apache.commons.math.dfp.Dfp", 1);
+        Object[] term32607 = (Object[]) newArray("org.apache.commons.math.dfp.Dfp", 1);
+        Object[] term32608 = (Object[]) newArray("org.apache.commons.math.dfp.Dfp", 4);
+        Object[] term32609 = (Object[]) newArray("org.apache.commons.math.dfp.Dfp", 3);
+        setIntElement(term32541, 0, -1235127374);
+        setIntElement(term32541, 1, -2077814162);
+        setField(term32540, term32540.getClass(), "mant", term32541);
+        setByteField(term32540, term32540.getClass(), "sign", (byte) -40);
+        setIntField(term32540, term32540.getClass(), "exp", 444514470);
+        setByteField(term32540, term32540.getClass(), "nans", (byte) 79);
+        setIntField(term32547, term32547.getClass(), "radixDigits", -147055177);
+        setIntElement(term32550, 0, 1979044375);
+        setIntElement(term32550, 1, 961252909);
+        setIntElement(term32550, 2, 1455842357);
+        setIntElement(term32550, 3, 1349806561);
+        setIntElement(term32550, 4, 923905351);
+        setIntElement(term32550, 5, 428360161);
+        setIntElement(term32550, 6, 631528579);
+        setIntElement(term32550, 7, -1652091834);
+        setIntElement(term32550, 8, -282021579);
+        setField(term32549, term32549.getClass(), "mant", term32550);
+        setByteField(term32549, term32549.getClass(), "sign", (byte) 55);
+        setIntField(term32549, term32549.getClass(), "exp", -1652588127);
+        setByteField(term32549, term32549.getClass(), "nans", (byte) -63);
+        setIntField(term32563, term32563.getClass(), "radixDigits", -1902823385);
+        setField(term32565, term32565.getClass(), "mant", null);
+        setByteField(term32565, term32565.getClass(), "sign", (byte) -87);
+        setIntField(term32565, term32565.getClass(), "exp", 1763217806);
+        setByteField(term32565, term32565.getClass(), "nans", (byte) 108);
+        setField(term32565, term32565.getClass(), "field", null);
+        setField(term32563, term32563.getClass(), "zero", term32565);
+        setField(term32569, term32569.getClass(), "mant", null);
+        setByteField(term32569, term32569.getClass(), "sign", (byte) 0);
+        setIntField(term32569, term32569.getClass(), "exp", 0);
+        setByteField(term32569, term32569.getClass(), "nans", (byte) 0);
+        setField(term32569, term32569.getClass(), "field", null);
+        setField(term32563, term32563.getClass(), "one", term32569);
+        setField(term32573, term32573.getClass(), "mant", null);
+        setByteField(term32573, term32573.getClass(), "sign", (byte) 0);
+        setIntField(term32573, term32573.getClass(), "exp", 0);
+        setByteField(term32573, term32573.getClass(), "nans", (byte) 0);
+        setField(term32573, term32573.getClass(), "field", null);
+        setField(term32563, term32563.getClass(), "two", term32573);
+        setField(term32563, term32563.getClass(), "sqr2", term32573);
+        setElement(term32577, 0, term32549);
+        setField(term32563, term32563.getClass(), "sqr2Split", term32577);
+        setField(term32578, term32578.getClass(), "mant", null);
+        setByteField(term32578, term32578.getClass(), "sign", (byte) 0);
+        setIntField(term32578, term32578.getClass(), "exp", 0);
+        setByteField(term32578, term32578.getClass(), "nans", (byte) 0);
+        setField(term32578, term32578.getClass(), "field", null);
+        setField(term32563, term32563.getClass(), "sqr2Reciprocal", term32578);
+        setField(term32563, term32563.getClass(), "sqr3", term32565);
+        setField(term32582, term32582.getClass(), "mant", null);
+        setByteField(term32582, term32582.getClass(), "sign", (byte) 0);
+        setIntField(term32582, term32582.getClass(), "exp", 0);
+        setByteField(term32582, term32582.getClass(), "nans", (byte) 0);
+        setField(term32582, term32582.getClass(), "field", null);
+        setField(term32563, term32563.getClass(), "sqr3Reciprocal", term32582);
+        setField(term32586, term32586.getClass(), "mant", null);
+        setByteField(term32586, term32586.getClass(), "sign", (byte) 0);
+        setIntField(term32586, term32586.getClass(), "exp", 0);
+        setByteField(term32586, term32586.getClass(), "nans", (byte) 0);
+        setField(term32586, term32586.getClass(), "field", null);
+        setField(term32563, term32563.getClass(), "pi", term32586);
+        setElement(term32590, 0, term32549);
+        setElement(term32590, 2, term32586);
+        setElement(term32590, 3, term32586);
+        setElement(term32590, 4, term32578);
+        setElement(term32590, 5, term32573);
+        setField(term32563, term32563.getClass(), "piSplit", term32590);
+        setField(term32563, term32563.getClass(), "e", term32549);
+        setElement(term32591, 0, term32582);
+        setElement(term32591, 1, term32586);
+        setElement(term32591, 3, term32578);
+        setElement(term32591, 4, term32549);
+        setField(term32563, term32563.getClass(), "eSplit", term32591);
+        setField(term32563, term32563.getClass(), "ln2", term32573);
+        setField(term32563, term32563.getClass(), "ln2Split", term32592);
+        setField(term32563, term32563.getClass(), "ln5", term32586);
+        setElement(term32593, 0, term32549);
+        setField(term32563, term32563.getClass(), "ln5Split", term32593);
+        setField(term32563, term32563.getClass(), "ln10", term32565);
+        setField(term32563, term32563.getClass(), "rMode", enum95);
+        setIntField(term32563, term32563.getClass(), "ieeeFlags", 522440332);
+        setField(term32549, term32549.getClass(), "field", term32563);
+        setField(term32547, term32547.getClass(), "zero", term32549);
+        setField(term32547, term32547.getClass(), "one", term32549);
+        setField(term32597, term32597.getClass(), "mant", null);
+        setByteField(term32597, term32597.getClass(), "sign", (byte) 0);
+        setIntField(term32597, term32597.getClass(), "exp", 0);
+        setByteField(term32597, term32597.getClass(), "nans", (byte) 0);
+        setField(term32597, term32597.getClass(), "field", null);
+        setField(term32547, term32547.getClass(), "two", term32597);
+        setField(term32547, term32547.getClass(), "sqr2", term32582);
+        setElement(term32601, 0, term32540);
+        setElement(term32601, 1, term32578);
+        setElement(term32601, 2, term32569);
+        setElement(term32601, 3, term32573);
+        setElement(term32601, 4, term32569);
+        setElement(term32601, 5, term32569);
+        setElement(term32601, 6, term32597);
+        setField(term32547, term32547.getClass(), "sqr2Split", term32601);
+        setField(term32547, term32547.getClass(), "sqr2Reciprocal", term32565);
+        setField(term32547, term32547.getClass(), "sqr3", term32586);
+        setField(term32547, term32547.getClass(), "sqr3Reciprocal", term32582);
+        setField(term32602, term32602.getClass(), "mant", null);
+        setByteField(term32602, term32602.getClass(), "sign", (byte) 0);
+        setIntField(term32602, term32602.getClass(), "exp", 0);
+        setByteField(term32602, term32602.getClass(), "nans", (byte) 0);
+        setField(term32602, term32602.getClass(), "field", null);
+        setField(term32547, term32547.getClass(), "pi", term32602);
+        setElement(term32606, 0, term32549);
+        setField(term32547, term32547.getClass(), "piSplit", term32606);
+        setField(term32547, term32547.getClass(), "e", term32569);
+        setElement(term32607, 0, term32549);
+        setField(term32547, term32547.getClass(), "eSplit", term32607);
+        setField(term32547, term32547.getClass(), "ln2", term32597);
+        setElement(term32608, 0, term32573);
+        setElement(term32608, 1, term32602);
+        setElement(term32608, 2, term32573);
+        setElement(term32608, 3, term32582);
+        setField(term32547, term32547.getClass(), "ln2Split", term32608);
+        setField(term32547, term32547.getClass(), "ln5", term32582);
+        setElement(term32609, 0, term32578);
+        setElement(term32609, 1, term32540);
+        setElement(term32609, 2, term32540);
+        setField(term32547, term32547.getClass(), "ln5Split", term32609);
+        setField(term32547, term32547.getClass(), "ln10", term32565);
+        setField(term32547, term32547.getClass(), "rMode", enum96);
+        setIntField(term32547, term32547.getClass(), "ieeeFlags", 1516598327);
+        setField(term32540, term32540.getClass(), "field", term32547);
+        term32623 = new Integer(82353584);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math.dfp.Dfp");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = int.class;
+        Object[] args = new Object[1];
+        args[0] = term32623;
+        callMethod(klass, "round", argTypes, term32540, args);
+    }
+
+};
+
+

@@ -1,0 +1,17 @@
+{
+  "project": "Cli",
+  "bug_id": "3",
+  "tool": "kex",
+  "elapsed_sec": 5.61,
+  "target_classes": [
+    "org.apache.commons.cli.TypeHandler"
+  ],
+  "kex_results": {
+    "org.apache.commons.cli.TypeHandler": "failed"
+  },
+  "num_test_files_generated": 0,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

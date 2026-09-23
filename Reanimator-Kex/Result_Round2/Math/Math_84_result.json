@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "84",
+  "tool": "kex",
+  "elapsed_sec": 147.42,
+  "target_classes": [
+    "org.apache.commons.math.optimization.direct.MultiDirectional"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.optimization.direct.MultiDirectional": "success"
+  },
+  "num_test_files_generated": 128,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

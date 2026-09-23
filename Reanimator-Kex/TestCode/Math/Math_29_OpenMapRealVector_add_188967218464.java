@@ -1,0 +1,71 @@
+package org.apache.commons.math3.linear;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.apache.commons.math3.linear.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class OpenMapRealVector_add_188967218464 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term873;
+
+    public OpenMapRealVector_add_188967218464() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term873 = newInstance(Class.forName("org.apache.commons.math3.linear.OpenMapRealVector"));
+        Object term874 = newInstance(Class.forName("org.apache.commons.math3.util.OpenIntToDoubleHashMap"));
+        int[] term875 = (int[]) newIntArray(32);
+        double[] term908 = (double[]) newDoubleArray(32);
+        byte[] term941 = (byte[]) newByteArray(32);
+        setField(term874, term874.getClass(), "keys", term875);
+        setField(term874, term874.getClass(), "values", term908);
+        setField(term874, term874.getClass(), "states", term941);
+        setDoubleField(term874, term874.getClass(), "missingEntries", 0.0);
+        setIntField(term874, term874.getClass(), "size", 0);
+        setIntField(term874, term874.getClass(), "mask", 31);
+        setIntField(term874, term874.getClass(), "count", 0);
+        setField(term873, term873.getClass(), "entries", term874);
+        setIntField(term873, term873.getClass(), "virtualSize", -522618178);
+        setDoubleField(term873, term873.getClass(), "epsilon", 1.0E-12);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math3.linear.OpenMapRealVector");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("org.apache.commons.math3.linear.RealVector");
+        Object[] args = new Object[1];
+        args[0] = null;
+        try {
+            callMethod(klass, "add", argTypes, term873, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

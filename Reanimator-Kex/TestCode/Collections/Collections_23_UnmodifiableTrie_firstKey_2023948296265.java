@@ -1,0 +1,267 @@
+package org.apache.commons.collections4.trie;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.util.NoSuchElementException;
+import static org.apache.commons.collections4.trie.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class UnmodifiableTrie_firstKey_2023948296265 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term85827;
+
+    public UnmodifiableTrie_firstKey_2023948296265() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term85827 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term85939 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term86051 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term86163 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term86275 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term86387 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term86499 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term86611 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term86723 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term86835 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term86947 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term87059 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term87171 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term87283 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term87395 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term87507 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term87619 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term87731 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term87843 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term87955 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term88067 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term88179 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term88291 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term88403 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term88515 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term88627 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term88739 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term88851 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term88963 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term89075 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term89187 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term89299 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term89411 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term89523 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term89635 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term89747 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term89859 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term89971 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term90083 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term90195 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term90307 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term90419 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term90531 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term90643 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term90755 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term90867 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term90979 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term91091 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term91203 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term91315 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term91427 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term91539 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term91651 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term91763 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term91875 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term91987 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term92099 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term92211 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term92323 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term92435 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term92547 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term92659 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term92771 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term92883 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term92995 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term93107 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term93219 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term93331 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term93443 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term93555 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term93667 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term93779 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term93891 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term94003 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term94115 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term94227 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term94339 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term94451 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term94563 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term94675 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term94787 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term94899 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term95011 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term95123 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term95235 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term95347 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term95459 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term95571 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term95683 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term95795 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term95907 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term96019 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term96131 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term96243 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term96355 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term96467 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term96579 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term96691 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term96803 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term96915 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term97027 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term97139 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term97251 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term97363 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term97475 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term97587 = newInstance(Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie"));
+        Object term97691 = newInstance(Class.forName("org.apache.commons.collections4.trie.PatriciaTrie"));
+        setField(term97587, term97587.getClass(), "delegate", term97691);
+        setField(term97475, term97475.getClass(), "delegate", term97587);
+        setField(term97363, term97363.getClass(), "delegate", term97475);
+        setField(term97251, term97251.getClass(), "delegate", term97363);
+        setField(term97139, term97139.getClass(), "delegate", term97251);
+        setField(term97027, term97027.getClass(), "delegate", term97139);
+        setField(term96915, term96915.getClass(), "delegate", term97027);
+        setField(term96803, term96803.getClass(), "delegate", term96915);
+        setField(term96691, term96691.getClass(), "delegate", term96803);
+        setField(term96579, term96579.getClass(), "delegate", term96691);
+        setField(term96467, term96467.getClass(), "delegate", term96579);
+        setField(term96355, term96355.getClass(), "delegate", term96467);
+        setField(term96243, term96243.getClass(), "delegate", term96355);
+        setField(term96131, term96131.getClass(), "delegate", term96243);
+        setField(term96019, term96019.getClass(), "delegate", term96131);
+        setField(term95907, term95907.getClass(), "delegate", term96019);
+        setField(term95795, term95795.getClass(), "delegate", term95907);
+        setField(term95683, term95683.getClass(), "delegate", term95795);
+        setField(term95571, term95571.getClass(), "delegate", term95683);
+        setField(term95459, term95459.getClass(), "delegate", term95571);
+        setField(term95347, term95347.getClass(), "delegate", term95459);
+        setField(term95235, term95235.getClass(), "delegate", term95347);
+        setField(term95123, term95123.getClass(), "delegate", term95235);
+        setField(term95011, term95011.getClass(), "delegate", term95123);
+        setField(term94899, term94899.getClass(), "delegate", term95011);
+        setField(term94787, term94787.getClass(), "delegate", term94899);
+        setField(term94675, term94675.getClass(), "delegate", term94787);
+        setField(term94563, term94563.getClass(), "delegate", term94675);
+        setField(term94451, term94451.getClass(), "delegate", term94563);
+        setField(term94339, term94339.getClass(), "delegate", term94451);
+        setField(term94227, term94227.getClass(), "delegate", term94339);
+        setField(term94115, term94115.getClass(), "delegate", term94227);
+        setField(term94003, term94003.getClass(), "delegate", term94115);
+        setField(term93891, term93891.getClass(), "delegate", term94003);
+        setField(term93779, term93779.getClass(), "delegate", term93891);
+        setField(term93667, term93667.getClass(), "delegate", term93779);
+        setField(term93555, term93555.getClass(), "delegate", term93667);
+        setField(term93443, term93443.getClass(), "delegate", term93555);
+        setField(term93331, term93331.getClass(), "delegate", term93443);
+        setField(term93219, term93219.getClass(), "delegate", term93331);
+        setField(term93107, term93107.getClass(), "delegate", term93219);
+        setField(term92995, term92995.getClass(), "delegate", term93107);
+        setField(term92883, term92883.getClass(), "delegate", term92995);
+        setField(term92771, term92771.getClass(), "delegate", term92883);
+        setField(term92659, term92659.getClass(), "delegate", term92771);
+        setField(term92547, term92547.getClass(), "delegate", term92659);
+        setField(term92435, term92435.getClass(), "delegate", term92547);
+        setField(term92323, term92323.getClass(), "delegate", term92435);
+        setField(term92211, term92211.getClass(), "delegate", term92323);
+        setField(term92099, term92099.getClass(), "delegate", term92211);
+        setField(term91987, term91987.getClass(), "delegate", term92099);
+        setField(term91875, term91875.getClass(), "delegate", term91987);
+        setField(term91763, term91763.getClass(), "delegate", term91875);
+        setField(term91651, term91651.getClass(), "delegate", term91763);
+        setField(term91539, term91539.getClass(), "delegate", term91651);
+        setField(term91427, term91427.getClass(), "delegate", term91539);
+        setField(term91315, term91315.getClass(), "delegate", term91427);
+        setField(term91203, term91203.getClass(), "delegate", term91315);
+        setField(term91091, term91091.getClass(), "delegate", term91203);
+        setField(term90979, term90979.getClass(), "delegate", term91091);
+        setField(term90867, term90867.getClass(), "delegate", term90979);
+        setField(term90755, term90755.getClass(), "delegate", term90867);
+        setField(term90643, term90643.getClass(), "delegate", term90755);
+        setField(term90531, term90531.getClass(), "delegate", term90643);
+        setField(term90419, term90419.getClass(), "delegate", term90531);
+        setField(term90307, term90307.getClass(), "delegate", term90419);
+        setField(term90195, term90195.getClass(), "delegate", term90307);
+        setField(term90083, term90083.getClass(), "delegate", term90195);
+        setField(term89971, term89971.getClass(), "delegate", term90083);
+        setField(term89859, term89859.getClass(), "delegate", term89971);
+        setField(term89747, term89747.getClass(), "delegate", term89859);
+        setField(term89635, term89635.getClass(), "delegate", term89747);
+        setField(term89523, term89523.getClass(), "delegate", term89635);
+        setField(term89411, term89411.getClass(), "delegate", term89523);
+        setField(term89299, term89299.getClass(), "delegate", term89411);
+        setField(term89187, term89187.getClass(), "delegate", term89299);
+        setField(term89075, term89075.getClass(), "delegate", term89187);
+        setField(term88963, term88963.getClass(), "delegate", term89075);
+        setField(term88851, term88851.getClass(), "delegate", term88963);
+        setField(term88739, term88739.getClass(), "delegate", term88851);
+        setField(term88627, term88627.getClass(), "delegate", term88739);
+        setField(term88515, term88515.getClass(), "delegate", term88627);
+        setField(term88403, term88403.getClass(), "delegate", term88515);
+        setField(term88291, term88291.getClass(), "delegate", term88403);
+        setField(term88179, term88179.getClass(), "delegate", term88291);
+        setField(term88067, term88067.getClass(), "delegate", term88179);
+        setField(term87955, term87955.getClass(), "delegate", term88067);
+        setField(term87843, term87843.getClass(), "delegate", term87955);
+        setField(term87731, term87731.getClass(), "delegate", term87843);
+        setField(term87619, term87619.getClass(), "delegate", term87731);
+        setField(term87507, term87507.getClass(), "delegate", term87619);
+        setField(term87395, term87395.getClass(), "delegate", term87507);
+        setField(term87283, term87283.getClass(), "delegate", term87395);
+        setField(term87171, term87171.getClass(), "delegate", term87283);
+        setField(term87059, term87059.getClass(), "delegate", term87171);
+        setField(term86947, term86947.getClass(), "delegate", term87059);
+        setField(term86835, term86835.getClass(), "delegate", term86947);
+        setField(term86723, term86723.getClass(), "delegate", term86835);
+        setField(term86611, term86611.getClass(), "delegate", term86723);
+        setField(term86499, term86499.getClass(), "delegate", term86611);
+        setField(term86387, term86387.getClass(), "delegate", term86499);
+        setField(term86275, term86275.getClass(), "delegate", term86387);
+        setField(term86163, term86163.getClass(), "delegate", term86275);
+        setField(term86051, term86051.getClass(), "delegate", term86163);
+        setField(term85939, term85939.getClass(), "delegate", term86051);
+        setField(term85827, term85827.getClass(), "delegate", term85939);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.collections4.trie.UnmodifiableTrie");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        try {
+            callMethod(klass, "firstKey", argTypes, term85827, args);
+            assertTrue(false);
+        }
+        catch (NoSuchElementException e) {
+        }
+
+    }
+
+};
+
+

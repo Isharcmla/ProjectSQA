@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+Entities_escape_14432844056,org.jsoup.nodes.Entities_escape_14432844056,,PASS,PASS,valid_non_revealing
+Entities_escape_6281253805,org.jsoup.nodes.Entities_escape_6281253805,,PASS,PASS,valid_non_revealing
+Entities_init_14905691074,org.jsoup.nodes.Entities_init_14905691074,,PASS,PASS,valid_non_revealing
+Entities_unescape_4951180837,org.jsoup.nodes.Entities_unescape_4951180837,,PASS,PASS,valid_non_revealing

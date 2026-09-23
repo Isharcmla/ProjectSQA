@@ -664,11 +664,39 @@ def evaluate(project, bug_id, tool, timeout_sec):
         else:
             extra_cp = str(JUNIT4_JAR)
 
-        # Put JUnit 4 before Defects4J's project classpath.
-        # Some old projects (e.g. Cli-1) expose JUnit 3.x in cp.test.
-        compile_cp = f"{extra_cp}:{cp_buggy}"
-        run_cp_buggy = f"{extra_cp}:{cp_buggy}"
-        run_cp_fixed = f"{extra_cp}:{cp_fixed}"
+        # Put the evaluator runtime before the Defects4J project classpath.
+        #
+        # Kex generated tests use the Kex runtime versions of JUnit,
+        # Hamcrest, and Mockito. Some Defects4J projects expose old or
+        # multiple versions of these libraries in cp.test (for example
+        # mockito-all-1.10.19), which can conflict with the Kex runtime.
+        def filter_kex_test_cp(cp):
+            entries = []
+
+            for entry in cp.split(":"):
+                low = entry.lower()
+
+                if any(name in low for name in (
+                    "junit",
+                    "hamcrest",
+                    "mockito",
+                )):
+                    continue
+
+                entries.append(entry)
+
+            return ":".join(entries)
+
+        if tool == "kex":
+            cp_buggy_eval = filter_kex_test_cp(cp_buggy)
+            cp_fixed_eval = filter_kex_test_cp(cp_fixed)
+        else:
+            cp_buggy_eval = cp_buggy
+            cp_fixed_eval = cp_fixed
+
+        compile_cp = f"{extra_cp}:{cp_buggy_eval}"
+        run_cp_buggy = f"{extra_cp}:{cp_buggy_eval}"
+        run_cp_fixed = f"{extra_cp}:{cp_fixed_eval}"
 
         # Compile against buggy classpath first.
         code, compile_output = compile_sources(

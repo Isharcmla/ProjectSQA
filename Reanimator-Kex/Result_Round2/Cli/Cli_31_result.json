@@ -1,0 +1,21 @@
+{
+  "project": "Cli",
+  "bug_id": "31",
+  "tool": "kex",
+  "elapsed_sec": 198.11,
+  "target_classes": [
+    "org.apache.commons.cli.HelpFormatter",
+    "org.apache.commons.cli.Option",
+    "org.apache.commons.cli.OptionBuilder"
+  ],
+  "kex_results": {
+    "org.apache.commons.cli.HelpFormatter": "success",
+    "org.apache.commons.cli.Option": "success",
+    "org.apache.commons.cli.OptionBuilder": "success"
+  },
+  "num_test_files_generated": 242,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,72 @@
+package org.apache.commons.math3.optim.nonlinear.scalar.gradient;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import org.apache.commons.math3.exception.MathUnsupportedOperationException;
+import static org.apache.commons.math3.optim.nonlinear.scalar.gradient.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class NonLinearConjugateGradientOptimizer_optimize_201200747755 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term47161;
+     Object term46320;
+
+    public NonLinearConjugateGradientOptimizer_optimize_201200747755() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term47161 = newInstance(Class.forName("org.apache.commons.math3.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizer"));
+        double[] term46322 = (double[]) newDoubleArray(489);
+        setField(term47161, term47161.getClass(), "start", null);
+        setDoubleElement(term46322, 0, 2.0);
+        setDoubleElement(term46322, 1, 2.0);
+        setDoubleElement(term46322, 2, 2.0);
+        setDoubleElement(term46322, 3, 2.0);
+        setDoubleElement(term46322, 4, 2.0);
+        setField(term47161, term47161.getClass(), "lowerBound", term46322);
+        term46320 = (Object[]) newArray("org.apache.commons.math3.optim.OptimizationData", 4);
+        Object term47289 = newInstance(Class.forName("org.apache.commons.math3.optim.nonlinear.vector.ModelFunction"));
+        setElement(term46320, 0, term47289);
+        setElement(term46320, 1, term47289);
+        setElement(term46320, 2, term47289);
+        setElement(term46320, 3, term47289);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math3.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizer");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Array.newInstance(Class.forName("org.apache.commons.math3.optim.OptimizationData"), 0).getClass();
+        Object[] args = new Object[1];
+        args[0] = term46320;
+        try {
+            callMethod(klass, "optimize", argTypes, term47161, args);
+            assertTrue(false);
+        }
+        catch (MathUnsupportedOperationException e) {
+        }
+
+    }
+
+};
+
+

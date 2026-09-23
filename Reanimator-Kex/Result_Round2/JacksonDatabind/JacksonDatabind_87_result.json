@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "87",
+  "tool": "kex",
+  "elapsed_sec": 138.94,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.util.StdDateFormat"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.util.StdDateFormat": "success"
+  },
+  "num_test_files_generated": 50,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

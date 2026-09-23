@@ -1,0 +1,212 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.google.javascript.jscomp.EqualityUtils.*;
+import java.lang.Object;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.Collection;
+import java.util.HashSet;
+
+public class TypedScopeCreator_declareNativeType_198763564716 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term2293;
+     Object term2342;
+     Object term6791;
+     Object term6807;
+
+    public TypedScopeCreator_declareNativeType_198763564716() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        HashMap term2297 = new HashMap();
+        HashMap term2304 = new HashMap();
+        Set<Object> term6815 =  ((Map) term2304).keySet();
+        HashSet term2303 = new HashSet((Collection<? extends Object>) term6815);
+        HashMap term2310 = new HashMap();
+        Set<Object> term6816 =  ((Map) term2310).keySet();
+        HashSet term2309 = new HashSet((Collection<? extends Object>) term6816);
+        HashMap term2316 = new HashMap();
+        Set<Object> term6817 =  ((Map) term2316).keySet();
+        HashSet term2315 = new HashSet((Collection<? extends Object>) term6817);
+        HashMap term2321 = new HashMap();
+        HashMap term2327 = new HashMap();
+        HashMap term2332 = new HashMap();
+        term2293 = newInstance(Class.forName("com.google.javascript.jscomp.TypedScopeCreator"));
+        Object term2294 = newInstance(Class.forName("com.google.javascript.jscomp.TypeValidator"));
+        Object term2295 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry"));
+        Object[] term2296 = (Object[]) newArray("com.google.javascript.rhino.jstype.JSType", 3);
+        setField(term2293, term2293.getClass(), "compiler", null);
+        setField(term2293, term2293.getClass(), "typeParsingErrorReporter", null);
+        setField(term2294, term2294.getClass(), "compiler", null);
+        setField(term2295, term2295.getClass(), "reporter", null);
+        setField(term2295, term2295.getClass(), "nativeTypes", term2296);
+        setField(term2295, term2295.getClass(), "namesToTypes", term2297);
+        setField(term2295, term2295.getClass(), "namespaces", term2303);
+        setField(term2295, term2295.getClass(), "nonNullableTypeNames", term2309);
+        setField(term2295, term2295.getClass(), "forwardDeclaredTypes", term2315);
+        setField(term2295, term2295.getClass(), "typesIndexedByProperty", term2321);
+        setField(term2295, term2295.getClass(), "eachRefTypeIndexedByProperty", term2327);
+        setField(term2295, term2295.getClass(), "greatestSubtypeByProperty", term2332);
+        setField(term2295, term2295.getClass(), "interfaceToImplementors", null);
+        setField(term2295, term2295.getClass(), "unresolvedNamedTypes", null);
+        setField(term2295, term2295.getClass(), "resolvedNamedTypes", null);
+        setBooleanField(term2295, term2295.getClass(), "lastGeneration", false);
+        setField(term2295, term2295.getClass(), "templateTypeName", null);
+        setField(term2295, term2295.getClass(), "templateType", null);
+        setBooleanField(term2295, term2295.getClass(), "tolerateUndefinedValues", false);
+        setField(term2295, term2295.getClass(), "resolveMode", null);
+        setField(term2294, term2294.getClass(), "typeRegistry", term2295);
+        setField(term2294, term2294.getClass(), "allValueTypes", null);
+        setBooleanField(term2294, term2294.getClass(), "shouldReport", false);
+        setBooleanField(term2294, term2294.getClass(), "recordErrors", false);
+        setField(term2294, term2294.getClass(), "nullOrUndefined", null);
+        setField(term2294, term2294.getClass(), "mismatches", null);
+        setField(term2293, term2293.getClass(), "validator", term2294);
+        setField(term2293, term2293.getClass(), "codingConvention", null);
+        setField(term2293, term2293.getClass(), "typeRegistry", null);
+        setField(term2293, term2293.getClass(), "delegateProxyPrototypes", null);
+        setField(term2293, term2293.getClass(), "delegateCallingConventions", null);
+        HashMap term2343 = new HashMap();
+        term2342 = newInstance(Class.forName("com.google.javascript.jscomp.Scope"));
+        Object term2356 = newInstance(Class.forName("com.google.javascript.jscomp.Scope"));
+        Object term2360 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setField(term2342, term2342.getClass(), "vars", term2343);
+        setField(term2356, term2356.getClass(), "vars", null);
+        setField(term2356, term2356.getClass(), "parent", null);
+        setIntField(term2356, term2356.getClass(), "depth", 0);
+        setField(term2356, term2356.getClass(), "rootNode", null);
+        setField(term2356, term2356.getClass(), "thisType", null);
+        setBooleanField(term2356, term2356.getClass(), "isBottom", false);
+        setField(term2356, term2356.getClass(), "arguments", null);
+        setField(term2342, term2342.getClass(), "parent", term2356);
+        setIntField(term2342, term2342.getClass(), "depth", 972867650);
+        setIntField(term2360, term2360.getClass(), "type", 0);
+        setField(term2360, term2360.getClass(), "next", null);
+        setField(term2360, term2360.getClass(), "first", null);
+        setField(term2360, term2360.getClass(), "last", null);
+        setField(term2360, term2360.getClass(), "propListHead", null);
+        setIntField(term2360, term2360.getClass(), "sourcePosition", 0);
+        setField(term2360, term2360.getClass(), "jsType", null);
+        setField(term2360, term2360.getClass(), "parent", null);
+        setField(term2342, term2342.getClass(), "rootNode", term2360);
+        setField(term2342, term2342.getClass(), "thisType", null);
+        setBooleanField(term2342, term2342.getClass(), "isBottom", false);
+        setField(term2342, term2342.getClass(), "arguments", null);
+        HashMap term6795 = new HashMap();
+        HashMap term6797 = new HashMap();
+        Set<Object> term6828 =  ((Map) term6797).keySet();
+        HashSet term6796 = new HashSet((Collection<? extends Object>) term6828);
+        HashMap term6799 = new HashMap();
+        Set<Object> term6829 =  ((Map) term6799).keySet();
+        HashSet term6798 = new HashSet((Collection<? extends Object>) term6829);
+        HashMap term6801 = new HashMap();
+        Set<Object> term6830 =  ((Map) term6801).keySet();
+        HashSet term6800 = new HashSet((Collection<? extends Object>) term6830);
+        HashMap term6802 = new HashMap();
+        HashMap term6803 = new HashMap();
+        HashMap term6804 = new HashMap();
+        term6791 = newInstance(Class.forName("com.google.javascript.jscomp.TypedScopeCreator"));
+        Object term6792 = newInstance(Class.forName("com.google.javascript.jscomp.TypeValidator"));
+        Object term6793 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry"));
+        Object[] term6794 = (Object[]) newArray("com.google.javascript.rhino.jstype.JSType", 3);
+        setField(term6791, term6791.getClass(), "compiler", null);
+        setField(term6791, term6791.getClass(), "typeParsingErrorReporter", null);
+        setField(term6792, term6792.getClass(), "compiler", null);
+        setField(term6793, term6793.getClass(), "reporter", null);
+        setField(term6793, term6793.getClass(), "nativeTypes", term6794);
+        setField(term6793, term6793.getClass(), "namesToTypes", term6795);
+        setField(term6793, term6793.getClass(), "namespaces", term6796);
+        setField(term6793, term6793.getClass(), "nonNullableTypeNames", term6798);
+        setField(term6793, term6793.getClass(), "forwardDeclaredTypes", term6800);
+        setField(term6793, term6793.getClass(), "typesIndexedByProperty", term6802);
+        setField(term6793, term6793.getClass(), "eachRefTypeIndexedByProperty", term6803);
+        setField(term6793, term6793.getClass(), "greatestSubtypeByProperty", term6804);
+        setField(term6793, term6793.getClass(), "interfaceToImplementors", null);
+        setField(term6793, term6793.getClass(), "unresolvedNamedTypes", null);
+        setField(term6793, term6793.getClass(), "resolvedNamedTypes", null);
+        setBooleanField(term6793, term6793.getClass(), "lastGeneration", false);
+        setField(term6793, term6793.getClass(), "templateTypeName", null);
+        setField(term6793, term6793.getClass(), "templateType", null);
+        setBooleanField(term6793, term6793.getClass(), "tolerateUndefinedValues", false);
+        setField(term6793, term6793.getClass(), "resolveMode", null);
+        setField(term6792, term6792.getClass(), "typeRegistry", term6793);
+        setField(term6792, term6792.getClass(), "allValueTypes", null);
+        setBooleanField(term6792, term6792.getClass(), "shouldReport", false);
+        setBooleanField(term6792, term6792.getClass(), "recordErrors", false);
+        setField(term6792, term6792.getClass(), "nullOrUndefined", null);
+        setField(term6792, term6792.getClass(), "mismatches", null);
+        setField(term6791, term6791.getClass(), "validator", term6792);
+        setField(term6791, term6791.getClass(), "codingConvention", null);
+        setField(term6791, term6791.getClass(), "typeRegistry", null);
+        setField(term6791, term6791.getClass(), "delegateProxyPrototypes", null);
+        setField(term6791, term6791.getClass(), "delegateCallingConventions", null);
+        HashMap term6808 = new HashMap();
+        term6807 = newInstance(Class.forName("com.google.javascript.jscomp.Scope"));
+        Object term6813 = newInstance(Class.forName("com.google.javascript.jscomp.Scope"));
+        Object term6814 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setField(term6807, term6807.getClass(), "vars", term6808);
+        setField(term6813, term6813.getClass(), "vars", null);
+        setField(term6813, term6813.getClass(), "parent", null);
+        setIntField(term6813, term6813.getClass(), "depth", 0);
+        setField(term6813, term6813.getClass(), "rootNode", null);
+        setField(term6813, term6813.getClass(), "thisType", null);
+        setBooleanField(term6813, term6813.getClass(), "isBottom", false);
+        setField(term6813, term6813.getClass(), "arguments", null);
+        setField(term6807, term6807.getClass(), "parent", term6813);
+        setIntField(term6807, term6807.getClass(), "depth", 972867650);
+        setIntField(term6814, term6814.getClass(), "type", 0);
+        setField(term6814, term6814.getClass(), "next", null);
+        setField(term6814, term6814.getClass(), "first", null);
+        setField(term6814, term6814.getClass(), "last", null);
+        setField(term6814, term6814.getClass(), "propListHead", null);
+        setIntField(term6814, term6814.getClass(), "sourcePosition", 0);
+        setField(term6814, term6814.getClass(), "jsType", null);
+        setField(term6814, term6814.getClass(), "parent", null);
+        setField(term6807, term6807.getClass(), "rootNode", term6814);
+        setField(term6807, term6807.getClass(), "thisType", null);
+        setBooleanField(term6807, term6807.getClass(), "isBottom", false);
+        setField(term6807, term6807.getClass(), "arguments", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.TypedScopeCreator");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Class.forName("com.google.javascript.jscomp.Scope");
+        argTypes[1] = Class.forName("java.lang.String");
+        argTypes[2] = Class.forName("com.google.javascript.rhino.jstype.JSType");
+        Object[] args = new Object[3];
+        args[0] = term2342;
+        args[1] = "XJJNClzHRf";
+        args[2] = null;
+        callMethod(klass, "declareNativeType", argTypes, term2293, args);
+        assertTrue(recursiveEquals(term2293, term6791));
+        assertTrue(recursiveEquals(term2342, "XJJNClzHRf"));
+    }
+
+};
+
+

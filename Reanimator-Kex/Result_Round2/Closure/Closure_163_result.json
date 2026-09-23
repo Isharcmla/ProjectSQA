@@ -1,0 +1,19 @@
+{
+  "project": "Closure",
+  "bug_id": "163",
+  "tool": "kex",
+  "elapsed_sec": 282.04,
+  "target_classes": [
+    "com.google.javascript.jscomp.AnalyzePrototypeProperties",
+    "com.google.javascript.jscomp.CrossModuleMethodMotion"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.AnalyzePrototypeProperties": "success",
+    "com.google.javascript.jscomp.CrossModuleMethodMotion": "success"
+  },
+  "num_test_files_generated": 34,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

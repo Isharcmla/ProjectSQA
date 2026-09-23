@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "4",
+  "tool": "kex",
+  "elapsed_sec": 28.66,
+  "target_classes": [
+    "org.jfree.chart.plot.XYPlot"
+  ],
+  "kex_results": {
+    "org.jfree.chart.plot.XYPlot": "success"
+  },
+  "num_test_files_generated": 232,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

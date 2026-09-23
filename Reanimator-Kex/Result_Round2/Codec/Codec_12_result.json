@@ -1,0 +1,17 @@
+{
+  "project": "Codec",
+  "bug_id": "12",
+  "tool": "kex",
+  "elapsed_sec": 28.22,
+  "target_classes": [
+    "org.apache.commons.codec.binary.BaseNCodecInputStream"
+  ],
+  "kex_results": {
+    "org.apache.commons.codec.binary.BaseNCodecInputStream": "success"
+  },
+  "num_test_files_generated": 62,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

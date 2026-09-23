@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "11",
+  "tool": "kex",
+  "elapsed_sec": 30.83,
+  "target_classes": [
+    "org.jfree.chart.util.ShapeUtilities"
+  ],
+  "kex_results": {
+    "org.jfree.chart.util.ShapeUtilities": "success"
+  },
+  "num_test_files_generated": 26,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

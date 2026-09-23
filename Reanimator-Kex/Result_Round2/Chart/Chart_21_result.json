@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "21",
+  "tool": "kex",
+  "elapsed_sec": 101.3,
+  "target_classes": [
+    "org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset"
+  ],
+  "kex_results": {
+    "org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset": "success"
+  },
+  "num_test_files_generated": 141,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

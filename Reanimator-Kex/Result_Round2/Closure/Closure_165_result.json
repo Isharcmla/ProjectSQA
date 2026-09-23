@@ -1,0 +1,23 @@
+{
+  "project": "Closure",
+  "bug_id": "165",
+  "tool": "kex",
+  "elapsed_sec": 590.69,
+  "target_classes": [
+    "com.google.javascript.rhino.jstype.JSTypeRegistry",
+    "com.google.javascript.rhino.jstype.ObjectType",
+    "com.google.javascript.rhino.jstype.RecordType",
+    "com.google.javascript.rhino.jstype.RecordTypeBuilder"
+  ],
+  "kex_results": {
+    "com.google.javascript.rhino.jstype.JSTypeRegistry": "timeout",
+    "com.google.javascript.rhino.jstype.ObjectType": "success",
+    "com.google.javascript.rhino.jstype.RecordType": "success",
+    "com.google.javascript.rhino.jstype.RecordTypeBuilder": "success"
+  },
+  "num_test_files_generated": 255,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

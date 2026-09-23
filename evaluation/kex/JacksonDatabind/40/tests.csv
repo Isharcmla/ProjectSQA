@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+NumberDeserializers_find_18122683673,com.fasterxml.jackson.databind.deser.std.NumberDeserializers_find_18122683673,,PASS,PASS,valid_non_revealing
+NumberDeserializers_find_18122683675,com.fasterxml.jackson.databind.deser.std.NumberDeserializers_find_18122683675,,FAIL,FAIL,invalid_or_unstable
+NumberDeserializers_find_18122683677,com.fasterxml.jackson.databind.deser.std.NumberDeserializers_find_18122683677,,FAIL,FAIL,invalid_or_unstable
+NumberDeserializers_init_12023768572,com.fasterxml.jackson.databind.deser.std.NumberDeserializers_init_12023768572,,PASS,PASS,valid_non_revealing

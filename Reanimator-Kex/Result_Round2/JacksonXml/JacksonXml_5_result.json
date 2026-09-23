@@ -1,0 +1,17 @@
+{
+  "project": "JacksonXml",
+  "bug_id": "5",
+  "tool": "kex",
+  "elapsed_sec": 25.95,
+  "target_classes": [
+    "com.fasterxml.jackson.dataformat.xml.ser.XmlSerializerProvider"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.dataformat.xml.ser.XmlSerializerProvider": "success"
+  },
+  "num_test_files_generated": 15,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

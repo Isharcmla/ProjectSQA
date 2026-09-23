@@ -1,0 +1,66 @@
+package org.jfree.data.time;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import org.jfree.data.general.SeriesException;
+import static org.jfree.data.time.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.String;
+import java.lang.Object;
+
+public class TimeSeries_add_1161410491445 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term211821;
+     Object term211884;
+
+    public TimeSeries_add_1161410491445() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Class<? extends Object> term211857 = Class.forName((String) "java.util.EnumSet$SerializationProxy");
+        term211821 = newInstance(Class.forName("org.jfree.data.time.TimeSeries"));
+        setField(term211821, term211821.getClass(), "timePeriodClass", term211857);
+        term211884 = newInstance(Class.forName("org.jfree.data.time.Hour"));
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jfree.data.time.TimeSeries");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Class.forName("org.jfree.data.time.RegularTimePeriod");
+        argTypes[1] = Class.forName("java.lang.Number");
+        argTypes[2] = boolean.class;
+        Object[] args = new Object[3];
+        args[0] = term211884;
+        args[1] = null;
+        args[2] = false;
+        try {
+            callMethod(klass, "add", argTypes, term211821, args);
+            assertTrue(false);
+        }
+        catch (SeriesException e) {
+        }
+
+    }
+
+};
+
+

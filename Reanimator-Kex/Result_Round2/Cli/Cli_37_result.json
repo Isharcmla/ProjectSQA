@@ -1,0 +1,17 @@
+{
+  "project": "Cli",
+  "bug_id": "37",
+  "tool": "kex",
+  "elapsed_sec": 223.27,
+  "target_classes": [
+    "org.apache.commons.cli.DefaultParser"
+  ],
+  "kex_results": {
+    "org.apache.commons.cli.DefaultParser": "success"
+  },
+  "num_test_files_generated": 63,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

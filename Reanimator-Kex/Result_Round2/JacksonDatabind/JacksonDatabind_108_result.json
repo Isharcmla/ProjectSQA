@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "108",
+  "tool": "kex",
+  "elapsed_sec": 314.13,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ObjectReader"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.ObjectReader": "timeout"
+  },
+  "num_test_files_generated": 193,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

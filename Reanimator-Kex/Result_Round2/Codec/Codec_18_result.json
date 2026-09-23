@@ -1,0 +1,17 @@
+{
+  "project": "Codec",
+  "bug_id": "18",
+  "tool": "kex",
+  "elapsed_sec": 24.68,
+  "target_classes": [
+    "org.apache.commons.codec.binary.StringUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.codec.binary.StringUtils": "success"
+  },
+  "num_test_files_generated": 32,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -11,5 +11,8 @@
     "com.fasterxml.jackson.core.io.NumberInput": "success",
     "com.fasterxml.jackson.core.util.TextBuffer": "success"
   },
-  "status": "success"
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
 }

@@ -1,0 +1,80 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class MinimizeExitPoints_tryMinimizeIfBlockExits_1323798267177 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term54004;
+     Object term54074;
+     Object term54144;
+     Object term54236;
+
+    public MinimizeExitPoints_tryMinimizeIfBlockExits_1323798267177() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term54004 = newInstance(Class.forName("com.google.javascript.jscomp.MinimizeExitPoints"));
+        term54074 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setIntField(term54074, term54074.getClass(), "type", 0);
+        setField(term54074, term54074.getClass(), "first", null);
+        term54144 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        term54236 = newInstance(Class.forName("com.google.javascript.rhino.Node$NumberNode"));
+        Object term54306 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term54408 = newInstance(Class.forName("com.google.javascript.rhino.Node$IntPropListItem"));
+        setField(term54236, term54236.getClass(), "next", term54306);
+        setIntField(term54408, term54408.getClass(), "propType", 0);
+        setField(term54408, term54408.getClass(), "next", null);
+        setField(term54236, term54236.getClass(), "propListHead", term54408);
+        setIntField(term54236, term54236.getClass(), "sourcePosition", 0);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.MinimizeExitPoints");
+        Class<?>[] argTypes = new Class<?>[5];
+        argTypes[0] = Class.forName("com.google.javascript.rhino.Node");
+        argTypes[1] = Class.forName("com.google.javascript.rhino.Node");
+        argTypes[2] = Class.forName("com.google.javascript.rhino.Node");
+        argTypes[3] = int.class;
+        argTypes[4] = Class.forName("java.lang.String");
+        Object[] args = new Object[5];
+        args[0] = term54074;
+        args[1] = term54144;
+        args[2] = term54236;
+        args[3] = 0;
+        args[4] = null;
+        try {
+            callMethod(klass, "tryMinimizeIfBlockExits", argTypes, term54004, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

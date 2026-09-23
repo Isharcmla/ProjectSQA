@@ -11,5 +11,8 @@
     "org.joda.time.field.UnsupportedDurationField": "success",
     "org.joda.time.Partial": "timeout"
   },
-  "status": "timeout"
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
 }

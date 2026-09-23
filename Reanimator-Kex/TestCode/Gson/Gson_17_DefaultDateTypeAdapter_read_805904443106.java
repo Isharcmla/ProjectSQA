@@ -1,0 +1,63 @@
+package com.google.gson;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.IndexOutOfBoundsException;
+import static com.google.gson.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class DefaultDateTypeAdapter_read_805904443106 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term39837;
+     Object term39909;
+
+    public DefaultDateTypeAdapter_read_805904443106() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term39837 = newInstance(Class.forName("com.google.gson.DefaultDateTypeAdapter"));
+        term39909 = newInstance(Class.forName("com.google.gson.stream.JsonReader"));
+        char[] term39662 = (char[]) newCharArray(0);
+        setIntField(term39909, term39909.getClass(), "peeked", 10);
+        setIntField(term39909, term39909.getClass(), "pos", -2147483648);
+        setIntField(term39909, term39909.getClass(), "limit", -2147483648);
+        setField(term39909, term39909.getClass(), "buffer", term39662);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.gson.DefaultDateTypeAdapter");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("com.google.gson.stream.JsonReader");
+        Object[] args = new Object[1];
+        args[0] = term39909;
+        try {
+            callMethod(klass, "read", argTypes, term39837, args);
+            assertTrue(false);
+        }
+        catch (IndexOutOfBoundsException e) {
+        }
+
+    }
+
+};
+
+

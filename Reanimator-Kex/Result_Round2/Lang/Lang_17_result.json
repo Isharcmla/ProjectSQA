@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "17",
+  "tool": "kex",
+  "elapsed_sec": 27.51,
+  "target_classes": [
+    "org.apache.commons.lang3.text.translate.CharSequenceTranslator"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang3.text.translate.CharSequenceTranslator": "success"
+  },
+  "num_test_files_generated": 6,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

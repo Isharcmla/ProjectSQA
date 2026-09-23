@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "105",
+  "tool": "kex",
+  "elapsed_sec": 135.7,
+  "target_classes": [
+    "com.google.javascript.jscomp.FoldConstants"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.FoldConstants": "failed"
+  },
+  "num_test_files_generated": 256,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

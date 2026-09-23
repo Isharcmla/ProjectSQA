@@ -1,0 +1,7 @@
+test,fqcn,method,buggy,fixed,classification
+ValuedEnum_compareTo_7343070976,org.apache.commons.lang.enums.ValuedEnum_compareTo_7343070976,,PASS,PASS,valid_non_revealing
+ValuedEnum_getEnum_171292296911,org.apache.commons.lang.enums.ValuedEnum_getEnum_171292296911,,PASS,PASS,valid_non_revealing
+ValuedEnum_getEnum_17129229694,org.apache.commons.lang.enums.ValuedEnum_getEnum_17129229694,,PASS,PASS,valid_non_revealing
+ValuedEnum_getEnum_17129229699,org.apache.commons.lang.enums.ValuedEnum_getEnum_17129229699,,PASS,PASS,valid_non_revealing
+ValuedEnum_getValue_19497067475,org.apache.commons.lang.enums.ValuedEnum_getValue_19497067475,,PASS,PASS,valid_non_revealing
+ValuedEnum_toString_7686142357,org.apache.commons.lang.enums.ValuedEnum_toString_7686142357,,PASS,PASS,valid_non_revealing

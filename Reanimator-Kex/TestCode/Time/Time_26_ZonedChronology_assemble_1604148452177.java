@@ -1,0 +1,89 @@
+package org.joda.time.chrono;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.joda.time.chrono.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class ZonedChronology_assemble_1604148452177 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term65088;
+     Object term65188;
+
+    public ZonedChronology_assemble_1604148452177() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term65088 = newInstance(Class.forName("org.joda.time.chrono.ZonedChronology"));
+        term65188 = newInstance(Class.forName("org.joda.time.chrono.AssembledChronology$Fields"));
+        Object term65276 = newInstance(Class.forName("org.joda.time.field.SkipUndoDateTimeField"));
+        setField(term65188, term65188.getClass(), "eras", null);
+        setField(term65188, term65188.getClass(), "centuries", null);
+        setField(term65188, term65188.getClass(), "years", null);
+        setField(term65188, term65188.getClass(), "months", null);
+        setField(term65188, term65188.getClass(), "weekyears", null);
+        setField(term65188, term65188.getClass(), "weeks", null);
+        setField(term65188, term65188.getClass(), "days", null);
+        setField(term65188, term65188.getClass(), "halfdays", null);
+        setField(term65188, term65188.getClass(), "hours", null);
+        setField(term65188, term65188.getClass(), "minutes", null);
+        setField(term65188, term65188.getClass(), "seconds", null);
+        setField(term65188, term65188.getClass(), "millis", null);
+        setField(term65188, term65188.getClass(), "year", null);
+        setField(term65188, term65188.getClass(), "yearOfEra", null);
+        setField(term65188, term65188.getClass(), "yearOfCentury", null);
+        setField(term65188, term65188.getClass(), "centuryOfEra", null);
+        setField(term65188, term65188.getClass(), "era", null);
+        setField(term65188, term65188.getClass(), "dayOfWeek", null);
+        setField(term65188, term65188.getClass(), "dayOfMonth", null);
+        setField(term65188, term65188.getClass(), "dayOfYear", null);
+        setField(term65188, term65188.getClass(), "monthOfYear", null);
+        setField(term65188, term65188.getClass(), "weekOfWeekyear", null);
+        setField(term65188, term65188.getClass(), "weekyear", null);
+        setField(term65188, term65188.getClass(), "weekyearOfCentury", null);
+        setField(term65188, term65188.getClass(), "millisOfSecond", null);
+        setField(term65188, term65188.getClass(), "millisOfDay", null);
+        setField(term65188, term65188.getClass(), "secondOfMinute", null);
+        setField(term65188, term65188.getClass(), "secondOfDay", null);
+        setField(term65188, term65188.getClass(), "minuteOfHour", term65276);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.joda.time.chrono.ZonedChronology");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("org.joda.time.chrono.AssembledChronology$Fields");
+        Object[] args = new Object[1];
+        args[0] = term65188;
+        try {
+            callMethod(klass, "assemble", argTypes, term65088, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

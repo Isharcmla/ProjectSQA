@@ -1,0 +1,260 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.lang.String;
+import java.util.ArrayList;
+
+public class CommandLineRunner_createExterns_185043600214 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term6462;
+
+    public CommandLineRunner_createExterns_185043600214() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Class<? extends Object> term28406 = Class.forName((String) "com.google.javascript.jscomp.CompilerOptions$DevMode");
+        Field term28405 = ((Class) term28406).getDeclaredField((String) "OFF");
+        ((Field) term28405).setAccessible(true);
+        Object enum61 = ((Field) term28405).get((Object) null);
+        ArrayList term6485 = new ArrayList();
+        ArrayList term6489 = new ArrayList();
+        ArrayList term6495 = new ArrayList();
+        ArrayList term6522 = new ArrayList();
+        ArrayList term6532 = new ArrayList();
+        ArrayList term6536 = new ArrayList();
+        ArrayList term6540 = new ArrayList();
+        ArrayList term6544 = new ArrayList();
+        Class<? extends Object> term28699 = Class.forName((String) "com.google.javascript.jscomp.CompilationLevel");
+        Field term28698 = ((Class) term28699).getDeclaredField((String) "SIMPLE_OPTIMIZATIONS");
+        ((Field) term28698).setAccessible(true);
+        Object enum62 = ((Field) term28698).get((Object) null);
+        Class<? extends Object> term28991 = Class.forName((String) "com.google.javascript.jscomp.WarningLevel");
+        Field term28990 = ((Class) term28991).getDeclaredField((String) "DEFAULT");
+        ((Field) term28990).setAccessible(true);
+        Object enum63 = ((Field) term28990).get((Object) null);
+        ArrayList term6587 = new ArrayList();
+        ArrayList term6610 = new ArrayList();
+        ArrayList term6614 = new ArrayList();
+        ArrayList term6620 = new ArrayList();
+        ArrayList term6639 = new ArrayList();
+        Class<? extends Object> term29231 = Class.forName((String) "com.google.javascript.jscomp.SourceMap$DetailLevel");
+        Field term29230 = ((Class) term29231).getDeclaredField((String) "ALL");
+        ((Field) term29230).setAccessible(true);
+        Object enum64 = ((Field) term29230).get((Object) null);
+        Class<? extends Object> term29497 = Class.forName((String) "com.google.javascript.jscomp.SourceMap$Format");
+        Field term29496 = ((Class) term29497).getDeclaredField((String) "LEGACY");
+        ((Field) term29496).setAccessible(true);
+        Object enum65 = ((Field) term29496).get((Object) null);
+        ArrayList term6664 = new ArrayList();
+        ArrayList term6668 = new ArrayList();
+        ArrayList term6672 = new ArrayList();
+        ArrayList term6676 = new ArrayList();
+        ArrayList term6767 = new ArrayList();
+        term6462 = newInstance(Class.forName("com.google.javascript.jscomp.CommandLineRunner"));
+        Object term6463 = newInstance(Class.forName("com.google.javascript.jscomp.CommandLineRunner$Flags"));
+        Object term6596 = newInstance(Class.forName("com.google.javascript.jscomp.AbstractCommandLineRunner$CommandLineConfig"));
+        Object term6633 = newInstance(Class.forName("com.google.javascript.jscomp.DefaultCodingConvention"));
+        Object term6685 = newInstance(Class.forName("java.io.PrintStream"));
+        Object term6688 = newInstance(Class.forName("java.util.Formatter"));
+        Object term6689 = newInstance(Class.forName("java.lang.StringBuilder"));
+        byte[] term6690 = (byte[]) newByteArray(16);
+        Object term6709 = newInstance(Class.forName("java.util.Locale"));
+        Object term6710 = newInstance(Class.forName("sun.util.locale.BaseLocale"));
+        Object term6714 = newInstance(Class.forName("java.io.IOException"));
+        Object[] term6715 = (Object[]) newArray("java.lang.Object", 5);
+        Object[] term6717 = (Object[]) newArray("java.lang.StackTraceElement", 0);
+        Object term6719 = newInstance(Class.forName("java.util.Collections$EmptyList"));
+        Object term6722 = newInstance(Class.forName("java.io.BufferedWriter"));
+        char[] term6723 = (char[]) newCharArray(5);
+        char[] term6731 = (char[]) newCharArray(6);
+        Object term6738 = newInstance(Class.forName("java.lang.Object"));
+        Object term6739 = newInstance(Class.forName("java.io.OutputStreamWriter"));
+        char[] term6740 = (char[]) newCharArray(5);
+        Object term6746 = newInstance(Class.forName("java.lang.Object"));
+        Object term6749 = newInstance(Class.forName("java.lang.Object"));
+        Object term6763 = newInstance(Class.forName("com.google.javascript.jscomp.AbstractCommandLineRunner$RunTimeStats"));
+        setBooleanField(term6463, term6463.getClass(), "display_help", false);
+        setBooleanField(term6463, term6463.getClass(), "print_tree", true);
+        setBooleanField(term6463, term6463.getClass(), "compute_phase_ordering", false);
+        setBooleanField(term6463, term6463.getClass(), "print_ast", false);
+        setBooleanField(term6463, term6463.getClass(), "print_pass_graph", true);
+        setField(term6463, term6463.getClass(), "jscomp_dev_mode", enum61);
+        setField(term6463, term6463.getClass(), "logging_level", "WARNING");
+        setField(term6463, term6463.getClass(), "externs", term6485);
+        setField(term6463, term6463.getClass(), "js", term6489);
+        setField(term6463, term6463.getClass(), "js_output_file", "");
+        setField(term6463, term6463.getClass(), "module", term6495);
+        setField(term6463, term6463.getClass(), "variable_map_input_file", "");
+        setField(term6463, term6463.getClass(), "property_map_input_file", "");
+        setField(term6463, term6463.getClass(), "variable_map_output_file", "");
+        setBooleanField(term6463, term6463.getClass(), "create_name_map_files", false);
+        setField(term6463, term6463.getClass(), "property_map_output_file", "");
+        setBooleanField(term6463, term6463.getClass(), "third_party", true);
+        setIntField(term6463, term6463.getClass(), "summary_detail_level", 1);
+        setField(term6463, term6463.getClass(), "output_wrapper", "");
+        setField(term6463, term6463.getClass(), "output_wrapper_marker", "%output%");
+        setField(term6463, term6463.getClass(), "module_wrapper", term6522);
+        setField(term6463, term6463.getClass(), "module_output_path_prefix", "./");
+        setField(term6463, term6463.getClass(), "create_source_map", "");
+        setField(term6463, term6463.getClass(), "jscomp_error", term6532);
+        setField(term6463, term6463.getClass(), "jscomp_warning", term6536);
+        setField(term6463, term6463.getClass(), "jscomp_off", term6540);
+        setField(term6463, term6463.getClass(), "define", term6544);
+        setField(term6463, term6463.getClass(), "charset", "");
+        setField(term6463, term6463.getClass(), "compilation_level", enum62);
+        setField(term6463, term6463.getClass(), "warning_level", enum63);
+        setBooleanField(term6463, term6463.getClass(), "use_only_custom_externs", false);
+        setBooleanField(term6463, term6463.getClass(), "debug", true);
+        setField(term6463, term6463.getClass(), "formatting", term6587);
+        setBooleanField(term6463, term6463.getClass(), "process_closure_primitives", true);
+        setBooleanField(term6463, term6463.getClass(), "manage_closure_dependencies", false);
+        setField(term6463, term6463.getClass(), "output_manifest", "");
+        setField(term6462, term6462.getClass(), "flags", term6463);
+        setBooleanField(term6462, term6462.getClass(), "isConfigValid", false);
+        setBooleanField(term6596, term6596.getClass(), "printTree", true);
+        setBooleanField(term6596, term6596.getClass(), "computePhaseOrdering", true);
+        setBooleanField(term6596, term6596.getClass(), "printAst", true);
+        setBooleanField(term6596, term6596.getClass(), "printPassGraph", true);
+        setField(term6596, term6596.getClass(), "jscompDevMode", enum61);
+        setField(term6596, term6596.getClass(), "loggingLevel", "WARNING");
+        setField(term6596, term6596.getClass(), "externs", term6610);
+        setField(term6596, term6596.getClass(), "js", term6614);
+        setField(term6596, term6596.getClass(), "jsOutputFile", "");
+        setField(term6596, term6596.getClass(), "module", term6620);
+        setField(term6596, term6596.getClass(), "variableMapInputFile", "");
+        setField(term6596, term6596.getClass(), "propertyMapInputFile", "");
+        setField(term6596, term6596.getClass(), "variableMapOutputFile", "");
+        setBooleanField(term6596, term6596.getClass(), "createNameMapFiles", true);
+        setField(term6596, term6596.getClass(), "propertyMapOutputFile", "");
+        setField(term6596, term6596.getClass(), "codingConvention", term6633);
+        setIntField(term6596, term6596.getClass(), "summaryDetailLevel", 1);
+        setField(term6596, term6596.getClass(), "outputWrapper", "");
+        setField(term6596, term6596.getClass(), "outputWrapperMarker", "");
+        setField(term6596, term6596.getClass(), "moduleWrapper", term6639);
+        setField(term6596, term6596.getClass(), "moduleOutputPathPrefix", "");
+        setField(term6596, term6596.getClass(), "createSourceMap", "");
+        setField(term6596, term6596.getClass(), "sourceMapDetailLevel", enum64);
+        setField(term6596, term6596.getClass(), "sourceMapFormat", enum65);
+        setField(term6596, term6596.getClass(), "jscompError", term6664);
+        setField(term6596, term6596.getClass(), "jscompWarning", term6668);
+        setField(term6596, term6596.getClass(), "jscompOff", term6672);
+        setField(term6596, term6596.getClass(), "define", term6676);
+        setField(term6596, term6596.getClass(), "charset", "");
+        setBooleanField(term6596, term6596.getClass(), "manageClosureDependencies", false);
+        setField(term6596, term6596.getClass(), "outputManifest", "");
+        setField(term6462, term6462.getClass(), "config", term6596);
+        setField(term6462, term6462.getClass(), "out", null);
+        setBooleanField(term6685, term6685.getClass(), "autoFlush", false);
+        setBooleanField(term6685, term6685.getClass(), "trouble", true);
+        setField(term6689, term6689.getClass(), "value", term6690);
+        setByteField(term6689, term6689.getClass(), "coder", (byte) 0);
+        setIntField(term6689, term6689.getClass(), "count", 0);
+        setField(term6688, term6688.getClass(), "a", term6689);
+        setField(term6710, term6710.getClass(), "language", null);
+        setField(term6710, term6710.getClass(), "script", null);
+        setField(term6710, term6710.getClass(), "region", null);
+        setField(term6710, term6710.getClass(), "variant", null);
+        setIntField(term6710, term6710.getClass(), "hash", 96636889);
+        setField(term6709, term6709.getClass(), "baseLocale", term6710);
+        setField(term6709, term6709.getClass(), "localeExtensions", null);
+        setIntField(term6709, term6709.getClass(), "hashCodeValue", 96636889);
+        setField(term6709, term6709.getClass(), "languageTag", "");
+        setField(term6688, term6688.getClass(), "l", term6709);
+        setField(term6714, term6714.getClass(), "backtrace", term6715);
+        setField(term6714, term6714.getClass(), "detailMessage", "");
+        setField(term6714, term6714.getClass(), "cause", term6714);
+        setField(term6714, term6714.getClass(), "stackTrace", term6717);
+        setIntField(term6714, term6714.getClass(), "depth", 49);
+        setIntField(term6719, term6719.getClass(), "modCount", 0);
+        setField(term6714, term6714.getClass(), "suppressedExceptions", term6719);
+        setField(term6688, term6688.getClass(), "lastException", term6714);
+        setCharField(term6688, term6688.getClass(), "zero", (char) 48);
+        setField(term6685, term6685.getClass(), "formatter", term6688);
+        setField(term6722, term6722.getClass(), "out", null);
+        setCharElement(term6723, 0, 'p');
+        setCharElement(term6723, 1, 'O');
+        setCharElement(term6723, 2, 'Q');
+        setCharElement(term6723, 3, 'T');
+        setCharElement(term6723, 4, 'y');
+        setField(term6722, term6722.getClass(), "cb", term6723);
+        setIntField(term6722, term6722.getClass(), "nChars", 1134449235);
+        setIntField(term6722, term6722.getClass(), "nextChar", -883034806);
+        setCharElement(term6731, 0, 'S');
+        setCharElement(term6731, 1, 'M');
+        setCharElement(term6731, 2, 'j');
+        setCharElement(term6731, 3, 'G');
+        setCharElement(term6731, 4, 'Y');
+        setCharElement(term6731, 5, 'S');
+        setField(term6722, term6722.getClass(), "writeBuffer", term6731);
+        setField(term6722, term6722.getClass(), "lock", term6738);
+        setField(term6685, term6685.getClass(), "textOut", term6722);
+        setField(term6739, term6739.getClass(), "se", null);
+        setCharElement(term6740, 0, 'R');
+        setCharElement(term6740, 1, 'K');
+        setCharElement(term6740, 2, 'T');
+        setCharElement(term6740, 3, 'N');
+        setCharElement(term6740, 4, 'F');
+        setField(term6739, term6739.getClass(), "writeBuffer", term6740);
+        setField(term6739, term6739.getClass(), "lock", term6746);
+        setField(term6685, term6685.getClass(), "charOut", term6739);
+        setBooleanField(term6685, term6685.getClass(), "closing", true);
+        setField(term6685, term6685.getClass(), "out", null);
+        setBooleanField(term6685, term6685.getClass(), "closed", true);
+        setField(term6685, term6685.getClass(), "closeLock", term6749);
+        setField(term6462, term6462.getClass(), "err", term6685);
+        setField(term6462, term6462.getClass(), "compiler", null);
+        setField(term6462, term6462.getClass(), "inputCharset", null);
+        setField(term6462, term6462.getClass(), "outputCharset", "BYqFIqCKAV");
+        setBooleanField(term6462, term6462.getClass(), "testMode", false);
+        setField(term6462, term6462.getClass(), "externsSupplierForTesting", null);
+        setField(term6462, term6462.getClass(), "inputsSupplierForTesting", null);
+        setField(term6462, term6462.getClass(), "modulesSupplierForTesting", null);
+        setField(term6462, term6462.getClass(), "exitCodeReceiverForTesting", null);
+        setLongField(term6763, term6763.getClass(), "bestRunTime", 6967924379644551255L);
+        setLongField(term6763, term6763.getClass(), "worstRunTime", -2813493605142626659L);
+        setLongField(term6763, term6763.getClass(), "lastStartTime", -8885298608300233488L);
+        setField(term6763, term6763.getClass(), "loopedPassesInBestRun", term6767);
+        setField(term6763, term6763.getClass(), "this$0", null);
+        setField(term6462, term6462.getClass(), "runTimeStats", term6763);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.CommandLineRunner");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        try {
+            callMethod(klass, "createExterns", argTypes, term6462, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

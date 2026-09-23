@@ -1,0 +1,17 @@
+{
+  "project": "Mockito",
+  "bug_id": "2",
+  "tool": "kex",
+  "elapsed_sec": 59.71,
+  "target_classes": [
+    "org.mockito.internal.util.Timer"
+  ],
+  "kex_results": {
+    "org.mockito.internal.util.Timer": "success"
+  },
+  "num_test_files_generated": 5,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

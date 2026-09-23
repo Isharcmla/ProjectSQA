@@ -1,0 +1,65 @@
+package org.jfree.chart.util;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.jfree.chart.util.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.jfree.chart.util.EqualityUtils.*;
+
+public class ShapeList_equals_29239913025 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term9940;
+     Object term10006;
+     Object term10349;
+     Object term10350;
+
+    public ShapeList_equals_29239913025() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term9940 = newInstance(Class.forName("org.jfree.chart.util.ShapeList"));
+        term10006 = newInstance(Class.forName("org.jfree.chart.util.ShapeList"));
+        term10349 = newInstance(Class.forName("org.jfree.chart.util.ShapeList"));
+        setField(term10349, term10349.getClass(), "objects", null);
+        setIntField(term10349, term10349.getClass(), "size", 0);
+        setIntField(term10349, term10349.getClass(), "increment", 0);
+        term10350 = newInstance(Class.forName("org.jfree.chart.util.ShapeList"));
+        setField(term10350, term10350.getClass(), "objects", null);
+        setIntField(term10350, term10350.getClass(), "size", 0);
+        setIntField(term10350, term10350.getClass(), "increment", 0);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jfree.chart.util.ShapeList");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("java.lang.Object");
+        Object[] args = new Object[1];
+        args[0] = term10006;
+        Object retValue = callMethod(klass, "equals", argTypes, term9940, args);
+        assertTrue(recursiveEquals(term9940, term10349));
+        assertTrue(recursiveEquals(term10006, term10350));
+        assertTrue(recursiveEquals(retValue, true));
+    }
+
+};
+
+

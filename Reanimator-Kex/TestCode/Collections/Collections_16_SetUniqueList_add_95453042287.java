@@ -1,0 +1,73 @@
+package org.apache.commons.collections.list;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.collections.list.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.collections.list.EqualityUtils.*;
+import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.lang.Object;
+import java.util.Set;
+import java.util.Collection;
+
+public class SetUniqueList_add_95453042287 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term19243;
+     Object term19468;
+
+    public SetUniqueList_add_95453042287() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        HashSet term19291 = new HashSet();
+        ArrayList term19391 = new ArrayList();
+        term19243 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        setField(term19243, term19243.getClass(), "set", term19291);
+        setField(term19243, term19243.getClass(), "collection", term19391);
+        HashMap term19470 = new HashMap();
+        Set<Object> term19475 =  ((Map) term19470).keySet();
+        HashSet term19469 = new HashSet((Collection<? extends Object>) term19475);
+        ArrayList term19473 = new ArrayList();
+        ((ArrayList) term19473).add((Object)null);
+        term19468 = newInstance(Class.forName("org.apache.commons.collections.list.SetUniqueList"));
+        setField(term19468, term19468.getClass(), "set", term19469);
+        setField(term19468, term19468.getClass(), "collection", term19473);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.collections.list.SetUniqueList");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = int.class;
+        argTypes[1] = Class.forName("java.lang.Object");
+        Object[] args = new Object[2];
+        args[0] = 0;
+        args[1] = null;
+        callMethod(klass, "add", argTypes, term19243, args);
+        assertTrue(recursiveEquals(term19243, term19468));
+    }
+
+};
+
+

@@ -1,0 +1,17 @@
+{
+  "project": "Mockito",
+  "bug_id": "36",
+  "tool": "kex",
+  "elapsed_sec": 21.36,
+  "target_classes": [
+    "org.mockito.internal.invocation.Invocation"
+  ],
+  "kex_results": {
+    "org.mockito.internal.invocation.Invocation": "success"
+  },
+  "num_test_files_generated": 32,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

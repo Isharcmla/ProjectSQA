@@ -1,0 +1,19 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "10",
+  "tool": "kex",
+  "elapsed_sec": 46.9,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.AnyGetterWriter",
+    "com.fasterxml.jackson.databind.ser.BeanSerializerFactory"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.ser.AnyGetterWriter": "success",
+    "com.fasterxml.jackson.databind.ser.BeanSerializerFactory": "success"
+  },
+  "num_test_files_generated": 29,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

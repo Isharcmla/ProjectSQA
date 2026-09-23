@@ -1,0 +1,19 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "13",
+  "tool": "kex",
+  "elapsed_sec": 50.23,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.DefaultDeserializationContext",
+    "com.fasterxml.jackson.databind.deser.impl.ObjectIdValueProperty"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.deser.DefaultDeserializationContext": "success",
+    "com.fasterxml.jackson.databind.deser.impl.ObjectIdValueProperty": "success"
+  },
+  "num_test_files_generated": 42,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,17 @@
+{
+  "project": "Mockito",
+  "bug_id": "9",
+  "tool": "kex",
+  "elapsed_sec": 62.11,
+  "target_classes": [
+    "org.mockito.internal.stubbing.answers.CallsRealMethods"
+  ],
+  "kex_results": {
+    "org.mockito.internal.stubbing.answers.CallsRealMethods": "success"
+  },
+  "num_test_files_generated": 4,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

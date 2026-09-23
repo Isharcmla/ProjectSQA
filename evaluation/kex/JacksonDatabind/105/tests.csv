@@ -1,0 +1,3 @@
+test,fqcn,method,buggy,fixed,classification
+JdkDeserializers_find_18113212733,com.fasterxml.jackson.databind.deser.std.JdkDeserializers_find_18113212733,,PASS,PASS,valid_non_revealing
+JdkDeserializers_init_12014297632,com.fasterxml.jackson.databind.deser.std.JdkDeserializers_init_12014297632,,PASS,PASS,valid_non_revealing

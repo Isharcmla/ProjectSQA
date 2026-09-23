@@ -1,0 +1,17 @@
+{
+  "project": "Collections",
+  "bug_id": "25",
+  "tool": "kex",
+  "elapsed_sec": 311.9,
+  "target_classes": [
+    "org.apache.commons.collections4.IteratorUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.collections4.IteratorUtils": "timeout"
+  },
+  "num_test_files_generated": 273,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

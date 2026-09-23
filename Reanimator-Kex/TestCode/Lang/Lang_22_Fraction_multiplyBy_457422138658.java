@@ -1,0 +1,62 @@
+package org.apache.commons.lang3.math;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.ArithmeticException;
+import static org.apache.commons.lang3.math.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class Fraction_multiplyBy_457422138658 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term206934;
+     Object term207016;
+
+    public Fraction_multiplyBy_457422138658() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term206934 = newInstance(Class.forName("org.apache.commons.lang3.math.Fraction"));
+        setIntField(term206934, term206934.getClass(), "numerator", 430375674);
+        setIntField(term206934, term206934.getClass(), "denominator", 1556380943);
+        term207016 = newInstance(Class.forName("org.apache.commons.lang3.math.Fraction"));
+        setIntField(term207016, term207016.getClass(), "numerator", 1221131802);
+        setIntField(term207016, term207016.getClass(), "denominator", 1992622769);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.lang3.math.Fraction");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("org.apache.commons.lang3.math.Fraction");
+        Object[] args = new Object[1];
+        args[0] = term207016;
+        try {
+            callMethod(klass, "multiplyBy", argTypes, term206934, args);
+            assertTrue(false);
+        }
+        catch (ArithmeticException e) {
+        }
+
+    }
+
+};
+
+

@@ -1,0 +1,210 @@
+package org.joda.time;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.joda.time.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.joda.time.EqualityUtils.*;
+import java.lang.Object;
+
+public class Partial_toString_703545626141 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term135550;
+     Object term148160;
+     Object term148185;
+
+    public Partial_toString_703545626141() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term135550 = newInstance(Class.forName("org.joda.time.Partial"));
+        term148160 = newInstance(Class.forName("org.joda.time.format.DateTimeFormat$1"));
+        Object term148161 = newInstance(Class.forName("java.util.LinkedHashMap$Entry"));
+        Object term148162 = newInstance(Class.forName("java.util.LinkedHashMap$Entry"));
+        Object term148163 = newInstance(Class.forName("java.util.LinkedHashMap$Entry"));
+        Object term148164 = newInstance(Class.forName("java.util.LinkedHashMap$Entry"));
+        Object term148166 = newInstance(Class.forName("org.joda.time.format.DateTimeFormatter"));
+        Object term148169 = newInstance(Class.forName("org.joda.time.format.DateTimeFormatter"));
+        Object term148170 = newInstance(Class.forName("org.joda.time.format.DateTimeFormatterBuilder$StringLiteral"));
+        Object term148173 = newInstance(Class.forName("org.joda.time.format.DateTimeFormatter"));
+        Object term148174 = newInstance(Class.forName("org.joda.time.format.DateTimeFormatterBuilder$StringLiteral"));
+        Object term148176 = newInstance(Class.forName("java.util.LinkedHashMap$Entry"));
+        Object term148179 = newInstance(Class.forName("org.joda.time.format.DateTimeFormatter"));
+        Object term148180 = newInstance(Class.forName("org.joda.time.format.DateTimeFormatterBuilder$StringLiteral"));
+        Object[] term148182 = (Object[]) newArray("java.util.HashMap$Node", 8);
+        setField(term148161, term148161.getClass(), "before", null);
+        setField(term148162, term148162.getClass(), "before", term148161);
+        setField(term148163, term148163.getClass(), "before", term148162);
+        setField(term148164, term148164.getClass(), "before", term148163);
+        setField(term148164, term148164.getClass(), "after", null);
+        setIntField(term148164, term148164.getClass(), "hash", 67);
+        setField(term148164, term148164.getClass(), "key", null);
+        setField(term148164, term148164.getClass(), "value", null);
+        setField(term148164, term148164.getClass(), "next", null);
+        setField(term148163, term148163.getClass(), "after", term148164);
+        setIntField(term148163, term148163.getClass(), "hash", 73262173);
+        setField(term148163, term148163.getClass(), "key", "");
+        setField(term148166, term148166.getClass(), "iPrinter", null);
+        setField(term148166, term148166.getClass(), "iParser", null);
+        setField(term148166, term148166.getClass(), "iLocale", null);
+        setBooleanField(term148166, term148166.getClass(), "iOffsetParsed", false);
+        setField(term148166, term148166.getClass(), "iChrono", null);
+        setField(term148166, term148166.getClass(), "iZone", null);
+        setField(term148166, term148166.getClass(), "iPivotYear", null);
+        setIntField(term148166, term148166.getClass(), "iDefaultYear", 2000);
+        setField(term148163, term148163.getClass(), "value", term148166);
+        setField(term148163, term148163.getClass(), "next", null);
+        setField(term148162, term148162.getClass(), "after", term148163);
+        setIntField(term148162, term148162.getClass(), "hash", 948189316);
+        setField(term148162, term148162.getClass(), "key", "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ");
+        setField(term148170, term148170.getClass(), "iValue", null);
+        setField(term148169, term148169.getClass(), "iPrinter", term148170);
+        setField(term148169, term148169.getClass(), "iParser", term148170);
+        setField(term148169, term148169.getClass(), "iLocale", null);
+        setBooleanField(term148169, term148169.getClass(), "iOffsetParsed", false);
+        setField(term148169, term148169.getClass(), "iChrono", null);
+        setField(term148169, term148169.getClass(), "iZone", null);
+        setField(term148169, term148169.getClass(), "iPivotYear", null);
+        setIntField(term148169, term148169.getClass(), "iDefaultYear", 2000);
+        setField(term148162, term148162.getClass(), "value", term148169);
+        setField(term148162, term148162.getClass(), "next", null);
+        setField(term148161, term148161.getClass(), "after", term148162);
+        setIntField(term148161, term148161.getClass(), "hash", 1247604124);
+        setField(term148161, term148161.getClass(), "key", "`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ");
+        setField(term148174, term148174.getClass(), "iValue", "");
+        setField(term148173, term148173.getClass(), "iPrinter", term148174);
+        setField(term148173, term148173.getClass(), "iParser", term148174);
+        setField(term148173, term148173.getClass(), "iLocale", null);
+        setBooleanField(term148173, term148173.getClass(), "iOffsetParsed", false);
+        setField(term148173, term148173.getClass(), "iChrono", null);
+        setField(term148173, term148173.getClass(), "iZone", null);
+        setField(term148173, term148173.getClass(), "iPivotYear", null);
+        setIntField(term148173, term148173.getClass(), "iDefaultYear", 2000);
+        setField(term148161, term148161.getClass(), "value", term148173);
+        setField(term148161, term148161.getClass(), "next", term148162);
+        setField(term148160, term148160.getClass(), "head", term148161);
+        setField(term148176, term148176.getClass(), "before", term148164);
+        setField(term148176, term148176.getClass(), "after", null);
+        setIntField(term148176, term148176.getClass(), "hash", -1805331656);
+        setField(term148176, term148176.getClass(), "key", "\\                                                                                                                                                                                                                                                                                                                                                                      ");
+        setField(term148180, term148180.getClass(), "iValue", "");
+        setField(term148179, term148179.getClass(), "iPrinter", term148180);
+        setField(term148179, term148179.getClass(), "iParser", term148180);
+        setField(term148179, term148179.getClass(), "iLocale", null);
+        setBooleanField(term148179, term148179.getClass(), "iOffsetParsed", false);
+        setField(term148179, term148179.getClass(), "iChrono", null);
+        setField(term148179, term148179.getClass(), "iZone", null);
+        setField(term148179, term148179.getClass(), "iPivotYear", null);
+        setIntField(term148179, term148179.getClass(), "iDefaultYear", 2000);
+        setField(term148176, term148176.getClass(), "value", term148179);
+        setField(term148176, term148176.getClass(), "next", null);
+        setField(term148160, term148160.getClass(), "tail", term148176);
+        setBooleanField(term148160, term148160.getClass(), "accessOrder", false);
+        setElement(term148182, 0, term148176);
+        setElement(term148182, 3, term148164);
+        setElement(term148182, 4, term148161);
+        setElement(term148182, 5, term148163);
+        setField(term148160, term148160.getClass(), "table", term148182);
+        setField(term148160, term148160.getClass(), "entrySet", null);
+        setIntField(term148160, term148160.getClass(), "size", 5);
+        setIntField(term148160, term148160.getClass(), "modCount", 5);
+        setIntField(term148160, term148160.getClass(), "threshold", 6);
+        setFloatField(term148160, term148160.getClass(), "loadFactor", 0.75F);
+        setField(term148160, term148160.getClass(), "keySet", null);
+        setField(term148160, term148160.getClass(), "values", null);
+        term148185 = newInstance(Class.forName("java.util.LinkedHashMap$Entry"));
+        Object term148186 = newInstance(Class.forName("java.util.LinkedHashMap$Entry"));
+        Object term148187 = newInstance(Class.forName("java.util.LinkedHashMap$Entry"));
+        Object term148188 = newInstance(Class.forName("java.util.LinkedHashMap$Entry"));
+        Object term148190 = newInstance(Class.forName("org.joda.time.format.DateTimeFormatter"));
+        Object term148193 = newInstance(Class.forName("org.joda.time.format.DateTimeFormatter"));
+        Object term148194 = newInstance(Class.forName("org.joda.time.format.DateTimeFormatterBuilder$StringLiteral"));
+        Object term148197 = newInstance(Class.forName("org.joda.time.format.DateTimeFormatter"));
+        Object term148198 = newInstance(Class.forName("org.joda.time.format.DateTimeFormatterBuilder$StringLiteral"));
+        setField(term148185, term148185.getClass(), "before", null);
+        setField(term148186, term148186.getClass(), "before", term148185);
+        setField(term148187, term148187.getClass(), "before", term148186);
+        setField(term148188, term148188.getClass(), "before", term148187);
+        setField(term148188, term148188.getClass(), "after", null);
+        setIntField(term148188, term148188.getClass(), "hash", 67);
+        setField(term148188, term148188.getClass(), "key", null);
+        setField(term148188, term148188.getClass(), "value", null);
+        setField(term148188, term148188.getClass(), "next", null);
+        setField(term148187, term148187.getClass(), "after", term148188);
+        setIntField(term148187, term148187.getClass(), "hash", 73262173);
+        setField(term148187, term148187.getClass(), "key", "");
+        setField(term148190, term148190.getClass(), "iPrinter", null);
+        setField(term148190, term148190.getClass(), "iParser", null);
+        setField(term148190, term148190.getClass(), "iLocale", null);
+        setBooleanField(term148190, term148190.getClass(), "iOffsetParsed", false);
+        setField(term148190, term148190.getClass(), "iChrono", null);
+        setField(term148190, term148190.getClass(), "iZone", null);
+        setField(term148190, term148190.getClass(), "iPivotYear", null);
+        setIntField(term148190, term148190.getClass(), "iDefaultYear", 2000);
+        setField(term148187, term148187.getClass(), "value", term148190);
+        setField(term148187, term148187.getClass(), "next", null);
+        setField(term148186, term148186.getClass(), "after", term148187);
+        setIntField(term148186, term148186.getClass(), "hash", 948189316);
+        setField(term148186, term148186.getClass(), "key", "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ");
+        setField(term148194, term148194.getClass(), "iValue", null);
+        setField(term148193, term148193.getClass(), "iPrinter", term148194);
+        setField(term148193, term148193.getClass(), "iParser", term148194);
+        setField(term148193, term148193.getClass(), "iLocale", null);
+        setBooleanField(term148193, term148193.getClass(), "iOffsetParsed", false);
+        setField(term148193, term148193.getClass(), "iChrono", null);
+        setField(term148193, term148193.getClass(), "iZone", null);
+        setField(term148193, term148193.getClass(), "iPivotYear", null);
+        setIntField(term148193, term148193.getClass(), "iDefaultYear", 2000);
+        setField(term148186, term148186.getClass(), "value", term148193);
+        setField(term148186, term148186.getClass(), "next", null);
+        setField(term148185, term148185.getClass(), "after", term148186);
+        setIntField(term148185, term148185.getClass(), "hash", 1247604124);
+        setField(term148185, term148185.getClass(), "key", "`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ");
+        setField(term148198, term148198.getClass(), "iValue", "");
+        setField(term148197, term148197.getClass(), "iPrinter", term148198);
+        setField(term148197, term148197.getClass(), "iParser", term148198);
+        setField(term148197, term148197.getClass(), "iLocale", null);
+        setBooleanField(term148197, term148197.getClass(), "iOffsetParsed", false);
+        setField(term148197, term148197.getClass(), "iChrono", null);
+        setField(term148197, term148197.getClass(), "iZone", null);
+        setField(term148197, term148197.getClass(), "iPivotYear", null);
+        setIntField(term148197, term148197.getClass(), "iDefaultYear", 2000);
+        setField(term148185, term148185.getClass(), "value", term148197);
+        setField(term148185, term148185.getClass(), "next", term148186);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.joda.time.Partial");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("java.lang.String");
+        argTypes[1] = Class.forName("java.util.Locale");
+        Object[] args = new Object[2];
+        args[0] = "\\                                                                                                                                                                                                                                                                                                                                                                      ";
+        args[1] = null;
+        Object retValue = callMethod(klass, "toString", argTypes, term135550, args);
+        assertTrue(recursiveEquals(term135550, term148160));
+        assertTrue(recursiveEquals(retValue, "\\                                                                                                                                                                                                                                                                                                                                                                      "));
+    }
+
+};
+
+

@@ -1,0 +1,21 @@
+{
+  "project": "Closure",
+  "bug_id": "137",
+  "tool": "kex",
+  "elapsed_sec": 577.84,
+  "target_classes": [
+    "com.google.javascript.jscomp.MakeDeclaredNamesUnique",
+    "com.google.javascript.jscomp.NodeUtil",
+    "com.google.javascript.jscomp.Normalize"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.MakeDeclaredNamesUnique": "failed",
+    "com.google.javascript.jscomp.NodeUtil": "timeout",
+    "com.google.javascript.jscomp.Normalize": "failed"
+  },
+  "num_test_files_generated": 406,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

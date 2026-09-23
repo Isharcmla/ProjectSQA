@@ -1,0 +1,17 @@
+{
+  "project": "Gson",
+  "bug_id": "6",
+  "tool": "kex",
+  "elapsed_sec": 27.79,
+  "target_classes": [
+    "com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory"
+  ],
+  "kex_results": {
+    "com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory": "success"
+  },
+  "num_test_files_generated": 8,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

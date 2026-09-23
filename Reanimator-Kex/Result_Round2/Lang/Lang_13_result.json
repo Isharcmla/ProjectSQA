@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "13",
+  "tool": "kex",
+  "elapsed_sec": 28.69,
+  "target_classes": [
+    "org.apache.commons.lang3.SerializationUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang3.SerializationUtils": "success"
+  },
+  "num_test_files_generated": 14,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

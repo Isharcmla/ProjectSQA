@@ -1,0 +1,17 @@
+{
+  "project": "Gson",
+  "bug_id": "8",
+  "tool": "kex",
+  "elapsed_sec": 29.52,
+  "target_classes": [
+    "com.google.gson.internal.UnsafeAllocator"
+  ],
+  "kex_results": {
+    "com.google.gson.internal.UnsafeAllocator": "success"
+  },
+  "num_test_files_generated": 5,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

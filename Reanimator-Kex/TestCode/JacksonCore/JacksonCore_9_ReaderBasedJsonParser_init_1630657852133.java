@@ -1,0 +1,216 @@
+package com.fasterxml.jackson.core.json;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.fasterxml.jackson.core.json.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.fasterxml.jackson.core.json.EqualityUtils.*;
+import java.lang.Object;
+
+public class ReaderBasedJsonParser_init_1630657852133 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term19287;
+     Object term19501;
+     Object term20137;
+     Object term20143;
+     Object term20145;
+
+    public ReaderBasedJsonParser_init_1630657852133() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Object term19019 = newInstance(Class.forName("com.fasterxml.jackson.core.json.ReaderBasedJsonParser"));
+        Object term19103 = newInstance(Class.forName("com.fasterxml.jackson.core.io.IOContext"));
+        Object term19203 = newInstance(Class.forName("com.fasterxml.jackson.core.json.JsonReadContext"));
+        char[] term18798 = (char[]) newCharArray(0);
+        setIntField(term19019, term19019.getClass(), "_features", 0);
+        setIntField(term19019, term19019.getClass(), "_inputPtr", 0);
+        setIntField(term19019, term19019.getClass(), "_inputEnd", 0);
+        setLongField(term19019, term19019.getClass(), "_currInputProcessed", 0L);
+        setIntField(term19019, term19019.getClass(), "_currInputRow", 0);
+        setIntField(term19019, term19019.getClass(), "_currInputRowStart", 0);
+        setLongField(term19019, term19019.getClass(), "_tokenInputTotal", 0L);
+        setIntField(term19019, term19019.getClass(), "_tokenInputRow", 0);
+        setIntField(term19019, term19019.getClass(), "_tokenInputCol", 0);
+        setField(term19019, term19019.getClass(), "_nameCopyBuffer", null);
+        setBooleanField(term19019, term19019.getClass(), "_nameCopied", false);
+        setField(term19019, term19019.getClass(), "_byteArrayBuilder", null);
+        setIntField(term19019, term19019.getClass(), "_numTypesValid", 0);
+        setField(term19019, term19019.getClass(), "_ioContext", term19103);
+        setField(term19019, term19019.getClass(), "_textBuffer", null);
+        setField(term19019, term19019.getClass(), "_parsingContext", term19203);
+        setBooleanField(term19019, term19019.getClass(), "_tokenIncomplete", false);
+        setField(term19019, term19019.getClass(), "_reader", null);
+        setField(term19019, term19019.getClass(), "_inputBuffer", term18798);
+        setField(term19019, term19019.getClass(), "_objectCodec", null);
+        setField(term19019, term19019.getClass(), "_symbols", null);
+        term19287 = newInstance(Class.forName("com.fasterxml.jackson.core.io.IOContext"));
+        Object term19385 = newInstance(Class.forName("com.fasterxml.jackson.core.util.BufferRecycler"));
+        setField(term19287, term19287.getClass(), "_bufferRecycler", term19385);
+        term19501 = newInstance(Class.forName("com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer"));
+        term20137 = newInstance(Class.forName("com.fasterxml.jackson.core.json.ReaderBasedJsonParser"));
+        Object term20138 = newInstance(Class.forName("com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer"));
+        Object term20139 = newInstance(Class.forName("com.fasterxml.jackson.core.io.IOContext"));
+        Object term20140 = newInstance(Class.forName("com.fasterxml.jackson.core.util.BufferRecycler"));
+        Object term20141 = newInstance(Class.forName("com.fasterxml.jackson.core.json.JsonReadContext"));
+        Object term20142 = newInstance(Class.forName("com.fasterxml.jackson.core.util.TextBuffer"));
+        setField(term20137, term20137.getClass(), "_reader", null);
+        setField(term20137, term20137.getClass(), "_inputBuffer", null);
+        setBooleanField(term20137, term20137.getClass(), "_bufferRecyclable", false);
+        setField(term20137, term20137.getClass(), "_objectCodec", null);
+        setField(term20138, term20138.getClass(), "_parent", null);
+        setIntField(term20138, term20138.getClass(), "_hashSeed", 0);
+        setIntField(term20138, term20138.getClass(), "_flags", 0);
+        setBooleanField(term20138, term20138.getClass(), "_canonicalize", false);
+        setField(term20138, term20138.getClass(), "_symbols", null);
+        setField(term20138, term20138.getClass(), "_buckets", null);
+        setIntField(term20138, term20138.getClass(), "_size", 0);
+        setIntField(term20138, term20138.getClass(), "_sizeThreshold", 0);
+        setIntField(term20138, term20138.getClass(), "_indexMask", 0);
+        setIntField(term20138, term20138.getClass(), "_longestCollisionList", 0);
+        setBooleanField(term20138, term20138.getClass(), "_dirty", false);
+        setField(term20138, term20138.getClass(), "_overflows", null);
+        setField(term20137, term20137.getClass(), "_symbols", term20138);
+        setIntField(term20137, term20137.getClass(), "_hashSeed", 0);
+        setBooleanField(term20137, term20137.getClass(), "_tokenIncomplete", false);
+        setField(term20139, term20139.getClass(), "_sourceRef", null);
+        setField(term20139, term20139.getClass(), "_encoding", null);
+        setBooleanField(term20139, term20139.getClass(), "_managedResource", false);
+        setField(term20140, term20140.getClass(), "_byteBuffers", null);
+        setField(term20140, term20140.getClass(), "_charBuffers", null);
+        setField(term20139, term20139.getClass(), "_bufferRecycler", term20140);
+        setField(term20139, term20139.getClass(), "_readIOBuffer", null);
+        setField(term20139, term20139.getClass(), "_writeEncodingBuffer", null);
+        setField(term20139, term20139.getClass(), "_base64Buffer", null);
+        setField(term20139, term20139.getClass(), "_tokenCBuffer", null);
+        setField(term20139, term20139.getClass(), "_concatCBuffer", null);
+        setField(term20139, term20139.getClass(), "_nameCopyBuffer", null);
+        setField(term20137, term20137.getClass(), "_ioContext", term20139);
+        setBooleanField(term20137, term20137.getClass(), "_closed", false);
+        setIntField(term20137, term20137.getClass(), "_inputPtr", 0);
+        setIntField(term20137, term20137.getClass(), "_inputEnd", 0);
+        setLongField(term20137, term20137.getClass(), "_currInputProcessed", 0L);
+        setIntField(term20137, term20137.getClass(), "_currInputRow", 1);
+        setIntField(term20137, term20137.getClass(), "_currInputRowStart", 0);
+        setLongField(term20137, term20137.getClass(), "_tokenInputTotal", 0L);
+        setIntField(term20137, term20137.getClass(), "_tokenInputRow", 1);
+        setIntField(term20137, term20137.getClass(), "_tokenInputCol", 0);
+        setField(term20141, term20141.getClass(), "_parent", null);
+        setField(term20141, term20141.getClass(), "_dups", null);
+        setField(term20141, term20141.getClass(), "_child", null);
+        setField(term20141, term20141.getClass(), "_currentName", null);
+        setField(term20141, term20141.getClass(), "_currentValue", null);
+        setIntField(term20141, term20141.getClass(), "_lineNr", 1);
+        setIntField(term20141, term20141.getClass(), "_columnNr", 0);
+        setIntField(term20141, term20141.getClass(), "_type", 0);
+        setIntField(term20141, term20141.getClass(), "_index", -1);
+        setField(term20137, term20137.getClass(), "_parsingContext", term20141);
+        setField(term20137, term20137.getClass(), "_nextToken", null);
+        setField(term20142, term20142.getClass(), "_allocator", term20140);
+        setField(term20142, term20142.getClass(), "_inputBuffer", null);
+        setIntField(term20142, term20142.getClass(), "_inputStart", 0);
+        setIntField(term20142, term20142.getClass(), "_inputLen", 0);
+        setField(term20142, term20142.getClass(), "_segments", null);
+        setBooleanField(term20142, term20142.getClass(), "_hasSegments", false);
+        setIntField(term20142, term20142.getClass(), "_segmentSize", 0);
+        setField(term20142, term20142.getClass(), "_currentSegment", null);
+        setIntField(term20142, term20142.getClass(), "_currentSize", 0);
+        setField(term20142, term20142.getClass(), "_resultString", null);
+        setField(term20142, term20142.getClass(), "_resultArray", null);
+        setField(term20137, term20137.getClass(), "_textBuffer", term20142);
+        setField(term20137, term20137.getClass(), "_nameCopyBuffer", null);
+        setBooleanField(term20137, term20137.getClass(), "_nameCopied", false);
+        setField(term20137, term20137.getClass(), "_byteArrayBuilder", null);
+        setField(term20137, term20137.getClass(), "_binaryValue", null);
+        setIntField(term20137, term20137.getClass(), "_numTypesValid", 0);
+        setIntField(term20137, term20137.getClass(), "_numberInt", 0);
+        setLongField(term20137, term20137.getClass(), "_numberLong", 0L);
+        setDoubleField(term20137, term20137.getClass(), "_numberDouble", 0.0);
+        setField(term20137, term20137.getClass(), "_numberBigInt", null);
+        setField(term20137, term20137.getClass(), "_numberBigDecimal", null);
+        setBooleanField(term20137, term20137.getClass(), "_numberNegative", false);
+        setIntField(term20137, term20137.getClass(), "_intLength", 0);
+        setIntField(term20137, term20137.getClass(), "_fractLength", 0);
+        setIntField(term20137, term20137.getClass(), "_expLength", 0);
+        setField(term20137, term20137.getClass(), "_currToken", null);
+        setField(term20137, term20137.getClass(), "_lastClearedToken", null);
+        setIntField(term20137, term20137.getClass(), "_features", 0);
+        term20143 = newInstance(Class.forName("com.fasterxml.jackson.core.io.IOContext"));
+        Object term20144 = newInstance(Class.forName("com.fasterxml.jackson.core.util.BufferRecycler"));
+        setField(term20143, term20143.getClass(), "_sourceRef", null);
+        setField(term20143, term20143.getClass(), "_encoding", null);
+        setBooleanField(term20143, term20143.getClass(), "_managedResource", false);
+        setField(term20144, term20144.getClass(), "_byteBuffers", null);
+        setField(term20144, term20144.getClass(), "_charBuffers", null);
+        setField(term20143, term20143.getClass(), "_bufferRecycler", term20144);
+        setField(term20143, term20143.getClass(), "_readIOBuffer", null);
+        setField(term20143, term20143.getClass(), "_writeEncodingBuffer", null);
+        setField(term20143, term20143.getClass(), "_base64Buffer", null);
+        setField(term20143, term20143.getClass(), "_tokenCBuffer", null);
+        setField(term20143, term20143.getClass(), "_concatCBuffer", null);
+        setField(term20143, term20143.getClass(), "_nameCopyBuffer", null);
+        term20145 = newInstance(Class.forName("com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer"));
+        setField(term20145, term20145.getClass(), "_parent", null);
+        setIntField(term20145, term20145.getClass(), "_hashSeed", 0);
+        setIntField(term20145, term20145.getClass(), "_flags", 0);
+        setBooleanField(term20145, term20145.getClass(), "_canonicalize", false);
+        setField(term20145, term20145.getClass(), "_symbols", null);
+        setField(term20145, term20145.getClass(), "_buckets", null);
+        setIntField(term20145, term20145.getClass(), "_size", 0);
+        setIntField(term20145, term20145.getClass(), "_sizeThreshold", 0);
+        setIntField(term20145, term20145.getClass(), "_indexMask", 0);
+        setIntField(term20145, term20145.getClass(), "_longestCollisionList", 0);
+        setBooleanField(term20145, term20145.getClass(), "_dirty", false);
+        setField(term20145, term20145.getClass(), "_overflows", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.core.json.ReaderBasedJsonParser");
+        Class<?>[] argTypes = new Class<?>[9];
+        argTypes[0] = Class.forName("com.fasterxml.jackson.core.io.IOContext");
+        argTypes[1] = int.class;
+        argTypes[2] = Class.forName("java.io.Reader");
+        argTypes[3] = Class.forName("com.fasterxml.jackson.core.ObjectCodec");
+        argTypes[4] = Class.forName("com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer");
+        argTypes[5] = Array.newInstance(char.class, 0).getClass();
+        argTypes[6] = int.class;
+        argTypes[7] = int.class;
+        argTypes[8] = boolean.class;
+        Object[] args = new Object[9];
+        args[0] = term19287;
+        args[1] = 0;
+        args[2] = null;
+        args[3] = null;
+        args[4] = term19501;
+        args[5] = null;
+        args[6] = 0;
+        args[7] = 0;
+        args[8] = false;
+        Object instance = callConstructor(klass, argTypes, args);
+        assertTrue(recursiveEquals(instance, term20137));
+        assertTrue(recursiveEquals(term19287, 0));
+        assertTrue(recursiveEquals(term19501, null));
+    }
+
+};
+
+

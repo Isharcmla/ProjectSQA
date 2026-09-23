@@ -1,0 +1,14 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "15",
+  "tool": "kex",
+  "generated_files": 55,
+  "candidate_tests": 53,
+  "classification_counts": {
+    "valid_non_revealing": 53
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

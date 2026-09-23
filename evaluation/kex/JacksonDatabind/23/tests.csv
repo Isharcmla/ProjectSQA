@@ -1,0 +1,3 @@
+test,fqcn,method,buggy,fixed,classification
+NumberSerializers_addAll_18190514313,com.fasterxml.jackson.databind.ser.std.NumberSerializers_addAll_18190514313,,FAIL,FAIL,invalid_or_unstable
+NumberSerializers_init_12828009232,com.fasterxml.jackson.databind.ser.std.NumberSerializers_init_12828009232,,PASS,PASS,valid_non_revealing

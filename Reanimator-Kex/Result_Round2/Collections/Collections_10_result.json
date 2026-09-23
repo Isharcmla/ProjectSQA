@@ -1,0 +1,17 @@
+{
+  "project": "Collections",
+  "bug_id": "10",
+  "tool": "kex",
+  "elapsed_sec": 183.25,
+  "target_classes": [
+    "org.apache.commons.collections.map.MultiValueMap"
+  ],
+  "kex_results": {
+    "org.apache.commons.collections.map.MultiValueMap": "success"
+  },
+  "num_test_files_generated": 99,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

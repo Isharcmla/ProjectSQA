@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "16",
+  "tool": "kex",
+  "elapsed_sec": 182.79,
+  "target_classes": [
+    "org.apache.commons.math3.util.FastMath"
+  ],
+  "kex_results": {
+    "org.apache.commons.math3.util.FastMath": "success"
+  },
+  "num_test_files_generated": 200,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

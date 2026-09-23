@@ -1,0 +1,14 @@
+{
+  "project": "Chart",
+  "bug_id": "4",
+  "tool": "kex",
+  "generated_files": 232,
+  "candidate_tests": 230,
+  "classification_counts": {
+    "invalid_or_unstable": 230
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

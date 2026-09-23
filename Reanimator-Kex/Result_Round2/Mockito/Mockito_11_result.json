@@ -1,0 +1,17 @@
+{
+  "project": "Mockito",
+  "bug_id": "11",
+  "tool": "kex",
+  "elapsed_sec": 62.9,
+  "target_classes": [
+    "org.mockito.internal.creation.DelegatingMethod"
+  ],
+  "kex_results": {
+    "org.mockito.internal.creation.DelegatingMethod": "success"
+  },
+  "num_test_files_generated": 13,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

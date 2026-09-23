@@ -1,0 +1,210 @@
+package com.google.javascript.rhino.jstype;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.javascript.rhino.jstype.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.google.javascript.rhino.jstype.EqualityUtils.*;
+import java.lang.String;
+import java.lang.Object;
+
+public class FunctionType_isSubtype_21010021581278 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term1594675;
+     Object term1595427;
+     Object term1598338;
+     Object term1598344;
+
+    public FunctionType_isSubtype_21010021581278() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Class<? extends Object> term1598352 = Class.forName((String) "com.google.javascript.rhino.jstype.FunctionType$Kind");
+        Field term1598351 = ((Class) term1598352).getDeclaredField((String) "INTERFACE");
+        ((Field) term1598351).setAccessible(true);
+        Object enum2979 = ((Field) term1598351).get((Object) null);
+        Class<? extends Object> term1598646 = Class.forName((String) "com.google.javascript.rhino.jstype.FunctionType$Kind");
+        Field term1598645 = ((Class) term1598646).getDeclaredField((String) "INTERFACE");
+        ((Field) term1598645).setAccessible(true);
+        Object enum2980 = ((Field) term1598645).get((Object) null);
+        term1594675 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$1"));
+        Object term1595219 = newInstance(Class.forName("com.google.javascript.rhino.jstype.FunctionType"));
+        Object term1595319 = newInstance(Class.forName("com.google.javascript.rhino.jstype.FunctionType"));
+        setField(term1594675, term1594675.getClass(), "kind", enum2979);
+        setField(term1595219, term1595219.getClass(), "kind", enum2979);
+        setField(term1595319, term1595319.getClass(), "kind", enum2980);
+        setField(term1595219, term1595219.getClass(), "typeOfThis", term1595319);
+        setField(term1594675, term1594675.getClass(), "typeOfThis", term1595219);
+        Class<? extends Object> term1598940 = Class.forName((String) "com.google.javascript.rhino.jstype.FunctionType$Kind");
+        Field term1598939 = ((Class) term1598940).getDeclaredField((String) "CONSTRUCTOR");
+        ((Field) term1598939).setAccessible(true);
+        Object enum2981 = ((Field) term1598939).get((Object) null);
+        term1595427 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$1"));
+        Object term1595609 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$3"));
+        Object term1595717 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$3"));
+        setField(term1595427, term1595427.getClass(), "kind", enum2981);
+        setField(term1595609, term1595609.getClass(), "kind", enum2981);
+        setField(term1595609, term1595609.getClass(), "typeOfThis", term1595717);
+        setField(term1595427, term1595427.getClass(), "typeOfThis", term1595609);
+        Class<? extends Object> term1599240 = Class.forName((String) "com.google.javascript.rhino.jstype.FunctionType$Kind");
+        Field term1599239 = ((Class) term1599240).getDeclaredField((String) "INTERFACE");
+        ((Field) term1599239).setAccessible(true);
+        Object enum2982 = ((Field) term1599239).get((Object) null);
+        term1598338 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$1"));
+        Object term1598342 = newInstance(Class.forName("com.google.javascript.rhino.jstype.FunctionType"));
+        Object term1598343 = newInstance(Class.forName("com.google.javascript.rhino.jstype.FunctionType"));
+        setField(term1598338, term1598338.getClass(), "this$0", null);
+        setField(term1598338, term1598338.getClass(), "call", null);
+        setField(term1598338, term1598338.getClass(), "prototype", null);
+        setField(term1598338, term1598338.getClass(), "kind", enum2982);
+        setField(term1598342, term1598342.getClass(), "call", null);
+        setField(term1598342, term1598342.getClass(), "prototype", null);
+        setField(term1598342, term1598342.getClass(), "kind", enum2982);
+        setField(term1598343, term1598343.getClass(), "call", null);
+        setField(term1598343, term1598343.getClass(), "prototype", null);
+        setField(term1598343, term1598343.getClass(), "kind", enum2982);
+        setField(term1598343, term1598343.getClass(), "typeOfThis", null);
+        setField(term1598343, term1598343.getClass(), "source", null);
+        setField(term1598343, term1598343.getClass(), "implementedInterfaces", null);
+        setField(term1598343, term1598343.getClass(), "subTypes", null);
+        setField(term1598343, term1598343.getClass(), "templateTypeName", null);
+        setField(term1598343, term1598343.getClass(), "className", null);
+        setField(term1598343, term1598343.getClass(), "properties", null);
+        setField(term1598343, term1598343.getClass(), "implicitPrototype", null);
+        setBooleanField(term1598343, term1598343.getClass(), "nativeType", false);
+        setBooleanField(term1598343, term1598343.getClass(), "visited", false);
+        setField(term1598343, term1598343.getClass(), "docInfo", null);
+        setBooleanField(term1598343, term1598343.getClass(), "unknown", false);
+        setBooleanField(term1598343, term1598343.getClass(), "resolved", false);
+        setField(term1598343, term1598343.getClass(), "resolveResult", null);
+        setField(term1598343, term1598343.getClass(), "registry", null);
+        setField(term1598342, term1598342.getClass(), "typeOfThis", term1598343);
+        setField(term1598342, term1598342.getClass(), "source", null);
+        setField(term1598342, term1598342.getClass(), "implementedInterfaces", null);
+        setField(term1598342, term1598342.getClass(), "subTypes", null);
+        setField(term1598342, term1598342.getClass(), "templateTypeName", null);
+        setField(term1598342, term1598342.getClass(), "className", null);
+        setField(term1598342, term1598342.getClass(), "properties", null);
+        setField(term1598342, term1598342.getClass(), "implicitPrototype", null);
+        setBooleanField(term1598342, term1598342.getClass(), "nativeType", false);
+        setBooleanField(term1598342, term1598342.getClass(), "visited", false);
+        setField(term1598342, term1598342.getClass(), "docInfo", null);
+        setBooleanField(term1598342, term1598342.getClass(), "unknown", false);
+        setBooleanField(term1598342, term1598342.getClass(), "resolved", false);
+        setField(term1598342, term1598342.getClass(), "resolveResult", null);
+        setField(term1598342, term1598342.getClass(), "registry", null);
+        setField(term1598338, term1598338.getClass(), "typeOfThis", term1598342);
+        setField(term1598338, term1598338.getClass(), "source", null);
+        setField(term1598338, term1598338.getClass(), "implementedInterfaces", null);
+        setField(term1598338, term1598338.getClass(), "subTypes", null);
+        setField(term1598338, term1598338.getClass(), "templateTypeName", null);
+        setField(term1598338, term1598338.getClass(), "className", null);
+        setField(term1598338, term1598338.getClass(), "properties", null);
+        setField(term1598338, term1598338.getClass(), "implicitPrototype", null);
+        setBooleanField(term1598338, term1598338.getClass(), "nativeType", false);
+        setBooleanField(term1598338, term1598338.getClass(), "visited", false);
+        setField(term1598338, term1598338.getClass(), "docInfo", null);
+        setBooleanField(term1598338, term1598338.getClass(), "unknown", false);
+        setBooleanField(term1598338, term1598338.getClass(), "resolved", false);
+        setField(term1598338, term1598338.getClass(), "resolveResult", null);
+        setField(term1598338, term1598338.getClass(), "registry", null);
+        Class<? extends Object> term1599534 = Class.forName((String) "com.google.javascript.rhino.jstype.FunctionType$Kind");
+        Field term1599533 = ((Class) term1599534).getDeclaredField((String) "CONSTRUCTOR");
+        ((Field) term1599533).setAccessible(true);
+        Object enum2983 = ((Field) term1599533).get((Object) null);
+        term1598344 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$1"));
+        Object term1598348 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$3"));
+        Object term1598349 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$3"));
+        setField(term1598344, term1598344.getClass(), "this$0", null);
+        setField(term1598344, term1598344.getClass(), "call", null);
+        setField(term1598344, term1598344.getClass(), "prototype", null);
+        setField(term1598344, term1598344.getClass(), "kind", enum2983);
+        setField(term1598348, term1598348.getClass(), "this$0", null);
+        setField(term1598348, term1598348.getClass(), "call", null);
+        setField(term1598348, term1598348.getClass(), "prototype", null);
+        setField(term1598348, term1598348.getClass(), "kind", enum2983);
+        setField(term1598349, term1598349.getClass(), "this$0", null);
+        setField(term1598349, term1598349.getClass(), "call", null);
+        setField(term1598349, term1598349.getClass(), "prototype", null);
+        setField(term1598349, term1598349.getClass(), "kind", null);
+        setField(term1598349, term1598349.getClass(), "typeOfThis", null);
+        setField(term1598349, term1598349.getClass(), "source", null);
+        setField(term1598349, term1598349.getClass(), "implementedInterfaces", null);
+        setField(term1598349, term1598349.getClass(), "subTypes", null);
+        setField(term1598349, term1598349.getClass(), "templateTypeName", null);
+        setField(term1598349, term1598349.getClass(), "className", null);
+        setField(term1598349, term1598349.getClass(), "properties", null);
+        setField(term1598349, term1598349.getClass(), "implicitPrototype", null);
+        setBooleanField(term1598349, term1598349.getClass(), "nativeType", false);
+        setBooleanField(term1598349, term1598349.getClass(), "visited", false);
+        setField(term1598349, term1598349.getClass(), "docInfo", null);
+        setBooleanField(term1598349, term1598349.getClass(), "unknown", false);
+        setBooleanField(term1598349, term1598349.getClass(), "resolved", false);
+        setField(term1598349, term1598349.getClass(), "resolveResult", null);
+        setField(term1598349, term1598349.getClass(), "registry", null);
+        setField(term1598348, term1598348.getClass(), "typeOfThis", term1598349);
+        setField(term1598348, term1598348.getClass(), "source", null);
+        setField(term1598348, term1598348.getClass(), "implementedInterfaces", null);
+        setField(term1598348, term1598348.getClass(), "subTypes", null);
+        setField(term1598348, term1598348.getClass(), "templateTypeName", null);
+        setField(term1598348, term1598348.getClass(), "className", null);
+        setField(term1598348, term1598348.getClass(), "properties", null);
+        setField(term1598348, term1598348.getClass(), "implicitPrototype", null);
+        setBooleanField(term1598348, term1598348.getClass(), "nativeType", false);
+        setBooleanField(term1598348, term1598348.getClass(), "visited", false);
+        setField(term1598348, term1598348.getClass(), "docInfo", null);
+        setBooleanField(term1598348, term1598348.getClass(), "unknown", false);
+        setBooleanField(term1598348, term1598348.getClass(), "resolved", false);
+        setField(term1598348, term1598348.getClass(), "resolveResult", null);
+        setField(term1598348, term1598348.getClass(), "registry", null);
+        setField(term1598344, term1598344.getClass(), "typeOfThis", term1598348);
+        setField(term1598344, term1598344.getClass(), "source", null);
+        setField(term1598344, term1598344.getClass(), "implementedInterfaces", null);
+        setField(term1598344, term1598344.getClass(), "subTypes", null);
+        setField(term1598344, term1598344.getClass(), "templateTypeName", null);
+        setField(term1598344, term1598344.getClass(), "className", null);
+        setField(term1598344, term1598344.getClass(), "properties", null);
+        setField(term1598344, term1598344.getClass(), "implicitPrototype", null);
+        setBooleanField(term1598344, term1598344.getClass(), "nativeType", false);
+        setBooleanField(term1598344, term1598344.getClass(), "visited", false);
+        setField(term1598344, term1598344.getClass(), "docInfo", null);
+        setBooleanField(term1598344, term1598344.getClass(), "unknown", false);
+        setBooleanField(term1598344, term1598344.getClass(), "resolved", false);
+        setField(term1598344, term1598344.getClass(), "resolveResult", null);
+        setField(term1598344, term1598344.getClass(), "registry", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.rhino.jstype.FunctionType");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("com.google.javascript.rhino.jstype.JSType");
+        Object[] args = new Object[1];
+        args[0] = term1595427;
+        Object retValue = callMethod(klass, "isSubtype", argTypes, term1594675, args);
+        assertTrue(recursiveEquals(term1594675, term1598338));
+        assertTrue(recursiveEquals(term1595427, term1598344));
+        assertTrue(recursiveEquals(retValue, false));
+    }
+
+};
+
+

@@ -1,0 +1,61 @@
+package org.jsoup.parser;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.jsoup.parser.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+import java.lang.String;
+
+public class Tokeniser_eofError_959501008255 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term382438;
+     Object enum922;
+
+    public Tokeniser_eofError_959501008255() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term382438 = newInstance(Class.forName("org.jsoup.parser.Tokeniser"));
+        Object term382508 = newInstance(Class.forName("org.jsoup.parser.CharacterReader"));
+        setBooleanField(term382438, term382438.getClass(), "trackErrors", true);
+        setField(term382438, term382438.getClass(), "errors", null);
+        setIntField(term382508, term382508.getClass(), "pos", 0);
+        setField(term382438, term382438.getClass(), "reader", term382508);
+        Class<? extends Object> term382622 = Class.forName((String) "org.jsoup.parser.TokeniserState");
+        Field term382621 = ((Class) term382622).getDeclaredField((String) "ScriptDataDoubleEscapeEnd");
+        ((Field) term382621).setAccessible(true);
+        enum922 = ((Field) term382621).get((Object) null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jsoup.parser.Tokeniser");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("org.jsoup.parser.TokeniserState");
+        Object[] args = new Object[1];
+        args[0] = enum922;
+        callMethod(klass, "eofError", argTypes, term382438, args);
+    }
+
+};
+
+

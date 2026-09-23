@@ -1,0 +1,17 @@
+{
+  "project": "Jsoup",
+  "bug_id": "35",
+  "tool": "kex",
+  "elapsed_sec": 184.24,
+  "target_classes": [
+    "org.jsoup.parser.HtmlTreeBuilderState"
+  ],
+  "kex_results": {
+    "org.jsoup.parser.HtmlTreeBuilderState": "success"
+  },
+  "num_test_files_generated": 25,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

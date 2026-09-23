@@ -1,0 +1,19 @@
+{
+  "project": "Closure",
+  "bug_id": "162",
+  "tool": "kex",
+  "elapsed_sec": 479.2,
+  "target_classes": [
+    "com.google.javascript.jscomp.Scope",
+    "com.google.javascript.jscomp.ScopedAliases"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.Scope": "success",
+    "com.google.javascript.jscomp.ScopedAliases": "timeout"
+  },
+  "num_test_files_generated": 170,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,216 @@
+package org.apache.commons.codec.binary;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.codec.binary.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.codec.binary.EqualityUtils.*;
+
+public class Base64_avail_125915651947 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term335;
+     Object term4235;
+
+    public Base64_avail_125915651947() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term335 = newInstance(Class.forName("org.apache.commons.codec.binary.Base64"));
+        byte[] term336 = (byte[]) newByteArray(64);
+        byte[] term402 = (byte[]) newByteArray(2);
+        byte[] term407 = (byte[]) newByteArray(1);
+        setByteElement(term336, 0, (byte) 65);
+        setByteElement(term336, 1, (byte) 66);
+        setByteElement(term336, 2, (byte) 67);
+        setByteElement(term336, 3, (byte) 68);
+        setByteElement(term336, 4, (byte) 69);
+        setByteElement(term336, 5, (byte) 70);
+        setByteElement(term336, 6, (byte) 71);
+        setByteElement(term336, 7, (byte) 72);
+        setByteElement(term336, 8, (byte) 73);
+        setByteElement(term336, 9, (byte) 74);
+        setByteElement(term336, 10, (byte) 75);
+        setByteElement(term336, 11, (byte) 76);
+        setByteElement(term336, 12, (byte) 77);
+        setByteElement(term336, 13, (byte) 78);
+        setByteElement(term336, 14, (byte) 79);
+        setByteElement(term336, 15, (byte) 80);
+        setByteElement(term336, 16, (byte) 81);
+        setByteElement(term336, 17, (byte) 82);
+        setByteElement(term336, 18, (byte) 83);
+        setByteElement(term336, 19, (byte) 84);
+        setByteElement(term336, 20, (byte) 85);
+        setByteElement(term336, 21, (byte) 86);
+        setByteElement(term336, 22, (byte) 87);
+        setByteElement(term336, 23, (byte) 88);
+        setByteElement(term336, 24, (byte) 89);
+        setByteElement(term336, 25, (byte) 90);
+        setByteElement(term336, 26, (byte) 97);
+        setByteElement(term336, 27, (byte) 98);
+        setByteElement(term336, 28, (byte) 99);
+        setByteElement(term336, 29, (byte) 100);
+        setByteElement(term336, 30, (byte) 101);
+        setByteElement(term336, 31, (byte) 102);
+        setByteElement(term336, 32, (byte) 103);
+        setByteElement(term336, 33, (byte) 104);
+        setByteElement(term336, 34, (byte) 105);
+        setByteElement(term336, 35, (byte) 106);
+        setByteElement(term336, 36, (byte) 107);
+        setByteElement(term336, 37, (byte) 108);
+        setByteElement(term336, 38, (byte) 109);
+        setByteElement(term336, 39, (byte) 110);
+        setByteElement(term336, 40, (byte) 111);
+        setByteElement(term336, 41, (byte) 112);
+        setByteElement(term336, 42, (byte) 113);
+        setByteElement(term336, 43, (byte) 114);
+        setByteElement(term336, 44, (byte) 115);
+        setByteElement(term336, 45, (byte) 116);
+        setByteElement(term336, 46, (byte) 117);
+        setByteElement(term336, 47, (byte) 118);
+        setByteElement(term336, 48, (byte) 119);
+        setByteElement(term336, 49, (byte) 120);
+        setByteElement(term336, 50, (byte) 121);
+        setByteElement(term336, 51, (byte) 122);
+        setByteElement(term336, 52, (byte) 48);
+        setByteElement(term336, 53, (byte) 49);
+        setByteElement(term336, 54, (byte) 50);
+        setByteElement(term336, 55, (byte) 51);
+        setByteElement(term336, 56, (byte) 52);
+        setByteElement(term336, 57, (byte) 53);
+        setByteElement(term336, 58, (byte) 54);
+        setByteElement(term336, 59, (byte) 55);
+        setByteElement(term336, 60, (byte) 56);
+        setByteElement(term336, 61, (byte) 57);
+        setByteElement(term336, 62, (byte) 43);
+        setByteElement(term336, 63, (byte) 47);
+        setField(term335, term335.getClass(), "encodeTable", term336);
+        setIntField(term335, term335.getClass(), "lineLength", 597278769);
+        setByteElement(term402, 0, (byte) 13);
+        setByteElement(term402, 1, (byte) 10);
+        setField(term335, term335.getClass(), "lineSeparator", term402);
+        setIntField(term335, term335.getClass(), "decodeSize", 3);
+        setIntField(term335, term335.getClass(), "encodeSize", 4);
+        setByteElement(term407, 0, (byte) -54);
+        setField(term335, term335.getClass(), "buffer", term407);
+        setIntField(term335, term335.getClass(), "pos", -1685132342);
+        setIntField(term335, term335.getClass(), "readPos", -1456670397);
+        setIntField(term335, term335.getClass(), "currentLinePos", 1622346318);
+        setIntField(term335, term335.getClass(), "modulus", 1048535127);
+        setBooleanField(term335, term335.getClass(), "eof", true);
+        setIntField(term335, term335.getClass(), "x", -655067527);
+        term4235 = newInstance(Class.forName("org.apache.commons.codec.binary.Base64"));
+        byte[] term4236 = (byte[]) newByteArray(64);
+        byte[] term4237 = (byte[]) newByteArray(2);
+        byte[] term4238 = (byte[]) newByteArray(1);
+        setByteElement(term4236, 0, (byte) 65);
+        setByteElement(term4236, 1, (byte) 66);
+        setByteElement(term4236, 2, (byte) 67);
+        setByteElement(term4236, 3, (byte) 68);
+        setByteElement(term4236, 4, (byte) 69);
+        setByteElement(term4236, 5, (byte) 70);
+        setByteElement(term4236, 6, (byte) 71);
+        setByteElement(term4236, 7, (byte) 72);
+        setByteElement(term4236, 8, (byte) 73);
+        setByteElement(term4236, 9, (byte) 74);
+        setByteElement(term4236, 10, (byte) 75);
+        setByteElement(term4236, 11, (byte) 76);
+        setByteElement(term4236, 12, (byte) 77);
+        setByteElement(term4236, 13, (byte) 78);
+        setByteElement(term4236, 14, (byte) 79);
+        setByteElement(term4236, 15, (byte) 80);
+        setByteElement(term4236, 16, (byte) 81);
+        setByteElement(term4236, 17, (byte) 82);
+        setByteElement(term4236, 18, (byte) 83);
+        setByteElement(term4236, 19, (byte) 84);
+        setByteElement(term4236, 20, (byte) 85);
+        setByteElement(term4236, 21, (byte) 86);
+        setByteElement(term4236, 22, (byte) 87);
+        setByteElement(term4236, 23, (byte) 88);
+        setByteElement(term4236, 24, (byte) 89);
+        setByteElement(term4236, 25, (byte) 90);
+        setByteElement(term4236, 26, (byte) 97);
+        setByteElement(term4236, 27, (byte) 98);
+        setByteElement(term4236, 28, (byte) 99);
+        setByteElement(term4236, 29, (byte) 100);
+        setByteElement(term4236, 30, (byte) 101);
+        setByteElement(term4236, 31, (byte) 102);
+        setByteElement(term4236, 32, (byte) 103);
+        setByteElement(term4236, 33, (byte) 104);
+        setByteElement(term4236, 34, (byte) 105);
+        setByteElement(term4236, 35, (byte) 106);
+        setByteElement(term4236, 36, (byte) 107);
+        setByteElement(term4236, 37, (byte) 108);
+        setByteElement(term4236, 38, (byte) 109);
+        setByteElement(term4236, 39, (byte) 110);
+        setByteElement(term4236, 40, (byte) 111);
+        setByteElement(term4236, 41, (byte) 112);
+        setByteElement(term4236, 42, (byte) 113);
+        setByteElement(term4236, 43, (byte) 114);
+        setByteElement(term4236, 44, (byte) 115);
+        setByteElement(term4236, 45, (byte) 116);
+        setByteElement(term4236, 46, (byte) 117);
+        setByteElement(term4236, 47, (byte) 118);
+        setByteElement(term4236, 48, (byte) 119);
+        setByteElement(term4236, 49, (byte) 120);
+        setByteElement(term4236, 50, (byte) 121);
+        setByteElement(term4236, 51, (byte) 122);
+        setByteElement(term4236, 52, (byte) 48);
+        setByteElement(term4236, 53, (byte) 49);
+        setByteElement(term4236, 54, (byte) 50);
+        setByteElement(term4236, 55, (byte) 51);
+        setByteElement(term4236, 56, (byte) 52);
+        setByteElement(term4236, 57, (byte) 53);
+        setByteElement(term4236, 58, (byte) 54);
+        setByteElement(term4236, 59, (byte) 55);
+        setByteElement(term4236, 60, (byte) 56);
+        setByteElement(term4236, 61, (byte) 57);
+        setByteElement(term4236, 62, (byte) 43);
+        setByteElement(term4236, 63, (byte) 47);
+        setField(term4235, term4235.getClass(), "encodeTable", term4236);
+        setIntField(term4235, term4235.getClass(), "lineLength", 597278769);
+        setByteElement(term4237, 0, (byte) 13);
+        setByteElement(term4237, 1, (byte) 10);
+        setField(term4235, term4235.getClass(), "lineSeparator", term4237);
+        setIntField(term4235, term4235.getClass(), "decodeSize", 3);
+        setIntField(term4235, term4235.getClass(), "encodeSize", 4);
+        setByteElement(term4238, 0, (byte) -54);
+        setField(term4235, term4235.getClass(), "buffer", term4238);
+        setIntField(term4235, term4235.getClass(), "pos", -1685132342);
+        setIntField(term4235, term4235.getClass(), "readPos", -1456670397);
+        setIntField(term4235, term4235.getClass(), "currentLinePos", 1622346318);
+        setIntField(term4235, term4235.getClass(), "modulus", 1048535127);
+        setBooleanField(term4235, term4235.getClass(), "eof", true);
+        setIntField(term4235, term4235.getClass(), "x", -655067527);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.codec.binary.Base64");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        Object retValue = callMethod(klass, "avail", argTypes, term335, args);
+        assertTrue(recursiveEquals(term335, term4235));
+        assertTrue(recursiveEquals(retValue, -228461945));
+    }
+
+};
+
+

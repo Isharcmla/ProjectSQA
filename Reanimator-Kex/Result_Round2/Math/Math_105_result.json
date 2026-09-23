@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "105",
+  "tool": "kex",
+  "elapsed_sec": 178.3,
+  "target_classes": [
+    "org.apache.commons.math.stat.regression.SimpleRegression"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.stat.regression.SimpleRegression": "success"
+  },
+  "num_test_files_generated": 48,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

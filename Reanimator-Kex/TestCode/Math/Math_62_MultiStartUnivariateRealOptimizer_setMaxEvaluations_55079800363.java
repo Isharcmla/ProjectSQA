@@ -1,0 +1,261 @@
+package org.apache.commons.math.optimization.univariate;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.apache.commons.math.optimization.univariate.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class MultiStartUnivariateRealOptimizer_setMaxEvaluations_55079800363 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term16528;
+
+    public MultiStartUnivariateRealOptimizer_setMaxEvaluations_55079800363() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term16528 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term16696 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term16864 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term17032 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term17200 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term17368 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term17536 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term17704 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term17872 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term18040 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term18208 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term18376 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term18544 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term18712 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term18880 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term19048 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term19216 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term19384 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term19552 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term19720 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term19888 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term20056 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term20224 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term20392 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term20560 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term20728 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term20896 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term21064 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term21232 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term21400 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term21568 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term21736 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term21904 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term22072 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term22240 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term22408 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term22576 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term22744 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term22912 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term23080 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term23248 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term23416 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term23584 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term23752 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term23920 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term24088 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term24256 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term24424 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term24592 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term24760 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term24928 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term25096 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term25264 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term25432 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term25600 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term25768 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term25936 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term26104 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term26272 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term26440 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term26608 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term26776 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term26944 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term27112 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term27280 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term27448 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term27616 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term27784 = newInstance(Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"));
+        Object term27930 = newInstance(Class.forName("org.apache.commons.math.optimization.direct.PowellOptimizer$LineSearch"));
+        setIntField(term16528, term16528.getClass(), "maxEvaluations", 0);
+        setIntField(term16696, term16696.getClass(), "maxEvaluations", 0);
+        setIntField(term16864, term16864.getClass(), "maxEvaluations", 0);
+        setIntField(term17032, term17032.getClass(), "maxEvaluations", 0);
+        setIntField(term17200, term17200.getClass(), "maxEvaluations", 0);
+        setIntField(term17368, term17368.getClass(), "maxEvaluations", 0);
+        setIntField(term17536, term17536.getClass(), "maxEvaluations", 0);
+        setIntField(term17704, term17704.getClass(), "maxEvaluations", 0);
+        setIntField(term17872, term17872.getClass(), "maxEvaluations", 0);
+        setIntField(term18040, term18040.getClass(), "maxEvaluations", 0);
+        setIntField(term18208, term18208.getClass(), "maxEvaluations", 0);
+        setIntField(term18376, term18376.getClass(), "maxEvaluations", 0);
+        setIntField(term18544, term18544.getClass(), "maxEvaluations", 0);
+        setIntField(term18712, term18712.getClass(), "maxEvaluations", 0);
+        setIntField(term18880, term18880.getClass(), "maxEvaluations", 0);
+        setIntField(term19048, term19048.getClass(), "maxEvaluations", 0);
+        setIntField(term19216, term19216.getClass(), "maxEvaluations", 0);
+        setIntField(term19384, term19384.getClass(), "maxEvaluations", 0);
+        setIntField(term19552, term19552.getClass(), "maxEvaluations", 0);
+        setIntField(term19720, term19720.getClass(), "maxEvaluations", 0);
+        setIntField(term19888, term19888.getClass(), "maxEvaluations", 0);
+        setIntField(term20056, term20056.getClass(), "maxEvaluations", 0);
+        setIntField(term20224, term20224.getClass(), "maxEvaluations", 0);
+        setIntField(term20392, term20392.getClass(), "maxEvaluations", 0);
+        setIntField(term20560, term20560.getClass(), "maxEvaluations", 0);
+        setIntField(term20728, term20728.getClass(), "maxEvaluations", 0);
+        setIntField(term20896, term20896.getClass(), "maxEvaluations", 0);
+        setIntField(term21064, term21064.getClass(), "maxEvaluations", 0);
+        setIntField(term21232, term21232.getClass(), "maxEvaluations", 0);
+        setIntField(term21400, term21400.getClass(), "maxEvaluations", 0);
+        setIntField(term21568, term21568.getClass(), "maxEvaluations", 0);
+        setIntField(term21736, term21736.getClass(), "maxEvaluations", 0);
+        setIntField(term21904, term21904.getClass(), "maxEvaluations", 0);
+        setIntField(term22072, term22072.getClass(), "maxEvaluations", 0);
+        setIntField(term22240, term22240.getClass(), "maxEvaluations", 0);
+        setIntField(term22408, term22408.getClass(), "maxEvaluations", 0);
+        setIntField(term22576, term22576.getClass(), "maxEvaluations", 0);
+        setIntField(term22744, term22744.getClass(), "maxEvaluations", 0);
+        setIntField(term22912, term22912.getClass(), "maxEvaluations", 0);
+        setIntField(term23080, term23080.getClass(), "maxEvaluations", 0);
+        setIntField(term23248, term23248.getClass(), "maxEvaluations", 0);
+        setIntField(term23416, term23416.getClass(), "maxEvaluations", 0);
+        setIntField(term23584, term23584.getClass(), "maxEvaluations", 0);
+        setIntField(term23752, term23752.getClass(), "maxEvaluations", 0);
+        setIntField(term23920, term23920.getClass(), "maxEvaluations", 0);
+        setIntField(term24088, term24088.getClass(), "maxEvaluations", 0);
+        setIntField(term24256, term24256.getClass(), "maxEvaluations", 0);
+        setIntField(term24424, term24424.getClass(), "maxEvaluations", 0);
+        setIntField(term24592, term24592.getClass(), "maxEvaluations", 0);
+        setIntField(term24760, term24760.getClass(), "maxEvaluations", 0);
+        setIntField(term24928, term24928.getClass(), "maxEvaluations", 0);
+        setIntField(term25096, term25096.getClass(), "maxEvaluations", 0);
+        setIntField(term25264, term25264.getClass(), "maxEvaluations", 0);
+        setIntField(term25432, term25432.getClass(), "maxEvaluations", 0);
+        setIntField(term25600, term25600.getClass(), "maxEvaluations", 0);
+        setIntField(term25768, term25768.getClass(), "maxEvaluations", 0);
+        setIntField(term25936, term25936.getClass(), "maxEvaluations", 0);
+        setIntField(term26104, term26104.getClass(), "maxEvaluations", 0);
+        setIntField(term26272, term26272.getClass(), "maxEvaluations", 0);
+        setIntField(term26440, term26440.getClass(), "maxEvaluations", 0);
+        setIntField(term26608, term26608.getClass(), "maxEvaluations", 0);
+        setIntField(term26776, term26776.getClass(), "maxEvaluations", 0);
+        setIntField(term26944, term26944.getClass(), "maxEvaluations", 0);
+        setIntField(term27112, term27112.getClass(), "maxEvaluations", 0);
+        setIntField(term27280, term27280.getClass(), "maxEvaluations", 0);
+        setIntField(term27448, term27448.getClass(), "maxEvaluations", 0);
+        setIntField(term27616, term27616.getClass(), "maxEvaluations", 0);
+        setIntField(term27784, term27784.getClass(), "maxEvaluations", 0);
+        setField(term27784, term27784.getClass(), "optimizer", term27930);
+        setField(term27616, term27616.getClass(), "optimizer", term27784);
+        setField(term27448, term27448.getClass(), "optimizer", term27616);
+        setField(term27280, term27280.getClass(), "optimizer", term27448);
+        setField(term27112, term27112.getClass(), "optimizer", term27280);
+        setField(term26944, term26944.getClass(), "optimizer", term27112);
+        setField(term26776, term26776.getClass(), "optimizer", term26944);
+        setField(term26608, term26608.getClass(), "optimizer", term26776);
+        setField(term26440, term26440.getClass(), "optimizer", term26608);
+        setField(term26272, term26272.getClass(), "optimizer", term26440);
+        setField(term26104, term26104.getClass(), "optimizer", term26272);
+        setField(term25936, term25936.getClass(), "optimizer", term26104);
+        setField(term25768, term25768.getClass(), "optimizer", term25936);
+        setField(term25600, term25600.getClass(), "optimizer", term25768);
+        setField(term25432, term25432.getClass(), "optimizer", term25600);
+        setField(term25264, term25264.getClass(), "optimizer", term25432);
+        setField(term25096, term25096.getClass(), "optimizer", term25264);
+        setField(term24928, term24928.getClass(), "optimizer", term25096);
+        setField(term24760, term24760.getClass(), "optimizer", term24928);
+        setField(term24592, term24592.getClass(), "optimizer", term24760);
+        setField(term24424, term24424.getClass(), "optimizer", term24592);
+        setField(term24256, term24256.getClass(), "optimizer", term24424);
+        setField(term24088, term24088.getClass(), "optimizer", term24256);
+        setField(term23920, term23920.getClass(), "optimizer", term24088);
+        setField(term23752, term23752.getClass(), "optimizer", term23920);
+        setField(term23584, term23584.getClass(), "optimizer", term23752);
+        setField(term23416, term23416.getClass(), "optimizer", term23584);
+        setField(term23248, term23248.getClass(), "optimizer", term23416);
+        setField(term23080, term23080.getClass(), "optimizer", term23248);
+        setField(term22912, term22912.getClass(), "optimizer", term23080);
+        setField(term22744, term22744.getClass(), "optimizer", term22912);
+        setField(term22576, term22576.getClass(), "optimizer", term22744);
+        setField(term22408, term22408.getClass(), "optimizer", term22576);
+        setField(term22240, term22240.getClass(), "optimizer", term22408);
+        setField(term22072, term22072.getClass(), "optimizer", term22240);
+        setField(term21904, term21904.getClass(), "optimizer", term22072);
+        setField(term21736, term21736.getClass(), "optimizer", term21904);
+        setField(term21568, term21568.getClass(), "optimizer", term21736);
+        setField(term21400, term21400.getClass(), "optimizer", term21568);
+        setField(term21232, term21232.getClass(), "optimizer", term21400);
+        setField(term21064, term21064.getClass(), "optimizer", term21232);
+        setField(term20896, term20896.getClass(), "optimizer", term21064);
+        setField(term20728, term20728.getClass(), "optimizer", term20896);
+        setField(term20560, term20560.getClass(), "optimizer", term20728);
+        setField(term20392, term20392.getClass(), "optimizer", term20560);
+        setField(term20224, term20224.getClass(), "optimizer", term20392);
+        setField(term20056, term20056.getClass(), "optimizer", term20224);
+        setField(term19888, term19888.getClass(), "optimizer", term20056);
+        setField(term19720, term19720.getClass(), "optimizer", term19888);
+        setField(term19552, term19552.getClass(), "optimizer", term19720);
+        setField(term19384, term19384.getClass(), "optimizer", term19552);
+        setField(term19216, term19216.getClass(), "optimizer", term19384);
+        setField(term19048, term19048.getClass(), "optimizer", term19216);
+        setField(term18880, term18880.getClass(), "optimizer", term19048);
+        setField(term18712, term18712.getClass(), "optimizer", term18880);
+        setField(term18544, term18544.getClass(), "optimizer", term18712);
+        setField(term18376, term18376.getClass(), "optimizer", term18544);
+        setField(term18208, term18208.getClass(), "optimizer", term18376);
+        setField(term18040, term18040.getClass(), "optimizer", term18208);
+        setField(term17872, term17872.getClass(), "optimizer", term18040);
+        setField(term17704, term17704.getClass(), "optimizer", term17872);
+        setField(term17536, term17536.getClass(), "optimizer", term17704);
+        setField(term17368, term17368.getClass(), "optimizer", term17536);
+        setField(term17200, term17200.getClass(), "optimizer", term17368);
+        setField(term17032, term17032.getClass(), "optimizer", term17200);
+        setField(term16864, term16864.getClass(), "optimizer", term17032);
+        setField(term16696, term16696.getClass(), "optimizer", term16864);
+        setField(term16528, term16528.getClass(), "optimizer", term16696);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = int.class;
+        Object[] args = new Object[1];
+        args[0] = 0;
+        try {
+            callMethod(klass, "setMaxEvaluations", argTypes, term16528, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

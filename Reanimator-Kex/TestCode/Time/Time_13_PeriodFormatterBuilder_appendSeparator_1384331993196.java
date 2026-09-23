@@ -1,0 +1,219 @@
+package org.joda.time.format;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.IndexOutOfBoundsException;
+import static org.joda.time.format.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.util.ArrayList;
+import java.lang.Object;
+
+public class PeriodFormatterBuilder_appendSeparator_1384331993196 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term72575;
+
+    public PeriodFormatterBuilder_appendSeparator_1384331993196() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Object term72719 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        ArrayList term72771 = new ArrayList();
+        ArrayList term72899 = new ArrayList();
+        Object[] term71634 = (Object[]) newArray("java.lang.Object", 0);
+        Object[] term71635 = (Object[]) newArray("java.lang.Object", 0);
+        ArrayList term72627 = new ArrayList();
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add(term72719);
+        ((ArrayList) term72627).add(term72719);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add(term72771);
+        ((ArrayList) term72627).add(term72771);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add("");
+        ((ArrayList) term72627).add("");
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add("");
+        ((ArrayList) term72627).add("");
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add(term72899);
+        ((ArrayList) term72627).add(term72899);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)term71634);
+        ((ArrayList) term72627).add((Object)term71634);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)null);
+        ((ArrayList) term72627).add((Object)term71635);
+        term72575 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        setField(term72575, term72575.getClass(), "iPrefix", null);
+        setField(term72575, term72575.getClass(), "iElementPairs", term72627);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.joda.time.format.PeriodFormatterBuilder");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Class.forName("java.lang.String");
+        argTypes[1] = Class.forName("java.lang.String");
+        argTypes[2] = Array.newInstance(Class.forName("java.lang.String"), 0).getClass();
+        Object[] args = new Object[3];
+        args[0] = "";
+        args[1] = "";
+        args[2] = null;
+        try {
+            callMethod(klass, "appendSeparator", argTypes, term72575, args);
+            assertTrue(false);
+        }
+        catch (IndexOutOfBoundsException e) {
+        }
+
+    }
+
+};
+
+

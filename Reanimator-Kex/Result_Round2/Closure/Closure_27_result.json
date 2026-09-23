@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "27",
+  "tool": "kex",
+  "elapsed_sec": 319.17,
+  "target_classes": [
+    "com.google.javascript.rhino.IR"
+  ],
+  "kex_results": {
+    "com.google.javascript.rhino.IR": "timeout"
+  },
+  "num_test_files_generated": 1969,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,4 @@
+test,fqcn,method,buggy,fixed,classification
+ReturnsEmptyValues_answer_12169540464,org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues_answer_12169540464,,FAIL,FAIL,invalid_or_unstable
+ReturnsEmptyValues_init_13653086213,org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues_init_13653086213,,PASS,PASS,valid_non_revealing
+ReturnsEmptyValues_returnValueFor_27749125,org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues_returnValueFor_27749125,,FAIL,FAIL,invalid_or_unstable

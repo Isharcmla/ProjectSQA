@@ -1,0 +1,64 @@
+package com.fasterxml.jackson.databind;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.fasterxml.jackson.databind.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class ObjectMapper_readValue_1349853545349 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term5625;
+
+    public ObjectMapper_readValue_1349853545349() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term5625 = (byte[]) newByteArray(6);
+        setByteElement(term5625, 0, (byte) -119);
+        setByteElement(term5625, 1, (byte) -66);
+        setByteElement(term5625, 2, (byte) 83);
+        setByteElement(term5625, 3, (byte) 74);
+        setByteElement(term5625, 4, (byte) -71);
+        setByteElement(term5625, 5, (byte) 49);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.databind.ObjectMapper");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Array.newInstance(byte.class, 0).getClass();
+        argTypes[1] = Class.forName("com.fasterxml.jackson.core.type.TypeReference");
+        Object[] args = new Object[2];
+        args[0] = term5625;
+        args[1] = null;
+        try {
+            callMethod(klass, "readValue", argTypes, null, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

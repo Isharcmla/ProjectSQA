@@ -1,0 +1,21 @@
+{
+  "project": "Jsoup",
+  "bug_id": "52",
+  "tool": "kex",
+  "elapsed_sec": 488.13,
+  "target_classes": [
+    "org.jsoup.helper.DataUtil",
+    "org.jsoup.nodes.XmlDeclaration",
+    "org.jsoup.parser.XmlTreeBuilder"
+  ],
+  "kex_results": {
+    "org.jsoup.helper.DataUtil": "failed",
+    "org.jsoup.nodes.XmlDeclaration": "success",
+    "org.jsoup.parser.XmlTreeBuilder": "success"
+  },
+  "num_test_files_generated": 204,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

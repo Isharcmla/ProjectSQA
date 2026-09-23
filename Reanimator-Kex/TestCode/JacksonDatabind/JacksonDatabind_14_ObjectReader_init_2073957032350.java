@@ -1,0 +1,218 @@
+package com.fasterxml.jackson.databind;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.fasterxml.jackson.databind.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.fasterxml.jackson.databind.EqualityUtils.*;
+import java.lang.Object;
+import org.mockito.Mockito;
+
+public class ObjectReader_init_2073957032350 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term152644;
+     Object term152836;
+     Object term152980;
+     Object term153128;
+     Object term153199;
+     Object term153206;
+     Object term153207;
+     Object term153210;
+     Object term153212;
+
+    public ObjectReader_init_2073957032350() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Object term152364 = newInstance(Class.forName("com.fasterxml.jackson.databind.ObjectReader"));
+        Object term152446 = newInstance(Class.forName("java.util.concurrent.ConcurrentHashMap"));
+        Object term152552 = newInstance(Class.forName("com.fasterxml.jackson.databind.util.RootNameLookup"));
+        Object term152232 = Mockito.mock(Class.forName("com.fasterxml.jackson.core.FormatSchema"));
+        setField(term152364, term152364.getClass(), "_config", null);
+        setField(term152364, term152364.getClass(), "_context", null);
+        setField(term152364, term152364.getClass(), "_rootDeserializers", term152446);
+        setField(term152364, term152364.getClass(), "_parserFactory", null);
+        setField(term152364, term152364.getClass(), "_rootNames", term152552);
+        setField(term152364, term152364.getClass(), "_valueType", null);
+        setField(term152364, term152364.getClass(), "_valueToUpdate", null);
+        setField(term152364, term152364.getClass(), "_schema", term152232);
+        setField(term152364, term152364.getClass(), "_injectableValues", null);
+        term152644 = newInstance(Class.forName("com.fasterxml.jackson.databind.ObjectMapper"));
+        Object term152726 = newInstance(Class.forName("com.fasterxml.jackson.core.JsonFactory"));
+        setField(term152644, term152644.getClass(), "_deserializationContext", null);
+        setField(term152644, term152644.getClass(), "_rootDeserializers", null);
+        setField(term152644, term152644.getClass(), "_jsonFactory", term152726);
+        setField(term152644, term152644.getClass(), "_rootNames", null);
+        term152836 = newInstance(Class.forName("com.fasterxml.jackson.databind.DeserializationConfig"));
+        setField(term152836, term152836.getClass(), "_rootName", " ");
+        term152980 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.CollectionType"));
+        term153128 = newInstance(Class.forName("com.fasterxml.jackson.databind.deser.DefaultDeserializationContext$Impl"));
+        term153199 = newInstance(Class.forName("com.fasterxml.jackson.databind.ObjectReader"));
+        Object term153200 = newInstance(Class.forName("com.fasterxml.jackson.databind.DeserializationConfig"));
+        Object term153203 = newInstance(Class.forName("com.fasterxml.jackson.core.JsonFactory"));
+        Object term153204 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.CollectionType"));
+        Object term153205 = newInstance(Class.forName("com.fasterxml.jackson.databind.deser.DefaultDeserializationContext$Impl"));
+        setIntField(term153200, term153200.getClass(), "_deserFeatures", 0);
+        setField(term153200, term153200.getClass(), "_problemHandlers", null);
+        setField(term153200, term153200.getClass(), "_nodeFactory", null);
+        setIntField(term153200, term153200.getClass(), "_parserFeatures", 0);
+        setIntField(term153200, term153200.getClass(), "_parserFeaturesToChange", 0);
+        setField(term153200, term153200.getClass(), "_mixInAnnotations", null);
+        setField(term153200, term153200.getClass(), "_subtypeResolver", null);
+        setField(term153200, term153200.getClass(), "_rootName", " ");
+        setField(term153200, term153200.getClass(), "_view", null);
+        setField(term153200, term153200.getClass(), "_attributes", null);
+        setIntField(term153200, term153200.getClass(), "_mapperFeatures", 0);
+        setField(term153200, term153200.getClass(), "_base", null);
+        setField(term153199, term153199.getClass(), "_config", term153200);
+        setField(term153199, term153199.getClass(), "_context", null);
+        setField(term153203, term153203.getClass(), "_rootCharSymbols", null);
+        setField(term153203, term153203.getClass(), "_rootByteSymbols", null);
+        setField(term153203, term153203.getClass(), "_objectCodec", null);
+        setIntField(term153203, term153203.getClass(), "_factoryFeatures", 0);
+        setIntField(term153203, term153203.getClass(), "_parserFeatures", 0);
+        setIntField(term153203, term153203.getClass(), "_generatorFeatures", 0);
+        setField(term153203, term153203.getClass(), "_characterEscapes", null);
+        setField(term153203, term153203.getClass(), "_inputDecorator", null);
+        setField(term153203, term153203.getClass(), "_outputDecorator", null);
+        setField(term153203, term153203.getClass(), "_rootValueSeparator", null);
+        setField(term153199, term153199.getClass(), "_parserFactory", term153203);
+        setBooleanField(term153199, term153199.getClass(), "_unwrapRoot", true);
+        setField(term153204, term153204.getClass(), "_elementType", null);
+        setField(term153204, term153204.getClass(), "_canonicalName", null);
+        setField(term153204, term153204.getClass(), "_class", null);
+        setIntField(term153204, term153204.getClass(), "_hash", 0);
+        setField(term153204, term153204.getClass(), "_valueHandler", null);
+        setField(term153204, term153204.getClass(), "_typeHandler", null);
+        setBooleanField(term153204, term153204.getClass(), "_asStatic", false);
+        setField(term153199, term153199.getClass(), "_valueType", term153204);
+        setField(term153199, term153199.getClass(), "_rootDeserializer", null);
+        setField(term153205, term153205.getClass(), "_objectIds", null);
+        setField(term153205, term153205.getClass(), "_objectIdResolvers", null);
+        setField(term153205, term153205.getClass(), "_cache", null);
+        setField(term153205, term153205.getClass(), "_factory", null);
+        setField(term153205, term153205.getClass(), "_config", null);
+        setIntField(term153205, term153205.getClass(), "_featureFlags", 0);
+        setField(term153205, term153205.getClass(), "_view", null);
+        setField(term153205, term153205.getClass(), "_parser", null);
+        setField(term153205, term153205.getClass(), "_injectableValues", null);
+        setField(term153205, term153205.getClass(), "_arrayBuilders", null);
+        setField(term153205, term153205.getClass(), "_objectBuffer", null);
+        setField(term153205, term153205.getClass(), "_dateFormat", null);
+        setField(term153205, term153205.getClass(), "_attributes", null);
+        setField(term153205, term153205.getClass(), "_currentType", null);
+        setField(term153199, term153199.getClass(), "_valueToUpdate", term153205);
+        setField(term153199, term153199.getClass(), "_schema", null);
+        setField(term153199, term153199.getClass(), "_injectableValues", null);
+        setField(term153199, term153199.getClass(), "_dataFormatReaders", null);
+        setField(term153199, term153199.getClass(), "_rootDeserializers", null);
+        setField(term153199, term153199.getClass(), "_rootNames", null);
+        term153206 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.CollectionType"));
+        setField(term153206, term153206.getClass(), "_elementType", null);
+        setField(term153206, term153206.getClass(), "_canonicalName", null);
+        setField(term153206, term153206.getClass(), "_class", null);
+        setIntField(term153206, term153206.getClass(), "_hash", 0);
+        setField(term153206, term153206.getClass(), "_valueHandler", null);
+        setField(term153206, term153206.getClass(), "_typeHandler", null);
+        setBooleanField(term153206, term153206.getClass(), "_asStatic", false);
+        term153207 = newInstance(Class.forName("com.fasterxml.jackson.databind.DeserializationConfig"));
+        setIntField(term153207, term153207.getClass(), "_deserFeatures", 0);
+        setField(term153207, term153207.getClass(), "_problemHandlers", null);
+        setField(term153207, term153207.getClass(), "_nodeFactory", null);
+        setIntField(term153207, term153207.getClass(), "_parserFeatures", 0);
+        setIntField(term153207, term153207.getClass(), "_parserFeaturesToChange", 0);
+        setField(term153207, term153207.getClass(), "_mixInAnnotations", null);
+        setField(term153207, term153207.getClass(), "_subtypeResolver", null);
+        setField(term153207, term153207.getClass(), "_rootName", " ");
+        setField(term153207, term153207.getClass(), "_view", null);
+        setField(term153207, term153207.getClass(), "_attributes", null);
+        setIntField(term153207, term153207.getClass(), "_mapperFeatures", 0);
+        setField(term153207, term153207.getClass(), "_base", null);
+        term153210 = newInstance(Class.forName("com.fasterxml.jackson.databind.ObjectMapper"));
+        Object term153211 = newInstance(Class.forName("com.fasterxml.jackson.core.JsonFactory"));
+        setField(term153211, term153211.getClass(), "_rootCharSymbols", null);
+        setField(term153211, term153211.getClass(), "_rootByteSymbols", null);
+        setField(term153211, term153211.getClass(), "_objectCodec", null);
+        setIntField(term153211, term153211.getClass(), "_factoryFeatures", 0);
+        setIntField(term153211, term153211.getClass(), "_parserFeatures", 0);
+        setIntField(term153211, term153211.getClass(), "_generatorFeatures", 0);
+        setField(term153211, term153211.getClass(), "_characterEscapes", null);
+        setField(term153211, term153211.getClass(), "_inputDecorator", null);
+        setField(term153211, term153211.getClass(), "_outputDecorator", null);
+        setField(term153211, term153211.getClass(), "_rootValueSeparator", null);
+        setField(term153210, term153210.getClass(), "_jsonFactory", term153211);
+        setField(term153210, term153210.getClass(), "_typeFactory", null);
+        setField(term153210, term153210.getClass(), "_injectableValues", null);
+        setField(term153210, term153210.getClass(), "_subtypeResolver", null);
+        setField(term153210, term153210.getClass(), "_rootNames", null);
+        setField(term153210, term153210.getClass(), "_mixInAnnotations", null);
+        setField(term153210, term153210.getClass(), "_serializationConfig", null);
+        setField(term153210, term153210.getClass(), "_serializerProvider", null);
+        setField(term153210, term153210.getClass(), "_serializerFactory", null);
+        setField(term153210, term153210.getClass(), "_deserializationConfig", null);
+        setField(term153210, term153210.getClass(), "_deserializationContext", null);
+        setField(term153210, term153210.getClass(), "_registeredModuleTypes", null);
+        setField(term153210, term153210.getClass(), "_rootDeserializers", null);
+        term153212 = newInstance(Class.forName("com.fasterxml.jackson.databind.deser.DefaultDeserializationContext$Impl"));
+        setField(term153212, term153212.getClass(), "_objectIds", null);
+        setField(term153212, term153212.getClass(), "_objectIdResolvers", null);
+        setField(term153212, term153212.getClass(), "_cache", null);
+        setField(term153212, term153212.getClass(), "_factory", null);
+        setField(term153212, term153212.getClass(), "_config", null);
+        setIntField(term153212, term153212.getClass(), "_featureFlags", 0);
+        setField(term153212, term153212.getClass(), "_view", null);
+        setField(term153212, term153212.getClass(), "_parser", null);
+        setField(term153212, term153212.getClass(), "_injectableValues", null);
+        setField(term153212, term153212.getClass(), "_arrayBuilders", null);
+        setField(term153212, term153212.getClass(), "_objectBuffer", null);
+        setField(term153212, term153212.getClass(), "_dateFormat", null);
+        setField(term153212, term153212.getClass(), "_attributes", null);
+        setField(term153212, term153212.getClass(), "_currentType", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.databind.ObjectReader");
+        Class<?>[] argTypes = new Class<?>[6];
+        argTypes[0] = Class.forName("com.fasterxml.jackson.databind.ObjectMapper");
+        argTypes[1] = Class.forName("com.fasterxml.jackson.databind.DeserializationConfig");
+        argTypes[2] = Class.forName("com.fasterxml.jackson.databind.JavaType");
+        argTypes[3] = Class.forName("java.lang.Object");
+        argTypes[4] = Class.forName("com.fasterxml.jackson.core.FormatSchema");
+        argTypes[5] = Class.forName("com.fasterxml.jackson.databind.InjectableValues");
+        Object[] args = new Object[6];
+        args[0] = term152644;
+        args[1] = term152836;
+        args[2] = term152980;
+        args[3] = term153128;
+        args[4] = null;
+        args[5] = null;
+        Object instance = callConstructor(klass, argTypes, args);
+        assertTrue(recursiveEquals(instance, term153199));
+        assertTrue(recursiveEquals(term152644, term153206));
+        assertTrue(recursiveEquals(term152836, term153207));
+        assertTrue(recursiveEquals(term152980, term153210));
+        assertTrue(recursiveEquals(term153128, term153212));
+    }
+
+};
+
+

@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "76",
+  "tool": "kex",
+  "elapsed_sec": 169.61,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.BuilderBasedDeserializer"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.deser.BuilderBasedDeserializer": "success"
+  },
+  "num_test_files_generated": 114,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

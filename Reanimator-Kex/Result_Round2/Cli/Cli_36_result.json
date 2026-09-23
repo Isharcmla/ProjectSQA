@@ -1,0 +1,19 @@
+{
+  "project": "Cli",
+  "bug_id": "36",
+  "tool": "kex",
+  "elapsed_sec": 152.74,
+  "target_classes": [
+    "org.apache.commons.cli.OptionGroup",
+    "org.apache.commons.cli.Options"
+  ],
+  "kex_results": {
+    "org.apache.commons.cli.OptionGroup": "success",
+    "org.apache.commons.cli.Options": "success"
+  },
+  "num_test_files_generated": 158,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

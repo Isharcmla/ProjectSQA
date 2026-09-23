@@ -1,0 +1,19 @@
+{
+  "project": "Chart",
+  "bug_id": "18",
+  "tool": "kex",
+  "elapsed_sec": 362.99,
+  "target_classes": [
+    "org.jfree.data.DefaultKeyedValues",
+    "org.jfree.data.DefaultKeyedValues2D"
+  ],
+  "kex_results": {
+    "org.jfree.data.DefaultKeyedValues": "success",
+    "org.jfree.data.DefaultKeyedValues2D": "success"
+  },
+  "num_test_files_generated": 148,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

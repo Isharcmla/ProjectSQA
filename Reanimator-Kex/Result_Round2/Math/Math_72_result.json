@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "72",
+  "tool": "kex",
+  "elapsed_sec": 168.13,
+  "target_classes": [
+    "org.apache.commons.math.analysis.solvers.BrentSolver"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.analysis.solvers.BrentSolver": "success"
+  },
+  "num_test_files_generated": 35,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

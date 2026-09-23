@@ -1,0 +1,17 @@
+{
+  "project": "Gson",
+  "bug_id": "3",
+  "tool": "kex",
+  "elapsed_sec": 56.18,
+  "target_classes": [
+    "com.google.gson.internal.ConstructorConstructor"
+  ],
+  "kex_results": {
+    "com.google.gson.internal.ConstructorConstructor": "success"
+  },
+  "num_test_files_generated": 17,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

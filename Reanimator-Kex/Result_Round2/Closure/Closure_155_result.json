@@ -1,0 +1,21 @@
+{
+  "project": "Closure",
+  "bug_id": "155",
+  "tool": "kex",
+  "elapsed_sec": 395.3,
+  "target_classes": [
+    "com.google.javascript.jscomp.InlineVariables",
+    "com.google.javascript.jscomp.ReferenceCollectingCallback",
+    "com.google.javascript.jscomp.Scope"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.InlineVariables": "success",
+    "com.google.javascript.jscomp.ReferenceCollectingCallback": "success",
+    "com.google.javascript.jscomp.Scope": "success"
+  },
+  "num_test_files_generated": 923,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "19",
+  "tool": "kex",
+  "elapsed_sec": 25.11,
+  "target_classes": [
+    "org.jfree.chart.plot.CategoryPlot"
+  ],
+  "kex_results": {
+    "org.jfree.chart.plot.CategoryPlot": "success"
+  },
+  "num_test_files_generated": 161,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

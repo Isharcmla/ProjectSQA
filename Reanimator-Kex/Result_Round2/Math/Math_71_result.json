@@ -1,0 +1,19 @@
+{
+  "project": "Math",
+  "bug_id": "71",
+  "tool": "kex",
+  "elapsed_sec": 28.7,
+  "target_classes": [
+    "org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegrator",
+    "org.apache.commons.math.ode.nonstiff.RungeKuttaIntegrator"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegrator": "success",
+    "org.apache.commons.math.ode.nonstiff.RungeKuttaIntegrator": "success"
+  },
+  "num_test_files_generated": 12,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

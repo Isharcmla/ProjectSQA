@@ -1,0 +1,215 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.google.javascript.jscomp.EqualityUtils.*;
+import java.lang.Object;
+
+public class NodeUtil_isExprCall_1790929530214 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term1464;
+     Object term12494;
+
+    public NodeUtil_isExprCall_1790929530214() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term1464 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term1466 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term1468 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term1470 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term1472 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term1475 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term1479 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term1481 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term1486 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setIntField(term1464, term1464.getClass(), "type", -2143043890);
+        setIntField(term1466, term1466.getClass(), "type", -2138825831);
+        setIntField(term1468, term1468.getClass(), "type", 1454781562);
+        setIntField(term1470, term1470.getClass(), "type", -27944011);
+        setIntField(term1472, term1472.getClass(), "type", -20614472);
+        setField(term1472, term1472.getClass(), "next", null);
+        setField(term1472, term1472.getClass(), "first", null);
+        setField(term1472, term1472.getClass(), "last", null);
+        setField(term1472, term1472.getClass(), "propListHead", null);
+        setIntField(term1472, term1472.getClass(), "sourcePosition", 0);
+        setField(term1472, term1472.getClass(), "jsType", null);
+        setField(term1472, term1472.getClass(), "parent", null);
+        setField(term1470, term1470.getClass(), "next", term1472);
+        setIntField(term1475, term1475.getClass(), "type", 1126618861);
+        setField(term1475, term1475.getClass(), "next", null);
+        setField(term1475, term1475.getClass(), "first", null);
+        setField(term1475, term1475.getClass(), "last", term1472);
+        setField(term1475, term1475.getClass(), "propListHead", null);
+        setIntField(term1475, term1475.getClass(), "sourcePosition", 0);
+        setField(term1475, term1475.getClass(), "jsType", null);
+        setField(term1475, term1475.getClass(), "parent", null);
+        setField(term1470, term1470.getClass(), "first", term1475);
+        setField(term1470, term1470.getClass(), "last", term1468);
+        setField(term1470, term1470.getClass(), "propListHead", null);
+        setIntField(term1470, term1470.getClass(), "sourcePosition", 0);
+        setField(term1470, term1470.getClass(), "jsType", null);
+        setField(term1470, term1470.getClass(), "parent", null);
+        setField(term1468, term1468.getClass(), "next", term1470);
+        setField(term1468, term1468.getClass(), "first", term1472);
+        setIntField(term1479, term1479.getClass(), "type", -763799087);
+        setIntField(term1481, term1481.getClass(), "type", 1207142014);
+        setField(term1481, term1481.getClass(), "next", null);
+        setField(term1481, term1481.getClass(), "first", term1475);
+        setField(term1481, term1481.getClass(), "last", term1470);
+        setField(term1481, term1481.getClass(), "propListHead", null);
+        setIntField(term1481, term1481.getClass(), "sourcePosition", 0);
+        setField(term1481, term1481.getClass(), "jsType", null);
+        setField(term1481, term1481.getClass(), "parent", null);
+        setField(term1479, term1479.getClass(), "next", term1481);
+        setField(term1479, term1479.getClass(), "first", term1466);
+        setField(term1479, term1479.getClass(), "last", term1466);
+        setField(term1479, term1479.getClass(), "propListHead", null);
+        setIntField(term1479, term1479.getClass(), "sourcePosition", 0);
+        setField(term1479, term1479.getClass(), "jsType", null);
+        setField(term1479, term1479.getClass(), "parent", null);
+        setField(term1468, term1468.getClass(), "last", term1479);
+        setField(term1468, term1468.getClass(), "propListHead", null);
+        setIntField(term1468, term1468.getClass(), "sourcePosition", 0);
+        setField(term1468, term1468.getClass(), "jsType", null);
+        setField(term1468, term1468.getClass(), "parent", null);
+        setField(term1466, term1466.getClass(), "next", term1468);
+        setIntField(term1486, term1486.getClass(), "type", -876426634);
+        setField(term1486, term1486.getClass(), "next", term1479);
+        setField(term1486, term1486.getClass(), "first", term1481);
+        setField(term1486, term1486.getClass(), "last", term1464);
+        setField(term1486, term1486.getClass(), "propListHead", null);
+        setIntField(term1486, term1486.getClass(), "sourcePosition", 0);
+        setField(term1486, term1486.getClass(), "jsType", null);
+        setField(term1486, term1486.getClass(), "parent", null);
+        setField(term1466, term1466.getClass(), "first", term1486);
+        setField(term1466, term1466.getClass(), "last", term1486);
+        setField(term1466, term1466.getClass(), "propListHead", null);
+        setIntField(term1466, term1466.getClass(), "sourcePosition", 0);
+        setField(term1466, term1466.getClass(), "jsType", null);
+        setField(term1466, term1466.getClass(), "parent", null);
+        setField(term1464, term1464.getClass(), "next", term1466);
+        setField(term1464, term1464.getClass(), "first", term1470);
+        setField(term1464, term1464.getClass(), "last", term1472);
+        setField(term1464, term1464.getClass(), "propListHead", null);
+        setIntField(term1464, term1464.getClass(), "sourcePosition", 0);
+        setField(term1464, term1464.getClass(), "jsType", null);
+        setField(term1464, term1464.getClass(), "parent", null);
+        term12494 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term12495 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term12496 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term12497 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term12498 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term12499 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term12500 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term12501 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term12502 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setIntField(term12494, term12494.getClass(), "type", -2143043890);
+        setIntField(term12495, term12495.getClass(), "type", -2138825831);
+        setIntField(term12496, term12496.getClass(), "type", 1454781562);
+        setIntField(term12497, term12497.getClass(), "type", -27944011);
+        setIntField(term12498, term12498.getClass(), "type", -20614472);
+        setField(term12498, term12498.getClass(), "next", null);
+        setField(term12498, term12498.getClass(), "first", null);
+        setField(term12498, term12498.getClass(), "last", null);
+        setField(term12498, term12498.getClass(), "propListHead", null);
+        setIntField(term12498, term12498.getClass(), "sourcePosition", 0);
+        setField(term12498, term12498.getClass(), "jsType", null);
+        setField(term12498, term12498.getClass(), "parent", null);
+        setField(term12497, term12497.getClass(), "next", term12498);
+        setIntField(term12499, term12499.getClass(), "type", 1126618861);
+        setField(term12499, term12499.getClass(), "next", null);
+        setField(term12499, term12499.getClass(), "first", null);
+        setField(term12499, term12499.getClass(), "last", term12498);
+        setField(term12499, term12499.getClass(), "propListHead", null);
+        setIntField(term12499, term12499.getClass(), "sourcePosition", 0);
+        setField(term12499, term12499.getClass(), "jsType", null);
+        setField(term12499, term12499.getClass(), "parent", null);
+        setField(term12497, term12497.getClass(), "first", term12499);
+        setField(term12497, term12497.getClass(), "last", term12496);
+        setField(term12497, term12497.getClass(), "propListHead", null);
+        setIntField(term12497, term12497.getClass(), "sourcePosition", 0);
+        setField(term12497, term12497.getClass(), "jsType", null);
+        setField(term12497, term12497.getClass(), "parent", null);
+        setField(term12496, term12496.getClass(), "next", term12497);
+        setField(term12496, term12496.getClass(), "first", term12498);
+        setIntField(term12500, term12500.getClass(), "type", -763799087);
+        setIntField(term12501, term12501.getClass(), "type", 1207142014);
+        setField(term12501, term12501.getClass(), "next", null);
+        setField(term12501, term12501.getClass(), "first", term12499);
+        setField(term12501, term12501.getClass(), "last", term12497);
+        setField(term12501, term12501.getClass(), "propListHead", null);
+        setIntField(term12501, term12501.getClass(), "sourcePosition", 0);
+        setField(term12501, term12501.getClass(), "jsType", null);
+        setField(term12501, term12501.getClass(), "parent", null);
+        setField(term12500, term12500.getClass(), "next", term12501);
+        setField(term12500, term12500.getClass(), "first", term12495);
+        setField(term12500, term12500.getClass(), "last", term12495);
+        setField(term12500, term12500.getClass(), "propListHead", null);
+        setIntField(term12500, term12500.getClass(), "sourcePosition", 0);
+        setField(term12500, term12500.getClass(), "jsType", null);
+        setField(term12500, term12500.getClass(), "parent", null);
+        setField(term12496, term12496.getClass(), "last", term12500);
+        setField(term12496, term12496.getClass(), "propListHead", null);
+        setIntField(term12496, term12496.getClass(), "sourcePosition", 0);
+        setField(term12496, term12496.getClass(), "jsType", null);
+        setField(term12496, term12496.getClass(), "parent", null);
+        setField(term12495, term12495.getClass(), "next", term12496);
+        setIntField(term12502, term12502.getClass(), "type", -876426634);
+        setField(term12502, term12502.getClass(), "next", term12500);
+        setField(term12502, term12502.getClass(), "first", term12501);
+        setField(term12502, term12502.getClass(), "last", term12494);
+        setField(term12502, term12502.getClass(), "propListHead", null);
+        setIntField(term12502, term12502.getClass(), "sourcePosition", 0);
+        setField(term12502, term12502.getClass(), "jsType", null);
+        setField(term12502, term12502.getClass(), "parent", null);
+        setField(term12495, term12495.getClass(), "first", term12502);
+        setField(term12495, term12495.getClass(), "last", term12502);
+        setField(term12495, term12495.getClass(), "propListHead", null);
+        setIntField(term12495, term12495.getClass(), "sourcePosition", 0);
+        setField(term12495, term12495.getClass(), "jsType", null);
+        setField(term12495, term12495.getClass(), "parent", null);
+        setField(term12494, term12494.getClass(), "next", term12495);
+        setField(term12494, term12494.getClass(), "first", term12497);
+        setField(term12494, term12494.getClass(), "last", term12498);
+        setField(term12494, term12494.getClass(), "propListHead", null);
+        setIntField(term12494, term12494.getClass(), "sourcePosition", 0);
+        setField(term12494, term12494.getClass(), "jsType", null);
+        setField(term12494, term12494.getClass(), "parent", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.NodeUtil");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("com.google.javascript.rhino.Node");
+        Object[] args = new Object[1];
+        args[0] = term1464;
+        Object retValue = callMethod(klass, "isExprCall", argTypes, null, args);
+        assertTrue(recursiveEquals(term1464, term12494));
+        assertTrue(recursiveEquals(retValue, false));
+    }
+
+};
+
+

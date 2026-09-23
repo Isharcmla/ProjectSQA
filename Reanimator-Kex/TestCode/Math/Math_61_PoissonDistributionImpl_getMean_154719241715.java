@@ -1,0 +1,212 @@
+package org.apache.commons.math.distribution;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.math.distribution.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.math.distribution.EqualityUtils.*;
+import java.lang.Object;
+import java.util.LinkedHashSet;
+
+public class PoissonDistributionImpl_getMean_154719241715 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term17;
+     Object term2085;
+
+    public PoissonDistributionImpl_getMean_154719241715() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        LinkedHashSet term37 = new LinkedHashSet();
+        term17 = newInstance(Class.forName("org.apache.commons.math.distribution.PoissonDistributionImpl"));
+        Object term21 = newInstance(Class.forName("org.apache.commons.math.random.RandomDataImpl"));
+        Object term22 = newInstance(Class.forName("java.security.SecureRandom"));
+        Object term23 = newInstance(Class.forName("sun.security.provider.Sun"));
+        Object term32 = newInstance(Class.forName("java.util.concurrent.ConcurrentHashMap"));
+        Object term38 = newInstance(Class.forName("java.util.concurrent.ConcurrentHashMap"));
+        Object term47 = newInstance(Class.forName("sun.security.provider.NativePRNG"));
+        byte[] term61 = (byte[]) newByteArray(3);
+        Object term67 = newInstance(Class.forName("java.util.concurrent.atomic.AtomicLong"));
+        setField(term17, term17.getClass(), "normal", null);
+        setDoubleField(term17, term17.getClass(), "mean", 0.2641345529914265);
+        setIntField(term17, term17.getClass(), "maxIterations", 1484323161);
+        setDoubleField(term17, term17.getClass(), "epsilon", 0.36923381893433327);
+        setField(term21, term21.getClass(), "rand", null);
+        setField(term23, term23.getClass(), "name", "");
+        setField(term23, term23.getClass(), "info", "");
+        setDoubleField(term23, term23.getClass(), "version", 11.0);
+        setField(term23, term23.getClass(), "versionStr", "");
+        setField(term23, term23.getClass(), "entrySet", null);
+        setIntField(term23, term23.getClass(), "entrySetCallCount", 0);
+        setBooleanField(term23, term23.getClass(), "initialized", true);
+        setBooleanField(term23, term23.getClass(), "legacyChanged", false);
+        setBooleanField(term23, term23.getClass(), "servicesChanged", true);
+        setField(term23, term23.getClass(), "legacyStrings", null);
+        setField(term32, term32.getClass(), "table", null);
+        setField(term32, term32.getClass(), "nextTable", null);
+        setLongField(term32, term32.getClass(), "baseCount", 100L);
+        setIntField(term32, term32.getClass(), "sizeCtl", 192);
+        setIntField(term32, term32.getClass(), "transferIndex", 0);
+        setIntField(term32, term32.getClass(), "cellsBusy", 0);
+        setField(term32, term32.getClass(), "counterCells", null);
+        setField(term32, term32.getClass(), "keySet", null);
+        setField(term32, term32.getClass(), "values", null);
+        setField(term32, term32.getClass(), "entrySet", null);
+        setField(term32, term32.getClass(), "keySet", null);
+        setField(term32, term32.getClass(), "values", null);
+        setField(term23, term23.getClass(), "serviceMap", term32);
+        setField(term23, term23.getClass(), "prngAlgos", term37);
+        setField(term23, term23.getClass(), "legacyMap", null);
+        setField(term23, term23.getClass(), "serviceSet", null);
+        setField(term23, term23.getClass(), "defaults", null);
+        setField(term38, term38.getClass(), "table", null);
+        setField(term38, term38.getClass(), "nextTable", null);
+        setLongField(term38, term38.getClass(), "baseCount", 152L);
+        setIntField(term38, term38.getClass(), "sizeCtl", 192);
+        setIntField(term38, term38.getClass(), "transferIndex", 0);
+        setIntField(term38, term38.getClass(), "cellsBusy", 0);
+        setField(term38, term38.getClass(), "counterCells", null);
+        setField(term38, term38.getClass(), "keySet", null);
+        setField(term38, term38.getClass(), "values", null);
+        setField(term38, term38.getClass(), "entrySet", null);
+        setField(term38, term38.getClass(), "keySet", null);
+        setField(term38, term38.getClass(), "values", null);
+        setField(term23, term23.getClass(), "map", term38);
+        setField(term23, term23.getClass(), "table", null);
+        setIntField(term23, term23.getClass(), "count", 0);
+        setIntField(term23, term23.getClass(), "threshold", 0);
+        setFloatField(term23, term23.getClass(), "loadFactor", 0.0F);
+        setIntField(term23, term23.getClass(), "modCount", 0);
+        setField(term23, term23.getClass(), "keySet", null);
+        setField(term23, term23.getClass(), "values", null);
+        setField(term22, term22.getClass(), "provider", term23);
+        setField(term22, term22.getClass(), "secureRandomSpi", term47);
+        setBooleanField(term22, term22.getClass(), "threadSafe", true);
+        setField(term22, term22.getClass(), "algorithm", "NativePRNG");
+        setByteElement(term61, 0, (byte) 79);
+        setByteElement(term61, 1, (byte) -119);
+        setByteElement(term61, 2, (byte) -66);
+        setField(term22, term22.getClass(), "state", term61);
+        setField(term22, term22.getClass(), "digest", null);
+        setField(term22, term22.getClass(), "randomBytes", null);
+        setIntField(term22, term22.getClass(), "randomBytesUsed", 0);
+        setLongField(term22, term22.getClass(), "counter", 0L);
+        setLongField(term67, term67.getClass(), "value", 0L);
+        setField(term22, term22.getClass(), "seed", term67);
+        setDoubleField(term22, term22.getClass(), "nextNextGaussian", 0.0);
+        setBooleanField(term22, term22.getClass(), "haveNextNextGaussian", false);
+        setField(term21, term21.getClass(), "secRand", term22);
+        setField(term17, term17.getClass(), "randomData", term21);
+        LinkedHashSet term2093 = new LinkedHashSet();
+        term2085 = newInstance(Class.forName("org.apache.commons.math.distribution.PoissonDistributionImpl"));
+        Object term2086 = newInstance(Class.forName("org.apache.commons.math.random.RandomDataImpl"));
+        Object term2087 = newInstance(Class.forName("java.security.SecureRandom"));
+        Object term2088 = newInstance(Class.forName("sun.security.provider.Sun"));
+        Object term2092 = newInstance(Class.forName("java.util.concurrent.ConcurrentHashMap"));
+        Object term2094 = newInstance(Class.forName("java.util.concurrent.ConcurrentHashMap"));
+        Object term2095 = newInstance(Class.forName("sun.security.provider.NativePRNG"));
+        byte[] term2098 = (byte[]) newByteArray(3);
+        Object term2099 = newInstance(Class.forName("java.util.concurrent.atomic.AtomicLong"));
+        setField(term2085, term2085.getClass(), "normal", null);
+        setDoubleField(term2085, term2085.getClass(), "mean", 0.2641345529914265);
+        setIntField(term2085, term2085.getClass(), "maxIterations", 1484323161);
+        setDoubleField(term2085, term2085.getClass(), "epsilon", 0.36923381893433327);
+        setField(term2086, term2086.getClass(), "rand", null);
+        setField(term2088, term2088.getClass(), "name", "");
+        setField(term2088, term2088.getClass(), "info", "");
+        setDoubleField(term2088, term2088.getClass(), "version", 11.0);
+        setField(term2088, term2088.getClass(), "versionStr", "");
+        setField(term2088, term2088.getClass(), "entrySet", null);
+        setIntField(term2088, term2088.getClass(), "entrySetCallCount", 0);
+        setBooleanField(term2088, term2088.getClass(), "initialized", true);
+        setBooleanField(term2088, term2088.getClass(), "legacyChanged", false);
+        setBooleanField(term2088, term2088.getClass(), "servicesChanged", true);
+        setField(term2088, term2088.getClass(), "legacyStrings", null);
+        setField(term2092, term2092.getClass(), "table", null);
+        setField(term2092, term2092.getClass(), "nextTable", null);
+        setLongField(term2092, term2092.getClass(), "baseCount", 100L);
+        setIntField(term2092, term2092.getClass(), "sizeCtl", 192);
+        setIntField(term2092, term2092.getClass(), "transferIndex", 0);
+        setIntField(term2092, term2092.getClass(), "cellsBusy", 0);
+        setField(term2092, term2092.getClass(), "counterCells", null);
+        setField(term2092, term2092.getClass(), "keySet", null);
+        setField(term2092, term2092.getClass(), "values", null);
+        setField(term2092, term2092.getClass(), "entrySet", null);
+        setField(term2092, term2092.getClass(), "keySet", null);
+        setField(term2092, term2092.getClass(), "values", null);
+        setField(term2088, term2088.getClass(), "serviceMap", term2092);
+        setField(term2088, term2088.getClass(), "prngAlgos", term2093);
+        setField(term2088, term2088.getClass(), "legacyMap", null);
+        setField(term2088, term2088.getClass(), "serviceSet", null);
+        setField(term2088, term2088.getClass(), "defaults", null);
+        setField(term2094, term2094.getClass(), "table", null);
+        setField(term2094, term2094.getClass(), "nextTable", null);
+        setLongField(term2094, term2094.getClass(), "baseCount", 152L);
+        setIntField(term2094, term2094.getClass(), "sizeCtl", 192);
+        setIntField(term2094, term2094.getClass(), "transferIndex", 0);
+        setIntField(term2094, term2094.getClass(), "cellsBusy", 0);
+        setField(term2094, term2094.getClass(), "counterCells", null);
+        setField(term2094, term2094.getClass(), "keySet", null);
+        setField(term2094, term2094.getClass(), "values", null);
+        setField(term2094, term2094.getClass(), "entrySet", null);
+        setField(term2094, term2094.getClass(), "keySet", null);
+        setField(term2094, term2094.getClass(), "values", null);
+        setField(term2088, term2088.getClass(), "map", term2094);
+        setField(term2088, term2088.getClass(), "table", null);
+        setIntField(term2088, term2088.getClass(), "count", 0);
+        setIntField(term2088, term2088.getClass(), "threshold", 0);
+        setFloatField(term2088, term2088.getClass(), "loadFactor", 0.0F);
+        setIntField(term2088, term2088.getClass(), "modCount", 0);
+        setField(term2088, term2088.getClass(), "keySet", null);
+        setField(term2088, term2088.getClass(), "values", null);
+        setField(term2087, term2087.getClass(), "provider", term2088);
+        setField(term2087, term2087.getClass(), "secureRandomSpi", term2095);
+        setBooleanField(term2087, term2087.getClass(), "threadSafe", true);
+        setField(term2087, term2087.getClass(), "algorithm", "NativePRNG");
+        setByteElement(term2098, 0, (byte) 79);
+        setByteElement(term2098, 1, (byte) -119);
+        setByteElement(term2098, 2, (byte) -66);
+        setField(term2087, term2087.getClass(), "state", term2098);
+        setField(term2087, term2087.getClass(), "digest", null);
+        setField(term2087, term2087.getClass(), "randomBytes", null);
+        setIntField(term2087, term2087.getClass(), "randomBytesUsed", 0);
+        setLongField(term2087, term2087.getClass(), "counter", 0L);
+        setLongField(term2099, term2099.getClass(), "value", 0L);
+        setField(term2087, term2087.getClass(), "seed", term2099);
+        setDoubleField(term2087, term2087.getClass(), "nextNextGaussian", 0.0);
+        setBooleanField(term2087, term2087.getClass(), "haveNextNextGaussian", false);
+        setField(term2086, term2086.getClass(), "secRand", term2087);
+        setField(term2085, term2085.getClass(), "randomData", term2086);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math.distribution.PoissonDistributionImpl");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        Object retValue = callMethod(klass, "getMean", argTypes, term17, args);
+        assertTrue(recursiveEquals(term17, term2085));
+        assertTrue(recursiveEquals(retValue, 0.2641345529914265));
+    }
+
+};
+
+

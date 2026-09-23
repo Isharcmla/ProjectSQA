@@ -1,0 +1,19 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "2",
+  "tool": "kex",
+  "elapsed_sec": 60.67,
+  "target_classes": [
+    "com.fasterxml.jackson.core.json.ReaderBasedJsonParser",
+    "com.fasterxml.jackson.core.json.UTF8StreamJsonParser"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.core.json.ReaderBasedJsonParser": "success",
+    "com.fasterxml.jackson.core.json.UTF8StreamJsonParser": "success"
+  },
+  "num_test_files_generated": 152,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

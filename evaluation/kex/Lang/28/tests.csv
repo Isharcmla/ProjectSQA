@@ -1,0 +1,4 @@
+test,fqcn,method,buggy,fixed,classification
+NumericEntityUnescaper_init_18954833932,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_init_18954833932,,PASS,PASS,valid_non_revealing
+NumericEntityUnescaper_translate_20003770413,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_translate_20003770413,,PASS,PASS,valid_non_revealing
+NumericEntityUnescaper_translate_20003770415,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_translate_20003770415,,PASS,PASS,valid_non_revealing

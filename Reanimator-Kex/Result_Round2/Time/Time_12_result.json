@@ -1,0 +1,19 @@
+{
+  "project": "Time",
+  "bug_id": "12",
+  "tool": "kex",
+  "elapsed_sec": 449.22,
+  "target_classes": [
+    "org.joda.time.LocalDate",
+    "org.joda.time.LocalDateTime"
+  ],
+  "kex_results": {
+    "org.joda.time.LocalDate": "timeout",
+    "org.joda.time.LocalDateTime": "success"
+  },
+  "num_test_files_generated": 410,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,3 @@
+test,fqcn,method,buggy,fixed,classification
+GenericMaster_getGenericType_374079401,org.mockito.internal.util.reflection.GenericMaster_getGenericType_374079401,,PASS,PASS,valid_non_revealing
+GenericMaster_init_3469805012,org.mockito.internal.util.reflection.GenericMaster_init_3469805012,,PASS,PASS,valid_non_revealing

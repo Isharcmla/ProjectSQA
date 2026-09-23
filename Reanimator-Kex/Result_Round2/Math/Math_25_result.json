@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "25",
+  "tool": "kex",
+  "elapsed_sec": 152.36,
+  "target_classes": [
+    "org.apache.commons.math3.optimization.fitting.HarmonicFitter"
+  ],
+  "kex_results": {
+    "org.apache.commons.math3.optimization.fitting.HarmonicFitter": "success"
+  },
+  "num_test_files_generated": 24,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

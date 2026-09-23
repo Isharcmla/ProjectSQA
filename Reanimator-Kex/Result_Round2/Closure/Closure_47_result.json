@@ -1,0 +1,19 @@
+{
+  "project": "Closure",
+  "bug_id": "47",
+  "tool": "kex",
+  "elapsed_sec": 376.84,
+  "target_classes": [
+    "com.google.debugging.sourcemap.SourceMapConsumerV3",
+    "com.google.javascript.jscomp.SourceMap"
+  ],
+  "kex_results": {
+    "com.google.debugging.sourcemap.SourceMapConsumerV3": "success",
+    "com.google.javascript.jscomp.SourceMap": "success"
+  },
+  "num_test_files_generated": 66,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

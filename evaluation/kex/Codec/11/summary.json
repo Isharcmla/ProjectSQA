@@ -1,0 +1,16 @@
+{
+  "project": "Codec",
+  "bug_id": "11",
+  "tool": "kex",
+  "generated_files": 158,
+  "candidate_tests": 156,
+  "classification_counts": {
+    "valid_non_revealing": 110,
+    "invalid_or_unstable": 44,
+    "fixed_regression_or_unstable": 2
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

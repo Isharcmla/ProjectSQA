@@ -1,0 +1,25 @@
+{
+  "project": "JxPath",
+  "bug_id": "7",
+  "tool": "kex",
+  "elapsed_sec": 520.2,
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationGreaterThan",
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationGreaterThanOrEqual",
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationLessThan",
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationLessThanOrEqual",
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression"
+  ],
+  "kex_results": {
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationGreaterThan": "success",
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationGreaterThanOrEqual": "success",
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationLessThan": "success",
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationLessThanOrEqual": "success",
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression": "success"
+  },
+  "num_test_files_generated": 52,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,19 @@
+{
+  "project": "JxPath",
+  "bug_id": "16",
+  "tool": "kex",
+  "elapsed_sec": 535.19,
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.model.dom.DOMNodePointer",
+    "org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer"
+  ],
+  "kex_results": {
+    "org.apache.commons.jxpath.ri.model.dom.DOMNodePointer": "success",
+    "org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer": "success"
+  },
+  "num_test_files_generated": 336,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

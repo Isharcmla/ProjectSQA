@@ -1,0 +1,129 @@
+package com.fasterxml.jackson.databind.deser;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.fasterxml.jackson.databind.deser.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.fasterxml.jackson.databind.deser.EqualityUtils.*;
+import java.lang.Object;
+
+public class BuilderBasedDeserializer_init_91151156881 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term15462;
+     Object term15532;
+     Object term15534;
+
+    public BuilderBasedDeserializer_init_91151156881() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term15462 = newInstance(Class.forName("com.fasterxml.jackson.databind.deser.BuilderBasedDeserializer"));
+        Object term15514 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ReferenceType"));
+        setField(term15462, term15462.getClass(), "_beanType", term15514);
+        term15532 = newInstance(Class.forName("com.fasterxml.jackson.databind.deser.BuilderBasedDeserializer"));
+        Object term15533 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ReferenceType"));
+        setField(term15532, term15532.getClass(), "_buildMethod", null);
+        setField(term15532, term15532.getClass(), "_classAnnotations", null);
+        setField(term15533, term15533.getClass(), "_referencedType", null);
+        setField(term15533, term15533.getClass(), "_anchorType", null);
+        setField(term15533, term15533.getClass(), "_superClass", null);
+        setField(term15533, term15533.getClass(), "_superInterfaces", null);
+        setField(term15533, term15533.getClass(), "_bindings", null);
+        setField(term15533, term15533.getClass(), "_canonicalName", null);
+        setField(term15533, term15533.getClass(), "_class", null);
+        setIntField(term15533, term15533.getClass(), "_hash", 0);
+        setField(term15533, term15533.getClass(), "_valueHandler", null);
+        setField(term15533, term15533.getClass(), "_typeHandler", null);
+        setBooleanField(term15533, term15533.getClass(), "_asStatic", false);
+        setField(term15532, term15532.getClass(), "_beanType", term15533);
+        setField(term15532, term15532.getClass(), "_serializationShape", null);
+        setField(term15532, term15532.getClass(), "_valueInstantiator", null);
+        setField(term15532, term15532.getClass(), "_delegateDeserializer", null);
+        setField(term15532, term15532.getClass(), "_arrayDelegateDeserializer", null);
+        setField(term15532, term15532.getClass(), "_propertyBasedCreator", null);
+        setBooleanField(term15532, term15532.getClass(), "_nonStandardCreation", false);
+        setBooleanField(term15532, term15532.getClass(), "_vanillaProcessing", false);
+        setField(term15532, term15532.getClass(), "_beanProperties", null);
+        setField(term15532, term15532.getClass(), "_injectables", null);
+        setField(term15532, term15532.getClass(), "_anySetter", null);
+        setField(term15532, term15532.getClass(), "_ignorableProps", null);
+        setBooleanField(term15532, term15532.getClass(), "_ignoreAllUnknown", false);
+        setBooleanField(term15532, term15532.getClass(), "_needViewProcesing", false);
+        setField(term15532, term15532.getClass(), "_backRefs", null);
+        setField(term15532, term15532.getClass(), "_subDeserializers", null);
+        setField(term15532, term15532.getClass(), "_unwrappedPropertyHandler", null);
+        setField(term15532, term15532.getClass(), "_externalTypeIdHandler", null);
+        setField(term15532, term15532.getClass(), "_objectIdReader", null);
+        setField(term15532, term15532.getClass(), "_valueClass", null);
+        term15534 = newInstance(Class.forName("com.fasterxml.jackson.databind.deser.BuilderBasedDeserializer"));
+        Object term15535 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ReferenceType"));
+        setField(term15534, term15534.getClass(), "_buildMethod", null);
+        setField(term15534, term15534.getClass(), "_classAnnotations", null);
+        setField(term15535, term15535.getClass(), "_referencedType", null);
+        setField(term15535, term15535.getClass(), "_anchorType", null);
+        setField(term15535, term15535.getClass(), "_superClass", null);
+        setField(term15535, term15535.getClass(), "_superInterfaces", null);
+        setField(term15535, term15535.getClass(), "_bindings", null);
+        setField(term15535, term15535.getClass(), "_canonicalName", null);
+        setField(term15535, term15535.getClass(), "_class", null);
+        setIntField(term15535, term15535.getClass(), "_hash", 0);
+        setField(term15535, term15535.getClass(), "_valueHandler", null);
+        setField(term15535, term15535.getClass(), "_typeHandler", null);
+        setBooleanField(term15535, term15535.getClass(), "_asStatic", false);
+        setField(term15534, term15534.getClass(), "_beanType", term15535);
+        setField(term15534, term15534.getClass(), "_serializationShape", null);
+        setField(term15534, term15534.getClass(), "_valueInstantiator", null);
+        setField(term15534, term15534.getClass(), "_delegateDeserializer", null);
+        setField(term15534, term15534.getClass(), "_arrayDelegateDeserializer", null);
+        setField(term15534, term15534.getClass(), "_propertyBasedCreator", null);
+        setBooleanField(term15534, term15534.getClass(), "_nonStandardCreation", false);
+        setBooleanField(term15534, term15534.getClass(), "_vanillaProcessing", false);
+        setField(term15534, term15534.getClass(), "_beanProperties", null);
+        setField(term15534, term15534.getClass(), "_injectables", null);
+        setField(term15534, term15534.getClass(), "_anySetter", null);
+        setField(term15534, term15534.getClass(), "_ignorableProps", null);
+        setBooleanField(term15534, term15534.getClass(), "_ignoreAllUnknown", false);
+        setBooleanField(term15534, term15534.getClass(), "_needViewProcesing", false);
+        setField(term15534, term15534.getClass(), "_backRefs", null);
+        setField(term15534, term15534.getClass(), "_subDeserializers", null);
+        setField(term15534, term15534.getClass(), "_unwrappedPropertyHandler", null);
+        setField(term15534, term15534.getClass(), "_externalTypeIdHandler", null);
+        setField(term15534, term15534.getClass(), "_objectIdReader", null);
+        setField(term15534, term15534.getClass(), "_valueClass", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.databind.deser.BuilderBasedDeserializer");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("com.fasterxml.jackson.databind.deser.BuilderBasedDeserializer");
+        argTypes[1] = Class.forName("com.fasterxml.jackson.databind.deser.impl.BeanPropertyMap");
+        Object[] args = new Object[2];
+        args[0] = term15462;
+        args[1] = null;
+        Object instance = callConstructor(klass, argTypes, args);
+        assertTrue(recursiveEquals(instance, term15532));
+        assertTrue(recursiveEquals(term15462, term15534));
+    }
+
+};
+
+

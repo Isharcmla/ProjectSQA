@@ -1,0 +1,17 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "11",
+  "tool": "kex",
+  "elapsed_sec": 111.53,
+  "target_classes": [
+    "com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer": "success"
+  },
+  "num_test_files_generated": 84,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

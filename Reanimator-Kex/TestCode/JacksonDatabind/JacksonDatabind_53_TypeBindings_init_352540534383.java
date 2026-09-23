@@ -1,0 +1,211 @@
+package com.fasterxml.jackson.databind.type;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.fasterxml.jackson.databind.type.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.fasterxml.jackson.databind.type.EqualityUtils.*;
+import java.lang.Object;
+
+public class TypeBindings_init_352540534383 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term136137;
+     Object term136138;
+     Object term136906;
+     Object term136914;
+     Object term136915;
+
+    public TypeBindings_init_352540534383() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Object term136315 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.TypeBindings"));
+        Object[] term136144 = (Object[]) newArray("java.lang.String", 0);
+        Object[] term136145 = (Object[]) newArray("com.fasterxml.jackson.databind.JavaType", 0);
+        setField(term136315, term136315.getClass(), "_names", term136144);
+        setField(term136315, term136315.getClass(), "_types", term136145);
+        term136137 = (Object[]) newArray("java.lang.String", 5);
+        term136138 = (Object[]) newArray("com.fasterxml.jackson.databind.JavaType", 5);
+        Object term136421 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.CollectionType"));
+        Object term136525 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ReferenceType"));
+        Object term136629 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ReferenceType"));
+        Object term136749 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ResolvedRecursiveType"));
+        Object term136855 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.CollectionType"));
+        setIntField(term136421, term136421.getClass(), "_hash", 0);
+        setElement(term136138, 0, term136421);
+        setIntField(term136525, term136525.getClass(), "_hash", 0);
+        setElement(term136138, 1, term136525);
+        setIntField(term136629, term136629.getClass(), "_hash", 0);
+        setElement(term136138, 2, term136629);
+        setIntField(term136749, term136749.getClass(), "_hash", 0);
+        setElement(term136138, 3, term136749);
+        setElement(term136138, 4, term136855);
+        term136906 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.TypeBindings"));
+        Object[] term136907 = (Object[]) newArray("java.lang.String", 5);
+        Object[] term136908 = (Object[]) newArray("com.fasterxml.jackson.databind.JavaType", 5);
+        Object term136909 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.CollectionType"));
+        Object term136910 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ReferenceType"));
+        Object term136911 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ReferenceType"));
+        Object term136912 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ResolvedRecursiveType"));
+        Object term136913 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.CollectionType"));
+        setField(term136906, term136906.getClass(), "_names", term136907);
+        setField(term136909, term136909.getClass(), "_elementType", null);
+        setField(term136909, term136909.getClass(), "_superClass", null);
+        setField(term136909, term136909.getClass(), "_superInterfaces", null);
+        setField(term136909, term136909.getClass(), "_bindings", null);
+        setField(term136909, term136909.getClass(), "_canonicalName", null);
+        setField(term136909, term136909.getClass(), "_class", null);
+        setIntField(term136909, term136909.getClass(), "_hash", 0);
+        setField(term136909, term136909.getClass(), "_valueHandler", null);
+        setField(term136909, term136909.getClass(), "_typeHandler", null);
+        setBooleanField(term136909, term136909.getClass(), "_asStatic", false);
+        setElement(term136908, 0, term136909);
+        setField(term136910, term136910.getClass(), "_referencedType", null);
+        setField(term136910, term136910.getClass(), "_superClass", null);
+        setField(term136910, term136910.getClass(), "_superInterfaces", null);
+        setField(term136910, term136910.getClass(), "_bindings", null);
+        setField(term136910, term136910.getClass(), "_canonicalName", null);
+        setField(term136910, term136910.getClass(), "_class", null);
+        setIntField(term136910, term136910.getClass(), "_hash", 0);
+        setField(term136910, term136910.getClass(), "_valueHandler", null);
+        setField(term136910, term136910.getClass(), "_typeHandler", null);
+        setBooleanField(term136910, term136910.getClass(), "_asStatic", false);
+        setElement(term136908, 1, term136910);
+        setField(term136911, term136911.getClass(), "_referencedType", null);
+        setField(term136911, term136911.getClass(), "_superClass", null);
+        setField(term136911, term136911.getClass(), "_superInterfaces", null);
+        setField(term136911, term136911.getClass(), "_bindings", null);
+        setField(term136911, term136911.getClass(), "_canonicalName", null);
+        setField(term136911, term136911.getClass(), "_class", null);
+        setIntField(term136911, term136911.getClass(), "_hash", 0);
+        setField(term136911, term136911.getClass(), "_valueHandler", null);
+        setField(term136911, term136911.getClass(), "_typeHandler", null);
+        setBooleanField(term136911, term136911.getClass(), "_asStatic", false);
+        setElement(term136908, 2, term136911);
+        setField(term136912, term136912.getClass(), "_referencedType", null);
+        setField(term136912, term136912.getClass(), "_superClass", null);
+        setField(term136912, term136912.getClass(), "_superInterfaces", null);
+        setField(term136912, term136912.getClass(), "_bindings", null);
+        setField(term136912, term136912.getClass(), "_canonicalName", null);
+        setField(term136912, term136912.getClass(), "_class", null);
+        setIntField(term136912, term136912.getClass(), "_hash", 0);
+        setField(term136912, term136912.getClass(), "_valueHandler", null);
+        setField(term136912, term136912.getClass(), "_typeHandler", null);
+        setBooleanField(term136912, term136912.getClass(), "_asStatic", false);
+        setElement(term136908, 3, term136912);
+        setField(term136913, term136913.getClass(), "_elementType", null);
+        setField(term136913, term136913.getClass(), "_superClass", null);
+        setField(term136913, term136913.getClass(), "_superInterfaces", null);
+        setField(term136913, term136913.getClass(), "_bindings", null);
+        setField(term136913, term136913.getClass(), "_canonicalName", null);
+        setField(term136913, term136913.getClass(), "_class", null);
+        setIntField(term136913, term136913.getClass(), "_hash", 0);
+        setField(term136913, term136913.getClass(), "_valueHandler", null);
+        setField(term136913, term136913.getClass(), "_typeHandler", null);
+        setBooleanField(term136913, term136913.getClass(), "_asStatic", false);
+        setElement(term136908, 4, term136913);
+        setField(term136906, term136906.getClass(), "_types", term136908);
+        setField(term136906, term136906.getClass(), "_unboundVariables", null);
+        setIntField(term136906, term136906.getClass(), "_hashCode", 1);
+        term136914 = (Object[]) newArray("java.lang.String", 5);
+        term136915 = (Object[]) newArray("com.fasterxml.jackson.databind.JavaType", 5);
+        Object term136916 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.CollectionType"));
+        Object term136917 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ReferenceType"));
+        Object term136918 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ReferenceType"));
+        Object term136919 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.ResolvedRecursiveType"));
+        Object term136920 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.CollectionType"));
+        setField(term136916, term136916.getClass(), "_elementType", null);
+        setField(term136916, term136916.getClass(), "_superClass", null);
+        setField(term136916, term136916.getClass(), "_superInterfaces", null);
+        setField(term136916, term136916.getClass(), "_bindings", null);
+        setField(term136916, term136916.getClass(), "_canonicalName", null);
+        setField(term136916, term136916.getClass(), "_class", null);
+        setIntField(term136916, term136916.getClass(), "_hash", 0);
+        setField(term136916, term136916.getClass(), "_valueHandler", null);
+        setField(term136916, term136916.getClass(), "_typeHandler", null);
+        setBooleanField(term136916, term136916.getClass(), "_asStatic", false);
+        setElement(term136915, 0, term136916);
+        setField(term136917, term136917.getClass(), "_referencedType", null);
+        setField(term136917, term136917.getClass(), "_superClass", null);
+        setField(term136917, term136917.getClass(), "_superInterfaces", null);
+        setField(term136917, term136917.getClass(), "_bindings", null);
+        setField(term136917, term136917.getClass(), "_canonicalName", null);
+        setField(term136917, term136917.getClass(), "_class", null);
+        setIntField(term136917, term136917.getClass(), "_hash", 0);
+        setField(term136917, term136917.getClass(), "_valueHandler", null);
+        setField(term136917, term136917.getClass(), "_typeHandler", null);
+        setBooleanField(term136917, term136917.getClass(), "_asStatic", false);
+        setElement(term136915, 1, term136917);
+        setField(term136918, term136918.getClass(), "_referencedType", null);
+        setField(term136918, term136918.getClass(), "_superClass", null);
+        setField(term136918, term136918.getClass(), "_superInterfaces", null);
+        setField(term136918, term136918.getClass(), "_bindings", null);
+        setField(term136918, term136918.getClass(), "_canonicalName", null);
+        setField(term136918, term136918.getClass(), "_class", null);
+        setIntField(term136918, term136918.getClass(), "_hash", 0);
+        setField(term136918, term136918.getClass(), "_valueHandler", null);
+        setField(term136918, term136918.getClass(), "_typeHandler", null);
+        setBooleanField(term136918, term136918.getClass(), "_asStatic", false);
+        setElement(term136915, 2, term136918);
+        setField(term136919, term136919.getClass(), "_referencedType", null);
+        setField(term136919, term136919.getClass(), "_superClass", null);
+        setField(term136919, term136919.getClass(), "_superInterfaces", null);
+        setField(term136919, term136919.getClass(), "_bindings", null);
+        setField(term136919, term136919.getClass(), "_canonicalName", null);
+        setField(term136919, term136919.getClass(), "_class", null);
+        setIntField(term136919, term136919.getClass(), "_hash", 0);
+        setField(term136919, term136919.getClass(), "_valueHandler", null);
+        setField(term136919, term136919.getClass(), "_typeHandler", null);
+        setBooleanField(term136919, term136919.getClass(), "_asStatic", false);
+        setElement(term136915, 3, term136919);
+        setField(term136920, term136920.getClass(), "_elementType", null);
+        setField(term136920, term136920.getClass(), "_superClass", null);
+        setField(term136920, term136920.getClass(), "_superInterfaces", null);
+        setField(term136920, term136920.getClass(), "_bindings", null);
+        setField(term136920, term136920.getClass(), "_canonicalName", null);
+        setField(term136920, term136920.getClass(), "_class", null);
+        setIntField(term136920, term136920.getClass(), "_hash", 0);
+        setField(term136920, term136920.getClass(), "_valueHandler", null);
+        setField(term136920, term136920.getClass(), "_typeHandler", null);
+        setBooleanField(term136920, term136920.getClass(), "_asStatic", false);
+        setElement(term136915, 4, term136920);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.databind.type.TypeBindings");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Array.newInstance(Class.forName("java.lang.String"), 0).getClass();
+        argTypes[1] = Array.newInstance(Class.forName("com.fasterxml.jackson.databind.JavaType"), 0).getClass();
+        argTypes[2] = Array.newInstance(Class.forName("java.lang.String"), 0).getClass();
+        Object[] args = new Object[3];
+        args[0] = term136137;
+        args[1] = term136138;
+        args[2] = null;
+        Object instance = callConstructor(klass, argTypes, args);
+        assertTrue(recursiveEquals(instance, term136906));
+        assertTrue(recursiveEquals(term136137, term136914));
+        assertTrue(recursiveEquals(term136138, term136915));
+    }
+
+};
+
+

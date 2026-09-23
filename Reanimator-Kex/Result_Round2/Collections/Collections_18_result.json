@@ -1,0 +1,17 @@
+{
+  "project": "Collections",
+  "bug_id": "18",
+  "tool": "kex",
+  "elapsed_sec": 187.28,
+  "target_classes": [
+    "org.apache.commons.collections.set.ListOrderedSet"
+  ],
+  "kex_results": {
+    "org.apache.commons.collections.set.ListOrderedSet": "success"
+  },
+  "num_test_files_generated": 81,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

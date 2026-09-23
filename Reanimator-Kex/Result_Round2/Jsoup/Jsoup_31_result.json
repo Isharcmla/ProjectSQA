@@ -1,0 +1,21 @@
+{
+  "project": "Jsoup",
+  "bug_id": "31",
+  "tool": "kex",
+  "elapsed_sec": 234.71,
+  "target_classes": [
+    "org.jsoup.parser.Token",
+    "org.jsoup.parser.TokeniserState",
+    "org.jsoup.parser.XmlTreeBuilder"
+  ],
+  "kex_results": {
+    "org.jsoup.parser.Token": "success",
+    "org.jsoup.parser.TokeniserState": "success",
+    "org.jsoup.parser.XmlTreeBuilder": "success"
+  },
+  "num_test_files_generated": 104,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

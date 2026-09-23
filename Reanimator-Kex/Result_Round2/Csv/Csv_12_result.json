@@ -1,0 +1,17 @@
+{
+  "project": "Csv",
+  "bug_id": "12",
+  "tool": "kex",
+  "elapsed_sec": 300.48,
+  "target_classes": [
+    "org.apache.commons.csv.CSVFormat"
+  ],
+  "kex_results": {
+    "org.apache.commons.csv.CSVFormat": "success"
+  },
+  "num_test_files_generated": 56,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

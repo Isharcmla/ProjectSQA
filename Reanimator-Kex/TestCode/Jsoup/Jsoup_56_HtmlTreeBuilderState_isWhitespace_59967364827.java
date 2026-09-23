@@ -1,0 +1,63 @@
+package org.jsoup.parser;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.jsoup.parser.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.jsoup.parser.EqualityUtils.*;
+
+public class HtmlTreeBuilderState_isWhitespace_59967364827 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term32199;
+     Object term32208;
+
+    public HtmlTreeBuilderState_isWhitespace_59967364827() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term32199 = newInstance(Class.forName("org.jsoup.parser.Token$StartTag"));
+        term32208 = newInstance(Class.forName("org.jsoup.parser.Token$StartTag"));
+        setField(term32208, term32208.getClass(), "tagName", null);
+        setField(term32208, term32208.getClass(), "normalName", null);
+        setField(term32208, term32208.getClass(), "pendingAttributeName", null);
+        setField(term32208, term32208.getClass(), "pendingAttributeValue", null);
+        setField(term32208, term32208.getClass(), "pendingAttributeValueS", null);
+        setBooleanField(term32208, term32208.getClass(), "hasEmptyAttributeValue", false);
+        setBooleanField(term32208, term32208.getClass(), "hasPendingAttributeValue", false);
+        setBooleanField(term32208, term32208.getClass(), "selfClosing", false);
+        setField(term32208, term32208.getClass(), "attributes", null);
+        setField(term32208, term32208.getClass(), "type", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jsoup.parser.HtmlTreeBuilderState");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("org.jsoup.parser.Token");
+        Object[] args = new Object[1];
+        args[0] = term32199;
+        callMethod(klass, "isWhitespace", argTypes, null, args);
+        assertTrue(recursiveEquals(term32199, term32208));
+    }
+
+};
+
+

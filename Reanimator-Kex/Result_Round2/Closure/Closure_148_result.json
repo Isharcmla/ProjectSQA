@@ -1,0 +1,19 @@
+{
+  "project": "Closure",
+  "bug_id": "148",
+  "tool": "kex",
+  "elapsed_sec": 313.62,
+  "target_classes": [
+    "com.google.javascript.jscomp.PeepholeFoldConstants",
+    "com.google.javascript.jscomp.SourceMap"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.PeepholeFoldConstants": "failed",
+    "com.google.javascript.jscomp.SourceMap": "failed"
+  },
+  "num_test_files_generated": 1694,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

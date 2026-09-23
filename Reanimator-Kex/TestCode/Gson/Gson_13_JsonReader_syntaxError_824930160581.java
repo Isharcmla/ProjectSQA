@@ -1,0 +1,69 @@
+package com.google.gson.stream;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import com.google.gson.stream.MalformedJsonException;
+import static com.google.gson.stream.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class JsonReader_syntaxError_824930160581 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term1112584;
+
+    public JsonReader_syntaxError_824930160581() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term1112584 = newInstance(Class.forName("com.google.gson.stream.JsonReader"));
+        int[] term1096415 = (int[]) newIntArray(511);
+        setIntField(term1112584, term1112584.getClass(), "lineNumber", 0);
+        setIntField(term1112584, term1112584.getClass(), "pos", 0);
+        setIntField(term1112584, term1112584.getClass(), "lineStart", 0);
+        setIntField(term1112584, term1112584.getClass(), "stackSize", 31);
+        setIntElement(term1096415, 0, -752870423);
+        setIntElement(term1096415, 1, -1698809299);
+        setIntElement(term1096415, 2, 401512128);
+        setIntElement(term1096415, 3, -2069930777);
+        setIntElement(term1096415, 4, 7);
+        setIntElement(term1096415, 27, 7);
+        setIntElement(term1096415, 30, 7);
+        setField(term1112584, term1112584.getClass(), "stack", term1096415);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.gson.stream.JsonReader");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("java.lang.String");
+        Object[] args = new Object[1];
+        args[0] = null;
+        try {
+            callMethod(klass, "syntaxError", argTypes, term1112584, args);
+            assertTrue(false);
+        }
+        catch (MalformedJsonException e) {
+        }
+
+    }
+
+};
+
+

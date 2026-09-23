@@ -1,0 +1,57 @@
+package org.apache.commons.lang.math;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.apache.commons.lang.math.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.apache.commons.lang.math.EqualityUtils.*;
+
+public class NumberUtils_min_139460990683 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term546;
+     Object term6135;
+
+    public NumberUtils_min_139460990683() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term546 = (float[]) newFloatArray(2);
+        setFloatElement(term546, 0, 0.6880585F);
+        setFloatElement(term546, 1, 0.40176582F);
+        term6135 = (float[]) newFloatArray(2);
+        setFloatElement(term6135, 0, 0.6880585F);
+        setFloatElement(term6135, 1, 0.40176582F);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.lang.math.NumberUtils");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Array.newInstance(float.class, 0).getClass();
+        Object[] args = new Object[1];
+        args[0] = term546;
+        callMethod(klass, "min", argTypes, null, args);
+        assertTrue(recursiveEquals(term546, term6135));
+    }
+
+};
+
+

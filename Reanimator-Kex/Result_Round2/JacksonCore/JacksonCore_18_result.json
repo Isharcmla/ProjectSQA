@@ -1,0 +1,21 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "18",
+  "tool": "kex",
+  "elapsed_sec": 158.89,
+  "target_classes": [
+    "com.fasterxml.jackson.core.base.GeneratorBase",
+    "com.fasterxml.jackson.core.json.UTF8JsonGenerator",
+    "com.fasterxml.jackson.core.json.WriterBasedJsonGenerator"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.core.base.GeneratorBase": "success",
+    "com.fasterxml.jackson.core.json.UTF8JsonGenerator": "success",
+    "com.fasterxml.jackson.core.json.WriterBasedJsonGenerator": "success"
+  },
+  "num_test_files_generated": 261,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

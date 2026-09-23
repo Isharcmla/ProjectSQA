@@ -1,0 +1,15 @@
+{
+  "project": "Closure",
+  "bug_id": "17",
+  "tool": "kex",
+  "generated_files": 60,
+  "candidate_tests": 58,
+  "classification_counts": {
+    "valid_non_revealing": 39,
+    "invalid_or_unstable": 19
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

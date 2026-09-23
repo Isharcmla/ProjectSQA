@@ -1,0 +1,17 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "26",
+  "tool": "kex",
+  "elapsed_sec": 33.6,
+  "target_classes": [
+    "com.fasterxml.jackson.core.json.async.NonBlockingJsonParser"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.core.json.async.NonBlockingJsonParser": "success"
+  },
+  "num_test_files_generated": 70,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

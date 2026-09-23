@@ -1,0 +1,16 @@
+{
+  "project": "Gson",
+  "bug_id": "17",
+  "tool": "kex",
+  "generated_files": 81,
+  "candidate_tests": 79,
+  "classification_counts": {
+    "valid_non_revealing": 55,
+    "invalid_or_unstable": 10,
+    "fixed_regression_or_unstable": 14
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

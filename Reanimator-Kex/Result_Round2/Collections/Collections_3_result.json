@@ -1,0 +1,17 @@
+{
+  "project": "Collections",
+  "bug_id": "3",
+  "tool": "kex",
+  "elapsed_sec": 252.38,
+  "target_classes": [
+    "org.apache.commons.collections.CollectionUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.collections.CollectionUtils": "success"
+  },
+  "num_test_files_generated": 122,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

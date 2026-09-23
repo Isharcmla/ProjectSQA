@@ -1,0 +1,17 @@
+{
+  "project": "JxPath",
+  "bug_id": "5",
+  "tool": "kex",
+  "elapsed_sec": 304.79,
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.model.NodePointer"
+  ],
+  "kex_results": {
+    "org.apache.commons.jxpath.ri.model.NodePointer": "timeout"
+  },
+  "num_test_files_generated": 55,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

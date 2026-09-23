@@ -1,0 +1,212 @@
+package com.fasterxml.jackson.databind.ser;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.fasterxml.jackson.databind.ser.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.fasterxml.jackson.databind.ser.EqualityUtils.*;
+import java.lang.Object;
+
+public class BeanPropertyWriter_init_599291025307 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term167031;
+     Object term167423;
+     Object term167551;
+     Object term167649;
+     Object term167754;
+     Object term167762;
+     Object term167767;
+     Object term167768;
+     Object term167769;
+
+    public BeanPropertyWriter_init_599291025307() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Object term166777 = newInstance(Class.forName("com.fasterxml.jackson.databind.ser.BeanPropertyWriter"));
+        Object[] term166582 = (Object[]) newArray("java.lang.Class", 0);
+        Object term166903 = newInstance(Class.forName("com.fasterxml.jackson.databind.ser.std.InetAddressSerializer"));
+        setField(term166777, term166777.getClass(), "_member", null);
+        setField(term166777, term166777.getClass(), "_contextAnnotations", null);
+        setField(term166777, term166777.getClass(), "_name", null);
+        setField(term166777, term166777.getClass(), "_wrapperName", null);
+        setField(term166777, term166777.getClass(), "_metadata", null);
+        setField(term166777, term166777.getClass(), "_includeInViews", term166582);
+        setField(term166777, term166777.getClass(), "_declaredType", null);
+        setField(term166777, term166777.getClass(), "_serializer", term166903);
+        setField(term166777, term166777.getClass(), "_dynamicSerializers", null);
+        setField(term166777, term166777.getClass(), "_typeSerializer", null);
+        setField(term166777, term166777.getClass(), "_cfgSerializationType", null);
+        term167031 = newInstance(Class.forName("com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder"));
+        Object term167123 = newInstance(Class.forName("com.fasterxml.jackson.databind.PropertyName"));
+        Object term167303 = newInstance(Class.forName("com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder$Linked"));
+        setField(term167123, term167123.getClass(), "_simpleName", "");
+        setField(term167031, term167031.getClass(), "_name", term167123);
+        setBooleanField(term167031, term167031.getClass(), "_forSerialization", true);
+        setField(term167031, term167031.getClass(), "_getters", null);
+        setField(term167303, term167303.getClass(), "value", null);
+        setField(term167303, term167303.getClass(), "next", null);
+        setField(term167031, term167031.getClass(), "_fields", term167303);
+        setField(term167031, term167031.getClass(), "_annotationIntrospector", null);
+        term167423 = newInstance(Class.forName("com.fasterxml.jackson.databind.introspect.AnnotatedMethod"));
+        term167551 = newInstance(Class.forName("com.fasterxml.jackson.databind.ser.impl.BeanAsArraySerializer"));
+        term167649 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.SimpleType"));
+        term167754 = newInstance(Class.forName("com.fasterxml.jackson.databind.ser.BeanPropertyWriter"));
+        Object term167755 = newInstance(Class.forName("com.fasterxml.jackson.core.io.SerializedString"));
+        Object term167758 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.SimpleType"));
+        Object term167759 = newInstance(Class.forName("com.fasterxml.jackson.databind.PropertyMetadata"));
+        Object term167760 = newInstance(Class.forName("com.fasterxml.jackson.databind.introspect.AnnotatedMethod"));
+        Object term167761 = newInstance(Class.forName("com.fasterxml.jackson.databind.ser.impl.BeanAsArraySerializer"));
+        setField(term167755, term167755.getClass(), "_value", "");
+        setField(term167755, term167755.getClass(), "_quotedUTF8Ref", null);
+        setField(term167755, term167755.getClass(), "_unquotedUTF8Ref", null);
+        setField(term167755, term167755.getClass(), "_quotedChars", null);
+        setField(term167755, term167755.getClass(), "_jdkSerializeValue", null);
+        setField(term167754, term167754.getClass(), "_name", term167755);
+        setField(term167754, term167754.getClass(), "_wrapperName", null);
+        setField(term167754, term167754.getClass(), "_declaredType", null);
+        setField(term167758, term167758.getClass(), "_typeParametersFor", null);
+        setField(term167758, term167758.getClass(), "_typeParameters", null);
+        setField(term167758, term167758.getClass(), "_typeNames", null);
+        setField(term167758, term167758.getClass(), "_canonicalName", null);
+        setField(term167758, term167758.getClass(), "_class", null);
+        setIntField(term167758, term167758.getClass(), "_hash", 0);
+        setField(term167758, term167758.getClass(), "_valueHandler", null);
+        setField(term167758, term167758.getClass(), "_typeHandler", null);
+        setBooleanField(term167758, term167758.getClass(), "_asStatic", false);
+        setField(term167754, term167754.getClass(), "_cfgSerializationType", term167758);
+        setField(term167754, term167754.getClass(), "_nonTrivialBaseType", null);
+        setField(term167754, term167754.getClass(), "_contextAnnotations", null);
+        setField(term167759, term167759.getClass(), "_required", null);
+        setField(term167759, term167759.getClass(), "_description", null);
+        setField(term167759, term167759.getClass(), "_index", null);
+        setField(term167759, term167759.getClass(), "_defaultValue", null);
+        setField(term167754, term167754.getClass(), "_metadata", term167759);
+        setField(term167754, term167754.getClass(), "_format", null);
+        setField(term167760, term167760.getClass(), "_method", null);
+        setField(term167760, term167760.getClass(), "_paramClasses", null);
+        setField(term167760, term167760.getClass(), "_serialization", null);
+        setField(term167760, term167760.getClass(), "_paramAnnotations", null);
+        setField(term167760, term167760.getClass(), "_context", null);
+        setField(term167760, term167760.getClass(), "_annotations", null);
+        setField(term167754, term167754.getClass(), "_member", term167760);
+        setField(term167754, term167754.getClass(), "_accessorMethod", null);
+        setField(term167754, term167754.getClass(), "_field", null);
+        setField(term167761, term167761.getClass(), "_defaultSerializer", null);
+        setField(term167761, term167761.getClass(), "_props", null);
+        setField(term167761, term167761.getClass(), "_filteredProps", null);
+        setField(term167761, term167761.getClass(), "_anyGetterWriter", null);
+        setField(term167761, term167761.getClass(), "_propertyFilterId", null);
+        setField(term167761, term167761.getClass(), "_typeId", null);
+        setField(term167761, term167761.getClass(), "_objectIdWriter", null);
+        setField(term167761, term167761.getClass(), "_serializationShape", null);
+        setField(term167761, term167761.getClass(), "_handledType", null);
+        setField(term167754, term167754.getClass(), "_serializer", term167761);
+        setField(term167754, term167754.getClass(), "_nullSerializer", null);
+        setField(term167754, term167754.getClass(), "_typeSerializer", null);
+        setField(term167754, term167754.getClass(), "_dynamicSerializers", null);
+        setBooleanField(term167754, term167754.getClass(), "_suppressNulls", false);
+        setField(term167754, term167754.getClass(), "_suppressableValue", null);
+        setField(term167754, term167754.getClass(), "_includeInViews", null);
+        setField(term167754, term167754.getClass(), "_internalSettings", null);
+        term167762 = newInstance(Class.forName("com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder"));
+        Object term167763 = newInstance(Class.forName("com.fasterxml.jackson.databind.PropertyName"));
+        Object term167766 = newInstance(Class.forName("com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder$Linked"));
+        setBooleanField(term167762, term167762.getClass(), "_forSerialization", true);
+        setField(term167762, term167762.getClass(), "_annotationIntrospector", null);
+        setField(term167763, term167763.getClass(), "_simpleName", "");
+        setField(term167763, term167763.getClass(), "_namespace", null);
+        setField(term167763, term167763.getClass(), "_encodedSimple", null);
+        setField(term167762, term167762.getClass(), "_name", term167763);
+        setField(term167762, term167762.getClass(), "_internalName", null);
+        setField(term167766, term167766.getClass(), "value", null);
+        setField(term167766, term167766.getClass(), "next", null);
+        setField(term167766, term167766.getClass(), "name", null);
+        setBooleanField(term167766, term167766.getClass(), "isNameExplicit", false);
+        setBooleanField(term167766, term167766.getClass(), "isVisible", false);
+        setBooleanField(term167766, term167766.getClass(), "isMarkedIgnored", false);
+        setField(term167762, term167762.getClass(), "_fields", term167766);
+        setField(term167762, term167762.getClass(), "_ctorParameters", null);
+        setField(term167762, term167762.getClass(), "_getters", null);
+        setField(term167762, term167762.getClass(), "_setters", null);
+        term167767 = newInstance(Class.forName("com.fasterxml.jackson.databind.introspect.AnnotatedMethod"));
+        setField(term167767, term167767.getClass(), "_method", null);
+        setField(term167767, term167767.getClass(), "_paramClasses", null);
+        setField(term167767, term167767.getClass(), "_serialization", null);
+        setField(term167767, term167767.getClass(), "_paramAnnotations", null);
+        setField(term167767, term167767.getClass(), "_context", null);
+        setField(term167767, term167767.getClass(), "_annotations", null);
+        term167768 = newInstance(Class.forName("com.fasterxml.jackson.databind.ser.impl.BeanAsArraySerializer"));
+        setField(term167768, term167768.getClass(), "_defaultSerializer", null);
+        setField(term167768, term167768.getClass(), "_props", null);
+        setField(term167768, term167768.getClass(), "_filteredProps", null);
+        setField(term167768, term167768.getClass(), "_anyGetterWriter", null);
+        setField(term167768, term167768.getClass(), "_propertyFilterId", null);
+        setField(term167768, term167768.getClass(), "_typeId", null);
+        setField(term167768, term167768.getClass(), "_objectIdWriter", null);
+        setField(term167768, term167768.getClass(), "_serializationShape", null);
+        setField(term167768, term167768.getClass(), "_handledType", null);
+        term167769 = newInstance(Class.forName("com.fasterxml.jackson.databind.type.SimpleType"));
+        setField(term167769, term167769.getClass(), "_typeParametersFor", null);
+        setField(term167769, term167769.getClass(), "_typeParameters", null);
+        setField(term167769, term167769.getClass(), "_typeNames", null);
+        setField(term167769, term167769.getClass(), "_canonicalName", null);
+        setField(term167769, term167769.getClass(), "_class", null);
+        setIntField(term167769, term167769.getClass(), "_hash", 0);
+        setField(term167769, term167769.getClass(), "_valueHandler", null);
+        setField(term167769, term167769.getClass(), "_typeHandler", null);
+        setBooleanField(term167769, term167769.getClass(), "_asStatic", false);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.databind.ser.BeanPropertyWriter");
+        Class<?>[] argTypes = new Class<?>[9];
+        argTypes[0] = Class.forName("com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition");
+        argTypes[1] = Class.forName("com.fasterxml.jackson.databind.introspect.AnnotatedMember");
+        argTypes[2] = Class.forName("com.fasterxml.jackson.databind.util.Annotations");
+        argTypes[3] = Class.forName("com.fasterxml.jackson.databind.JavaType");
+        argTypes[4] = Class.forName("com.fasterxml.jackson.databind.JsonSerializer");
+        argTypes[5] = Class.forName("com.fasterxml.jackson.databind.jsontype.TypeSerializer");
+        argTypes[6] = Class.forName("com.fasterxml.jackson.databind.JavaType");
+        argTypes[7] = boolean.class;
+        argTypes[8] = Class.forName("java.lang.Object");
+        Object[] args = new Object[9];
+        args[0] = term167031;
+        args[1] = term167423;
+        args[2] = null;
+        args[3] = null;
+        args[4] = term167551;
+        args[5] = null;
+        args[6] = term167649;
+        args[7] = false;
+        args[8] = null;
+        Object instance = callConstructor(klass, argTypes, args);
+        assertTrue(recursiveEquals(instance, term167754));
+        assertTrue(recursiveEquals(term167031, term167762));
+        assertTrue(recursiveEquals(term167423, term167767));
+        assertTrue(recursiveEquals(term167551, term167768));
+        assertTrue(recursiveEquals(term167649, term167769));
+    }
+
+};
+
+

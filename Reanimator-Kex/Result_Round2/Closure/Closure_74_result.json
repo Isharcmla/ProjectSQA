@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "74",
+  "tool": "kex",
+  "elapsed_sec": 227.33,
+  "target_classes": [
+    "com.google.javascript.jscomp.PeepholeFoldConstants"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.PeepholeFoldConstants": "success"
+  },
+  "num_test_files_generated": 148,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

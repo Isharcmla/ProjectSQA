@@ -1,0 +1,17 @@
+{
+  "project": "Jsoup",
+  "bug_id": "84",
+  "tool": "kex",
+  "elapsed_sec": 140.34,
+  "target_classes": [
+    "org.jsoup.helper.W3CDom"
+  ],
+  "kex_results": {
+    "org.jsoup.helper.W3CDom": "success"
+  },
+  "num_test_files_generated": 81,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

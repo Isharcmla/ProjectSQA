@@ -1,0 +1,19 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "24",
+  "tool": "kex",
+  "elapsed_sec": 202.77,
+  "target_classes": [
+    "com.fasterxml.jackson.core.base.ParserBase",
+    "com.fasterxml.jackson.core.base.ParserMinimalBase"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.core.base.ParserBase": "success",
+    "com.fasterxml.jackson.core.base.ParserMinimalBase": "success"
+  },
+  "num_test_files_generated": 130,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

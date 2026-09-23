@@ -1,0 +1,4 @@
+test,fqcn,method,buggy,fixed,classification
+Timer_init_16486752670,org.mockito.internal.util.Timer_init_16486752670,,PASS,PASS,valid_non_revealing
+Timer_isCounting_3501465144,org.mockito.internal.util.Timer_isCounting_3501465144,,PASS,PASS,valid_non_revealing
+Timer_start_16063653875,org.mockito.internal.util.Timer_start_16063653875,,PASS,PASS,valid_non_revealing

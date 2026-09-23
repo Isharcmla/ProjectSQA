@@ -1,0 +1,15 @@
+test,fqcn,method,buggy,fixed,classification
+Token_asCharacter_142121917324,org.jsoup.parser.Token_asCharacter_142121917324,,PASS,PASS,valid_non_revealing
+Token_asComment_63345906522,org.jsoup.parser.Token_asComment_63345906522,,PASS,PASS,valid_non_revealing
+Token_asDoctype_162859982716,org.jsoup.parser.Token_asDoctype_162859982716,,PASS,PASS,valid_non_revealing
+Token_asEndTag_54449723320,org.jsoup.parser.Token_asEndTag_54449723320,,PASS,PASS,valid_non_revealing
+Token_asStartTag_89718595318,org.jsoup.parser.Token_asStartTag_89718595318,,PASS,PASS,valid_non_revealing
+Token_isCharacter_1237840423,org.jsoup.parser.Token_isCharacter_1237840423,,PASS,PASS,valid_non_revealing
+Token_isComment_112761294621,org.jsoup.parser.Token_isComment_112761294621,,PASS,PASS,valid_non_revealing
+Token_isDoctype_74602409115,org.jsoup.parser.Token_isDoctype_74602409115,,PASS,PASS,valid_non_revealing
+Token_isEOF_79365313725,org.jsoup.parser.Token_isEOF_79365313725,,PASS,PASS,valid_non_revealing
+Token_isEndTag_192920428219,org.jsoup.parser.Token_isEndTag_192920428219,,PASS,PASS,valid_non_revealing
+Token_isStartTag_203160886317,org.jsoup.parser.Token_isStartTag_203160886317,,PASS,PASS,valid_non_revealing
+Token_reset_162044667614,org.jsoup.parser.Token_reset_162044667614,,PASS,PASS,valid_non_revealing
+Token_reset_162044667627,org.jsoup.parser.Token_reset_162044667627,,PASS,PASS,valid_non_revealing
+Token_tokenType_209772836313,org.jsoup.parser.Token_tokenType_209772836313,,PASS,PASS,valid_non_revealing

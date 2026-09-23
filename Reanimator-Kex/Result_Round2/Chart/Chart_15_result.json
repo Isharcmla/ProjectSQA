@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "15",
+  "tool": "kex",
+  "elapsed_sec": 23.44,
+  "target_classes": [
+    "org.jfree.chart.plot.PiePlot"
+  ],
+  "kex_results": {
+    "org.jfree.chart.plot.PiePlot": "success"
+  },
+  "num_test_files_generated": 116,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

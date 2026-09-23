@@ -1,0 +1,70 @@
+package com.fasterxml.jackson.databind;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.fasterxml.jackson.databind.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.String;
+import java.lang.Object;
+
+public class JsonMappingException_from_1371869976215 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term406334;
+     Object term406532;
+
+    public JsonMappingException_from_1371869976215() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Class<? extends Object> term407637 = Class.forName((String) "com.fasterxml.jackson.core.JsonToken");
+        Field term407636 = ((Class) term407637).getDeclaredField((String) "VALUE_EMBEDDED_OBJECT");
+        ((Field) term407636).setAccessible(true);
+        Object enum1 = ((Field) term407636).get((Object) null);
+        term406334 = newInstance(Class.forName("com.fasterxml.jackson.core.json.UTF8StreamJsonParser"));
+        setField(term406334, term406334.getClass(), "_currToken", enum1);
+        setIntField(term406334, term406334.getClass(), "_features", -1);
+        term406532 = newInstance(Class.forName("java.io.IOException"));
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.databind.JsonMappingException");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Class.forName("com.fasterxml.jackson.core.JsonParser");
+        argTypes[1] = Class.forName("java.lang.String");
+        argTypes[2] = Class.forName("java.lang.Throwable");
+        Object[] args = new Object[3];
+        args[0] = term406334;
+        args[1] = "";
+        args[2] = term406532;
+        try {
+            callMethod(klass, "from", argTypes, null, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

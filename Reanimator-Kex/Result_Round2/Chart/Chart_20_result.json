@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "20",
+  "tool": "kex",
+  "elapsed_sec": 55.46,
+  "target_classes": [
+    "org.jfree.chart.plot.ValueMarker"
+  ],
+  "kex_results": {
+    "org.jfree.chart.plot.ValueMarker": "success"
+  },
+  "num_test_files_generated": 46,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

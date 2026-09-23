@@ -1,0 +1,16 @@
+{
+  "project": "Collections",
+  "bug_id": "17",
+  "tool": "kex",
+  "generated_files": 11,
+  "candidate_tests": 9,
+  "classification_counts": {
+    "invalid_or_unstable": 2,
+    "valid_non_revealing": 5,
+    "fixed_regression_or_unstable": 2
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

@@ -1,0 +1,60 @@
+package org.jsoup.parser;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.jsoup.parser.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class Tokeniser_isAppropriateEndTagToken_1514320479104 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term204635;
+
+    public Tokeniser_isAppropriateEndTagToken_1514320479104() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term204635 = newInstance(Class.forName("org.jsoup.parser.Tokeniser"));
+        Object term204703 = newInstance(Class.forName("org.jsoup.parser.Token$StartTag"));
+        Object term204771 = newInstance(Class.forName("org.jsoup.parser.Token$StartTag"));
+        setField(term204703, term204703.getClass(), "tagName", null);
+        setField(term204635, term204635.getClass(), "tagPending", term204703);
+        setField(term204635, term204635.getClass(), "lastStartTag", term204771);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jsoup.parser.Tokeniser");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        try {
+            callMethod(klass, "isAppropriateEndTagToken", argTypes, term204635, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

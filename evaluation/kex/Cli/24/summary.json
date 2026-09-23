@@ -1,0 +1,15 @@
+{
+  "project": "Cli",
+  "bug_id": "24",
+  "tool": "kex",
+  "generated_files": 60,
+  "candidate_tests": 58,
+  "classification_counts": {
+    "valid_non_revealing": 28,
+    "invalid_or_unstable": 30
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

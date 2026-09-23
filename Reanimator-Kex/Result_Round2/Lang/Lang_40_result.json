@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "40",
+  "tool": "kex",
+  "elapsed_sec": 309.14,
+  "target_classes": [
+    "org.apache.commons.lang.StringUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang.StringUtils": "timeout"
+  },
+  "num_test_files_generated": 342,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

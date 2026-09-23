@@ -1,0 +1,64 @@
+package org.apache.commons.compress.archivers.tar;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.io.IOException;
+import static org.apache.commons.compress.archivers.tar.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class TarArchiveOutputStream_writeRecord_1598060345142 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term85445;
+     Object term85289;
+
+    public TarArchiveOutputStream_writeRecord_1598060345142() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term85445 = newInstance(Class.forName("org.apache.commons.compress.archivers.tar.TarArchiveOutputStream"));
+        Object term85597 = newInstance(Class.forName("org.apache.commons.compress.compressors.bzip2.BZip2CompressorOutputStream"));
+        setIntField(term85445, term85445.getClass(), "recordSize", 0);
+        setField(term85445, term85445.getClass(), "out", term85597);
+        term85289 = (byte[]) newByteArray(0);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.compress.archivers.tar.TarArchiveOutputStream");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Array.newInstance(byte.class, 0).getClass();
+        argTypes[1] = int.class;
+        Object[] args = new Object[2];
+        args[0] = term85289;
+        args[1] = 0;
+        try {
+            callMethod(klass, "writeRecord", argTypes, term85445, args);
+            assertTrue(false);
+        }
+        catch (IOException e) {
+        }
+
+    }
+
+};
+
+

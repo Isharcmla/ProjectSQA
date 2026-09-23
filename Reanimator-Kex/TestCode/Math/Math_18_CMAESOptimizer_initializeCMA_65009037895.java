@@ -1,0 +1,61 @@
+package org.apache.commons.math3.optimization.direct;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.ArrayIndexOutOfBoundsException;
+import static org.apache.commons.math3.optimization.direct.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class CMAESOptimizer_initializeCMA_65009037895 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term56106;
+     Object term55939;
+
+    public CMAESOptimizer_initializeCMA_65009037895() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term56106 = newInstance(Class.forName("org.apache.commons.math3.optimization.direct.CMAESOptimizer"));
+        setIntField(term56106, term56106.getClass(), "lambda", 0);
+        setIntField(term56106, term56106.getClass(), "dimension", 0);
+        setField(term56106, term56106.getClass(), "boundaries", null);
+        term55939 = (double[]) newDoubleArray(9);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.math3.optimization.direct.CMAESOptimizer");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Array.newInstance(double.class, 0).getClass();
+        Object[] args = new Object[1];
+        args[0] = term55939;
+        try {
+            callMethod(klass, "initializeCMA", argTypes, term56106, args);
+            assertTrue(false);
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+        }
+
+    }
+
+};
+
+

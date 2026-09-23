@@ -1,0 +1,19 @@
+{
+  "project": "Compress",
+  "bug_id": "42",
+  "tool": "kex",
+  "elapsed_sec": 138.53,
+  "target_classes": [
+    "org.apache.commons.compress.archivers.zip.UnixStat",
+    "org.apache.commons.compress.archivers.zip.ZipArchiveEntry"
+  ],
+  "kex_results": {
+    "org.apache.commons.compress.archivers.zip.UnixStat": "failed",
+    "org.apache.commons.compress.archivers.zip.ZipArchiveEntry": "success"
+  },
+  "num_test_files_generated": 120,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

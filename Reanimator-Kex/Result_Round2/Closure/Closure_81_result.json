@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "81",
+  "tool": "kex",
+  "elapsed_sec": 160.27,
+  "target_classes": [
+    "com.google.javascript.jscomp.parsing.IRFactory"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.parsing.IRFactory": "success"
+  },
+  "num_test_files_generated": 221,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

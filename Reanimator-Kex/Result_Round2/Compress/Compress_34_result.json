@@ -1,0 +1,17 @@
+{
+  "project": "Compress",
+  "bug_id": "34",
+  "tool": "kex",
+  "elapsed_sec": 149.41,
+  "target_classes": [
+    "org.apache.commons.compress.archivers.zip.X7875_NewUnix"
+  ],
+  "kex_results": {
+    "org.apache.commons.compress.archivers.zip.X7875_NewUnix": "success"
+  },
+  "num_test_files_generated": 316,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

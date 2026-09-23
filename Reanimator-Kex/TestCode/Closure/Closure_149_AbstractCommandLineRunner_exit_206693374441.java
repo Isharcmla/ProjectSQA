@@ -1,0 +1,267 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.util.LinkedList;
+import java.lang.Object;
+import java.lang.String;
+
+public class AbstractCommandLineRunner_exit_206693374441 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term6144;
+     Object term6172;
+
+    public AbstractCommandLineRunner_exit_206693374441() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        LinkedList term6151 = new LinkedList();
+        ((LinkedList) term6151).add((Object)null);
+        ((LinkedList) term6151).add((Object)null);
+        ((LinkedList) term6151).add((Object)null);
+        ((LinkedList) term6151).add((Object)null);
+        ((LinkedList) term6151).add((Object)null);
+        ((LinkedList) term6151).add((Object)null);
+        ((LinkedList) term6151).add((Object)null);
+        ((LinkedList) term6151).add((Object)null);
+        ((LinkedList) term6151).add((Object)null);
+        LinkedList term6157 = new LinkedList();
+        LinkedList term6148 = new LinkedList();
+        ((LinkedList) term6148).add(term6151);
+        ((LinkedList) term6148).add(term6157);
+        ((LinkedList) term6148).add((Object)null);
+        ((LinkedList) term6148).add((Object)null);
+        ((LinkedList) term6148).add((Object)null);
+        term6144 = newInstance(Class.forName("com.google.javascript.jscomp.AbstractCommandLineRunner$RunTimeStats"));
+        setLongField(term6144, term6144.getClass(), "bestRunTime", -8400487765614892086L);
+        setLongField(term6144, term6144.getClass(), "worstRunTime", 5270370404989704783L);
+        setLongField(term6144, term6144.getClass(), "lastStartTime", 7411271909051562686L);
+        setField(term6144, term6144.getClass(), "loopedPassesInBestRun", term6148);
+        setField(term6144, term6144.getClass(), "this$0", null);
+        Class<? extends Object> term6241 = Class.forName((String) "com.google.javascript.jscomp.mozilla.rhino.debug.DebugFrame");
+        Class<? extends Object> term6244 = Class.forName((String) "org.kohsuke.args4j.CmdLineException");
+        Class<? extends Object> term6246 = Class.forName((String) "java.lang.invoke.Invokers");
+        Class<? extends Object> term6250 = Class.forName((String) "com.google.javascript.jscomp.SideEffectsAnalysis$DegenerateLocationAbstraction$DenegenerateEffectLocation");
+        Class<? extends Object> term6255 = Class.forName((String) "java.util.UnknownFormatConversionException");
+        Class<? extends Object> term6259 = Class.forName((String) "java.util.stream.WhileOps$DropWhileTask");
+        Class<? extends Object> term6263 = Class.forName((String) "java.util.DoubleSummaryStatistics");
+        Class<? extends Object> term6267 = Class.forName((String) "com.google.javascript.jscomp.PerformanceTracker");
+        Class<? extends Object> term6271 = Class.forName((String) "com.google.common.collect.ImmutableMultimap$EntryCollection$1");
+        Class<? extends Object> term6275 = Class.forName((String) "com.google.javascript.jscomp.ClosureReverseAbstractInterpreter$4");
+        Class<? extends Object> term6279 = Class.forName((String) "com.google.javascript.jscomp.TightenTypes$VariableAssignAction");
+        Class<? extends Object> term6283 = Class.forName((String) "com.google.javascript.jscomp.Compiler$CodeBuilder");
+        Class<? extends Object> term6287 = Class.forName((String) "com.google.javascript.jscomp.RuntimeTypeCheck$AddMarkers");
+        Class<? extends Object> term6291 = Class.forName((String) "javax.annotation.meta.TypeQualifier");
+        Class<? extends Object> term6293 = Class.forName((String) "org.junit.runners.Parameterized$TestClassRunnerForParameters");
+        Class<? extends Object> term6296 = Class.forName((String) "com.google.javascript.jscomp.InlineFunctions$FunctionVar");
+        Class<? extends Object> term6298 = Class.forName((String) "java.util.Calendar$AvailableCalendarTypes");
+        Class<? extends Object> term6300 = Class.forName((String) "com.google.javascript.jscomp.DefaultPassConfig$52");
+        Class<? extends Object> term6403 = Class.forName((String) "java.util.ArraysParallelSortHelpers$FJFloat$Merger");
+        Class<? extends Object> term6405 = Class.forName((String) "com.google.javascript.jscomp.mozilla.rhino.xmlimpl.Namespace");
+        term6172 = newInstance(Class.forName("java.lang.Throwable"));
+        Object[] term6173 = (Object[]) newArray("java.lang.Object", 5);
+        short[] term6174 = (short[]) newShortArray(32);
+        int[] term6207 = (int[]) newIntArray(32);
+        Object[] term6240 = (Object[]) newArray("java.lang.Object", 32);
+        long[] term6302 = (long[]) newLongArray(32);
+        Object[] term6335 = (Object[]) newArray("java.lang.Object", 5);
+        short[] term6336 = (short[]) newShortArray(32);
+        int[] term6369 = (int[]) newIntArray(32);
+        Object[] term6402 = (Object[]) newArray("java.lang.Object", 32);
+        long[] term6407 = (long[]) newLongArray(32);
+        Object[] term6452 = (Object[]) newArray("java.lang.StackTraceElement", 0);
+        Object term6454 = newInstance(Class.forName("java.util.Collections$EmptyList"));
+        setShortElement(term6174, 0, (short) 1);
+        setShortElement(term6174, 1, (short) 2);
+        setShortElement(term6174, 2, (short) 1);
+        setShortElement(term6174, 3, (short) 7);
+        setShortElement(term6174, 4, (short) 2);
+        setShortElement(term6174, 5, (short) 1);
+        setShortElement(term6174, 6, (short) 6);
+        setShortElement(term6174, 7, (short) 2);
+        setShortElement(term6174, 8, (short) 8);
+        setShortElement(term6174, 9, (short) 9);
+        setShortElement(term6174, 10, (short) 29);
+        setShortElement(term6174, 11, (short) 5);
+        setShortElement(term6174, 12, (short) 4);
+        setShortElement(term6174, 13, (short) 6);
+        setShortElement(term6174, 14, (short) 8);
+        setShortElement(term6174, 15, (short) 6);
+        setShortElement(term6174, 16, (short) 9);
+        setShortElement(term6174, 17, (short) 10);
+        setShortElement(term6174, 18, (short) 11);
+        setShortElement(term6174, 19, (short) 4);
+        setShortElement(term6174, 20, (short) 1);
+        setShortElement(term6174, 22, (short) 10);
+        setShortElement(term6174, 23, (short) 3);
+        setShortElement(term6174, 24, (short) 4);
+        setShortElement(term6174, 25, (short) 9);
+        setShortElement(term6174, 26, (short) 1);
+        setShortElement(term6174, 27, (short) 2);
+        setShortElement(term6174, 28, (short) 3);
+        setShortElement(term6174, 29, (short) 3);
+        setShortElement(term6174, 30, (short) 13);
+        setShortElement(term6174, 31, (short) 1);
+        setElement(term6173, 0, term6174);
+        setIntElement(term6207, 1, 5570560);
+        setIntElement(term6207, 2, 327680);
+        setIntElement(term6207, 3, 4456454);
+        setIntElement(term6207, 4, 1769472);
+        setIntElement(term6207, 5, 14876672);
+        setIntElement(term6207, 6, 6225920);
+        setIntElement(term6207, 7, 917504);
+        setIntElement(term6207, 8, 327680);
+        setIntElement(term6207, 9, 8519680);
+        setIntElement(term6207, 10, 917504);
+        setIntElement(term6207, 11, 11993088);
+        setIntElement(term6207, 12, 655360);
+        setIntElement(term6207, 13, 7864320);
+        setIntElement(term6207, 14, 3735552);
+        setIntElement(term6207, 15, 7143424);
+        setIntElement(term6207, 16, 8454144);
+        setIntElement(term6207, 17, 9240576);
+        setIntElement(term6207, 18, 196608);
+        setIntElement(term6207, 19, 3801088);
+        setIntElement(term6207, 20, 786432);
+        setIntElement(term6207, 21, 589824);
+        setIntElement(term6207, 22, 17170432);
+        setIntElement(term6207, 23, 1376256);
+        setIntElement(term6207, 24, 5242880);
+        setIntElement(term6207, 25, 2883584);
+        setIntElement(term6207, 26, 20774912);
+        setIntElement(term6207, 27, 262144);
+        setIntElement(term6207, 28, 2555904);
+        setIntElement(term6207, 29, 1835008);
+        setIntElement(term6207, 30, 6029312);
+        setIntElement(term6207, 31, 327680);
+        setElement(term6173, 1, term6207);
+        setElement(term6240, 0, term6241);
+        setElement(term6240, 1, term6241);
+        setElement(term6240, 2, term6244);
+        setElement(term6240, 3, term6246);
+        setElement(term6240, 4, term6250);
+        setElement(term6240, 5, term6250);
+        setElement(term6240, 6, term6255);
+        setElement(term6240, 7, term6255);
+        setElement(term6240, 8, term6259);
+        setElement(term6240, 9, term6259);
+        setElement(term6240, 10, term6259);
+        setElement(term6240, 11, term6259);
+        setElement(term6240, 12, term6259);
+        setElement(term6240, 13, term6263);
+        setElement(term6240, 14, term6263);
+        setElement(term6240, 15, term6267);
+        setElement(term6240, 16, term6267);
+        setElement(term6240, 17, term6267);
+        setElement(term6240, 18, term6267);
+        setElement(term6240, 19, term6271);
+        setElement(term6240, 20, term6271);
+        setElement(term6240, 21, term6271);
+        setElement(term6240, 22, term6275);
+        setElement(term6240, 23, term6267);
+        setElement(term6240, 24, term6279);
+        setElement(term6240, 25, term6283);
+        setElement(term6240, 26, term6287);
+        setElement(term6240, 27, term6291);
+        setElement(term6240, 28, term6293);
+        setElement(term6240, 29, term6296);
+        setElement(term6240, 30, term6298);
+        setElement(term6240, 31, term6300);
+        setElement(term6173, 2, term6240);
+        setLongElement(term6302, 0, 34363746224L);
+        setLongElement(term6302, 1, 34363775512L);
+        setLongElement(term6302, 2, 34363775512L);
+        setLongElement(term6302, 3, 34363775512L);
+        setLongElement(term6302, 4, 135025387672928L);
+        setLongElement(term6302, 5, 34364440080L);
+        setLongElement(term6302, 6, 135025387814144L);
+        setLongElement(term6302, 7, 135025386597152L);
+        setLongElement(term6302, 8, 135025386597120L);
+        setLongElement(term6302, 9, 135025386597184L);
+        setLongElement(term6302, 10, 135025387634448L);
+        setLongElement(term6302, 11, 34363766248L);
+        setLongElement(term6302, 12, 34363766248L);
+        setLongElement(term6302, 13, 135021482032960L);
+        setLongElement(term6302, 14, 135021482032960L);
+        setLongElement(term6302, 15, 135021482032816L);
+        setLongElement(term6302, 16, 135021482068480L);
+        setLongElement(term6302, 17, 135021482070128L);
+        setLongElement(term6302, 18, 135021482070896L);
+        setLongElement(term6302, 19, 135021478899152L);
+        setLongElement(term6302, 20, 34363739368L);
+        setLongElement(term6302, 21, 34363739368L);
+        setLongElement(term6302, 22, 135021482031456L);
+        setLongElement(term6302, 23, 34363829248L);
+        setLongElement(term6302, 24, 135021478899152L);
+        setLongElement(term6302, 25, 135025395612432L);
+        setLongElement(term6302, 26, 34363745472L);
+        setLongElement(term6302, 27, 34364710216L);
+        setLongElement(term6302, 28, 34363745472L);
+        setLongElement(term6302, 29, 34363745472L);
+        setLongElement(term6302, 30, 34364896224L);
+        setLongElement(term6302, 31, 34363745472L);
+        setElement(term6173, 3, term6302);
+        setShortElement(term6336, 0, (short) 2);
+        setShortElement(term6336, 1, (short) 12);
+        setElement(term6335, 0, term6336);
+        setIntElement(term6369, 0, 1638400);
+        setIntElement(term6369, 1, 720907);
+        setElement(term6335, 1, term6369);
+        setElement(term6402, 0, term6403);
+        setElement(term6402, 1, term6405);
+        setElement(term6335, 2, term6402);
+        setLongElement(term6407, 0, 34363745472L);
+        setLongElement(term6407, 1, 34363745472L);
+        setElement(term6335, 3, term6407);
+        setElement(term6173, 4, term6335);
+        setField(term6172, term6172.getClass(), "backtrace", term6173);
+        setField(term6172, term6172.getClass(), "detailMessage", "onpbIeEKoi");
+        setField(term6172, term6172.getClass(), "cause", term6172);
+        setField(term6172, term6172.getClass(), "stackTrace", term6452);
+        setIntField(term6172, term6172.getClass(), "depth", 34);
+        setIntField(term6454, term6454.getClass(), "modCount", 0);
+        setField(term6172, term6172.getClass(), "suppressedExceptions", term6454);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.AbstractCommandLineRunner");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("com.google.javascript.jscomp.AbstractCommandLineRunner$RunTimeStats");
+        argTypes[1] = Class.forName("java.lang.Throwable");
+        Object[] args = new Object[2];
+        args[0] = term6144;
+        args[1] = term6172;
+        try {
+            callMethod(klass, "exit", argTypes, null, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

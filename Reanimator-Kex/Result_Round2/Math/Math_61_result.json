@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "61",
+  "tool": "kex",
+  "elapsed_sec": 157.43,
+  "target_classes": [
+    "org.apache.commons.math.distribution.PoissonDistributionImpl"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.distribution.PoissonDistributionImpl": "success"
+  },
+  "num_test_files_generated": 35,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

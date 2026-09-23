@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+CharSequenceTranslator_hex_4170379005,org.apache.commons.lang3.text.translate.CharSequenceTranslator_hex_4170379005,,PASS,PASS,valid_non_revealing
+CharSequenceTranslator_hex_4170379007,org.apache.commons.lang3.text.translate.CharSequenceTranslator_hex_4170379007,,FAIL,FAIL,invalid_or_unstable
+CharSequenceTranslator_translate_20183673563,org.apache.commons.lang3.text.translate.CharSequenceTranslator_translate_20183673563,,PASS,PASS,valid_non_revealing
+CharSequenceTranslator_translate_8104374244,org.apache.commons.lang3.text.translate.CharSequenceTranslator_translate_8104374244,,PASS,PASS,valid_non_revealing

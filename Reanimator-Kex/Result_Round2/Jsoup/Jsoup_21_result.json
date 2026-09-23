@@ -1,0 +1,19 @@
+{
+  "project": "Jsoup",
+  "bug_id": "21",
+  "tool": "kex",
+  "elapsed_sec": 166.45,
+  "target_classes": [
+    "org.jsoup.select.CombiningEvaluator",
+    "org.jsoup.select.QueryParser"
+  ],
+  "kex_results": {
+    "org.jsoup.select.CombiningEvaluator": "success",
+    "org.jsoup.select.QueryParser": "success"
+  },
+  "num_test_files_generated": 44,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

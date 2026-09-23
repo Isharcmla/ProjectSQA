@@ -1,0 +1,212 @@
+package org.joda.time.format;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.joda.time.format.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static org.joda.time.format.EqualityUtils.*;
+import java.util.ArrayList;
+import java.lang.Object;
+
+public class PeriodFormatterBuilder_appendSeparatorIfFieldsAfter_63165961205 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term93967;
+     Object term95409;
+     Object term95049;
+
+    public PeriodFormatterBuilder_appendSeparatorIfFieldsAfter_63165961205() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        Object term94057 = newInstance(Class.forName("java.lang.Object"));
+        Object term94179 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder$CompositeAffix"));
+        Object term94271 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        Object term94363 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        Object term94455 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        Object term94547 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        Object term94639 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        Object term94731 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        Object term94823 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        Object term94915 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        Object term95007 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        ArrayList term94019 = new ArrayList();
+        ((ArrayList) term94019).add(term94057);
+        ((ArrayList) term94019).add(term94179);
+        ((ArrayList) term94019).add(term94179);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94363);
+        ((ArrayList) term94019).add(term94363);
+        ((ArrayList) term94019).add(term94455);
+        ((ArrayList) term94019).add(term94455);
+        ((ArrayList) term94019).add(term94547);
+        ((ArrayList) term94019).add(term94547);
+        ((ArrayList) term94019).add(term94639);
+        ((ArrayList) term94019).add(term94639);
+        ((ArrayList) term94019).add(term94731);
+        ((ArrayList) term94019).add(term94731);
+        ((ArrayList) term94019).add(term94363);
+        ((ArrayList) term94019).add(term94363);
+        ((ArrayList) term94019).add(term94823);
+        ((ArrayList) term94019).add(term94823);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add(term94363);
+        ((ArrayList) term94019).add(term94363);
+        ((ArrayList) term94019).add(term94915);
+        ((ArrayList) term94019).add(term94915);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add(term94363);
+        ((ArrayList) term94019).add(term94363);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add((Object)null);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term94271);
+        ((ArrayList) term94019).add(term95007);
+        term93967 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        setField(term93967, term93967.getClass(), "iPrefix", null);
+        setField(term93967, term93967.getClass(), "iElementPairs", term94019);
+        Object term95412 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder$Separator"));
+        Object[] term95415 = (Object[]) newArray("java.lang.String", 1);
+        Object term95416 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder$Composite"));
+        setField(term95412, term95412.getClass(), "iText", "");
+        setField(term95412, term95412.getClass(), "iFinalText", "");
+        setField(term95412, term95412.getClass(), "iParsedForms", term95415);
+        setBooleanField(term95412, term95412.getClass(), "iUseBefore", false);
+        setBooleanField(term95412, term95412.getClass(), "iUseAfter", true);
+        setField(term95416, term95416.getClass(), "iPrinters", null);
+        setField(term95416, term95416.getClass(), "iParsers", null);
+        setField(term95412, term95412.getClass(), "iBeforePrinter", term95416);
+        setField(term95412, term95412.getClass(), "iAfterPrinter", null);
+        setField(term95412, term95412.getClass(), "iBeforeParser", term95416);
+        setField(term95412, term95412.getClass(), "iAfterParser", null);
+        ArrayList term95410 = new ArrayList();
+        ((ArrayList) term95410).add(term95412);
+        ((ArrayList) term95410).add(term95412);
+        term95409 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        setIntField(term95409, term95409.getClass(), "iMinPrintedDigits", 0);
+        setIntField(term95409, term95409.getClass(), "iPrintZeroSetting", 0);
+        setIntField(term95409, term95409.getClass(), "iMaxParsedDigits", 0);
+        setBooleanField(term95409, term95409.getClass(), "iRejectSignedValues", false);
+        setField(term95409, term95409.getClass(), "iPrefix", null);
+        setField(term95409, term95409.getClass(), "iElementPairs", term95410);
+        setBooleanField(term95409, term95409.getClass(), "iNotPrinter", false);
+        setBooleanField(term95409, term95409.getClass(), "iNotParser", false);
+        setField(term95409, term95409.getClass(), "iFieldFormatters", null);
+        Object term95056 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder$Separator"));
+        Object[] term95059 = (Object[]) newArray("java.lang.String", 1);
+        Object term95062 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder$Composite"));
+        setField(term95056, term95056.getClass(), "iText", "");
+        setField(term95056, term95056.getClass(), "iFinalText", "");
+        setField(term95056, term95056.getClass(), "iParsedForms", term95059);
+        setBooleanField(term95056, term95056.getClass(), "iUseBefore", false);
+        setBooleanField(term95056, term95056.getClass(), "iUseAfter", true);
+        setField(term95062, term95062.getClass(), "iPrinters", null);
+        setField(term95062, term95062.getClass(), "iParsers", null);
+        setField(term95056, term95056.getClass(), "iBeforePrinter", term95062);
+        setField(term95056, term95056.getClass(), "iAfterPrinter", null);
+        setField(term95056, term95056.getClass(), "iBeforeParser", term95062);
+        setField(term95056, term95056.getClass(), "iAfterParser", null);
+        ArrayList term95054 = new ArrayList();
+        ((ArrayList) term95054).add(term95056);
+        ((ArrayList) term95054).add(term95056);
+        term95049 = newInstance(Class.forName("org.joda.time.format.PeriodFormatterBuilder"));
+        setIntField(term95049, term95049.getClass(), "iMinPrintedDigits", 0);
+        setIntField(term95049, term95049.getClass(), "iPrintZeroSetting", 0);
+        setIntField(term95049, term95049.getClass(), "iMaxParsedDigits", 0);
+        setBooleanField(term95049, term95049.getClass(), "iRejectSignedValues", false);
+        setField(term95049, term95049.getClass(), "iPrefix", null);
+        setField(term95049, term95049.getClass(), "iElementPairs", term95054);
+        setBooleanField(term95049, term95049.getClass(), "iNotPrinter", false);
+        setBooleanField(term95049, term95049.getClass(), "iNotParser", false);
+        setField(term95049, term95049.getClass(), "iFieldFormatters", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.joda.time.format.PeriodFormatterBuilder");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("java.lang.String");
+        Object[] args = new Object[1];
+        args[0] = "";
+        Object retValue = callMethod(klass, "appendSeparatorIfFieldsAfter", argTypes, term93967, args);
+        assertTrue(recursiveEquals(term93967, term95409));
+        assertTrue(recursiveEquals(retValue, term95049));
+    }
+
+};
+
+

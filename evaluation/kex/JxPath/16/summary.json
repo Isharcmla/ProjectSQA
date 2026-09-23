@@ -1,0 +1,15 @@
+{
+  "project": "JxPath",
+  "bug_id": "16",
+  "tool": "kex",
+  "generated_files": 336,
+  "candidate_tests": 332,
+  "classification_counts": {
+    "valid_non_revealing": 232,
+    "invalid_or_unstable": 100
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

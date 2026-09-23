@@ -9,5 +9,8 @@
   "kex_results": {
     "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream": "success"
   },
-  "status": "success"
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
 }

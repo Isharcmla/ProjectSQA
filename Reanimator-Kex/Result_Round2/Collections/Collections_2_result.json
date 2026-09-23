@@ -1,0 +1,17 @@
+{
+  "project": "Collections",
+  "bug_id": "2",
+  "tool": "kex",
+  "elapsed_sec": 307.05,
+  "target_classes": [
+    "org.apache.commons.collections.ExtendedProperties"
+  ],
+  "kex_results": {
+    "org.apache.commons.collections.ExtendedProperties": "timeout"
+  },
+  "num_test_files_generated": 473,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

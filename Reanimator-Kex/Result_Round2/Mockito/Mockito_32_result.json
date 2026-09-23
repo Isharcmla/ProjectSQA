@@ -1,0 +1,17 @@
+{
+  "project": "Mockito",
+  "bug_id": "32",
+  "tool": "kex",
+  "elapsed_sec": 20.25,
+  "target_classes": [
+    "org.mockito.internal.configuration.SpyAnnotationEngine"
+  ],
+  "kex_results": {
+    "org.mockito.internal.configuration.SpyAnnotationEngine": "success"
+  },
+  "num_test_files_generated": 6,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

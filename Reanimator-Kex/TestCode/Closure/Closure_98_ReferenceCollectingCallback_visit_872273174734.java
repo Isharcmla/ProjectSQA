@@ -1,0 +1,69 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.util.NoSuchElementException;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.util.ArrayDeque;
+
+public class ReferenceCollectingCallback_visit_872273174734 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term195235;
+     Object term195381;
+     Object term195473;
+
+    public ReferenceCollectingCallback_visit_872273174734() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        ArrayDeque term195289 = new ArrayDeque();
+        term195235 = newInstance(Class.forName("com.google.javascript.jscomp.ReferenceCollectingCallback"));
+        setField(term195235, term195235.getClass(), "blockStack", term195289);
+        term195381 = newInstance(Class.forName("com.google.javascript.rhino.Node$NumberNode"));
+        setIntField(term195381, term195381.getClass(), "type", 0);
+        term195473 = newInstance(Class.forName("com.google.javascript.rhino.Node$StringNode"));
+        setIntField(term195473, term195473.getClass(), "type", 115);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.ReferenceCollectingCallback");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Class.forName("com.google.javascript.jscomp.NodeTraversal");
+        argTypes[1] = Class.forName("com.google.javascript.rhino.Node");
+        argTypes[2] = Class.forName("com.google.javascript.rhino.Node");
+        Object[] args = new Object[3];
+        args[0] = null;
+        args[1] = term195381;
+        args[2] = term195473;
+        try {
+            callMethod(klass, "visit", argTypes, term195235, args);
+            assertTrue(false);
+        }
+        catch (NoSuchElementException e) {
+        }
+
+    }
+
+};
+
+

@@ -1,0 +1,74 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.String;
+import java.lang.Object;
+
+public class TypeValidator_mismatch_1931343499231 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term84105;
+     Object term84213;
+     Object term84359;
+     Object term84615;
+
+    public TypeValidator_mismatch_1931343499231() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term84105 = newInstance(Class.forName("com.google.javascript.jscomp.TypeValidator"));
+        setBooleanField(term84105, term84105.getClass(), "shouldReport", false);
+        term84213 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setIntField(term84213, term84213.getClass(), "sourcePosition", 0);
+        Class<? extends Object> term84648 = Class.forName((String) "com.google.javascript.rhino.jstype.FunctionType$Kind");
+        Field term84647 = ((Class) term84648).getDeclaredField((String) "INTERFACE");
+        ((Field) term84647).setAccessible(true);
+        Object enum81 = ((Field) term84647).get((Object) null);
+        term84359 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$1"));
+        setBooleanField(term84359, term84359.getClass(), "unknown", false);
+        setField(term84359, term84359.getClass(), "kind", enum81);
+        term84615 = newInstance(Class.forName("com.google.javascript.rhino.jstype.JSTypeRegistry$1"));
+        setBooleanField(term84615, term84615.getClass(), "unknown", false);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.TypeValidator");
+        Class<?>[] argTypes = new Class<?>[5];
+        argTypes[0] = Class.forName("java.lang.String");
+        argTypes[1] = Class.forName("com.google.javascript.rhino.Node");
+        argTypes[2] = Class.forName("java.lang.String");
+        argTypes[3] = Class.forName("com.google.javascript.rhino.jstype.JSType");
+        argTypes[4] = Class.forName("com.google.javascript.rhino.jstype.JSType");
+        Object[] args = new Object[5];
+        args[0] = "{0}\nfound   : {1}\nrequired: {2}";
+        args[1] = term84213;
+        args[2] = "";
+        args[3] = term84359;
+        args[4] = term84615;
+        callMethod(klass, "mismatch", argTypes, term84105, args);
+    }
+
+};
+
+

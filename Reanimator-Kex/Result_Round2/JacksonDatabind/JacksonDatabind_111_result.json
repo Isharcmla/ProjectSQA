@@ -1,0 +1,29 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "111",
+  "tool": "kex",
+  "elapsed_sec": 520.76,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.CreatorProperty",
+    "com.fasterxml.jackson.databind.deser.impl.FieldProperty",
+    "com.fasterxml.jackson.databind.deser.impl.MethodProperty",
+    "com.fasterxml.jackson.databind.deser.impl.ObjectIdReferenceProperty",
+    "com.fasterxml.jackson.databind.deser.impl.ObjectIdValueProperty",
+    "com.fasterxml.jackson.databind.deser.impl.SetterlessProperty",
+    "com.fasterxml.jackson.databind.deser.std.AtomicReferenceDeserializer"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.deser.CreatorProperty": "success",
+    "com.fasterxml.jackson.databind.deser.impl.FieldProperty": "success",
+    "com.fasterxml.jackson.databind.deser.impl.MethodProperty": "success",
+    "com.fasterxml.jackson.databind.deser.impl.ObjectIdReferenceProperty": "success",
+    "com.fasterxml.jackson.databind.deser.impl.ObjectIdValueProperty": "success",
+    "com.fasterxml.jackson.databind.deser.impl.SetterlessProperty": "success",
+    "com.fasterxml.jackson.databind.deser.std.AtomicReferenceDeserializer": "success"
+  },
+  "num_test_files_generated": 611,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,217 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.google.javascript.jscomp.EqualityUtils.*;
+import java.lang.Object;
+
+public class PeepholeFoldConstants_tryFoldBinaryOperator_6741225111611 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term624173;
+     Object term624259;
+     Object term651245;
+     Object term651246;
+     Object term651160;
+
+    public PeepholeFoldConstants_tryFoldBinaryOperator_6741225111611() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term624173 = newInstance(Class.forName("com.google.javascript.jscomp.PeepholeFoldConstants"));
+        term624259 = newInstance(Class.forName("com.google.javascript.rhino.FunctionNode"));
+        Object term624345 = newInstance(Class.forName("com.google.javascript.rhino.FunctionNode"));
+        Object term624431 = newInstance(Class.forName("com.google.javascript.rhino.FunctionNode"));
+        setField(term624345, term624345.getClass(), "next", term624431);
+        setIntField(term624345, term624345.getClass(), "type", 39);
+        setField(term624259, term624259.getClass(), "first", term624345);
+        setIntField(term624259, term624259.getClass(), "type", 19);
+        term651245 = newInstance(Class.forName("com.google.javascript.jscomp.PeepholeFoldConstants"));
+        setField(term651245, term651245.getClass(), "currentTraversal", null);
+        term651246 = newInstance(Class.forName("com.google.javascript.rhino.FunctionNode"));
+        Object term651247 = newInstance(Class.forName("com.google.javascript.rhino.FunctionNode"));
+        Object term651248 = newInstance(Class.forName("com.google.javascript.rhino.FunctionNode"));
+        setField(term651246, term651246.getClass(), "functionName", null);
+        setBooleanField(term651246, term651246.getClass(), "itsNeedsActivation", false);
+        setIntField(term651246, term651246.getClass(), "itsFunctionType", 0);
+        setBooleanField(term651246, term651246.getClass(), "itsIgnoreDynamicScope", false);
+        setIntField(term651246, term651246.getClass(), "encodedSourceStart", 0);
+        setIntField(term651246, term651246.getClass(), "encodedSourceEnd", 0);
+        setField(term651246, term651246.getClass(), "sourceName", null);
+        setIntField(term651246, term651246.getClass(), "baseLineno", 0);
+        setIntField(term651246, term651246.getClass(), "endLineno", 0);
+        setField(term651246, term651246.getClass(), "functions", null);
+        setField(term651246, term651246.getClass(), "regexps", null);
+        setField(term651246, term651246.getClass(), "itsVariables", null);
+        setField(term651246, term651246.getClass(), "itsConst", null);
+        setField(term651246, term651246.getClass(), "itsVariableNames", null);
+        setIntField(term651246, term651246.getClass(), "varStart", 0);
+        setField(term651246, term651246.getClass(), "compilerData", null);
+        setIntField(term651246, term651246.getClass(), "type", 19);
+        setField(term651246, term651246.getClass(), "next", null);
+        setField(term651247, term651247.getClass(), "functionName", null);
+        setBooleanField(term651247, term651247.getClass(), "itsNeedsActivation", false);
+        setIntField(term651247, term651247.getClass(), "itsFunctionType", 0);
+        setBooleanField(term651247, term651247.getClass(), "itsIgnoreDynamicScope", false);
+        setIntField(term651247, term651247.getClass(), "encodedSourceStart", 0);
+        setIntField(term651247, term651247.getClass(), "encodedSourceEnd", 0);
+        setField(term651247, term651247.getClass(), "sourceName", null);
+        setIntField(term651247, term651247.getClass(), "baseLineno", 0);
+        setIntField(term651247, term651247.getClass(), "endLineno", 0);
+        setField(term651247, term651247.getClass(), "functions", null);
+        setField(term651247, term651247.getClass(), "regexps", null);
+        setField(term651247, term651247.getClass(), "itsVariables", null);
+        setField(term651247, term651247.getClass(), "itsConst", null);
+        setField(term651247, term651247.getClass(), "itsVariableNames", null);
+        setIntField(term651247, term651247.getClass(), "varStart", 0);
+        setField(term651247, term651247.getClass(), "compilerData", null);
+        setIntField(term651247, term651247.getClass(), "type", 39);
+        setField(term651248, term651248.getClass(), "functionName", null);
+        setBooleanField(term651248, term651248.getClass(), "itsNeedsActivation", false);
+        setIntField(term651248, term651248.getClass(), "itsFunctionType", 0);
+        setBooleanField(term651248, term651248.getClass(), "itsIgnoreDynamicScope", false);
+        setIntField(term651248, term651248.getClass(), "encodedSourceStart", 0);
+        setIntField(term651248, term651248.getClass(), "encodedSourceEnd", 0);
+        setField(term651248, term651248.getClass(), "sourceName", null);
+        setIntField(term651248, term651248.getClass(), "baseLineno", 0);
+        setIntField(term651248, term651248.getClass(), "endLineno", 0);
+        setField(term651248, term651248.getClass(), "functions", null);
+        setField(term651248, term651248.getClass(), "regexps", null);
+        setField(term651248, term651248.getClass(), "itsVariables", null);
+        setField(term651248, term651248.getClass(), "itsConst", null);
+        setField(term651248, term651248.getClass(), "itsVariableNames", null);
+        setIntField(term651248, term651248.getClass(), "varStart", 0);
+        setField(term651248, term651248.getClass(), "compilerData", null);
+        setIntField(term651248, term651248.getClass(), "type", 0);
+        setField(term651248, term651248.getClass(), "next", null);
+        setField(term651248, term651248.getClass(), "first", null);
+        setField(term651248, term651248.getClass(), "last", null);
+        setField(term651248, term651248.getClass(), "propListHead", null);
+        setIntField(term651248, term651248.getClass(), "sourcePosition", 0);
+        setField(term651248, term651248.getClass(), "jsType", null);
+        setField(term651248, term651248.getClass(), "parent", null);
+        setField(term651247, term651247.getClass(), "next", term651248);
+        setField(term651247, term651247.getClass(), "first", null);
+        setField(term651247, term651247.getClass(), "last", null);
+        setField(term651247, term651247.getClass(), "propListHead", null);
+        setIntField(term651247, term651247.getClass(), "sourcePosition", 0);
+        setField(term651247, term651247.getClass(), "jsType", null);
+        setField(term651247, term651247.getClass(), "parent", null);
+        setField(term651246, term651246.getClass(), "first", term651247);
+        setField(term651246, term651246.getClass(), "last", null);
+        setField(term651246, term651246.getClass(), "propListHead", null);
+        setIntField(term651246, term651246.getClass(), "sourcePosition", 0);
+        setField(term651246, term651246.getClass(), "jsType", null);
+        setField(term651246, term651246.getClass(), "parent", null);
+        term651160 = newInstance(Class.forName("com.google.javascript.rhino.FunctionNode"));
+        Object term651170 = newInstance(Class.forName("com.google.javascript.rhino.FunctionNode"));
+        Object term651180 = newInstance(Class.forName("com.google.javascript.rhino.FunctionNode"));
+        setField(term651160, term651160.getClass(), "functionName", null);
+        setBooleanField(term651160, term651160.getClass(), "itsNeedsActivation", false);
+        setIntField(term651160, term651160.getClass(), "itsFunctionType", 0);
+        setBooleanField(term651160, term651160.getClass(), "itsIgnoreDynamicScope", false);
+        setIntField(term651160, term651160.getClass(), "encodedSourceStart", 0);
+        setIntField(term651160, term651160.getClass(), "encodedSourceEnd", 0);
+        setField(term651160, term651160.getClass(), "sourceName", null);
+        setIntField(term651160, term651160.getClass(), "baseLineno", 0);
+        setIntField(term651160, term651160.getClass(), "endLineno", 0);
+        setField(term651160, term651160.getClass(), "functions", null);
+        setField(term651160, term651160.getClass(), "regexps", null);
+        setField(term651160, term651160.getClass(), "itsVariables", null);
+        setField(term651160, term651160.getClass(), "itsConst", null);
+        setField(term651160, term651160.getClass(), "itsVariableNames", null);
+        setIntField(term651160, term651160.getClass(), "varStart", 0);
+        setField(term651160, term651160.getClass(), "compilerData", null);
+        setIntField(term651160, term651160.getClass(), "type", 19);
+        setField(term651160, term651160.getClass(), "next", null);
+        setField(term651170, term651170.getClass(), "functionName", null);
+        setBooleanField(term651170, term651170.getClass(), "itsNeedsActivation", false);
+        setIntField(term651170, term651170.getClass(), "itsFunctionType", 0);
+        setBooleanField(term651170, term651170.getClass(), "itsIgnoreDynamicScope", false);
+        setIntField(term651170, term651170.getClass(), "encodedSourceStart", 0);
+        setIntField(term651170, term651170.getClass(), "encodedSourceEnd", 0);
+        setField(term651170, term651170.getClass(), "sourceName", null);
+        setIntField(term651170, term651170.getClass(), "baseLineno", 0);
+        setIntField(term651170, term651170.getClass(), "endLineno", 0);
+        setField(term651170, term651170.getClass(), "functions", null);
+        setField(term651170, term651170.getClass(), "regexps", null);
+        setField(term651170, term651170.getClass(), "itsVariables", null);
+        setField(term651170, term651170.getClass(), "itsConst", null);
+        setField(term651170, term651170.getClass(), "itsVariableNames", null);
+        setIntField(term651170, term651170.getClass(), "varStart", 0);
+        setField(term651170, term651170.getClass(), "compilerData", null);
+        setIntField(term651170, term651170.getClass(), "type", 39);
+        setField(term651180, term651180.getClass(), "functionName", null);
+        setBooleanField(term651180, term651180.getClass(), "itsNeedsActivation", false);
+        setIntField(term651180, term651180.getClass(), "itsFunctionType", 0);
+        setBooleanField(term651180, term651180.getClass(), "itsIgnoreDynamicScope", false);
+        setIntField(term651180, term651180.getClass(), "encodedSourceStart", 0);
+        setIntField(term651180, term651180.getClass(), "encodedSourceEnd", 0);
+        setField(term651180, term651180.getClass(), "sourceName", null);
+        setIntField(term651180, term651180.getClass(), "baseLineno", 0);
+        setIntField(term651180, term651180.getClass(), "endLineno", 0);
+        setField(term651180, term651180.getClass(), "functions", null);
+        setField(term651180, term651180.getClass(), "regexps", null);
+        setField(term651180, term651180.getClass(), "itsVariables", null);
+        setField(term651180, term651180.getClass(), "itsConst", null);
+        setField(term651180, term651180.getClass(), "itsVariableNames", null);
+        setIntField(term651180, term651180.getClass(), "varStart", 0);
+        setField(term651180, term651180.getClass(), "compilerData", null);
+        setIntField(term651180, term651180.getClass(), "type", 0);
+        setField(term651180, term651180.getClass(), "next", null);
+        setField(term651180, term651180.getClass(), "first", null);
+        setField(term651180, term651180.getClass(), "last", null);
+        setField(term651180, term651180.getClass(), "propListHead", null);
+        setIntField(term651180, term651180.getClass(), "sourcePosition", 0);
+        setField(term651180, term651180.getClass(), "jsType", null);
+        setField(term651180, term651180.getClass(), "parent", null);
+        setField(term651170, term651170.getClass(), "next", term651180);
+        setField(term651170, term651170.getClass(), "first", null);
+        setField(term651170, term651170.getClass(), "last", null);
+        setField(term651170, term651170.getClass(), "propListHead", null);
+        setIntField(term651170, term651170.getClass(), "sourcePosition", 0);
+        setField(term651170, term651170.getClass(), "jsType", null);
+        setField(term651170, term651170.getClass(), "parent", null);
+        setField(term651160, term651160.getClass(), "first", term651170);
+        setField(term651160, term651160.getClass(), "last", null);
+        setField(term651160, term651160.getClass(), "propListHead", null);
+        setIntField(term651160, term651160.getClass(), "sourcePosition", 0);
+        setField(term651160, term651160.getClass(), "jsType", null);
+        setField(term651160, term651160.getClass(), "parent", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.PeepholeFoldConstants");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("com.google.javascript.rhino.Node");
+        Object[] args = new Object[1];
+        args[0] = term624259;
+        Object retValue = callMethod(klass, "tryFoldBinaryOperator", argTypes, term624173, args);
+        assertTrue(recursiveEquals(term624173, term651245));
+        assertTrue(recursiveEquals(term624259, term651246));
+        assertTrue(recursiveEquals(retValue, term651160));
+    }
+
+};
+
+

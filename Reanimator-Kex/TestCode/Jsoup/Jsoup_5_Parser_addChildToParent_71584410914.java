@@ -1,0 +1,213 @@
+package org.jsoup.parser;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static org.jsoup.parser.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.util.LinkedList;
+import java.lang.Object;
+import java.util.HashSet;
+import java.util.ArrayList;
+import java.lang.String;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.lang.Boolean;
+
+public class Parser_addChildToParent_71584410914 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term3025;
+     Object term3150;
+     Object term3230;
+
+    public Parser_addChildToParent_71584410914() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        HashSet term3041 = new HashSet();
+        ArrayList term3042 = new ArrayList();
+        Object term3029 = newInstance(Class.forName("org.jsoup.nodes.Element"));
+        Object term3030 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        Object term3045 = newInstance(Class.forName("org.jsoup.nodes.Attributes"));
+        setField(term3030, term3030.getClass(), "tagName", null);
+        setBooleanField(term3030, term3030.getClass(), "knownTag", false);
+        setBooleanField(term3030, term3030.getClass(), "isBlock", true);
+        setBooleanField(term3030, term3030.getClass(), "canContainBlock", false);
+        setBooleanField(term3030, term3030.getClass(), "canContainInline", true);
+        setBooleanField(term3030, term3030.getClass(), "optionalClosing", false);
+        setBooleanField(term3030, term3030.getClass(), "empty", false);
+        setBooleanField(term3030, term3030.getClass(), "selfClosing", false);
+        setBooleanField(term3030, term3030.getClass(), "preserveWhitespace", true);
+        setField(term3030, term3030.getClass(), "ancestors", null);
+        setField(term3030, term3030.getClass(), "excludes", null);
+        setBooleanField(term3030, term3030.getClass(), "directDescendant", true);
+        setBooleanField(term3030, term3030.getClass(), "limitChildren", true);
+        setField(term3029, term3029.getClass(), "tag", term3030);
+        setField(term3029, term3029.getClass(), "classNames", term3041);
+        setField(term3029, term3029.getClass(), "parentNode", null);
+        setField(term3029, term3029.getClass(), "childNodes", term3042);
+        setField(term3045, term3045.getClass(), "attributes", null);
+        setField(term3029, term3029.getClass(), "attributes", term3045);
+        setField(term3029, term3029.getClass(), "baseUri", "");
+        setIntField(term3029, term3029.getClass(), "siblingIndex", 679763016);
+        Object term3049 = newInstance(Class.forName("org.jsoup.nodes.Element"));
+        setField(term3049, term3049.getClass(), "tag", null);
+        setField(term3049, term3049.getClass(), "classNames", null);
+        setField(term3049, term3049.getClass(), "parentNode", null);
+        setField(term3049, term3049.getClass(), "childNodes", null);
+        setField(term3049, term3049.getClass(), "attributes", null);
+        setField(term3049, term3049.getClass(), "baseUri", null);
+        setIntField(term3049, term3049.getClass(), "siblingIndex", 1962444399);
+        LinkedList term3026 = new LinkedList();
+        ((LinkedList) term3026).add(term3029);
+        ((LinkedList) term3026).add(term3049);
+        ((LinkedList) term3026).add((Object)null);
+        ((LinkedList) term3026).add((Object)null);
+        ((LinkedList) term3026).add((Object)null);
+        Class<? extends Object> term3243 = Class.forName((String) "org.jsoup.nodes.Entities$EscapeMode");
+        Field term3242 = ((Class) term3243).getDeclaredField((String) "base");
+        ((Field) term3242).setAccessible(true);
+        Object enum8 = ((Field) term3242).get((Object) null);
+        HashMap term3107 = new HashMap();
+        Set<Object> term3436 =  ((Map) term3107).keySet();
+        HashSet term3106 = new HashSet((Collection<? extends Object>) term3436);
+        ArrayList term3113 = new ArrayList();
+        ((ArrayList) term3113).add((Object)null);
+        ((ArrayList) term3113).add((Object)null);
+        ((ArrayList) term3113).add((Object)null);
+        ((ArrayList) term3113).add((Object)null);
+        ((ArrayList) term3113).add((Object)null);
+        ((ArrayList) term3113).add((Object)null);
+        LinkedHashMap term3118 = new LinkedHashMap();
+        term3025 = newInstance(Class.forName("org.jsoup.parser.Parser"));
+        Object term3076 = newInstance(Class.forName("org.jsoup.parser.TokenQueue"));
+        Object term3090 = newInstance(Class.forName("org.jsoup.nodes.Document"));
+        Object term3091 = newInstance(Class.forName("org.jsoup.nodes.Document$OutputSettings"));
+        Object term3095 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        Object term3117 = newInstance(Class.forName("org.jsoup.nodes.Attributes"));
+        setField(term3025, term3025.getClass(), "stack", term3026);
+        setField(term3076, term3076.getClass(), "queue", "tsTGdgQYUL");
+        setIntField(term3076, term3076.getClass(), "pos", 1876565163);
+        setField(term3025, term3025.getClass(), "tq", term3076);
+        setField(term3091, term3091.getClass(), "escapeMode", enum8);
+        setField(term3091, term3091.getClass(), "charset", null);
+        setField(term3091, term3091.getClass(), "charsetEncoder", null);
+        setField(term3091, term3091.getClass(), "this$0", null);
+        setField(term3090, term3090.getClass(), "outputSettings", term3091);
+        setField(term3095, term3095.getClass(), "tagName", null);
+        setBooleanField(term3095, term3095.getClass(), "knownTag", false);
+        setBooleanField(term3095, term3095.getClass(), "isBlock", false);
+        setBooleanField(term3095, term3095.getClass(), "canContainBlock", false);
+        setBooleanField(term3095, term3095.getClass(), "canContainInline", false);
+        setBooleanField(term3095, term3095.getClass(), "optionalClosing", false);
+        setBooleanField(term3095, term3095.getClass(), "empty", false);
+        setBooleanField(term3095, term3095.getClass(), "selfClosing", false);
+        setBooleanField(term3095, term3095.getClass(), "preserveWhitespace", false);
+        setField(term3095, term3095.getClass(), "ancestors", null);
+        setField(term3095, term3095.getClass(), "excludes", null);
+        setBooleanField(term3095, term3095.getClass(), "directDescendant", false);
+        setBooleanField(term3095, term3095.getClass(), "limitChildren", false);
+        setField(term3090, term3090.getClass(), "tag", term3095);
+        setField(term3090, term3090.getClass(), "classNames", term3106);
+        setField(term3090, term3090.getClass(), "parentNode", null);
+        setField(term3090, term3090.getClass(), "childNodes", term3113);
+        setField(term3117, term3117.getClass(), "attributes", term3118);
+        setField(term3090, term3090.getClass(), "attributes", term3117);
+        setField(term3090, term3090.getClass(), "baseUri", "EKjQdtKxAM");
+        setIntField(term3090, term3090.getClass(), "siblingIndex", -817164822);
+        setField(term3025, term3025.getClass(), "doc", term3090);
+        setField(term3025, term3025.getClass(), "baseUri", "TXZAIPQJHt");
+        setBooleanField(term3025, term3025.getClass(), "relaxed", false);
+        Object term3174 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        setField(term3174, term3174.getClass(), "tagName", null);
+        setBooleanField(term3174, term3174.getClass(), "knownTag", false);
+        setBooleanField(term3174, term3174.getClass(), "isBlock", true);
+        setBooleanField(term3174, term3174.getClass(), "canContainBlock", false);
+        setBooleanField(term3174, term3174.getClass(), "canContainInline", false);
+        setBooleanField(term3174, term3174.getClass(), "optionalClosing", false);
+        setBooleanField(term3174, term3174.getClass(), "empty", false);
+        setBooleanField(term3174, term3174.getClass(), "selfClosing", false);
+        setBooleanField(term3174, term3174.getClass(), "preserveWhitespace", true);
+        setField(term3174, term3174.getClass(), "ancestors", null);
+        setField(term3174, term3174.getClass(), "excludes", null);
+        setBooleanField(term3174, term3174.getClass(), "directDescendant", false);
+        setBooleanField(term3174, term3174.getClass(), "limitChildren", false);
+        ArrayList term3172 = new ArrayList();
+        ((ArrayList) term3172).add(term3174);
+        ((ArrayList) term3172).add(term3174);
+        ArrayList term3187 = new ArrayList();
+        HashMap term3194 = new HashMap();
+        Set<Object> term3467 =  ((Map) term3194).keySet();
+        HashSet term3193 = new HashSet((Collection<? extends Object>) term3467);
+        ArrayList term3206 = new ArrayList();
+        ((ArrayList) term3206).add((Object)null);
+        ((ArrayList) term3206).add((Object)null);
+        ((ArrayList) term3206).add((Object)null);
+        ((ArrayList) term3206).add((Object)null);
+        ((ArrayList) term3206).add((Object)null);
+        ((ArrayList) term3206).add((Object)null);
+        ((ArrayList) term3206).add((Object)null);
+        ((ArrayList) term3206).add((Object)null);
+        LinkedHashMap term3211 = new LinkedHashMap();
+        term3150 = newInstance(Class.forName("org.jsoup.nodes.Element"));
+        Object term3151 = newInstance(Class.forName("org.jsoup.parser.Tag"));
+        Object term3210 = newInstance(Class.forName("org.jsoup.nodes.Attributes"));
+        setField(term3151, term3151.getClass(), "tagName", "DIbeDHICho");
+        setBooleanField(term3151, term3151.getClass(), "knownTag", true);
+        setBooleanField(term3151, term3151.getClass(), "isBlock", false);
+        setBooleanField(term3151, term3151.getClass(), "canContainBlock", false);
+        setBooleanField(term3151, term3151.getClass(), "canContainInline", true);
+        setBooleanField(term3151, term3151.getClass(), "optionalClosing", false);
+        setBooleanField(term3151, term3151.getClass(), "empty", true);
+        setBooleanField(term3151, term3151.getClass(), "selfClosing", true);
+        setBooleanField(term3151, term3151.getClass(), "preserveWhitespace", true);
+        setField(term3151, term3151.getClass(), "ancestors", term3172);
+        setField(term3151, term3151.getClass(), "excludes", term3187);
+        setBooleanField(term3151, term3151.getClass(), "directDescendant", false);
+        setBooleanField(term3151, term3151.getClass(), "limitChildren", false);
+        setField(term3150, term3150.getClass(), "tag", term3151);
+        setField(term3150, term3150.getClass(), "classNames", term3193);
+        setField(term3150, term3150.getClass(), "parentNode", null);
+        setField(term3150, term3150.getClass(), "childNodes", term3206);
+        setField(term3210, term3210.getClass(), "attributes", term3211);
+        setField(term3150, term3150.getClass(), "attributes", term3210);
+        setField(term3150, term3150.getClass(), "baseUri", "PsqusYmejD");
+        setIntField(term3150, term3150.getClass(), "siblingIndex", -1016503459);
+        term3230 = new Boolean(false);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.jsoup.parser.Parser");
+        Class<?>[] argTypes = new Class<?>[2];
+        argTypes[0] = Class.forName("org.jsoup.nodes.Element");
+        argTypes[1] = boolean.class;
+        Object[] args = new Object[2];
+        args[0] = term3150;
+        args[1] = term3230;
+        callMethod(klass, "addChildToParent", argTypes, term3025, args);
+    }
+
+};
+
+

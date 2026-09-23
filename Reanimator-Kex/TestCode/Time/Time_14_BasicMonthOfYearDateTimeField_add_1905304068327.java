@@ -1,0 +1,69 @@
+package org.joda.time.chrono;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.joda.time.chrono.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class BasicMonthOfYearDateTimeField_add_1905304068327 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term82652;
+     Object term82710;
+
+    public BasicMonthOfYearDateTimeField_add_1905304068327() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term82652 = newInstance(Class.forName("org.joda.time.chrono.BasicMonthOfYearDateTimeField"));
+        term82710 = newInstance(Class.forName("org.joda.time.YearMonthDay"));
+        Object term82794 = newInstance(Class.forName("org.joda.time.chrono.EthiopicChronology"));
+        Object term82910 = newInstance(Class.forName("org.joda.time.chrono.GJChronology$ImpreciseCutoverField"));
+        setField(term82794, term82794.getClass(), "iYear", term82910);
+        setField(term82710, term82710.getClass(), "iChronology", term82794);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.joda.time.chrono.BasicMonthOfYearDateTimeField");
+        Class<?>[] argTypes = new Class<?>[4];
+        argTypes[0] = Class.forName("org.joda.time.ReadablePartial");
+        argTypes[1] = int.class;
+        argTypes[2] = Array.newInstance(int.class, 0).getClass();
+        argTypes[3] = int.class;
+        Object[] args = new Object[4];
+        args[0] = term82710;
+        args[1] = 0;
+        args[2] = null;
+        args[3] = -1;
+        try {
+            callMethod(klass, "add", argTypes, term82652, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

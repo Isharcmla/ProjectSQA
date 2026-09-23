@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "12",
+  "tool": "kex",
+  "elapsed_sec": 52.79,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.std.MapDeserializer"
+  ],
+  "kex_results": {
+    "com.fasterxml.jackson.databind.deser.std.MapDeserializer": "success"
+  },
+  "num_test_files_generated": 65,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

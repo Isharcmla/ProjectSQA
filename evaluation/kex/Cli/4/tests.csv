@@ -1,0 +1,9 @@
+test,fqcn,method,buggy,fixed,classification
+Parser_checkRequiredOptions_140067184113,org.apache.commons.cli.Parser_checkRequiredOptions_140067184113,,PASS,PASS,valid_non_revealing
+Parser_parse_13827778929,org.apache.commons.cli.Parser_parse_13827778929,,PASS,PASS,valid_non_revealing
+Parser_parse_178972289510,org.apache.commons.cli.Parser_parse_178972289510,,PASS,PASS,valid_non_revealing
+Parser_parse_23011437411,org.apache.commons.cli.Parser_parse_23011437411,,PASS,PASS,valid_non_revealing
+Parser_parse_8991354638,org.apache.commons.cli.Parser_parse_8991354638,,PASS,PASS,valid_non_revealing
+Parser_processArgs_36922360714,org.apache.commons.cli.Parser_processArgs_36922360714,,PASS,PASS,valid_non_revealing
+Parser_processOption_199780140315,org.apache.commons.cli.Parser_processOption_199780140315,,PASS,PASS,valid_non_revealing
+Parser_processProperties_123320895312,org.apache.commons.cli.Parser_processProperties_123320895312,,PASS,PASS,valid_non_revealing

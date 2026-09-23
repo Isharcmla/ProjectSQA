@@ -1,0 +1,19 @@
+{
+  "project": "Closure",
+  "bug_id": "153",
+  "tool": "kex",
+  "elapsed_sec": 28.01,
+  "target_classes": [
+    "com.google.javascript.jscomp.Normalize",
+    "com.google.javascript.jscomp.SyntacticScopeCreator"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.Normalize": "failed",
+    "com.google.javascript.jscomp.SyntacticScopeCreator": "failed"
+  },
+  "num_test_files_generated": 4,
+  "status": "failed",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

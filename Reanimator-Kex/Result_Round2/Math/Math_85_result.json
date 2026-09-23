@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "85",
+  "tool": "kex",
+  "elapsed_sec": 137.11,
+  "target_classes": [
+    "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils": "success"
+  },
+  "num_test_files_generated": 55,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": true,
+  "bug_revealing_tests": 5
+}

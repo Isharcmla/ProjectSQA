@@ -1,0 +1,21 @@
+{
+  "project": "Gson",
+  "bug_id": "9",
+  "tool": "kex",
+  "elapsed_sec": 339.89,
+  "target_classes": [
+    "com.google.gson.internal.bind.JsonTreeWriter",
+    "com.google.gson.internal.bind.TypeAdapters",
+    "com.google.gson.stream.JsonWriter"
+  ],
+  "kex_results": {
+    "com.google.gson.internal.bind.JsonTreeWriter": "success",
+    "com.google.gson.internal.bind.TypeAdapters": "success",
+    "com.google.gson.stream.JsonWriter": "success"
+  },
+  "num_test_files_generated": 517,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

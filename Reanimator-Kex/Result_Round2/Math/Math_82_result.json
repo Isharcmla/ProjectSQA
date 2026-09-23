@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "82",
+  "tool": "kex",
+  "elapsed_sec": 148.2,
+  "target_classes": [
+    "org.apache.commons.math.optimization.linear.SimplexSolver"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.optimization.linear.SimplexSolver": "success"
+  },
+  "num_test_files_generated": 100,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

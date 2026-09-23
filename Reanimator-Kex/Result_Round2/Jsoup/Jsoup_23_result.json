@@ -1,0 +1,19 @@
+{
+  "project": "Jsoup",
+  "bug_id": "23",
+  "tool": "kex",
+  "elapsed_sec": 330.24,
+  "target_classes": [
+    "org.jsoup.parser.CharacterReader",
+    "org.jsoup.parser.Tokeniser"
+  ],
+  "kex_results": {
+    "org.jsoup.parser.CharacterReader": "success",
+    "org.jsoup.parser.Tokeniser": "timeout"
+  },
+  "num_test_files_generated": 207,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

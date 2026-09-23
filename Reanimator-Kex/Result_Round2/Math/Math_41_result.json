@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "41",
+  "tool": "kex",
+  "elapsed_sec": 182.7,
+  "target_classes": [
+    "org.apache.commons.math.stat.descriptive.moment.Variance"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.stat.descriptive.moment.Variance": "success"
+  },
+  "num_test_files_generated": 94,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

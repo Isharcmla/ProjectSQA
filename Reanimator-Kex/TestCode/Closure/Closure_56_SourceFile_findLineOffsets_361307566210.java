@@ -1,0 +1,52 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import org.mockito.Mockito;
+import java.lang.Object;
+
+public class SourceFile_findLineOffsets_361307566210 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term37263;
+
+    public SourceFile_findLineOffsets_361307566210() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term37263 = newInstance(Class.forName("com.google.javascript.jscomp.SourceFile$Generated"));
+        Object term37149 = Mockito.mock(Class.forName("com.google.javascript.jscomp.SourceFile$Generator"));
+        setField(term37263, term37263.getClass(), "code", null);
+        setField(term37263, term37263.getClass(), "generator", term37149);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.SourceFile");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        callMethod(klass, "findLineOffsets", argTypes, term37263, args);
+    }
+
+};
+
+

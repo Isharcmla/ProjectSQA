@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "91",
+  "tool": "kex",
+  "elapsed_sec": 137.45,
+  "target_classes": [
+    "org.apache.commons.math.fraction.Fraction"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.fraction.Fraction": "success"
+  },
+  "num_test_files_generated": 442,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

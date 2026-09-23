@@ -1,0 +1,19 @@
+{
+  "project": "Mockito",
+  "bug_id": "30",
+  "tool": "kex",
+  "elapsed_sec": 35.69,
+  "target_classes": [
+    "org.mockito.exceptions.Reporter",
+    "org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls"
+  ],
+  "kex_results": {
+    "org.mockito.exceptions.Reporter": "success",
+    "org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls": "success"
+  },
+  "num_test_files_generated": 60,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

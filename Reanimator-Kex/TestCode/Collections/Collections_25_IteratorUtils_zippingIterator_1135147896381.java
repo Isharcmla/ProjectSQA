@@ -1,0 +1,62 @@
+package org.apache.commons.collections4;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static org.apache.commons.collections4.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class IteratorUtils_zippingIterator_1135147896381 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term57307;
+     Object term57427;
+
+    public IteratorUtils_zippingIterator_1135147896381() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term57307 = newInstance(Class.forName("org.apache.commons.collections4.iterators.ZippingIterator"));
+        term57427 = newInstance(Class.forName("org.apache.commons.collections4.iterators.ZippingIterator"));
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("org.apache.commons.collections4.IteratorUtils");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Class.forName("java.util.Iterator");
+        argTypes[1] = Class.forName("java.util.Iterator");
+        argTypes[2] = Class.forName("java.util.Iterator");
+        Object[] args = new Object[3];
+        args[0] = term57307;
+        args[1] = term57427;
+        args[2] = null;
+        try {
+            callMethod(klass, "zippingIterator", argTypes, null, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

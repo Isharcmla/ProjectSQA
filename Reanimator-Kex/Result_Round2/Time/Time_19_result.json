@@ -1,0 +1,17 @@
+{
+  "project": "Time",
+  "bug_id": "19",
+  "tool": "kex",
+  "elapsed_sec": 288.52,
+  "target_classes": [
+    "org.joda.time.DateTimeZone"
+  ],
+  "kex_results": {
+    "org.joda.time.DateTimeZone": "success"
+  },
+  "num_test_files_generated": 102,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,17 @@
+{
+  "project": "Gson",
+  "bug_id": "12",
+  "tool": "kex",
+  "elapsed_sec": 239.33,
+  "target_classes": [
+    "com.google.gson.internal.bind.JsonTreeReader"
+  ],
+  "kex_results": {
+    "com.google.gson.internal.bind.JsonTreeReader": "success"
+  },
+  "num_test_files_generated": 242,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

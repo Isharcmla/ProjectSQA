@@ -1,0 +1,17 @@
+{
+  "project": "Cli",
+  "bug_id": "11",
+  "tool": "kex",
+  "elapsed_sec": 130.66,
+  "target_classes": [
+    "org.apache.commons.cli.HelpFormatter"
+  ],
+  "kex_results": {
+    "org.apache.commons.cli.HelpFormatter": "success"
+  },
+  "num_test_files_generated": 60,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

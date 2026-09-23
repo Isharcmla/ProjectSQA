@@ -1,0 +1,218 @@
+package com.fasterxml.jackson.databind.util;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.fasterxml.jackson.databind.util.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class StdDateFormat_setTimeZone_143417568112 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term1157;
+
+    public StdDateFormat_setTimeZone_143417568112() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term1157 = newInstance(Class.forName("sun.util.calendar.ZoneInfo"));
+        long[] term1162 = (long[]) newLongArray(142);
+        int[] term1305 = (int[]) newIntArray(4);
+        int[] term1310 = (int[]) newIntArray(10);
+        setIntField(term1157, term1157.getClass(), "rawOffset", -32400000);
+        setIntField(term1157, term1157.getClass(), "rawOffsetDiff", 0);
+        setIntField(term1157, term1157.getClass(), "checksum", 561347644);
+        setIntField(term1157, term1157.getClass(), "dstSavings", 3600000);
+        setLongElement(term1162, 0, -9048018124799999L);
+        setLongElement(term1162, 1, -8965954211840000L);
+        setLongElement(term1162, 2, -3605313945599950L);
+        setLongElement(term1162, 3, -3135003033600000L);
+        setLongElement(term1162, 4, -87957503999950L);
+        setLongElement(term1162, 5, -23563468800000L);
+        setLongElement(term1162, 6, 40860057600050L);
+        setLongElement(term1162, 7, 105254092800000L);
+        setLongElement(term1162, 8, 169677619200050L);
+        setLongElement(term1162, 9, 236548915200000L);
+        setLongElement(term1162, 10, 300972441600050L);
+        setLongElement(term1162, 11, 365366476800000L);
+        setLongElement(term1162, 12, 429790003200050L);
+        setLongElement(term1162, 13, 494184038400000L);
+        setLongElement(term1162, 14, 518971392000050L);
+        setLongElement(term1162, 15, 623001600000000L);
+        setLongElement(term1162, 16, 665129779200050L);
+        setLongElement(term1162, 17, 751819161600000L);
+        setLongElement(term1162, 18, 816242688000050L);
+        setLongElement(term1162, 19, 883113984000000L);
+        setLongElement(term1162, 20, 945060249600050L);
+        setLongElement(term1162, 21, 1011931545600000L);
+        setLongElement(term1162, 22, 1076355072000050L);
+        setLongElement(term1162, 23, 1140749107200000L);
+        setLongElement(term1162, 24, 1205172633600050L);
+        setLongElement(term1162, 25, 1269566668800000L);
+        setLongElement(term1162, 26, 1333990195200050L);
+        setLongElement(term1162, 27, 1398384230400000L);
+        setLongElement(term1162, 28, 1462807756800050L);
+        setLongElement(term1162, 29, 1527201792000000L);
+        setLongElement(term1162, 30, 1591625318400050L);
+        setLongElement(term1162, 31, 1658496614400000L);
+        setLongElement(term1162, 32, 1720442880000050L);
+        setLongElement(term1162, 33, 1787314176000000L);
+        setLongElement(term1162, 34, 1851737702400050L);
+        setLongElement(term1162, 35, 1916131737600000L);
+        setLongElement(term1162, 36, 1980555264000050L);
+        setLongElement(term1162, 37, 2044949299200000L);
+        setLongElement(term1162, 38, 2109372825600050L);
+        setLongElement(term1162, 39, 2173766860800000L);
+        setLongElement(term1162, 40, 2230758604800050L);
+        setLongElement(term1162, 41, 2302584422400000L);
+        setLongElement(term1162, 42, 2359576166400050L);
+        setLongElement(term1162, 43, 2433879244800000L);
+        setLongElement(term1162, 44, 2488393728000050L);
+        setLongElement(term1162, 45, 2562696806400000L);
+        setLongElement(term1162, 46, 2617211289600050L);
+        setLongElement(term1162, 47, 2691514368000000L);
+        setLongElement(term1162, 48, 2748506112000050L);
+        setLongElement(term1162, 49, 2820331929600000L);
+        setLongElement(term1162, 50, 2877323673600050L);
+        setLongElement(term1162, 51, 2949149491200000L);
+        setLongElement(term1162, 52, 3006141235200050L);
+        setLongElement(term1162, 53, 3080444313600000L);
+        setLongElement(term1162, 54, 3134958796800050L);
+        setLongElement(term1162, 55, 3209261875200000L);
+        setLongElement(term1162, 56, 3263776358400050L);
+        setLongElement(term1162, 57, 3338079436800000L);
+        setLongElement(term1162, 58, 3395071180800050L);
+        setLongElement(term1162, 59, 3466896998400000L);
+        setLongElement(term1162, 60, 3523888742400050L);
+        setLongElement(term1162, 61, 3595714560000000L);
+        setLongElement(term1162, 62, 3652706304000050L);
+        setLongElement(term1162, 63, 3724532121600000L);
+        setLongElement(term1162, 64, 3781523865600050L);
+        setLongElement(term1162, 65, 3855826944000000L);
+        setLongElement(term1162, 66, 3910341427200050L);
+        setLongElement(term1162, 67, 3984644505600000L);
+        setLongElement(term1162, 68, 4039158988800050L);
+        setLongElement(term1162, 69, 4113462067200000L);
+        setLongElement(term1162, 70, 4170453811200050L);
+        setLongElement(term1162, 71, 4242279628800000L);
+        setLongElement(term1162, 72, 4299271372800050L);
+        setLongElement(term1162, 73, 4371097190400000L);
+        setLongElement(term1162, 74, 4428088934400050L);
+        setLongElement(term1162, 75, 4502392012800000L);
+        setLongElement(term1162, 76, 4556906496000050L);
+        setLongElement(term1162, 77, 4631209574400000L);
+        setLongElement(term1162, 78, 4685724057600050L);
+        setLongElement(term1162, 79, 4760027136000000L);
+        setLongElement(term1162, 80, 4807109836800050L);
+        setLongElement(term1162, 81, 4891321958400000L);
+        setLongElement(term1162, 82, 4935927398400050L);
+        setLongElement(term1162, 83, 5020139520000000L);
+        setLongElement(term1162, 84, 5064744960000050L);
+        setLongElement(term1162, 85, 5148957081600000L);
+        setLongElement(term1162, 86, 5196039782400050L);
+        setLongElement(term1162, 87, 5280251904000000L);
+        setLongElement(term1162, 88, 5324857344000050L);
+        setLongElement(term1162, 89, 5409069465600000L);
+        setLongElement(term1162, 90, 5453674905600050L);
+        setLongElement(term1162, 91, 5537887027200000L);
+        setLongElement(term1162, 92, 5582492467200050L);
+        setLongElement(term1162, 93, 5666704588800000L);
+        setLongElement(term1162, 94, 5711310028800050L);
+        setLongElement(term1162, 95, 5795522150400000L);
+        setLongElement(term1162, 96, 5840127590400050L);
+        setLongElement(term1162, 97, 5924339712000000L);
+        setLongElement(term1162, 98, 5971422412800050L);
+        setLongElement(term1162, 99, 6055634534400000L);
+        setLongElement(term1162, 100, 6100239974400050L);
+        setLongElement(term1162, 101, 6184452096000000L);
+        setLongElement(term1162, 102, 6229057536000050L);
+        setLongElement(term1162, 103, 6313269657600000L);
+        setLongElement(term1162, 104, 6357875097600050L);
+        setLongElement(term1162, 105, 6442087219200000L);
+        setLongElement(term1162, 106, 6486692659200050L);
+        setLongElement(term1162, 107, 6570904780800000L);
+        setLongElement(term1162, 108, 6617987481600050L);
+        setLongElement(term1162, 109, 6702199603200000L);
+        setLongElement(term1162, 110, 6746805043200050L);
+        setLongElement(term1162, 111, 6831017164800000L);
+        setLongElement(term1162, 112, 6875622604800050L);
+        setLongElement(term1162, 113, 6959834726400000L);
+        setLongElement(term1162, 114, 7004440166400050L);
+        setLongElement(term1162, 115, 7088652288000000L);
+        setLongElement(term1162, 116, 7133257728000050L);
+        setLongElement(term1162, 117, 7217469849600000L);
+        setLongElement(term1162, 118, 7262075289600050L);
+        setLongElement(term1162, 119, 7346287411200000L);
+        setLongElement(term1162, 120, 7393370112000050L);
+        setLongElement(term1162, 121, 7477582233600000L);
+        setLongElement(term1162, 122, 7522187673600050L);
+        setLongElement(term1162, 123, 7606399795200000L);
+        setLongElement(term1162, 124, 7651005235200050L);
+        setLongElement(term1162, 125, 7735217356800000L);
+        setLongElement(term1162, 126, 7779822796800050L);
+        setLongElement(term1162, 127, 7864034918400000L);
+        setLongElement(term1162, 128, 7908640358400050L);
+        setLongElement(term1162, 129, 7992852480000000L);
+        setLongElement(term1162, 130, 8039935180800050L);
+        setLongElement(term1162, 131, 8124147302400000L);
+        setLongElement(term1162, 132, 8168752742400050L);
+        setLongElement(term1162, 133, 8252964864000000L);
+        setLongElement(term1162, 134, 8297570304000050L);
+        setLongElement(term1162, 135, 8381782425600000L);
+        setLongElement(term1162, 136, 8426387865600050L);
+        setLongElement(term1162, 137, 8510599987200000L);
+        setLongElement(term1162, 138, 8555205427200050L);
+        setLongElement(term1162, 139, 8639417548800000L);
+        setLongElement(term1162, 140, 8684022988800050L);
+        setLongElement(term1162, 141, 8768235110400000L);
+        setField(term1157, term1157.getClass(), "transitions", term1162);
+        setIntElement(term1305, 0, -32400000);
+        setIntElement(term1305, 1, -33535000);
+        setIntElement(term1305, 2, -28800000);
+        setIntElement(term1305, 3, 3600000);
+        setField(term1157, term1157.getClass(), "offsets", term1305);
+        setIntElement(term1310, 0, 2);
+        setIntElement(term1310, 1, 8);
+        setIntElement(term1310, 2, -1);
+        setIntElement(term1310, 3, 7200000);
+        setIntElement(term1310, 5, 10);
+        setIntElement(term1310, 6, 1);
+        setIntElement(term1310, 7, -1);
+        setIntElement(term1310, 8, 7200000);
+        setField(term1157, term1157.getClass(), "simpleTimeZoneParams", term1310);
+        setBooleanField(term1157, term1157.getClass(), "willGMTOffsetChange", false);
+        setBooleanField(term1157, term1157.getClass(), "dirty", false);
+        setField(term1157, term1157.getClass(), "lastRule", null);
+        setField(term1157, term1157.getClass(), "ID", "America/Yakutat");
+        setField(term1157, term1157.getClass(), "zoneId", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.fasterxml.jackson.databind.util.StdDateFormat");
+        Class<?>[] argTypes = new Class<?>[1];
+        argTypes[0] = Class.forName("java.util.TimeZone");
+        Object[] args = new Object[1];
+        args[0] = term1157;
+        callMethod(klass, "setTimeZone", argTypes, null, args);
+    }
+
+};
+
+

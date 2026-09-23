@@ -1,0 +1,19 @@
+{
+  "project": "Closure",
+  "bug_id": "173",
+  "tool": "kex",
+  "elapsed_sec": 440.86,
+  "target_classes": [
+    "com.google.javascript.jscomp.CodeGenerator",
+    "com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.CodeGenerator": "success",
+    "com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax": "success"
+  },
+  "num_test_files_generated": 240,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

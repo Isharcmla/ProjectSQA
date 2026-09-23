@@ -1,0 +1,17 @@
+{
+  "project": "Collections",
+  "bug_id": "17",
+  "tool": "kex",
+  "elapsed_sec": 27.94,
+  "target_classes": [
+    "org.apache.commons.collections.functors.EqualPredicate"
+  ],
+  "kex_results": {
+    "org.apache.commons.collections.functors.EqualPredicate": "success"
+  },
+  "num_test_files_generated": 11,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

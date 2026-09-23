@@ -1,0 +1,25 @@
+{
+  "project": "Mockito",
+  "bug_id": "19",
+  "tool": "kex",
+  "elapsed_sec": 126.15,
+  "target_classes": [
+    "org.mockito.internal.configuration.injection.filter.FinalMockCandidateFilter",
+    "org.mockito.internal.configuration.injection.filter.MockCandidateFilter",
+    "org.mockito.internal.configuration.injection.filter.NameBasedCandidateFilter",
+    "org.mockito.internal.configuration.injection.filter.TypeBasedCandidateFilter",
+    "org.mockito.internal.configuration.injection.PropertyAndSetterInjection"
+  ],
+  "kex_results": {
+    "org.mockito.internal.configuration.injection.filter.FinalMockCandidateFilter": "success",
+    "org.mockito.internal.configuration.injection.filter.MockCandidateFilter": "success",
+    "org.mockito.internal.configuration.injection.filter.NameBasedCandidateFilter": "success",
+    "org.mockito.internal.configuration.injection.filter.TypeBasedCandidateFilter": "success",
+    "org.mockito.internal.configuration.injection.PropertyAndSetterInjection": "success"
+  },
+  "num_test_files_generated": 21,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

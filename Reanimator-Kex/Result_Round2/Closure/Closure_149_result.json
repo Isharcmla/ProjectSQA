@@ -1,0 +1,23 @@
+{
+  "project": "Closure",
+  "bug_id": "149",
+  "tool": "kex",
+  "elapsed_sec": 901.16,
+  "target_classes": [
+    "com.google.javascript.jscomp.AbstractCommandLineRunner",
+    "com.google.javascript.jscomp.CommandLineRunner",
+    "com.google.javascript.jscomp.Compiler",
+    "com.google.javascript.jscomp.CompilerOptions"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.AbstractCommandLineRunner": "failed",
+    "com.google.javascript.jscomp.CommandLineRunner": "failed",
+    "com.google.javascript.jscomp.Compiler": "timeout",
+    "com.google.javascript.jscomp.CompilerOptions": "failed"
+  },
+  "num_test_files_generated": 345,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

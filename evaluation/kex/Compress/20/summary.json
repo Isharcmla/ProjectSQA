@@ -1,0 +1,15 @@
+{
+  "project": "Compress",
+  "bug_id": "20",
+  "tool": "kex",
+  "generated_files": 153,
+  "candidate_tests": 151,
+  "classification_counts": {
+    "invalid_or_unstable": 88,
+    "valid_non_revealing": 63
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

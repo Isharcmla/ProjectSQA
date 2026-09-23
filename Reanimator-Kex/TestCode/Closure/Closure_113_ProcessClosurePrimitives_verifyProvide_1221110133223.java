@@ -1,0 +1,57 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+
+public class ProcessClosurePrimitives_verifyProvide_1221110133223 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term64285;
+     Object term64355;
+
+    public ProcessClosurePrimitives_verifyProvide_1221110133223() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term64285 = newInstance(Class.forName("com.google.javascript.jscomp.ProcessClosurePrimitives"));
+        term64355 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setIntField(term64355, term64355.getClass(), "type", 40);
+        setField(term64355, term64355.getClass(), "next", term64355);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.ProcessClosurePrimitives");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Class.forName("com.google.javascript.jscomp.NodeTraversal");
+        argTypes[1] = Class.forName("com.google.javascript.rhino.Node");
+        argTypes[2] = Class.forName("com.google.javascript.rhino.Node");
+        Object[] args = new Object[3];
+        args[0] = null;
+        args[1] = null;
+        args[2] = term64355;
+        callMethod(klass, "verifyProvide", argTypes, term64285, args);
+    }
+
+};
+
+

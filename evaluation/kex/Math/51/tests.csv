@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+BaseSecantSolver_doSolve_1978814587,org.apache.commons.math.analysis.solvers.BaseSecantSolver_doSolve_1978814587,,PASS,PASS,valid_non_revealing
+BaseSecantSolver_solve_13245872534,org.apache.commons.math.analysis.solvers.BaseSecantSolver_solve_13245872534,,PASS,PASS,valid_non_revealing
+BaseSecantSolver_solve_20086943496,org.apache.commons.math.analysis.solvers.BaseSecantSolver_solve_20086943496,,PASS,PASS,valid_non_revealing
+BaseSecantSolver_solve_9977028425,org.apache.commons.math.analysis.solvers.BaseSecantSolver_solve_9977028425,,PASS,PASS,valid_non_revealing

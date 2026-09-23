@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "95",
+  "tool": "kex",
+  "elapsed_sec": 30.44,
+  "target_classes": [
+    "org.apache.commons.math.distribution.FDistributionImpl"
+  ],
+  "kex_results": {
+    "org.apache.commons.math.distribution.FDistributionImpl": "success"
+  },
+  "num_test_files_generated": 21,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

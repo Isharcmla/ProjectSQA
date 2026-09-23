@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "8",
+  "tool": "kex",
+  "elapsed_sec": 162.42,
+  "target_classes": [
+    "org.apache.commons.lang3.time.FastDatePrinter"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang3.time.FastDatePrinter": "success"
+  },
+  "num_test_files_generated": 51,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

@@ -1,0 +1,3 @@
+test,fqcn,method,buggy,fixed,classification
+ReturnsSmartNulls_answer_8150533123,org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls_answer_8150533123,,FAIL,FAIL,invalid_or_unstable
+ReturnsSmartNulls_init_17672093552,org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls_init_17672093552,,PASS,PASS,valid_non_revealing

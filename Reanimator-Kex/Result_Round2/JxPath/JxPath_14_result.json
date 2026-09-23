@@ -1,0 +1,17 @@
+{
+  "project": "JxPath",
+  "bug_id": "14",
+  "tool": "kex",
+  "elapsed_sec": 302.83,
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.compiler.CoreFunction"
+  ],
+  "kex_results": {
+    "org.apache.commons.jxpath.ri.compiler.CoreFunction": "success"
+  },
+  "num_test_files_generated": 187,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

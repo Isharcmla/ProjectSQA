@@ -1,0 +1,77 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import java.lang.NullPointerException;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import java.lang.Object;
+
+public class FoldConstants_tryFoldBlock_1167048042315 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term85417;
+     Object term85487;
+
+    public FoldConstants_tryFoldBlock_1167048042315() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term85417 = newInstance(Class.forName("com.google.javascript.jscomp.FoldConstants"));
+        term85487 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term85557 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term85627 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term85697 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term85767 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        Object term85837 = newInstance(Class.forName("com.google.javascript.rhino.Node"));
+        setField(term85697, term85697.getClass(), "next", term85767);
+        setIntField(term85697, term85697.getClass(), "type", 86);
+        setField(term85627, term85627.getClass(), "next", term85697);
+        setIntField(term85627, term85627.getClass(), "type", 35);
+        setIntField(term85837, term85837.getClass(), "type", 129);
+        setField(term85627, term85627.getClass(), "first", term85837);
+        setField(term85557, term85557.getClass(), "next", term85627);
+        setIntField(term85557, term85557.getClass(), "type", 129);
+        setField(term85487, term85487.getClass(), "first", term85557);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.FoldConstants");
+        Class<?>[] argTypes = new Class<?>[3];
+        argTypes[0] = Class.forName("com.google.javascript.jscomp.NodeTraversal");
+        argTypes[1] = Class.forName("com.google.javascript.rhino.Node");
+        argTypes[2] = Class.forName("com.google.javascript.rhino.Node");
+        Object[] args = new Object[3];
+        args[0] = null;
+        args[1] = term85487;
+        args[2] = null;
+        try {
+            callMethod(klass, "tryFoldBlock", argTypes, term85417, args);
+            assertTrue(false);
+        }
+        catch (NullPointerException e) {
+        }
+
+    }
+
+};
+
+

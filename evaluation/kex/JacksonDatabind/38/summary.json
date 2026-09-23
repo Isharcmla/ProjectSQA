@@ -1,0 +1,15 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "38",
+  "tool": "kex",
+  "generated_files": 199,
+  "candidate_tests": 197,
+  "classification_counts": {
+    "valid_non_revealing": 84,
+    "invalid_or_unstable": 113
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

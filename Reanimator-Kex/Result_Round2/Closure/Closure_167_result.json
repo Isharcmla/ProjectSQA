@@ -1,0 +1,19 @@
+{
+  "project": "Closure",
+  "bug_id": "167",
+  "tool": "kex",
+  "elapsed_sec": 341.29,
+  "target_classes": [
+    "com.google.javascript.jscomp.type.SemanticReverseAbstractInterpreter",
+    "com.google.javascript.rhino.jstype.JSType"
+  ],
+  "kex_results": {
+    "com.google.javascript.jscomp.type.SemanticReverseAbstractInterpreter": "success",
+    "com.google.javascript.rhino.jstype.JSType": "success"
+  },
+  "num_test_files_generated": 704,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

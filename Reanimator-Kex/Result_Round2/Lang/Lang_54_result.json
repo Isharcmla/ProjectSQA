@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "54",
+  "tool": "kex",
+  "elapsed_sec": 178.18,
+  "target_classes": [
+    "org.apache.commons.lang.LocaleUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang.LocaleUtils": "success"
+  },
+  "num_test_files_generated": 17,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

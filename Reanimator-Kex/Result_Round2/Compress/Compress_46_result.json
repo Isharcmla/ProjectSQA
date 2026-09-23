@@ -1,0 +1,17 @@
+{
+  "project": "Compress",
+  "bug_id": "46",
+  "tool": "kex",
+  "elapsed_sec": 72.67,
+  "target_classes": [
+    "org.apache.commons.compress.archivers.zip.X5455_ExtendedTimestamp"
+  ],
+  "kex_results": {
+    "org.apache.commons.compress.archivers.zip.X5455_ExtendedTimestamp": "success"
+  },
+  "num_test_files_generated": 185,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

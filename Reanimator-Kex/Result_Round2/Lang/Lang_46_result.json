@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "46",
+  "tool": "kex",
+  "elapsed_sec": 194.51,
+  "target_classes": [
+    "org.apache.commons.lang.StringEscapeUtils"
+  ],
+  "kex_results": {
+    "org.apache.commons.lang.StringEscapeUtils": "success"
+  },
+  "num_test_files_generated": 152,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

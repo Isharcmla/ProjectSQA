@@ -1,0 +1,17 @@
+{
+  "project": "Csv",
+  "bug_id": "3",
+  "tool": "kex",
+  "elapsed_sec": 13.87,
+  "target_classes": [
+    "org.apache.commons.csv.Lexer"
+  ],
+  "kex_results": {
+    "org.apache.commons.csv.Lexer": "success"
+  },
+  "num_test_files_generated": 14,
+  "status": "success",
+  "evaluation_status": "success",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

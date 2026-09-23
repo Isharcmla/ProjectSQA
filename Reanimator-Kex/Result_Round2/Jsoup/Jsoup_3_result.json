@@ -1,0 +1,21 @@
+{
+  "project": "Jsoup",
+  "bug_id": "3",
+  "tool": "kex",
+  "elapsed_sec": 720.53,
+  "target_classes": [
+    "org.jsoup.nodes.Element",
+    "org.jsoup.parser.Parser",
+    "org.jsoup.parser.Tag"
+  ],
+  "kex_results": {
+    "org.jsoup.nodes.Element": "timeout",
+    "org.jsoup.parser.Parser": "success",
+    "org.jsoup.parser.Tag": "success"
+  },
+  "num_test_files_generated": 232,
+  "status": "timeout",
+  "evaluation_status": "not_run",
+  "bug_detected": false,
+  "bug_revealing_tests": 0
+}

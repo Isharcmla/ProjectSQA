@@ -1,0 +1,214 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.google.javascript.jscomp.EqualityUtils.*;
+import java.lang.Object;
+import java.util.HashMap;
+import java.util.ArrayDeque;
+
+public class ControlFlowAnalysis_getCfg_152767625337 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term3;
+     Object term3282;
+     Object term3233;
+
+    public ControlFlowAnalysis_getCfg_152767625337() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        HashMap term5 = new HashMap();
+        Object term12 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term12, term12.getClass(), "elementData", null);
+        setIntField(term12, term12.getClass(), "size", 568599855);
+        setIntField(term12, term12.getClass(), "modCount", 1162663216);
+        Object term15 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term15, term15.getClass(), "elementData", null);
+        setIntField(term15, term15.getClass(), "size", 1484323161);
+        setIntField(term15, term15.getClass(), "modCount", 391863371);
+        Object term18 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term18, term18.getClass(), "elementData", null);
+        setIntField(term18, term18.getClass(), "size", -1922583790);
+        setIntField(term18, term18.getClass(), "modCount", -616727354);
+        Object term21 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term21, term21.getClass(), "elementData", null);
+        setIntField(term21, term21.getClass(), "size", -1955890973);
+        setIntField(term21, term21.getClass(), "modCount", -2038273078);
+        Object term24 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term24, term24.getClass(), "elementData", null);
+        setIntField(term24, term24.getClass(), "size", 1227103734);
+        setIntField(term24, term24.getClass(), "modCount", -1339778481);
+        ArrayDeque term10 = new ArrayDeque();
+        ((ArrayDeque) term10).add(term12);
+        ((ArrayDeque) term10).add(term15);
+        ((ArrayDeque) term10).add(term18);
+        ((ArrayDeque) term10).add(term21);
+        ((ArrayDeque) term10).add(term24);
+        Object term31 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term31, term31.getClass(), "elementData", null);
+        setIntField(term31, term31.getClass(), "size", 1725571209);
+        setIntField(term31, term31.getClass(), "modCount", -522618178);
+        Object term34 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term34, term34.getClass(), "elementData", null);
+        setIntField(term34, term34.getClass(), "size", 1134449235);
+        setIntField(term34, term34.getClass(), "modCount", -883034806);
+        ArrayDeque term29 = new ArrayDeque();
+        ((ArrayDeque) term29).add(term31);
+        ((ArrayDeque) term29).add(term34);
+        HashMap term39 = new HashMap();
+        HashMap term52 = new HashMap();
+        term3 = newInstance(Class.forName("com.google.javascript.jscomp.ControlFlowAnalysis"));
+        Object term4 = newInstance(Class.forName("com.google.javascript.jscomp.ControlFlowGraph"));
+        setField(term3, term3.getClass(), "compiler", null);
+        setField(term4, term4.getClass(), "implicitReturn", null);
+        setField(term4, term4.getClass(), "entry", null);
+        setField(term4, term4.getClass(), "nodes", term5);
+        setField(term4, term4.getClass(), "nodeAnnotationStack", term10);
+        setField(term4, term4.getClass(), "edgeAnnotationStack", term29);
+        setField(term3, term3.getClass(), "cfg", term4);
+        setField(term3, term3.getClass(), "astPosition", term39);
+        setField(term3, term3.getClass(), "nodePriorities", term52);
+        setField(term3, term3.getClass(), "priorityComparator", null);
+        setIntField(term3, term3.getClass(), "astPositionCounter", 0);
+        setIntField(term3, term3.getClass(), "priorityCounter", 0);
+        setBooleanField(term3, term3.getClass(), "shouldTraverseFunctions", false);
+        setField(term3, term3.getClass(), "root", null);
+        setField(term3, term3.getClass(), "exceptionHandler", null);
+        setField(term3, term3.getClass(), "finallyMap", null);
+        HashMap term3284 = new HashMap();
+        Object term3287 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3287, term3287.getClass(), "elementData", null);
+        setIntField(term3287, term3287.getClass(), "size", 568599855);
+        setIntField(term3287, term3287.getClass(), "modCount", 1162663216);
+        Object term3288 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3288, term3288.getClass(), "elementData", null);
+        setIntField(term3288, term3288.getClass(), "size", 1484323161);
+        setIntField(term3288, term3288.getClass(), "modCount", 391863371);
+        Object term3289 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3289, term3289.getClass(), "elementData", null);
+        setIntField(term3289, term3289.getClass(), "size", -1922583790);
+        setIntField(term3289, term3289.getClass(), "modCount", -616727354);
+        Object term3290 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3290, term3290.getClass(), "elementData", null);
+        setIntField(term3290, term3290.getClass(), "size", -1955890973);
+        setIntField(term3290, term3290.getClass(), "modCount", -2038273078);
+        Object term3291 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3291, term3291.getClass(), "elementData", null);
+        setIntField(term3291, term3291.getClass(), "size", 1227103734);
+        setIntField(term3291, term3291.getClass(), "modCount", -1339778481);
+        ArrayDeque term3285 = new ArrayDeque();
+        ((ArrayDeque) term3285).add(term3287);
+        ((ArrayDeque) term3285).add(term3288);
+        ((ArrayDeque) term3285).add(term3289);
+        ((ArrayDeque) term3285).add(term3290);
+        ((ArrayDeque) term3285).add(term3291);
+        Object term3294 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3294, term3294.getClass(), "elementData", null);
+        setIntField(term3294, term3294.getClass(), "size", 1725571209);
+        setIntField(term3294, term3294.getClass(), "modCount", -522618178);
+        Object term3295 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3295, term3295.getClass(), "elementData", null);
+        setIntField(term3295, term3295.getClass(), "size", 1134449235);
+        setIntField(term3295, term3295.getClass(), "modCount", -883034806);
+        ArrayDeque term3292 = new ArrayDeque();
+        ((ArrayDeque) term3292).add(term3294);
+        ((ArrayDeque) term3292).add(term3295);
+        HashMap term3296 = new HashMap();
+        HashMap term3297 = new HashMap();
+        term3282 = newInstance(Class.forName("com.google.javascript.jscomp.ControlFlowAnalysis"));
+        Object term3283 = newInstance(Class.forName("com.google.javascript.jscomp.ControlFlowGraph"));
+        setField(term3282, term3282.getClass(), "compiler", null);
+        setField(term3283, term3283.getClass(), "implicitReturn", null);
+        setField(term3283, term3283.getClass(), "entry", null);
+        setField(term3283, term3283.getClass(), "nodes", term3284);
+        setField(term3283, term3283.getClass(), "nodeAnnotationStack", term3285);
+        setField(term3283, term3283.getClass(), "edgeAnnotationStack", term3292);
+        setField(term3282, term3282.getClass(), "cfg", term3283);
+        setField(term3282, term3282.getClass(), "astPosition", term3296);
+        setField(term3282, term3282.getClass(), "nodePriorities", term3297);
+        setField(term3282, term3282.getClass(), "priorityComparator", null);
+        setIntField(term3282, term3282.getClass(), "astPositionCounter", 0);
+        setIntField(term3282, term3282.getClass(), "priorityCounter", 0);
+        setBooleanField(term3282, term3282.getClass(), "shouldTraverseFunctions", false);
+        setField(term3282, term3282.getClass(), "root", null);
+        setField(term3282, term3282.getClass(), "exceptionHandler", null);
+        setField(term3282, term3282.getClass(), "finallyMap", null);
+        HashMap term3234 = new HashMap();
+        Object term3241 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3241, term3241.getClass(), "elementData", null);
+        setIntField(term3241, term3241.getClass(), "size", 568599855);
+        setIntField(term3241, term3241.getClass(), "modCount", 1162663216);
+        Object term3244 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3244, term3244.getClass(), "elementData", null);
+        setIntField(term3244, term3244.getClass(), "size", 1484323161);
+        setIntField(term3244, term3244.getClass(), "modCount", 391863371);
+        Object term3247 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3247, term3247.getClass(), "elementData", null);
+        setIntField(term3247, term3247.getClass(), "size", -1922583790);
+        setIntField(term3247, term3247.getClass(), "modCount", -616727354);
+        Object term3250 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3250, term3250.getClass(), "elementData", null);
+        setIntField(term3250, term3250.getClass(), "size", -1955890973);
+        setIntField(term3250, term3250.getClass(), "modCount", -2038273078);
+        Object term3253 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3253, term3253.getClass(), "elementData", null);
+        setIntField(term3253, term3253.getClass(), "size", 1227103734);
+        setIntField(term3253, term3253.getClass(), "modCount", -1339778481);
+        ArrayDeque term3239 = new ArrayDeque();
+        ((ArrayDeque) term3239).add(term3241);
+        ((ArrayDeque) term3239).add(term3244);
+        ((ArrayDeque) term3239).add(term3247);
+        ((ArrayDeque) term3239).add(term3250);
+        ((ArrayDeque) term3239).add(term3253);
+        Object term3260 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3260, term3260.getClass(), "elementData", null);
+        setIntField(term3260, term3260.getClass(), "size", 1725571209);
+        setIntField(term3260, term3260.getClass(), "modCount", -522618178);
+        Object term3263 = newInstance(Class.forName("com.google.javascript.jscomp.graph.Graph$GraphAnnotationState"));
+        setField(term3263, term3263.getClass(), "elementData", null);
+        setIntField(term3263, term3263.getClass(), "size", 1134449235);
+        setIntField(term3263, term3263.getClass(), "modCount", -883034806);
+        ArrayDeque term3258 = new ArrayDeque();
+        ((ArrayDeque) term3258).add(term3260);
+        ((ArrayDeque) term3258).add(term3263);
+        term3233 = newInstance(Class.forName("com.google.javascript.jscomp.ControlFlowGraph"));
+        setField(term3233, term3233.getClass(), "implicitReturn", null);
+        setField(term3233, term3233.getClass(), "entry", null);
+        setField(term3233, term3233.getClass(), "nodes", term3234);
+        setField(term3233, term3233.getClass(), "nodeAnnotationStack", term3239);
+        setField(term3233, term3233.getClass(), "edgeAnnotationStack", term3258);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.ControlFlowAnalysis");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        Object retValue = callMethod(klass, "getCfg", argTypes, term3, args);
+        assertTrue(recursiveEquals(term3, term3282));
+        assertTrue(recursiveEquals(retValue, term3233));
+    }
+
+};
+
+

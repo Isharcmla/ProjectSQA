@@ -1,0 +1,117 @@
+package com.google.javascript.jscomp;
+
+import java.lang.Throwable;
+import java.lang.IllegalStateException;
+import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.Timeout;
+import java.util.concurrent.TimeUnit;
+import org.junit.Before;
+import java.lang.Class;
+import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+import java.util.stream.Collectors;
+import static com.google.javascript.jscomp.ReflectionUtils.*;
+import static org.junit.Assert.assertTrue;
+import static com.google.javascript.jscomp.EqualityUtils.*;
+
+public class Compiler_isNormalized_1844935132217 {
+    @Rule public Timeout globalTimeout = new Timeout(10, TimeUnit.SECONDS);
+     Object term158110;
+     Object term900199;
+
+    public Compiler_isNormalized_1844935132217() {
+    }
+
+    public <T> T unknown() {
+        throw new IllegalStateException();
+    }
+
+    @Before
+    public void setup() throws Throwable {
+        term158110 = newInstance(Class.forName("com.google.javascript.jscomp.Compiler"));
+        setField(term158110, term158110.getClass(), "options", null);
+        setField(term158110, term158110.getClass(), "passes", null);
+        setField(term158110, term158110.getClass(), "externs", null);
+        setField(term158110, term158110.getClass(), "modules", null);
+        setField(term158110, term158110.getClass(), "moduleGraph", null);
+        setField(term158110, term158110.getClass(), "inputs", null);
+        setField(term158110, term158110.getClass(), "errorManager", null);
+        setField(term158110, term158110.getClass(), "symbolTable", null);
+        setField(term158110, term158110.getClass(), "externsRoot", null);
+        setField(term158110, term158110.getClass(), "jsRoot", null);
+        setField(term158110, term158110.getClass(), "externAndJsRoot", null);
+        setField(term158110, term158110.getClass(), "inputsByName", null);
+        setField(term158110, term158110.getClass(), "sourceMap", null);
+        setField(term158110, term158110.getClass(), "externExports", null);
+        setIntField(term158110, term158110.getClass(), "uniqueNameId", 0);
+        setBooleanField(term158110, term158110.getClass(), "normalized", false);
+        setBooleanField(term158110, term158110.getClass(), "useThreads", false);
+        setField(term158110, term158110.getClass(), "functionInformationMap", null);
+        setField(term158110, term158110.getClass(), "debugLog", null);
+        setField(term158110, term158110.getClass(), "defaultCodingConvention", null);
+        setField(term158110, term158110.getClass(), "typeRegistry", null);
+        setField(term158110, term158110.getClass(), "parserConfig", null);
+        setField(term158110, term158110.getClass(), "abstractInterpreter", null);
+        setField(term158110, term158110.getClass(), "typeValidator", null);
+        setField(term158110, term158110.getClass(), "tracker", null);
+        setField(term158110, term158110.getClass(), "oldErrorReporter", null);
+        setField(term158110, term158110.getClass(), "defaultErrorReporter", null);
+        setField(term158110, term158110.getClass(), "outStream", null);
+        setField(term158110, term158110.getClass(), "sanityCheck", null);
+        setField(term158110, term158110.getClass(), "currentTracer", null);
+        setField(term158110, term158110.getClass(), "currentPassName", null);
+        setField(term158110, term158110.getClass(), "recentChange", null);
+        setField(term158110, term158110.getClass(), "codeChangeHandlers", null);
+        term900199 = newInstance(Class.forName("com.google.javascript.jscomp.Compiler"));
+        setField(term900199, term900199.getClass(), "options", null);
+        setField(term900199, term900199.getClass(), "passes", null);
+        setField(term900199, term900199.getClass(), "externs", null);
+        setField(term900199, term900199.getClass(), "modules", null);
+        setField(term900199, term900199.getClass(), "moduleGraph", null);
+        setField(term900199, term900199.getClass(), "inputs", null);
+        setField(term900199, term900199.getClass(), "errorManager", null);
+        setField(term900199, term900199.getClass(), "symbolTable", null);
+        setField(term900199, term900199.getClass(), "externsRoot", null);
+        setField(term900199, term900199.getClass(), "jsRoot", null);
+        setField(term900199, term900199.getClass(), "externAndJsRoot", null);
+        setField(term900199, term900199.getClass(), "inputsByName", null);
+        setField(term900199, term900199.getClass(), "sourceMap", null);
+        setField(term900199, term900199.getClass(), "externExports", null);
+        setIntField(term900199, term900199.getClass(), "uniqueNameId", 0);
+        setBooleanField(term900199, term900199.getClass(), "normalized", false);
+        setBooleanField(term900199, term900199.getClass(), "useThreads", false);
+        setField(term900199, term900199.getClass(), "functionInformationMap", null);
+        setField(term900199, term900199.getClass(), "debugLog", null);
+        setField(term900199, term900199.getClass(), "defaultCodingConvention", null);
+        setField(term900199, term900199.getClass(), "typeRegistry", null);
+        setField(term900199, term900199.getClass(), "parserConfig", null);
+        setField(term900199, term900199.getClass(), "abstractInterpreter", null);
+        setField(term900199, term900199.getClass(), "typeValidator", null);
+        setField(term900199, term900199.getClass(), "tracker", null);
+        setField(term900199, term900199.getClass(), "oldErrorReporter", null);
+        setField(term900199, term900199.getClass(), "defaultErrorReporter", null);
+        setField(term900199, term900199.getClass(), "outStream", null);
+        setField(term900199, term900199.getClass(), "sanityCheck", null);
+        setField(term900199, term900199.getClass(), "currentTracer", null);
+        setField(term900199, term900199.getClass(), "currentPassName", null);
+        setField(term900199, term900199.getClass(), "recentChange", null);
+        setField(term900199, term900199.getClass(), "codeChangeHandlers", null);
+    }
+
+    @Test
+    public void test() throws Throwable, Throwable {
+        Class<?> klass = Class.forName("com.google.javascript.jscomp.Compiler");
+        Class<?>[] argTypes = new Class<?>[0];
+        Object[] args = new Object[0];
+        callMethod(klass, "isNormalized", argTypes, term158110, args);
+        assertTrue(recursiveEquals(term158110, term900199));
+    }
+
+};
+
+

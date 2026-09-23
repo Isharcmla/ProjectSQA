@@ -1,0 +1,16 @@
+{
+  "project": "Lang",
+  "bug_id": "41",
+  "tool": "kex",
+  "generated_files": 123,
+  "candidate_tests": 121,
+  "classification_counts": {
+    "valid_non_revealing": 102,
+    "invalid_or_unstable": 16,
+    "fixed_regression_or_unstable": 3
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

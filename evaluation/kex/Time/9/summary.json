@@ -1,0 +1,15 @@
+{
+  "project": "Time",
+  "bug_id": "9",
+  "tool": "kex",
+  "generated_files": 115,
+  "candidate_tests": 113,
+  "classification_counts": {
+    "valid_non_revealing": 53,
+    "invalid_or_unstable": 60
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}
