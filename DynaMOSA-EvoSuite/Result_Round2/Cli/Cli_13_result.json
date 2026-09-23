@@ -1,0 +1,14 @@
+{
+  "project": "Cli",
+  "bug_id": "13",
+  "tool": "evosuite",
+  "elapsed_sec": 138.11,
+  "target_classes": [
+    "org.apache.commons.cli2.WriteableCommandLine",
+    "org.apache.commons.cli2.commandline.WriteableCommandLineImpl",
+    "org.apache.commons.cli2.option.ArgumentImpl"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 6,
+  "status": "success"
+}

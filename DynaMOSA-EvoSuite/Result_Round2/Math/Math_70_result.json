@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "70",
+  "tool": "evosuite",
+  "elapsed_sec": 26.18,
+  "target_classes": [
+    "org.apache.commons.math.analysis.solvers.BisectionSolver"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

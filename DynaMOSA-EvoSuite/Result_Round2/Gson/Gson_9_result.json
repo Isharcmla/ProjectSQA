@@ -1,0 +1,14 @@
+{
+  "project": "Gson",
+  "bug_id": "9",
+  "tool": "evosuite",
+  "elapsed_sec": 183.96,
+  "target_classes": [
+    "com.google.gson.internal.bind.JsonTreeWriter",
+    "com.google.gson.internal.bind.TypeAdapters",
+    "com.google.gson.stream.JsonWriter"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 6,
+  "status": "success"
+}

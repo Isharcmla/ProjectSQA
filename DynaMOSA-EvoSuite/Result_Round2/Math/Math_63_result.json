@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "63",
+  "tool": "evosuite",
+  "elapsed_sec": 255.59,
+  "target_classes": [
+    "org.apache.commons.math.util.MathUtils"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

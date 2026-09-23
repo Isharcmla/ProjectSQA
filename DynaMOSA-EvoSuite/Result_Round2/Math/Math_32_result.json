@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "32",
+  "tool": "evosuite",
+  "elapsed_sec": 178.53,
+  "target_classes": [
+    "org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

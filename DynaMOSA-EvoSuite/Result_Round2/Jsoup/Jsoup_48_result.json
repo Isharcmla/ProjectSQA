@@ -1,0 +1,12 @@
+{
+  "project": "Jsoup",
+  "bug_id": "48",
+  "tool": "evosuite",
+  "elapsed_sec": 175.73,
+  "target_classes": [
+    "org.jsoup.helper.HttpConnection"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

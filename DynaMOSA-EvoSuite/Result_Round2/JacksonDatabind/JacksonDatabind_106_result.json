@@ -1,0 +1,12 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "106",
+  "tool": "evosuite",
+  "elapsed_sec": 182.58,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.node.TreeTraversingParser"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

@@ -1,0 +1,16 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "15",
+  "tool": "evosuite",
+  "elapsed_sec": 493.07,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.JavaType",
+    "com.fasterxml.jackson.databind.ser.BeanSerializerFactory",
+    "com.fasterxml.jackson.databind.ser.std.BeanSerializerBase",
+    "com.fasterxml.jackson.databind.ser.std.StdDelegatingSerializer",
+    "com.fasterxml.jackson.databind.ser.std.StdSerializer"
+  ],
+  "evosuite_result": "timeout",
+  "num_test_files_generated": 0,
+  "status": "timeout"
+}

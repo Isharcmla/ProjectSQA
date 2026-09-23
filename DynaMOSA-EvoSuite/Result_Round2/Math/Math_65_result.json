@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "65",
+  "tool": "evosuite",
+  "elapsed_sec": 178.1,
+  "target_classes": [
+    "org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

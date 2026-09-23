@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "30",
+  "tool": "evosuite",
+  "elapsed_sec": 27.9,
+  "target_classes": [
+    "org.apache.commons.math3.stat.inference.MannWhitneyUTest"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

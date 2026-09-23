@@ -1,0 +1,14 @@
+{
+  "project": "Closure",
+  "bug_id": "155",
+  "tool": "evosuite",
+  "elapsed_sec": 214.22,
+  "target_classes": [
+    "com.google.javascript.jscomp.InlineVariables",
+    "com.google.javascript.jscomp.ReferenceCollectingCallback",
+    "com.google.javascript.jscomp.Scope"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 6,
+  "status": "success"
+}

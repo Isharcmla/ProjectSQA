@@ -1,0 +1,12 @@
+{
+  "project": "Lang",
+  "bug_id": "15",
+  "tool": "evosuite",
+  "elapsed_sec": 171.74,
+  "target_classes": [
+    "org.apache.commons.lang3.reflect.TypeUtils"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

@@ -1,0 +1,12 @@
+{
+  "project": "Codec",
+  "bug_id": "11",
+  "tool": "evosuite",
+  "elapsed_sec": 160.71,
+  "target_classes": [
+    "org.apache.commons.codec.net.QuotedPrintableCodec"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

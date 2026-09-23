@@ -1,0 +1,12 @@
+{
+  "project": "Closure",
+  "bug_id": "105",
+  "tool": "evosuite",
+  "elapsed_sec": 189.05,
+  "target_classes": [
+    "com.google.javascript.jscomp.FoldConstants"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

@@ -1,0 +1,12 @@
+{
+  "project": "Mockito",
+  "bug_id": "7",
+  "tool": "evosuite",
+  "elapsed_sec": 255.19,
+  "target_classes": [
+    "org.mockito.internal.util.reflection.GenericMetadataSupport"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

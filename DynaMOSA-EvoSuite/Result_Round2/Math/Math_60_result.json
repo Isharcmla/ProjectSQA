@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "60",
+  "tool": "evosuite",
+  "elapsed_sec": 175.86,
+  "target_classes": [
+    "org.apache.commons.math.distribution.NormalDistributionImpl"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

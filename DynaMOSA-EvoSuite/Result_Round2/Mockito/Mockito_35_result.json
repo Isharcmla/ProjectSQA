@@ -1,0 +1,12 @@
+{
+  "project": "Mockito",
+  "bug_id": "35",
+  "tool": "evosuite",
+  "elapsed_sec": 25.14,
+  "target_classes": [
+    "org.mockito.Matchers"
+  ],
+  "evosuite_result": "failed",
+  "num_test_files_generated": 0,
+  "status": "failed"
+}

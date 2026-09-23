@@ -1,0 +1,12 @@
+{
+  "project": "Time",
+  "bug_id": "19",
+  "tool": "evosuite",
+  "elapsed_sec": 187.69,
+  "target_classes": [
+    "org.joda.time.DateTimeZone"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

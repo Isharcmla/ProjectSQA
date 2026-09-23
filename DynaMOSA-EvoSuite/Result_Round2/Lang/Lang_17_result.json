@@ -1,0 +1,12 @@
+{
+  "project": "Lang",
+  "bug_id": "17",
+  "tool": "evosuite",
+  "elapsed_sec": 22.4,
+  "target_classes": [
+    "org.apache.commons.lang3.text.translate.CharSequenceTranslator"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

@@ -1,0 +1,14 @@
+{
+  "project": "JxPath",
+  "bug_id": "9",
+  "tool": "evosuite",
+  "elapsed_sec": 72.54,
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationCompare",
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationEqual",
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationNotEqual"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 6,
+  "status": "success"
+}

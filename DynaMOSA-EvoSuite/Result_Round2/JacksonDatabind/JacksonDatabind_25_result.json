@@ -1,0 +1,15 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "25",
+  "tool": "evosuite",
+  "elapsed_sec": 177.95,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.BasicDeserializerFactory",
+    "com.fasterxml.jackson.databind.deser.DeserializerCache",
+    "com.fasterxml.jackson.databind.jsontype.impl.TypeDeserializerBase",
+    "com.fasterxml.jackson.databind.module.SimpleAbstractTypeResolver"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 8,
+  "status": "success"
+}

@@ -1,0 +1,12 @@
+{
+  "project": "Time",
+  "bug_id": "22",
+  "tool": "evosuite",
+  "elapsed_sec": 186.29,
+  "target_classes": [
+    "org.joda.time.base.BasePeriod"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

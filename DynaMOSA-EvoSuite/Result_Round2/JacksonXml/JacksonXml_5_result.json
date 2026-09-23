@@ -1,0 +1,12 @@
+{
+  "project": "JacksonXml",
+  "bug_id": "5",
+  "tool": "evosuite",
+  "elapsed_sec": 166.57,
+  "target_classes": [
+    "com.fasterxml.jackson.dataformat.xml.ser.XmlSerializerProvider"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

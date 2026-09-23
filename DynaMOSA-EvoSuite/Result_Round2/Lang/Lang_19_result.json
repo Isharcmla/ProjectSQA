@@ -1,0 +1,12 @@
+{
+  "project": "Lang",
+  "bug_id": "19",
+  "tool": "evosuite",
+  "elapsed_sec": 118.42,
+  "target_classes": [
+    "org.apache.commons.lang3.text.translate.NumericEntityUnescaper"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

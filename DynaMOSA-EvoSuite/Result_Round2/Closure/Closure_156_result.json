@@ -1,0 +1,12 @@
+{
+  "project": "Closure",
+  "bug_id": "156",
+  "tool": "evosuite",
+  "elapsed_sec": 182.77,
+  "target_classes": [
+    "com.google.javascript.jscomp.CollapseProperties"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

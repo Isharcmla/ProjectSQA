@@ -1,0 +1,12 @@
+{
+  "project": "Closure",
+  "bug_id": "16",
+  "tool": "evosuite",
+  "elapsed_sec": 187.06,
+  "target_classes": [
+    "com.google.javascript.jscomp.ScopedAliases"
+  ],
+  "evosuite_result": "failed",
+  "num_test_files_generated": 0,
+  "status": "failed"
+}

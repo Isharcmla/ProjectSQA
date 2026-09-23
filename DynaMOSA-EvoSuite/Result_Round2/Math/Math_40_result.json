@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "40",
+  "tool": "evosuite",
+  "elapsed_sec": 185.62,
+  "target_classes": [
+    "org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

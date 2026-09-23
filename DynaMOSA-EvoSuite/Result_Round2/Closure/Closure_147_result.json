@@ -1,0 +1,13 @@
+{
+  "project": "Closure",
+  "bug_id": "147",
+  "tool": "evosuite",
+  "elapsed_sec": 184.82,
+  "target_classes": [
+    "com.google.javascript.jscomp.CheckGlobalThis",
+    "com.google.javascript.jscomp.RuntimeTypeCheck"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

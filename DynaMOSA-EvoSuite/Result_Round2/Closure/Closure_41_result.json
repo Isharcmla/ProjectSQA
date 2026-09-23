@@ -1,0 +1,12 @@
+{
+  "project": "Closure",
+  "bug_id": "41",
+  "tool": "evosuite",
+  "elapsed_sec": 187.8,
+  "target_classes": [
+    "com.google.javascript.jscomp.FunctionTypeBuilder"
+  ],
+  "evosuite_result": "failed",
+  "num_test_files_generated": 0,
+  "status": "failed"
+}

@@ -1,0 +1,12 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "4",
+  "tool": "evosuite",
+  "elapsed_sec": 183.01,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.std.StringArrayDeserializer"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

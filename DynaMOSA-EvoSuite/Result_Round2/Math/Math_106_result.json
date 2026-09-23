@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "106",
+  "tool": "evosuite",
+  "elapsed_sec": 73.4,
+  "target_classes": [
+    "org.apache.commons.math.fraction.ProperFractionFormat"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

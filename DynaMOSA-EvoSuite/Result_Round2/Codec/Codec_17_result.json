@@ -1,0 +1,12 @@
+{
+  "project": "Codec",
+  "bug_id": "17",
+  "tool": "evosuite",
+  "elapsed_sec": 12.04,
+  "target_classes": [
+    "org.apache.commons.codec.binary.StringUtils"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

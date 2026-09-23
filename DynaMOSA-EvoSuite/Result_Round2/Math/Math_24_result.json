@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "24",
+  "tool": "evosuite",
+  "elapsed_sec": 149.74,
+  "target_classes": [
+    "org.apache.commons.math3.optimization.univariate.BrentOptimizer"
+  ],
+  "evosuite_result": "failed",
+  "num_test_files_generated": 0,
+  "status": "failed"
+}

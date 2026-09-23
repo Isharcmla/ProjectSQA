@@ -1,0 +1,15 @@
+{
+  "project": "Compress",
+  "bug_id": "4",
+  "tool": "evosuite",
+  "elapsed_sec": 189.44,
+  "target_classes": [
+    "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream",
+    "org.apache.commons.compress.archivers.tar.TarArchiveOutputStream",
+    "org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream",
+    "org.apache.commons.compress.changes.ChangeSetPerformer"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 8,
+  "status": "success"
+}

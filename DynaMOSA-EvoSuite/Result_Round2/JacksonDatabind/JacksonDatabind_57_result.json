@@ -1,0 +1,12 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "57",
+  "tool": "evosuite",
+  "elapsed_sec": 190.79,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ObjectReader"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

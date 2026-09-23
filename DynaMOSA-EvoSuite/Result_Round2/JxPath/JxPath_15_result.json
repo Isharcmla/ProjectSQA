@@ -1,0 +1,12 @@
+{
+  "project": "JxPath",
+  "bug_id": "15",
+  "tool": "evosuite",
+  "elapsed_sec": 13.76,
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.axes.UnionContext"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

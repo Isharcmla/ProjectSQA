@@ -1,0 +1,15 @@
+{
+  "project": "Closure",
+  "bug_id": "149",
+  "tool": "evosuite",
+  "elapsed_sec": 183.63,
+  "target_classes": [
+    "com.google.javascript.jscomp.AbstractCommandLineRunner",
+    "com.google.javascript.jscomp.CommandLineRunner",
+    "com.google.javascript.jscomp.Compiler",
+    "com.google.javascript.jscomp.CompilerOptions"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 8,
+  "status": "success"
+}

@@ -1,0 +1,12 @@
+{
+  "project": "Mockito",
+  "bug_id": "13",
+  "tool": "evosuite",
+  "elapsed_sec": 175.24,
+  "target_classes": [
+    "org.mockito.internal.MockHandler"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

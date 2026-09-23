@@ -1,0 +1,12 @@
+{
+  "project": "Chart",
+  "bug_id": "19",
+  "tool": "evosuite",
+  "elapsed_sec": 224.23,
+  "target_classes": [
+    "org.jfree.chart.plot.CategoryPlot"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "19",
+  "tool": "evosuite",
+  "elapsed_sec": 193.01,
+  "target_classes": [
+    "org.apache.commons.math3.optimization.direct.CMAESOptimizer"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

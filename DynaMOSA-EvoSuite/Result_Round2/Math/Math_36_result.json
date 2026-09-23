@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "36",
+  "tool": "evosuite",
+  "elapsed_sec": 190.58,
+  "target_classes": [
+    "org.apache.commons.math.fraction.BigFraction"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

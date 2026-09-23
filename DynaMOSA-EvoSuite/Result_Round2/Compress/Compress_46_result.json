@@ -1,0 +1,12 @@
+{
+  "project": "Compress",
+  "bug_id": "46",
+  "tool": "evosuite",
+  "elapsed_sec": 38.47,
+  "target_classes": [
+    "org.apache.commons.compress.archivers.zip.X5455_ExtendedTimestamp"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

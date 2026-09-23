@@ -1,0 +1,12 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "12",
+  "tool": "evosuite",
+  "elapsed_sec": 492.02,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.std.MapDeserializer"
+  ],
+  "evosuite_result": "timeout",
+  "num_test_files_generated": 0,
+  "status": "timeout"
+}

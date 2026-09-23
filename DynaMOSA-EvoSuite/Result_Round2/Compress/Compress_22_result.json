@@ -1,0 +1,12 @@
+{
+  "project": "Compress",
+  "bug_id": "22",
+  "tool": "evosuite",
+  "elapsed_sec": 173.28,
+  "target_classes": [
+    "org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

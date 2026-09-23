@@ -1,0 +1,12 @@
+{
+  "project": "Collections",
+  "bug_id": "14",
+  "tool": "evosuite",
+  "elapsed_sec": 166.5,
+  "target_classes": [
+    "org.apache.commons.collections.map.CaseInsensitiveMap"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

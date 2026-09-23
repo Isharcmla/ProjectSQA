@@ -1,0 +1,14 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "79",
+  "tool": "evosuite",
+  "elapsed_sec": 189.4,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector",
+    "com.fasterxml.jackson.databind.introspect.ObjectIdInfo",
+    "com.fasterxml.jackson.databind.ser.std.BeanSerializerBase"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 6,
+  "status": "success"
+}

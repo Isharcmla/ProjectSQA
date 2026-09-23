@@ -1,0 +1,12 @@
+{
+  "project": "Chart",
+  "bug_id": "9",
+  "tool": "evosuite",
+  "elapsed_sec": 187.04,
+  "target_classes": [
+    "org.jfree.data.time.TimeSeries"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

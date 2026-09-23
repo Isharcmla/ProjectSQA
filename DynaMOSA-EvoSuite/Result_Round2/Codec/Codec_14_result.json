@@ -1,0 +1,17 @@
+{
+  "project": "Codec",
+  "bug_id": "14",
+  "tool": "evosuite",
+  "elapsed_sec": 42.41,
+  "target_classes": [
+    "org.apache.commons.codec.language.bm.Lang",
+    "org.apache.commons.codec.language.bm.PhoneticEngine",
+    "org.apache.commons.codec.language.bm.Rule",
+    "src.main.resources.org.apache.commons.codec.language.bm.ash_lang.txt",
+    "src.main.resources.org.apache.commons.codec.language.bm.gen_lang.txt",
+    "src.main.resources.org.apache.commons.codec.language.bm.sep_lang.txt"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 6,
+  "status": "success"
+}

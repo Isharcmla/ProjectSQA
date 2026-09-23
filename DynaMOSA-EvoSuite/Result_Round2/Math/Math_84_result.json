@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "84",
+  "tool": "evosuite",
+  "elapsed_sec": 47.57,
+  "target_classes": [
+    "org.apache.commons.math.optimization.direct.MultiDirectional"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

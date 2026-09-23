@@ -1,0 +1,12 @@
+{
+  "project": "JxPath",
+  "bug_id": "12",
+  "tool": "evosuite",
+  "elapsed_sec": 177.09,
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.model.dom.DOMNodePointer"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

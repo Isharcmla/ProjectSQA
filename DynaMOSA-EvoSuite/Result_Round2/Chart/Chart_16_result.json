@@ -1,0 +1,12 @@
+{
+  "project": "Chart",
+  "bug_id": "16",
+  "tool": "evosuite",
+  "elapsed_sec": 183.23,
+  "target_classes": [
+    "org.jfree.data.category.DefaultIntervalCategoryDataset"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

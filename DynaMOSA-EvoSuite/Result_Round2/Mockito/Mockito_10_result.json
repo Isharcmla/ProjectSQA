@@ -1,0 +1,12 @@
+{
+  "project": "Mockito",
+  "bug_id": "10",
+  "tool": "evosuite",
+  "elapsed_sec": 273.17,
+  "target_classes": [
+    "org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

@@ -1,0 +1,12 @@
+{
+  "project": "Time",
+  "bug_id": "16",
+  "tool": "evosuite",
+  "elapsed_sec": 183.29,
+  "target_classes": [
+    "org.joda.time.format.DateTimeFormatter"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

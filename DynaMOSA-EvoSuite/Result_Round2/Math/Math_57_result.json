@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "57",
+  "tool": "evosuite",
+  "elapsed_sec": 183.55,
+  "target_classes": [
+    "org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

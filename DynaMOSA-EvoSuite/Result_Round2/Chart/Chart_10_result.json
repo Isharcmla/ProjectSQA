@@ -1,0 +1,12 @@
+{
+  "project": "Chart",
+  "bug_id": "10",
+  "tool": "evosuite",
+  "elapsed_sec": 28.29,
+  "target_classes": [
+    "org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

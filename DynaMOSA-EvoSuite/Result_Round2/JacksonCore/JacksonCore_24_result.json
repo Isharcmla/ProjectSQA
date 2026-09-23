@@ -1,0 +1,13 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "24",
+  "tool": "evosuite",
+  "elapsed_sec": 187.03,
+  "target_classes": [
+    "com.fasterxml.jackson.core.base.ParserBase",
+    "com.fasterxml.jackson.core.base.ParserMinimalBase"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 4,
+  "status": "success"
+}

@@ -1,0 +1,12 @@
+{
+  "project": "Closure",
+  "bug_id": "113",
+  "tool": "evosuite",
+  "elapsed_sec": 194.16,
+  "target_classes": [
+    "com.google.javascript.jscomp.ProcessClosurePrimitives"
+  ],
+  "evosuite_result": "failed",
+  "num_test_files_generated": 0,
+  "status": "failed"
+}

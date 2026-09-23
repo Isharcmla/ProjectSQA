@@ -1,0 +1,12 @@
+{
+  "project": "Time",
+  "bug_id": "4",
+  "tool": "evosuite",
+  "elapsed_sec": 67.17,
+  "target_classes": [
+    "org.joda.time.Partial"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

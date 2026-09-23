@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "9",
+  "tool": "evosuite",
+  "elapsed_sec": 49.85,
+  "target_classes": [
+    "org.apache.commons.math3.geometry.euclidean.threed.Line"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

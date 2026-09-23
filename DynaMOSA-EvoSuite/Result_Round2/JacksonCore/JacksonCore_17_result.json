@@ -1,0 +1,12 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "17",
+  "tool": "evosuite",
+  "elapsed_sec": 324.7,
+  "target_classes": [
+    "com.fasterxml.jackson.core.json.UTF8JsonGenerator"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

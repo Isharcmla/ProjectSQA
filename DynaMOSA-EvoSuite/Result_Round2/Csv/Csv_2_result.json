@@ -1,0 +1,12 @@
+{
+  "project": "Csv",
+  "bug_id": "2",
+  "tool": "evosuite",
+  "elapsed_sec": 13.14,
+  "target_classes": [
+    "org.apache.commons.csv.CSVRecord"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

@@ -1,0 +1,14 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "38",
+  "tool": "evosuite",
+  "elapsed_sec": 95.67,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.type.CollectionType",
+    "com.fasterxml.jackson.databind.type.MapType",
+    "com.fasterxml.jackson.databind.type.SimpleType"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 6,
+  "status": "success"
+}

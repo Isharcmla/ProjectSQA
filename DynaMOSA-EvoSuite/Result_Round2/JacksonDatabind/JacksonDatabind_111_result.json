@@ -1,0 +1,18 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "111",
+  "tool": "evosuite",
+  "elapsed_sec": 204.73,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.CreatorProperty",
+    "com.fasterxml.jackson.databind.deser.impl.FieldProperty",
+    "com.fasterxml.jackson.databind.deser.impl.MethodProperty",
+    "com.fasterxml.jackson.databind.deser.impl.ObjectIdReferenceProperty",
+    "com.fasterxml.jackson.databind.deser.impl.ObjectIdValueProperty",
+    "com.fasterxml.jackson.databind.deser.impl.SetterlessProperty",
+    "com.fasterxml.jackson.databind.deser.std.AtomicReferenceDeserializer"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 14,
+  "status": "success"
+}

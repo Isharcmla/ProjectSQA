@@ -1,0 +1,12 @@
+{
+  "project": "Jsoup",
+  "bug_id": "78",
+  "tool": "evosuite",
+  "elapsed_sec": 171.49,
+  "target_classes": [
+    "org.jsoup.helper.DataUtil"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

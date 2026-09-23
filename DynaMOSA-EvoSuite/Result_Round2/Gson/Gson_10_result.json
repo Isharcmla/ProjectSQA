@@ -1,0 +1,12 @@
+{
+  "project": "Gson",
+  "bug_id": "10",
+  "tool": "evosuite",
+  "elapsed_sec": 165.13,
+  "target_classes": [
+    "com.google.gson.internal.bind.ReflectiveTypeAdapterFactory"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

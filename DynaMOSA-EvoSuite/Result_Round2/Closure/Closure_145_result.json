@@ -1,0 +1,12 @@
+{
+  "project": "Closure",
+  "bug_id": "145",
+  "tool": "evosuite",
+  "elapsed_sec": 174.88,
+  "target_classes": [
+    "com.google.javascript.jscomp.CodeGenerator"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

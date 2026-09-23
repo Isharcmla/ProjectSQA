@@ -1,0 +1,12 @@
+{
+  "project": "Time",
+  "bug_id": "24",
+  "tool": "evosuite",
+  "elapsed_sec": 189.39,
+  "target_classes": [
+    "org.joda.time.format.DateTimeParserBucket"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

@@ -1,0 +1,12 @@
+{
+  "project": "Gson",
+  "bug_id": "2",
+  "tool": "evosuite",
+  "elapsed_sec": 171.11,
+  "target_classes": [
+    "com.google.gson.internal.bind.TypeAdapters"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

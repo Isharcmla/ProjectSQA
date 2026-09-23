@@ -1,0 +1,12 @@
+{
+  "project": "Mockito",
+  "bug_id": "3",
+  "tool": "evosuite",
+  "elapsed_sec": 267.39,
+  "target_classes": [
+    "org.mockito.internal.invocation.InvocationMatcher"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}

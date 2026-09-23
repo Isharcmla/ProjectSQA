@@ -1,0 +1,16 @@
+{
+  "project": "Mockito",
+  "bug_id": "19",
+  "tool": "evosuite",
+  "elapsed_sec": 233.27,
+  "target_classes": [
+    "org.mockito.internal.configuration.injection.filter.FinalMockCandidateFilter",
+    "org.mockito.internal.configuration.injection.filter.MockCandidateFilter",
+    "org.mockito.internal.configuration.injection.filter.NameBasedCandidateFilter",
+    "org.mockito.internal.configuration.injection.filter.TypeBasedCandidateFilter",
+    "org.mockito.internal.configuration.injection.PropertyAndSetterInjection"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 10,
+  "status": "success"
+}

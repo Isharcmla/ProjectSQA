@@ -1,0 +1,12 @@
+{
+  "project": "Collections",
+  "bug_id": "25",
+  "tool": "evosuite",
+  "elapsed_sec": 160.98,
+  "target_classes": [
+    "org.apache.commons.collections4.IteratorUtils"
+  ],
+  "evosuite_result": "failed",
+  "num_test_files_generated": 0,
+  "status": "failed"
+}

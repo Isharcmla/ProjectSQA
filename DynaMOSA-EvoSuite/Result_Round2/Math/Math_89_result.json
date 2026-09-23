@@ -1,0 +1,12 @@
+{
+  "project": "Math",
+  "bug_id": "89",
+  "tool": "evosuite",
+  "elapsed_sec": 178.66,
+  "target_classes": [
+    "org.apache.commons.math.stat.Frequency"
+  ],
+  "evosuite_result": "success",
+  "num_test_files_generated": 2,
+  "status": "success"
+}
