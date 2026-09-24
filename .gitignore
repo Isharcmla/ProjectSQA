@@ -16,6 +16,12 @@ results/
 logs/
 progress.json
 
+# API keys & environment secrets
+.env
+.env.*
+!.env.example
+
+
 # ไฟล์ build ของ Kex / Maven
 kex/target/
 *.class
