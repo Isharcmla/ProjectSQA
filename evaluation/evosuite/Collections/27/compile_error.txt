@@ -1,0 +1,46 @@
+/tmp/evaluate_evosuite_Collections_27_7lci6ffz/src/MultiValueMap_ESTest.java:105: error: constructor MultiValueMap in class MultiValueMap<K,V> cannot be applied to given types;
+        multiValueMap1 = new MultiValueMap<AbstractMap.SimpleImmutableEntry<Object, Object>, LinkedList<Integer>>((Map<AbstractMap.SimpleImmutableEntry<Object, Object>, ? super LinkedList<Integer>>) multiValueMap0, (Factory<LinkedList<Integer>>) null);
+                         ^
+  required: Map<SimpleImmutableEntry<Object,Object>,? super C>,Factory<C>
+  found: Map<SimpleImmutableEntry<Object,Object>,CAP#1>,Factory<LinkedList<Integer>>
+  reason: inference variable C has incompatible bounds
+    equality constraints: LinkedList<Integer>
+    lower bounds: CAP#1,Collection<LinkedList<Integer>>
+  where C,K,V are type-variables:
+    C extends Collection<LinkedList<Integer>> declared in constructor <C>MultiValueMap(Map<K,? super C>,Factory<C>)
+    K extends Object declared in class MultiValueMap
+    V extends Object declared in class MultiValueMap
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Object super: LinkedList<Integer> from capture of ? super LinkedList<Integer>
+/tmp/evaluate_evosuite_Collections_27_7lci6ffz/src/MultiValueMap_ESTest.java:208: error: constructor MultiValueMap in class MultiValueMap<K,V> cannot be applied to given types;
+      MultiValueMap<LinkedList<Object>, Object> multiValueMap1 = new MultiValueMap<LinkedList<Object>, Object>((Map<LinkedList<Object>, ? super ArrayList<Integer>>) multiValueMap0, factory0);
+                                                                 ^
+  required: Map<LinkedList<Object>,? super C>,Factory<C>
+  found: Map<LinkedList<Object>,CAP#1>,Factory<ArrayList<Integer>>
+  reason: inference variable C has incompatible bounds
+    equality constraints: ArrayList<Integer>
+    lower bounds: CAP#1,Collection<Object>
+  where C,K,V are type-variables:
+    C extends Collection<Object> declared in constructor <C>MultiValueMap(Map<K,? super C>,Factory<C>)
+    K extends Object declared in class MultiValueMap
+    V extends Object declared in class MultiValueMap
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Object super: ArrayList<Integer> from capture of ? super ArrayList<Integer>
+/tmp/evaluate_evosuite_Collections_27_7lci6ffz/src/MultiValueMap_ESTest.java:229: error: constructor MultiValueMap in class MultiValueMap<K,V> cannot be applied to given types;
+      MultiValueMap<LinkedList<Object>, Object> multiValueMap1 = new MultiValueMap<LinkedList<Object>, Object>((Map<LinkedList<Object>, ? super ArrayList<Integer>>) multiValueMap0, factory0);
+                                                                 ^
+  required: Map<LinkedList<Object>,? super C>,Factory<C>
+  found: Map<LinkedList<Object>,CAP#1>,Factory<ArrayList<Integer>>
+  reason: inference variable C has incompatible bounds
+    equality constraints: ArrayList<Integer>
+    lower bounds: CAP#1,Collection<Object>
+  where C,K,V are type-variables:
+    C extends Collection<Object> declared in constructor <C>MultiValueMap(Map<K,? super C>,Factory<C>)
+    K extends Object declared in class MultiValueMap
+    V extends Object declared in class MultiValueMap
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Object super: ArrayList<Integer> from capture of ? super ArrayList<Integer>
+Note: /tmp/evaluate_evosuite_Collections_27_7lci6ffz/src/MultiValueMap_ESTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+3 errors

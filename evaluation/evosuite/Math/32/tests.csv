@@ -1,0 +1,10 @@
+test,fqcn,method,buggy,fixed,classification
+PolygonsSet_ESTest#test0,org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet_ESTest,test0,PASS,PASS,valid_non_revealing
+PolygonsSet_ESTest#test1,org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet_ESTest,test1,PASS,PASS,valid_non_revealing
+PolygonsSet_ESTest#test2,org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet_ESTest,test2,PASS,FAIL,fixed_regression_or_unstable
+PolygonsSet_ESTest#test3,org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet_ESTest,test3,PASS,PASS,valid_non_revealing
+PolygonsSet_ESTest#test4,org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet_ESTest,test4,PASS,PASS,valid_non_revealing
+PolygonsSet_ESTest#test5,org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet_ESTest,test5,PASS,PASS,valid_non_revealing
+PolygonsSet_ESTest#test6,org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet_ESTest,test6,PASS,PASS,valid_non_revealing
+PolygonsSet_ESTest#test7,org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet_ESTest,test7,PASS,PASS,valid_non_revealing
+PolygonsSet_ESTest#test8,org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet_ESTest,test8,PASS,PASS,valid_non_revealing

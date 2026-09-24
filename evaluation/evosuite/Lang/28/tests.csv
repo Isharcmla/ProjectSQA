@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+NumericEntityUnescaper_ESTest#test0,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest,test0,PASS,PASS,valid_non_revealing
+NumericEntityUnescaper_ESTest#test1,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest,test1,PASS,PASS,valid_non_revealing
+NumericEntityUnescaper_ESTest#test2,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest,test2,PASS,PASS,valid_non_revealing
+NumericEntityUnescaper_ESTest#test3,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest,test3,PASS,PASS,valid_non_revealing

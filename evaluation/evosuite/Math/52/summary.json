@@ -1,0 +1,14 @@
+{
+  "project": "Math",
+  "bug_id": "52",
+  "tool": "evosuite",
+  "generated_files": 2,
+  "candidate_tests": 65,
+  "classification_counts": {
+    "valid_non_revealing": 65
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

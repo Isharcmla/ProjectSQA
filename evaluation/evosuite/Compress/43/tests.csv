@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+ZipArchiveOutputStream_ESTest#test0,org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream_ESTest,test0,FAIL,FAIL,invalid_or_unstable
+ZipArchiveOutputStream_ESTest#test1,org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream_ESTest,test1,FAIL,FAIL,invalid_or_unstable
+ZipArchiveOutputStream_ESTest#test2,org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream_ESTest,test2,FAIL,FAIL,invalid_or_unstable
+ZipArchiveOutputStream_ESTest#test3,org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream_ESTest,test3,PASS,PASS,valid_non_revealing

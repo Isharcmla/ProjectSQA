@@ -1,0 +1,9 @@
+test,fqcn,method,buggy,fixed,classification
+Lang_ESTest#test0,org.apache.commons.codec.language.bm.Lang_ESTest,test0,FAIL,FAIL,invalid_or_unstable
+PhoneticEngine_ESTest#test0,org.apache.commons.codec.language.bm.PhoneticEngine_ESTest,test0,PASS,PASS,valid_non_revealing
+PhoneticEngine_ESTest#test1,org.apache.commons.codec.language.bm.PhoneticEngine_ESTest,test1,FAIL,FAIL,invalid_or_unstable
+PhoneticEngine_ESTest#test2,org.apache.commons.codec.language.bm.PhoneticEngine_ESTest,test2,PASS,PASS,valid_non_revealing
+PhoneticEngine_ESTest#test3,org.apache.commons.codec.language.bm.PhoneticEngine_ESTest,test3,PASS,PASS,valid_non_revealing
+PhoneticEngine_ESTest#test4,org.apache.commons.codec.language.bm.PhoneticEngine_ESTest,test4,FAIL,FAIL,invalid_or_unstable
+PhoneticEngine_ESTest#test5,org.apache.commons.codec.language.bm.PhoneticEngine_ESTest,test5,PASS,PASS,valid_non_revealing
+Rule_ESTest#test0,org.apache.commons.codec.language.bm.Rule_ESTest,test0,FAIL,FAIL,invalid_or_unstable

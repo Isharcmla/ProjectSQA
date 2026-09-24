@@ -1,0 +1,3 @@
+test,fqcn,method,buggy,fixed,classification
+Invocation_ESTest#test0,org.mockito.internal.invocation.Invocation_ESTest,test0,PASS,PASS,valid_non_revealing
+Invocation_ESTest#test1,org.mockito.internal.invocation.Invocation_ESTest,test1,PASS,PASS,valid_non_revealing

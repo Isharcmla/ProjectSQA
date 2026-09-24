@@ -1,0 +1,8 @@
+test,fqcn,method,buggy,fixed,classification
+Entities_ESTest#test0,org.jsoup.nodes.Entities_ESTest,test0,PASS,PASS,valid_non_revealing
+Entities_ESTest#test1,org.jsoup.nodes.Entities_ESTest,test1,PASS,PASS,valid_non_revealing
+Entities_ESTest#test2,org.jsoup.nodes.Entities_ESTest,test2,PASS,PASS,valid_non_revealing
+Entities_ESTest#test3,org.jsoup.nodes.Entities_ESTest,test3,PASS,PASS,valid_non_revealing
+Entities_ESTest#test4,org.jsoup.nodes.Entities_ESTest,test4,PASS,PASS,valid_non_revealing
+Entities_ESTest#test5,org.jsoup.nodes.Entities_ESTest,test5,PASS,PASS,valid_non_revealing
+Entities_ESTest#test6,org.jsoup.nodes.Entities_ESTest,test6,PASS,FAIL,fixed_regression_or_unstable

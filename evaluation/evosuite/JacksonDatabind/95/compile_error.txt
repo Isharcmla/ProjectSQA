@@ -1,0 +1,8 @@
+/tmp/evaluate_evosuite_JacksonDatabind_95_atdjgwvc/src/TypeFactory_ESTest.java:671: error: incompatible types: Class<SettableBeanProperty> cannot be converted to Class<HashMap<Object,Enum>>
+        objectMapper0.convertValue((Object) treeSet0, (Class<HashMap<Object, Enum>>) class0);
+                                                                                     ^
+Note: /tmp/evaluate_evosuite_JacksonDatabind_95_atdjgwvc/src/TypeFactory_ESTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_evosuite_JacksonDatabind_95_atdjgwvc/src/TypeFactory_ESTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error

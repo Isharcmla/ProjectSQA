@@ -1,0 +1,4 @@
+test,fqcn,method,buggy,fixed,classification
+NullifyingDeserializer_ESTest#test0,com.fasterxml.jackson.databind.deser.std.NullifyingDeserializer_ESTest,test0,PASS,PASS,valid_non_revealing
+NullifyingDeserializer_ESTest#test1,com.fasterxml.jackson.databind.deser.std.NullifyingDeserializer_ESTest,test1,PASS,PASS,valid_non_revealing
+NullifyingDeserializer_ESTest#test2,com.fasterxml.jackson.databind.deser.std.NullifyingDeserializer_ESTest,test2,PASS,PASS,valid_non_revealing

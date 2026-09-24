@@ -1,0 +1,15 @@
+{
+  "project": "Closure",
+  "bug_id": "61",
+  "tool": "evosuite",
+  "generated_files": 2,
+  "candidate_tests": 706,
+  "classification_counts": {
+    "valid_non_revealing": 705,
+    "invalid_or_unstable": 1
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

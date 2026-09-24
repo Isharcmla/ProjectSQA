@@ -1,0 +1,9 @@
+test,fqcn,method,buggy,fixed,classification
+PosixParser_ESTest#test0,org.apache.commons.cli.PosixParser_ESTest,test0,PASS,PASS,valid_non_revealing
+PosixParser_ESTest#test1,org.apache.commons.cli.PosixParser_ESTest,test1,PASS,PASS,valid_non_revealing
+PosixParser_ESTest#test2,org.apache.commons.cli.PosixParser_ESTest,test2,PASS,PASS,valid_non_revealing
+PosixParser_ESTest#test3,org.apache.commons.cli.PosixParser_ESTest,test3,PASS,PASS,valid_non_revealing
+PosixParser_ESTest#test4,org.apache.commons.cli.PosixParser_ESTest,test4,PASS,FAIL,fixed_regression_or_unstable
+PosixParser_ESTest#test5,org.apache.commons.cli.PosixParser_ESTest,test5,PASS,PASS,valid_non_revealing
+PosixParser_ESTest#test6,org.apache.commons.cli.PosixParser_ESTest,test6,PASS,PASS,valid_non_revealing
+PosixParser_ESTest#test7,org.apache.commons.cli.PosixParser_ESTest,test7,PASS,PASS,valid_non_revealing

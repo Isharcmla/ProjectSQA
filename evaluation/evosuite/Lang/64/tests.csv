@@ -1,0 +1,3 @@
+test,fqcn,method,buggy,fixed,classification
+ValuedEnum_ESTest#test0,org.apache.commons.lang.enums.ValuedEnum_ESTest,test0,PASS,PASS,valid_non_revealing
+ValuedEnum_ESTest#test1,org.apache.commons.lang.enums.ValuedEnum_ESTest,test1,PASS,PASS,valid_non_revealing

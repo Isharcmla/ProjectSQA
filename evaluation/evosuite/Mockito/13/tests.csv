@@ -1,0 +1,6 @@
+test,fqcn,method,buggy,fixed,classification
+MockHandler_ESTest#test0,org.mockito.internal.MockHandler_ESTest,test0,PASS,PASS,valid_non_revealing
+MockHandler_ESTest#test1,org.mockito.internal.MockHandler_ESTest,test1,PASS,PASS,valid_non_revealing
+MockHandler_ESTest#test2,org.mockito.internal.MockHandler_ESTest,test2,PASS,PASS,valid_non_revealing
+MockHandler_ESTest#test3,org.mockito.internal.MockHandler_ESTest,test3,PASS,PASS,valid_non_revealing
+MockHandler_ESTest#test4,org.mockito.internal.MockHandler_ESTest,test4,PASS,PASS,valid_non_revealing

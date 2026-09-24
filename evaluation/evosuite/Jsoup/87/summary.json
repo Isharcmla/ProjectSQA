@@ -1,0 +1,15 @@
+{
+  "project": "Jsoup",
+  "bug_id": "87",
+  "tool": "evosuite",
+  "generated_files": 8,
+  "candidate_tests": 199,
+  "classification_counts": {
+    "valid_non_revealing": 198,
+    "fixed_regression_or_unstable": 1
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

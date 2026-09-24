@@ -1,0 +1,2 @@
+test,fqcn,method,buggy,fixed,classification
+StandardToolTipTagFragmentGenerator_ESTest#test0,org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator_ESTest,test0,PASS,PASS,valid_non_revealing

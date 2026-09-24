@@ -1,0 +1,13 @@
+test,fqcn,method,buggy,fixed,classification
+TypeHandler_ESTest#test00,org.apache.commons.cli.TypeHandler_ESTest,test00,PASS,FAIL,fixed_regression_or_unstable
+TypeHandler_ESTest#test01,org.apache.commons.cli.TypeHandler_ESTest,test01,PASS,PASS,valid_non_revealing
+TypeHandler_ESTest#test02,org.apache.commons.cli.TypeHandler_ESTest,test02,PASS,PASS,valid_non_revealing
+TypeHandler_ESTest#test03,org.apache.commons.cli.TypeHandler_ESTest,test03,PASS,PASS,valid_non_revealing
+TypeHandler_ESTest#test04,org.apache.commons.cli.TypeHandler_ESTest,test04,PASS,PASS,valid_non_revealing
+TypeHandler_ESTest#test05,org.apache.commons.cli.TypeHandler_ESTest,test05,PASS,PASS,valid_non_revealing
+TypeHandler_ESTest#test06,org.apache.commons.cli.TypeHandler_ESTest,test06,PASS,PASS,valid_non_revealing
+TypeHandler_ESTest#test07,org.apache.commons.cli.TypeHandler_ESTest,test07,PASS,PASS,valid_non_revealing
+TypeHandler_ESTest#test08,org.apache.commons.cli.TypeHandler_ESTest,test08,PASS,PASS,valid_non_revealing
+TypeHandler_ESTest#test09,org.apache.commons.cli.TypeHandler_ESTest,test09,PASS,PASS,valid_non_revealing
+TypeHandler_ESTest#test10,org.apache.commons.cli.TypeHandler_ESTest,test10,PASS,PASS,valid_non_revealing
+TypeHandler_ESTest#test11,org.apache.commons.cli.TypeHandler_ESTest,test11,PASS,PASS,valid_non_revealing

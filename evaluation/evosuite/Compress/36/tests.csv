@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+SevenZFile_ESTest#test0,org.apache.commons.compress.archivers.sevenz.SevenZFile_ESTest,test0,PASS,PASS,valid_non_revealing
+SevenZFile_ESTest#test1,org.apache.commons.compress.archivers.sevenz.SevenZFile_ESTest,test1,PASS,PASS,valid_non_revealing
+SevenZFile_ESTest#test2,org.apache.commons.compress.archivers.sevenz.SevenZFile_ESTest,test2,PASS,PASS,valid_non_revealing
+SevenZFile_ESTest#test3,org.apache.commons.compress.archivers.sevenz.SevenZFile_ESTest,test3,FAIL,FAIL,invalid_or_unstable

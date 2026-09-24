@@ -445,14 +445,23 @@ def compile_single_method_runner(
     )
 
 
-def compile_sources(eval_src, eval_classes, classpath):
+def compile_sources(
+    eval_src,
+    eval_classes,
+    classpath,
+    java_module_args=None,
+):
     java_files = sorted(eval_src.rglob("*.java"))
 
     if not java_files:
         raise RuntimeError("No Java files prepared for compilation")
 
-    cmd = [
-        "javac",
+    cmd = ["javac"]
+
+    if java_module_args:
+        cmd += java_module_args
+
+    cmd += [
         "-cp", classpath,
         "-d", str(eval_classes),
     ] + [str(f) for f in java_files]
@@ -469,16 +478,28 @@ def is_kex_helper(test):
     }
 
 
-def run_junit(test, eval_classes, classpath, timeout_sec):
+def run_junit(
+    test,
+    eval_classes,
+    classpath,
+    timeout_sec,
+    java_module_args=None,
+):
     cp = f"{eval_classes}:{classpath}"
 
+    cmd = ["java"]
+
+    if java_module_args:
+        cmd += java_module_args
+
+    cmd += [
+        "-cp", cp,
+        "org.junit.runner.JUnitCore",
+        test["fqcn"],
+    ]
+
     code, output = run_command(
-        [
-            "java",
-            "-cp", cp,
-            "org.junit.runner.JUnitCore",
-            test["fqcn"],
-        ],
+        cmd,
         timeout=timeout_sec,
     )
 
@@ -496,17 +517,24 @@ def run_junit_method(
     eval_classes,
     classpath,
     timeout_sec,
+    java_module_args=None,
 ):
     cp = f"{eval_classes}:{classpath}"
 
+    cmd = ["java"]
+
+    if java_module_args:
+        cmd += java_module_args
+
+    cmd += [
+        "-cp", cp,
+        "SingleMethodRunner",
+        test["fqcn"],
+        test["method_name"],
+    ]
+
     code, output = run_command(
-        [
-            "java",
-            "-cp", cp,
-            "SingleMethodRunner",
-            test["fqcn"],
-            test["method_name"],
-        ],
+        cmd,
         timeout=timeout_sec,
     )
 
@@ -698,17 +726,112 @@ def evaluate(project, bug_id, tool, timeout_sec):
         run_cp_buggy = f"{extra_cp}:{cp_buggy_eval}"
         run_cp_fixed = f"{extra_cp}:{cp_fixed_eval}"
 
+        # EvoSuite may generate tests that access JDK-internal
+        # sun.util.calendar.ZoneInfo on Java 9+.
+        if tool == "evosuite":
+            java_module_args = [
+                "--add-exports",
+                "java.base/sun.util.calendar=ALL-UNNAMED",
+            ]
+        else:
+            java_module_args = []
+
         # Compile against buggy classpath first.
         code, compile_output = compile_sources(
             eval_src,
             eval_classes,
             compile_cp,
+            java_module_args,
         )
 
         if code != 0:
             print()
             print("COMPILE FAILED")
             print(compile_output[:8000])
+
+            # Preserve non-compilable generated EvoSuite suites as
+            # evaluation results. Do not modify the generated tests.
+            if tool == "evosuite":
+                result_dir = (
+                    REPO_DIR
+                    / "evaluation"
+                    / tool
+                    / project
+                    / str(bug_id)
+                )
+                result_dir.mkdir(parents=True, exist_ok=True)
+
+                generation_status = "unknown"
+
+                generation_result = (
+                    REPO_DIR
+                    / "DynaMOSA-EvoSuite"
+                    / "Result_Round2"
+                    / project
+                    / f"{project}_{bug_id}_result.json"
+                )
+
+                if generation_result.is_file():
+                    try:
+                        generation_data = json.loads(
+                            generation_result.read_text(
+                                encoding="utf-8",
+                                errors="replace",
+                            )
+                        )
+                        generation_status = str(
+                            generation_data.get(
+                                "status",
+                                "unknown",
+                            )
+                        )
+                    except (
+                        OSError,
+                        json.JSONDecodeError,
+                    ):
+                        generation_status = "unknown"
+
+                summary = {
+                    "project": project,
+                    "bug_id": str(bug_id),
+                    "tool": tool,
+                    "generated_files": prepared_file_count,
+                    "candidate_tests": len(executable_tests),
+                    "classification_counts": {},
+                    "bug_revealing_tests": 0,
+                    "bug_detected": False,
+                    "generation_status": generation_status,
+                    "evaluation_status": "compile_failed",
+                }
+
+                json_path = result_dir / "summary.json"
+                json_path.write_text(
+                    json.dumps(
+                        summary,
+                        indent=2,
+                        ensure_ascii=False,
+                    )
+                    + "\n"
+                )
+
+                compile_error_path = (
+                    result_dir / "compile_error.txt"
+                )
+                compile_error_path.write_text(
+                    compile_output,
+                    encoding="utf-8",
+                    errors="replace",
+                )
+
+                print()
+                print(
+                    "Evaluation status : compile_failed"
+                )
+                print(f"JSON : {json_path}")
+                print(
+                    f"Compile error : {compile_error_path}"
+                )
+
             return 2
 
         print("  [JAVAC] SUCCESS")
@@ -744,6 +867,7 @@ def evaluate(project, bug_id, tool, timeout_sec):
                 eval_classes,
                 run_cp_buggy,
                 timeout_sec,
+                java_module_args,
             )
 
             fixed_result, fixed_output = runner(
@@ -751,6 +875,7 @@ def evaluate(project, bug_id, tool, timeout_sec):
                 eval_classes,
                 run_cp_fixed,
                 timeout_sec,
+                java_module_args,
             )
 
             category = classify(
@@ -823,7 +948,7 @@ def evaluate(project, bug_id, tool, timeout_sec):
 
         repo_folder = {
             "kex": "Reanimator-Kex",
-            "evosuite": "DynaMOSA",
+            "evosuite": "DynaMOSA-EvoSuite",
         }.get(tool)
 
         if repo_folder is not None:

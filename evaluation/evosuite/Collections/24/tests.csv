@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+UnmodifiableBoundedCollection_ESTest#test0,org.apache.commons.collections4.collection.UnmodifiableBoundedCollection_ESTest,test0,PASS,PASS,valid_non_revealing
+UnmodifiableBoundedCollection_ESTest#test1,org.apache.commons.collections4.collection.UnmodifiableBoundedCollection_ESTest,test1,PASS,PASS,valid_non_revealing
+UnmodifiableBoundedCollection_ESTest#test2,org.apache.commons.collections4.collection.UnmodifiableBoundedCollection_ESTest,test2,PASS,PASS,valid_non_revealing
+UnmodifiableBoundedCollection_ESTest#test3,org.apache.commons.collections4.collection.UnmodifiableBoundedCollection_ESTest,test3,PASS,PASS,valid_non_revealing

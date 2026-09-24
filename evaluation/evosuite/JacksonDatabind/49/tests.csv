@@ -1,0 +1,7 @@
+test,fqcn,method,buggy,fixed,classification
+WritableObjectId_ESTest#test0,com.fasterxml.jackson.databind.ser.impl.WritableObjectId_ESTest,test0,PASS,PASS,valid_non_revealing
+WritableObjectId_ESTest#test1,com.fasterxml.jackson.databind.ser.impl.WritableObjectId_ESTest,test1,PASS,PASS,valid_non_revealing
+WritableObjectId_ESTest#test2,com.fasterxml.jackson.databind.ser.impl.WritableObjectId_ESTest,test2,PASS,PASS,valid_non_revealing
+WritableObjectId_ESTest#test3,com.fasterxml.jackson.databind.ser.impl.WritableObjectId_ESTest,test3,PASS,PASS,valid_non_revealing
+WritableObjectId_ESTest#test4,com.fasterxml.jackson.databind.ser.impl.WritableObjectId_ESTest,test4,PASS,PASS,valid_non_revealing
+WritableObjectId_ESTest#test5,com.fasterxml.jackson.databind.ser.impl.WritableObjectId_ESTest,test5,PASS,PASS,valid_non_revealing

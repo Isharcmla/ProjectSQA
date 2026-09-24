@@ -1,0 +1,4 @@
+test,fqcn,method,buggy,fixed,classification
+ClosureReverseAbstractInterpreter_ESTest#test0,com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter_ESTest,test0,PASS,PASS,valid_non_revealing
+ClosureReverseAbstractInterpreter_ESTest#test1,com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter_ESTest,test1,PASS,PASS,valid_non_revealing
+ClosureReverseAbstractInterpreter_ESTest#test2,com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter_ESTest,test2,PASS,PASS,valid_non_revealing

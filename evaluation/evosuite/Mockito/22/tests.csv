@@ -1,0 +1,6 @@
+test,fqcn,method,buggy,fixed,classification
+Equality_ESTest#test0,org.mockito.internal.matchers.Equality_ESTest,test0,PASS,PASS,valid_non_revealing
+Equality_ESTest#test1,org.mockito.internal.matchers.Equality_ESTest,test1,PASS,PASS,valid_non_revealing
+Equality_ESTest#test2,org.mockito.internal.matchers.Equality_ESTest,test2,PASS,PASS,valid_non_revealing
+Equality_ESTest#test3,org.mockito.internal.matchers.Equality_ESTest,test3,PASS,PASS,valid_non_revealing
+Equality_ESTest#test4,org.mockito.internal.matchers.Equality_ESTest,test4,PASS,PASS,valid_non_revealing

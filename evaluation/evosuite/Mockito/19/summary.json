@@ -1,0 +1,15 @@
+{
+  "project": "Mockito",
+  "bug_id": "19",
+  "tool": "evosuite",
+  "generated_files": 10,
+  "candidate_tests": 8,
+  "classification_counts": {
+    "fixed_regression_or_unstable": 6,
+    "valid_non_revealing": 2
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

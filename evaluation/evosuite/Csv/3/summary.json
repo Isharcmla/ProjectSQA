@@ -1,0 +1,15 @@
+{
+  "project": "Csv",
+  "bug_id": "3",
+  "tool": "evosuite",
+  "generated_files": 2,
+  "candidate_tests": 18,
+  "classification_counts": {
+    "valid_non_revealing": 17,
+    "fixed_regression_or_unstable": 1
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

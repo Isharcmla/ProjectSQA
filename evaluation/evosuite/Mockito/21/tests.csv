@@ -1,0 +1,3 @@
+test,fqcn,method,buggy,fixed,classification
+ConstructorInstantiator_ESTest#test0,org.mockito.internal.creation.instance.ConstructorInstantiator_ESTest,test0,PASS,PASS,valid_non_revealing
+ConstructorInstantiator_ESTest#test1,org.mockito.internal.creation.instance.ConstructorInstantiator_ESTest,test1,PASS,PASS,valid_non_revealing

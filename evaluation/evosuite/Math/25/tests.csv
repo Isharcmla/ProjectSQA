@@ -1,0 +1,6 @@
+test,fqcn,method,buggy,fixed,classification
+HarmonicFitter_ESTest#test0,org.apache.commons.math3.optimization.fitting.HarmonicFitter_ESTest,test0,PASS,PASS,valid_non_revealing
+HarmonicFitter_ESTest#test1,org.apache.commons.math3.optimization.fitting.HarmonicFitter_ESTest,test1,PASS,PASS,valid_non_revealing
+HarmonicFitter_ESTest#test2,org.apache.commons.math3.optimization.fitting.HarmonicFitter_ESTest,test2,PASS,PASS,valid_non_revealing
+HarmonicFitter_ESTest#test3,org.apache.commons.math3.optimization.fitting.HarmonicFitter_ESTest,test3,PASS,PASS,valid_non_revealing
+HarmonicFitter_ESTest#test4,org.apache.commons.math3.optimization.fitting.HarmonicFitter_ESTest,test4,PASS,PASS,valid_non_revealing

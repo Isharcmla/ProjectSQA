@@ -1,0 +1,4 @@
+test,fqcn,method,buggy,fixed,classification
+BeanDeserializerBase_ESTest#notGeneratedAnyTest,com.fasterxml.jackson.databind.deser.BeanDeserializerBase_ESTest,notGeneratedAnyTest,PASS,PASS,valid_non_revealing
+ExternalTypeHandler_ESTest#test0,com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler_ESTest,test0,PASS,PASS,valid_non_revealing
+ExternalTypeHandler_ESTest#test1,com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler_ESTest,test1,PASS,PASS,valid_non_revealing

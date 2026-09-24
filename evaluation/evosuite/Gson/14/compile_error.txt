@@ -1,0 +1,241 @@
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:26: error: illegal start of expression
+      WildcardType wildcardType0 = .Gson.Types.supertypeOf(class0);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:27: error: illegal start of expression
+      Class<?> class1 = .Gson.Types.getRawType(wildcardType0);
+                        ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:35: error: illegal start of expression
+      Type[] typeArray0 = .Gson.Types.getMapKeyAndValueTypes(class0, class1);
+                          ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:42: error: illegal start of expression
+      GenericArrayType genericArrayType0 = .Gson.Types.arrayOf(class0);
+                                           ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:43: error: illegal start of expression
+      Class<?> class1 = .Gson.Types.getRawType(genericArrayType0);
+                        ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:44: error: illegal start of expression
+      WildcardType wildcardType0 = .Gson.Types.supertypeOf(class1);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:51: error: illegal start of expression
+      WildcardType wildcardType0 = .Gson.Types.subtypeOf(class0);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:52: error: illegal start of expression
+      Type type0 = .Gson.Types.resolve(class0, class0, wildcardType0);
+                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:59: error: illegal start of expression
+      Type[] typeArray0 = .Gson.Types.getMapKeyAndValueTypes(class0, class0);
+                          ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:60: error: illegal start of expression
+      ParameterizedType parameterizedType0 = .Gson.Types.newParameterizedTypeWithOwner(class0, class0, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:61: error: illegal start of expression
+      Type type0 = .Gson.Types.resolve(class0, class0, parameterizedType0);
+                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:68: error: illegal start of expression
+      ParameterizedType parameterizedType0 = .Gson.Types.newParameterizedTypeWithOwner((Type) null, (Type) null, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:69: error: illegal start of expression
+      ParameterizedType parameterizedType1 = .Gson.Types.newParameterizedTypeWithOwner((Type) null, parameterizedType0, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:70: error: illegal start of expression
+      Type type0 = .Gson.Types.canonicalize(parameterizedType1);
+                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:73: error: illegal start of expression
+      ParameterizedType parameterizedType2 = .Gson.Types.newParameterizedTypeWithOwner((Type) null, parameterizedType1, typeArray1);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:74: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) parameterizedType2, type0);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:82: error: illegal start of expression
+      Type[] typeArray0 = .Gson.Types.EMPTY_TYPE_ARRAY;
+                          ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:82: error: not a statement
+      Type[] typeArray0 = .Gson.Types.EMPTY_TYPE_ARRAY;
+                                     ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:83: error: illegal start of expression
+      ParameterizedType parameterizedType0 = .Gson.Types.newParameterizedTypeWithOwner(class0, class0, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:84: error: illegal start of expression
+      Class<?> class1 = .Gson.Types.getRawType(parameterizedType0);
+                        ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:92: error: illegal start of expression
+        .Gson.Types.getRawType((Type) null);
+        ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:106: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equal((Object) null, object0);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:114: error: illegal start of expression
+      ParameterizedType parameterizedType0 = .Gson.Types.newParameterizedTypeWithOwner(class0, class0, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:115: error: illegal start of expression
+      ParameterizedType parameterizedType1 = .Gson.Types.newParameterizedTypeWithOwner(parameterizedType0, class0, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:116: error: illegal start of expression
+      Type type0 = .Gson.Types.canonicalize(parameterizedType1);
+                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:117: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals(type0, (Type) parameterizedType1);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:125: error: illegal start of expression
+      GenericArrayType genericArrayType0 = .Gson.Types.arrayOf(class0);
+                                           ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:127: error: illegal start of expression
+      GenericArrayType genericArrayType1 = .Gson.Types.arrayOf(genericArrayType0);
+                                           ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:128: error: illegal start of expression
+      ParameterizedType parameterizedType0 = .Gson.Types.newParameterizedTypeWithOwner(genericArrayType1, genericArrayType1, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:129: error: illegal start of expression
+      ParameterizedType parameterizedType1 = .Gson.Types.newParameterizedTypeWithOwner(genericArrayType0, genericArrayType0, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:130: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) parameterizedType1, (Type) parameterizedType0);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:137: error: illegal start of expression
+      Type[] typeArray0 = .Gson.Types.getMapKeyAndValueTypes(class0, class0);
+                          ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:138: error: illegal start of expression
+      ParameterizedType parameterizedType0 = .Gson.Types.newParameterizedTypeWithOwner(class0, class0, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:139: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) parameterizedType0, (Type) class0);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:146: error: illegal start of expression
+      ParameterizedType parameterizedType0 = .Gson.Types.newParameterizedTypeWithOwner((Type) null, (Type) null, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:149: error: illegal start of expression
+      ParameterizedType parameterizedType1 = .Gson.Types.newParameterizedTypeWithOwner((Type) null, parameterizedType0, typeArray1);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:150: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) parameterizedType1, (Type) parameterizedType0);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:157: error: illegal start of expression
+      Type[] typeArray0 = .Gson.Types.getMapKeyAndValueTypes(class0, class0);
+                          ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:158: error: illegal start of expression
+      ParameterizedType parameterizedType0 = .Gson.Types.newParameterizedTypeWithOwner(class0, class0, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:160: error: illegal start of expression
+      ParameterizedType parameterizedType1 = .Gson.Types.newParameterizedTypeWithOwner(class0, class0, typeArray1);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:161: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) parameterizedType0, (Type) parameterizedType1);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:168: error: illegal start of expression
+      GenericArrayType genericArrayType0 = .Gson.Types.arrayOf(class0);
+                                           ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:169: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) genericArrayType0, (Type) class0);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:176: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) null, (Type) class0);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:183: error: illegal start of expression
+      WildcardType wildcardType0 = .Gson.Types.subtypeOf(class0);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:184: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) wildcardType0, (Type) class0);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:191: error: illegal start of expression
+      WildcardType wildcardType0 = .Gson.Types.supertypeOf(class0);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:192: error: illegal start of expression
+      WildcardType wildcardType1 = .Gson.Types.supertypeOf(wildcardType0);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:193: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) wildcardType1, (Type) wildcardType0);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:199: error: illegal start of expression
+      int int0 = .Gson.Types.hashCodeOrZero((Object) null);
+                 ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:206: error: illegal start of expression
+      int int0 = .Gson.Types.hashCodeOrZero(properties0);
+                 ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:214: error: illegal start of expression
+        .Gson.Types.typeToString((Type) null);
+        ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:228: error: illegal start of expression
+      String string0 = .Gson.Types.typeToString(class0);
+                       ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:235: error: illegal start of expression
+      GenericArrayType genericArrayType0 = .Gson.Types.arrayOf(class0);
+                                           ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:236: error: illegal start of expression
+      Type type0 = .Gson.Types.getSupertype(genericArrayType0, class0, class0);
+                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:259: error: illegal start of expression
+      Type type0 = .Gson.Types.getArrayComponentType(class0);
+                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:266: error: illegal start of expression
+      GenericArrayType genericArrayType0 = .Gson.Types.arrayOf(class0);
+                                           ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:274: error: illegal start of expression
+      GenericArrayType genericArrayType0 = .Gson.Types.arrayOf(class0);
+                                           ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:275: error: illegal start of expression
+      Class<?> class1 = .Gson.Types.getRawType(genericArrayType0);
+                        ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:283: error: illegal start of expression
+      WildcardType wildcardType0 = .Gson.Types.supertypeOf(class0);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:284: error: illegal start of expression
+      Type type0 = .Gson.Types.resolve(wildcardType0, class0, wildcardType0);
+                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:293: error: illegal start of expression
+        .Gson.Types.newParameterizedTypeWithOwner((Type) null, class0, (Type[]) null);
+        ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:307: error: illegal start of expression
+      GenericArrayType genericArrayType0 = .Gson.Types.arrayOf(class0);
+                                           ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:308: error: illegal start of expression
+      Type[] typeArray0 = .Gson.Types.EMPTY_TYPE_ARRAY;
+                          ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:308: error: not a statement
+      Type[] typeArray0 = .Gson.Types.EMPTY_TYPE_ARRAY;
+                                     ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:309: error: illegal start of expression
+      ParameterizedType parameterizedType0 = .Gson.Types.newParameterizedTypeWithOwner(genericArrayType0, class0, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:310: error: illegal start of expression
+      ParameterizedType parameterizedType1 = .Gson.Types.newParameterizedTypeWithOwner(parameterizedType0, class0, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:311: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) parameterizedType0, (Type) parameterizedType1);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:318: error: illegal start of expression
+      GenericArrayType genericArrayType0 = .Gson.Types.arrayOf(class0);
+                                           ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:320: error: illegal start of expression
+      ParameterizedType parameterizedType0 = .Gson.Types.newParameterizedTypeWithOwner(genericArrayType0, genericArrayType0, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:321: error: illegal start of expression
+      ParameterizedType parameterizedType1 = .Gson.Types.newParameterizedTypeWithOwner(genericArrayType0, parameterizedType0, typeArray0);
+                                             ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:322: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) parameterizedType1, (Type) parameterizedType0);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:329: error: illegal start of expression
+      WildcardType wildcardType0 = .Gson.Types.supertypeOf(class0);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:330: error: illegal start of expression
+      WildcardType wildcardType1 = .Gson.Types.subtypeOf(wildcardType0);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:331: error: illegal start of expression
+      WildcardType wildcardType2 = .Gson.Types.subtypeOf(wildcardType1);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:332: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) wildcardType2, (Type) wildcardType1);
+                         ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:339: error: illegal start of expression
+      WildcardType wildcardType0 = .Gson.Types.supertypeOf(class0);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:340: error: illegal start of expression
+      WildcardType wildcardType1 = .Gson.Types.supertypeOf(wildcardType0);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:341: error: illegal start of expression
+      WildcardType wildcardType2 = .Gson.Types.supertypeOf(wildcardType0);
+                                   ^
+/tmp/evaluate_evosuite_Gson_14_174904o4/src/$Gson$Types_ESTest.java:342: error: illegal start of expression
+      boolean boolean0 = .Gson.Types.equals((Type) wildcardType2, (Type) wildcardType1);
+                         ^
+80 errors

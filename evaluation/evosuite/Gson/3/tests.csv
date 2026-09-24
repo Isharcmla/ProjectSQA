@@ -1,0 +1,2 @@
+test,fqcn,method,buggy,fixed,classification
+ConstructorConstructor_ESTest#notGeneratedAnyTest,com.google.gson.internal.ConstructorConstructor_ESTest,notGeneratedAnyTest,PASS,PASS,valid_non_revealing

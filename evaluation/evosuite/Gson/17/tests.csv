@@ -1,0 +1,11 @@
+test,fqcn,method,buggy,fixed,classification
+DefaultDateTypeAdapter_ESTest#test0,com.google.gson.DefaultDateTypeAdapter_ESTest,test0,PASS,PASS,valid_non_revealing
+DefaultDateTypeAdapter_ESTest#test1,com.google.gson.DefaultDateTypeAdapter_ESTest,test1,PASS,PASS,valid_non_revealing
+DefaultDateTypeAdapter_ESTest#test2,com.google.gson.DefaultDateTypeAdapter_ESTest,test2,PASS,PASS,valid_non_revealing
+DefaultDateTypeAdapter_ESTest#test3,com.google.gson.DefaultDateTypeAdapter_ESTest,test3,PASS,PASS,valid_non_revealing
+DefaultDateTypeAdapter_ESTest#test4,com.google.gson.DefaultDateTypeAdapter_ESTest,test4,PASS,PASS,valid_non_revealing
+DefaultDateTypeAdapter_ESTest#test5,com.google.gson.DefaultDateTypeAdapter_ESTest,test5,PASS,PASS,valid_non_revealing
+DefaultDateTypeAdapter_ESTest#test6,com.google.gson.DefaultDateTypeAdapter_ESTest,test6,PASS,PASS,valid_non_revealing
+DefaultDateTypeAdapter_ESTest#test7,com.google.gson.DefaultDateTypeAdapter_ESTest,test7,PASS,FAIL,fixed_regression_or_unstable
+DefaultDateTypeAdapter_ESTest#test8,com.google.gson.DefaultDateTypeAdapter_ESTest,test8,PASS,PASS,valid_non_revealing
+DefaultDateTypeAdapter_ESTest#test9,com.google.gson.DefaultDateTypeAdapter_ESTest,test9,PASS,PASS,valid_non_revealing

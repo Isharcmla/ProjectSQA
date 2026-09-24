@@ -1,0 +1,12 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "95",
+  "tool": "evosuite",
+  "generated_files": 4,
+  "candidate_tests": 69,
+  "classification_counts": {},
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "compile_failed"
+}

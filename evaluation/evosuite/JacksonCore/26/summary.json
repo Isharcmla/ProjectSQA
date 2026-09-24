@@ -1,0 +1,14 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "26",
+  "tool": "evosuite",
+  "generated_files": 2,
+  "candidate_tests": 204,
+  "classification_counts": {
+    "valid_non_revealing": 204
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

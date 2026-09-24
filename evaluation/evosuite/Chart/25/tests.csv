@@ -1,0 +1,12 @@
+test,fqcn,method,buggy,fixed,classification
+StatisticalBarRenderer_ESTest#test00,org.jfree.chart.renderer.category.StatisticalBarRenderer_ESTest,test00,PASS,PASS,valid_non_revealing
+StatisticalBarRenderer_ESTest#test01,org.jfree.chart.renderer.category.StatisticalBarRenderer_ESTest,test01,PASS,PASS,valid_non_revealing
+StatisticalBarRenderer_ESTest#test02,org.jfree.chart.renderer.category.StatisticalBarRenderer_ESTest,test02,PASS,PASS,valid_non_revealing
+StatisticalBarRenderer_ESTest#test03,org.jfree.chart.renderer.category.StatisticalBarRenderer_ESTest,test03,PASS,PASS,valid_non_revealing
+StatisticalBarRenderer_ESTest#test04,org.jfree.chart.renderer.category.StatisticalBarRenderer_ESTest,test04,PASS,PASS,valid_non_revealing
+StatisticalBarRenderer_ESTest#test05,org.jfree.chart.renderer.category.StatisticalBarRenderer_ESTest,test05,PASS,PASS,valid_non_revealing
+StatisticalBarRenderer_ESTest#test06,org.jfree.chart.renderer.category.StatisticalBarRenderer_ESTest,test06,PASS,PASS,valid_non_revealing
+StatisticalBarRenderer_ESTest#test07,org.jfree.chart.renderer.category.StatisticalBarRenderer_ESTest,test07,PASS,PASS,valid_non_revealing
+StatisticalBarRenderer_ESTest#test08,org.jfree.chart.renderer.category.StatisticalBarRenderer_ESTest,test08,PASS,PASS,valid_non_revealing
+StatisticalBarRenderer_ESTest#test09,org.jfree.chart.renderer.category.StatisticalBarRenderer_ESTest,test09,PASS,PASS,valid_non_revealing
+StatisticalBarRenderer_ESTest#test10,org.jfree.chart.renderer.category.StatisticalBarRenderer_ESTest,test10,PASS,PASS,valid_non_revealing

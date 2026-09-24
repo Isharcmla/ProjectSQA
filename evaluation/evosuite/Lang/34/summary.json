@@ -1,0 +1,14 @@
+{
+  "project": "Lang",
+  "bug_id": "34",
+  "tool": "evosuite",
+  "generated_files": 2,
+  "candidate_tests": 113,
+  "classification_counts": {
+    "valid_non_revealing": 113
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

@@ -1,0 +1,7 @@
+test,fqcn,method,buggy,fixed,classification
+AnswersValidator_ESTest#test0,org.mockito.internal.stubbing.answers.AnswersValidator_ESTest,test0,PASS,PASS,valid_non_revealing
+AnswersValidator_ESTest#test1,org.mockito.internal.stubbing.answers.AnswersValidator_ESTest,test1,PASS,PASS,valid_non_revealing
+AnswersValidator_ESTest#test2,org.mockito.internal.stubbing.answers.AnswersValidator_ESTest,test2,PASS,PASS,valid_non_revealing
+AnswersValidator_ESTest#test3,org.mockito.internal.stubbing.answers.AnswersValidator_ESTest,test3,PASS,PASS,valid_non_revealing
+AnswersValidator_ESTest#test4,org.mockito.internal.stubbing.answers.AnswersValidator_ESTest,test4,PASS,PASS,valid_non_revealing
+AnswersValidator_ESTest#test5,org.mockito.internal.stubbing.answers.AnswersValidator_ESTest,test5,PASS,PASS,valid_non_revealing

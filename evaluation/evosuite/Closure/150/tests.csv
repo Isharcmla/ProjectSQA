@@ -1,0 +1,2 @@
+test,fqcn,method,buggy,fixed,classification
+TypedScopeCreator_ESTest#notGeneratedAnyTest,com.google.javascript.jscomp.TypedScopeCreator_ESTest,notGeneratedAnyTest,PASS,PASS,valid_non_revealing

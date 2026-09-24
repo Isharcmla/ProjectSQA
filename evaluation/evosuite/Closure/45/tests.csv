@@ -1,0 +1,8 @@
+test,fqcn,method,buggy,fixed,classification
+RemoveUnusedVars_ESTest#test0,com.google.javascript.jscomp.RemoveUnusedVars_ESTest,test0,PASS,PASS,valid_non_revealing
+RemoveUnusedVars_ESTest#test1,com.google.javascript.jscomp.RemoveUnusedVars_ESTest,test1,PASS,PASS,valid_non_revealing
+RemoveUnusedVars_ESTest#test2,com.google.javascript.jscomp.RemoveUnusedVars_ESTest,test2,PASS,PASS,valid_non_revealing
+RemoveUnusedVars_ESTest#test3,com.google.javascript.jscomp.RemoveUnusedVars_ESTest,test3,PASS,PASS,valid_non_revealing
+RemoveUnusedVars_ESTest#test4,com.google.javascript.jscomp.RemoveUnusedVars_ESTest,test4,PASS,PASS,valid_non_revealing
+RemoveUnusedVars_ESTest#test5,com.google.javascript.jscomp.RemoveUnusedVars_ESTest,test5,PASS,PASS,valid_non_revealing
+RemoveUnusedVars_ESTest#test6,com.google.javascript.jscomp.RemoveUnusedVars_ESTest,test6,PASS,PASS,valid_non_revealing

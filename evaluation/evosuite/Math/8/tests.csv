@@ -1,0 +1,11 @@
+test,fqcn,method,buggy,fixed,classification
+DiscreteDistribution_ESTest#test0,org.apache.commons.math3.distribution.DiscreteDistribution_ESTest,test0,PASS,PASS,valid_non_revealing
+DiscreteDistribution_ESTest#test1,org.apache.commons.math3.distribution.DiscreteDistribution_ESTest,test1,PASS,PASS,valid_non_revealing
+DiscreteDistribution_ESTest#test2,org.apache.commons.math3.distribution.DiscreteDistribution_ESTest,test2,PASS,PASS,valid_non_revealing
+DiscreteDistribution_ESTest#test3,org.apache.commons.math3.distribution.DiscreteDistribution_ESTest,test3,PASS,PASS,valid_non_revealing
+DiscreteDistribution_ESTest#test4,org.apache.commons.math3.distribution.DiscreteDistribution_ESTest,test4,PASS,PASS,valid_non_revealing
+DiscreteDistribution_ESTest#test5,org.apache.commons.math3.distribution.DiscreteDistribution_ESTest,test5,PASS,PASS,valid_non_revealing
+DiscreteDistribution_ESTest#test6,org.apache.commons.math3.distribution.DiscreteDistribution_ESTest,test6,PASS,PASS,valid_non_revealing
+DiscreteDistribution_ESTest#test7,org.apache.commons.math3.distribution.DiscreteDistribution_ESTest,test7,PASS,PASS,valid_non_revealing
+DiscreteDistribution_ESTest#test8,org.apache.commons.math3.distribution.DiscreteDistribution_ESTest,test8,PASS,PASS,valid_non_revealing
+DiscreteDistribution_ESTest#test9,org.apache.commons.math3.distribution.DiscreteDistribution_ESTest,test9,PASS,PASS,valid_non_revealing

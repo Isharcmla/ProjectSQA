@@ -1,0 +1,2 @@
+test,fqcn,method,buggy,fixed,classification
+CallsRealMethods_ESTest#test0,org.mockito.internal.stubbing.answers.CallsRealMethods_ESTest,test0,PASS,PASS,valid_non_revealing

@@ -1,0 +1,16 @@
+{
+  "project": "Time",
+  "bug_id": "6",
+  "tool": "evosuite",
+  "generated_files": 2,
+  "candidate_tests": 38,
+  "classification_counts": {
+    "valid_non_revealing": 35,
+    "fixed_regression_or_unstable": 2,
+    "invalid_or_unstable": 1
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

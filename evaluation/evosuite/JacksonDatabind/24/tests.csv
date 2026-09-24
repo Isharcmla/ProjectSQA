@@ -1,0 +1,2 @@
+test,fqcn,method,buggy,fixed,classification
+BaseSettings_ESTest#notGeneratedAnyTest,com.fasterxml.jackson.databind.cfg.BaseSettings_ESTest,notGeneratedAnyTest,PASS,PASS,valid_non_revealing

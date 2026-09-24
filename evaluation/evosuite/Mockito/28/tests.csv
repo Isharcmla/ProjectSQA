@@ -1,0 +1,3 @@
+test,fqcn,method,buggy,fixed,classification
+DefaultInjectionEngine_ESTest#test0,org.mockito.internal.configuration.DefaultInjectionEngine_ESTest,test0,PASS,PASS,valid_non_revealing
+DefaultInjectionEngine_ESTest#test1,org.mockito.internal.configuration.DefaultInjectionEngine_ESTest,test1,PASS,PASS,valid_non_revealing

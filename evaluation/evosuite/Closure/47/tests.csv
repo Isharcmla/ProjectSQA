@@ -1,0 +1,9 @@
+test,fqcn,method,buggy,fixed,classification
+SourceMapConsumerV3_ESTest#test0,com.google.debugging.sourcemap.SourceMapConsumerV3_ESTest,test0,PASS,PASS,valid_non_revealing
+SourceMapConsumerV3_ESTest#test1,com.google.debugging.sourcemap.SourceMapConsumerV3_ESTest,test1,PASS,PASS,valid_non_revealing
+SourceMapConsumerV3_ESTest#test2,com.google.debugging.sourcemap.SourceMapConsumerV3_ESTest,test2,PASS,PASS,valid_non_revealing
+SourceMapConsumerV3_ESTest#test3,com.google.debugging.sourcemap.SourceMapConsumerV3_ESTest,test3,PASS,PASS,valid_non_revealing
+SourceMapConsumerV3_ESTest#test4,com.google.debugging.sourcemap.SourceMapConsumerV3_ESTest,test4,PASS,PASS,valid_non_revealing
+SourceMapConsumerV3_ESTest#test5,com.google.debugging.sourcemap.SourceMapConsumerV3_ESTest,test5,PASS,PASS,valid_non_revealing
+SourceMapConsumerV3_ESTest#test6,com.google.debugging.sourcemap.SourceMapConsumerV3_ESTest,test6,PASS,PASS,valid_non_revealing
+SourceMap_ESTest#test0,com.google.javascript.jscomp.SourceMap_ESTest,test0,PASS,PASS,valid_non_revealing

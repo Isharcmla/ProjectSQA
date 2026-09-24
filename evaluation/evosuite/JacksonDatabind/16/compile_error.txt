@@ -1,0 +1,40 @@
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:41: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap0._annotations = hashMap0;
+                                    ^
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:66: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap0._annotations = hashMap0;
+                                    ^
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:77: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap0._annotations = hashMap0;
+                                    ^
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:99: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap0._annotations = hashMap0;
+                                    ^
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:108: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap0._annotations = hashMap0;
+                                    ^
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:128: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap0._annotations = hashMap0;
+                                    ^
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:139: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap0._annotations = hashMap0;
+                                    ^
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:152: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap0._annotations = hashMap0;
+                                    ^
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:156: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap1._annotations = hashMap1;
+                                    ^
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:166: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap0._annotations = hashMap0;
+                                    ^
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:198: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap0._annotations = hashMap0;
+                                    ^
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:216: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap0._annotations = hashMap0;
+                                    ^
+/tmp/evaluate_evosuite_JacksonDatabind_16_v686r9xe/src/AnnotationMap_ESTest.java:232: error: incompatible types: HashMap<Class<Annotation>,Annotation> cannot be converted to HashMap<Class<? extends Annotation>,Annotation>
+      annotationMap0._annotations = hashMap0;
+                                    ^
+13 errors

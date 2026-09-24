@@ -1,0 +1,9 @@
+test,fqcn,method,buggy,fixed,classification
+InvocationMatcher_ESTest#test0,org.mockito.internal.invocation.InvocationMatcher_ESTest,test0,PASS,PASS,valid_non_revealing
+InvocationMatcher_ESTest#test1,org.mockito.internal.invocation.InvocationMatcher_ESTest,test1,PASS,PASS,valid_non_revealing
+InvocationMatcher_ESTest#test2,org.mockito.internal.invocation.InvocationMatcher_ESTest,test2,PASS,PASS,valid_non_revealing
+InvocationMatcher_ESTest#test3,org.mockito.internal.invocation.InvocationMatcher_ESTest,test3,PASS,PASS,valid_non_revealing
+InvocationMatcher_ESTest#test4,org.mockito.internal.invocation.InvocationMatcher_ESTest,test4,PASS,PASS,valid_non_revealing
+InvocationMatcher_ESTest#test5,org.mockito.internal.invocation.InvocationMatcher_ESTest,test5,PASS,PASS,valid_non_revealing
+InvocationMatcher_ESTest#test6,org.mockito.internal.invocation.InvocationMatcher_ESTest,test6,PASS,PASS,valid_non_revealing
+InvocationMatcher_ESTest#test7,org.mockito.internal.invocation.InvocationMatcher_ESTest,test7,PASS,PASS,valid_non_revealing

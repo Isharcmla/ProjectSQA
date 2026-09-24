@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+ByteBuddyMockMaker_ESTest#test0,org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker_ESTest,test0,PASS,PASS,valid_non_revealing
+ByteBuddyMockMaker_ESTest#test1,org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker_ESTest,test1,PASS,PASS,valid_non_revealing
+ByteBuddyMockMaker_ESTest#test2,org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker_ESTest,test2,PASS,PASS,valid_non_revealing
+ByteBuddyMockMaker_ESTest#test3,org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker_ESTest,test3,PASS,PASS,valid_non_revealing

@@ -1,0 +1,3 @@
+test,fqcn,method,buggy,fixed,classification
+SubTypeValidator_ESTest#test0,com.fasterxml.jackson.databind.jsontype.impl.SubTypeValidator_ESTest,test0,PASS,PASS,valid_non_revealing
+SubTypeValidator_ESTest#test1,com.fasterxml.jackson.databind.jsontype.impl.SubTypeValidator_ESTest,test1,PASS,PASS,valid_non_revealing

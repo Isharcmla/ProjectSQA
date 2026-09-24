@@ -1,0 +1,16 @@
+test,fqcn,method,buggy,fixed,classification
+Line_ESTest#test00,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test00,PASS,PASS,valid_non_revealing
+Line_ESTest#test01,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test01,PASS,PASS,valid_non_revealing
+Line_ESTest#test02,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test02,PASS,PASS,valid_non_revealing
+Line_ESTest#test03,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test03,PASS,PASS,valid_non_revealing
+Line_ESTest#test04,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test04,PASS,PASS,valid_non_revealing
+Line_ESTest#test05,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test05,PASS,PASS,valid_non_revealing
+Line_ESTest#test06,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test06,PASS,PASS,valid_non_revealing
+Line_ESTest#test07,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test07,PASS,PASS,valid_non_revealing
+Line_ESTest#test08,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test08,PASS,PASS,valid_non_revealing
+Line_ESTest#test09,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test09,PASS,PASS,valid_non_revealing
+Line_ESTest#test10,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test10,PASS,PASS,valid_non_revealing
+Line_ESTest#test11,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test11,PASS,PASS,valid_non_revealing
+Line_ESTest#test12,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test12,PASS,PASS,valid_non_revealing
+Line_ESTest#test13,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test13,PASS,PASS,valid_non_revealing
+Line_ESTest#test14,org.apache.commons.math3.geometry.euclidean.threed.Line_ESTest,test14,PASS,PASS,valid_non_revealing

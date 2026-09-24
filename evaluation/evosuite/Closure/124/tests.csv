@@ -1,0 +1,2 @@
+test,fqcn,method,buggy,fixed,classification
+ExploitAssigns_ESTest#test0,com.google.javascript.jscomp.ExploitAssigns_ESTest,test0,PASS,PASS,valid_non_revealing

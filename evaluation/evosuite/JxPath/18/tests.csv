@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+AttributeContext_ESTest#test0,org.apache.commons.jxpath.ri.axes.AttributeContext_ESTest,test0,PASS,PASS,valid_non_revealing
+AttributeContext_ESTest#test1,org.apache.commons.jxpath.ri.axes.AttributeContext_ESTest,test1,PASS,PASS,valid_non_revealing
+AttributeContext_ESTest#test2,org.apache.commons.jxpath.ri.axes.AttributeContext_ESTest,test2,PASS,PASS,valid_non_revealing
+AttributeContext_ESTest#test3,org.apache.commons.jxpath.ri.axes.AttributeContext_ESTest,test3,PASS,PASS,valid_non_revealing

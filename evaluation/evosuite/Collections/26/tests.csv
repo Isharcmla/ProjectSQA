@@ -1,0 +1,10 @@
+test,fqcn,method,buggy,fixed,classification
+MultiKey_ESTest#test0,org.apache.commons.collections4.keyvalue.MultiKey_ESTest,test0,PASS,PASS,valid_non_revealing
+MultiKey_ESTest#test1,org.apache.commons.collections4.keyvalue.MultiKey_ESTest,test1,FAIL,FAIL,invalid_or_unstable
+MultiKey_ESTest#test2,org.apache.commons.collections4.keyvalue.MultiKey_ESTest,test2,PASS,PASS,valid_non_revealing
+MultiKey_ESTest#test3,org.apache.commons.collections4.keyvalue.MultiKey_ESTest,test3,PASS,PASS,valid_non_revealing
+MultiKey_ESTest#test4,org.apache.commons.collections4.keyvalue.MultiKey_ESTest,test4,PASS,PASS,valid_non_revealing
+MultiKey_ESTest#test5,org.apache.commons.collections4.keyvalue.MultiKey_ESTest,test5,PASS,PASS,valid_non_revealing
+MultiKey_ESTest#test6,org.apache.commons.collections4.keyvalue.MultiKey_ESTest,test6,PASS,PASS,valid_non_revealing
+MultiKey_ESTest#test7,org.apache.commons.collections4.keyvalue.MultiKey_ESTest,test7,PASS,PASS,valid_non_revealing
+MultiKey_ESTest#test8,org.apache.commons.collections4.keyvalue.MultiKey_ESTest,test8,PASS,PASS,valid_non_revealing

@@ -1,0 +1,5 @@
+test,fqcn,method,buggy,fixed,classification
+CommandLineRunner_ESTest#test0,com.google.javascript.jscomp.CommandLineRunner_ESTest,test0,FAIL,FAIL,invalid_or_unstable
+CommandLineRunner_ESTest#test1,com.google.javascript.jscomp.CommandLineRunner_ESTest,test1,FAIL,FAIL,invalid_or_unstable
+CommandLineRunner_ESTest#test2,com.google.javascript.jscomp.CommandLineRunner_ESTest,test2,FAIL,FAIL,invalid_or_unstable
+CommandLineRunner_ESTest#test3,com.google.javascript.jscomp.CommandLineRunner_ESTest,test3,PASS,PASS,valid_non_revealing

@@ -1,0 +1,11 @@
+test,fqcn,method,buggy,fixed,classification
+AbstractLeastSquaresOptimizer_ESTest#test0,org.apache.commons.math3.optim.nonlinear.vector.jacobian.AbstractLeastSquaresOptimizer_ESTest,test0,PASS,PASS,valid_non_revealing
+AbstractLeastSquaresOptimizer_ESTest#test1,org.apache.commons.math3.optim.nonlinear.vector.jacobian.AbstractLeastSquaresOptimizer_ESTest,test1,PASS,PASS,valid_non_revealing
+AbstractLeastSquaresOptimizer_ESTest#test2,org.apache.commons.math3.optim.nonlinear.vector.jacobian.AbstractLeastSquaresOptimizer_ESTest,test2,PASS,PASS,valid_non_revealing
+AbstractLeastSquaresOptimizer_ESTest#test3,org.apache.commons.math3.optim.nonlinear.vector.jacobian.AbstractLeastSquaresOptimizer_ESTest,test3,PASS,PASS,valid_non_revealing
+AbstractLeastSquaresOptimizer_ESTest#test4,org.apache.commons.math3.optim.nonlinear.vector.jacobian.AbstractLeastSquaresOptimizer_ESTest,test4,PASS,FAIL,fixed_regression_or_unstable
+AbstractLeastSquaresOptimizer_ESTest#test5,org.apache.commons.math3.optim.nonlinear.vector.jacobian.AbstractLeastSquaresOptimizer_ESTest,test5,PASS,PASS,valid_non_revealing
+AbstractLeastSquaresOptimizer_ESTest#test6,org.apache.commons.math3.optim.nonlinear.vector.jacobian.AbstractLeastSquaresOptimizer_ESTest,test6,PASS,PASS,valid_non_revealing
+Weight_ESTest#test0,org.apache.commons.math3.optim.nonlinear.vector.Weight_ESTest,test0,PASS,PASS,valid_non_revealing
+Weight_ESTest#test1,org.apache.commons.math3.optim.nonlinear.vector.Weight_ESTest,test1,PASS,PASS,valid_non_revealing
+Weight_ESTest#test2,org.apache.commons.math3.optim.nonlinear.vector.Weight_ESTest,test2,PASS,PASS,valid_non_revealing

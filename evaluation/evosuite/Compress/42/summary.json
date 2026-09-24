@@ -1,0 +1,15 @@
+{
+  "project": "Compress",
+  "bug_id": "42",
+  "tool": "evosuite",
+  "generated_files": 4,
+  "candidate_tests": 53,
+  "classification_counts": {
+    "valid_non_revealing": 52,
+    "fixed_regression_or_unstable": 1
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "success"
+}

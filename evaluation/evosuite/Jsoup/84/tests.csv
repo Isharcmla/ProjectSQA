@@ -1,0 +1,8 @@
+test,fqcn,method,buggy,fixed,classification
+W3CDom_ESTest#test0,org.jsoup.helper.W3CDom_ESTest,test0,PASS,PASS,valid_non_revealing
+W3CDom_ESTest#test1,org.jsoup.helper.W3CDom_ESTest,test1,PASS,PASS,valid_non_revealing
+W3CDom_ESTest#test2,org.jsoup.helper.W3CDom_ESTest,test2,PASS,PASS,valid_non_revealing
+W3CDom_ESTest#test3,org.jsoup.helper.W3CDom_ESTest,test3,PASS,PASS,valid_non_revealing
+W3CDom_ESTest#test4,org.jsoup.helper.W3CDom_ESTest,test4,PASS,PASS,valid_non_revealing
+W3CDom_ESTest#test5,org.jsoup.helper.W3CDom_ESTest,test5,PASS,PASS,valid_non_revealing
+W3CDom_ESTest#test6,org.jsoup.helper.W3CDom_ESTest,test6,PASS,PASS,valid_non_revealing

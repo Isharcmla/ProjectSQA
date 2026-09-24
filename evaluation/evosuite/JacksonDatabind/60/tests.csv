@@ -1,0 +1,2 @@
+test,fqcn,method,buggy,fixed,classification
+JsonValueSerializer_ESTest#test0,com.fasterxml.jackson.databind.ser.std.JsonValueSerializer_ESTest,test0,PASS,PASS,valid_non_revealing

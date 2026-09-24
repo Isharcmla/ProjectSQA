@@ -1,0 +1,4 @@
+test,fqcn,method,buggy,fixed,classification
+Timer_ESTest#test0,org.mockito.internal.util.Timer_ESTest,test0,PASS,FAIL,fixed_regression_or_unstable
+Timer_ESTest#test1,org.mockito.internal.util.Timer_ESTest,test1,PASS,FAIL,fixed_regression_or_unstable
+Timer_ESTest#test2,org.mockito.internal.util.Timer_ESTest,test2,PASS,PASS,valid_non_revealing

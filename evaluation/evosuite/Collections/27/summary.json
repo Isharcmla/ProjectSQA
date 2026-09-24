@@ -1,0 +1,12 @@
+{
+  "project": "Collections",
+  "bug_id": "27",
+  "tool": "evosuite",
+  "generated_files": 2,
+  "candidate_tests": 22,
+  "classification_counts": {},
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "compile_failed"
+}

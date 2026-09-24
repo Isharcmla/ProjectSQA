@@ -1,0 +1,15 @@
+test,fqcn,method,buggy,fixed,classification
+QuotedPrintableCodec_ESTest#test00,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test00,PASS,PASS,valid_non_revealing
+QuotedPrintableCodec_ESTest#test01,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test01,PASS,PASS,valid_non_revealing
+QuotedPrintableCodec_ESTest#test02,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test02,PASS,PASS,valid_non_revealing
+QuotedPrintableCodec_ESTest#test03,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test03,PASS,FAIL,fixed_regression_or_unstable
+QuotedPrintableCodec_ESTest#test04,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test04,PASS,PASS,valid_non_revealing
+QuotedPrintableCodec_ESTest#test05,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test05,PASS,PASS,valid_non_revealing
+QuotedPrintableCodec_ESTest#test06,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test06,PASS,PASS,valid_non_revealing
+QuotedPrintableCodec_ESTest#test07,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test07,PASS,PASS,valid_non_revealing
+QuotedPrintableCodec_ESTest#test08,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test08,PASS,PASS,valid_non_revealing
+QuotedPrintableCodec_ESTest#test09,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test09,PASS,PASS,valid_non_revealing
+QuotedPrintableCodec_ESTest#test10,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test10,PASS,PASS,valid_non_revealing
+QuotedPrintableCodec_ESTest#test11,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test11,PASS,PASS,valid_non_revealing
+QuotedPrintableCodec_ESTest#test12,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test12,PASS,PASS,valid_non_revealing
+QuotedPrintableCodec_ESTest#test13,org.apache.commons.codec.net.QuotedPrintableCodec_ESTest,test13,PASS,PASS,valid_non_revealing

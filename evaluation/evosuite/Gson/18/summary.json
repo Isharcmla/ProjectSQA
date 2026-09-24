@@ -1,0 +1,12 @@
+{
+  "project": "Gson",
+  "bug_id": "18",
+  "tool": "evosuite",
+  "generated_files": 2,
+  "candidate_tests": 36,
+  "classification_counts": {},
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "compile_failed"
+}

@@ -1,0 +1,6 @@
+test,fqcn,method,buggy,fixed,classification
+ReflectiveTypeAdapterFactory_ESTest#test0,com.google.gson.internal.bind.ReflectiveTypeAdapterFactory_ESTest,test0,PASS,PASS,valid_non_revealing
+ReflectiveTypeAdapterFactory_ESTest#test1,com.google.gson.internal.bind.ReflectiveTypeAdapterFactory_ESTest,test1,PASS,PASS,valid_non_revealing
+ReflectiveTypeAdapterFactory_ESTest#test2,com.google.gson.internal.bind.ReflectiveTypeAdapterFactory_ESTest,test2,PASS,PASS,valid_non_revealing
+ReflectiveTypeAdapterFactory_ESTest#test3,com.google.gson.internal.bind.ReflectiveTypeAdapterFactory_ESTest,test3,PASS,PASS,valid_non_revealing
+ReflectiveTypeAdapterFactory_ESTest#test4,com.google.gson.internal.bind.ReflectiveTypeAdapterFactory_ESTest,test4,PASS,PASS,valid_non_revealing

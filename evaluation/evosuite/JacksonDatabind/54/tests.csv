@@ -1,0 +1,2 @@
+test,fqcn,method,buggy,fixed,classification
+PropertyBuilder_ESTest#test0,com.fasterxml.jackson.databind.ser.PropertyBuilder_ESTest,test0,PASS,PASS,valid_non_revealing

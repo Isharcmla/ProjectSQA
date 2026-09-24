@@ -1,0 +1,8 @@
+/tmp/evaluate_evosuite_Collections_20_2q10ry41/src/TreeList_ESTest.java:58: error: incompatible types: Object cannot be converted to String
+      treeList0.set(0, (Object) null);
+                       ^
+/tmp/evaluate_evosuite_Collections_20_2q10ry41/src/TreeList_ESTest.java:143: error: incompatible types: Object cannot be converted to String
+      treeList0.set(0, (Object) null);
+                       ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+2 errors
