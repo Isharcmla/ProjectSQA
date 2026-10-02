@@ -1,0 +1,1093 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.util.AbstractMap;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ArrayUtilsTest {
+
+    // ---------- toString ----------
+    @Test
+    public void testToString_nullArray_returnsEmptyBraces() {
+        assertEquals("{}", ArrayUtils.toString(null));
+    }
+
+    @Test
+    public void testToString_nonNullArray_returnsNonNullString() {
+        int[] arr = {1, 2, 3};
+        String result = ArrayUtils.toString(arr);
+        assertNotNull(result);
+        assertTrue(result.length() > 0);
+    }
+
+    @Test
+    public void testToString_nullArrayWithCustomString_returnsCustomString() {
+        assertEquals("CUSTOM", ArrayUtils.toString(null, "CUSTOM"));
+    }
+
+    @Test
+    public void testToString_nonNullArrayWithCustomString_returnsArrayString() {
+        String[] arr = {"a", "b"};
+        String result = ArrayUtils.toString(arr, "CUSTOM");
+        assertNotNull(result);
+        assertFalse(result.equals("CUSTOM"));
+    }
+
+    // ---------- isEquals ----------
+    @Test
+    public void testIsEquals_sameArrays_returnsTrue() {
+        int[] a1 = {1, 2, 3};
+        int[] a2 = {1, 2, 3};
+        assertTrue(ArrayUtils.isEquals(a1, a2));
+    }
+
+    @Test
+    public void testIsEquals_differentArrays_returnsFalse() {
+        int[] a1 = {1, 2, 3};
+        int[] a2 = {1, 2, 4};
+        assertFalse(ArrayUtils.isEquals(a1, a2));
+    }
+
+    @Test
+    public void testIsEquals_bothNull_returnsTrue() {
+        assertTrue(ArrayUtils.isEquals(null, null));
+    }
+
+    // ---------- toMap ----------
+    @Test
+    public void testToMap_nullArray_returnsNull() {
+        assertNull(ArrayUtils.toMap(null));
+    }
+
+    @Test
+    public void testToMap_arrayOfArrays_returnsMap() {
+        Object[] array = new Object[] {
+            new Object[] {"RED", "#FF0000"},
+            new Object[] {"GREEN", "#00FF00"}
+        };
+        Map<Object, Object> map = ArrayUtils.toMap(array);
+        assertEquals("#FF0000", map.get("RED"));
+        assertEquals("#00FF00", map.get("GREEN"));
+    }
+
+    @Test
+    public void testToMap_mapEntryArray_returnsMap() {
+        Map.Entry<String, String> entry = new AbstractMap.SimpleEntry<String, String>("key", "value");
+        Object[] array = new Object[] { entry };
+        Map<Object, Object> map = ArrayUtils.toMap(array);
+        assertEquals("value", map.get("key"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testToMap_arrayElementLengthLessThanTwo_throwsException() {
+        Object[] array = new Object[] { new Object[] {"onlyone"} };
+        ArrayUtils.toMap(array);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testToMap_invalidElementType_throwsException() {
+        Object[] array = new Object[] { "invalid" };
+        ArrayUtils.toMap(array);
+    }
+
+    // ---------- clone ----------
+    @Test
+    public void testCloneObjectArray_nullInput_returnsNull() {
+        assertNull(ArrayUtils.clone((Object[]) null));
+    }
+
+    @Test
+    public void testCloneObjectArray_validInput_returnsClone() {
+        String[] arr = {"a", "b"};
+        String[] cloned = ArrayUtils.clone(arr);
+        assertArrayEquals(arr, cloned);
+        assertNotSame(arr, cloned);
+    }
+
+    @Test
+    public void testCloneLongArray_nullInput_returnsNull() {
+        assertNull(ArrayUtils.clone((long[]) null));
+    }
+
+    @Test
+    public void testCloneLongArray_validInput_returnsClone() {
+        long[] arr = {1L, 2L};
+        long[] cloned = ArrayUtils.clone(arr);
+        assertArrayEquals(arr, cloned);
+        assertNotSame(arr, cloned);
+    }
+
+    @Test
+    public void testCloneIntArray_nullInput_returnsNull() {
+        assertNull(ArrayUtils.clone((int[]) null));
+    }
+
+    @Test
+    public void testCloneIntArray_validInput_returnsClone() {
+        int[] arr = {1, 2};
+        int[] cloned = ArrayUtils.clone(arr);
+        assertArrayEquals(arr, cloned);
+    }
+
+    @Test
+    public void testCloneShortArray_nullInput_returnsNull() {
+        assertNull(ArrayUtils.clone((short[]) null));
+    }
+
+    @Test
+    public void testCloneShortArray_validInput_returnsClone() {
+        short[] arr = {1, 2};
+        short[] cloned = ArrayUtils.clone(arr);
+        assertArrayEquals(arr, cloned);
+    }
+
+    @Test
+    public void testCloneCharArray_nullInput_returnsNull() {
+        assertNull(ArrayUtils.clone((char[]) null));
+    }
+
+    @Test
+    public void testCloneCharArray_validInput_returnsClone() {
+        char[] arr = {'a', 'b'};
+        char[] cloned = ArrayUtils.clone(arr);
+        assertArrayEquals(arr, cloned);
+    }
+
+    @Test
+    public void testCloneByteArray_nullInput_returnsNull() {
+        assertNull(ArrayUtils.clone((byte[]) null));
+    }
+
+    @Test
+    public void testCloneByteArray_validInput_returnsClone() {
+        byte[] arr = {1, 2};
+        byte[] cloned = ArrayUtils.clone(arr);
+        assertArrayEquals(arr, cloned);
+    }
+
+    @Test
+    public void testCloneDoubleArray_nullInput_returnsNull() {
+        assertNull(ArrayUtils.clone((double[]) null));
+    }
+
+    @Test
+    public void testCloneDoubleArray_validInput_returnsClone() {
+        double[] arr = {1.0, 2.0};
+        double[] cloned = ArrayUtils.clone(arr);
+        assertArrayEquals(arr, cloned, 0.0001);
+    }
+
+    @Test
+    public void testCloneFloatArray_nullInput_returnsNull() {
+        assertNull(ArrayUtils.clone((float[]) null));
+    }
+
+    @Test
+    public void testCloneFloatArray_validInput_returnsClone() {
+        float[] arr = {1.0f, 2.0f};
+        float[] cloned = ArrayUtils.clone(arr);
+        assertArrayEquals(arr, cloned, 0.0001f);
+    }
+
+    @Test
+    public void testCloneBooleanArray_nullInput_returnsNull() {
+        assertNull(ArrayUtils.clone((boolean[]) null));
+    }
+
+    @Test
+    public void testCloneBooleanArray_validInput_returnsClone() {
+        boolean[] arr = {true, false};
+        boolean[] cloned = ArrayUtils.clone(arr);
+        assertArrayEquals(arr, cloned);
+    }
+
+    // ---------- subarray (Object) ----------
+    @Test
+    public void testSubarrayObject_nullInput_returnsNull() {
+        assertNull(ArrayUtils.subarray((String[]) null, 0, 1));
+    }
+
+    @Test
+    public void testSubarrayObject_normalRange_returnsSubarray() {
+        String[] arr = {"a", "b", "c", "d"};
+        String[] result = ArrayUtils.subarray(arr, 1, 3);
+        assertArrayEquals(new String[]{"b", "c"}, result);
+    }
+
+    @Test
+    public void testSubarrayObject_negativeStart_promotedToZero() {
+        String[] arr = {"a", "b", "c"};
+        String[] result = ArrayUtils.subarray(arr, -2, 2);
+        assertArrayEquals(new String[]{"a", "b"}, result);
+    }
+
+    @Test
+    public void testSubarrayObject_endGreaterThanLength_demoted() {
+        String[] arr = {"a", "b", "c"};
+        String[] result = ArrayUtils.subarray(arr, 1, 10);
+        assertArrayEquals(new String[]{"b", "c"}, result);
+    }
+
+    @Test
+    public void testSubarrayObject_newSizeNonPositive_returnsEmptyArray() {
+        String[] arr = {"a", "b", "c"};
+        String[] result = ArrayUtils.subarray(arr, 3, 1);
+        assertEquals(0, result.length);
+    }
+
+    // ---------- subarray (long) ----------
+    @Test
+    public void testSubarrayLong_nullInput_returnsNull() {
+        assertNull(ArrayUtils.subarray((long[]) null, 0, 1));
+    }
+
+    @Test
+    public void testSubarrayLong_normalRange_returnsSubarray() {
+        long[] arr = {1L, 2L, 3L, 4L};
+        long[] result = ArrayUtils.subarray(arr, 1, 3);
+        assertArrayEquals(new long[]{2L, 3L}, result);
+    }
+
+    @Test
+    public void testSubarrayLong_emptyResult_returnsEmptyArray() {
+        long[] arr = {1L, 2L};
+        long[] result = ArrayUtils.subarray(arr, 2, 1);
+        assertEquals(0, result.length);
+    }
+
+    @Test
+    public void testSubarrayLong_negativeStart_promotedToZero() {
+        long[] arr = {1L, 2L, 3L};
+        long[] result = ArrayUtils.subarray(arr, -1, 2);
+        assertArrayEquals(new long[]{1L, 2L}, result);
+    }
+
+    @Test
+    public void testSubarrayLong_endGreaterThanLength_demoted() {
+        long[] arr = {1L, 2L, 3L};
+        long[] result = ArrayUtils.subarray(arr, 0, 100);
+        assertArrayEquals(arr, result);
+    }
+
+    // ---------- subarray (int) ----------
+    @Test
+    public void testSubarrayInt_nullInput_returnsNull() {
+        assertNull(ArrayUtils.subarray((int[]) null, 0, 1));
+    }
+
+    @Test
+    public void testSubarrayInt_normalRange_returnsSubarray() {
+        int[] arr = {1, 2, 3, 4};
+        int[] result = ArrayUtils.subarray(arr, 1, 3);
+        assertArrayEquals(new int[]{2, 3}, result);
+    }
+
+    @Test
+    public void testSubarrayInt_emptyResult_returnsEmptyArray() {
+        int[] arr = {1, 2};
+        int[] result = ArrayUtils.subarray(arr, 2, 1);
+        assertEquals(0, result.length);
+    }
+
+    // ---------- subarray (short) ----------
+    @Test
+    public void testSubarrayShort_nullInput_returnsNull() {
+        assertNull(ArrayUtils.subarray((short[]) null, 0, 1));
+    }
+
+    @Test
+    public void testSubarrayShort_normalRange_returnsSubarray() {
+        short[] arr = {1, 2, 3, 4};
+        short[] result = ArrayUtils.subarray(arr, 1, 3);
+        assertArrayEquals(new short[]{2, 3}, result);
+    }
+
+    @Test
+    public void testSubarrayShort_emptyResult_returnsEmptyArray() {
+        short[] arr = {1, 2};
+        short[] result = ArrayUtils.subarray(arr, 2, 1);
+        assertEquals(0, result.length);
+    }
+
+    // ---------- subarray (char) ----------
+    @Test
+    public void testSubarrayChar_nullInput_returnsNull() {
+        assertNull(ArrayUtils.subarray((char[]) null, 0, 1));
+    }
+
+    @Test
+    public void testSubarrayChar_normalRange_returnsSubarray() {
+        char[] arr = {'a', 'b', 'c', 'd'};
+        char[] result = ArrayUtils.subarray(arr, 1, 3);
+        assertArrayEquals(new char[]{'b', 'c'}, result);
+    }
+
+    @Test
+    public void testSubarrayChar_emptyResult_returnsEmptyArray() {
+        char[] arr = {'a', 'b'};
+        char[] result = ArrayUtils.subarray(arr, 2, 1);
+        assertEquals(0, result.length);
+    }
+
+    // ---------- subarray (byte) ----------
+    @Test
+    public void testSubarrayByte_nullInput_returnsNull() {
+        assertNull(ArrayUtils.subarray((byte[]) null, 0, 1));
+    }
+
+    @Test
+    public void testSubarrayByte_normalRange_returnsSubarray() {
+        byte[] arr = {1, 2, 3, 4};
+        byte[] result = ArrayUtils.subarray(arr, 1, 3);
+        assertArrayEquals(new byte[]{2, 3}, result);
+    }
+
+    @Test
+    public void testSubarrayByte_emptyResult_returnsEmptyArray() {
+        byte[] arr = {1, 2};
+        byte[] result = ArrayUtils.subarray(arr, 2, 1);
+        assertEquals(0, result.length);
+    }
+
+    // ---------- subarray (double) ----------
+    @Test
+    public void testSubarrayDouble_nullInput_returnsNull() {
+        assertNull(ArrayUtils.subarray((double[]) null, 0, 1));
+    }
+
+    @Test
+    public void testSubarrayDouble_normalRange_returnsSubarray() {
+        double[] arr = {1.0, 2.0, 3.0, 4.0};
+        double[] result = ArrayUtils.subarray(arr, 1, 3);
+        assertArrayEquals(new double[]{2.0, 3.0}, result, 0.0001);
+    }
+
+    @Test
+    public void testSubarrayDouble_emptyResult_returnsEmptyArray() {
+        double[] arr = {1.0, 2.0};
+        double[] result = ArrayUtils.subarray(arr, 2, 1);
+        assertEquals(0, result.length);
+    }
+
+    // ---------- subarray (float) ----------
+    @Test
+    public void testSubarrayFloat_nullInput_returnsNull() {
+        assertNull(ArrayUtils.subarray((float[]) null, 0, 1));
+    }
+
+    @Test
+    public void testSubarrayFloat_normalRange_returnsSubarray() {
+        float[] arr = {1.0f, 2.0f, 3.0f, 4.0f};
+        float[] result = ArrayUtils.subarray(arr, 1, 3);
+        assertArrayEquals(new float[]{2.0f, 3.0f}, result, 0.0001f);
+    }
+
+    @Test
+    public void testSubarrayFloat_emptyResult_returnsEmptyArray() {
+        float[] arr = {1.0f, 2.0f};
+        float[] result = ArrayUtils.subarray(arr, 2, 1);
+        assertEquals(0, result.length);
+    }
+
+    // ---------- subarray (boolean) ----------
+    @Test
+    public void testSubarrayBoolean_nullInput_returnsNull() {
+        assertNull(ArrayUtils.subarray((boolean[]) null, 0, 1));
+    }
+
+    @Test
+    public void testSubarrayBoolean_normalRange_returnsSubarray() {
+        boolean[] arr = {true, false, true, false};
+        boolean[] result = ArrayUtils.subarray(arr, 1, 3);
+        assertArrayEquals(new boolean[]{false, true}, result);
+    }
+
+    @Test
+    public void testSubarrayBoolean_emptyResult_returnsEmptyArray() {
+        boolean[] arr = {true, false};
+        boolean[] result = ArrayUtils.subarray(arr, 2, 1);
+        assertEquals(0, result.length);
+    }
+
+    // ---------- isSameLength (Object) ----------
+    @Test
+    public void testIsSameLengthObject_bothNull_returnsTrue() {
+        assertTrue(ArrayUtils.isSameLength((Object[]) null, (Object[]) null));
+    }
+
+    @Test
+    public void testIsSameLengthObject_sameLength_returnsTrue() {
+        assertTrue(ArrayUtils.isSameLength(new Object[]{1, 2}, new Object[]{3, 4}));
+    }
+
+    @Test
+    public void testIsSameLengthObject_differentLength_returnsFalse() {
+        assertFalse(ArrayUtils.isSameLength(new Object[]{1, 2}, new Object[]{3}));
+    }
+
+    @Test
+    public void testIsSameLengthObject_oneNullOneEmpty_returnsTrue() {
+        assertTrue(ArrayUtils.isSameLength((Object[]) null, new Object[0]));
+    }
+
+    @Test
+    public void testIsSameLengthObject_oneNullOneNonEmpty_returnsFalse() {
+        assertFalse(ArrayUtils.isSameLength((Object[]) null, new Object[]{1}));
+    }
+
+    // ---------- isSameLength (long) ----------
+    @Test
+    public void testIsSameLengthLong_bothNull_returnsTrue() {
+        assertTrue(ArrayUtils.isSameLength((long[]) null, (long[]) null));
+    }
+
+    @Test
+    public void testIsSameLengthLong_sameLength_returnsTrue() {
+        assertTrue(ArrayUtils.isSameLength(new long[]{1, 2}, new long[]{3, 4}));
+    }
+
+    @Test
+    public void testIsSameLengthLong_differentLength_returnsFalse() {
+        assertFalse(ArrayUtils.isSameLength(new long[]{1, 2}, new long[]{3}));
+    }
+
+    // ---------- isSameLength (int) ----------
+    @Test
+    public void testIsSameLengthInt_sameLength_returnsTrue() {
+        assertTrue(ArrayUtils.isSameLength(new int[]{1, 2}, new int[]{3, 4}));
+    }
+
+    @Test
+    public void testIsSameLengthInt_differentLength_returnsFalse() {
+        assertFalse(ArrayUtils.isSameLength(new int[]{1, 2}, new int[]{3}));
+    }
+
+    // ---------- isSameLength (short) ----------
+    @Test
+    public void testIsSameLengthShort_sameLength_returnsTrue() {
+        assertTrue(ArrayUtils.isSameLength(new short[]{1, 2}, new short[]{3, 4}));
+    }
+
+    @Test
+    public void testIsSameLengthShort_differentLength_returnsFalse() {
+        assertFalse(ArrayUtils.isSameLength(new short[]{1, 2}, new short[]{3}));
+    }
+
+    // ---------- isSameLength (char) ----------
+    @Test
+    public void testIsSameLengthChar_sameLength_returnsTrue() {
+        assertTrue(ArrayUtils.isSameLength(new char[]{'a', 'b'}, new char[]{'c', 'd'}));
+    }
+
+    @Test
+    public void testIsSameLengthChar_differentLength_returnsFalse() {
+        assertFalse(ArrayUtils.isSameLength(new char[]{'a', 'b'}, new char[]{'c'}));
+    }
+
+    // ---------- isSameLength (byte) ----------
+    @Test
+    public void testIsSameLengthByte_sameLength_returnsTrue() {
+        assertTrue(ArrayUtils.isSameLength(new byte[]{1, 2}, new byte[]{3, 4}));
+    }
+
+    @Test
+    public void testIsSameLengthByte_differentLength_returnsFalse() {
+        assertFalse(ArrayUtils.isSameLength(new byte[]{1, 2}, new byte[]{3}));
+    }
+
+    // ---------- isSameLength (double) ----------
+    @Test
+    public void testIsSameLengthDouble_sameLength_returnsTrue() {
+        assertTrue(ArrayUtils.isSameLength(new double[]{1.0, 2.0}, new double[]{3.0, 4.0}));
+    }
+
+    @Test
+    public void testIsSameLengthDouble_differentLength_returnsFalse() {
+        assertFalse(ArrayUtils.isSameLength(new double[]{1.0, 2.0}, new double[]{3.0}));
+    }
+
+    // ---------- isSameLength (float) ----------
+    @Test
+    public void testIsSameLengthFloat_sameLength_returnsTrue() {
+        assertTrue(ArrayUtils.isSameLength(new float[]{1.0f, 2.0f}, new float[]{3.0f, 4.0f}));
+    }
+
+    @Test
+    public void testIsSameLengthFloat_differentLength_returnsFalse() {
+        assertFalse(ArrayUtils.isSameLength(new float[]{1.0f, 2.0f}, new float[]{3.0f}));
+    }
+
+    // ---------- isSameLength (boolean) ----------
+    @Test
+    public void testIsSameLengthBoolean_sameLength_returnsTrue() {
+        assertTrue(ArrayUtils.isSameLength(new boolean[]{true, false}, new boolean[]{false, true}));
+    }
+
+    @Test
+    public void testIsSameLengthBoolean_differentLength_returnsFalse() {
+        assertFalse(ArrayUtils.isSameLength(new boolean[]{true, false}, new boolean[]{false}));
+    }
+
+    // ---------- getLength ----------
+    @Test
+    public void testGetLength_nullArray_returnsZero() {
+        assertEquals(0, ArrayUtils.getLength(null));
+    }
+
+    @Test
+    public void testGetLength_emptyArray_returnsZero() {
+        assertEquals(0, ArrayUtils.getLength(new int[0]));
+    }
+
+    @Test
+    public void testGetLength_nonEmptyArray_returnsCorrectLength() {
+        assertEquals(3, ArrayUtils.getLength(new int[]{1, 2, 3}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetLength_notAnArray_throwsException() {
+        ArrayUtils.getLength("not an array");
+    }
+
+    // ---------- isSameType ----------
+    @Test
+    public void testIsSameType_sameType_returnsTrue() {
+        assertTrue(ArrayUtils.isSameType(new int[0], new int[0]));
+    }
+
+    @Test
+    public void testIsSameType_differentType_returnsFalse() {
+        assertFalse(ArrayUtils.isSameType(new int[0], new long[0]));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameType_firstNull_throwsException() {
+        ArrayUtils.isSameType(null, new int[0]);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameType_secondNull_throwsException() {
+        ArrayUtils.isSameType(new int[0], null);
+    }
+
+    // ---------- reverse (Object) ----------
+    @Test
+    public void testReverseObject_nullArray_doesNothing() {
+        ArrayUtils.reverse((Object[]) null);
+        // no exception
+    }
+
+    @Test
+    public void testReverseObject_normalArray_reversesOrder() {
+        String[] arr = {"a", "b", "c"};
+        ArrayUtils.reverse(arr);
+        assertArrayEquals(new String[]{"c", "b", "a"}, arr);
+    }
+
+    // ---------- reverse (long) ----------
+    @Test
+    public void testReverseLong_nullArray_doesNothing() {
+        ArrayUtils.reverse((long[]) null);
+    }
+
+    @Test
+    public void testReverseLong_normalArray_reversesOrder() {
+        long[] arr = {1L, 2L, 3L};
+        ArrayUtils.reverse(arr);
+        assertArrayEquals(new long[]{3L, 2L, 1L}, arr);
+    }
+
+    // ---------- reverse (int) ----------
+    @Test
+    public void testReverseInt_nullArray_doesNothing() {
+        ArrayUtils.reverse((int[]) null);
+    }
+
+    @Test
+    public void testReverseInt_normalArray_reversesOrder() {
+        int[] arr = {1, 2, 3};
+        ArrayUtils.reverse(arr);
+        assertArrayEquals(new int[]{3, 2, 1}, arr);
+    }
+
+    // ---------- reverse (short) ----------
+    @Test
+    public void testReverseShort_nullArray_doesNothing() {
+        ArrayUtils.reverse((short[]) null);
+    }
+
+    @Test
+    public void testReverseShort_normalArray_reversesOrder() {
+        short[] arr = {1, 2, 3};
+        ArrayUtils.reverse(arr);
+        assertArrayEquals(new short[]{3, 2, 1}, arr);
+    }
+
+    // ---------- reverse (char) ----------
+    @Test
+    public void testReverseChar_nullArray_doesNothing() {
+        ArrayUtils.reverse((char[]) null);
+    }
+
+    @Test
+    public void testReverseChar_normalArray_reversesOrder() {
+        char[] arr = {'a', 'b', 'c'};
+        ArrayUtils.reverse(arr);
+        assertArrayEquals(new char[]{'c', 'b', 'a'}, arr);
+    }
+
+    // ---------- reverse (byte) ----------
+    @Test
+    public void testReverseByte_nullArray_doesNothing() {
+        ArrayUtils.reverse((byte[]) null);
+    }
+
+    @Test
+    public void testReverseByte_normalArray_reversesOrder() {
+        byte[] arr = {1, 2, 3};
+        ArrayUtils.reverse(arr);
+        assertArrayEquals(new byte[]{3, 2, 1}, arr);
+    }
+
+    // ---------- reverse (double) ----------
+    @Test
+    public void testReverseDouble_nullArray_doesNothing() {
+        ArrayUtils.reverse((double[]) null);
+    }
+
+    @Test
+    public void testReverseDouble_normalArray_reversesOrder() {
+        double[] arr = {1.0, 2.0, 3.0};
+        ArrayUtils.reverse(arr);
+        assertArrayEquals(new double[]{3.0, 2.0, 1.0}, arr, 0.0001);
+    }
+
+    // ---------- reverse (float) ----------
+    @Test
+    public void testReverseFloat_nullArray_doesNothing() {
+        ArrayUtils.reverse((float[]) null);
+    }
+
+    @Test
+    public void testReverseFloat_normalArray_reversesOrder() {
+        float[] arr = {1.0f, 2.0f, 3.0f};
+        ArrayUtils.reverse(arr);
+        assertArrayEquals(new float[]{3.0f, 2.0f, 1.0f}, arr, 0.0001f);
+    }
+
+    // ---------- reverse (boolean) ----------
+    @Test
+    public void testReverseBoolean_nullArray_doesNothing() {
+        ArrayUtils.reverse((boolean[]) null);
+    }
+
+    @Test
+    public void testReverseBoolean_normalArray_reversesOrder() {
+        boolean[] arr = {true, true, false};
+        ArrayUtils.reverse(arr);
+        assertArrayEquals(new boolean[]{false, true, true}, arr);
+    }
+
+    // ---------- indexOf (Object) ----------
+    @Test
+    public void testIndexOfObject_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf((Object[]) null, "a"));
+    }
+
+    @Test
+    public void testIndexOfObject_found_returnsIndex() {
+        String[] arr = {"a", "b", "c"};
+        assertEquals(1, ArrayUtils.indexOf(arr, "b"));
+    }
+
+    @Test
+    public void testIndexOfObject_notFound_returnsNotFound() {
+        String[] arr = {"a", "b"};
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf(arr, "z"));
+    }
+
+    @Test
+    public void testIndexOfObject_nullObjectToFind_returnsIndexOfNull() {
+        String[] arr = {"a", null, "c"};
+        assertEquals(1, ArrayUtils.indexOf(arr, null));
+    }
+
+    @Test
+    public void testIndexOfObjectWithStartIndex_negativeStart_treatedAsZero() {
+        String[] arr = {"a", "b", "c"};
+        assertEquals(0, ArrayUtils.indexOf(arr, "a", -5));
+    }
+
+    @Test
+    public void testIndexOfObjectWithStartIndex_startBeyondLength_returnsNotFound() {
+        String[] arr = {"a", "b"};
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf(arr, "a", 5));
+    }
+
+    // ---------- lastIndexOf (Object) ----------
+    @Test
+    public void testLastIndexOfObject_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf((Object[]) null, "a"));
+    }
+
+    @Test
+    public void testLastIndexOfObject_found_returnsLastIndex() {
+        String[] arr = {"a", "b", "a"};
+        assertEquals(2, ArrayUtils.lastIndexOf(arr, "a"));
+    }
+
+    @Test
+    public void testLastIndexOfObjectWithStartIndex_negativeStart_returnsNotFound() {
+        String[] arr = {"a", "b"};
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf(arr, "a", -1));
+    }
+
+    @Test
+    public void testLastIndexOfObjectWithStartIndex_startBeyondLength_searchesFromEnd() {
+        String[] arr = {"a", "b", "a"};
+        assertEquals(2, ArrayUtils.lastIndexOf(arr, "a", 100));
+    }
+
+    @Test
+    public void testLastIndexOfObject_nullObjectToFind_returnsLastNullIndex() {
+        String[] arr = {"a", null, "c", null};
+        assertEquals(3, ArrayUtils.lastIndexOf(arr, null));
+    }
+
+    // ---------- contains (Object) ----------
+    @Test
+    public void testContainsObject_found_returnsTrue() {
+        String[] arr = {"a", "b"};
+        assertTrue(ArrayUtils.contains(arr, "a"));
+    }
+
+    @Test
+    public void testContainsObject_notFound_returnsFalse() {
+        String[] arr = {"a", "b"};
+        assertFalse(ArrayUtils.contains(arr, "z"));
+    }
+
+    @Test
+    public void testContainsObject_nullArray_returnsFalse() {
+        assertFalse(ArrayUtils.contains((Object[]) null, "a"));
+    }
+
+    // ---------- indexOf/lastIndexOf/contains (long) ----------
+    @Test
+    public void testIndexOfLong_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf((long[]) null, 1L));
+    }
+
+    @Test
+    public void testIndexOfLong_found_returnsIndex() {
+        long[] arr = {1L, 2L, 3L};
+        assertEquals(1, ArrayUtils.indexOf(arr, 2L));
+    }
+
+    @Test
+    public void testIndexOfLongWithStartIndex_negativeStart_treatedAsZero() {
+        long[] arr = {1L, 2L};
+        assertEquals(0, ArrayUtils.indexOf(arr, 1L, -3));
+    }
+
+    @Test
+    public void testLastIndexOfLong_found_returnsLastIndex() {
+        long[] arr = {1L, 2L, 1L};
+        assertEquals(2, ArrayUtils.lastIndexOf(arr, 1L));
+    }
+
+    @Test
+    public void testLastIndexOfLong_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf((long[]) null, 1L));
+    }
+
+    @Test
+    public void testLastIndexOfLongWithStartIndex_negativeStart_returnsNotFound() {
+        long[] arr = {1L, 2L};
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf(arr, 1L, -1));
+    }
+
+    @Test
+    public void testLastIndexOfLongWithStartIndex_startBeyondLength_searchesFromEnd() {
+        long[] arr = {1L, 2L, 1L};
+        assertEquals(2, ArrayUtils.lastIndexOf(arr, 1L, 100));
+    }
+
+    @Test
+    public void testContainsLong_found_returnsTrue() {
+        long[] arr = {1L, 2L};
+        assertTrue(ArrayUtils.contains(arr, 1L));
+    }
+
+    @Test
+    public void testContainsLong_notFound_returnsFalse() {
+        long[] arr = {1L, 2L};
+        assertFalse(ArrayUtils.contains(arr, 5L));
+    }
+
+    // ---------- indexOf/lastIndexOf/contains (int) ----------
+    @Test
+    public void testIndexOfInt_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf((int[]) null, 1));
+    }
+
+    @Test
+    public void testIndexOfInt_found_returnsIndex() {
+        int[] arr = {1, 2, 3};
+        assertEquals(1, ArrayUtils.indexOf(arr, 2));
+    }
+
+    @Test
+    public void testLastIndexOfInt_found_returnsLastIndex() {
+        int[] arr = {1, 2, 1};
+        assertEquals(2, ArrayUtils.lastIndexOf(arr, 1));
+    }
+
+    @Test
+    public void testLastIndexOfInt_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf((int[]) null, 1));
+    }
+
+    @Test
+    public void testContainsInt_found_returnsTrue() {
+        int[] arr = {1, 2};
+        assertTrue(ArrayUtils.contains(arr, 1));
+    }
+
+    @Test
+    public void testContainsInt_notFound_returnsFalse() {
+        int[] arr = {1, 2};
+        assertFalse(ArrayUtils.contains(arr, 5));
+    }
+
+    // ---------- indexOf/lastIndexOf/contains (short) ----------
+    @Test
+    public void testIndexOfShort_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf((short[]) null, (short) 1));
+    }
+
+    @Test
+    public void testIndexOfShort_found_returnsIndex() {
+        short[] arr = {1, 2, 3};
+        assertEquals(1, ArrayUtils.indexOf(arr, (short) 2));
+    }
+
+    @Test
+    public void testLastIndexOfShort_found_returnsLastIndex() {
+        short[] arr = {1, 2, 1};
+        assertEquals(2, ArrayUtils.lastIndexOf(arr, (short) 1));
+    }
+
+    @Test
+    public void testLastIndexOfShort_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf((short[]) null, (short) 1));
+    }
+
+    @Test
+    public void testContainsShort_found_returnsTrue() {
+        short[] arr = {1, 2};
+        assertTrue(ArrayUtils.contains(arr, (short) 1));
+    }
+
+    // ---------- indexOf/lastIndexOf/contains (char) ----------
+    @Test
+    public void testIndexOfChar_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf((char[]) null, 'a'));
+    }
+
+    @Test
+    public void testIndexOfChar_found_returnsIndex() {
+        char[] arr = {'a', 'b', 'c'};
+        assertEquals(1, ArrayUtils.indexOf(arr, 'b'));
+    }
+
+    @Test
+    public void testLastIndexOfChar_found_returnsLastIndex() {
+        char[] arr = {'a', 'b', 'a'};
+        assertEquals(2, ArrayUtils.lastIndexOf(arr, 'a'));
+    }
+
+    @Test
+    public void testLastIndexOfChar_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf((char[]) null, 'a'));
+    }
+
+    @Test
+    public void testContainsChar_found_returnsTrue() {
+        char[] arr = {'a', 'b'};
+        assertTrue(ArrayUtils.contains(arr, 'a'));
+    }
+
+    // ---------- indexOf/lastIndexOf/contains (byte) ----------
+    @Test
+    public void testIndexOfByte_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf((byte[]) null, (byte) 1));
+    }
+
+    @Test
+    public void testIndexOfByte_found_returnsIndex() {
+        byte[] arr = {1, 2, 3};
+        assertEquals(1, ArrayUtils.indexOf(arr, (byte) 2));
+    }
+
+    @Test
+    public void testLastIndexOfByte_found_returnsLastIndex() {
+        byte[] arr = {1, 2, 1};
+        assertEquals(2, ArrayUtils.lastIndexOf(arr, (byte) 1));
+    }
+
+    @Test
+    public void testLastIndexOfByte_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf((byte[]) null, (byte) 1));
+    }
+
+    @Test
+    public void testContainsByte_found_returnsTrue() {
+        byte[] arr = {1, 2};
+        assertTrue(ArrayUtils.contains(arr, (byte) 1));
+    }
+
+    // ---------- indexOf/lastIndexOf/contains (double) ----------
+    @Test
+    public void testIndexOfDouble_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf((double[]) null, 1.0));
+    }
+
+    @Test
+    public void testIndexOfDouble_found_returnsIndex() {
+        double[] arr = {1.0, 2.0, 3.0};
+        assertEquals(1, ArrayUtils.indexOf(arr, 2.0));
+    }
+
+    @Test
+    public void testIndexOfDoubleWithTolerance_withinTolerance_returnsIndex() {
+        double[] arr = {1.0, 2.0, 3.0};
+        assertEquals(1, ArrayUtils.indexOf(arr, 2.05, 0.1));
+    }
+
+    @Test
+    public void testIndexOfDoubleWithTolerance_emptyArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf(new double[0], 1.0, 0.1));
+    }
+
+    @Test
+    public void testIndexOfDoubleWithStartIndexAndTolerance_negativeStart_treatedAsZero() {
+        double[] arr = {1.0, 2.0, 3.0};
+        assertEquals(0, ArrayUtils.indexOf(arr, 1.0, -5, 0.1));
+    }
+
+    @Test
+    public void testLastIndexOfDouble_found_returnsLastIndex() {
+        double[] arr = {1.0, 2.0, 1.0};
+        assertEquals(2, ArrayUtils.lastIndexOf(arr, 1.0));
+    }
+
+    @Test
+    public void testLastIndexOfDouble_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf((double[]) null, 1.0));
+    }
+
+    @Test
+    public void testLastIndexOfDoubleWithTolerance_withinTolerance_returnsIndex() {
+        double[] arr = {1.0, 2.0, 3.0};
+        assertEquals(1, ArrayUtils.lastIndexOf(arr, 2.05, 0.1));
+    }
+
+    @Test
+    public void testLastIndexOfDoubleWithStartIndex_negativeStart_returnsNotFound() {
+        double[] arr = {1.0, 2.0};
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf(arr, 1.0, -1));
+    }
+
+    @Test
+    public void testLastIndexOfDoubleWithStartIndex_startBeyondLength_searchesFromEnd() {
+        double[] arr = {1.0, 2.0, 1.0};
+        assertEquals(2, ArrayUtils.lastIndexOf(arr, 1.0, 100));
+    }
+
+    @Test
+    public void testLastIndexOfDoubleWithStartIndexAndTolerance_emptyArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf(new double[0], 1.0, 5, 0.1));
+    }
+
+    @Test
+    public void testLastIndexOfDoubleWithStartIndexAndTolerance_negativeStart_returnsNotFound() {
+        double[] arr = {1.0, 2.0};
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf(arr, 1.0, -1, 0.1));
+    }
+
+    @Test
+    public void testContainsDouble_found_returnsTrue() {
+        double[] arr = {1.0, 2.0};
+        assertTrue(ArrayUtils.contains(arr, 1.0));
+    }
+
+    @Test
+    public void testContainsDoubleWithTolerance_withinTolerance_returnsTrue() {
+        double[] arr = {1.0, 2.0};
+        assertTrue(ArrayUtils.contains(arr, 1.05, 0.1));
+    }
+
+    // ---------- indexOf/lastIndexOf/contains (float) ----------
+    @Test
+    public void testIndexOfFloat_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf((float[]) null, 1.0f));
+    }
+
+    @Test
+    public void testIndexOfFloat_found_returnsIndex() {
+        float[] arr = {1.0f, 2.0f, 3.0f};
+        assertEquals(1, ArrayUtils.indexOf(arr, 2.0f));
+    }
+
+    @Test
+    public void testIndexOfFloatWithStartIndex_emptyArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf(new float[0], 1.0f, 0));
+    }
+
+    @Test
+    public void testLastIndexOfFloat_found_returnsLastIndex() {
+        float[] arr = {1.0f, 2.0f, 1.0f};
+        assertEquals(2, ArrayUtils.lastIndexOf(arr, 1.0f));
+    }
+
+    @Test
+    public void testLastIndexOfFloat_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf((float[]) null, 1.0f));
+    }
+
+    @Test
+    public void testLastIndexOfFloatWithStartIndex_negativeStart_returnsNotFound() {
+        float[] arr = {1.0f, 2.0f};
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.lastIndexOf(arr, 1.0f, -1));
+    }
+
+    @Test
+    public void testLastIndexOfFloatWithStartIndex_startBeyondLength_searchesFromEnd() {
+        float[] arr = {1.0f, 2.0f, 1.0f};
+        assertEquals(2, ArrayUtils.lastIndexOf(arr, 1.0f, 100));
+    }
+
+    @Test
+    public void testContainsFloat_found_returnsTrue() {
+        float[] arr = {1.0f, 2.0f};
+        assertTrue(ArrayUtils.contains(arr, 1.0f));
+    }
+
+    // ---------- indexOf/lastIndexOf/contains (boolean) ----------
+    @Test
+    public void testIndexOfBoolean_nullArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT_FOUND, ArrayUtils.indexOf((boolean[]) null, true));
+    }
+
+    @Test
+    public void testIndexOfBoolean_found_returnsIndex() {
+        boolean[] arr = {false, true, false};
+        assertEquals(1, ArrayUtils.indexOf(arr, true));
+    }
+
+    @Test
+    public void testIndexOfBooleanWithStartIndex_emptyArray_returnsNotFound() {
+        assertEquals(ArrayUtils.INDEX_NOT

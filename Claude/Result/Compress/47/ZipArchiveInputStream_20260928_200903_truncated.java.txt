@@ -1,0 +1,386 @@
+package org.apache.commons.compress.archivers.zip;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.zip.CRC32;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipOutputStream;
+
+import org.apache.commons.compress.archivers.ArchiveEntry;
+
+public class ZipArchiveInputStreamTest {
+
+    // ---------- helper methods to build valid zip byte arrays using JDK classes ----------
+
+    private byte[] createSingleEntryZip(String name, byte[] content, int method) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipOutputStream zos = new ZipOutputStream(baos);
+        ZipEntry entry = new ZipEntry(name);
+        if (method == ZipEntry.STORED) {
+            entry.setMethod(ZipEntry.STORED);
+            entry.setSize(content.length);
+            CRC32 crc = new CRC32();
+            crc.update(content);
+            entry.setCrc(crc.getValue());
+        } else {
+            entry.setMethod(ZipEntry.DEFLATED);
+        }
+        zos.putNextEntry(entry);
+        zos.write(content);
+        zos.closeEntry();
+        zos.finish();
+        zos.close();
+        return baos.toByteArray();
+    }
+
+    private byte[] createTwoEntryZip() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipOutputStream zos = new ZipOutputStream(baos);
+
+        byte[] content1 = "Hello World".getBytes("UTF-8");
+        ZipEntry e1 = new ZipEntry("first.txt");
+        e1.setMethod(ZipEntry.DEFLATED);
+        zos.putNextEntry(e1);
+        zos.write(content1);
+        zos.closeEntry();
+
+        byte[] content2 = "ABCDEFGHIJ".getBytes("UTF-8");
+        ZipEntry e2 = new ZipEntry("second.txt");
+        e2.setMethod(ZipEntry.STORED);
+        e2.setSize(content2.length);
+        CRC32 crc = new CRC32();
+        crc.update(content2);
+        e2.setCrc(crc.getValue());
+        zos.putNextEntry(e2);
+        zos.write(content2);
+        zos.closeEntry();
+
+        zos.finish();
+        zos.close();
+        return baos.toByteArray();
+    }
+
+    private byte[] readAllFromZipArchiveInputStream(ZipArchiveInputStream zis) throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        byte[] buf = new byte[1024];
+        int r;
+        while ((r = zis.read(buf, 0, buf.length)) > 0) {
+            out.write(buf, 0, r);
+        }
+        return out.toByteArray();
+    }
+
+    // ---------- Constructor tests ----------
+
+    @Test
+    public void testConstructor_defaultEncoding_doesNotThrow() {
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(new byte[0]));
+        assertNotNull(zis);
+    }
+
+    @Test
+    public void testConstructor_withCustomEncoding_setsEncodingField() {
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(new byte[0]), "ISO-8859-1");
+        assertEquals("ISO-8859-1", zis.encoding);
+    }
+
+    @Test
+    public void testConstructor_withUseUnicodeExtraFieldsFlag_doesNotThrow() {
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(new byte[0]), "UTF-8", false);
+        assertNotNull(zis);
+    }
+
+    @Test
+    public void testConstructor_withAllowStoredEntriesWithDataDescriptorFlag_doesNotThrow() {
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(new byte[0]), "UTF-8", true, true);
+        assertNotNull(zis);
+    }
+
+    // ---------- getNextZipEntry / getNextEntry tests ----------
+
+    @Test
+    public void testGetNextZipEntry_deflatedEntry_returnsCorrectEntryAndData() throws IOException {
+        byte[] content = "Hello World Compressed Content".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("deflated.txt", content, ZipEntry.DEFLATED);
+
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        ZipArchiveEntry entry = zis.getNextZipEntry();
+
+        assertNotNull(entry);
+        assertEquals("deflated.txt", entry.getName());
+        assertEquals(ZipEntry.DEFLATED, entry.getMethod());
+
+        byte[] readContent = readAllFromZipArchiveInputStream(zis);
+        assertArrayEquals(content, readContent);
+
+        zis.close();
+    }
+
+    @Test
+    public void testGetNextZipEntry_storedEntry_returnsCorrectEntryAndData() throws IOException {
+        byte[] content = "STORED_CONTENT_1234567890".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("stored.txt", content, ZipEntry.STORED);
+
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        ZipArchiveEntry entry = zis.getNextZipEntry();
+
+        assertNotNull(entry);
+        assertEquals("stored.txt", entry.getName());
+        assertEquals(ZipEntry.STORED, entry.getMethod());
+
+        byte[] readContent = readAllFromZipArchiveInputStream(zis);
+        assertArrayEquals(content, readContent);
+
+        zis.close();
+    }
+
+    @Test
+    public void testGetNextZipEntry_multipleEntries_readsAllAndReturnsNullAtEnd() throws IOException {
+        byte[] zipBytes = createTwoEntryZip();
+
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        int count = 0;
+        ZipArchiveEntry e;
+        while ((e = zis.getNextZipEntry()) != null) {
+            count++;
+            readAllFromZipArchiveInputStream(zis);
+        }
+        assertEquals(2, count);
+        zis.close();
+    }
+
+    @Test
+    public void testGetNextZipEntry_emptyInputStream_returnsNull() throws IOException {
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(new byte[0]));
+        ZipArchiveEntry entry = zis.getNextZipEntry();
+        assertNull(entry);
+        zis.close();
+    }
+
+    @Test(expected = ZipException.class)
+    public void testGetNextZipEntry_invalidSignature_throwsZipException() throws IOException {
+        // 64 zero bytes: enough to fill the local file header (30 bytes) without EOF
+        // but the signature will not match any known zip signature.
+        byte[] garbage = new byte[64];
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(garbage));
+        try {
+            zis.getNextZipEntry();
+        } finally {
+            zis.close();
+        }
+    }
+
+    @Test
+    public void testGetNextZipEntry_afterStreamClosed_returnsNull() throws IOException {
+        byte[] content = "data".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("a.txt", content, ZipEntry.STORED);
+
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        zis.close();
+        ZipArchiveEntry entry = zis.getNextZipEntry();
+        assertNull(entry);
+    }
+
+    @Test
+    public void testGetNextEntry_delegatesToGetNextZipEntry() throws IOException {
+        byte[] content = "content-for-getnextentry".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("entry.txt", content, ZipEntry.DEFLATED);
+
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        ArchiveEntry entry = zis.getNextEntry();
+
+        assertNotNull(entry);
+        assertTrue(entry instanceof ZipArchiveEntry);
+        assertEquals("entry.txt", entry.getName());
+        zis.close();
+    }
+
+    // ---------- read tests ----------
+
+    @Test(expected = IOException.class)
+    public void testRead_streamClosed_throwsIOException() throws IOException {
+        byte[] content = "abc".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("f.txt", content, ZipEntry.STORED);
+
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        zis.close();
+        byte[] buffer = new byte[10];
+        zis.read(buffer, 0, 10);
+    }
+
+    @Test
+    public void testRead_noCurrentEntry_returnsMinusOne() throws IOException {
+        byte[] content = "abc".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("f.txt", content, ZipEntry.STORED);
+
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        // no call to getNextZipEntry() yet, current is null
+        byte[] buffer = new byte[10];
+        int result = zis.read(buffer, 0, 10);
+        assertEquals(-1, result);
+        zis.close();
+    }
+
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void testRead_invalidOffsetLength_throwsArrayIndexOutOfBoundsException() throws IOException {
+        byte[] content = "abcdefgh".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("f.txt", content, ZipEntry.STORED);
+
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        zis.getNextZipEntry();
+        byte[] buffer = new byte[10];
+        // offset > buffer.length triggers exception
+        zis.read(buffer, 20, 2);
+    }
+
+    @Test
+    public void testRead_negativeLength_throwsArrayIndexOutOfBoundsException() throws IOException {
+        byte[] content = "abcdefgh".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("f.txt", content, ZipEntry.STORED);
+
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        zis.getNextZipEntry();
+        byte[] buffer = new byte[10];
+        try {
+            zis.read(buffer, 0, -1);
+            fail("Expected ArrayIndexOutOfBoundsException");
+        } catch (ArrayIndexOutOfBoundsException expected) {
+            // expected
+        } finally {
+            zis.close();
+        }
+    }
+
+    // ---------- canReadEntryData tests ----------
+
+    @Test
+    public void testCanReadEntryData_withNullEntry_returnsFalse() throws IOException {
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(new byte[0]));
+        boolean result = zis.canReadEntryData(null);
+        assertFalse(result);
+        zis.close();
+    }
+
+    @Test
+    public void testCanReadEntryData_withRealDeflatedEntry_returnsTrue() throws IOException {
+        byte[] content = "readable-content".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("readable.txt", content, ZipEntry.DEFLATED);
+
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        ZipArchiveEntry entry = zis.getNextZipEntry();
+        assertNotNull(entry);
+
+        boolean result = zis.canReadEntryData(entry);
+        assertTrue(result);
+        zis.close();
+    }
+
+    @Test
+    public void testCanReadEntryData_withRealStoredEntry_returnsTrue() throws IOException {
+        byte[] content = "readable-stored-content".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("readable_stored.txt", content, ZipEntry.STORED);
+
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        ZipArchiveEntry entry = zis.getNextZipEntry();
+        assertNotNull(entry);
+
+        boolean result = zis.canReadEntryData(entry);
+        assertTrue(result);
+        zis.close();
+    }
+
+    // ---------- matches tests ----------
+
+    @Test
+    public void testMatches_withValidLocalFileHeaderSignature_returnsTrue() {
+        byte[] sig = new byte[]{0x50, 0x4B, 0x03, 0x04, 0, 0, 0, 0};
+        assertTrue(ZipArchiveInputStream.matches(sig, sig.length));
+    }
+
+    @Test
+    public void testMatches_withInvalidSignature_returnsFalse() {
+        byte[] sig = new byte[]{0x00, 0x01, 0x02, 0x03, 0x04};
+        assertFalse(ZipArchiveInputStream.matches(sig, sig.length));
+    }
+
+    @Test
+    public void testMatches_withLengthLessThanSignatureLength_returnsFalse() {
+        byte[] sig = new byte[]{0x50, 0x4B};
+        assertFalse(ZipArchiveInputStream.matches(sig, sig.length));
+    }
+
+    @Test
+    public void testMatches_withEmptySignatureArray_returnsFalse() {
+        byte[] sig = new byte[0];
+        assertFalse(ZipArchiveInputStream.matches(sig, 0));
+    }
+
+    // ---------- skip tests ----------
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSkip_withNegativeValue_throwsIllegalArgumentException() throws IOException {
+        byte[] content = "abc".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("f.txt", content, ZipEntry.STORED);
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        try {
+            zis.getNextZipEntry();
+            zis.skip(-1);
+        } finally {
+            zis.close();
+        }
+    }
+
+    @Test
+    public void testSkip_withPositiveValueOnStoredEntry_skipsCorrectBytes() throws IOException {
+        byte[] content = "ABCDEFGHIJ".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("skip_test.txt", content, ZipEntry.STORED);
+
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        ZipArchiveEntry entry = zis.getNextZipEntry();
+        assertNotNull(entry);
+
+        long skipped = zis.skip(3);
+        assertEquals(3, skipped);
+
+        byte[] buffer = new byte[10];
+        int total = 0;
+        int r;
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        while ((r = zis.read(buffer, 0, buffer.length)) > 0) {
+            out.write(buffer, 0, r);
+            total += r;
+        }
+        assertEquals(7, total);
+        assertArrayEquals("DEFGHIJ".getBytes("UTF-8"), out.toByteArray());
+        zis.close();
+    }
+
+    @Test
+    public void testSkip_withZeroValue_returnsZero() throws IOException {
+        byte[] content = "abc".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("f.txt", content, ZipEntry.STORED);
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        zis.getNextZipEntry();
+        long skipped = zis.skip(0);
+        assertEquals(0, skipped);
+        zis.close();
+    }
+
+    // ---------- close tests ----------
+
+    @Test
+    public void testClose_calledMultipleTimes_doesNotThrow() throws IOException {
+        byte[] content = "abc".getBytes("UTF-8");
+        byte[] zipBytes = createSingleEntryZip("f.txt", content, ZipEntry.STORED);
+        ZipArchiveInputStream zis = new ZipArchiveInputStream(new ByteArrayInputStream(zipBytes));
+        zis.close();
+        zis.close(); // should not throw
+    }
+
+    @Test
+    public void testClose_afterReadingEntry_does

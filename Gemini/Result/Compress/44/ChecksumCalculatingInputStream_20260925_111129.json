@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "44",
+  "tool": "gemini",
+  "class": "org.apache.commons.compress.utils.ChecksumCalculatingInputStream",
+  "target_classes": [
+    "org.apache.commons.compress.utils.ChecksumCalculatingInputStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 35.38,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Compress\\44\\ChecksumCalculatingInputStream_20260925_111129.txt",
+  "test_file": "Gemini\\TestCode\\Compress\\44\\ChecksumCalculatingInputStreamTest.java",
+  "usage": {
+    "prompt_tokens": 1034,
+    "completion_tokens": 2223,
+    "total_tokens": 6238
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 255921,
+    "daily_remaining_tokens": 94079
+  },
+  "timestamp": "20260925_111129"
+}

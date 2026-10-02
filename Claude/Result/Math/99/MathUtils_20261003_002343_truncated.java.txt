@@ -1,0 +1,125 @@
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.math.BigDecimal;
+
+public class MathUtilsTest {
+
+    private static final double DELTA = 1e-9;
+    private static final float FDELTA = 1e-5f;
+
+    // ---------- addAndCheck(int,int) ----------
+    @Test
+    public void testAddAndCheckInt_normal_returnsSum() {
+        assertEquals(5, MathUtils.addAndCheck(2, 3));
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testAddAndCheckInt_overflow_throwsException() {
+        MathUtils.addAndCheck(Integer.MAX_VALUE, 1);
+    }
+
+    // ---------- addAndCheck(long,long) ----------
+    @Test
+    public void testAddAndCheckLong_swapBranch_returnsSum() {
+        assertEquals(8L, MathUtils.addAndCheck(5L, 3L));
+    }
+
+    @Test
+    public void testAddAndCheckLong_bothNegative_returnsSum() {
+        assertEquals(-8L, MathUtils.addAndCheck(-5L, -3L));
+    }
+
+    @Test
+    public void testAddAndCheckLong_oppositeSign_returnsSum() {
+        assertEquals(-2L, MathUtils.addAndCheck(-5L, 3L));
+    }
+
+    @Test
+    public void testAddAndCheckLong_bothPositive_returnsSum() {
+        assertEquals(8L, MathUtils.addAndCheck(3L, 5L));
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testAddAndCheckLong_positiveOverflow_throwsException() {
+        MathUtils.addAndCheck(Long.MAX_VALUE, 1L);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testAddAndCheckLong_negativeOverflow_throwsException() {
+        MathUtils.addAndCheck(Long.MIN_VALUE, -1L);
+    }
+
+    // ---------- binomialCoefficient ----------
+    @Test
+    public void testBinomialCoefficient_normalSmallN_returnsCorrectValue() {
+        assertEquals(10L, MathUtils.binomialCoefficient(5, 2));
+    }
+
+    @Test
+    public void testBinomialCoefficient_nEqualsK_returnsOne() {
+        assertEquals(1L, MathUtils.binomialCoefficient(5, 5));
+    }
+
+    @Test
+    public void testBinomialCoefficient_kZero_returnsOne() {
+        assertEquals(1L, MathUtils.binomialCoefficient(5, 0));
+    }
+
+    @Test
+    public void testBinomialCoefficient_kOne_returnsN() {
+        assertEquals(5L, MathUtils.binomialCoefficient(5, 1));
+    }
+
+    @Test
+    public void testBinomialCoefficient_kEqualsNMinusOne_returnsN() {
+        assertEquals(5L, MathUtils.binomialCoefficient(5, 4));
+    }
+
+    @Test
+    public void testBinomialCoefficient_symmetryLargeK_returnsSameAsSmallK() {
+        assertEquals(MathUtils.binomialCoefficient(10, 2), MathUtils.binomialCoefficient(10, 8));
+    }
+
+    @Test
+    public void testBinomialCoefficient_nBetween62And66_returnsCorrectValue() {
+        assertEquals(1891L, MathUtils.binomialCoefficient(62, 2));
+    }
+
+    @Test
+    public void testBinomialCoefficient_nGreaterThan66_returnsCorrectValue() {
+        assertEquals(2211L, MathUtils.binomialCoefficient(67, 2));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBinomialCoefficient_nLessThanK_throwsException() {
+        MathUtils.binomialCoefficient(2, 5);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBinomialCoefficient_negativeN_throwsException() {
+        MathUtils.binomialCoefficient(-1, 0);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testBinomialCoefficient_overflow_throwsException() {
+        MathUtils.binomialCoefficient(1000, 500);
+    }
+
+    // ---------- binomialCoefficientDouble ----------
+    @Test
+    public void testBinomialCoefficientDouble_normal_returnsCorrectValue() {
+        assertEquals(10d, MathUtils.binomialCoefficientDouble(5, 2), DELTA);
+    }
+
+    @Test
+    public void testBinomialCoefficientDouble_nEqualsK_returnsOne() {
+        assertEquals(1d, MathUtils.binomialCoefficientDouble(5, 5), DELTA);
+    }
+
+    @Test
+    public void testBinomialCoefficientDouble_kZero_returnsOne() {
+        assertEquals(1d, MathUtils.binomialCoefficientDouble(5, 0), DELTA);
+    }
+
+    @Test
+    public void testBinomialCoefficientDouble_k

@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "7",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.ode.AbstractIntegrator",
+  "target_classes": [
+    "org.apache.commons.math3.ode.AbstractIntegrator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 53.95,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\7\\AbstractIntegrator_20260926_031741.txt",
+  "test_file": "Gemini\\TestCode\\Math\\7\\AbstractIntegratorTest.java",
+  "usage": {
+    "prompt_tokens": 4148,
+    "completion_tokens": 5267,
+    "total_tokens": 12127
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 96645,
+    "daily_remaining_tokens": 253355
+  },
+  "timestamp": "20260926_031741"
+}

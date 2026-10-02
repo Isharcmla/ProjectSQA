@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "30",
+  "tool": "claude",
+  "class": "org.apache.commons.lang3.StringUtils",
+  "target_classes": [
+    "org.apache.commons.lang3.StringUtils"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 102.19,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Lang\\30\\StringUtils_20261001_141337.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 94650,
+    "completion_tokens": 16384,
+    "total_tokens": 111034
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 265777,
+    "daily_remaining_tokens": -65777
+  },
+  "timestamp": "20261001_141337"
+}

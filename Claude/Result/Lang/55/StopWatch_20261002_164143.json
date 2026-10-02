@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "55",
+  "tool": "claude",
+  "class": "org.apache.commons.lang.time.StopWatch",
+  "target_classes": [
+    "org.apache.commons.lang.time.StopWatch"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 22.64,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Lang\\55\\StopWatch_20261002_164143.txt",
+  "test_file": "Claude\\TestCode\\Lang\\55\\StopWatchTest.java",
+  "usage": {
+    "prompt_tokens": 4273,
+    "completion_tokens": 3448,
+    "total_tokens": 7721
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 138849,
+    "daily_remaining_tokens": 61151
+  },
+  "timestamp": "20261002_164143"
+}

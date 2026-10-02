@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "57",
+  "tool": "gemini",
+  "class": "org.apache.commons.lang.LocaleUtils",
+  "target_classes": [
+    "org.apache.commons.lang.LocaleUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 42.53,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Lang\\57\\LocaleUtils_20260926_020754.txt",
+  "test_file": "Gemini\\TestCode\\Lang\\57\\LocaleUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 3167,
+    "completion_tokens": 3768,
+    "total_tokens": 9441
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 225887,
+    "daily_remaining_tokens": 124113
+  },
+  "timestamp": "20260926_020754"
+}

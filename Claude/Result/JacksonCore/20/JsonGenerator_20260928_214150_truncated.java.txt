@@ -1,0 +1,551 @@
+package com.fasterxml.jackson.core;
+
+import static org.junit.Assert.*;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.fasterxml.jackson.core.io.SerializedString;
+
+public class JsonGeneratorTest {
+
+    /**
+     * Minimal concrete implementation of JsonGenerator used purely for testing
+     * the base class' default / concrete methods.
+     */
+    static class TestGenerator extends JsonGenerator {
+        List<String> log = new ArrayList<String>();
+        int featureMask = 0;
+        boolean closed = false;
+        ObjectCodec codec;
+
+        @Override
+        public JsonGenerator setCodec(ObjectCodec oc) {
+            this.codec = oc;
+            return this;
+        }
+
+        @Override
+        public ObjectCodec getCodec() {
+            return codec;
+        }
+
+        @Override
+        public Version version() {
+            return Version.unknownVersion();
+        }
+
+        @Override
+        public JsonGenerator enable(Feature f) {
+            featureMask |= f.getMask();
+            return this;
+        }
+
+        @Override
+        public JsonGenerator disable(Feature f) {
+            featureMask &= ~f.getMask();
+            return this;
+        }
+
+        @Override
+        public boolean isEnabled(Feature f) {
+            return f.enabledIn(featureMask);
+        }
+
+        @Override
+        public int getFeatureMask() {
+            return featureMask;
+        }
+
+        @Override
+        public JsonGenerator setFeatureMask(int values) {
+            featureMask = values;
+            return this;
+        }
+
+        @Override
+        public JsonGenerator useDefaultPrettyPrinter() {
+            log.add("useDefaultPrettyPrinter");
+            return this;
+        }
+
+        @Override
+        public void writeStartArray() throws IOException {
+            log.add("startArray");
+        }
+
+        @Override
+        public void writeEndArray() throws IOException {
+            log.add("endArray");
+        }
+
+        @Override
+        public void writeStartObject() throws IOException {
+            log.add("startObject");
+        }
+
+        @Override
+        public void writeEndObject() throws IOException {
+            log.add("endObject");
+        }
+
+        @Override
+        public void writeFieldName(String name) throws IOException {
+            log.add("fieldName:" + name);
+        }
+
+        @Override
+        public void writeFieldName(SerializableString name) throws IOException {
+            log.add("fieldName:" + name.getValue());
+        }
+
+        @Override
+        public void writeString(String text) throws IOException {
+            log.add("string:" + text);
+        }
+
+        @Override
+        public void writeString(char[] text, int offset, int len) throws IOException {
+            log.add("string:" + new String(text, offset, len));
+        }
+
+        @Override
+        public void writeString(SerializableString text) throws IOException {
+            log.add("string:" + text.getValue());
+        }
+
+        @Override
+        public void writeRawUTF8String(byte[] text, int offset, int length) throws IOException {
+            log.add("rawUtf8String");
+        }
+
+        @Override
+        public void writeUTF8String(byte[] text, int offset, int length) throws IOException {
+            log.add("utf8String");
+        }
+
+        @Override
+        public void writeRaw(String text) throws IOException {
+            log.add("raw:" + text);
+        }
+
+        @Override
+        public void writeRaw(String text, int offset, int len) throws IOException {
+            log.add("raw:" + text.substring(offset, offset + len));
+        }
+
+        @Override
+        public void writeRaw(char[] text, int offset, int len) throws IOException {
+            log.add("raw:" + new String(text, offset, len));
+        }
+
+        @Override
+        public void writeRaw(char c) throws IOException {
+            log.add("raw:" + c);
+        }
+
+        @Override
+        public void writeRawValue(String text) throws IOException {
+            log.add("rawValue:" + text);
+        }
+
+        @Override
+        public void writeRawValue(String text, int offset, int len) throws IOException {
+            log.add("rawValue:" + text.substring(offset, offset + len));
+        }
+
+        @Override
+        public void writeRawValue(char[] text, int offset, int len) throws IOException {
+            log.add("rawValue:" + new String(text, offset, len));
+        }
+
+        @Override
+        public void writeBinary(Base64Variant bv, byte[] data, int offset, int len) throws IOException {
+            log.add("binary");
+        }
+
+        @Override
+        public int writeBinary(Base64Variant bv, InputStream data, int dataLength) throws IOException {
+            log.add("binaryStream");
+            int count = 0;
+            while (data.read() != -1) {
+                count++;
+            }
+            return count;
+        }
+
+        @Override
+        public void writeNumber(int v) throws IOException {
+            log.add("number:" + v);
+        }
+
+        @Override
+        public void writeNumber(long v) throws IOException {
+            log.add("number:" + v);
+        }
+
+        @Override
+        public void writeNumber(BigInteger v) throws IOException {
+            log.add("number:" + v);
+        }
+
+        @Override
+        public void writeNumber(double v) throws IOException {
+            log.add("number:" + v);
+        }
+
+        @Override
+        public void writeNumber(float v) throws IOException {
+            log.add("number:" + v);
+        }
+
+        @Override
+        public void writeNumber(BigDecimal v) throws IOException {
+            log.add("number:" + v);
+        }
+
+        @Override
+        public void writeNumber(String encodedValue) throws IOException {
+            log.add("number:" + encodedValue);
+        }
+
+        @Override
+        public void writeBoolean(boolean state) throws IOException {
+            log.add("boolean:" + state);
+        }
+
+        @Override
+        public void writeNull() throws IOException {
+            log.add("null");
+        }
+
+        @Override
+        public void writeObject(Object pojo) throws IOException {
+            log.add("object:" + pojo);
+        }
+
+        @Override
+        public void writeTree(TreeNode rootNode) throws IOException {
+            log.add("tree:" + rootNode);
+        }
+
+        @Override
+        public JsonStreamContext getOutputContext() {
+            return null;
+        }
+
+        @Override
+        public void flush() throws IOException {
+            log.add("flush");
+        }
+
+        @Override
+        public boolean isClosed() {
+            return closed;
+        }
+
+        @Override
+        public void close() throws IOException {
+            closed = true;
+            log.add("close");
+        }
+    }
+
+    private TestGenerator gen;
+
+    @Before
+    public void setUp() {
+        gen = new TestGenerator();
+    }
+
+    // ---------------------------------------------------------------
+    // Feature enum tests
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testFeature_collectDefaults_returnsExpectedBitmask() {
+        int expected = JsonGenerator.Feature.AUTO_CLOSE_TARGET.getMask()
+                | JsonGenerator.Feature.AUTO_CLOSE_JSON_CONTENT.getMask()
+                | JsonGenerator.Feature.FLUSH_PASSED_TO_STREAM.getMask()
+                | JsonGenerator.Feature.QUOTE_FIELD_NAMES.getMask()
+                | JsonGenerator.Feature.QUOTE_NON_NUMERIC_NUMBERS.getMask();
+        assertEquals(expected, JsonGenerator.Feature.collectDefaults());
+    }
+
+    @Test
+    public void testFeature_enabledByDefault_matchesExpectedValues() {
+        assertTrue(JsonGenerator.Feature.AUTO_CLOSE_TARGET.enabledByDefault());
+        assertTrue(JsonGenerator.Feature.QUOTE_FIELD_NAMES.enabledByDefault());
+        assertFalse(JsonGenerator.Feature.WRITE_NUMBERS_AS_STRINGS.enabledByDefault());
+        assertFalse(JsonGenerator.Feature.STRICT_DUPLICATE_DETECTION.enabledByDefault());
+        assertFalse(JsonGenerator.Feature.IGNORE_UNKNOWN.enabledByDefault());
+    }
+
+    @Test
+    public void testFeature_getMask_isPowerOfTwoBasedOnOrdinal() {
+        assertEquals(1 << JsonGenerator.Feature.AUTO_CLOSE_TARGET.ordinal(),
+                JsonGenerator.Feature.AUTO_CLOSE_TARGET.getMask());
+    }
+
+    @Test
+    public void testFeature_enabledIn_trueWhenBitSet() {
+        int mask = JsonGenerator.Feature.QUOTE_FIELD_NAMES.getMask();
+        assertTrue(JsonGenerator.Feature.QUOTE_FIELD_NAMES.enabledIn(mask));
+        assertFalse(JsonGenerator.Feature.ESCAPE_NON_ASCII.enabledIn(mask));
+    }
+
+    // ---------------------------------------------------------------
+    // configure / enable / disable
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testConfigure_stateTrue_enablesFeature() {
+        gen.configure(JsonGenerator.Feature.ESCAPE_NON_ASCII, true);
+        assertTrue(gen.isEnabled(JsonGenerator.Feature.ESCAPE_NON_ASCII));
+    }
+
+    @Test
+    public void testConfigure_stateFalse_disablesFeature() {
+        gen.enable(JsonGenerator.Feature.ESCAPE_NON_ASCII);
+        gen.configure(JsonGenerator.Feature.ESCAPE_NON_ASCII, false);
+        assertFalse(gen.isEnabled(JsonGenerator.Feature.ESCAPE_NON_ASCII));
+    }
+
+    // ---------------------------------------------------------------
+    // overrideStdFeatures / getFormatFeatures / overrideFormatFeatures
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testOverrideStdFeatures_updatesOnlyMaskedBits() {
+        gen.setFeatureMask(0);
+        int mask = JsonGenerator.Feature.ESCAPE_NON_ASCII.getMask();
+        gen.overrideStdFeatures(mask, mask);
+        assertTrue(gen.isEnabled(JsonGenerator.Feature.ESCAPE_NON_ASCII));
+    }
+
+    @Test
+    public void testGetFormatFeatures_defaultReturnsZero() {
+        assertEquals(0, gen.getFormatFeatures());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testOverrideFormatFeatures_throwsIllegalArgumentException() {
+        gen.overrideFormatFeatures(1, 1);
+    }
+
+    // ---------------------------------------------------------------
+    // Schema methods
+    // ---------------------------------------------------------------
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testSetSchema_throwsUnsupportedOperationException() {
+        FormatSchema schema = new FormatSchema() {
+            @Override
+            public String getSchemaType() {
+                return "test-schema";
+            }
+        };
+        gen.setSchema(schema);
+    }
+
+    @Test
+    public void testGetSchema_defaultReturnsNull() {
+        assertNull(gen.getSchema());
+    }
+
+    @Test
+    public void testCanUseSchema_defaultReturnsFalse() {
+        assertFalse(gen.canUseSchema(null));
+    }
+
+    // ---------------------------------------------------------------
+    // Other configuration
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testSetPrettyPrinter_null_getPrettyPrinterReturnsNull() {
+        JsonGenerator returned = gen.setPrettyPrinter(null);
+        assertSame(gen, returned);
+        assertNull(gen.getPrettyPrinter());
+    }
+
+    @Test
+    public void testUseDefaultPrettyPrinter_callsWithoutException() throws IOException {
+        JsonGenerator returned = gen.useDefaultPrettyPrinter();
+        assertSame(gen, returned);
+        assertTrue(gen.log.contains("useDefaultPrettyPrinter"));
+    }
+
+    @Test
+    public void testSetHighestNonEscapedChar_defaultReturnsThis() {
+        JsonGenerator returned = gen.setHighestNonEscapedChar(127);
+        assertSame(gen, returned);
+    }
+
+    @Test
+    public void testGetHighestEscapedChar_defaultReturnsZero() {
+        assertEquals(0, gen.getHighestEscapedChar());
+    }
+
+    @Test
+    public void testGetCharacterEscapes_defaultReturnsNull() {
+        assertNull(gen.getCharacterEscapes());
+    }
+
+    @Test
+    public void testSetCharacterEscapes_defaultReturnsThis() {
+        JsonGenerator returned = gen.setCharacterEscapes(null);
+        assertSame(gen, returned);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testSetRootValueSeparator_throwsUnsupportedOperationException() {
+        gen.setRootValueSeparator(null);
+    }
+
+    // ---------------------------------------------------------------
+    // Output state access
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testGetOutputTarget_defaultReturnsNull() {
+        assertNull(gen.getOutputTarget());
+    }
+
+    @Test
+    public void testGetOutputBuffered_defaultReturnsMinusOne() {
+        assertEquals(-1, gen.getOutputBuffered());
+    }
+
+    @Test
+    public void testGetCurrentValue_nullContext_returnsNull() {
+        assertNull(gen.getCurrentValue());
+    }
+
+    @Test
+    public void testSetCurrentValue_nullContext_doesNothing() {
+        // should not throw
+        gen.setCurrentValue("someValue");
+        assertNull(gen.getCurrentValue());
+    }
+
+    // ---------------------------------------------------------------
+    // capability introspection
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testCanWriteObjectId_defaultFalse() {
+        assertFalse(gen.canWriteObjectId());
+    }
+
+    @Test
+    public void testCanWriteTypeId_defaultFalse() {
+        assertFalse(gen.canWriteTypeId());
+    }
+
+    @Test
+    public void testCanWriteBinaryNatively_defaultFalse() {
+        assertFalse(gen.canWriteBinaryNatively());
+    }
+
+    @Test
+    public void testCanOmitFields_defaultTrue() {
+        assertTrue(gen.canOmitFields());
+    }
+
+    @Test
+    public void testCanWriteFormattedNumbers_defaultFalse() {
+        assertFalse(gen.canWriteFormattedNumbers());
+    }
+
+    // ---------------------------------------------------------------
+    // structural write methods
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testWriteStartArrayWithSize_delegatesToWriteStartArray() throws IOException {
+        gen.writeStartArray(5);
+        assertTrue(gen.log.contains("startArray"));
+    }
+
+    @Test
+    public void testWriteStartObjectWithForValue_delegatesToWriteStartObject() throws IOException {
+        gen.writeStartObject("someValue");
+        assertTrue(gen.log.contains("startObject"));
+    }
+
+    @Test
+    public void testWriteFieldId_delegatesToWriteFieldName() throws IOException {
+        gen.writeFieldId(42L);
+        assertTrue(gen.log.contains("fieldName:42"));
+    }
+
+    // ---------------------------------------------------------------
+    // writeArray overloads
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testWriteArrayInt_normalInput_writesAllElements() throws IOException {
+        int[] arr = { 1, 2, 3 };
+        gen.writeArray(arr, 0, 3);
+        assertTrue(gen.log.contains("startArray"));
+        assertTrue(gen.log.contains("number:1"));
+        assertTrue(gen.log.contains("number:2"));
+        assertTrue(gen.log.contains("number:3"));
+        assertTrue(gen.log.contains("endArray"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWriteArrayInt_nullArray_throwsIllegalArgumentException() throws IOException {
+        gen.writeArray((int[]) null, 0, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWriteArrayInt_invalidOffset_throwsIllegalArgumentException() throws IOException {
+        int[] arr = { 1, 2, 3 };
+        gen.writeArray(arr, 2, 5);
+    }
+
+    @Test
+    public void testWriteArrayLong_normalInput_writesAllElements() throws IOException {
+        long[] arr = { 10L, 20L };
+        gen.writeArray(arr, 0, 2);
+        assertTrue(gen.log.contains("number:10"));
+        assertTrue(gen.log.contains("number:20"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWriteArrayLong_nullArray_throwsIllegalArgumentException() throws IOException {
+        gen.writeArray((long[]) null, 0, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWriteArrayLong_negativeOffset_throwsIllegalArgumentException() throws IOException {
+        long[] arr = { 1L, 2L };
+        gen.writeArray(arr, -1, 2);
+    }
+
+    @Test
+    public void testWriteArrayDouble_normalInput_writesAllElements() throws IOException {
+        double[] arr = { 1.5, 2.5 };
+        gen.writeArray(arr, 0, 2);
+        assertTrue(gen.log.contains("number:1.5"));
+        assertTrue(gen.log.contains("number:2.5"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWriteArrayDouble_nullArray_throwsIllegalArgumentException() throws IOException {
+        gen.writeArray((double[]) null, 0, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWriteArrayDouble_invalidLength_throwsIllegalArgumentException() throws IOException {
+        double

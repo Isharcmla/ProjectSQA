@@ -1,0 +1,63 @@
+package org.apache.commons.jxpath.ri.model.jdom;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Locale;
+
+import org.apache.commons.jxpath.ri.QName;
+import org.apache.commons.jxpath.ri.model.NodePointer;
+import org.jdom.Attribute;
+import org.jdom.Element;
+import org.jdom.Namespace;
+import org.junit.Test;
+
+/**
+ * JUnit 4 test suite for {@link JDOMAttributeIterator}.
+ *
+ * Note: {@link NodePointer} is abstract and cannot be mocked (mocking
+ * frameworks are not allowed). The real factory method
+ * {@link NodePointer#newNodePointer(QName, Object, Locale)} is used to
+ * obtain concrete {@link NodePointer} instances backed by arbitrary beans
+ * (including {@link Element} instances), exercising the real public API.
+ */
+public class JDOMAttributeIteratorTest {
+
+    private NodePointer createParentPointer(Object bean) {
+        return NodePointer.newNodePointer(new QName(null, "root"), bean, Locale.getDefault());
+    }
+
+    // ---------------------------------------------------------------
+    // Normal / typical cases
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testConstructor_namedAttributeFound_returnsSingleAttribute() {
+        Element element = new Element("root");
+        element.setAttribute("foo", "bar");
+        NodePointer parent = createParentPointer(element);
+        QName attrName = new QName(null, "foo");
+
+        JDOMAttributeIterator iterator = new JDOMAttributeIterator(parent, attrName);
+
+        assertTrue(iterator.setPosition(1));
+        assertEquals(1, iterator.getPosition());
+        assertNotNull(iterator.getNodePointer());
+        assertFalse(iterator.setPosition(2));
+    }
+
+    @Test
+    public void testConstructor_wildcardName_returnsAllNoNamespaceAttributes() {
+        Element element = new Element("root");
+        element.setAttribute("foo", "1");
+        element.setAttribute("bar", "2");
+        NodePointer parent = createParentPointer(element);
+        QName attrName = new QName(null, "*");
+
+        JDOMAttributeIterator iterator = new JDOMAttributeIterator(parent, attrName);
+
+        assertTrue(iterator.setPosition(1));
+        assertTrue(

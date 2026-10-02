@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "88",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.DeadAssignmentsElimination",
+  "target_classes": [
+    "com.google.javascript.jscomp.DeadAssignmentsElimination"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 165.95,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\88\\DeadAssignmentsElimination_20260927_123734.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 5721,
+    "completion_tokens": 16384,
+    "total_tokens": 22105
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 100397,
+    "daily_remaining_tokens": 99603
+  },
+  "timestamp": "20260927_123734"
+}

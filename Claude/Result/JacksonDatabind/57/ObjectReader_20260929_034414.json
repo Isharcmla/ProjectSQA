@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "57",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.ObjectReader",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ObjectReader"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 125.74,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\57\\ObjectReader_20260929_034414.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 24997,
+    "completion_tokens": 16384,
+    "total_tokens": 41381
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 131253,
+    "daily_remaining_tokens": 68747
+  },
+  "timestamp": "20260929_034414"
+}

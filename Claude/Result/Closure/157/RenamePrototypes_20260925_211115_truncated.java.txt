@@ -1,0 +1,215 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import com.google.javascript.jscomp.AbstractCompiler.LifeCycleStage;
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * Unit tests for {@link RenamePrototypes}.
+ *
+ * These tests use the real {@link Compiler} implementation (no mocking
+ * frameworks) since {@code RenamePrototypes} requires an
+ * {@code AbstractCompiler} instance to operate on.
+ */
+public class RenamePrototypesTest {
+
+  private Compiler compiler;
+
+  @Before
+  public void setUp() {
+    compiler = new Compiler();
+  }
+
+  /**
+   * Parses the given source code using a fresh {@link Compiler} instance
+   * and returns that compiler (already parsed).
+   */
+  private Compiler parse(String code) {
+    Compiler c = new Compiler();
+    CompilerOptions options = new CompilerOptions();
+    Result result = c.compile(
+        SourceFile.fromCode("externs.js", ""),
+        SourceFile.fromCode("input.js", code),
+        options);
+    assertNotNull(result);
+    assertTrue("Compilation should succeed for valid input JS", result.success);
+    return c;
+  }
+
+  /**
+   * Recursively searches the AST rooted at {@code n} for a GETPROP node
+   * whose property-name STRING child equals {@code name}.
+   */
+  private boolean containsPropertyName(Node n, String name) {
+    if (n == null) {
+      return false;
+    }
+    if (n.getType() == Token.GETPROP) {
+      Node dest = n.getFirstChild().getNext();
+      if (dest != null && dest.getType() == Token.STRING
+          && name.equals(dest.getString())) {
+        return true;
+      }
+    }
+    for (Node c = n.getFirstChild(); c != null; c = c.getNext()) {
+      if (containsPropertyName(c, name)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  // ---------------------------------------------------------------------
+  // Constructor tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testConstructor_withNullOptionalArgs_doesNotThrow() {
+    RenamePrototypes rp =
+        new RenamePrototypes(compiler, false, null, null);
+    assertNotNull(rp);
+  }
+
+  @Test
+  public void testConstructor_withReservedCharsAndPrevMap_doesNotThrow() {
+    char[] reserved = new char[] {'a', 'b'};
+    RenamePrototypes rp =
+        new RenamePrototypes(compiler, true, reserved, null);
+    assertNotNull(rp);
+  }
+
+  // ---------------------------------------------------------------------
+  // getPropertyMap tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testGetPropertyMap_beforeProcess_returnsNonNullMap() {
+    RenamePrototypes rp =
+        new RenamePrototypes(compiler, false, null, null);
+    VariableMap map = rp.getPropertyMap();
+    assertNotNull(map);
+  }
+
+  // ---------------------------------------------------------------------
+  // process() tests
+  // ---------------------------------------------------------------------
+
+  @Test(expected = IllegalStateException.class)
+  public void testProcess_notNormalizedLifeCycle_throwsIllegalStateException() {
+    String code = "function Foo(){} Foo.prototype.bar = function(){};";
+    Compiler c = parse(code);
+    // Do NOT set the life cycle stage to normalized -> should throw.
+    RenamePrototypes rp = new RenamePrototypes(c, false, null, null);
+    rp.process(c.getExternsRoot(), c.getJsRoot());
+  }
+
+  @Test
+  public void testProcess_normalizedLifeCycle_setsObfuscatedStage() {
+    String code = "function Foo(){} Foo.prototype.bar = function(){};";
+    Compiler c = parse(code);
+    c.setLifeCycleStage(LifeCycleStage.NORMALIZED);
+
+    RenamePrototypes rp = new RenamePrototypes(c, false, null, null);
+    rp.process(c.getExternsRoot(), c.getJsRoot());
+
+    assertEquals(LifeCycleStage.NORMALIZED_OBFUSCATED, c.getLifeCycleStage());
+  }
+
+  @Test
+  public void testProcess_aggressiveRenaming_prototypePropertyRenamed() {
+    String code =
+        "function Foo(){} Foo.prototype.getBar = function(){}; "
+        + "var f = new Foo(); f.getBar();";
+    Compiler c = parse(code);
+    c.setLifeCycleStage(LifeCycleStage.NORMALIZED);
+
+    RenamePrototypes rp = new RenamePrototypes(c, true, null, null);
+    rp.process(c.getExternsRoot(), c.getJsRoot());
+
+    // "getBar" contains upper case letters, so it must be renamed under
+    // aggressive renaming.
+    assertFalse(containsPropertyName(c.getJsRoot(), "getBar"));
+
+    VariableMap map = rp.getPropertyMap();
+    String newName = map.lookupNewName("getBar");
+    assertNotNull(newName);
+    assertFalse(newName.equals("getBar"));
+  }
+
+  @Test
+  public void testProcess_nonAggressiveRenaming_lowercasePropertyNotRenamed() {
+    String code =
+        "function Foo(){} Foo.prototype.foo = function(){}; "
+        + "var f = new Foo(); f.foo();";
+    Compiler c = parse(code);
+    c.setLifeCycleStage(LifeCycleStage.NORMALIZED);
+
+    RenamePrototypes rp = new RenamePrototypes(c, false, null, null);
+    rp.process(c.getExternsRoot(), c.getJsRoot());
+
+    // "foo" is all lower-case letters with no leading/trailing underscore,
+    // so with non-aggressive renaming it should be left unchanged.
+    assertTrue(containsPropertyName(c.getJsRoot(), "foo"));
+  }
+
+  @Test
+  public void testProcess_reservedPropertyName_notRenamed() {
+    String code =
+        "function Foo(){} Foo.prototype.toString = function(){return 'x';}; "
+        + "var f = new Foo(); f.toString();";
+    Compiler c = parse(code);
+    c.setLifeCycleStage(LifeCycleStage.NORMALIZED);
+
+    // Even with aggressive renaming, "toString" is a reserved name and
+    // should never be renamed.
+    RenamePrototypes rp = new RenamePrototypes(c, true, null, null);
+    rp.process(c.getExternsRoot(), c.getJsRoot());
+
+    assertTrue(containsPropertyName(c.getJsRoot(), "toString"));
+  }
+
+  @Test
+  public void testProcess_emptyInput_noExceptionThrown() {
+    String code = "";
+    Compiler c = parse(code);
+    c.setLifeCycleStage(LifeCycleStage.NORMALIZED);
+
+    RenamePrototypes rp = new RenamePrototypes(c, false, null, null);
+    // Should not throw even though there is nothing to rename.
+    rp.process(c.getExternsRoot(), c.getJsRoot());
+
+    assertEquals(LifeCycleStage.NORMALIZED_OBFUSCATED, c.getLifeCycleStage());
+  }
+
+  @Test
+  public void testProcess_objectLiteralProperty_handledWithoutException() {
+    String code = "var obj = {bar_: 1, baz: 2};";
+    Compiler c = parse(code);
+    c.setLifeCycleStage(LifeCycleStage.NORMALIZED);
+
+    RenamePrototypes rp = new RenamePrototypes(c, false, null, null);
+    rp.process(c.getExternsRoot(), c.getJsRoot());
+
+    VariableMap map = rp.getPropertyMap();
+    assertNotNull(map);
+  }
+
+  @Test
+  public void testProcess_reusePreviousRenameMap_reusesSameName() {
+    String code =
+        "function Foo(){} Foo.prototype.getBar = function(){}; "
+        + "var f = new Foo(); f.getBar();";
+
+    // First pass: rename normally.
+    Compiler c1 = parse(code);
+    c1.setLifeCycleStage(LifeCycleStage.NORMALIZED);
+    RenamePrototypes rp1 = new RenamePrototypes(c1, true, null, null);
+    rp1.process(c1.getExternsRoot(), c1.getJsRoot());

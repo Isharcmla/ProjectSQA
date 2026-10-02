@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "61",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.ObjectMapper",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ObjectMapper"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 68.8,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\61\\ObjectMapper_20260925_133631.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\61\\ObjectMapperTest.java",
+  "usage": {
+    "prompt_tokens": 37268,
+    "completion_tokens": 10175,
+    "total_tokens": 47443
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 202316,
+    "daily_remaining_tokens": 147684
+  },
+  "timestamp": "20260925_133631"
+}

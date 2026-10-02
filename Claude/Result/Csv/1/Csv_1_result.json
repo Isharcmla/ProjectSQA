@@ -1,0 +1,53 @@
+{
+  "project": "Csv",
+  "bug_id": "1",
+  "tool": "claude",
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 31.75,
+  "num_test_files_generated": 1,
+  "target_classes": [
+    "org.apache.commons.csv.ExtendedBufferedReader"
+  ],
+  "model_name": "Claude",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "class_results": [
+    {
+      "project": "Csv",
+      "bug_id": "1",
+      "tool": "claude",
+      "class": "org.apache.commons.csv.ExtendedBufferedReader",
+      "target_classes": [
+        "org.apache.commons.csv.ExtendedBufferedReader"
+      ],
+      "status": "success",
+      "generation_status": "success",
+      "compile_result": "not_run",
+      "elapsed_sec": 31.38,
+      "num_test_files_generated": 1,
+      "model_requested": "claude",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Claude",
+      "max_tokens": 16384,
+      "temperature": 0.2,
+      "finish_reason": "stop",
+      "prompt_file": "Claude/Prompt/Csv/1/ExtendedBufferedReader_20260921_074239.txt",
+      "test_file": "Claude/TestCode/Csv/1/ExtendedBufferedReaderTest.java",
+      "usage": {
+        "prompt_tokens": 2469,
+        "completion_tokens": 4304,
+        "total_tokens": 6773
+      },
+      "model_quota": {
+        "daily_quota_tokens": 200000,
+        "daily_usage_tokens": 196513,
+        "daily_remaining_tokens": 3487
+      },
+      "timestamp": "20260921_074239"
+    }
+  ],
+  "failures": [],
+  "timestamp": "2026-09-21T07:43:11"
+}

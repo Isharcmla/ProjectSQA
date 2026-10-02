@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "36",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.fraction.BigFraction",
+  "target_classes": [
+    "org.apache.commons.math.fraction.BigFraction"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 54.45,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\36\\BigFraction_20260926_024125.txt",
+  "test_file": "Gemini\\TestCode\\Math\\36\\BigFractionTest.java",
+  "usage": {
+    "prompt_tokens": 10285,
+    "completion_tokens": 5091,
+    "total_tokens": 18339
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 147043,
+    "daily_remaining_tokens": 202957
+  },
+  "timestamp": "20260926_024125"
+}

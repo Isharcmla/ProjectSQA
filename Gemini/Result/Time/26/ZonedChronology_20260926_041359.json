@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "26",
+  "tool": "gemini",
+  "class": "org.joda.time.chrono.ZonedChronology",
+  "target_classes": [
+    "org.joda.time.chrono.ZonedChronology"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 55.4,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Time\\26\\ZonedChronology_20260926_041359.txt",
+  "test_file": "Gemini\\TestCode\\Time\\26\\ZonedChronologyTest.java",
+  "usage": {
+    "prompt_tokens": 5905,
+    "completion_tokens": 4864,
+    "total_tokens": 14106
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 142741,
+    "daily_remaining_tokens": 207259
+  },
+  "timestamp": "20260926_041359"
+}

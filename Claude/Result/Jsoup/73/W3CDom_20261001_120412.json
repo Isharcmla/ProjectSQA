@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "73",
+  "tool": "claude",
+  "class": "org.jsoup.helper.W3CDom",
+  "target_classes": [
+    "org.jsoup.helper.W3CDom"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 23.51,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\73\\W3CDom_20261001_120412.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\73\\W3CDomTest.java",
+  "usage": {
+    "prompt_tokens": 3335,
+    "completion_tokens": 3308,
+    "total_tokens": 6643
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 98437,
+    "daily_remaining_tokens": 101563
+  },
+  "timestamp": "20261001_120412"
+}

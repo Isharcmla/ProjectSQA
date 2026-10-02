@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "1",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.RemoveUnusedVars",
+  "target_classes": [
+    "com.google.javascript.jscomp.RemoveUnusedVars"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 43.45,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 4096,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\1\\RemoveUnusedVars_20260923_043124.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 13538,
+    "completion_tokens": 4096,
+    "total_tokens": 17634
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 118699,
+    "daily_remaining_tokens": 81301
+  },
+  "timestamp": "20260923_043124"
+}

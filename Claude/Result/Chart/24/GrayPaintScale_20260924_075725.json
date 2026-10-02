@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "24",
+  "tool": "claude",
+  "class": "org.jfree.chart.renderer.GrayPaintScale",
+  "target_classes": [
+    "org.jfree.chart.renderer.GrayPaintScale"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 20.1,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Chart\\24\\GrayPaintScale_20260924_075725.txt",
+  "test_file": "Claude\\TestCode\\Chart\\24\\GrayPaintScaleTest.java",
+  "usage": {
+    "prompt_tokens": 2888,
+    "completion_tokens": 2764,
+    "total_tokens": 5652
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 71200,
+    "daily_remaining_tokens": 128800
+  },
+  "timestamp": "20260924_075725"
+}

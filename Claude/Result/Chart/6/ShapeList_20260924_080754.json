@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "6",
+  "tool": "claude",
+  "class": "org.jfree.chart.util.ShapeList",
+  "target_classes": [
+    "org.jfree.chart.util.ShapeList"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 26.65,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Chart\\6\\ShapeList_20260924_080754.txt",
+  "test_file": "Claude\\TestCode\\Chart\\6\\ShapeListTest.java",
+  "usage": {
+    "prompt_tokens": 2547,
+    "completion_tokens": 3544,
+    "total_tokens": 6091
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 119164,
+    "daily_remaining_tokens": 80836
+  },
+  "timestamp": "20260924_080754"
+}

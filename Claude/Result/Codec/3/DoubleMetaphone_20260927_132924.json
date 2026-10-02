@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "3",
+  "tool": "claude",
+  "class": "org.apache.commons.codec.language.DoubleMetaphone",
+  "target_classes": [
+    "org.apache.commons.codec.language.DoubleMetaphone"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 144.2,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Codec\\3\\DoubleMetaphone_20260927_132924.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 14413,
+    "completion_tokens": 16384,
+    "total_tokens": 30797
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 120202,
+    "daily_remaining_tokens": 79798
+  },
+  "timestamp": "20260927_132924"
+}

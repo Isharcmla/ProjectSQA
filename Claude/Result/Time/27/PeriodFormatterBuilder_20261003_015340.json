@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "27",
+  "tool": "claude",
+  "class": "org.joda.time.format.PeriodFormatterBuilder",
+  "target_classes": [
+    "org.joda.time.format.PeriodFormatterBuilder"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 177.76,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Time\\27\\PeriodFormatterBuilder_20261003_015340.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 24084,
+    "completion_tokens": 16384,
+    "total_tokens": 40468
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 150357,
+    "daily_remaining_tokens": 49643
+  },
+  "timestamp": "20261003_015340"
+}

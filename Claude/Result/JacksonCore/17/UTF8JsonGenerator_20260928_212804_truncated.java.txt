@@ -1,0 +1,270 @@
+package com.fasterxml.jackson.core.json;
+
+import java.io.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.core.io.CharacterEscapes;
+import com.fasterxml.jackson.core.io.SerializedString;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+
+public class UTF8JsonGeneratorTest {
+
+    private JsonFactory factory;
+
+    @Before
+    public void setUp() {
+        factory = new JsonFactory();
+    }
+
+    // Helper: create a real UTF8JsonGenerator instance (returned generator for UTF8 encoded
+    // stream with default codec IS an UTF8JsonGenerator instance)
+    private UTF8JsonGenerator newGenerator(OutputStream out) throws IOException {
+        JsonGenerator g = factory.createGenerator(out, JsonEncoding.UTF8);
+        return (UTF8JsonGenerator) g;
+    }
+
+    private static String repeat(char c, int len) {
+        StringBuilder sb = new StringBuilder(len);
+        for (int i = 0; i < len; i++) {
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+
+    // A simple OutputStream wrapper used to verify flush()/close() delegation behavior
+    private static class TrackingOutputStream extends OutputStream {
+        final ByteArrayOutputStream target = new ByteArrayOutputStream();
+        boolean flushCalled = false;
+        boolean closeCalled = false;
+
+        @Override
+        public void write(int b) throws IOException {
+            target.write(b);
+        }
+
+        @Override
+        public void write(byte[] b, int off, int len) throws IOException {
+            target.write(b, off, len);
+        }
+
+        @Override
+        public void flush() throws IOException {
+            flushCalled = true;
+        }
+
+        @Override
+        public void close() throws IOException {
+            closeCalled = true;
+        }
+    }
+
+    // Custom character escapes implementation for testing custom escaping path
+    private static class CustomEscapes extends CharacterEscapes {
+        private static final long serialVersionUID = 1L;
+
+        @Override
+        public int[] getEscapeCodesForAscii() {
+            int[] escapes = CharacterEscapes.standardAsciiEscapesForJSON();
+            escapes['A'] = CharacterEscapes.ESCAPE_CUSTOM;
+            return escapes;
+        }
+
+        @Override
+        public SerializableString getEscapeSequence(int ch) {
+            if (ch == 'A') {
+                return new SerializedString("[A]");
+            }
+            return null;
+        }
+    }
+
+    /* ============ structural ============ */
+
+    @Test
+    public void testWriteStartAndEndArray_normal_writesBrackets() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        gen.writeStartArray();
+        gen.writeNumber(1);
+        gen.writeEndArray();
+        gen.flush();
+        String result = out.toString("UTF-8");
+        assertEquals("[1]", result);
+    }
+
+    @Test
+    public void testWriteStartAndEndObject_normal_writesBraces() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        gen.writeStartObject();
+        gen.writeEndObject();
+        gen.flush();
+        assertEquals("{}", out.toString("UTF-8"));
+    }
+
+    @Test
+    public void testWriteEndArray_notInArray_throwsException() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        gen.writeStartObject();
+        try {
+            gen.writeEndArray();
+            fail("Expected exception");
+        } catch (JsonGenerationException expected) {
+            // ok
+        }
+    }
+
+    @Test
+    public void testWriteEndObject_notInObject_throwsException() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        gen.writeStartArray();
+        try {
+            gen.writeEndObject();
+            fail("Expected exception");
+        } catch (JsonGenerationException expected) {
+            // ok
+        }
+    }
+
+    /* ============ field names ============ */
+
+    @Test
+    public void testWriteFieldNameString_normal_writesQuotedName() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        gen.writeStartObject();
+        gen.writeFieldName("hello");
+        gen.writeNumber(1);
+        gen.writeEndObject();
+        gen.flush();
+        assertEquals("{\"hello\":1}", out.toString("UTF-8"));
+    }
+
+    @Test
+    public void testWriteFieldNameSerializableString_normal_writesQuotedName() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        gen.writeStartObject();
+        gen.writeFieldName(new SerializedString("foo"));
+        gen.writeNumber(2);
+        gen.writeEndObject();
+        gen.flush();
+        assertEquals("{\"foo\":2}", out.toString("UTF-8"));
+    }
+
+    @Test
+    public void testWriteFieldName_unquotedNames_writesWithoutQuotes() throws Exception {
+        factory.disable(JsonGenerator.Feature.QUOTE_FIELD_NAMES);
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        gen.writeStartObject();
+        gen.writeFieldName("abc");
+        gen.writeNumber(1);
+        gen.writeEndObject();
+        gen.flush();
+        assertEquals("{abc:1}", out.toString("UTF-8"));
+    }
+
+    @Test
+    public void testWriteFieldName_unquotedNames_serializableString() throws Exception {
+        factory.disable(JsonGenerator.Feature.QUOTE_FIELD_NAMES);
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        gen.writeStartObject();
+        gen.writeFieldName(new SerializedString("xyz"));
+        gen.writeNumber(9);
+        gen.writeEndObject();
+        gen.flush();
+        assertEquals("{xyz:9}", out.toString("UTF-8"));
+    }
+
+    @Test
+    public void testWriteFieldName_longName_offlineSegments() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        String longName = repeat('a', 2500);
+        gen.writeStartObject();
+        gen.writeFieldName(longName);
+        gen.writeNumber(1);
+        gen.writeEndObject();
+        gen.flush();
+        String result = out.toString("UTF-8");
+        assertTrue(result.startsWith("{\"" + longName.substring(0, 10)));
+        assertTrue(result.contains("\":1}"));
+    }
+
+    @Test
+    public void testWriteFieldName_mediumName_multiSegment() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        String mediumName = repeat('b', 1500);
+        gen.writeStartObject();
+        gen.writeFieldName(mediumName);
+        gen.writeNumber(1);
+        gen.writeEndObject();
+        gen.flush();
+        String result = out.toString("UTF-8");
+        assertTrue(result.contains("\"" + mediumName + "\":1"));
+    }
+
+    @Test
+    public void testWriteFieldName_twoFields_commaSeparator() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        gen.writeStartObject();
+        gen.writeFieldName("a");
+        gen.writeNumber(1);
+        gen.writeFieldName("b");
+        gen.writeNumber(2);
+        gen.writeEndObject();
+        gen.flush();
+        assertEquals("{\"a\":1,\"b\":2}", out.toString("UTF-8"));
+    }
+
+    @Test
+    public void testWriteFieldName_expectingValue_throwsException() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        gen.writeStartObject();
+        gen.writeFieldName("a");
+        try {
+            gen.writeFieldName("b");
+            fail("Expected exception");
+        } catch (JsonGenerationException expected) {
+            // ok
+        }
+    }
+
+    /* ============ pretty printer ============ */
+
+    @Test
+    public void testPrettyPrinter_fieldNameAndValues() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        gen.setPrettyPrinter(new DefaultPrettyPrinter());
+        gen.writeStartObject();
+        gen.writeFieldName("key");
+        gen.writeString("value");
+        gen.writeFieldName("key2");
+        gen.writeString("value2");
+        gen.writeEndObject();
+        gen.flush();
+        String result = out.toString("UTF-8");
+        assertTrue(result.contains("key"));
+        assertTrue(result.contains("value"));
+        assertTrue(result.contains("key2"));
+    }
+
+    @Test
+    public void testPrettyPrinter_serializableFieldName() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        UTF8JsonGenerator gen = newGenerator(out);
+        gen.setPrettyPrinter(

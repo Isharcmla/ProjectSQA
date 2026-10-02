@@ -1,0 +1,33 @@
+{
+  "project": "Csv",
+  "bug_id": "3",
+  "tool": "claude",
+  "class": "org.apache.commons.csv.Lexer",
+  "target_classes": [
+    "org.apache.commons.csv.Lexer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 67.1,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Csv\\3\\Lexer_20260928_203808.txt",
+  "test_file": "Claude\\TestCode\\Csv\\3\\LexerTest.java",
+  "usage": {
+    "prompt_tokens": 3038,
+    "completion_tokens": 8800,
+    "total_tokens": 11838
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 77426,
+    "daily_remaining_tokens": 122574
+  },
+  "timestamp": "20260928_203808"
+}

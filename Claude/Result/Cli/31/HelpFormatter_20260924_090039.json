@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "31",
+  "tool": "claude",
+  "class": "org.apache.commons.cli.HelpFormatter",
+  "target_classes": [
+    "org.apache.commons.cli.HelpFormatter"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 62.66,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Cli\\31\\HelpFormatter_20260924_090039.txt",
+  "test_file": "Claude\\TestCode\\Cli\\31\\HelpFormatterTest.java",
+  "usage": {
+    "prompt_tokens": 11474,
+    "completion_tokens": 9101,
+    "total_tokens": 20575
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 60942,
+    "daily_remaining_tokens": 139058
+  },
+  "timestamp": "20260924_090039"
+}

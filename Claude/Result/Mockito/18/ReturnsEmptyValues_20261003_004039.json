@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "18",
+  "tool": "claude",
+  "class": "org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues",
+  "target_classes": [
+    "org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 88.81,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\18\\ReturnsEmptyValues_20261003_004039.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\18\\ReturnsEmptyValuesTest.java",
+  "usage": {
+    "prompt_tokens": 2638,
+    "completion_tokens": 11814,
+    "total_tokens": 14452
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 195064,
+    "daily_remaining_tokens": 4936
+  },
+  "timestamp": "20261003_004039"
+}

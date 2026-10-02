@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "148",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.SourceMap",
+  "target_classes": [
+    "com.google.javascript.jscomp.SourceMap"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 150.4,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\148\\SourceMap_20260925_202805.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 6978,
+    "completion_tokens": 16384,
+    "total_tokens": 23362
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 72719,
+    "daily_remaining_tokens": 127281
+  },
+  "timestamp": "20260925_202805"
+}

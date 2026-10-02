@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "56",
+  "tool": "claude",
+  "class": "org.apache.commons.math.util.MultidimensionalCounter",
+  "target_classes": [
+    "org.apache.commons.math.util.MultidimensionalCounter"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 29.78,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\56\\MultidimensionalCounter_20261002_181346.txt",
+  "test_file": "Claude\\TestCode\\Math\\56\\MultidimensionalCounterTest.java",
+  "usage": {
+    "prompt_tokens": 3985,
+    "completion_tokens": 4136,
+    "total_tokens": 8121
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 69825,
+    "daily_remaining_tokens": 130175
+  },
+  "timestamp": "20261002_181346"
+}

@@ -1,0 +1,244 @@
+package org.apache.commons.collections.map;
+
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.util.*;
+import java.io.*;
+
+import org.apache.commons.collections.MapIterator;
+import org.apache.commons.collections.ResettableIterator;
+
+public class Flat3MapTest {
+
+    private Flat3Map map;
+
+    @Before
+    public void setUp() {
+        map = new Flat3Map();
+    }
+
+    // ---------- Constructor ----------
+    @Test
+    public void testConstructor_default_emptyMap() {
+        Flat3Map m = new Flat3Map();
+        assertEquals(0, m.size());
+        assertTrue(m.isEmpty());
+    }
+
+    @Test
+    public void testConstructor_withMap_copiesElements() {
+        Map<String, String> src = new HashMap<String, String>();
+        src.put("a", "1");
+        src.put("b", "2");
+        Flat3Map m = new Flat3Map(src);
+        assertEquals(2, m.size());
+        assertEquals("1", m.get("a"));
+        assertEquals("2", m.get("b"));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testConstructor_withNullMap_throwsException() {
+        new Flat3Map(null);
+    }
+
+    // ---------- get() ----------
+    @Test
+    public void testGet_emptyMap_returnsNull() {
+        assertNull(map.get("key"));
+    }
+
+    @Test
+    public void testGet_nullKey_flatMode() {
+        map.put(null, "v1");
+        assertEquals("v1", map.get(null));
+    }
+
+    @Test
+    public void testGet_normalKey_flatMode() {
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
+        assertEquals("1", map.get("a"));
+        assertEquals("2", map.get("b"));
+        assertEquals("3", map.get("c"));
+    }
+
+    @Test
+    public void testGet_nonExistentKey_returnsNull() {
+        map.put("a", "1");
+        assertNull(map.get("nonexistent"));
+    }
+
+    @Test
+    public void testGet_delegateMode_returnsValue() {
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
+        map.put("d", "4");
+        assertEquals("4", map.get("d"));
+        assertEquals("1", map.get("a"));
+    }
+
+    @Test
+    public void testGet_withNullKeyAndOtherKeys_flatMode() {
+        map.put(null, "v1");
+        map.put("b", "2");
+        assertEquals("v1", map.get(null));
+    }
+
+    // ---------- size() ----------
+    @Test
+    public void testSize_emptyMap_returnsZero() {
+        assertEquals(0, map.size());
+    }
+
+    @Test
+    public void testSize_flatMode_returnsCorrectSize() {
+        map.put("a", "1");
+        map.put("b", "2");
+        assertEquals(2, map.size());
+    }
+
+    @Test
+    public void testSize_delegateMode_returnsCorrectSize() {
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
+        map.put("d", "4");
+        assertEquals(4, map.size());
+    }
+
+    // ---------- isEmpty() ----------
+    @Test
+    public void testIsEmpty_emptyMap_returnsTrue() {
+        assertTrue(map.isEmpty());
+    }
+
+    @Test
+    public void testIsEmpty_nonEmptyMap_returnsFalse() {
+        map.put("a", "1");
+        assertFalse(map.isEmpty());
+    }
+
+    // ---------- containsKey() ----------
+    @Test
+    public void testContainsKey_existingKey_returnsTrue() {
+        map.put("a", "1");
+        assertTrue(map.containsKey("a"));
+    }
+
+    @Test
+    public void testContainsKey_nullKey_flatMode() {
+        map.put(null, "v");
+        assertTrue(map.containsKey(null));
+    }
+
+    @Test
+    public void testContainsKey_nonExistentKey_returnsFalse() {
+        map.put("a", "1");
+        assertFalse(map.containsKey("b"));
+    }
+
+    @Test
+    public void testContainsKey_delegateMode_returnsTrue() {
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
+        map.put("d", "4");
+        assertTrue(map.containsKey("d"));
+    }
+
+    @Test
+    public void testContainsKey_nullKeyNotFound_flatMode() {
+        map.put("a", "1");
+        assertFalse(map.containsKey(null));
+    }
+
+    // ---------- containsValue() ----------
+    @Test
+    public void testContainsValue_existingValue_returnsTrue() {
+        map.put("a", "1");
+        assertTrue(map.containsValue("1"));
+    }
+
+    @Test
+    public void testContainsValue_nullValue_flatMode() {
+        map.put("a", null);
+        assertTrue(map.containsValue(null));
+    }
+
+    @Test
+    public void testContainsValue_nonExistentValue_returnsFalse() {
+        map.put("a", "1");
+        assertFalse(map.containsValue("999"));
+    }
+
+    @Test
+    public void testContainsValue_delegateMode_returnsTrue() {
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
+        map.put("d", "4");
+        assertTrue(map.containsValue("4"));
+    }
+
+    // ---------- put() ----------
+    @Test
+    public void testPut_newKeys_flatMode() {
+        assertNull(map.put("a", "1"));
+        assertNull(map.put("b", "2"));
+        assertNull(map.put("c", "3"));
+        assertEquals(3, map.size());
+    }
+
+    @Test
+    public void testPut_overwriteExistingKey_returnsOldValue() {
+        map.put("a", "1");
+        Object old = map.put("a", "2");
+        assertEquals("1", old);
+        assertEquals("2", map.get("a"));
+    }
+
+    @Test
+    public void testPut_overwriteNullKey_returnsOldValue() {
+        map.put(null, "1");
+        Object old = map.put(null, "2");
+        assertEquals("1", old);
+    }
+
+    @Test
+    public void testPut_fourthKey_triggersDelegateMode() {
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
+        map.put("d", "4");
+        assertEquals(4, map.size());
+        assertEquals("4", map.get("d"));
+    }
+
+    @Test
+    public void testPut_delegateMode_overwriteKey() {
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
+        map.put("d", "4");
+        Object old = map.put("a", "100");
+        assertEquals("1", old);
+        assertEquals("100", map.get("a"));
+    }
+
+    @Test
+    public void testPut_nullValue_flatMode() {
+        map.put("a", null);
+        assertNull(map.get("a"));
+        assertTrue(map.containsKey("a"));
+    }
+
+    @Test
+    public void testPut_overwriteSecondKey_flatMode() {
+        map.put("a", "1");
+        map.put("b", "2");
+        Object old = map.put("b", "22");
+        assertEquals("2", old);

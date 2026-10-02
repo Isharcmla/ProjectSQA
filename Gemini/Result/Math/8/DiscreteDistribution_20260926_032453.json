@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "8",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.distribution.DiscreteDistribution",
+  "target_classes": [
+    "org.apache.commons.math3.distribution.DiscreteDistribution"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 23.95,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\8\\DiscreteDistribution_20260926_032453.txt",
+  "test_file": "Gemini\\TestCode\\Math\\8\\DiscreteDistributionTest.java",
+  "usage": {
+    "prompt_tokens": 2085,
+    "completion_tokens": 2299,
+    "total_tokens": 5576
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 204274,
+    "daily_remaining_tokens": 145726
+  },
+  "timestamp": "20260926_032453"
+}

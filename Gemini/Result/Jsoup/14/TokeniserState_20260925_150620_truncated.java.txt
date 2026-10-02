@@ -1,0 +1,988 @@
+package org.jsoup.parser;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TokeniserStateTest {
+
+    private Tokeniser tokeniser;
+    private ParseErrorList errorList;
+
+    @Before
+    public void setUp() {
+        errorList = ParseErrorList.tracking(100);
+        tokeniser = new Tokeniser(new CharacterReader(""), errorList);
+    }
+
+    private CharacterReader createReader(String input) {
+        CharacterReader reader = new CharacterReader(input);
+        tokeniser = new Tokeniser(reader, errorList);
+        return reader;
+    }
+
+    @Test
+    public void testEnumConstants_valuesAndValueOf_valid() {
+        TokeniserState[] states = TokeniserState.values();
+        Assert.assertTrue(states.length > 0);
+        Assert.assertEquals(TokeniserState.Data, TokeniserState.valueOf("Data"));
+        Assert.assertEquals(TokeniserState.CdataSection, TokeniserState.valueOf("CdataSection"));
+    }
+
+    @Test
+    public void testData_transitionsAndEmits_allBranches() {
+        CharacterReader r1 = createReader("&");
+        TokeniserState.Data.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.CharacterReferenceInData, tokeniser.getState());
+
+        CharacterReader r2 = createReader("<");
+        TokeniserState.Data.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.TagOpen, tokeniser.getState());
+
+        CharacterReader r3 = createReader("\u0000");
+        TokeniserState.Data.read(tokeniser, r3);
+        Assert.assertFalse(errorList.isEmpty());
+
+        CharacterReader r4 = createReader("");
+        TokeniserState.Data.read(tokeniser, r4);
+
+        CharacterReader r5 = createReader("abc&");
+        TokeniserState.Data.read(tokeniser, r5);
+    }
+
+    @Test
+    public void testCharacterReferenceInData_branches() {
+        CharacterReader r1 = createReader("amp;");
+        TokeniserState.CharacterReferenceInData.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r2 = createReader("unknownentity");
+        TokeniserState.CharacterReferenceInData.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+    }
+
+    @Test
+    public void testRcdata_allBranches() {
+        CharacterReader r1 = createReader("&");
+        TokeniserState.Rcdata.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.CharacterReferenceInRcdata, tokeniser.getState());
+
+        CharacterReader r2 = createReader("<");
+        TokeniserState.Rcdata.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.RcdataLessthanSign, tokeniser.getState());
+
+        CharacterReader r3 = createReader("\u0000");
+        TokeniserState.Rcdata.read(tokeniser, r3);
+
+        CharacterReader r4 = createReader("");
+        TokeniserState.Rcdata.read(tokeniser, r4);
+
+        CharacterReader r5 = createReader("rcdata content<");
+        TokeniserState.Rcdata.read(tokeniser, r5);
+    }
+
+    @Test
+    public void testCharacterReferenceInRcdata_branches() {
+        CharacterReader r1 = createReader("gt;");
+        TokeniserState.CharacterReferenceInRcdata.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.Rcdata, tokeniser.getState());
+
+        CharacterReader r2 = createReader("unknownentity");
+        TokeniserState.CharacterReferenceInRcdata.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.Rcdata, tokeniser.getState());
+    }
+
+    @Test
+    public void testRawtext_allBranches() {
+        CharacterReader r1 = createReader("<");
+        TokeniserState.Rawtext.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.RawtextLessthanSign, tokeniser.getState());
+
+        CharacterReader r2 = createReader("\u0000");
+        TokeniserState.Rawtext.read(tokeniser, r2);
+
+        CharacterReader r3 = createReader("");
+        TokeniserState.Rawtext.read(tokeniser, r3);
+
+        CharacterReader r4 = createReader("rawtext<");
+        TokeniserState.Rawtext.read(tokeniser, r4);
+    }
+
+    @Test
+    public void testScriptData_allBranches() {
+        CharacterReader r1 = createReader("<");
+        TokeniserState.ScriptData.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.ScriptDataLessthanSign, tokeniser.getState());
+
+        CharacterReader r2 = createReader("\u0000");
+        TokeniserState.ScriptData.read(tokeniser, r2);
+
+        CharacterReader r3 = createReader("");
+        TokeniserState.ScriptData.read(tokeniser, r3);
+
+        CharacterReader r4 = createReader("script code<");
+        TokeniserState.ScriptData.read(tokeniser, r4);
+    }
+
+    @Test
+    public void testPLAINTEXT_allBranches() {
+        CharacterReader r1 = createReader("\u0000");
+        TokeniserState.PLAINTEXT.read(tokeniser, r1);
+
+        CharacterReader r2 = createReader("");
+        TokeniserState.PLAINTEXT.read(tokeniser, r2);
+
+        CharacterReader r3 = createReader("plain text\u0000");
+        TokeniserState.PLAINTEXT.read(tokeniser, r3);
+    }
+
+    @Test
+    public void testTagOpen_allBranches() {
+        CharacterReader r1 = createReader("!");
+        TokeniserState.TagOpen.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.MarkupDeclarationOpen, tokeniser.getState());
+
+        CharacterReader r2 = createReader("/");
+        TokeniserState.TagOpen.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.EndTagOpen, tokeniser.getState());
+
+        CharacterReader r3 = createReader("?");
+        TokeniserState.TagOpen.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.BogusComment, tokeniser.getState());
+
+        CharacterReader r4 = createReader("div");
+        TokeniserState.TagOpen.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.TagName, tokeniser.getState());
+
+        CharacterReader r5 = createReader("1");
+        TokeniserState.TagOpen.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+    }
+
+    @Test
+    public void testEndTagOpen_allBranches() {
+        CharacterReader r1 = createReader("");
+        TokeniserState.EndTagOpen.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r2 = createReader("div");
+        TokeniserState.EndTagOpen.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.TagName, tokeniser.getState());
+
+        CharacterReader r3 = createReader(">");
+        TokeniserState.EndTagOpen.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r4 = createReader("?bogus");
+        TokeniserState.EndTagOpen.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.BogusComment, tokeniser.getState());
+    }
+
+    @Test
+    public void testTagName_allBranches() {
+        CharacterReader r1 = createReader("div ");
+        tokeniser.createTagPending(true);
+        TokeniserState.TagName.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.BeforeAttributeName, tokeniser.getState());
+
+        CharacterReader r2 = createReader("img/");
+        tokeniser.createTagPending(true);
+        TokeniserState.TagName.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.SelfClosingStartTag, tokeniser.getState());
+
+        CharacterReader r3 = createReader("b>");
+        tokeniser.createTagPending(true);
+        TokeniserState.TagName.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r4 = createReader("a\u0000");
+        tokeniser.createTagPending(true);
+        TokeniserState.TagName.read(tokeniser, r4);
+
+        CharacterReader r5 = createReader("a");
+        tokeniser.createTagPending(true);
+        TokeniserState.TagName.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+    }
+
+    @Test
+    public void testRcdataLessthanSign_branches() {
+        CharacterReader r1 = createReader("/title>");
+        TokeniserState.RcdataLessthanSign.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.RCDATAEndTagOpen, tokeniser.getState());
+
+        CharacterReader r2 = createReader("b>");
+        TokeniserState.RcdataLessthanSign.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.Rcdata, tokeniser.getState());
+    }
+
+    @Test
+    public void testRCDATAEndTagOpen_branches() {
+        CharacterReader r1 = createReader("title>");
+        TokeniserState.RCDATAEndTagOpen.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.RCDATAEndTagName, tokeniser.getState());
+
+        CharacterReader r2 = createReader("123");
+        TokeniserState.RCDATAEndTagOpen.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.Rcdata, tokeniser.getState());
+    }
+
+    @Test
+    public void testRCDATAEndTagName_branches() {
+        CharacterReader r1 = createReader("itle ");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("t");
+        tokeniser.dataBuffer.append("t");
+        TokeniserState.RCDATAEndTagName.read(tokeniser, r1);
+
+        CharacterReader r2 = createReader(" ");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("title");
+        tokeniser.dataBuffer.append("title");
+        tokeniser.appropriateEndTagName = "title";
+        TokeniserState.RCDATAEndTagName.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.BeforeAttributeName, tokeniser.getState());
+
+        CharacterReader r3 = createReader(" ");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("other");
+        tokeniser.dataBuffer.append("other");
+        tokeniser.appropriateEndTagName = "title";
+        TokeniserState.RCDATAEndTagName.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.Rcdata, tokeniser.getState());
+
+        CharacterReader r4 = createReader("/");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("title");
+        tokeniser.dataBuffer.append("title");
+        tokeniser.appropriateEndTagName = "title";
+        TokeniserState.RCDATAEndTagName.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.SelfClosingStartTag, tokeniser.getState());
+
+        CharacterReader r5 = createReader("/");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("other");
+        tokeniser.dataBuffer.append("other");
+        tokeniser.appropriateEndTagName = "title";
+        TokeniserState.RCDATAEndTagName.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.Rcdata, tokeniser.getState());
+
+        CharacterReader r6 = createReader(">");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("title");
+        tokeniser.dataBuffer.append("title");
+        tokeniser.appropriateEndTagName = "title";
+        TokeniserState.RCDATAEndTagName.read(tokeniser, r6);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r7 = createReader(">");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("other");
+        tokeniser.dataBuffer.append("other");
+        tokeniser.appropriateEndTagName = "title";
+        TokeniserState.RCDATAEndTagName.read(tokeniser, r7);
+        Assert.assertEquals(TokeniserState.Rcdata, tokeniser.getState());
+
+        CharacterReader r8 = createReader("x");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("title");
+        tokeniser.dataBuffer.append("title");
+        TokeniserState.RCDATAEndTagName.read(tokeniser, r8);
+        Assert.assertEquals(TokeniserState.Rcdata, tokeniser.getState());
+    }
+
+    @Test
+    public void testRawtextLessthanSign_branches() {
+        CharacterReader r1 = createReader("/style>");
+        TokeniserState.RawtextLessthanSign.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.RawtextEndTagOpen, tokeniser.getState());
+
+        CharacterReader r2 = createReader("b");
+        TokeniserState.RawtextLessthanSign.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.Rawtext, tokeniser.getState());
+    }
+
+    @Test
+    public void testRawtextEndTagOpen_branches() {
+        CharacterReader r1 = createReader("style>");
+        TokeniserState.RawtextEndTagOpen.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.RawtextEndTagName, tokeniser.getState());
+
+        CharacterReader r2 = createReader("123");
+        TokeniserState.RawtextEndTagOpen.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.Rawtext, tokeniser.getState());
+    }
+
+    @Test
+    public void testRawtextEndTagName_branches() {
+        CharacterReader r1 = createReader("tyle ");
+        tokeniser.createTagPending(false);
+        tokeniser.dataBuffer.append("s");
+        TokeniserState.RawtextEndTagName.read(tokeniser, r1);
+
+        CharacterReader r2 = createReader(" ");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("style");
+        tokeniser.appropriateEndTagName = "style";
+        TokeniserState.RawtextEndTagName.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.BeforeAttributeName, tokeniser.getState());
+
+        CharacterReader r3 = createReader(" ");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("other");
+        tokeniser.appropriateEndTagName = "style";
+        TokeniserState.RawtextEndTagName.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.Rawtext, tokeniser.getState());
+
+        CharacterReader r4 = createReader("/");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("style");
+        tokeniser.appropriateEndTagName = "style";
+        TokeniserState.RawtextEndTagName.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.SelfClosingStartTag, tokeniser.getState());
+
+        CharacterReader r5 = createReader("/");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("other");
+        tokeniser.appropriateEndTagName = "style";
+        TokeniserState.RawtextEndTagName.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.Rawtext, tokeniser.getState());
+
+        CharacterReader r6 = createReader(">");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("style");
+        tokeniser.appropriateEndTagName = "style";
+        TokeniserState.RawtextEndTagName.read(tokeniser, r6);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r7 = createReader(">");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("other");
+        tokeniser.appropriateEndTagName = "style";
+        TokeniserState.RawtextEndTagName.read(tokeniser, r7);
+        Assert.assertEquals(TokeniserState.Rawtext, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataLessthanSign_branches() {
+        CharacterReader r1 = createReader("/script");
+        TokeniserState.ScriptDataLessthanSign.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.ScriptDataEndTagOpen, tokeniser.getState());
+
+        CharacterReader r2 = createReader("!--");
+        TokeniserState.ScriptDataLessthanSign.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptDataEscapeStart, tokeniser.getState());
+
+        CharacterReader r3 = createReader("div");
+        TokeniserState.ScriptDataLessthanSign.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.ScriptData, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataEndTagOpen_branches() {
+        CharacterReader r1 = createReader("script");
+        TokeniserState.ScriptDataEndTagOpen.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.ScriptDataEndTagName, tokeniser.getState());
+
+        CharacterReader r2 = createReader("123");
+        TokeniserState.ScriptDataEndTagOpen.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptData, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataEndTagName_branches() {
+        CharacterReader r1 = createReader("cript ");
+        tokeniser.createTagPending(false);
+        tokeniser.dataBuffer.append("s");
+        TokeniserState.ScriptDataEndTagName.read(tokeniser, r1);
+
+        CharacterReader r2 = createReader(" ");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("script");
+        tokeniser.appropriateEndTagName = "script";
+        TokeniserState.ScriptDataEndTagName.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.BeforeAttributeName, tokeniser.getState());
+
+        CharacterReader r3 = createReader(" ");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("other");
+        tokeniser.appropriateEndTagName = "script";
+        TokeniserState.ScriptDataEndTagName.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.ScriptData, tokeniser.getState());
+
+        CharacterReader r4 = createReader("/");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("script");
+        tokeniser.appropriateEndTagName = "script";
+        TokeniserState.ScriptDataEndTagName.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.SelfClosingStartTag, tokeniser.getState());
+
+        CharacterReader r5 = createReader("/");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("other");
+        tokeniser.appropriateEndTagName = "script";
+        TokeniserState.ScriptDataEndTagName.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.ScriptData, tokeniser.getState());
+
+        CharacterReader r6 = createReader(">");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("script");
+        tokeniser.appropriateEndTagName = "script";
+        TokeniserState.ScriptDataEndTagName.read(tokeniser, r6);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r7 = createReader(">");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("other");
+        tokeniser.appropriateEndTagName = "script";
+        TokeniserState.ScriptDataEndTagName.read(tokeniser, r7);
+        Assert.assertEquals(TokeniserState.ScriptData, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataEscapeStartAndDash() {
+        CharacterReader r1 = createReader("-");
+        TokeniserState.ScriptDataEscapeStart.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.ScriptDataEscapeStartDash, tokeniser.getState());
+
+        CharacterReader r2 = createReader("x");
+        TokeniserState.ScriptDataEscapeStart.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptData, tokeniser.getState());
+
+        CharacterReader r3 = createReader("-");
+        TokeniserState.ScriptDataEscapeStartDash.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.ScriptDataEscapedDashDash, tokeniser.getState());
+
+        CharacterReader r4 = createReader("x");
+        TokeniserState.ScriptDataEscapeStartDash.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.ScriptData, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataEscaped_allBranches() {
+        CharacterReader r1 = createReader("");
+        TokeniserState.ScriptDataEscaped.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r2 = createReader("-");
+        TokeniserState.ScriptDataEscaped.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptDataEscapedDash, tokeniser.getState());
+
+        CharacterReader r3 = createReader("<");
+        TokeniserState.ScriptDataEscaped.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.ScriptDataEscapedLessthanSign, tokeniser.getState());
+
+        CharacterReader r4 = createReader("\u0000");
+        TokeniserState.ScriptDataEscaped.read(tokeniser, r4);
+
+        CharacterReader r5 = createReader("abc-");
+        TokeniserState.ScriptDataEscaped.read(tokeniser, r5);
+    }
+
+    @Test
+    public void testScriptDataEscapedDash_allBranches() {
+        CharacterReader r1 = createReader("");
+        TokeniserState.ScriptDataEscapedDash.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r2 = createReader("-");
+        TokeniserState.ScriptDataEscapedDash.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptDataEscapedDashDash, tokeniser.getState());
+
+        CharacterReader r3 = createReader("<");
+        TokeniserState.ScriptDataEscapedDash.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.ScriptDataEscapedLessthanSign, tokeniser.getState());
+
+        CharacterReader r4 = createReader("\u0000");
+        TokeniserState.ScriptDataEscapedDash.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.ScriptDataEscaped, tokeniser.getState());
+
+        CharacterReader r5 = createReader("x");
+        TokeniserState.ScriptDataEscapedDash.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.ScriptDataEscaped, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataEscapedDashDash_allBranches() {
+        CharacterReader r1 = createReader("");
+        TokeniserState.ScriptDataEscapedDashDash.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r2 = createReader("-");
+        TokeniserState.ScriptDataEscapedDashDash.read(tokeniser, r2);
+
+        CharacterReader r3 = createReader("<");
+        TokeniserState.ScriptDataEscapedDashDash.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.ScriptDataEscapedLessthanSign, tokeniser.getState());
+
+        CharacterReader r4 = createReader(">");
+        TokeniserState.ScriptDataEscapedDashDash.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.ScriptData, tokeniser.getState());
+
+        CharacterReader r5 = createReader("\u0000");
+        TokeniserState.ScriptDataEscapedDashDash.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.ScriptDataEscaped, tokeniser.getState());
+
+        CharacterReader r6 = createReader("x");
+        TokeniserState.ScriptDataEscapedDashDash.read(tokeniser, r6);
+        Assert.assertEquals(TokeniserState.ScriptDataEscaped, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataEscapedLessthanSign_allBranches() {
+        CharacterReader r1 = createReader("s");
+        TokeniserState.ScriptDataEscapedLessthanSign.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscapeStart, tokeniser.getState());
+
+        CharacterReader r2 = createReader("/script");
+        TokeniserState.ScriptDataEscapedLessthanSign.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptDataEscapedEndTagOpen, tokeniser.getState());
+
+        CharacterReader r3 = createReader("1");
+        TokeniserState.ScriptDataEscapedLessthanSign.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.ScriptDataEscaped, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataEscapedEndTagOpen_allBranches() {
+        CharacterReader r1 = createReader("s");
+        TokeniserState.ScriptDataEscapedEndTagOpen.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.ScriptDataEscapedEndTagName, tokeniser.getState());
+
+        CharacterReader r2 = createReader("1");
+        TokeniserState.ScriptDataEscapedEndTagOpen.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptDataEscaped, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataEscapedEndTagName_allBranches() {
+        CharacterReader r1 = createReader("cript ");
+        tokeniser.createTagPending(false);
+        tokeniser.dataBuffer.append("s");
+        TokeniserState.ScriptDataEscapedEndTagName.read(tokeniser, r1);
+
+        CharacterReader r2 = createReader(" ");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("script");
+        tokeniser.appropriateEndTagName = "script";
+        TokeniserState.ScriptDataEscapedEndTagName.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.BeforeAttributeName, tokeniser.getState());
+
+        CharacterReader r3 = createReader(" ");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("other");
+        tokeniser.appropriateEndTagName = "script";
+        TokeniserState.ScriptDataEscapedEndTagName.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.ScriptDataEscaped, tokeniser.getState());
+
+        CharacterReader r4 = createReader("/");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("script");
+        tokeniser.appropriateEndTagName = "script";
+        TokeniserState.ScriptDataEscapedEndTagName.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.SelfClosingStartTag, tokeniser.getState());
+
+        CharacterReader r5 = createReader("/");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("other");
+        tokeniser.appropriateEndTagName = "script";
+        TokeniserState.ScriptDataEscapedEndTagName.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.ScriptDataEscaped, tokeniser.getState());
+
+        CharacterReader r6 = createReader(">");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("script");
+        tokeniser.appropriateEndTagName = "script";
+        TokeniserState.ScriptDataEscapedEndTagName.read(tokeniser, r6);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r7 = createReader(">");
+        tokeniser.createTagPending(false);
+        tokeniser.tagPending.appendTagName("other");
+        tokeniser.appropriateEndTagName = "script";
+        TokeniserState.ScriptDataEscapedEndTagName.read(tokeniser, r7);
+        Assert.assertEquals(TokeniserState.ScriptDataEscaped, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataDoubleEscapeStart_allBranches() {
+        CharacterReader r1 = createReader("cript ");
+        TokeniserState.ScriptDataDoubleEscapeStart.read(tokeniser, r1);
+
+        CharacterReader r2 = createReader(" ");
+        tokeniser.dataBuffer.append("script");
+        TokeniserState.ScriptDataDoubleEscapeStart.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscaped, tokeniser.getState());
+
+        CharacterReader r3 = createReader(" ");
+        tokeniser.createTempBuffer();
+        tokeniser.dataBuffer.append("other");
+        TokeniserState.ScriptDataDoubleEscapeStart.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.ScriptDataEscaped, tokeniser.getState());
+
+        CharacterReader r4 = createReader("1");
+        TokeniserState.ScriptDataDoubleEscapeStart.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.ScriptDataEscaped, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataDoubleEscaped_allBranches() {
+        CharacterReader r1 = createReader("-");
+        TokeniserState.ScriptDataDoubleEscaped.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscapedDash, tokeniser.getState());
+
+        CharacterReader r2 = createReader("<");
+        TokeniserState.ScriptDataDoubleEscaped.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscapedLessthanSign, tokeniser.getState());
+
+        CharacterReader r3 = createReader("\u0000");
+        TokeniserState.ScriptDataDoubleEscaped.read(tokeniser, r3);
+
+        CharacterReader r4 = createReader("");
+        TokeniserState.ScriptDataDoubleEscaped.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r5 = createReader("abc-");
+        TokeniserState.ScriptDataDoubleEscaped.read(tokeniser, r5);
+    }
+
+    @Test
+    public void testScriptDataDoubleEscapedDash_allBranches() {
+        CharacterReader r1 = createReader("-");
+        TokeniserState.ScriptDataDoubleEscapedDash.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscapedDashDash, tokeniser.getState());
+
+        CharacterReader r2 = createReader("<");
+        TokeniserState.ScriptDataDoubleEscapedDash.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscapedLessthanSign, tokeniser.getState());
+
+        CharacterReader r3 = createReader("\u0000");
+        TokeniserState.ScriptDataDoubleEscapedDash.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscaped, tokeniser.getState());
+
+        CharacterReader r4 = createReader("");
+        TokeniserState.ScriptDataDoubleEscapedDash.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r5 = createReader("x");
+        TokeniserState.ScriptDataDoubleEscapedDash.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscaped, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataDoubleEscapedDashDash_allBranches() {
+        CharacterReader r1 = createReader("-");
+        TokeniserState.ScriptDataDoubleEscapedDashDash.read(tokeniser, r1);
+
+        CharacterReader r2 = createReader("<");
+        TokeniserState.ScriptDataDoubleEscapedDashDash.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscapedLessthanSign, tokeniser.getState());
+
+        CharacterReader r3 = createReader(">");
+        TokeniserState.ScriptDataDoubleEscapedDashDash.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscaped, tokeniser.getState());
+
+        CharacterReader r4 = createReader("\u0000");
+        TokeniserState.ScriptDataDoubleEscapedDashDash.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscaped, tokeniser.getState());
+
+        CharacterReader r5 = createReader("");
+        TokeniserState.ScriptDataDoubleEscapedDashDash.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r6 = createReader("x");
+        TokeniserState.ScriptDataDoubleEscapedDashDash.read(tokeniser, r6);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscaped, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataDoubleEscapedLessthanSign_allBranches() {
+        CharacterReader r1 = createReader("/script>");
+        TokeniserState.ScriptDataDoubleEscapedLessthanSign.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscapeEnd, tokeniser.getState());
+
+        CharacterReader r2 = createReader("a");
+        TokeniserState.ScriptDataDoubleEscapedLessthanSign.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscaped, tokeniser.getState());
+    }
+
+    @Test
+    public void testScriptDataDoubleEscapeEnd_allBranches() {
+        CharacterReader r1 = createReader("cript ");
+        TokeniserState.ScriptDataDoubleEscapeEnd.read(tokeniser, r1);
+
+        CharacterReader r2 = createReader(" ");
+        tokeniser.dataBuffer.append("script");
+        TokeniserState.ScriptDataDoubleEscapeEnd.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.ScriptDataEscaped, tokeniser.getState());
+
+        CharacterReader r3 = createReader(" ");
+        tokeniser.createTempBuffer();
+        tokeniser.dataBuffer.append("other");
+        TokeniserState.ScriptDataDoubleEscapeEnd.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscaped, tokeniser.getState());
+
+        CharacterReader r4 = createReader("1");
+        TokeniserState.ScriptDataDoubleEscapeEnd.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.ScriptDataDoubleEscaped, tokeniser.getState());
+    }
+
+    @Test
+    public void testBeforeAttributeName_allBranches() {
+        tokeniser.createTagPending(true);
+
+        CharacterReader r1 = createReader("   ");
+        TokeniserState.BeforeAttributeName.read(tokeniser, r1);
+
+        CharacterReader r2 = createReader("/");
+        TokeniserState.BeforeAttributeName.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.SelfClosingStartTag, tokeniser.getState());
+
+        CharacterReader r3 = createReader(">");
+        TokeniserState.BeforeAttributeName.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r4 = createReader("\u0000");
+        TokeniserState.BeforeAttributeName.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.AttributeName, tokeniser.getState());
+
+        CharacterReader r5 = createReader("");
+        TokeniserState.BeforeAttributeName.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r6 = createReader("\"");
+        TokeniserState.BeforeAttributeName.read(tokeniser, r6);
+        Assert.assertEquals(TokeniserState.AttributeName, tokeniser.getState());
+
+        CharacterReader r7 = createReader("attr");
+        TokeniserState.BeforeAttributeName.read(tokeniser, r7);
+        Assert.assertEquals(TokeniserState.AttributeName, tokeniser.getState());
+    }
+
+    @Test
+    public void testAttributeName_allBranches() {
+        tokeniser.createTagPending(true);
+
+        CharacterReader r1 = createReader("name ");
+        TokeniserState.AttributeName.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.AfterAttributeName, tokeniser.getState());
+
+        CharacterReader r2 = createReader("name/");
+        TokeniserState.AttributeName.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.SelfClosingStartTag, tokeniser.getState());
+
+        CharacterReader r3 = createReader("name=");
+        TokeniserState.AttributeName.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.BeforeAttributeValue, tokeniser.getState());
+
+        CharacterReader r4 = createReader("name>");
+        TokeniserState.AttributeName.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r5 = createReader("name\u0000");
+        TokeniserState.AttributeName.read(tokeniser, r5);
+
+        CharacterReader r6 = createReader("name");
+        TokeniserState.AttributeName.read(tokeniser, r6);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r7 = createReader("name\"");
+        TokeniserState.AttributeName.read(tokeniser, r7);
+    }
+
+    @Test
+    public void testAfterAttributeName_allBranches() {
+        tokeniser.createTagPending(true);
+
+        CharacterReader r1 = createReader("   ");
+        TokeniserState.AfterAttributeName.read(tokeniser, r1);
+
+        CharacterReader r2 = createReader("/");
+        TokeniserState.AfterAttributeName.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.SelfClosingStartTag, tokeniser.getState());
+
+        CharacterReader r3 = createReader("=");
+        TokeniserState.AfterAttributeName.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.BeforeAttributeValue, tokeniser.getState());
+
+        CharacterReader r4 = createReader(">");
+        TokeniserState.AfterAttributeName.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r5 = createReader("\u0000");
+        TokeniserState.AfterAttributeName.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.AttributeName, tokeniser.getState());
+
+        CharacterReader r6 = createReader("");
+        TokeniserState.AfterAttributeName.read(tokeniser, r6);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r7 = createReader("\"");
+        TokeniserState.AfterAttributeName.read(tokeniser, r7);
+        Assert.assertEquals(TokeniserState.AttributeName, tokeniser.getState());
+
+        CharacterReader r8 = createReader("newattr");
+        TokeniserState.AfterAttributeName.read(tokeniser, r8);
+        Assert.assertEquals(TokeniserState.AttributeName, tokeniser.getState());
+    }
+
+    @Test
+    public void testBeforeAttributeValue_allBranches() {
+        tokeniser.createTagPending(true);
+
+        CharacterReader r1 = createReader("   ");
+        TokeniserState.BeforeAttributeValue.read(tokeniser, r1);
+
+        CharacterReader r2 = createReader("\"val\"");
+        TokeniserState.BeforeAttributeValue.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.AttributeValue_doubleQuoted, tokeniser.getState());
+
+        CharacterReader r3 = createReader("&amp;");
+        TokeniserState.BeforeAttributeValue.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.AttributeValue_unquoted, tokeniser.getState());
+
+        CharacterReader r4 = createReader("'val'");
+        TokeniserState.BeforeAttributeValue.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.AttributeValue_singleQuoted, tokeniser.getState());
+
+        CharacterReader r5 = createReader("\u0000");
+        TokeniserState.BeforeAttributeValue.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.AttributeValue_unquoted, tokeniser.getState());
+
+        CharacterReader r6 = createReader("");
+        TokeniserState.BeforeAttributeValue.read(tokeniser, r6);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r7 = createReader(">");
+        TokeniserState.BeforeAttributeValue.read(tokeniser, r7);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r8 = createReader("<");
+        TokeniserState.BeforeAttributeValue.read(tokeniser, r8);
+        Assert.assertEquals(TokeniserState.AttributeValue_unquoted, tokeniser.getState());
+
+        CharacterReader r9 = createReader("unquoted");
+        TokeniserState.BeforeAttributeValue.read(tokeniser, r9);
+        Assert.assertEquals(TokeniserState.AttributeValue_unquoted, tokeniser.getState());
+    }
+
+    @Test
+    public void testAttributeValue_doubleQuoted_allBranches() {
+        tokeniser.createTagPending(true);
+
+        CharacterReader r1 = createReader("val\"");
+        TokeniserState.AttributeValue_doubleQuoted.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.AfterAttributeValue_quoted, tokeniser.getState());
+
+        CharacterReader r2 = createReader("&amp;\"");
+        TokeniserState.AttributeValue_doubleQuoted.read(tokeniser, r2);
+
+        CharacterReader r3 = createReader("&unknown;\"");
+        TokeniserState.AttributeValue_doubleQuoted.read(tokeniser, r3);
+
+        CharacterReader r4 = createReader("\u0000\"");
+        TokeniserState.AttributeValue_doubleQuoted.read(tokeniser, r4);
+
+        CharacterReader r5 = createReader("val");
+        TokeniserState.AttributeValue_doubleQuoted.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+    }
+
+    @Test
+    public void testAttributeValue_singleQuoted_allBranches() {
+        tokeniser.createTagPending(true);
+
+        CharacterReader r1 = createReader("val'");
+        TokeniserState.AttributeValue_singleQuoted.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.AfterAttributeValue_quoted, tokeniser.getState());
+
+        CharacterReader r2 = createReader("&amp;'");
+        TokeniserState.AttributeValue_singleQuoted.read(tokeniser, r2);
+
+        CharacterReader r3 = createReader("&unknown;'");
+        TokeniserState.AttributeValue_singleQuoted.read(tokeniser, r3);
+
+        CharacterReader r4 = createReader("\u0000'");
+        TokeniserState.AttributeValue_singleQuoted.read(tokeniser, r4);
+
+        CharacterReader r5 = createReader("val");
+        TokeniserState.AttributeValue_singleQuoted.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+    }
+
+    @Test
+    public void testAttributeValue_unquoted_allBranches() {
+        tokeniser.createTagPending(true);
+
+        CharacterReader r1 = createReader("val ");
+        TokeniserState.AttributeValue_unquoted.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.BeforeAttributeName, tokeniser.getState());
+
+        CharacterReader r2 = createReader("&amp; ");
+        TokeniserState.AttributeValue_unquoted.read(tokeniser, r2);
+
+        CharacterReader r3 = createReader("&unknown; ");
+        TokeniserState.AttributeValue_unquoted.read(tokeniser, r3);
+
+        CharacterReader r4 = createReader("val>");
+        TokeniserState.AttributeValue_unquoted.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r5 = createReader("val\u0000");
+        TokeniserState.AttributeValue_unquoted.read(tokeniser, r5);
+
+        CharacterReader r6 = createReader("val");
+        TokeniserState.AttributeValue_unquoted.read(tokeniser, r6);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r7 = createReader("val\"");
+        TokeniserState.AttributeValue_unquoted.read(tokeniser, r7);
+    }
+
+    @Test
+    public void testAfterAttributeValue_quoted_allBranches() {
+        tokeniser.createTagPending(true);
+
+        CharacterReader r1 = createReader(" ");
+        TokeniserState.AfterAttributeValue_quoted.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.BeforeAttributeName, tokeniser.getState());
+
+        CharacterReader r2 = createReader("/");
+        TokeniserState.AfterAttributeValue_quoted.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.SelfClosingStartTag, tokeniser.getState());
+
+        CharacterReader r3 = createReader(">");
+        TokeniserState.AfterAttributeValue_quoted.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r4 = createReader("");
+        TokeniserState.AfterAttributeValue_quoted.read(tokeniser, r4);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r5 = createReader("a");
+        TokeniserState.AfterAttributeValue_quoted.read(tokeniser, r5);
+        Assert.assertEquals(TokeniserState.BeforeAttributeName, tokeniser.getState());
+    }
+
+    @Test
+    public void testSelfClosingStartTag_allBranches() {
+        tokeniser.createTagPending(true);
+
+        CharacterReader r1 = createReader(">");
+        TokeniserState.SelfClosingStartTag.read(tokeniser, r1);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r2 = createReader("");
+        TokeniserState.SelfClosingStartTag.read(tokeniser, r2);
+        Assert.assertEquals(TokeniserState.Data, tokeniser.getState());
+
+        CharacterReader r3 = createReader("a");
+        TokeniserState.SelfClosingStartTag.read(tokeniser, r3);
+        Assert.assertEquals(TokeniserState.BeforeAttributeName, tokeniser.getState());
+    }
+
+    @Test
+    public void testBogusComment_allBranches() {
+        CharacterReader r1 = createReader("comment>");
+        TokeniserState.BogusComment.read(tokeniser, r1);
+        Assert.assertEquals

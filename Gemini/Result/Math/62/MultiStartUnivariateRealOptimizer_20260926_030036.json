@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "62",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer",
+  "target_classes": [
+    "org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 31.46,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\62\\MultiStartUnivariateRealOptimizer_20260926_030036.txt",
+  "test_file": "Gemini\\TestCode\\Math\\62\\MultiStartUnivariateRealOptimizerTest.java",
+  "usage": {
+    "prompt_tokens": 2296,
+    "completion_tokens": 2828,
+    "total_tokens": 6911
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 174582,
+    "daily_remaining_tokens": 175418
+  },
+  "timestamp": "20260926_030036"
+}

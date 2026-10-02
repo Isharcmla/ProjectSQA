@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "45",
+  "tool": "claude",
+  "class": "org.apache.commons.math.linear.OpenMapRealMatrix",
+  "target_classes": [
+    "org.apache.commons.math.linear.OpenMapRealMatrix"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 43.76,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\45\\OpenMapRealMatrix_20261002_175744.txt",
+  "test_file": "Claude\\TestCode\\Math\\45\\OpenMapRealMatrixTest.java",
+  "usage": {
+    "prompt_tokens": 4300,
+    "completion_tokens": 6802,
+    "total_tokens": 11102
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 11102,
+    "daily_remaining_tokens": 188898
+  },
+  "timestamp": "20261002_175744"
+}

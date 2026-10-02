@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "22",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.distribution.UniformRealDistribution",
+  "target_classes": [
+    "org.apache.commons.math3.distribution.UniformRealDistribution"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 13.95,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\22\\UniformRealDistribution_20260926_023304.txt",
+  "test_file": "Gemini\\TestCode\\Math\\22\\UniformRealDistributionTest.java",
+  "usage": {
+    "prompt_tokens": 1878,
+    "completion_tokens": 1963,
+    "total_tokens": 3841
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 29447,
+    "daily_remaining_tokens": 320553
+  },
+  "timestamp": "20260926_023304"
+}

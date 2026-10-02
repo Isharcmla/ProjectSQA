@@ -1,0 +1,65 @@
+package org.apache.commons.jxpath.ri.compiler;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+
+import org.apache.commons.jxpath.ri.EvalContext;
+import org.junit.Test;
+
+/**
+ * Unit tests for {@link CoreOperationRelationalExpression}.
+ *
+ * หมายเหตุสำคัญ: CoreOperationRelationalExpression เป็น abstract class ที่ extends
+ * CoreOperation ซึ่งไม่มี source code ให้มาใน dependencies (ระบุว่า "ไม่มีข้อมูลเพิ่มเติม")
+ * ดังนั้นในการสร้าง concrete subclass เพื่อทดสอบ เราจำเป็นต้องสมมติ (best-effort)
+ * ว่า abstract method ที่สืบทอดมาจาก CoreOperation/Operation/Expression ที่ยังไม่ถูก
+ * implement ในลำดับชั้นนี้คือ computeValue(EvalContext) และ getSymbol()
+ * (อ้างอิงจาก pattern ทั่วไปของ concrete subclass จริงในไลบรารี เช่น CoreOperationLessThan,
+ * CoreOperationGreaterThan เป็นต้น) หากคลาสฐานจริงมี abstract method อื่นเพิ่มเติม
+ * การ compile อาจไม่สำเร็จ - จึงขอระบุไว้เป็น comment ณ จุดนี้แทนการเดาแบบไม่มีที่อ้างอิง
+ *
+ * Test นี้มุ่งเน้นทดสอบ behavior ที่ประกาศอยู่ใน CoreOperationRelationalExpression เอง
+ * คือ constructor, getPrecedence() และ isSymmetric() ซึ่งเป็น protected method ที่เข้าถึง
+ * ได้จาก test class เนื่องจากอยู่ใน package เดียวกัน (org.apache.commons.jxpath.ri.compiler)
+ */
+public class CoreOperationRelationalExpressionTest {
+
+    /**
+     * Concrete subclass ที่ใช้เฉพาะสำหรับทดสอบ เพื่อให้สามารถสร้าง instance ของ
+     * CoreOperationRelationalExpression ได้ (เนื่องจากเป็น abstract class)
+     */
+    private static class TestRelationalExpression extends CoreOperationRelationalExpression {
+
+        TestRelationalExpression(Expression[] args) {
+            super(args);
+        }
+
+        // สมมติว่าเป็น abstract method ที่สืบทอดมาจาก Expression (ผ่าน Operation, CoreOperation)
+        public Object computeValue(EvalContext context) {
+            return null;
+        }
+
+        // สมมติว่าเป็น abstract method ที่สืบทอดมาจาก Operation
+        public String getSymbol() {
+            return "?";
+        }
+    }
+
+    @Test
+    public void testGetPrecedence_normalCase_returnsThree() {
+        TestRelationalExpression expr = new TestRelationalExpression(new Expression[2]);
+        assertEquals(3, expr.getPrecedence());
+    }
+
+    @Test
+    public void testIsSymmetric_normalCase_returnsFalse() {
+        TestRelationalExpression expr = new TestRelationalExpression(new Expression[2]);
+        assertFalse(expr.isSymmetric());
+    }
+
+    @Test
+    public void testConstructor_withEmptyArgsArray_createsInstance() {
+        TestRelationalExpression expr = new TestRelationalExpression(new Expression[0]);
+        assertNotNull(expr);
+        assertEqu

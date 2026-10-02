@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "87",
+  "tool": "gemini",
+  "class": "org.jsoup.parser.Tag",
+  "target_classes": [
+    "org.jsoup.parser.Tag"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 24.94,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\87\\Tag_20260926_005413.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\87\\TagTest.java",
+  "usage": {
+    "prompt_tokens": 3282,
+    "completion_tokens": 1608,
+    "total_tokens": 6914
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 228520,
+    "daily_remaining_tokens": 121480
+  },
+  "timestamp": "20260926_005413"
+}

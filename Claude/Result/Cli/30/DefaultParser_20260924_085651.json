@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "30",
+  "tool": "claude",
+  "class": "org.apache.commons.cli.DefaultParser",
+  "target_classes": [
+    "org.apache.commons.cli.DefaultParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 117.91,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Cli\\30\\DefaultParser_20260924_085651.txt",
+  "test_file": "Claude\\TestCode\\Cli\\30\\DefaultParserTest.java",
+  "usage": {
+    "prompt_tokens": 7573,
+    "completion_tokens": 15125,
+    "total_tokens": 22698
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 22698,
+    "daily_remaining_tokens": 177302
+  },
+  "timestamp": "20260924_085651"
+}

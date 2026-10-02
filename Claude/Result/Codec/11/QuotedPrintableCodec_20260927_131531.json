@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "11",
+  "tool": "claude",
+  "class": "org.apache.commons.codec.net.QuotedPrintableCodec",
+  "target_classes": [
+    "org.apache.commons.codec.net.QuotedPrintableCodec"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 36.4,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Codec\\11\\QuotedPrintableCodec_20260927_131531.txt",
+  "test_file": "Claude\\TestCode\\Codec\\11\\QuotedPrintableCodecTest.java",
+  "usage": {
+    "prompt_tokens": 6348,
+    "completion_tokens": 5652,
+    "total_tokens": 12000
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 110647,
+    "daily_remaining_tokens": 89353
+  },
+  "timestamp": "20260927_131531"
+}

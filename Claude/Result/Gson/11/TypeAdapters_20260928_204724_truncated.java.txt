@@ -1,0 +1,645 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.net.InetAddress;
+import java.net.URI;
+import java.net.URL;
+import java.sql.Timestamp;
+import java.util.BitSet;
+import java.util.Calendar;
+import java.util.Currency;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicIntegerArray;
+
+import org.junit.Test;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonNull;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.internal.bind.TypeAdapters;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+
+public class TypeAdaptersTest {
+
+  private JsonReader newReader(String json) {
+    return new JsonReader(new StringReader(json));
+  }
+
+  private JsonWriter newWriter(StringWriter sw) {
+    return new JsonWriter(sw);
+  }
+
+  enum SampleEnum {
+    @SerializedName(value = "firstValue", alternate = {"first"})
+    FIRST,
+    SECOND
+  }
+
+  // ---------------- Private constructor ----------------
+
+  @Test
+  public void testPrivateConstructor_alwaysThrowsUnsupportedOperationException() throws Exception {
+    Constructor<TypeAdapters> constructor = TypeAdapters.class.getDeclaredConstructor();
+    constructor.setAccessible(true);
+    try {
+      constructor.newInstance();
+      fail("Expected InvocationTargetException wrapping UnsupportedOperationException");
+    } catch (InvocationTargetException e) {
+      assertTrue(e.getCause() instanceof UnsupportedOperationException);
+    }
+  }
+
+  // ---------------- CLASS ----------------
+
+  @Test
+  public void testClassAdapter_writeNull_writesNullValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    JsonWriter jw = newWriter(sw);
+    TypeAdapters.CLASS.write(jw, null);
+    jw.flush();
+    assertEquals("null", sw.toString());
+  }
+
+  @Test(expected = UnsupportedOperationException.class)
+  public void testClassAdapter_writeNonNull_throwsException() throws Exception {
+    StringWriter sw = new StringWriter();
+    JsonWriter jw = newWriter(sw);
+    TypeAdapters.CLASS.write(jw, String.class);
+  }
+
+  @Test
+  public void testClassAdapter_readNull_returnsNull() throws Exception {
+    JsonReader jr = newReader("null");
+    assertNull(TypeAdapters.CLASS.read(jr));
+  }
+
+  @Test(expected = UnsupportedOperationException.class)
+  public void testClassAdapter_readNonNull_throwsException() throws Exception {
+    JsonReader jr = newReader("\"foo\"");
+    TypeAdapters.CLASS.read(jr);
+  }
+
+  @Test
+  public void testClassFactory_matchingType_returnsAdapter() {
+    TypeAdapter<Class> adapter = TypeAdapters.CLASS_FACTORY.create(new Gson(), TypeToken.get(Class.class));
+    assertNotNull(adapter);
+  }
+
+  @Test
+  public void testClassFactory_nonMatchingType_returnsNull() {
+    TypeAdapter<String> adapter = TypeAdapters.CLASS_FACTORY.create(new Gson(), TypeToken.get(String.class));
+    assertNull(adapter);
+  }
+
+  // ---------------- BIT_SET ----------------
+
+  @Test
+  public void testBitSet_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.BIT_SET.read(newReader("null")));
+  }
+
+  @Test
+  public void testBitSet_readNumbersAndBooleansAndStrings_setsBits() throws Exception {
+    JsonReader jr = newReader("[1,0,true,false,\"1\",\"0\"]");
+    BitSet bs = TypeAdapters.BIT_SET.read(jr);
+    assertTrue(bs.get(0));
+    assertFalse(bs.get(1));
+    assertTrue(bs.get(2));
+    assertFalse(bs.get(3));
+    assertTrue(bs.get(4));
+    assertFalse(bs.get(5));
+  }
+
+  @Test(expected = JsonSyntaxException.class)
+  public void testBitSet_readInvalidStringValue_throwsException() throws Exception {
+    JsonReader jr = newReader("[\"abc\"]");
+    TypeAdapters.BIT_SET.read(jr);
+  }
+
+  @Test(expected = JsonSyntaxException.class)
+  public void testBitSet_readInvalidTokenType_throwsException() throws Exception {
+    JsonReader jr = newReader("[null]");
+    TypeAdapters.BIT_SET.read(jr);
+  }
+
+  @Test
+  public void testBitSet_writeNull_writesNullValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.BIT_SET.write(newWriter(sw), null);
+    assertEquals("null", sw.toString());
+  }
+
+  @Test
+  public void testBitSet_writeValue_writesArray() throws Exception {
+    BitSet bs = new BitSet();
+    bs.set(0);
+    bs.set(2);
+    StringWriter sw = new StringWriter();
+    JsonWriter jw = newWriter(sw);
+    TypeAdapters.BIT_SET.write(jw, bs);
+    jw.flush();
+    assertEquals("[1,0,1]", sw.toString());
+  }
+
+  @Test
+  public void testBitSetFactory_matching_returnsAdapter() {
+    assertNotNull(TypeAdapters.BIT_SET_FACTORY.create(new Gson(), TypeToken.get(BitSet.class)));
+  }
+
+  @Test
+  public void testBitSetFactory_nonMatching_returnsNull() {
+    assertNull(TypeAdapters.BIT_SET_FACTORY.create(new Gson(), TypeToken.get(String.class)));
+  }
+
+  // ---------------- BOOLEAN ----------------
+
+  @Test
+  public void testBoolean_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.BOOLEAN.read(newReader("null")));
+  }
+
+  @Test
+  public void testBoolean_readString_returnsParsedBoolean() throws Exception {
+    assertEquals(Boolean.TRUE, TypeAdapters.BOOLEAN.read(newReader("\"true\"")));
+  }
+
+  @Test
+  public void testBoolean_readBoolean_returnsBoolean() throws Exception {
+    assertEquals(Boolean.FALSE, TypeAdapters.BOOLEAN.read(newReader("false")));
+  }
+
+  @Test
+  public void testBoolean_write_writesBoolean() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.BOOLEAN.write(newWriter(sw), Boolean.TRUE);
+    assertEquals("true", sw.toString());
+  }
+
+  @Test
+  public void testBooleanAsString_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.BOOLEAN_AS_STRING.read(newReader("null")));
+  }
+
+  @Test
+  public void testBooleanAsString_readString_returnsBoolean() throws Exception {
+    assertEquals(Boolean.TRUE, TypeAdapters.BOOLEAN_AS_STRING.read(newReader("\"true\"")));
+  }
+
+  @Test
+  public void testBooleanAsString_writeNull_writesNullString() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.BOOLEAN_AS_STRING.write(newWriter(sw), null);
+    assertEquals("\"null\"", sw.toString());
+  }
+
+  @Test
+  public void testBooleanAsString_writeValue_writesStringValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.BOOLEAN_AS_STRING.write(newWriter(sw), Boolean.TRUE);
+    assertEquals("\"true\"", sw.toString());
+  }
+
+  @Test
+  public void testBooleanFactory_matchingTypes_returnsAdapter() {
+    assertNotNull(TypeAdapters.BOOLEAN_FACTORY.create(new Gson(), TypeToken.get(boolean.class)));
+    assertNotNull(TypeAdapters.BOOLEAN_FACTORY.create(new Gson(), TypeToken.get(Boolean.class)));
+  }
+
+  @Test
+  public void testBooleanFactory_nonMatching_returnsNull() {
+    assertNull(TypeAdapters.BOOLEAN_FACTORY.create(new Gson(), TypeToken.get(String.class)));
+  }
+
+  @Test
+  public void testBooleanFactory_toString_containsClassName() {
+    assertTrue(TypeAdapters.BOOLEAN_FACTORY.toString().contains("Boolean"));
+  }
+
+  // ---------------- BYTE ----------------
+
+  @Test
+  public void testByte_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.BYTE.read(newReader("null")));
+  }
+
+  @Test
+  public void testByte_readValid_returnsByte() throws Exception {
+    Number n = TypeAdapters.BYTE.read(newReader("5"));
+    assertEquals((byte) 5, n.byteValue());
+  }
+
+  @Test
+  public void testByte_write_writesValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.BYTE.write(newWriter(sw), (byte) 5);
+    assertEquals("5", sw.toString());
+  }
+
+  @Test
+  public void testByteFactory_matching_returnsAdapter() {
+    assertNotNull(TypeAdapters.BYTE_FACTORY.create(new Gson(), TypeToken.get(byte.class)));
+    assertNotNull(TypeAdapters.BYTE_FACTORY.create(new Gson(), TypeToken.get(Byte.class)));
+  }
+
+  // ---------------- SHORT ----------------
+
+  @Test
+  public void testShort_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.SHORT.read(newReader("null")));
+  }
+
+  @Test
+  public void testShort_readValid_returnsShort() throws Exception {
+    Number n = TypeAdapters.SHORT.read(newReader("7"));
+    assertEquals((short) 7, n.shortValue());
+  }
+
+  @Test
+  public void testShort_write_writesValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.SHORT.write(newWriter(sw), (short) 9);
+    assertEquals("9", sw.toString());
+  }
+
+  @Test
+  public void testShortFactory_matching_returnsAdapter() {
+    assertNotNull(TypeAdapters.SHORT_FACTORY.create(new Gson(), TypeToken.get(short.class)));
+  }
+
+  // ---------------- INTEGER ----------------
+
+  @Test
+  public void testInteger_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.INTEGER.read(newReader("null")));
+  }
+
+  @Test
+  public void testInteger_readValid_returnsInteger() throws Exception {
+    Number n = TypeAdapters.INTEGER.read(newReader("42"));
+    assertEquals(42, n.intValue());
+  }
+
+  @Test
+  public void testInteger_write_writesValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.INTEGER.write(newWriter(sw), 42);
+    assertEquals("42", sw.toString());
+  }
+
+  @Test
+  public void testIntegerFactory_matching_returnsAdapter() {
+    assertNotNull(TypeAdapters.INTEGER_FACTORY.create(new Gson(), TypeToken.get(int.class)));
+  }
+
+  // ---------------- ATOMIC_INTEGER ----------------
+
+  @Test
+  public void testAtomicInteger_readValue_returnsAtomicInteger() throws Exception {
+    AtomicInteger ai = TypeAdapters.ATOMIC_INTEGER.read(newReader("15"));
+    assertEquals(15, ai.get());
+  }
+
+  @Test
+  public void testAtomicInteger_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.ATOMIC_INTEGER.read(newReader("null")));
+  }
+
+  @Test
+  public void testAtomicInteger_write_writesValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.ATOMIC_INTEGER.write(newWriter(sw), new AtomicInteger(3));
+    assertEquals("3", sw.toString());
+  }
+
+  @Test
+  public void testAtomicIntegerFactory_matching_returnsAdapter() {
+    assertNotNull(TypeAdapters.ATOMIC_INTEGER_FACTORY.create(new Gson(), TypeToken.get(AtomicInteger.class)));
+  }
+
+  // ---------------- ATOMIC_BOOLEAN ----------------
+
+  @Test
+  public void testAtomicBoolean_readValue_returnsAtomicBoolean() throws Exception {
+    AtomicBoolean ab = TypeAdapters.ATOMIC_BOOLEAN.read(newReader("true"));
+    assertTrue(ab.get());
+  }
+
+  @Test
+  public void testAtomicBoolean_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.ATOMIC_BOOLEAN.read(newReader("null")));
+  }
+
+  @Test
+  public void testAtomicBoolean_write_writesValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.ATOMIC_BOOLEAN.write(newWriter(sw), new AtomicBoolean(true));
+    assertEquals("true", sw.toString());
+  }
+
+  @Test
+  public void testAtomicBooleanFactory_matching_returnsAdapter() {
+    assertNotNull(TypeAdapters.ATOMIC_BOOLEAN_FACTORY.create(new Gson(), TypeToken.get(AtomicBoolean.class)));
+  }
+
+  // ---------------- ATOMIC_INTEGER_ARRAY ----------------
+
+  @Test
+  public void testAtomicIntegerArray_readValues_returnsArray() throws Exception {
+    AtomicIntegerArray arr = TypeAdapters.ATOMIC_INTEGER_ARRAY.read(newReader("[1,2,3]"));
+    assertEquals(3, arr.length());
+    assertEquals(1, arr.get(0));
+    assertEquals(2, arr.get(1));
+    assertEquals(3, arr.get(2));
+  }
+
+  @Test
+  public void testAtomicIntegerArray_readEmptyArray_returnsEmptyArray() throws Exception {
+    AtomicIntegerArray arr = TypeAdapters.ATOMIC_INTEGER_ARRAY.read(newReader("[]"));
+    assertEquals(0, arr.length());
+  }
+
+  @Test
+  public void testAtomicIntegerArray_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.ATOMIC_INTEGER_ARRAY.read(newReader("null")));
+  }
+
+  @Test
+  public void testAtomicIntegerArray_write_writesArray() throws Exception {
+    AtomicIntegerArray arr = new AtomicIntegerArray(2);
+    arr.set(0, 5);
+    arr.set(1, 6);
+    StringWriter sw = new StringWriter();
+    TypeAdapters.ATOMIC_INTEGER_ARRAY.write(newWriter(sw), arr);
+    assertEquals("[5,6]", sw.toString());
+  }
+
+  @Test
+  public void testAtomicIntegerArrayFactory_matching_returnsAdapter() {
+    assertNotNull(TypeAdapters.ATOMIC_INTEGER_ARRAY_FACTORY.create(new Gson(), TypeToken.get(AtomicIntegerArray.class)));
+  }
+
+  // ---------------- LONG ----------------
+
+  @Test
+  public void testLong_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.LONG.read(newReader("null")));
+  }
+
+  @Test
+  public void testLong_readValid_returnsLong() throws Exception {
+    Number n = TypeAdapters.LONG.read(newReader("123456789012"));
+    assertEquals(123456789012L, n.longValue());
+  }
+
+  @Test
+  public void testLong_write_writesValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.LONG.write(newWriter(sw), 100L);
+    assertEquals("100", sw.toString());
+  }
+
+  // ---------------- FLOAT ----------------
+
+  @Test
+  public void testFloat_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.FLOAT.read(newReader("null")));
+  }
+
+  @Test
+  public void testFloat_readValid_returnsFloat() throws Exception {
+    Number n = TypeAdapters.FLOAT.read(newReader("1.5"));
+    assertEquals(1.5f, n.floatValue(), 0.0001f);
+  }
+
+  @Test
+  public void testFloat_write_writesValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.FLOAT.write(newWriter(sw), 1.5f);
+    assertEquals("1.5", sw.toString());
+  }
+
+  // ---------------- DOUBLE ----------------
+
+  @Test
+  public void testDouble_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.DOUBLE.read(newReader("null")));
+  }
+
+  @Test
+  public void testDouble_readValid_returnsDouble() throws Exception {
+    Number n = TypeAdapters.DOUBLE.read(newReader("2.5"));
+    assertEquals(2.5d, n.doubleValue(), 0.0001d);
+  }
+
+  @Test
+  public void testDouble_write_writesValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.DOUBLE.write(newWriter(sw), 2.5d);
+    assertEquals("2.5", sw.toString());
+  }
+
+  // ---------------- NUMBER ----------------
+
+  @Test
+  public void testNumber_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.NUMBER.read(newReader("null")));
+  }
+
+  @Test
+  public void testNumber_readValid_returnsNumber() throws Exception {
+    Number n = TypeAdapters.NUMBER.read(newReader("99"));
+    assertEquals(99, n.intValue());
+  }
+
+  @Test(expected = JsonSyntaxException.class)
+  public void testNumber_readNonNumberToken_throwsException() throws Exception {
+    TypeAdapters.NUMBER.read(newReader("\"str\""));
+  }
+
+  @Test
+  public void testNumber_write_writesValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.NUMBER.write(newWriter(sw), 5);
+    assertEquals("5", sw.toString());
+  }
+
+  @Test
+  public void testNumberFactory_matching_returnsAdapter() {
+    assertNotNull(TypeAdapters.NUMBER_FACTORY.create(new Gson(), TypeToken.get(Number.class)));
+  }
+
+  // ---------------- CHARACTER ----------------
+
+  @Test
+  public void testCharacter_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.CHARACTER.read(newReader("null")));
+  }
+
+  @Test
+  public void testCharacter_readValid_returnsCharacter() throws Exception {
+    Character c = TypeAdapters.CHARACTER.read(newReader("\"a\""));
+    assertEquals(Character.valueOf('a'), c);
+  }
+
+  @Test(expected = JsonSyntaxException.class)
+  public void testCharacter_readMultiCharString_throwsException() throws Exception {
+    TypeAdapters.CHARACTER.read(newReader("\"ab\""));
+  }
+
+  @Test(expected = JsonSyntaxException.class)
+  public void testCharacter_readEmptyString_throwsException() throws Exception {
+    TypeAdapters.CHARACTER.read(newReader("\"\""));
+  }
+
+  @Test
+  public void testCharacter_writeNull_writesNullValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.CHARACTER.write(newWriter(sw), null);
+    assertEquals("null", sw.toString());
+  }
+
+  @Test
+  public void testCharacter_writeValue_writesString() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.CHARACTER.write(newWriter(sw), 'x');
+    assertEquals("\"x\"", sw.toString());
+  }
+
+  @Test
+  public void testCharacterFactory_matching_returnsAdapter() {
+    assertNotNull(TypeAdapters.CHARACTER_FACTORY.create(new Gson(), TypeToken.get(char.class)));
+  }
+
+  // ---------------- STRING ----------------
+
+  @Test
+  public void testString_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.STRING.read(newReader("null")));
+  }
+
+  @Test
+  public void testString_readBoolean_coercesToString() throws Exception {
+    assertEquals("true", TypeAdapters.STRING.read(newReader("true")));
+  }
+
+  @Test
+  public void testString_readString_returnsString() throws Exception {
+    assertEquals("hello", TypeAdapters.STRING.read(newReader("\"hello\"")));
+  }
+
+  @Test
+  public void testString_write_writesValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.STRING.write(newWriter(sw), "hi");
+    assertEquals("\"hi\"", sw.toString());
+  }
+
+  @Test
+  public void testStringFactory_matching_returnsAdapter() {
+    assertNotNull(TypeAdapters.STRING_FACTORY.create(new Gson(), TypeToken.get(String.class)));
+  }
+
+  // ---------------- BIG_DECIMAL ----------------
+
+  @Test
+  public void testBigDecimal_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.BIG_DECIMAL.read(newReader("null")));
+  }
+
+  @Test
+  public void testBigDecimal_readValid_returnsBigDecimal() throws Exception {
+    BigDecimal bd = TypeAdapters.BIG_DECIMAL.read(newReader("\"123.45\""));
+    assertEquals(new BigDecimal("123.45"), bd);
+  }
+
+  @Test(expected = JsonSyntaxException.class)
+  public void testBigDecimal_readInvalid_throwsException() throws Exception {
+    TypeAdapters.BIG_DECIMAL.read(newReader("\"notanumber\""));
+  }
+
+  @Test
+  public void testBigDecimal_write_writesValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.BIG_DECIMAL.write(newWriter(sw), new BigDecimal("1.23"));
+    assertEquals("1.23", sw.toString());
+  }
+
+  // ---------------- BIG_INTEGER ----------------
+
+  @Test
+  public void testBigInteger_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.BIG_INTEGER.read(newReader("null")));
+  }
+
+  @Test
+  public void testBigInteger_readValid_returnsBigInteger() throws Exception {
+    BigInteger bi = TypeAdapters.BIG_INTEGER.read(newReader("\"12345\""));
+    assertEquals(new BigInteger("12345"), bi);
+  }
+
+  @Test(expected = JsonSyntaxException.class)
+  public void testBigInteger_readInvalid_throwsException() throws Exception {
+    TypeAdapters.BIG_INTEGER.read(newReader("\"notanumber\""));
+  }
+
+  @Test
+  public void testBigInteger_write_writesValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.BIG_INTEGER.write(newWriter(sw), new BigInteger("999"));
+    assertEquals("999", sw.toString());
+  }
+
+  // ---------------- STRING_BUILDER ----------------
+
+  @Test
+  public void testStringBuilder_readNull_returnsNull() throws Exception {
+    assertNull(TypeAdapters.STRING_BUILDER.read(newReader("null")));
+  }
+
+  @Test
+  public void testStringBuilder_readValid_returnsStringBuilder() throws Exception {
+    StringBuilder sb = TypeAdapters.STRING_BUILDER.read(newReader("\"abc\""));
+    assertEquals("abc", sb.toString());
+  }
+
+  @Test
+  public void testStringBuilder_writeNull_writesNullValue() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.STRING_BUILDER.write(newWriter(sw), null);
+    assertEquals("null", sw.toString());
+  }
+
+  @Test
+  public void testStringBuilder_writeValue_writesString() throws Exception {
+    StringWriter sw = new StringWriter();
+    TypeAdapters.STRING_BUILDER.write(newWriter(sw), new StringBuilder("xyz"));
+    assertEquals("\"xyz\"", sw.toString());
+  }
+
+  @Test
+  public void testStringBuil

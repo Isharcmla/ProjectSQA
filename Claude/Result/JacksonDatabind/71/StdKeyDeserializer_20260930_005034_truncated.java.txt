@@ -1,0 +1,386 @@
+package com.fasterxml.jackson.databind.deser.std;
+
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
+import java.util.Calendar;
+import java.util.Currency;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Map;
+import java.util.UUID;
+
+import static org.junit.Assert.*;
+
+public class StdKeyDeserializerTest {
+
+    private ObjectMapper mapper;
+
+    @Before
+    public void setUp() {
+        mapper = new ObjectMapper();
+    }
+
+    // ---------- forType() tests ----------
+
+    @Test
+    public void testForType_String_returnsStringKD() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(String.class);
+        assertNotNull(kd);
+        assertEquals(String.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Object_returnsStringKD() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Object.class);
+        assertNotNull(kd);
+        assertEquals(Object.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_UUID_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(UUID.class);
+        assertNotNull(kd);
+        assertEquals(UUID.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Integer_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Integer.class);
+        assertNotNull(kd);
+        assertEquals(Integer.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Long_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Long.class);
+        assertNotNull(kd);
+        assertEquals(Long.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Date_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Date.class);
+        assertNotNull(kd);
+        assertEquals(Date.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Calendar_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Calendar.class);
+        assertNotNull(kd);
+        assertEquals(Calendar.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Boolean_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Boolean.class);
+        assertNotNull(kd);
+        assertEquals(Boolean.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Byte_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Byte.class);
+        assertNotNull(kd);
+        assertEquals(Byte.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Character_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Character.class);
+        assertNotNull(kd);
+        assertEquals(Character.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Short_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Short.class);
+        assertNotNull(kd);
+        assertEquals(Short.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Float_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Float.class);
+        assertNotNull(kd);
+        assertEquals(Float.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Double_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Double.class);
+        assertNotNull(kd);
+        assertEquals(Double.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_URI_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(URI.class);
+        assertNotNull(kd);
+        assertEquals(URI.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_URL_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(URL.class);
+        assertNotNull(kd);
+        assertEquals(URL.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Class_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Class.class);
+        assertNotNull(kd);
+        assertEquals(Class.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Locale_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Locale.class);
+        assertNotNull(kd);
+        assertEquals(Locale.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_Currency_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Currency.class);
+        assertNotNull(kd);
+        assertEquals(Currency.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_UnsupportedType_returnsNull() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Runnable.class);
+        assertNull(kd);
+    }
+
+    // ---------- deserializeKey() via ObjectMapper (public API path) ----------
+
+    @Test
+    public void testDeserializeKey_IntegerMap_normal() throws IOException {
+        Map<Integer, String> m = mapper.readValue("{\"5\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Integer.class, String.class));
+        assertEquals("foo", m.get(5));
+    }
+
+    @Test
+    public void testDeserializeKey_IntegerMap_negativeValue() throws IOException {
+        Map<Integer, String> m = mapper.readValue("{\"-42\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Integer.class, String.class));
+        assertEquals("foo", m.get(-42));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_IntegerMap_invalidNumber_throwsException() throws IOException {
+        mapper.readValue("{\"notanumber\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Integer.class, String.class));
+    }
+
+    @Test
+    public void testDeserializeKey_LongMap_normal() throws IOException {
+        Map<Long, String> m = mapper.readValue("{\"12345678901\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Long.class, String.class));
+        assertEquals("foo", m.get(12345678901L));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_LongMap_invalid_throwsException() throws IOException {
+        mapper.readValue("{\"notalong\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Long.class, String.class));
+    }
+
+    @Test
+    public void testDeserializeKey_BooleanMap_true() throws IOException {
+        Map<Boolean, String> m = mapper.readValue("{\"true\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Boolean.class, String.class));
+        assertEquals("foo", m.get(Boolean.TRUE));
+    }
+
+    @Test
+    public void testDeserializeKey_BooleanMap_false() throws IOException {
+        Map<Boolean, String> m = mapper.readValue("{\"false\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Boolean.class, String.class));
+        assertEquals("foo", m.get(Boolean.FALSE));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_BooleanMap_invalid_throwsException() throws IOException {
+        mapper.readValue("{\"notabool\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Boolean.class, String.class));
+    }
+
+    @Test
+    public void testDeserializeKey_ByteMap_normal() throws IOException {
+        Map<Byte, String> m = mapper.readValue("{\"100\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Byte.class, String.class));
+        assertEquals("foo", m.get((byte) 100));
+    }
+
+    @Test
+    public void testDeserializeKey_ByteMap_boundary255() throws IOException {
+        Map<Byte, String> m = mapper.readValue("{\"255\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Byte.class, String.class));
+        assertEquals(1, m.size());
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_ByteMap_overflow_throwsException() throws IOException {
+        mapper.readValue("{\"256\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Byte.class, String.class));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_ByteMap_underflow_throwsException() throws IOException {
+        mapper.readValue("{\"-200\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Byte.class, String.class));
+    }
+
+    @Test
+    public void testDeserializeKey_ShortMap_normal() throws IOException {
+        Map<Short, String> m = mapper.readValue("{\"1000\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Short.class, String.class));
+        assertEquals("foo", m.get((short) 1000));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_ShortMap_overflow_throwsException() throws IOException {
+        mapper.readValue("{\"100000\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Short.class, String.class));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_ShortMap_underflow_throwsException() throws IOException {
+        mapper.readValue("{\"-100000\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Short.class, String.class));
+    }
+
+    @Test
+    public void testDeserializeKey_CharacterMap_normal() throws IOException {
+        Map<Character, String> m = mapper.readValue("{\"a\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Character.class, String.class));
+        assertEquals("foo", m.get('a'));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_CharacterMap_multiChar_throwsException() throws IOException {
+        mapper.readValue("{\"ab\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Character.class, String.class));
+    }
+
+    @Test
+    public void testDeserializeKey_FloatMap_normal() throws IOException {
+        Map<Float, String> m = mapper.readValue("{\"1.5\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Float.class, String.class));
+        assertEquals("foo", m.get(1.5f));
+    }
+
+    @Test
+    public void testDeserializeKey_DoubleMap_normal() throws IOException {
+        Map<Double, String> m = mapper.readValue("{\"1.5\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Double.class, String.class));
+        assertEquals("foo", m.get(1.5d));
+    }
+
+    @Test
+    public void testDeserializeKey_DoubleMap_zero() throws IOException {
+        Map<Double, String> m = mapper.readValue("{\"0\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Double.class, String.class));
+        assertEquals("foo", m.get(0.0d));
+    }
+
+    @Test
+    public void testDeserializeKey_LocaleMap_normal() throws IOException {
+        Map<Locale, String> m = mapper.readValue("{\"en_US\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Locale.class, String.class));
+        assertEquals(1, m.size());
+    }
+
+    @Test
+    public void testDeserializeKey_CurrencyMap_normal() throws IOException {
+        Map<Currency, String> m = mapper.readValue("{\"USD\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Currency.class, String.class));
+        assertEquals("foo", m.get(Currency.getInstance("USD")));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_CurrencyMap_invalid_throwsException() throws IOException {
+        mapper.readValue("{\"NOTACURRENCY\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Currency.class, String.class));
+    }
+
+    @Test
+    public void testDeserializeKey_DateMap_normal() throws IOException {
+        Map<Date, String> m = mapper.readValue("{\"0\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Date.class, String.class));
+        assertEquals(1, m.size());
+    }
+
+    @Test
+    public void testDeserializeKey_CalendarMap_normal() throws IOException {
+        Map<Calendar, String> m = mapper.readValue("{\"0\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Calendar.class, String.class));
+        assertEquals(1, m.size());
+    }
+
+    @Test
+    public void testDeserializeKey_UUIDMap_normal() throws IOException {
+        UUID uuid = UUID.randomUUID();
+        Map<UUID, String> m = mapper.readValue("{\"" + uuid.toString() + "\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, UUID.class, String.class));
+        assertEquals("foo", m.get(uuid));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_UUIDMap_invalid_throwsException() throws IOException {
+        mapper.readValue("{\"not-a-uuid\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, UUID.class, String.class));
+    }
+
+    @Test
+    public void testDeserializeKey_URIMap_normal() throws IOException {
+        Map<URI, String> m = mapper.readValue("{\"http://example.com\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, URI.class, String.class));
+        assertEquals("foo", m.get(URI.create("http://example.com")));
+    }
+
+    @Test
+    public void testDeserializeKey_URLMap_normal() throws IOException {
+        Map<URL, String> m = mapper.readValue("{\"http://example.com\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, URL.class, String.class));
+        assertEquals(1, m.size());
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_URLMap_invalid_throwsException() throws IOException {
+        mapper.readValue("{\"not a url\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, URL.class, String.class));
+    }
+
+    @Test
+    public void testDeserializeKey_ClassMap_normal() throws IOException {
+        Map<Class<?>, String> m = mapper.readValue("{\"java.lang.String\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Class.class, String.class));
+        assertEquals("foo", m.get(String.class));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_ClassMap_invalid_throwsException() throws IOException {
+        mapper.readValue("{\"not.a.real.Class\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, Class.class, String.class));
+    }
+
+    @Test
+    public void testDeserializeKey_StringMap_normal() throws IOException {
+        Map<String, String> m = mapper.readValue("{\"key\":\"foo\"}",
+                mapper.getTypeFactory().constructMapType(Map.class, String.class, String.class));
+        assertEquals("foo", m.get("key"));
+    }
+
+    @Test
+    public

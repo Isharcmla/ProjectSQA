@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "52",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.geometry.euclidean.threed.Rotation",
+  "target_classes": [
+    "org.apache.commons.math.geometry.euclidean.threed.Rotation"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.69,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\52\\Rotation_20260926_025326.txt",
+  "test_file": "Gemini\\TestCode\\Math\\52\\RotationTest.java",
+  "usage": {
+    "prompt_tokens": 14363,
+    "completion_tokens": 5527,
+    "total_tokens": 19890
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 19890,
+    "daily_remaining_tokens": 330110
+  },
+  "timestamp": "20260926_025326"
+}

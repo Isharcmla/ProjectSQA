@@ -1,0 +1,33 @@
+{
+  "project": "Csv",
+  "bug_id": "6",
+  "tool": "claude",
+  "class": "org.apache.commons.csv.CSVRecord",
+  "target_classes": [
+    "org.apache.commons.csv.CSVRecord"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 31.73,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Csv\\6\\CSVRecord_20260928_204235.txt",
+  "test_file": "Claude\\TestCode\\Csv\\6\\CSVRecordTest.java",
+  "usage": {
+    "prompt_tokens": 3105,
+    "completion_tokens": 4431,
+    "total_tokens": 7536
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 119329,
+    "daily_remaining_tokens": 80671
+  },
+  "timestamp": "20260928_204235"
+}

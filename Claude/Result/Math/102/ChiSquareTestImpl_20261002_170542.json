@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "102",
+  "tool": "claude",
+  "class": "org.apache.commons.math.stat.inference.ChiSquareTestImpl",
+  "target_classes": [
+    "org.apache.commons.math.stat.inference.ChiSquareTestImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.95,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\102\\ChiSquareTestImpl_20261002_170542.txt",
+  "test_file": "Claude\\TestCode\\Math\\102\\ChiSquareTestImplTest.java",
+  "usage": {
+    "prompt_tokens": 6247,
+    "completion_tokens": 5948,
+    "total_tokens": 12195
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 167402,
+    "daily_remaining_tokens": 32598
+  },
+  "timestamp": "20261002_170542"
+}

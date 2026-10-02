@@ -1,0 +1,196 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+import com.google.javascript.rhino.jstype.EnumType;
+import com.google.javascript.rhino.jstype.FunctionType;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * Unit tests for {@link TypedScopeCreator}.
+ *
+ * Note: TypedScopeCreator is a package-private class that is tightly
+ * coupled with the real Closure Compiler infrastructure (Compiler,
+ * CompilerOptions, Node, Scope, etc). Since mocking frameworks are not
+ * allowed, these tests exercise the class through the real Compiler
+ * pipeline using small JS snippets.
+ */
+public class TypedScopeCreatorTest {
+
+  private Compiler compiler;
+  private CompilerOptions options;
+
+  @Before
+  public void setUp() {
+    compiler = new Compiler();
+    options = new CompilerOptions();
+    compiler.initOptions(options);
+  }
+
+  private Node parse(String js) {
+    return compiler.parseTestCode(js);
+  }
+
+  private Scope createGlobalScope(String js) {
+    Node root = parse(js);
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    return creator.createScope(root, null);
+  }
+
+  // ---------------------------------------------------------------------
+  // Constructor tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testConstructor_singleArg_createsInstance() {
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    assertNotNull(creator);
+  }
+
+  @Test
+  public void testConstructor_twoArg_createsInstance() {
+    TypedScopeCreator creator =
+        new TypedScopeCreator(compiler, compiler.getCodingConvention());
+    assertNotNull(creator);
+  }
+
+  // ---------------------------------------------------------------------
+  // createInitialScope tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testCreateInitialScope_declaresNativeTypes() {
+    Node root = parse("");
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Scope scope = creator.createInitialScope(root);
+
+    assertNotNull(scope.getVar("Object"));
+    assertNotNull(scope.getVar("Array"));
+    assertNotNull(scope.getVar("Function"));
+    assertNotNull(scope.getVar("Date"));
+    assertNotNull(scope.getVar("RegExp"));
+    assertNotNull(scope.getVar("Error"));
+    assertNotNull(scope.getVar("undefined"));
+    assertNotNull(scope.getVar("goog.typedef"));
+    assertNotNull(scope.getVar("ActiveXObject"));
+  }
+
+  @Test
+  public void testCreateInitialScope_withEnumVarDeclaration_noException() {
+    Node root = parse("/** @enum */ var Foo;");
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Scope scope = creator.createInitialScope(root);
+    assertNotNull(scope);
+  }
+
+  @Test
+  public void testCreateInitialScope_withEnumAssignExpression_noException() {
+    Node root = parse("var Foo = {}; /** @enum */ Foo.Bar = {A:1};");
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Scope scope = creator.createInitialScope(root);
+    assertNotNull(scope);
+  }
+
+  // ---------------------------------------------------------------------
+  // createScope (global scope) tests - normal cases
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testCreateScope_globalScope_withEmptyScript_returnsScope() {
+    Scope scope = createGlobalScope("");
+    assertNotNull(scope);
+    assertNotNull(scope.getVar("Object"));
+  }
+
+  @Test
+  public void testCreateScope_globalScope_withVarDeclaration_declaresVariable() {
+    Scope scope = createGlobalScope("var x = 1;");
+    Scope.Var xVar = scope.getVar("x");
+    assertNotNull(xVar);
+  }
+
+  @Test
+  public void testCreateScope_globalScope_withStringVarDeclaration_declaresVariable() {
+    Scope scope = createGlobalScope("var s = 'hello';");
+    Scope.Var sVar = scope.getVar("s");
+    assertNotNull(sVar);
+  }
+
+  @Test
+  public void testCreateScope_globalScope_withMultipleVarDeclarations_declaresAllVars() {
+    Scope scope = createGlobalScope("var a = 1, b = 2;");
+    assertNotNull(scope.getVar("a"));
+    assertNotNull(scope.getVar("b"));
+  }
+
+  @Test
+  public void testCreateScope_globalScope_withFunctionDeclaration_declaresFunctionType() {
+    Scope scope = createGlobalScope("function foo() {}");
+    Scope.Var fooVar = scope.getVar("foo");
+    assertNotNull(fooVar);
+    assertTrue(fooVar.getType() instanceof FunctionType);
+  }
+
+  @Test
+  public void testCreateScope_withConstructorJSDoc_declaresConstructorType() {
+    Scope scope = createGlobalScope("/** @constructor */ function Foo() {}");
+    Scope.Var fooVar = scope.getVar("Foo");
+    assertNotNull(fooVar);
+    assertTrue(fooVar.getType() instanceof FunctionType);
+    FunctionType fooType = (FunctionType) fooVar.getType();
+    assertTrue(fooType.isConstructor());
+  }
+
+  @Test
+  public void testCreateScope_withEnumJSDoc_declaresEnumType() {
+    Scope scope =
+        createGlobalScope("/** @enum */ var Color = {RED: 1, GREEN: 2};");
+    Scope.Var colorVar = scope.getVar("Color");
+    assertNotNull(colorVar);
+    assertTrue(colorVar.getType() instanceof EnumType);
+  }
+
+  @Test
+  public void testCreateScope_withPrototypeProperty_noException() {
+    Scope scope = createGlobalScope(
+        "/** @constructor */ function Foo() {}\n"
+        + "Foo.prototype.bar = function() {};");
+    Scope.Var fooVar = scope.getVar("Foo");
+    assertNotNull(fooVar);
+  }
+
+  @Test
+  public void testCreateScope_withTypedef_declaresTypedef() {
+    Scope scope = createGlobalScope("/** @typedef {number} */ var MyNum;");
+    Scope.Var myNumVar = scope.getVar("MyNum");
+    assertNotNull(myNumVar);
+  }
+
+  @Test
+  public void testCreateScope_withOldStyleTypedefAssign_noException() {
+    Scope scope = createGlobalScope("var goog = {}; goog.MyNum = {};");
+    assertNotNull(scope);
+  }
+
+  @Test
+  public void testCreateScope_withCatchBlock_noException() {
+    Scope scope = createGlobalScope("try { } catch (e) { var f = 1; }");
+    assertNotNull(scope);
+    assertNotNull(scope.getVar("f"));
+  }
+
+  @Test
+  public void testCreateScope_withStubPropertyDeclaration_declaresProperty() {
+    Scope scope = createGlobalScope(
+        "/** @constructor */ function Foo() {}\n"
+        + "Foo.prototype.bar;");
+    Scope.Var fooVar = scope.getVar("Foo");
+    assert

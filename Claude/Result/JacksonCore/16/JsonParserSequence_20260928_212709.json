@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "16",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.core.util.JsonParserSequence",
+  "target_classes": [
+    "com.fasterxml.jackson.core.util.JsonParserSequence"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 53.04,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonCore\\16\\JsonParserSequence_20260928_212709.txt",
+  "test_file": "Claude\\TestCode\\JacksonCore\\16\\JsonParserSequenceTest.java",
+  "usage": {
+    "prompt_tokens": 2439,
+    "completion_tokens": 7431,
+    "total_tokens": 9870
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 174350,
+    "daily_remaining_tokens": 25650
+  },
+  "timestamp": "20260928_212709"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "38",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.type.MapType",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.type.MapType"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 79.24,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\38\\MapType_20260929_025838.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\38\\MapTypeTest.java",
+  "usage": {
+    "prompt_tokens": 2753,
+    "completion_tokens": 10151,
+    "total_tokens": 12904
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 12904,
+    "daily_remaining_tokens": 187096
+  },
+  "timestamp": "20260929_025838"
+}

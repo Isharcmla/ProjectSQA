@@ -1,0 +1,52 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
+import com.google.common.base.Predicate;
+import com.google.common.collect.Maps;
+import com.google.javascript.jscomp.ReferenceCollectingCallback.BasicBlock;
+import com.google.javascript.jscomp.ReferenceCollectingCallback.Behavior;
+import com.google.javascript.jscomp.ReferenceCollectingCallback.Reference;
+import com.google.javascript.jscomp.ReferenceCollectingCallback.ReferenceCollection;
+import com.google.javascript.jscomp.Scope.Var;
+import com.google.javascript.rhino.Node;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.Map;
+
+/**
+ * NOTE: This test relies on the actual Closure Compiler infrastructure
+ * (Compiler, CompilerOptions, NodeTraversal, Scope, Var, Node) to build a
+ * real AST and scope information, since ReferenceCollectingCallback is
+ * tightly coupled with that infrastructure and no mocking framework is
+ * allowed. The method Compiler#parseTestCode(String) is assumed to exist
+ * (as used throughout the Closure Compiler test suite) to conveniently
+ * parse a snippet of JavaScript into a Node for traversal.
+ */
+public class ReferenceCollectingCallbackTest {
+
+  private Compiler compiler;
+
+  @Before
+  public void setUp() {
+    compiler = new Compiler();
+    CompilerOptions options = new CompilerOptions();
+    compiler.initOptions(options);
+  }
+
+  private Node parse(String js) {
+    Node root = compiler.parseTestCode(js);
+    return root;
+  }
+
+  // ---------- Constructor / process / basic getters ----------
+
+  @Test
+  public void testProcess_simpleVarDe

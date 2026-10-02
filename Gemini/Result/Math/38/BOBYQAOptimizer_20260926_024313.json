@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "38",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.optimization.direct.BOBYQAOptimizer",
+  "target_classes": [
+    "org.apache.commons.math.optimization.direct.BOBYQAOptimizer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 24.09,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\38\\BOBYQAOptimizer_20260926_024313.txt",
+  "test_file": "Gemini\\TestCode\\Math\\38\\BOBYQAOptimizerTest.java",
+  "usage": {
+    "prompt_tokens": 29846,
+    "completion_tokens": 3494,
+    "total_tokens": 33340
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 195862,
+    "daily_remaining_tokens": 154138
+  },
+  "timestamp": "20260926_024313"
+}

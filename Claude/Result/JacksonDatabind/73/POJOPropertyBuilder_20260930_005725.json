@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "73",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.introspect.POJOPropertyBuilder"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 273.62,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\73\\POJOPropertyBuilder_20260930_005725.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 15209,
+    "completion_tokens": 16384,
+    "total_tokens": 31593
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 104883,
+    "daily_remaining_tokens": 95117
+  },
+  "timestamp": "20260930_005725"
+}

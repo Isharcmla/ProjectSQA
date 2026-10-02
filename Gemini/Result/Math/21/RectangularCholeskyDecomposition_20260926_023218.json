@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "21",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.linear.RectangularCholeskyDecomposition",
+  "target_classes": [
+    "org.apache.commons.math3.linear.RectangularCholeskyDecomposition"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 22.51,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\21\\RectangularCholeskyDecomposition_20260926_023218.txt",
+  "test_file": "Gemini\\TestCode\\Math\\21\\RectangularCholeskyDecompositionTest.java",
+  "usage": {
+    "prompt_tokens": 1957,
+    "completion_tokens": 1980,
+    "total_tokens": 5206
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 22249,
+    "daily_remaining_tokens": 327751
+  },
+  "timestamp": "20260926_023218"
+}

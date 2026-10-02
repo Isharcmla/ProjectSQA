@@ -1,0 +1,260 @@
+package org.apache.commons.math.optimization.general;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import org.apache.commons.math.FunctionEvaluationException;
+import org.apache.commons.math.analysis.DifferentiableMultivariateVectorialFunction;
+import org.apache.commons.math.analysis.MultivariateMatrixFunction;
+import org.apache.commons.math.optimization.OptimizationException;
+import org.apache.commons.math.optimization.SimpleVectorialValueChecker;
+import org.apache.commons.math.optimization.VectorialConvergenceChecker;
+import org.apache.commons.math.optimization.VectorialPointValuePair;
+
+public class AbstractLeastSquaresOptimizerTest {
+
+    // ---------------------------------------------------------------
+    // Concrete subclass to allow instantiation of the abstract class
+    // ---------------------------------------------------------------
+    private static class ConcreteOptimizer extends AbstractLeastSquaresOptimizer {
+        @Override
+        protected VectorialPointValuePair doOptimize()
+            throws FunctionEvaluationException, OptimizationException {
+            incrementIterationsCounter();
+            updateJacobian();
+            updateResidualsAndCost();
+            return new VectorialPointValuePair(point, objective);
+        }
+    }
+
+    // ---------------------------------------------------------------
+    // Test functions
+    // ---------------------------------------------------------------
+
+    /** rows = 3, cols = 2, jacobian is constant and jTj invertible. */
+    private static class LinearFunction implements DifferentiableMultivariateVectorialFunction {
+        public double[] value(double[] point) throws FunctionEvaluationException {
+            return new double[] { point[0], point[1], point[0] + point[1] };
+        }
+        public MultivariateMatrixFunction jacobian() {
+            return new MultivariateMatrixFunction() {
+                public double[][] value(double[] point) throws FunctionEvaluationException {
+                    return new double[][] { { 1, 0 }, { 0, 1 }, { 1, 1 } };
+                }
+            };
+        }
+    }
+
+    /** Same dimensions as LinearFunction, but jacobian is identically zero -> singular jTj. */
+    private static class ZeroJacobianFunction implements DifferentiableMultivariateVectorialFunction {
+        public double[] value(double[] point) throws FunctionEvaluationException {
+            return new double[] { point[0], point[1], point[0] + point[1] };
+        }
+        public MultivariateMatrixFunction jacobian() {
+            return new MultivariateMatrixFunction() {
+                public double[][] value(double[] point) throws FunctionEvaluationException {
+                    return new double[][] { { 0, 0 }, { 0, 0 }, { 0, 0 } };
+                }
+            };
+        }
+    }
+
+    /** jacobian returns wrong number of rows (2 instead of 3). */
+    private static class BadJacobianFunction implements DifferentiableMultivariateVectorialFunction {
+        public double[] value(double[] point) throws FunctionEvaluationException {
+            return new double[] { point[0], point[1], point[0] + point[1] };
+        }
+        public MultivariateMatrixFunction jacobian() {
+            return new MultivariateMatrixFunction() {
+                public double[][] value(double[] point) throws FunctionEvaluationException {
+                    return new double[][] { { 1, 0 }, { 0, 1 } };
+                }
+            };
+        }
+    }
+
+    /** value() returns wrong length array (2 instead of 3), jacobian is fine. */
+    private static class BadValueFunction implements DifferentiableMultivariateVectorialFunction {
+        public double[] value(double[] point) throws FunctionEvaluationException {
+            return new double[] { point[0], point[1] };
+        }
+        public MultivariateMatrixFunction jacobian() {
+            return new MultivariateMatrixFunction() {
+                public double[][] value(double[] point) throws FunctionEvaluationException {
+                    return new double[][] { { 1, 0 }, { 0, 1 }, { 1, 1 } };
+                }
+            };
+        }
+    }
+
+    /** rows = cols = 2 (square problem), used to trigger "no degrees of freedom" case. */
+    private static class SquareFunction implements DifferentiableMultivariateVectorialFunction {
+        public double[] value(double[] point) throws FunctionEvaluationException {
+            return new double[] { point[0], point[1] };
+        }
+        public MultivariateMatrixFunction jacobian() {
+            return new MultivariateMatrixFunction() {
+                public double[][] value(double[] point) throws FunctionEvaluationException {
+                    return new double[][] { { 1, 0 }, { 0, 1 } };
+                }
+            };
+        }
+    }
+
+    /** Zero dimensional problem (rows = cols = 0). */
+    private static class ZeroDimFunction implements DifferentiableMultivariateVectorialFunction {
+        public double[] value(double[] point) throws FunctionEvaluationException {
+            return new double[0];
+        }
+        public MultivariateMatrixFunction jacobian() {
+            return new MultivariateMatrixFunction() {
+                public double[][] value(double[] point) throws FunctionEvaluationException {
+                    return new double[0][0];
+                }
+            };
+        }
+    }
+
+    // ---------------------------------------------------------------
+    // Constructor / default state tests
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testDefaultConstructor_initialValues_areDefaults() {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        assertEquals(AbstractLeastSquaresOptimizer.DEFAULT_MAX_ITERATIONS, opt.getMaxIterations());
+        assertEquals(Integer.MAX_VALUE, opt.getMaxEvaluations());
+        assertEquals(0, opt.getIterations());
+        assertEquals(0, opt.getEvaluations());
+        assertEquals(0, opt.getJacobianEvaluations());
+        assertNotNull(opt.getConvergenceChecker());
+        assertTrue(opt.getConvergenceChecker() instanceof SimpleVectorialValueChecker);
+    }
+
+    // ---------------------------------------------------------------
+    // setMaxIterations / getMaxIterations
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testSetMaxIterations_positiveValue_getterReturnsSameValue() {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        opt.setMaxIterations(50);
+        assertEquals(50, opt.getMaxIterations());
+    }
+
+    @Test
+    public void testSetMaxIterations_negativeValue_getterReturnsSameValue() {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        opt.setMaxIterations(-1);
+        assertEquals(-1, opt.getMaxIterations());
+    }
+
+    @Test
+    public void testSetMaxIterations_zeroValue_getterReturnsZero() {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        opt.setMaxIterations(0);
+        assertEquals(0, opt.getMaxIterations());
+    }
+
+    // ---------------------------------------------------------------
+    // setMaxEvaluations / getMaxEvaluations
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testSetMaxEvaluations_positiveValue_getterReturnsSameValue() {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        opt.setMaxEvaluations(200);
+        assertEquals(200, opt.getMaxEvaluations());
+    }
+
+    @Test
+    public void testSetMaxEvaluations_zeroValue_getterReturnsZero() {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        opt.setMaxEvaluations(0);
+        assertEquals(0, opt.getMaxEvaluations());
+    }
+
+    // ---------------------------------------------------------------
+    // setConvergenceChecker / getConvergenceChecker
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testSetConvergenceChecker_customChecker_getterReturnsSameChecker() {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        VectorialConvergenceChecker checker = new SimpleVectorialValueChecker();
+        opt.setConvergenceChecker(checker);
+        assertSame(checker, opt.getConvergenceChecker());
+    }
+
+    @Test
+    public void testSetConvergenceChecker_null_getterReturnsNull() {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        opt.setConvergenceChecker(null);
+        assertNull(opt.getConvergenceChecker());
+    }
+
+    // ---------------------------------------------------------------
+    // optimize() - normal case
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testOptimize_normalLinearFunction_returnsNonNullResultAndUpdatesCounters()
+        throws Exception {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        double[] target = { 2, 3, 5 };
+        double[] weights = { 1, 1, 1 };
+        double[] start = { 0, 0 };
+
+        VectorialPointValuePair result = opt.optimize(new LinearFunction(), target, weights, start);
+
+        assertNotNull(result);
+        assertEquals(1, opt.getIterations());
+        assertEquals(1, opt.getEvaluations());
+        assertEquals(1, opt.getJacobianEvaluations());
+    }
+
+    @Test(expected = OptimizationException.class)
+    public void testOptimize_targetWeightsLengthMismatch_throwsOptimizationException()
+        throws Exception {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        opt.optimize(new LinearFunction(), new double[] { 1, 2 }, new double[] { 1, 2, 3 },
+                     new double[] { 0, 0 });
+    }
+
+    @Test(expected = FunctionEvaluationException.class)
+    public void testOptimize_badJacobianDimension_throwsFunctionEvaluationException()
+        throws Exception {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        double[] target = { 2, 3, 5 };
+        double[] weights = { 1, 1, 1 };
+        double[] start = { 0, 0 };
+        opt.optimize(new BadJacobianFunction(), target, weights, start);
+    }
+
+    @Test(expected = FunctionEvaluationException.class)
+    public void testOptimize_badValueDimension_throwsFunctionEvaluationException()
+        throws Exception {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        double[] target = { 2, 3, 5 };
+        double[] weights = { 1, 1, 1 };
+        double[] start = { 0, 0 };
+        opt.optimize(new BadValueFunction(), target, weights, start);
+    }
+
+    @Test(expected = OptimizationException.class)
+    public void testOptimize_maxIterationsExceeded_throwsOptimizationException()
+        throws Exception {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        opt.setMaxIterations(0);
+        double[] target = { 2, 3, 5 };
+        double[] weights = { 1, 1, 1 };
+        double[] start = { 0, 0 };
+        opt.optimize(new LinearFunction(), target, weights, start);
+    }
+
+    @Test(expected = FunctionEvaluationException.class)
+    public void testOptimize_maxEvaluationsExceeded_throwsFunctionEvaluationException()
+        throws Exception {
+        ConcreteOptimizer opt = new ConcreteOptimizer();
+        opt.setMaxEvaluations(0);
+        double[] target = { 2, 3, 5 };

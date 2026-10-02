@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "4",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.deser.std.StringArrayDeserializer",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.std.StringArrayDeserializer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 73.12,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\4\\StringArrayDeserializer_20260929_032535.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\4\\StringArrayDeserializerTest.java",
+  "usage": {
+    "prompt_tokens": 3219,
+    "completion_tokens": 8566,
+    "total_tokens": 11785
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 91312,
+    "daily_remaining_tokens": 108688
+  },
+  "timestamp": "20260929_032535"
+}

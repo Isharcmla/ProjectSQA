@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "14",
+  "tool": "claude",
+  "class": "org.apache.commons.codec.language.bm.Lang",
+  "target_classes": [
+    "org.apache.commons.codec.language.bm.Lang"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.36,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Codec\\14\\Lang_20260927_131958.txt",
+  "test_file": "Claude\\TestCode\\Codec\\14\\LangTest.java",
+  "usage": {
+    "prompt_tokens": 4096,
+    "completion_tokens": 5319,
+    "total_tokens": 9415
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 170051,
+    "daily_remaining_tokens": 29949
+  },
+  "timestamp": "20260927_131958"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "19",
+  "tool": "claude",
+  "class": "org.mockito.internal.configuration.injection.filter.NameBasedCandidateFilter",
+  "target_classes": [
+    "org.mockito.internal.configuration.injection.filter.NameBasedCandidateFilter"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 73.1,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\19\\NameBasedCandidateFilter_20261003_004258.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\19\\NameBasedCandidateFilterTest.java",
+  "usage": {
+    "prompt_tokens": 1437,
+    "completion_tokens": 9427,
+    "total_tokens": 10864
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 14203,
+    "daily_remaining_tokens": 185797
+  },
+  "timestamp": "20261003_004258"
+}

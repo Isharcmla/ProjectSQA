@@ -1,0 +1,36 @@
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.google.javascript.rhino.Node;
+
+public class CollapsePropertiesTest {
+
+    // ---------- Constructor tests (normal cases) ----------
+
+    @Test
+    public void testConstructor_variousFlags_createsInstanceWithoutException() {
+        Compiler compiler = new Compiler();
+        CollapseProperties p1 = new CollapseProperties(compiler, true, true);
+        CollapseProperties p2 = new CollapseProperties(compiler, false, false);
+        CollapseProperties p3 = new CollapseProperties(compiler, true, false);
+        CollapseProperties p4 = new CollapseProperties(compiler, false, true);
+        assertNotNull(p1);
+        assertNotNull(p2);
+        assertNotNull(p3);
+        assertNotNull(p4);
+    }
+
+    // ---------- Static diagnostic type sanity checks (normal case) ----------
+
+    @Test
+    public void testStaticDiagnosticTypes_areInitialized_notNull() {
+        assertNotNull(CollapseProperties.UNSAFE_NAMESPACE_WARNING);
+        assertNotNull(CollapseProperties.NAMESPACE_REDEFINED_WARNING);
+        assertNotNull(CollapseProperties.UNSAFE_THIS);
+    }
+
+    // ---------- process(): normal / typical input ----------
+
+    @Test
+    public void testProcess_simpleCollapsibleProperty_flattensNameToDollarSign() {
+        Compiler compiler = new Comp

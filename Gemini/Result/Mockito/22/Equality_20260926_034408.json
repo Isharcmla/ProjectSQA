@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "22",
+  "tool": "gemini",
+  "class": "org.mockito.internal.matchers.Equality",
+  "target_classes": [
+    "org.mockito.internal.matchers.Equality"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 22.87,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Mockito\\22\\Equality_20260926_034408.txt",
+  "test_file": "Gemini\\TestCode\\Mockito\\22\\EqualityTest.java",
+  "usage": {
+    "prompt_tokens": 653,
+    "completion_tokens": 2195,
+    "total_tokens": 3987
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 81403,
+    "daily_remaining_tokens": 268597
+  },
+  "timestamp": "20260926_034408"
+}

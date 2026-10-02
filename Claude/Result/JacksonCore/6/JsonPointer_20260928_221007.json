@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "6",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.core.JsonPointer",
+  "target_classes": [
+    "com.fasterxml.jackson.core.JsonPointer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 112.68,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonCore\\6\\JsonPointer_20260928_221007.txt",
+  "test_file": "Claude\\TestCode\\JacksonCore\\6\\JsonPointerTest.java",
+  "usage": {
+    "prompt_tokens": 3796,
+    "completion_tokens": 13826,
+    "total_tokens": 17622
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 54385,
+    "daily_remaining_tokens": 145615
+  },
+  "timestamp": "20260928_221007"
+}

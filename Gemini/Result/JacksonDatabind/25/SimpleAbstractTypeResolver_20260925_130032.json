@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "25",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.module.SimpleAbstractTypeResolver",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.module.SimpleAbstractTypeResolver"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 15.75,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\25\\SimpleAbstractTypeResolver_20260925_130032.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\25\\SimpleAbstractTypeResolverTest.java",
+  "usage": {
+    "prompt_tokens": 1165,
+    "completion_tokens": 1168,
+    "total_tokens": 3439
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 328315,
+    "daily_remaining_tokens": 21685
+  },
+  "timestamp": "20260925_130032"
+}

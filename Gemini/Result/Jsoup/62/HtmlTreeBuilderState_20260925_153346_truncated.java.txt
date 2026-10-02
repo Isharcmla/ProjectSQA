@@ -1,0 +1,1284 @@
+package org.jsoup.parser;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.DocumentType;
+import org.jsoup.nodes.Element;
+import org.junit.Test;
+
+import java.io.StringReader;
+import java.util.List;
+
+import static org.junit.Assert.*;
+
+public class HtmlTreeBuilderStateTest {
+
+    private HtmlTreeBuilder createBuilder(String baseUri) {
+        HtmlTreeBuilder tb = new HtmlTreeBuilder();
+        tb.initialiseParse(new StringReader(""), baseUri, new Parser(tb));
+        return tb;
+    }
+
+    private HtmlTreeBuilder createFragmentBuilder(Element context) {
+        HtmlTreeBuilder tb = new HtmlTreeBuilder();
+        tb.initialiseParseFragment(context, "");
+        return tb;
+    }
+
+    @Test
+    public void testEnumValuesAndValueOf() {
+        HtmlTreeBuilderState[] states = HtmlTreeBuilderState.values();
+        assertTrue(states.length > 0);
+        assertEquals(HtmlTreeBuilderState.Initial, HtmlTreeBuilderState.valueOf("Initial"));
+        assertEquals(HtmlTreeBuilderState.ForeignContent, HtmlTreeBuilderState.valueOf("ForeignContent"));
+    }
+
+    @Test
+    public void testForeignContent_process() {
+        HtmlTreeBuilder tb = createBuilder("");
+        Token.Comment comment = new Token.Comment().setData("test");
+        assertTrue(HtmlTreeBuilderState.ForeignContent.process(comment, tb));
+    }
+
+    @Test
+    public void testInitial_tokens() {
+        HtmlTreeBuilder tb = createBuilder("http://example.com");
+
+        // Whitespace token
+        Token.Character ws = new Token.Character().data("   \t\r\n");
+        assertTrue(HtmlTreeBuilderState.Initial.process(ws, tb));
+
+        // Comment token
+        Token.Comment comment = new Token.Comment().setData("initial comment");
+        assertTrue(HtmlTreeBuilderState.Initial.process(comment, tb));
+
+        // Doctype token with force quirks
+        Token.Doctype doctype = new Token.Doctype();
+        doctype.name.append("html");
+        doctype.forceQuirks = true;
+        assertTrue(HtmlTreeBuilderState.Initial.process(doctype, tb));
+        assertEquals(Document.QuirksMode.quirks, tb.getDocument().quirksMode());
+        assertEquals(HtmlTreeBuilderState.BeforeHtml, tb.state());
+
+        // Doctype with pub/sys
+        HtmlTreeBuilder tb2 = createBuilder("http://example.com");
+        Token.Doctype doctype2 = new Token.Doctype();
+        doctype2.name.append("html");
+        doctype2.publicIdentifier.append("public-id");
+        doctype2.systemIdentifier.append("system-id");
+        assertTrue(HtmlTreeBuilderState.Initial.process(doctype2, tb2));
+        DocumentType dt = (DocumentType) tb2.getDocument().childNode(0);
+        assertEquals("html", dt.name());
+        assertEquals("public-id", dt.publicId());
+        assertEquals("system-id", dt.systemId());
+
+        // Anything else -> transitions to BeforeHtml and re-processes
+        HtmlTreeBuilder tb3 = createBuilder("");
+        Token.StartTag st = new Token.StartTag();
+        st.name("div");
+        assertTrue(HtmlTreeBuilderState.Initial.process(st, tb3));
+    }
+
+    @Test
+    public void testBeforeHtml_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+
+        // Doctype
+        Token.Doctype dt = new Token.Doctype();
+        assertFalse(HtmlTreeBuilderState.BeforeHtml.process(dt, tb));
+
+        // Comment
+        Token.Comment comment = new Token.Comment().setData("before html comment");
+        assertTrue(HtmlTreeBuilderState.BeforeHtml.process(comment, tb));
+
+        // Whitespace
+        Token.Character ws = new Token.Character().data(" ");
+        assertTrue(HtmlTreeBuilderState.BeforeHtml.process(ws, tb));
+
+        // StartTag html
+        Token.StartTag htmlTag = new Token.StartTag();
+        htmlTag.name("html");
+        assertTrue(HtmlTreeBuilderState.BeforeHtml.process(htmlTag, tb));
+        assertEquals(HtmlTreeBuilderState.BeforeHead, tb.state());
+
+        // EndTag head, body, html, br
+        for (String tag : new String[]{"head", "body", "html", "br"}) {
+            HtmlTreeBuilder tbLoop = createBuilder("");
+            Token.EndTag et = new Token.EndTag();
+            et.name(tag);
+            assertTrue(HtmlTreeBuilderState.BeforeHtml.process(et, tbLoop));
+        }
+
+        // Other EndTag -> error and false
+        HtmlTreeBuilder tbErr = createBuilder("");
+        Token.EndTag etDiv = new Token.EndTag();
+        etDiv.name("div");
+        assertFalse(HtmlTreeBuilderState.BeforeHtml.process(etDiv, tbErr));
+    }
+
+    @Test
+    public void testBeforeHead_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.transition(HtmlTreeBuilderState.BeforeHead);
+
+        // Whitespace
+        assertTrue(HtmlTreeBuilderState.BeforeHead.process(new Token.Character().data("\n "), tb));
+
+        // Comment
+        assertTrue(HtmlTreeBuilderState.BeforeHead.process(new Token.Comment().setData("comment"), tb));
+
+        // Doctype
+        assertFalse(HtmlTreeBuilderState.BeforeHead.process(new Token.Doctype(), tb));
+
+        // StartTag html
+        Token.StartTag htmlTag = new Token.StartTag();
+        htmlTag.name("html");
+        assertTrue(HtmlTreeBuilderState.BeforeHead.process(htmlTag, tb));
+
+        // StartTag head
+        Token.StartTag headTag = new Token.StartTag();
+        headTag.name("head");
+        assertTrue(HtmlTreeBuilderState.BeforeHead.process(headTag, tb));
+        assertEquals(HtmlTreeBuilderState.InHead, tb.state());
+
+        // EndTag head/body/html/br
+        HtmlTreeBuilder tbEnd = createBuilder("");
+        Token.EndTag endTag = new Token.EndTag();
+        endTag.name("head");
+        assertTrue(HtmlTreeBuilderState.BeforeHead.process(endTag, tbEnd));
+
+        // Other EndTag
+        HtmlTreeBuilder tbEndErr = createBuilder("");
+        Token.EndTag endTagDiv = new Token.EndTag();
+        endTagDiv.name("span");
+        assertFalse(HtmlTreeBuilderState.BeforeHead.process(endTagDiv, tbEndErr));
+
+        // Anything else
+        HtmlTreeBuilder tbOther = createBuilder("");
+        Token.StartTag div = new Token.StartTag();
+        div.name("div");
+        assertTrue(HtmlTreeBuilderState.BeforeHead.process(div, tbOther));
+    }
+
+    @Test
+    public void testInHead_tokens() {
+        HtmlTreeBuilder tb = createBuilder("http://example.com");
+        tb.processStartTag("html");
+        tb.processStartTag("head");
+        assertEquals(HtmlTreeBuilderState.InHead, tb.state());
+
+        // Whitespace
+        assertTrue(HtmlTreeBuilderState.InHead.process(new Token.Character().data(" "), tb));
+
+        // Comment
+        assertTrue(HtmlTreeBuilderState.InHead.process(new Token.Comment().setData("in head"), tb));
+
+        // Doctype
+        assertFalse(HtmlTreeBuilderState.InHead.process(new Token.Doctype(), tb));
+
+        // StartTag html
+        Token.StartTag htmlTag = new Token.StartTag();
+        htmlTag.name("html");
+        assertTrue(HtmlTreeBuilderState.InHead.process(htmlTag, tb));
+
+        // Base with and without href
+        Token.StartTag baseTag = new Token.StartTag();
+        baseTag.name("base");
+        baseTag.attributes.put("href", "http://example.com/base/");
+        assertTrue(HtmlTreeBuilderState.InHead.process(baseTag, tb));
+        assertEquals("http://example.com/base/", tb.getBaseUri());
+
+        Token.StartTag baseNoHref = new Token.StartTag();
+        baseNoHref.name("base");
+        assertTrue(HtmlTreeBuilderState.InHead.process(baseNoHref, tb));
+
+        for (String emptyTag : new String[]{"basefont", "bgsound", "command", "link", "meta"}) {
+            Token.StartTag st = new Token.StartTag();
+            st.name(emptyTag);
+            assertTrue(HtmlTreeBuilderState.InHead.process(st, tb));
+        }
+
+        // Title, Style, Noframes, Noscript, Script
+        for (String rcDataTag : new String[]{"title", "noframes", "style", "noscript", "script"}) {
+            HtmlTreeBuilder tbHead = createBuilder("");
+            tbHead.processStartTag("html");
+            tbHead.processStartTag("head");
+            Token.StartTag st = new Token.StartTag();
+            st.name(rcDataTag);
+            assertTrue(HtmlTreeBuilderState.InHead.process(st, tbHead));
+        }
+
+        // StartTag head in head -> error
+        Token.StartTag nestedHead = new Token.StartTag();
+        nestedHead.name("head");
+        assertFalse(HtmlTreeBuilderState.InHead.process(nestedHead, tb));
+
+        // EndTag head
+        Token.EndTag endHead = new Token.EndTag();
+        endHead.name("head");
+        assertTrue(HtmlTreeBuilderState.InHead.process(endHead, tb));
+        assertEquals(HtmlTreeBuilderState.AfterHead, tb.state());
+
+        // EndTag body/html/br
+        HtmlTreeBuilder tbEnd = createBuilder("");
+        tbEnd.processStartTag("html");
+        tbEnd.processStartTag("head");
+        Token.EndTag endBody = new Token.EndTag();
+        endBody.name("body");
+        assertTrue(HtmlTreeBuilderState.InHead.process(endBody, tbEnd));
+
+        // EndTag other
+        HtmlTreeBuilder tbEndErr = createBuilder("");
+        tbEndErr.processStartTag("html");
+        tbEndErr.processStartTag("head");
+        Token.EndTag endDiv = new Token.EndTag();
+        endDiv.name("div");
+        assertFalse(HtmlTreeBuilderState.InHead.process(endDiv, tbEndErr));
+
+        // Default branch
+        HtmlTreeBuilder tbDef = createBuilder("");
+        tbDef.processStartTag("html");
+        tbDef.processStartTag("head");
+        Token.EOF eof = new Token.EOF();
+        assertTrue(HtmlTreeBuilderState.InHead.process(eof, tbDef));
+    }
+
+    @Test
+    public void testInHeadNoscript_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("head");
+        tb.processStartTag("noscript");
+        assertEquals(HtmlTreeBuilderState.InHeadNoscript, tb.state());
+
+        // Doctype
+        assertTrue(HtmlTreeBuilderState.InHeadNoscript.process(new Token.Doctype(), tb));
+
+        // StartTag html
+        Token.StartTag htmlTag = new Token.StartTag();
+        htmlTag.name("html");
+        assertTrue(HtmlTreeBuilderState.InHeadNoscript.process(htmlTag, tb));
+
+        // Whitespace, Comment, StartTags
+        assertTrue(HtmlTreeBuilderState.InHeadNoscript.process(new Token.Character().data(" "), tb));
+        assertTrue(HtmlTreeBuilderState.InHeadNoscript.process(new Token.Comment().setData("c"), tb));
+        for (String tag : new String[]{"basefont", "bgsound", "link", "meta", "noframes", "style"}) {
+            Token.StartTag st = new Token.StartTag();
+            st.name(tag);
+            assertTrue(HtmlTreeBuilderState.InHeadNoscript.process(st, tb));
+        }
+
+        // EndTag br
+        Token.EndTag endBr = new Token.EndTag();
+        endBr.name("br");
+        assertTrue(HtmlTreeBuilderState.InHeadNoscript.process(endBr, tb));
+
+        // StartTag head/noscript and other end tag -> error, false
+        Token.StartTag startHead = new Token.StartTag();
+        startHead.name("head");
+        assertFalse(HtmlTreeBuilderState.InHeadNoscript.process(startHead, tb));
+
+        Token.EndTag endDiv = new Token.EndTag();
+        endDiv.name("div");
+        assertFalse(HtmlTreeBuilderState.InHeadNoscript.process(endDiv, tb));
+
+        // Anything else -> error, insert character
+        Token.StartTag custom = new Token.StartTag();
+        custom.name("custom");
+        assertTrue(HtmlTreeBuilderState.InHeadNoscript.process(custom, tb));
+
+        // EndTag noscript -> transition InHead
+        Token.EndTag endNoscript = new Token.EndTag();
+        endNoscript.name("noscript");
+        assertTrue(HtmlTreeBuilderState.InHeadNoscript.process(endNoscript, tb));
+        assertEquals(HtmlTreeBuilderState.InHead, tb.state());
+    }
+
+    @Test
+    public void testAfterHead_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("head");
+        tb.processEndTag("head");
+        assertEquals(HtmlTreeBuilderState.AfterHead, tb.state());
+
+        // Whitespace, comment, doctype
+        assertTrue(HtmlTreeBuilderState.AfterHead.process(new Token.Character().data(" "), tb));
+        assertTrue(HtmlTreeBuilderState.AfterHead.process(new Token.Comment().setData("c"), tb));
+        assertTrue(HtmlTreeBuilderState.AfterHead.process(new Token.Doctype(), tb));
+
+        // StartTag html
+        Token.StartTag html = new Token.StartTag();
+        html.name("html");
+        assertTrue(HtmlTreeBuilderState.AfterHead.process(html, tb));
+
+        // StartTag head -> error & false
+        Token.StartTag head = new Token.StartTag();
+        head.name("head");
+        assertFalse(HtmlTreeBuilderState.AfterHead.process(head, tb));
+
+        // StartTag base/meta/etc. (head tags after head closed)
+        for (String hTag : new String[]{"base", "basefont", "bgsound", "link", "meta", "noframes", "script", "style", "title"}) {
+            HtmlTreeBuilder tbHeadTags = createBuilder("");
+            tbHeadTags.processStartTag("html");
+            tbHeadTags.processStartTag("head");
+            tbHeadTags.processEndTag("head");
+            Token.StartTag st = new Token.StartTag();
+            st.name(hTag);
+            assertTrue(HtmlTreeBuilderState.AfterHead.process(st, tbHeadTags));
+        }
+
+        // StartTag frameset
+        HtmlTreeBuilder tbFrame = createBuilder("");
+        tbFrame.processStartTag("html");
+        tbFrame.processStartTag("head");
+        tbFrame.processEndTag("head");
+        Token.StartTag frameset = new Token.StartTag();
+        frameset.name("frameset");
+        assertTrue(HtmlTreeBuilderState.AfterHead.process(frameset, tbFrame));
+        assertEquals(HtmlTreeBuilderState.InFrameset, tbFrame.state());
+
+        // StartTag body
+        HtmlTreeBuilder tbBody = createBuilder("");
+        tbBody.processStartTag("html");
+        tbBody.processStartTag("head");
+        tbBody.processEndTag("head");
+        Token.StartTag body = new Token.StartTag();
+        body.name("body");
+        assertTrue(HtmlTreeBuilderState.AfterHead.process(body, tbBody));
+        assertEquals(HtmlTreeBuilderState.InBody, tbBody.state());
+
+        // EndTag body/html vs other EndTag
+        HtmlTreeBuilder tbEnd = createBuilder("");
+        tbEnd.processStartTag("html");
+        tbEnd.processStartTag("head");
+        tbEnd.processEndTag("head");
+        Token.EndTag endBody = new Token.EndTag();
+        endBody.name("body");
+        assertTrue(HtmlTreeBuilderState.AfterHead.process(endBody, tbEnd));
+
+        HtmlTreeBuilder tbEndErr = createBuilder("");
+        tbEndErr.processStartTag("html");
+        tbEndErr.processStartTag("head");
+        tbEndErr.processEndTag("head");
+        Token.EndTag endP = new Token.EndTag();
+        endP.name("p");
+        assertFalse(HtmlTreeBuilderState.AfterHead.process(endP, tbEndErr));
+
+        // Anything else (e.g. div)
+        HtmlTreeBuilder tbElse = createBuilder("");
+        tbElse.processStartTag("html");
+        tbElse.processStartTag("head");
+        tbElse.processEndTag("head");
+        Token.StartTag div = new Token.StartTag();
+        div.name("div");
+        assertTrue(HtmlTreeBuilderState.AfterHead.process(div, tbElse));
+    }
+
+    @Test
+    public void testInBody_variousTags() {
+        // Character nullString vs normal character vs whitespace
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.transition(HtmlTreeBuilderState.InBody);
+        Token.Character nullChar = new Token.Character().data("\u0000");
+        assertFalse(HtmlTreeBuilderState.InBody.process(nullChar, tb));
+
+        Token.Character wsChar = new Token.Character().data("  ");
+        assertTrue(HtmlTreeBuilderState.InBody.process(wsChar, tb));
+
+        Token.Character normalChar = new Token.Character().data("abc");
+        assertTrue(HtmlTreeBuilderState.InBody.process(normalChar, tb));
+
+        // Comment, Doctype
+        assertTrue(HtmlTreeBuilderState.InBody.process(new Token.Comment().setData("body comm"), tb));
+        assertFalse(HtmlTreeBuilderState.InBody.process(new Token.Doctype(), tb));
+
+        // StartTag a (duplicate active formatting element)
+        HtmlTreeBuilder tbA = createBuilder("");
+        tbA.processStartTag("html");
+        tbA.processStartTag("body");
+        Token.StartTag aTag = new Token.StartTag();
+        aTag.name("a");
+        assertTrue(HtmlTreeBuilderState.InBody.process(aTag, tbA));
+        assertTrue(HtmlTreeBuilderState.InBody.process(aTag, tbA)); // trigger duplicate formatting element
+
+        // StartTag EmptyFormatters
+        for (String tag : new String[]{"area", "br", "embed", "img", "keygen", "wbr"}) {
+            Token.StartTag st = new Token.StartTag();
+            st.name(tag);
+            assertTrue(HtmlTreeBuilderState.InBody.process(st, tbA));
+        }
+
+        // StartTag span
+        Token.StartTag span = new Token.StartTag();
+        span.name("span");
+        assertTrue(HtmlTreeBuilderState.InBody.process(span, tbA));
+
+        // StartTag li
+        Token.StartTag li = new Token.StartTag();
+        li.name("li");
+        assertTrue(HtmlTreeBuilderState.InBody.process(li, tbA));
+        assertTrue(HtmlTreeBuilderState.InBody.process(li, tbA));
+
+        // StartTag html with attributes
+        Token.StartTag html = new Token.StartTag();
+        html.name("html");
+        html.attributes.put("class", "my-class");
+        assertTrue(HtmlTreeBuilderState.InBody.process(html, tbA));
+
+        // StartTag body (attributes merge)
+        Token.StartTag body = new Token.StartTag();
+        body.name("body");
+        body.attributes.put("id", "main-body");
+        assertTrue(HtmlTreeBuilderState.InBody.process(body, tbA));
+
+        // StartTag frameset when framesetOk false / true
+        Token.StartTag frameset = new Token.StartTag();
+        frameset.name("frameset");
+        assertFalse(HtmlTreeBuilderState.InBody.process(frameset, tbA));
+
+        HtmlTreeBuilder tbFrameset = createBuilder("");
+        tbFrameset.processStartTag("html");
+        tbFrameset.processStartTag("body");
+        tbFrameset.framesetOk(true);
+        assertTrue(HtmlTreeBuilderState.InBody.process(frameset, tbFrameset));
+
+        // Headings h1..h6
+        for (String h : new String[]{"h1", "h2", "h3", "h4", "h5", "h6"}) {
+            Token.StartTag st = new Token.StartTag();
+            st.name(h);
+            assertTrue(HtmlTreeBuilderState.InBody.process(st, tbA));
+        }
+
+        // Pre, Listing
+        Token.StartTag pre = new Token.StartTag();
+        pre.name("pre");
+        assertTrue(HtmlTreeBuilderState.InBody.process(pre, tbA));
+
+        // Form (single and duplicate)
+        Token.StartTag form = new Token.StartTag();
+        form.name("form");
+        assertTrue(HtmlTreeBuilderState.InBody.process(form, tbA));
+        assertFalse(HtmlTreeBuilderState.InBody.process(form, tbA)); // second form rejected
+
+        // Dd, Dt
+        for (String ddDt : new String[]{"dd", "dt"}) {
+            Token.StartTag st = new Token.StartTag();
+            st.name(ddDt);
+            assertTrue(HtmlTreeBuilderState.InBody.process(st, tbA));
+        }
+
+        // Plaintext
+        Token.StartTag pt = new Token.StartTag();
+        pt.name("plaintext");
+        assertTrue(HtmlTreeBuilderState.InBody.process(pt, tbA));
+
+        // Button
+        Token.StartTag btn = new Token.StartTag();
+        btn.name("button");
+        assertTrue(HtmlTreeBuilderState.InBody.process(btn, tbA));
+        assertTrue(HtmlTreeBuilderState.InBody.process(btn, tbA)); // button inside button
+
+        // Formatters
+        for (String f : new String[]{"b", "i", "s", "small", "strong", "u"}) {
+            Token.StartTag st = new Token.StartTag();
+            st.name(f);
+            assertTrue(HtmlTreeBuilderState.InBody.process(st, tbA));
+        }
+
+        // Nobr
+        Token.StartTag nobr = new Token.StartTag();
+        nobr.name("nobr");
+        assertTrue(HtmlTreeBuilderState.InBody.process(nobr, tbA));
+        assertTrue(HtmlTreeBuilderState.InBody.process(nobr, tbA)); // nested nobr
+
+        // Applets
+        for (String applet : new String[]{"applet", "marquee", "object"}) {
+            Token.StartTag st = new Token.StartTag();
+            st.name(applet);
+            assertTrue(HtmlTreeBuilderState.InBody.process(st, tbA));
+        }
+
+        // Table
+        Token.StartTag table = new Token.StartTag();
+        table.name("table");
+        assertTrue(HtmlTreeBuilderState.InBody.process(table, tbA));
+    }
+
+    @Test
+    public void testInBody_moreStartTags() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+
+        // input (hidden vs text)
+        Token.StartTag inputHidden = new Token.StartTag();
+        inputHidden.name("input");
+        inputHidden.attributes.put("type", "hidden");
+        assertTrue(HtmlTreeBuilderState.InBody.process(inputHidden, tb));
+
+        Token.StartTag inputText = new Token.StartTag();
+        inputText.name("input");
+        inputText.attributes.put("type", "text");
+        assertTrue(HtmlTreeBuilderState.InBody.process(inputText, tb));
+
+        // Media
+        for (String m : new String[]{"param", "source", "track"}) {
+            Token.StartTag st = new Token.StartTag();
+            st.name(m);
+            assertTrue(HtmlTreeBuilderState.InBody.process(st, tb));
+        }
+
+        // hr
+        Token.StartTag hr = new Token.StartTag();
+        hr.name("hr");
+        assertTrue(HtmlTreeBuilderState.InBody.process(hr, tb));
+
+        // image outside vs inside svg
+        Token.StartTag image = new Token.StartTag();
+        image.name("image");
+        assertTrue(HtmlTreeBuilderState.InBody.process(image, tb));
+
+        // isindex
+        Token.StartTag isindex = new Token.StartTag();
+        isindex.name("isindex");
+        isindex.attributes.put("action", "/search");
+        isindex.attributes.put("prompt", "Search here: ");
+        assertTrue(HtmlTreeBuilderState.InBody.process(isindex, tb));
+
+        // textarea, xmp, iframe, noembed, select
+        for (String raw : new String[]{"textarea", "xmp", "iframe", "noembed", "select"}) {
+            HtmlTreeBuilder tbRaw = createBuilder("");
+            tbRaw.processStartTag("html");
+            tbRaw.processStartTag("body");
+            Token.StartTag st = new Token.StartTag();
+            st.name(raw);
+            assertTrue(HtmlTreeBuilderState.InBody.process(st, tbRaw));
+        }
+
+        // options, ruby, math, svg, drop tags
+        Token.StartTag opt = new Token.StartTag();
+        opt.name("option");
+        assertTrue(HtmlTreeBuilderState.InBody.process(opt, tb));
+
+        Token.StartTag ruby = new Token.StartTag();
+        ruby.name("ruby");
+        assertTrue(HtmlTreeBuilderState.InBody.process(ruby, tb));
+        Token.StartTag rt = new Token.StartTag();
+        rt.name("rt");
+        assertTrue(HtmlTreeBuilderState.InBody.process(rt, tb));
+
+        Token.StartTag math = new Token.StartTag();
+        math.name("math");
+        assertTrue(HtmlTreeBuilderState.InBody.process(math, tb));
+
+        Token.StartTag svg = new Token.StartTag();
+        svg.name("svg");
+        assertTrue(HtmlTreeBuilderState.InBody.process(svg, tb));
+
+        Token.StartTag imgInSvg = new Token.StartTag();
+        imgInSvg.name("image");
+        assertTrue(HtmlTreeBuilderState.InBody.process(imgInSvg, tb));
+
+        // Drop tags
+        for (String drop : new String[]{"caption", "col", "colgroup", "frame", "head", "tbody", "td", "tfoot", "th", "thead", "tr"}) {
+            Token.StartTag st = new Token.StartTag();
+            st.name(drop);
+            assertFalse(HtmlTreeBuilderState.InBody.process(st, tb));
+        }
+
+        // Generic StartTag
+        Token.StartTag custom = new Token.StartTag();
+        custom.name("custom-tag");
+        assertTrue(HtmlTreeBuilderState.InBody.process(custom, tb));
+    }
+
+    @Test
+    public void testInBody_endTags() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+
+        // Adoption formatters: <a>, <b>, <i>, etc.
+        Token.EndTag endA = new Token.EndTag();
+        endA.name("a");
+        assertTrue(HtmlTreeBuilderState.InBody.process(endA, tb));
+
+        // End closers: <div>, <p>, etc.
+        tb.processStartTag("div");
+        Token.EndTag endDiv = new Token.EndTag();
+        endDiv.name("div");
+        assertTrue(HtmlTreeBuilderState.InBody.process(endDiv, tb));
+
+        // EndTag li
+        tb.processStartTag("li");
+        Token.EndTag endLi = new Token.EndTag();
+        endLi.name("li");
+        assertTrue(HtmlTreeBuilderState.InBody.process(endLi, tb));
+
+        // EndTag span
+        tb.processStartTag("span");
+        Token.EndTag endSpan = new Token.EndTag();
+        endSpan.name("span");
+        assertTrue(HtmlTreeBuilderState.InBody.process(endSpan, tb));
+
+        // EndTag form
+        tb.processStartTag("form");
+        Token.EndTag endForm = new Token.EndTag();
+        endForm.name("form");
+        assertTrue(HtmlTreeBuilderState.InBody.process(endForm, tb));
+
+        // EndTag p
+        Token.EndTag endP = new Token.EndTag();
+        endP.name("p");
+        assertTrue(HtmlTreeBuilderState.InBody.process(endP, tb));
+
+        // EndTag dd / dt
+        tb.processStartTag("dd");
+        Token.EndTag endDd = new Token.EndTag();
+        endDd.name("dd");
+        assertTrue(HtmlTreeBuilderState.InBody.process(endDd, tb));
+
+        // EndTag headings
+        tb.processStartTag("h1");
+        Token.EndTag endH1 = new Token.EndTag();
+        endH1.name("h1");
+        assertTrue(HtmlTreeBuilderState.InBody.process(endH1, tb));
+
+        // EndTag sarcasm
+        Token.EndTag sarcasm = new Token.EndTag();
+        sarcasm.name("sarcasm");
+        assertTrue(HtmlTreeBuilderState.InBody.process(sarcasm, tb));
+
+        // EndTag br
+        Token.EndTag endBr = new Token.EndTag();
+        endBr.name("br");
+        assertFalse(HtmlTreeBuilderState.InBody.process(endBr, tb));
+
+        // EndTag applet
+        tb.processStartTag("applet");
+        Token.EndTag endApplet = new Token.EndTag();
+        endApplet.name("applet");
+        assertTrue(HtmlTreeBuilderState.InBody.process(endApplet, tb));
+
+        // EndTag body & html
+        Token.EndTag endBody = new Token.EndTag();
+        endBody.name("body");
+        assertTrue(HtmlTreeBuilderState.InBody.process(endBody, tb));
+        assertEquals(HtmlTreeBuilderState.AfterBody, tb.state());
+
+        Token.EndTag endHtml = new Token.EndTag();
+        endHtml.name("html");
+        assertTrue(HtmlTreeBuilderState.InBody.process(endHtml, tb));
+
+        // EOF in InBody
+        assertTrue(HtmlTreeBuilderState.InBody.process(new Token.EOF(), tb));
+    }
+
+    @Test
+    public void testAdoptionAgencyAlgorithmComplex() {
+        // Run complex AAA scenarios via HTML parsing to trigger Foster Parenting, replacement nodes, etc.
+        Document doc1 = Jsoup.parse("<table><a><p>one</p>two</a></table>");
+        assertNotNull(doc1.select("table").first());
+
+        Document doc2 = Jsoup.parse("<b>1<p>2</b>3</p>");
+        assertEquals(2, doc2.select("b").size());
+
+        Document doc3 = Jsoup.parse("<a>1<p>2<a>3</a>4</p>5</a>");
+        assertNotNull(doc3.body());
+
+        Document doc4 = Jsoup.parse("<b><script></b></script>");
+        assertNotNull(doc4);
+    }
+
+    @Test
+    public void testTextState_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+        tb.processStartTag("script");
+        assertEquals(HtmlTreeBuilderState.Text, tb.state());
+
+        // Character
+        Token.Character c = new Token.Character().data("var x = 1;");
+        assertTrue(HtmlTreeBuilderState.Text.process(c, tb));
+
+        // EndTag
+        Token.EndTag endScript = new Token.EndTag();
+        endScript.name("script");
+        assertTrue(HtmlTreeBuilderState.Text.process(endScript, tb));
+
+        // EOF in text
+        HtmlTreeBuilder tb2 = createBuilder("");
+        tb2.processStartTag("html");
+        tb2.processStartTag("body");
+        tb2.processStartTag("script");
+        assertTrue(HtmlTreeBuilderState.Text.process(new Token.EOF(), tb2));
+    }
+
+    @Test
+    public void testInTable_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+        tb.processStartTag("table");
+        assertEquals(HtmlTreeBuilderState.InTable, tb.state());
+
+        // Character
+        Token.Character c = new Token.Character().data("table-text");
+        assertTrue(HtmlTreeBuilderState.InTable.process(c, tb));
+        assertEquals(HtmlTreeBuilderState.InTableText, tb.state());
+
+        // Reset to InTable
+        tb.transition(HtmlTreeBuilderState.InTable);
+        assertTrue(HtmlTreeBuilderState.InTable.process(new Token.Comment().setData("table comm"), tb));
+        assertFalse(HtmlTreeBuilderState.InTable.process(new Token.Doctype(), tb));
+
+        // StartTag caption, colgroup, col, tbody, td, table, script, input, form
+        for (String tag : new String[]{"caption", "colgroup", "col", "tbody", "tfoot", "thead", "td", "th", "tr", "table", "style", "script"}) {
+            HtmlTreeBuilder tbLoop = createBuilder("");
+            tbLoop.processStartTag("html");
+            tbLoop.processStartTag("body");
+            tbLoop.processStartTag("table");
+            Token.StartTag st = new Token.StartTag();
+            st.name(tag);
+            assertTrue(HtmlTreeBuilderState.InTable.process(st, tbLoop));
+        }
+
+        // input hidden vs non-hidden
+        HtmlTreeBuilder tbInput = createBuilder("");
+        tbInput.processStartTag("html");
+        tbInput.processStartTag("body");
+        tbInput.processStartTag("table");
+        Token.StartTag inputHidden = new Token.StartTag();
+        inputHidden.name("input");
+        inputHidden.attributes.put("type", "hidden");
+        assertTrue(HtmlTreeBuilderState.InTable.process(inputHidden, tbInput));
+
+        Token.StartTag inputText = new Token.StartTag();
+        inputText.name("input");
+        inputText.attributes.put("type", "text");
+        assertTrue(HtmlTreeBuilderState.InTable.process(inputText, tbInput));
+
+        // form
+        Token.StartTag form = new Token.StartTag();
+        form.name("form");
+        assertTrue(HtmlTreeBuilderState.InTable.process(form, tbInput));
+        assertFalse(HtmlTreeBuilderState.InTable.process(form, tbInput));
+
+        // EndTags in table
+        for (String end : new String[]{"body", "caption", "col", "colgroup", "html", "tbody", "td", "tfoot", "th", "thead", "tr"}) {
+            Token.EndTag et = new Token.EndTag();
+            et.name(end);
+            assertFalse(HtmlTreeBuilderState.InTable.process(et, tbInput));
+        }
+
+        // EndTag table
+        Token.EndTag endTable = new Token.EndTag();
+        endTable.name("table");
+        assertTrue(HtmlTreeBuilderState.InTable.process(endTable, tbInput));
+
+        // EOF in table
+        assertTrue(HtmlTreeBuilderState.InTable.process(new Token.EOF(), tbInput));
+    }
+
+    @Test
+    public void testInTableText_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+        tb.processStartTag("table");
+        tb.transition(HtmlTreeBuilderState.InTableText);
+
+        // Character null string
+        Token.Character nullChar = new Token.Character().data("\u0000");
+        assertFalse(HtmlTreeBuilderState.InTableText.process(nullChar, tb));
+
+        // Whitespace and non-whitespace
+        Token.Character ws = new Token.Character().data("  ");
+        assertTrue(HtmlTreeBuilderState.InTableText.process(ws, tb));
+
+        Token.Character text = new Token.Character().data("hello");
+        assertTrue(HtmlTreeBuilderState.InTableText.process(text, tb));
+
+        // Non-character token to flush pending characters
+        Token.StartTag st = new Token.StartTag();
+        st.name("tr");
+        assertTrue(HtmlTreeBuilderState.InTableText.process(st, tb));
+    }
+
+    @Test
+    public void testInCaption_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+        tb.processStartTag("table");
+        tb.processStartTag("caption");
+        assertEquals(HtmlTreeBuilderState.InCaption, tb.state());
+
+        // StartTag caption/table error & close
+        Token.StartTag stCol = new Token.StartTag();
+        stCol.name("col");
+        assertTrue(HtmlTreeBuilderState.InCaption.process(stCol, tb));
+
+        // Reset to InCaption
+        tb.transition(HtmlTreeBuilderState.InCaption);
+        for (String end : new String[]{"body", "col", "colgroup", "html", "tbody", "td", "tfoot", "th", "thead", "tr"}) {
+            Token.EndTag et = new Token.EndTag();
+            et.name(end);
+            assertFalse(HtmlTreeBuilderState.InCaption.process(et, tb));
+        }
+
+        // EndTag caption
+        Token.EndTag endCaption = new Token.EndTag();
+        endCaption.name("caption");
+        assertTrue(HtmlTreeBuilderState.InCaption.process(endCaption, tb));
+        assertEquals(HtmlTreeBuilderState.InTable, tb.state());
+    }
+
+    @Test
+    public void testInColumnGroup_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+        tb.processStartTag("table");
+        tb.processStartTag("colgroup");
+        assertEquals(HtmlTreeBuilderState.InColumnGroup, tb.state());
+
+        // Whitespace, Comment, Doctype
+        assertTrue(HtmlTreeBuilderState.InColumnGroup.process(new Token.Character().data(" "), tb));
+        assertTrue(HtmlTreeBuilderState.InColumnGroup.process(new Token.Comment().setData("col comm"), tb));
+        assertTrue(HtmlTreeBuilderState.InColumnGroup.process(new Token.Doctype(), tb));
+
+        // StartTag html, col, other
+        Token.StartTag html = new Token.StartTag();
+        html.name("html");
+        assertTrue(HtmlTreeBuilderState.InColumnGroup.process(html, tb));
+
+        Token.StartTag col = new Token.StartTag();
+        col.name("col");
+        assertTrue(HtmlTreeBuilderState.InColumnGroup.process(col, tb));
+
+        // EndTag colgroup
+        Token.EndTag endColgroup = new Token.EndTag();
+        endColgroup.name("colgroup");
+        assertTrue(HtmlTreeBuilderState.InColumnGroup.process(endColgroup, tb));
+        assertEquals(HtmlTreeBuilderState.InTable, tb.state());
+
+        // EOF in colgroup
+        HtmlTreeBuilder tb2 = createBuilder("");
+        tb2.processStartTag("html");
+        tb2.processStartTag("body");
+        tb2.processStartTag("table");
+        tb2.processStartTag("colgroup");
+        assertTrue(HtmlTreeBuilderState.InColumnGroup.process(new Token.EOF(), tb2));
+    }
+
+    @Test
+    public void testInTableBody_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+        tb.processStartTag("table");
+        tb.processStartTag("tbody");
+        assertEquals(HtmlTreeBuilderState.InTableBody, tb.state());
+
+        // StartTag tr, th, td
+        Token.StartTag tr = new Token.StartTag();
+        tr.name("tr");
+        assertTrue(HtmlTreeBuilderState.InTableBody.process(tr, tb));
+        assertEquals(HtmlTreeBuilderState.InRow, tb.state());
+
+        HtmlTreeBuilder tb2 = createBuilder("");
+        tb2.processStartTag("html");
+        tb2.processStartTag("body");
+        tb2.processStartTag("table");
+        tb2.processStartTag("tbody");
+        Token.StartTag td = new Token.StartTag();
+        td.name("td");
+        assertTrue(HtmlTreeBuilderState.InTableBody.process(td, tb2));
+
+        // Exit table body start tags
+        for (String exitTag : new String[]{"caption", "col", "colgroup", "tbody", "tfoot", "thead"}) {
+            HtmlTreeBuilder tbExit = createBuilder("");
+            tbExit.processStartTag("html");
+            tbExit.processStartTag("body");
+            tbExit.processStartTag("table");
+            tbExit.processStartTag("tbody");
+            Token.StartTag st = new Token.StartTag();
+            st.name(exitTag);
+            assertTrue(HtmlTreeBuilderState.InTableBody.process(st, tbExit));
+        }
+
+        // EndTags
+        HtmlTreeBuilder tbEnd = createBuilder("");
+        tbEnd.processStartTag("html");
+        tbEnd.processStartTag("body");
+        tbEnd.processStartTag("table");
+        tbEnd.processStartTag("tbody");
+        for (String errEnd : new String[]{"body", "caption", "col", "colgroup", "html", "td", "th", "tr"}) {
+            Token.EndTag et = new Token.EndTag();
+            et.name(errEnd);
+            assertFalse(HtmlTreeBuilderState.InTableBody.process(et, tbEnd));
+        }
+
+        Token.EndTag endTable = new Token.EndTag();
+        endTable.name("table");
+        assertTrue(HtmlTreeBuilderState.InTableBody.process(endTable, tbEnd));
+
+        HtmlTreeBuilder tbEndBody = createBuilder("");
+        tbEndBody.processStartTag("html");
+        tbEndBody.processStartTag("body");
+        tbEndBody.processStartTag("table");
+        tbEndBody.processStartTag("tbody");
+        Token.EndTag endTbody = new Token.EndTag();
+        endTbody.name("tbody");
+        assertTrue(HtmlTreeBuilderState.InTableBody.process(endTbody, tbEndBody));
+        assertEquals(HtmlTreeBuilderState.InTable, tbEndBody.state());
+    }
+
+    @Test
+    public void testInRow_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+        tb.processStartTag("table");
+        tb.processStartTag("tbody");
+        tb.processStartTag("tr");
+        assertEquals(HtmlTreeBuilderState.InRow, tb.state());
+
+        // StartTag th/td
+        Token.StartTag td = new Token.StartTag();
+        td.name("td");
+        assertTrue(HtmlTreeBuilderState.InRow.process(td, tb));
+        assertEquals(HtmlTreeBuilderState.InCell, tb.state());
+
+        // Missing tr handling
+        HtmlTreeBuilder tb2 = createBuilder("");
+        tb2.processStartTag("html");
+        tb2.processStartTag("body");
+        tb2.processStartTag("table");
+        tb2.processStartTag("tbody");
+        tb2.processStartTag("tr");
+        Token.StartTag tr = new Token.StartTag();
+        tr.name("tr");
+        assertTrue(HtmlTreeBuilderState.InRow.process(tr, tb2));
+
+        // EndTags
+        HtmlTreeBuilder tbEnd = createBuilder("");
+        tbEnd.processStartTag("html");
+        tbEnd.processStartTag("body");
+        tbEnd.processStartTag("table");
+        tbEnd.processStartTag("tbody");
+        tbEnd.processStartTag("tr");
+
+        for (String errEnd : new String[]{"body", "caption", "col", "colgroup", "html", "td", "th"}) {
+            Token.EndTag et = new Token.EndTag();
+            et.name(errEnd);
+            assertFalse(HtmlTreeBuilderState.InRow.process(et, tbEnd));
+        }
+
+        Token.EndTag endTbody = new Token.EndTag();
+        endTbody.name("tbody");
+        assertTrue(HtmlTreeBuilderState.InRow.process(endTbody, tbEnd));
+
+        HtmlTreeBuilder tbEndTr = createBuilder("");
+        tbEndTr.processStartTag("html");
+        tbEndTr.processStartTag("body");
+        tbEndTr.processStartTag("table");
+        tbEndTr.processStartTag("tbody");
+        tbEndTr.processStartTag("tr");
+        Token.EndTag endTr = new Token.EndTag();
+        endTr.name("tr");
+        assertTrue(HtmlTreeBuilderState.InRow.process(endTr, tbEndTr));
+        assertEquals(HtmlTreeBuilderState.InTableBody, tbEndTr.state());
+    }
+
+    @Test
+    public void testInCell_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+        tb.processStartTag("table");
+        tb.processStartTag("tbody");
+        tb.processStartTag("tr");
+        tb.processStartTag("td");
+        assertEquals(HtmlTreeBuilderState.InCell, tb.state());
+
+        // EndTag td/th
+        Token.EndTag endTd = new Token.EndTag();
+        endTd.name("td");
+        assertTrue(HtmlTreeBuilderState.InCell.process(endTd, tb));
+        assertEquals(HtmlTreeBuilderState.InRow, tb.state());
+
+        // EndTag err
+        HtmlTreeBuilder tbErr = createBuilder("");
+        tbErr.processStartTag("html");
+        tbErr.processStartTag("body");
+        tbErr.processStartTag("table");
+        tbErr.processStartTag("tbody");
+        tbErr.processStartTag("tr");
+        tbErr.processStartTag("td");
+        for (String err : new String[]{"body", "caption", "col", "colgroup", "html"}) {
+            Token.EndTag et = new Token.EndTag();
+            et.name(err);
+            assertFalse(HtmlTreeBuilderState.InCell.process(et, tbErr));
+        }
+
+        // StartTag table parts triggers closeCell
+        Token.StartTag stTr = new Token.StartTag();
+        stTr.name("tr");
+        assertTrue(HtmlTreeBuilderState.InCell.process(stTr, tbErr));
+    }
+
+    @Test
+    public void testInSelect_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+        tb.processStartTag("select");
+        assertEquals(HtmlTreeBuilderState.InSelect, tb.state());
+
+        // Character null string & normal
+        Token.Character nullChar = new Token.Character().data("\u0000");
+        assertFalse(HtmlTreeBuilderState.InSelect.process(nullChar, tb));
+
+        Token.Character normal = new Token.Character().data("Option 1");
+        assertTrue(HtmlTreeBuilderState.InSelect.process(normal, tb));
+
+        // Comment, Doctype
+        assertTrue(HtmlTreeBuilderState.InSelect.process(new Token.Comment().setData("sel comm"), tb));
+        assertFalse(HtmlTreeBuilderState.InSelect.process(new Token.Doctype(), tb));
+
+        // StartTag html, option, optgroup, select, input, script
+        Token.StartTag html = new Token.StartTag();
+        html.name("html");
+        assertTrue(HtmlTreeBuilderState.InSelect.process(html, tb));
+
+        Token.StartTag opt = new Token.StartTag();
+        opt.name("option");
+        assertTrue(HtmlTreeBuilderState.InSelect.process(opt, tb));
+
+        Token.StartTag optgroup = new Token.StartTag();
+        optgroup.name("optgroup");
+        assertTrue(HtmlTreeBuilderState.InSelect.process(optgroup, tb));
+
+        Token.StartTag select = new Token.StartTag();
+        select.name("select");
+        assertTrue(HtmlTreeBuilderState.InSelect.process(select, tb));
+
+        HtmlTreeBuilder tb2 = createBuilder("");
+        tb2.processStartTag("html");
+        tb2.processStartTag("body");
+        tb2.processStartTag("select");
+        for (String tag : new String[]{"input", "keygen", "textarea", "script"}) {
+            Token.StartTag st = new Token.StartTag();
+            st.name(tag);
+            assertTrue(HtmlTreeBuilderState.InSelect.process(st, tb2));
+        }
+
+        // EndTag optgroup, option, select
+        HtmlTreeBuilder tbEnd = createBuilder("");
+        tbEnd.processStartTag("html");
+        tbEnd.processStartTag("body");
+        tbEnd.processStartTag("select");
+        tbEnd.processStartTag("optgroup");
+        tbEnd.processStartTag("option");
+
+        Token.EndTag endOptgroup = new Token.EndTag();
+        endOptgroup.name("optgroup");
+        assertTrue(HtmlTreeBuilderState.InSelect.process(endOptgroup, tbEnd));
+
+        Token.EndTag endSelect = new Token.EndTag();
+        endSelect.name("select");
+        assertTrue(HtmlTreeBuilderState.InSelect.process(endSelect, tbEnd));
+
+        // EOF in select
+        assertTrue(HtmlTreeBuilderState.InSelect.process(new Token.EOF(), tbEnd));
+    }
+
+    @Test
+    public void testInSelectInTable_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+        tb.processStartTag("table");
+        tb.processStartTag("tbody");
+        tb.processStartTag("tr");
+        tb.processStartTag("td");
+        tb.processStartTag("select");
+        assertEquals(HtmlTreeBuilderState.InSelectInTable, tb.state());
+
+        // StartTag table parts
+        Token.StartTag tr = new Token.StartTag();
+        tr.name("tr");
+        assertTrue(HtmlTreeBuilderState.InSelectInTable.process(tr, tb));
+
+        // EndTag table parts
+        HtmlTreeBuilder tb2 = createBuilder("");
+        tb2.processStartTag("html");
+        tb2.processStartTag("body");
+        tb2.processStartTag("table");
+        tb2.processStartTag("tbody");
+        tb2.processStartTag("tr");
+        tb2.processStartTag("td");
+        tb2.processStartTag("select");
+
+        Token.EndTag endTd = new Token.EndTag();
+        endTd.name("td");
+        assertTrue(HtmlTreeBuilderState.InSelectInTable.process(endTd, tb2));
+
+        // Other token passes to InSelect
+        Token.Character c = new Token.Character().data("Option");
+        assertTrue(HtmlTreeBuilderState.InSelectInTable.process(c, tb2));
+    }
+
+    @Test
+    public void testAfterBody_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("body");
+        tb.processEndTag("body");
+        assertEquals(HtmlTreeBuilderState.AfterBody, tb.state());
+
+        // Whitespace, Comment, Doctype
+        assertTrue(HtmlTreeBuilderState.AfterBody.process(new Token.Character().data(" "), tb));
+        assertTrue(HtmlTreeBuilderState.AfterBody.process(new Token.Comment().setData("after body"), tb));
+        assertFalse(HtmlTreeBuilderState.AfterBody.process(new Token.Doctype(), tb));
+
+        // StartTag html
+        Token.StartTag html = new Token.StartTag();
+        html.name("html");
+        assertTrue(HtmlTreeBuilderState.AfterBody.process(html, tb));
+
+        // EndTag html (normal vs fragment)
+        Token.EndTag endHtml = new Token.EndTag();
+        endHtml.name("html");
+        assertTrue(HtmlTreeBuilderState.AfterBody.process(endHtml, tb));
+        assertEquals(HtmlTreeBuilderState.AfterAfterBody, tb.state());
+
+        // Fragment error
+        HtmlTreeBuilder fragTb = createFragmentBuilder(new Element("div"));
+        fragTb.transition(HtmlTreeBuilderState.AfterBody);
+        assertFalse(HtmlTreeBuilderState.AfterBody.process(endHtml, fragTb));
+
+        // EOF and other
+        assertTrue(HtmlTreeBuilderState.AfterBody.process(new Token.EOF(), tb));
+
+        HtmlTreeBuilder tbOther = createBuilder("");
+        tbOther.processStartTag("html");
+        tbOther.processStartTag("body");
+        tbOther.processEndTag("body");
+        Token.StartTag div = new Token.StartTag();
+        div.name("div");
+        assertTrue(HtmlTreeBuilderState.AfterBody.process(div, tbOther));
+    }
+
+    @Test
+    public void testInFrameset_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("frameset");
+        assertEquals(HtmlTreeBuilderState.InFrameset, tb.state());
+
+        // Whitespace, Comment, Doctype
+        assertTrue(HtmlTreeBuilderState.InFrameset.process(new Token.Character().data(" "), tb));
+        assertTrue(HtmlTreeBuilderState.InFrameset.process(new Token.Comment().setData("frame comm"), tb));
+        assertFalse(HtmlTreeBuilderState.InFrameset.process(new Token.Doctype(), tb));
+
+        // StartTags
+        Token.StartTag html = new Token.StartTag();
+        html.name("html");
+        assertTrue(HtmlTreeBuilderState.InFrameset.process(html, tb));
+
+        Token.StartTag frameset = new Token.StartTag();
+        frameset.name("frameset");
+        assertTrue(HtmlTreeBuilderState.InFrameset.process(frameset, tb));
+
+        Token.StartTag frame = new Token.StartTag();
+        frame.name("frame");
+        assertTrue(HtmlTreeBuilderState.InFrameset.process(frame, tb));
+
+        Token.StartTag noframes = new Token.StartTag();
+        noframes.name("noframes");
+        assertTrue(HtmlTreeBuilderState.InFrameset.process(noframes, tb));
+
+        Token.StartTag div = new Token.StartTag();
+        div.name("div");
+        assertFalse(HtmlTreeBuilderState.InFrameset.process(div, tb));
+
+        // EndTag frameset
+        Token.EndTag endFrameset = new Token.EndTag();
+        endFrameset.name("frameset");
+        assertTrue(HtmlTreeBuilderState.InFrameset.process(endFrameset, tb));
+        assertEquals(HtmlTreeBuilderState.InFrameset, tb.state()); // popped inner frameset
+
+        assertTrue(HtmlTreeBuilderState.InFrameset.process(endFrameset, tb)); // popped outer frameset
+        assertEquals(HtmlTreeBuilderState.AfterFrameset, tb.state());
+
+        // EOF in frameset
+        HtmlTreeBuilder tbEof = createBuilder("");
+        tbEof.processStartTag("html");
+        tbEof.processStartTag("frameset");
+        assertTrue(HtmlTreeBuilderState.InFrameset.process(new Token.EOF(), tbEof));
+    }
+
+    @Test
+    public void testAfterFrameset_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.processStartTag("html");
+        tb.processStartTag("frameset");
+        tb.processEndTag("frameset");
+        assertEquals(HtmlTreeBuilderState.AfterFrameset, tb.state());
+
+        // Whitespace, Comment, Doctype
+        assertTrue(HtmlTreeBuilderState.AfterFrameset.process(new Token.Character().data(" "), tb));
+        assertTrue(HtmlTreeBuilderState.AfterFrameset.process(new Token.Comment().setData("after frameset"), tb));
+        assertFalse(HtmlTreeBuilderState.AfterFrameset.process(new Token.Doctype(), tb));
+
+        // StartTag html, noframes
+        Token.StartTag html = new Token.StartTag();
+        html.name("html");
+        assertTrue(HtmlTreeBuilderState.AfterFrameset.process(html, tb));
+
+        Token.StartTag noframes = new Token.StartTag();
+        noframes.name("noframes");
+        assertTrue(HtmlTreeBuilderState.AfterFrameset.process(noframes, tb));
+
+        // EOF
+        assertTrue(HtmlTreeBuilderState.AfterFrameset.process(new Token.EOF(), tb));
+
+        // Other
+        Token.StartTag div = new Token.StartTag();
+        div.name("div");
+        assertFalse(HtmlTreeBuilderState.AfterFrameset.process(div, tb));
+
+        // EndTag html
+        Token.EndTag endHtml = new Token.EndTag();
+        endHtml.name("html");
+        assertTrue(HtmlTreeBuilderState.AfterFrameset.process(endHtml, tb));
+        assertEquals(HtmlTreeBuilderState.AfterAfterFrameset, tb.state());
+    }
+
+    @Test
+    public void testAfterAfterBody_tokens() {
+        HtmlTreeBuilder tb = createBuilder("");
+        tb.transition(HtmlTreeBuilderState.AfterAfterBody);
+
+        // Comment
+        assertTrue(HtmlTreeBuilderState.AfterAfterBody.process(new Token.Comment().setData("after after body"), tb));
+
+        // Whitespace, Doctype, StartTag html
+        assertTrue(HtmlTreeBuilderState.AfterAfterBody.process(new Token.Character().data(" "), tb));
+        assertTrue(HtmlTreeBuilderState.AfterAfterBody.process(new Token.Doctype(), tb));
+        Token.StartTag html = new Token.StartTag();
+        html.name("html");
+        assertTrue(HtmlTreeBuilderState.AfterAfterBody.process(html, tb));
+
+        // EOF
+        assertTrue(HtmlTreeBuilderState.AfterAfterBody.process(new Token.EOF(), tb));
+
+        // Other
+        Token.StartTag div = new Token.StartTag();
+        div.name("div");
+        assertTrue(HtmlTree

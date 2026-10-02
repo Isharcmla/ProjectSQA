@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "18",
+  "tool": "claude",
+  "class": "org.jfree.data.DefaultKeyedValues2D",
+  "target_classes": [
+    "org.jfree.data.DefaultKeyedValues2D"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 42.96,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Chart\\18\\DefaultKeyedValues2D_20260924_074720.txt",
+  "test_file": "Claude\\TestCode\\Chart\\18\\DefaultKeyedValues2DTest.java",
+  "usage": {
+    "prompt_tokens": 7465,
+    "completion_tokens": 6606,
+    "total_tokens": 14071
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 128815,
+    "daily_remaining_tokens": 71185
+  },
+  "timestamp": "20260924_074720"
+}

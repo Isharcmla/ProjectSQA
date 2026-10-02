@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "6",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.util.StdDateFormat",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.util.StdDateFormat"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 39.29,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\6\\StdDateFormat_20260925_134340.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\6\\StdDateFormatTest.java",
+  "usage": {
+    "prompt_tokens": 4771,
+    "completion_tokens": 3551,
+    "total_tokens": 10545
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 314831,
+    "daily_remaining_tokens": 35169
+  },
+  "timestamp": "20260925_134340"
+}

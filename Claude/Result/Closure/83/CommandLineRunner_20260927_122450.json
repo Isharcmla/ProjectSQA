@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "83",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.CommandLineRunner",
+  "target_classes": [
+    "com.google.javascript.jscomp.CommandLineRunner"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 124.59,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\83\\CommandLineRunner_20260927_122450.txt",
+  "test_file": "Claude\\TestCode\\Closure\\83\\CommandLineRunnerTest.java",
+  "usage": {
+    "prompt_tokens": 9580,
+    "completion_tokens": 14557,
+    "total_tokens": 24137
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 143404,
+    "daily_remaining_tokens": 56596
+  },
+  "timestamp": "20260927_122450"
+}

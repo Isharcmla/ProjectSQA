@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "16",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.util.FastMath",
+  "target_classes": [
+    "org.apache.commons.math3.util.FastMath"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 95.14,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\16\\FastMath_20260926_022810.txt",
+  "test_file": "Gemini\\TestCode\\Math\\16\\FastMathTest.java",
+  "usage": {
+    "prompt_tokens": 42231,
+    "completion_tokens": 12553,
+    "total_tokens": 56375
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 296059,
+    "daily_remaining_tokens": 53941
+  },
+  "timestamp": "20260926_022810"
+}

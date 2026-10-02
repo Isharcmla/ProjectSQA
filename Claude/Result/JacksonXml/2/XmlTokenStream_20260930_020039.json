@@ -1,0 +1,33 @@
+{
+  "project": "JacksonXml",
+  "bug_id": "2",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.dataformat.xml.deser.XmlTokenStream",
+  "target_classes": [
+    "com.fasterxml.jackson.dataformat.xml.deser.XmlTokenStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 108.97,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonXml\\2\\XmlTokenStream_20260930_020039.txt",
+  "test_file": "Claude\\TestCode\\JacksonXml\\2\\XmlTokenStreamTest.java",
+  "usage": {
+    "prompt_tokens": 7726,
+    "completion_tokens": 13613,
+    "total_tokens": 21339
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 177752,
+    "daily_remaining_tokens": 22248
+  },
+  "timestamp": "20260930_020039"
+}

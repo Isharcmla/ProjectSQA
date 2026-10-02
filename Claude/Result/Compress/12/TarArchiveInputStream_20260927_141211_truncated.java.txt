@@ -1,0 +1,385 @@
+package org.apache.commons.compress.archivers.tar;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Date;
+
+import org.apache.commons.compress.archivers.ArchiveEntry;
+import org.junit.Test;
+
+public class TarArchiveInputStreamTest {
+
+    // ---------- Helper methods ----------
+
+    private byte[] buildTar(String[] names, byte[][] contents) throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        TarArchiveOutputStream taos = new TarArchiveOutputStream(baos);
+        for (int i = 0; i < names.length; i++) {
+            TarArchiveEntry entry = new TarArchiveEntry(names[i]);
+            entry.setSize(contents[i].length);
+            taos.putArchiveEntry(entry);
+            taos.write(contents[i]);
+            taos.closeArchiveEntry();
+        }
+        taos.finish();
+        taos.close();
+        return baos.toByteArray();
+    }
+
+    private void fillAscii(byte[] buf, int offset, String s) {
+        byte[] b = s.getBytes();
+        System.arraycopy(b, 0, buf, offset, b.length);
+    }
+
+    // ---------- Constructor tests ----------
+
+    @Test
+    public void testConstructor_default_notNull() {
+        TarArchiveInputStream tis = new TarArchiveInputStream(
+                new ByteArrayInputStream(new byte[0]));
+        assertNotNull(tis);
+    }
+
+    @Test
+    public void testConstructor_withBlockSize_notNull() {
+        TarArchiveInputStream tis = new TarArchiveInputStream(
+                new ByteArrayInputStream(new byte[0]), 10240);
+        assertNotNull(tis);
+    }
+
+    @Test
+    public void testConstructor_withBlockSizeAndRecordSize_notNull() {
+        TarArchiveInputStream tis = new TarArchiveInputStream(
+                new ByteArrayInputStream(new byte[0]), 10240, 512);
+        assertNotNull(tis);
+    }
+
+    // ---------- getRecordSize ----------
+
+    @Test
+    public void testGetRecordSize_default_returnsDefaultRecordSize() {
+        TarArchiveInputStream tis = new TarArchiveInputStream(
+                new ByteArrayInputStream(new byte[0]));
+        assertEquals(TarBuffer.DEFAULT_RCDSIZE, tis.getRecordSize());
+    }
+
+    // ---------- available ----------
+
+    @Test
+    public void testAvailable_beforeAnyEntry_returnsZero() throws IOException {
+        TarArchiveInputStream tis = new TarArchiveInputStream(
+                new ByteArrayInputStream(new byte[0]));
+        assertEquals(0, tis.available());
+    }
+
+    @Test
+    public void testAvailable_afterGettingEntry_returnsEntrySize() throws IOException {
+        byte[] tar = buildTar(new String[]{"a.txt"}, new byte[][]{"hello".getBytes()});
+        TarArchiveInputStream tis = new TarArchiveInputStream(new ByteArrayInputStream(tar));
+        tis.getNextTarEntry();
+        assertEquals(5, tis.available());
+        tis.close();
+    }
+
+    // ---------- skip ----------
+
+    @Test
+    public void testSkip_withinEntry_returnsSkippedBytesAndReadsRemainder() throws IOException {
+        byte[] tar = buildTar(new String[]{"b.txt"}, new byte[][]{"world!!".getBytes()});
+        TarArchiveInputStream tis = new TarArchiveInputStream(new ByteArrayInputStream(tar));
+        tis.getNextTarEntry();
+        long skipped = tis.skip(3);
+        assertEquals(3, skipped);
+        byte[] buf = new byte[4];
+        int read = tis.read(buf, 0, 4);
+        assertEquals(4, read);
+        assertArrayEquals("ld!!".getBytes(), buf);
+        tis.close();
+    }
+
+    @Test
+    public void testSkip_whenNoEntry_returnsZero() throws IOException {
+        TarArchiveInputStream tis = new TarArchiveInputStream(
+                new ByteArrayInputStream(new byte[0]));
+        long skipped = tis.skip(5);
+        assertEquals(0, skipped);
+    }
+
+    // ---------- reset ----------
+
+    @Test
+    public void testReset_doesNothing() {
+        TarArchiveInputStream tis = new TarArchiveInputStream(
+                new ByteArrayInputStream(new byte[0]));
+        // should not throw
+        tis.reset();
+    }
+
+    // ---------- getNextTarEntry / getNextEntry ----------
+
+    @Test
+    public void testGetNextTarEntry_singleEntry_returnsEntryWithCorrectNameAndSize() throws IOException {
+        byte[] tar = buildTar(new String[]{"file.txt"}, new byte[][]{"hello".getBytes()});
+        TarArchiveInputStream tis = new TarArchiveInputStream(new ByteArrayInputStream(tar));
+        TarArchiveEntry entry = tis.getNextTarEntry();
+        assertNotNull(entry);
+        assertEquals("file.txt", entry.getName());
+        assertEquals(5, entry.getSize());
+        tis.close();
+    }
+
+    @Test
+    public void testGetNextEntry_returnsArchiveEntry() throws IOException {
+        byte[] tar = buildTar(new String[]{"file.txt"}, new byte[][]{"hi".getBytes()});
+        TarArchiveInputStream tis = new TarArchiveInputStream(new ByteArrayInputStream(tar));
+        ArchiveEntry entry = tis.getNextEntry();
+        assertNotNull(entry);
+        assertEquals("file.txt", entry.getName());
+        tis.close();
+    }
+
+    @Test
+    public void testGetNextTarEntry_multipleEntries_returnsAllEntriesThenNull() throws IOException {
+        byte[] tar = buildTar(new String[]{"a.txt", "b.txt"},
+                new byte[][]{"hello".getBytes(), "world!!".getBytes()});
+        TarArchiveInputStream tis = new TarArchiveInputStream(new ByteArrayInputStream(tar));
+
+        TarArchiveEntry e1 = tis.getNextTarEntry();
+        assertEquals("a.txt", e1.getName());
+        byte[] buf1 = new byte[5];
+        int read1 = tis.read(buf1, 0, 5);
+        assertEquals(5, read1);
+        assertArrayEquals("hello".getBytes(), buf1);
+
+        TarArchiveEntry e2 = tis.getNextTarEntry();
+        assertEquals("b.txt", e2.getName());
+        byte[] buf2 = new byte[7];
+        int read2 = tis.read(buf2, 0, 7);
+        assertEquals(7, read2);
+        assertArrayEquals("world!!".getBytes(), buf2);
+
+        TarArchiveEntry e3 = tis.getNextTarEntry();
+        assertNull(e3);
+
+        tis.close();
+    }
+
+    @Test
+    public void testGetNextTarEntry_skipsRemainingDataOfPreviousEntry() throws IOException {
+        byte[] content = new byte[1000];
+        for (int i = 0; i < content.length; i++) {
+            content[i] = (byte) ('a' + (i % 26));
+        }
+        byte[] tar = buildTar(new String[]{"big.txt"}, new byte[][]{content});
+        TarArchiveInputStream tis = new TarArchiveInputStream(new ByteArrayInputStream(tar));
+
+        TarArchiveEntry e1 = tis.getNextTarEntry();
+        assertEquals("big.txt", e1.getName());
+
+        // only read a small part, leaving remaining bytes unread
+        byte[] partial = new byte[10];
+        int read = tis.read(partial, 0, 10);
+        assertEquals(10, read);
+
+        // calling getNextTarEntry should skip the rest and reach EOF (null)
+        TarArchiveEntry e2 = tis.getNextTarEntry();
+        assertNull(e2);
+
+        tis.close();
+    }
+
+    @Test
+    public void testGetNextTarEntry_emptyArchive_returnsNull() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        TarArchiveOutputStream taos = new TarArchiveOutputStream(baos);
+        taos.finish();
+        taos.close();
+
+        TarArchiveInputStream tis = new TarArchiveInputStream(new ByteArrayInputStream(baos.toByteArray()));
+        TarArchiveEntry entry = tis.getNextTarEntry();
+        assertNull(entry);
+        tis.close();
+    }
+
+    @Test
+    public void testGetNextTarEntry_gnuLongNameEntry_returnsCorrectFullName() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        TarArchiveOutputStream taos = new TarArchiveOutputStream(baos);
+        taos.setLongFileMode(TarArchiveOutputStream.LONGFILE_GNU);
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 150; i++) {
+            sb.append('a');
+        }
+        String longName = sb.toString();
+
+        TarArchiveEntry entry = new TarArchiveEntry(longName);
+        entry.setSize(0);
+        taos.putArchiveEntry(entry);
+        taos.closeArchiveEntry();
+        taos.finish();
+        taos.close();
+
+        TarArchiveInputStream tis = new TarArchiveInputStream(new ByteArrayInputStream(baos.toByteArray()));
+        TarArchiveEntry got = tis.getNextTarEntry();
+        assertNotNull(got);
+        assertEquals(longName, got.getName());
+        tis.close();
+    }
+
+    // ---------- read ----------
+
+    @Test
+    public void testRead_readsCorrectData() throws IOException {
+        byte[] tar = buildTar(new String[]{"a.txt"}, new byte[][]{"testdata".getBytes()});
+        TarArchiveInputStream tis = new TarArchiveInputStream(new ByteArrayInputStream(tar));
+        tis.getNextTarEntry();
+        byte[] buf = new byte[8];
+        int read = tis.read(buf, 0, 8);
+        assertEquals(8, read);
+        assertArrayEquals("testdata".getBytes(), buf);
+        tis.close();
+    }
+
+    @Test
+    public void testRead_afterEntryEnd_returnsMinusOne() throws IOException {
+        byte[] tar = buildTar(new String[]{"a.txt"}, new byte[][]{"hi".getBytes()});
+        TarArchiveInputStream tis = new TarArchiveInputStream(new ByteArrayInputStream(tar));
+        tis.getNextTarEntry();
+        byte[] buf = new byte[2];
+        int read = tis.read(buf, 0, 2);
+        assertEquals(2, read);
+        // no more data left in this entry
+        int readAgain = tis.read(buf, 0, 2);
+        assertEquals(-1, readAgain);
+        tis.close();
+    }
+
+    @Test
+    public void testRead_zeroLength_returnsZero() throws IOException {
+        byte[] tar = buildTar(new String[]{"a.txt"}, new byte[][]{"hi".getBytes()});
+        TarArchiveInputStream tis = new TarArchiveInputStream(new ByteArrayInputStream(tar));
+        tis.getNextTarEntry();
+        byte[] buf = new byte[2];
+        int read = tis.read(buf, 0, 0);
+        assertEquals(0, read);
+        tis.close();
+    }
+
+    @Test(expected = IOException.class)
+    public void testRead_truncatedArchive_throwsIOException() throws IOException {
+        TarArchiveEntry entry = new TarArchiveEntry("x.txt");
+        entry.setSize(1000);
+        byte[] headerBuf = new byte[512];
+        entry.writeEntryHeader(headerBuf);
+
+        // only the header record is present, no data records follow
+        ByteArrayInputStream bais = new ByteArrayInputStream(headerBuf);
+        TarArchiveInputStream tis = new TarArchiveInputStream(bais);
+
+        TarArchiveEntry got = tis.getNextTarEntry();
+        assertNotNull(got);
+
+        byte[] buf = new byte[1000];
+        tis.read(buf, 0, 1000); // should throw IOException - unexpected EOF
+        tis.close();
+    }
+
+    @Test
+    public void testRead_truncatedArchive_throwsIOException_tryCatchStyle() throws IOException {
+        TarArchiveEntry entry = new TarArchiveEntry("y.txt");
+        entry.setSize(1000);
+        byte[] headerBuf = new byte[512];
+        entry.writeEntryHeader(headerBuf);
+
+        ByteArrayInputStream bais = new ByteArrayInputStream(headerBuf);
+        TarArchiveInputStream tis = new TarArchiveInputStream(bais);
+
+        TarArchiveEntry got = tis.getNextTarEntry();
+        assertNotNull(got);
+
+        byte[] buf = new byte[1000];
+        boolean thrown = false;
+        try {
+            tis.read(buf, 0, 1000);
+        } catch (IOException expected) {
+            thrown = true;
+        }
+        assertTrue(thrown);
+        tis.close();
+    }
+
+    // ---------- canReadEntryData ----------
+
+    @Test
+    public void testCanReadEntryData_withNormalTarArchiveEntry_returnsTrue() throws IOException {
+        TarArchiveInputStream tis = new TarArchiveInputStream(
+                new ByteArrayInputStream(new byte[0]));
+        TarArchiveEntry entry = new TarArchiveEntry("normal.txt");
+        assertTrue(tis.canReadEntryData(entry));
+    }
+
+    @Test
+    public void testCanReadEntryData_withNonTarArchiveEntry_returnsFalse() throws IOException {
+        TarArchiveInputStream tis = new TarArchiveInputStream(
+                new ByteArrayInputStream(new byte[0]));
+        ArchiveEntry dummy = new ArchiveEntry() {
+            @Override
+            public String getName() {
+                return "dummy";
+            }
+
+            @Override
+            public long getSize() {
+                return 0;
+            }
+
+            @Override
+            public boolean isDirectory() {
+                return false;
+            }
+
+            @Override
+            public Date getLastModifiedDate() {
+                return new Date();
+            }
+        };
+        assertFalse(tis.canReadEntryData(dummy));
+    }
+
+    // ---------- close ----------
+
+    @Test
+    public void testClose_doesNotThrow() throws IOException {
+        byte[] tar = buildTar(new String[]{"a.txt"}, new byte[][]{"data".getBytes()});
+        TarArchiveInputStream tis = new TarArchiveInputStream(new ByteArrayInputStream(tar));
+        tis.getNextTarEntry();
+        tis.close();
+        // should not throw when called again? we simply ensure no exception on single close
+    }
+
+    // ---------- matches (static) ----------
+
+    @Test
+    public void testMatches_validPosixSignature_returnsTrue() {
+        byte[] sig = new byte[TarConstants.VERSION_OFFSET + TarConstants.VERSIONLEN];
+        fillAscii(sig, TarConstants.MAGIC_OFFSET, TarConstants.MAGIC_POSIX);
+        fillAscii(sig, TarConstants.VERSION_OFFSET, TarConstants.VERSION_POSIX);
+        assertTrue(TarArchiveInputStream.matches(sig, sig.length));
+    }
+
+    @Test
+    public void testMatches_validGnuSignature_returnsTrue() {
+        byte[] sig = new byte[TarConstants.VERSION_OFFSET + TarConstants.VERSIONLEN];
+        fillAscii(sig, TarConstants.MAGIC_OFFSET, TarConstants.MAGIC_GNU);
+        fillAscii(sig, TarConstants.VERSION_OFFSET, TarConstants.VERSION_GNU_SPACE);
+        assertTrue(TarArchiveInputStream.matches(sig, sig.length));

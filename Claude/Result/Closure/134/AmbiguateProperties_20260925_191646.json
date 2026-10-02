@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "134",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.AmbiguateProperties",
+  "target_classes": [
+    "com.google.javascript.jscomp.AmbiguateProperties"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 113.09,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\134\\AmbiguateProperties_20260925_191646.txt",
+  "test_file": "Claude\\TestCode\\Closure\\134\\AmbiguatePropertiesTest.java",
+  "usage": {
+    "prompt_tokens": 9044,
+    "completion_tokens": 12727,
+    "total_tokens": 21771
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 117352,
+    "daily_remaining_tokens": 82648
+  },
+  "timestamp": "20260925_191646"
+}

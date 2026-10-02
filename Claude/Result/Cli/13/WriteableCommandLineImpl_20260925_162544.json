@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "13",
+  "tool": "claude",
+  "class": "org.apache.commons.cli2.commandline.WriteableCommandLineImpl",
+  "target_classes": [
+    "org.apache.commons.cli2.commandline.WriteableCommandLineImpl"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 134.29,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Cli\\13\\WriteableCommandLineImpl_20260925_162544.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 3285,
+    "completion_tokens": 16384,
+    "total_tokens": 19669
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 19669,
+    "daily_remaining_tokens": 180331
+  },
+  "timestamp": "20260925_162544"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "7",
+  "tool": "claude",
+  "class": "org.apache.commons.cli2.builder.PatternBuilder",
+  "target_classes": [
+    "org.apache.commons.cli2.builder.PatternBuilder"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 65.09,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Cli\\7\\PatternBuilder_20260924_091603.txt",
+  "test_file": "Claude\\TestCode\\Cli\\7\\PatternBuilderTest.java",
+  "usage": {
+    "prompt_tokens": 2828,
+    "completion_tokens": 7149,
+    "total_tokens": 9977
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 67095,
+    "daily_remaining_tokens": 132905
+  },
+  "timestamp": "20260924_091603"
+}

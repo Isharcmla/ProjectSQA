@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "8",
+  "tool": "gemini",
+  "class": "org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 35.29,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JxPath\\8\\CoreOperationRelationalExpression_20260926_012316.txt",
+  "test_file": "Gemini\\TestCode\\JxPath\\8\\CoreOperationRelationalExpressionTest.java",
+  "usage": {
+    "prompt_tokens": 1201,
+    "completion_tokens": 2756,
+    "total_tokens": 6395
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 200044,
+    "daily_remaining_tokens": 149956
+  },
+  "timestamp": "20260926_012316"
+}

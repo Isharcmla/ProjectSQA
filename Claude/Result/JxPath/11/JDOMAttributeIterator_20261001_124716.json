@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "11",
+  "tool": "claude",
+  "class": "org.apache.commons.jxpath.ri.model.jdom.JDOMAttributeIterator",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.model.jdom.JDOMAttributeIterator"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 141.16,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JxPath\\11\\JDOMAttributeIterator_20261001_124716.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 2139,
+    "completion_tokens": 16384,
+    "total_tokens": 18523
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 47200,
+    "daily_remaining_tokens": 152800
+  },
+  "timestamp": "20261001_124716"
+}

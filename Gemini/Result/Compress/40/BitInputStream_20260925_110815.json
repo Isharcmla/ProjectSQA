@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "40",
+  "tool": "gemini",
+  "class": "org.apache.commons.compress.utils.BitInputStream",
+  "target_classes": [
+    "org.apache.commons.compress.utils.BitInputStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 23.27,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Compress\\40\\BitInputStream_20260925_110815.txt",
+  "test_file": "Gemini\\TestCode\\Compress\\40\\BitInputStreamTest.java",
+  "usage": {
+    "prompt_tokens": 1296,
+    "completion_tokens": 1850,
+    "total_tokens": 4685
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 195708,
+    "daily_remaining_tokens": 154292
+  },
+  "timestamp": "20260925_110815"
+}

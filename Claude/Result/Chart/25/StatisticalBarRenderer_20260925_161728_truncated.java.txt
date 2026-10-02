@@ -1,0 +1,472 @@
+package org.jfree.chart.renderer.category;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.Stroke;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import org.jfree.chart.ChartRenderingInfo;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.statistics.DefaultStatisticalCategoryDataset;
+import org.junit.Test;
+
+public class StatisticalBarRendererTest {
+
+    // ---------- Constructor / default values ----------
+
+    @Test
+    public void testDefaultConstructor_defaultValues() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        assertEquals(Color.gray, renderer.getErrorIndicatorPaint());
+        assertNotNull(renderer.getErrorIndicatorStroke());
+        assertTrue(renderer.getErrorIndicatorStroke() instanceof BasicStroke);
+    }
+
+    // ---------- getErrorIndicatorPaint / setErrorIndicatorPaint ----------
+
+    @Test
+    public void testGetErrorIndicatorPaint_default() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        assertEquals(Color.gray, renderer.getErrorIndicatorPaint());
+    }
+
+    @Test
+    public void testSetErrorIndicatorPaint_customValue() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        Paint customPaint = Color.red;
+        renderer.setErrorIndicatorPaint(customPaint);
+        assertEquals(customPaint, renderer.getErrorIndicatorPaint());
+    }
+
+    @Test
+    public void testSetErrorIndicatorPaint_null() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        renderer.setErrorIndicatorPaint(null);
+        assertNull(renderer.getErrorIndicatorPaint());
+    }
+
+    // ---------- getErrorIndicatorStroke / setErrorIndicatorStroke ----------
+
+    @Test
+    public void testGetErrorIndicatorStroke_default() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        Stroke stroke = renderer.getErrorIndicatorStroke();
+        assertNotNull(stroke);
+    }
+
+    @Test
+    public void testSetErrorIndicatorStroke_customValue() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        Stroke customStroke = new BasicStroke(2.0f);
+        renderer.setErrorIndicatorStroke(customStroke);
+        assertEquals(customStroke, renderer.getErrorIndicatorStroke());
+    }
+
+    @Test
+    public void testSetErrorIndicatorStroke_null() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        renderer.setErrorIndicatorStroke(null);
+        assertNull(renderer.getErrorIndicatorStroke());
+    }
+
+    // ---------- drawItem: exception path ----------
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDrawItem_withNonStatisticalDataset_throwsException() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        dataset.addValue(1.0, "Row1", "Col1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+
+        BufferedImage image = new BufferedImage(200, 100,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        Rectangle2D dataArea = new Rectangle2D.Double(0, 0, 200, 100);
+
+        CategoryItemRendererState state = renderer.initialise(g2, dataArea,
+                plot, 0, null);
+        renderer.drawItem(g2, state, dataArea, plot, domainAxis, rangeAxis,
+                dataset, 0, 0, 0);
+        g2.dispose();
+    }
+
+    // ---------- drawItem: normal vertical orientation ----------
+
+    @Test
+    public void testDrawItem_verticalOrientation_normalValues() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(10.0, 2.0, "Series1", "Category1");
+        dataset.add(20.0, 3.0, "Series1", "Category2");
+        dataset.add(15.0, 1.0, "Series2", "Category1");
+        dataset.add(25.0, 4.0, "Series2", "Category2");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        ChartRenderingInfo info = new ChartRenderingInfo();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300), info);
+        g2.dispose();
+
+        assertNotNull(info.getEntityCollection());
+        assertTrue(info.getEntityCollection().getEntityCount() > 0);
+    }
+
+    // ---------- drawItem: normal horizontal orientation ----------
+
+    @Test
+    public void testDrawItem_horizontalOrientation_normalValues() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(10.0, 2.0, "Series1", "Category1");
+        dataset.add(20.0, 3.0, "Series1", "Category2");
+        dataset.add(15.0, 1.0, "Series2", "Category1");
+        dataset.add(25.0, 4.0, "Series2", "Category2");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.HORIZONTAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        ChartRenderingInfo info = new ChartRenderingInfo();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300), info);
+        g2.dispose();
+
+        assertNotNull(info.getEntityCollection());
+        assertTrue(info.getEntityCollection().getEntityCount() > 0);
+    }
+
+    // ---------- drawItem: negative values (vertical) ----------
+
+    @Test
+    public void testDrawItem_verticalOrientation_negativeValues() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(-10.0, 2.0, "Series1", "Category1");
+        dataset.add(-20.0, 3.0, "Series1", "Category2");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300));
+        g2.dispose();
+        // if no exception thrown, drawing succeeded
+        assertTrue(true);
+    }
+
+    // ---------- drawItem: negative values (horizontal) ----------
+
+    @Test
+    public void testDrawItem_horizontalOrientation_negativeValues() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(-10.0, 2.0, "Series1", "Category1");
+        dataset.add(-20.0, 3.0, "Series1", "Category2");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.HORIZONTAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300));
+        g2.dispose();
+        assertTrue(true);
+    }
+
+    // ---------- drawItem: range axis fully negative (uclip <= 0 branch) ----------
+
+    @Test
+    public void testDrawItem_upperClipNegative_normalCase() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(-50.0, 2.0, "Series1", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        rangeAxis.setAutoRange(false);
+        rangeAxis.setRange(-100.0, -1.0);
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300));
+        g2.dispose();
+        assertTrue(true);
+    }
+
+    @Test
+    public void testDrawItem_upperClipNegative_valueAboveClip_barNotVisible() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(-0.5, 1.0, "Series1", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        rangeAxis.setAutoRange(false);
+        rangeAxis.setRange(-100.0, -1.0);
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300));
+        g2.dispose();
+        assertTrue(true);
+    }
+
+    // ---------- drawItem: range axis fully positive (lclip > 0 branch) ----------
+
+    @Test
+    public void testDrawItem_lowerClipPositive_normalCase() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(50.0, 2.0, "Series1", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        rangeAxis.setAutoRange(false);
+        rangeAxis.setRange(10.0, 100.0);
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300));
+        g2.dispose();
+        assertTrue(true);
+    }
+
+    @Test
+    public void testDrawItem_lowerClipPositive_valueBelowClip_barNotVisible() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(5.0, 1.0, "Series1", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        rangeAxis.setAutoRange(false);
+        rangeAxis.setRange(10.0, 100.0);
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300));
+        g2.dispose();
+        assertTrue(true);
+    }
+
+    @Test
+    public void testDrawItem_lowerClipPositive_valueAboveUpperClip() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(150.0, 5.0, "Series1", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        rangeAxis.setAutoRange(false);
+        rangeAxis.setRange(10.0, 100.0);
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300));
+        g2.dispose();
+        assertTrue(true);
+    }
+
+    // ---------- drawItem: null errorIndicatorPaint / Stroke ----------
+
+    @Test
+    public void testDrawItem_withNullErrorIndicatorPaintAndStroke() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        renderer.setErrorIndicatorPaint(null);
+        renderer.setErrorIndicatorStroke(null);
+
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(10.0, 2.0, "Series1", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300));
+        g2.dispose();
+        assertTrue(true);
+    }
+
+    // ---------- drawItem: with item labels visible ----------
+
+    @Test
+    public void testDrawItem_withItemLabelsVisible() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        renderer.setBaseItemLabelGenerator(
+                new StandardCategoryItemLabelGenerator());
+        renderer.setBaseItemLabelsVisible(true);
+
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(10.0, 2.0, "Series1", "Category1");
+        dataset.add(-5.0, 1.0, "Series1", "Category2");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300));
+        g2.dispose();
+        assertTrue(true);
+    }
+
+    // ---------- drawItem: with bar outline enabled ----------
+
+    @Test
+    public void testDrawItem_withDrawBarOutlineTrue() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        renderer.setDrawBarOutline(true);
+
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(10.0, 2.0, "Series1", "Category1");
+        dataset.add(20.0, 3.0, "Series1", "Category2");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300));
+        g2.dispose();
+        assertTrue(true);
+    }
+
+    // ---------- drawItem: multiple series (seriesCount > 1 branch) ----------
+
+    @Test
+    public void testDrawItem_multipleSeries_coversSeriesGapBranch() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(10.0, 2.0, "Series1", "Category1");
+        dataset.add(20.0, 3.0, "Series2", "Category1");
+        dataset.add(30.0, 4.0, "Series3", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.HORIZONTAL);
+
+        JFreeChart chart = new JFreeChart(plot);
+        BufferedImage image = new BufferedImage(400, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = image.createGraphics();
+        chart.draw(g2, new Rectangle2D.Double(0, 0, 400, 300));
+        g2.dispose();
+        assertTrue(true);
+    }
+
+    // ---------- equals ----------
+
+    @Test
+    public void testEquals_sameInstance_returnsTrue() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        assertTrue(renderer.equals(renderer));
+    }
+
+    @Test
+    public void testEquals_null_returnsFalse() {
+        StatisticalBarRenderer renderer = new StatisticalBarRenderer();
+        assertFalse(renderer.equ

@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "32",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.deser.std.UntypedObjectDeserializer",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.std.UntypedObjectDeserializer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 87.49,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\32\\UntypedObjectDeserializer_20260929_024557.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\32\\UntypedObjectDeserializerTest.java",
+  "usage": {
+    "prompt_tokens": 10942,
+    "completion_tokens": 12174,
+    "total_tokens": 23116
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 96945,
+    "daily_remaining_tokens": 103055
+  },
+  "timestamp": "20260929_024557"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "14",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.core.io.IOContext",
+  "target_classes": [
+    "com.fasterxml.jackson.core.io.IOContext"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 38.59,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonCore\\14\\IOContext_20260928_212348.txt",
+  "test_file": "Claude\\TestCode\\JacksonCore\\14\\IOContextTest.java",
+  "usage": {
+    "prompt_tokens": 4675,
+    "completion_tokens": 5910,
+    "total_tokens": 10585
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 136571,
+    "daily_remaining_tokens": 63429
+  },
+  "timestamp": "20260928_212348"
+}

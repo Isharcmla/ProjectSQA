@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "15",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.core.filter.FilteringParserDelegate",
+  "target_classes": [
+    "com.fasterxml.jackson.core.filter.FilteringParserDelegate"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 157.96,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonCore\\15\\FilteringParserDelegate_20260928_212429.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 11525,
+    "completion_tokens": 16384,
+    "total_tokens": 27909
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 164480,
+    "daily_remaining_tokens": 35520
+  },
+  "timestamp": "20260928_212429"
+}

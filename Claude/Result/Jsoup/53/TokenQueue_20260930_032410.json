@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "53",
+  "tool": "claude",
+  "class": "org.jsoup.parser.TokenQueue",
+  "target_classes": [
+    "org.jsoup.parser.TokenQueue"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 56.94,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\53\\TokenQueue_20260930_032410.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\53\\TokenQueueTest.java",
+  "usage": {
+    "prompt_tokens": 4906,
+    "completion_tokens": 8040,
+    "total_tokens": 12946
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 38053,
+    "daily_remaining_tokens": 161947
+  },
+  "timestamp": "20260930_032410"
+}

@@ -1,0 +1,312 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
+import com.google.common.collect.ImmutableList;
+import com.google.javascript.rhino.Node;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class GlobalNamespaceTest {
+
+  private Compiler compiler;
+  private CompilerOptions options;
+
+  @Before
+  public void setUp() {
+    compiler = new Compiler();
+    options = new CompilerOptions();
+  }
+
+  private GlobalNamespace parse(String js) {
+    compiler.init(
+        ImmutableList.<SourceFile>of(),
+        ImmutableList.of(SourceFile.fromCode("testcode", js)),
+        options);
+    compiler.parse();
+    assertFalse(compiler.hasErrors());
+    return new GlobalNamespace(compiler, compiler.getJsRoot());
+  }
+
+  // ---------------------------------------------------------------------
+  // Basic / typical usage tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testGetNameForest_simpleVar_returnsOneRoot() {
+    GlobalNamespace ns = parse("var a = 1;");
+    List<GlobalNamespace.Name> forest = ns.getNameForest();
+    assertNotNull(forest);
+    assertEquals(1, forest.size());
+    assertEquals("a", forest.get(0).getBaseName());
+  }
+
+  @Test
+  public void testGetNameIndex_qualifiedName_containsAllLevels() {
+    GlobalNamespace ns = parse("var a = {}; a.b = {}; a.b.c = 1;");
+    Map<String, GlobalNamespace.Name> index = ns.getNameIndex();
+    assertTrue(index.containsKey("a"));
+    assertTrue(index.containsKey("a.b"));
+    assertTrue(index.containsKey("a.b.c"));
+  }
+
+  @Test
+  public void testGetSlot_existingName_returnsName() {
+    GlobalNamespace ns = parse("var a = 1;");
+    GlobalNamespace.Name slot = ns.getSlot("a");
+    assertNotNull(slot);
+    assertEquals("a", slot.getName());
+  }
+
+  @Test
+  public void testGetSlot_nonExistingName_returnsNull() {
+    GlobalNamespace ns = parse("var a = 1;");
+    GlobalNamespace.Name slot = ns.getSlot("nonexistent");
+    assertNull(slot);
+  }
+
+  @Test
+  public void testGetSlot_emptyString_returnsNull() {
+    GlobalNamespace ns = parse("var a = 1;");
+    assertNull(ns.getSlot(""));
+  }
+
+  @Test
+  public void testGetOwnSlot_sameAsGetSlot() {
+    GlobalNamespace ns = parse("var a = 1;");
+    GlobalNamespace.Name slot = ns.getOwnSlot("a");
+    assertNotNull(slot);
+  }
+
+  @Test
+  public void testGetTypeOfThis_returnsGlobalThisType() {
+    GlobalNamespace ns = parse("var a = 1;");
+    assertNotNull(ns.getTypeOfThis());
+  }
+
+  @Test
+  public void testGetReferences_existingSlot_returnsRefs() {
+    GlobalNamespace ns = parse("var a = 1; a = 2;");
+    GlobalNamespace.Name slot = ns.getSlot("a");
+    Iterable<GlobalNamespace.Ref> refs = ns.getReferences(slot);
+    assertNotNull(refs);
+    assertTrue(refs.iterator().hasNext());
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testGetReferences_nullSlot_throwsNPE() {
+    GlobalNamespace ns = parse("var a = 1;");
+    ns.getReferences(null);
+  }
+
+  @Test
+  public void testGetScope_returnsSameInstance() {
+    GlobalNamespace ns = parse("var a = 1;");
+    GlobalNamespace.Name slot = ns.getSlot("a");
+    assertSame(ns, ns.getScope(slot));
+  }
+
+  @Test
+  public void testGetAllSymbols_returnsAllNames() {
+    GlobalNamespace ns = parse("var a = 1; var b = 2;");
+    Iterable<GlobalNamespace.Name> allSymbols = ns.getAllSymbols();
+    int count = 0;
+    for (GlobalNamespace.Name n : allSymbols) {
+      count++;
+    }
+    assertTrue(count >= 2);
+  }
+
+  @Test
+  public void testGetRootNode_returnsParentOfRoot() {
+    GlobalNamespace ns = parse("var a = 1;");
+    Node rootNode = ns.getRootNode();
+    assertNotNull(rootNode);
+  }
+
+  @Test
+  public void testGetParentScope_returnsNull() {
+    GlobalNamespace ns = parse("var a = 1;");
+    assertNull(ns.getParentScope());
+  }
+
+  @Test
+  public void testHasExternsRoot_withoutExterns_returnsFalse() {
+    GlobalNamespace ns = parse("var a = 1;");
+    assertFalse(ns.hasExternsRoot());
+  }
+
+  @Test
+  public void testHasExternsRoot_withExterns_returnsTrue() {
+    compiler.init(
+        ImmutableList.of(SourceFile.fromCode("externs.js", "var extern1;")),
+        ImmutableList.of(SourceFile.fromCode("testcode", "var a = 1;")),
+        options);
+    compiler.parse();
+    GlobalNamespace ns = new GlobalNamespace(
+        compiler, compiler.getExternsRoot(), compiler.getJsRoot());
+    assertTrue(ns.hasExternsRoot());
+    // trigger processing (covers externsRoot traversal branch)
+    ns.getNameForest();
+  }
+
+  // ---------------------------------------------------------------------
+  // Namespace-building behaviour tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testGetNameForest_objectLiteral_hasNestedProperties() {
+    GlobalNamespace ns = parse("var a = {b: {c: 1}};");
+    Map<String, GlobalNamespace.Name> index = ns.getNameIndex();
+    assertTrue(index.containsKey("a"));
+    assertTrue(index.containsKey("a.b"));
+    assertTrue(index.containsKey("a.b.c"));
+  }
+
+  @Test
+  public void testGetNameForest_functionDeclaration_recognizesFunctionType() {
+    GlobalNamespace ns = parse("function foo() {}");
+    GlobalNamespace.Name foo = ns.getSlot("foo");
+    assertNotNull(foo);
+    assertEquals(GlobalNamespace.Name.Type.FUNCTION, foo.type);
+  }
+
+  @Test
+  public void testGetNameForest_prototypeAssignment_handledCorrectly() {
+    GlobalNamespace ns = parse(
+        "function Foo() {} Foo.prototype.bar = function() {};");
+    Map<String, GlobalNamespace.Name> index = ns.getNameIndex();
+    assertTrue(index.containsKey("Foo"));
+  }
+
+  @Test
+  public void testGetNameForest_aliasingAssignment_marksAliasingGet() {
+    GlobalNamespace ns = parse("var a = {}; var b = a;");
+    GlobalNamespace.Name a = ns.getSlot("a");
+    assertNotNull(a);
+    assertTrue(a.aliasingGets > 0);
+  }
+
+  @Test
+  public void testGetNameForest_deleteProperty_marksDeleteProp() {
+    GlobalNamespace ns = parse("var a = {b: 1}; delete a.b;");
+    GlobalNamespace.Name ab = ns.getSlot("a.b");
+    assertNotNull(ab);
+    assertTrue(ab.deleteProps > 0);
+  }
+
+  @Test
+  public void testGetNameForest_callGet_marksCallGet() {
+    GlobalNamespace ns = parse("function foo() {} foo();");
+    GlobalNamespace.Name foo = ns.getSlot("foo");
+    assertNotNull(foo);
+    assertTrue(foo.callGets > 0);
+  }
+
+  @Test
+  public void testGetNameForest_newExpression_marksDirectGet() {
+    GlobalNamespace ns = parse("function Foo() {} new Foo();");
+    GlobalNamespace.Name foo = ns.getSlot("Foo");
+    assertNotNull(foo);
+    assertTrue(foo.totalGets > 0);
+  }
+
+  @Test
+  public void testGetNameForest_newExpressionArgument_marksAliasingGet() {
+    GlobalNamespace ns = parse(
+        "function Foo() {} function Bar(x) {} new Bar(Foo);");
+    GlobalNamespace.Name foo = ns.getSlot("Foo");
+    assertNotNull(foo);
+    assertTrue(foo.aliasingGets > 0);
+  }
+
+  @Test
+  public void testGetNameForest_orExpression_handlesBooleanContext() {
+    GlobalNamespace ns = parse("var a = {}; var b = a || {};");
+    GlobalNamespace.Name a = ns.getSlot("a");
+    assertNotNull(a);
+  }
+
+  @Test
+  public void testGetNameForest_andExpression_handlesBooleanContext() {
+    GlobalNamespace ns = parse("var a = {}; if (a && a.b) {}");
+    GlobalNamespace.Name a = ns.getSlot("a");
+    assertNotNull(a);
+  }
+
+  @Test
+  public void testGetNameForest_hookExpression_handlesTernary() {
+    GlobalNamespace ns = parse("var a = {}; var b = a ? a : {};");
+    GlobalNamespace.Name a = ns.getSlot("a");
+    assertNotNull(a);
+  }
+
+  @Test
+  public void testGetNameForest_localScopeAssignment_handledAsSetFromLocal() {
+    GlobalNamespace ns = parse("var a; function foo() { a = 1; }");
+    GlobalNamespace.Name a = ns.getSlot("a");
+    assertNotNull(a);
+    assertTrue(a.localSets > 0);
+  }
+
+  @Test
+  public void testGetNameForest_incrementOperator_marksOtherType() {
+    GlobalNamespace ns = parse("var a = 0; a++;");
+    GlobalNamespace.Name a = ns.getSlot("a");
+    assertNotNull(a);
+    assertEquals(GlobalNamespace.Name.Type.OTHER, a.type);
+  }
+
+  @Test
+  public void testGetNameForest_constructorAnnotation_marksDeclaredType() {
+    GlobalNamespace ns = parse(
+        "/** @constructor */ function Foo() {}");
+    GlobalNamespace.Name foo = ns.getSlot("Foo");
+    assertNotNull(foo);
+  }
+
+  @Test
+  public void testGetNameForest_enumAnnotation_marksDeclaredType() {
+    GlobalNamespace ns = parse(
+        "/** @enum {number} */ var Foo = {A: 1, B: 2};");
+    GlobalNamespace.Name foo = ns.getSlot("Foo");
+    assertNotNull(foo);
+  }
+
+  @Test
+  public void testScanNewNodes_emptyList_noExceptionsThrown() {
+    GlobalNamespace ns = parse("var a = 1;");
+    ns.getNameForest(); // trigger initial generation
+
+    List<GlobalNamespace.AstChange> changes = new ArrayList<>();
+    ns.scanNewNodes(changes);
+    assertTrue(changes.isEmpty());
+  }
+
+  @Test
+  public void testGetNameForest_getterSetterInObjectLiteral_handledCorrectly() {
+    GlobalNamespace ns = parse(
+        "var a = { get b() { return 1; }, set b(x) {} };");
+    Map<String, GlobalNamespace.Name> index = ns.getNameIndex();
+    assertTrue(index.containsKey("a"));
+    assertTrue(index.containsKey("a.b"));
+  }
+
+  @Test
+  public void testGetNameForest_stringKeyInNestedObjectLiteral_buildsFullName() {
+    GlobalNamespace ns = parse("var a = { b: { c: { d: 1 } } };");
+    Map<String, GlobalNamespace.Name> index = ns.getNameIndex();
+    assertTrue(index.containsKey("a.b.c.d"));
+  }
+
+  @Test

@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "22",
+  "tool": "claude",
+  "class": "org.joda.time.base.BasePeriod",
+  "target_classes": [
+    "org.joda.time.base.BasePeriod"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 104.25,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Time\\22\\BasePeriod_20261003_014215.txt",
+  "test_file": "Claude\\TestCode\\Time\\22\\BasePeriodTest.java",
+  "usage": {
+    "prompt_tokens": 9344,
+    "completion_tokens": 15188,
+    "total_tokens": 24532
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 188276,
+    "daily_remaining_tokens": 11724
+  },
+  "timestamp": "20261003_014215"
+}

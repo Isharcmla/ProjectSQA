@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "19",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.optimization.direct.CMAESOptimizer",
+  "target_classes": [
+    "org.apache.commons.math3.optimization.direct.CMAESOptimizer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 87.93,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\19\\CMAESOptimizer_20261002_172511.txt",
+  "test_file": "Claude\\TestCode\\Math\\19\\CMAESOptimizerTest.java",
+  "usage": {
+    "prompt_tokens": 20942,
+    "completion_tokens": 13250,
+    "total_tokens": 34192
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 111218,
+    "daily_remaining_tokens": 88782
+  },
+  "timestamp": "20261002_172511"
+}

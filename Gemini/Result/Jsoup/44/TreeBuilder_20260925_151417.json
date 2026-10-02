@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "44",
+  "tool": "gemini",
+  "class": "org.jsoup.parser.TreeBuilder",
+  "target_classes": [
+    "org.jsoup.parser.TreeBuilder"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 16.37,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\44\\TreeBuilder_20260925_151417.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\44\\TreeBuilderTest.java",
+  "usage": {
+    "prompt_tokens": 886,
+    "completion_tokens": 1746,
+    "total_tokens": 3214
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 289387,
+    "daily_remaining_tokens": 60613
+  },
+  "timestamp": "20260925_151417"
+}

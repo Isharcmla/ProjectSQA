@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "29",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 112.82,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Compress\\29\\CpioArchiveOutputStream_20260927_144949.txt",
+  "test_file": "Claude\\TestCode\\Compress\\29\\CpioArchiveOutputStreamTest.java",
+  "usage": {
+    "prompt_tokens": 8194,
+    "completion_tokens": 14770,
+    "total_tokens": 22964
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 202869,
+    "daily_remaining_tokens": -2869
+  },
+  "timestamp": "20260927_144949"
+}

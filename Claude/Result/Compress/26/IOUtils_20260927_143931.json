@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "26",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.utils.IOUtils",
+  "target_classes": [
+    "org.apache.commons.compress.utils.IOUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 32.44,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Compress\\26\\IOUtils_20260927_143931.txt",
+  "test_file": "Claude\\TestCode\\Compress\\26\\IOUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 3063,
+    "completion_tokens": 4660,
+    "total_tokens": 7723
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 85939,
+    "daily_remaining_tokens": 114061
+  },
+  "timestamp": "20260927_143931"
+}

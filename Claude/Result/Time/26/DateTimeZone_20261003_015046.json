@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "26",
+  "tool": "claude",
+  "class": "org.joda.time.DateTimeZone",
+  "target_classes": [
+    "org.joda.time.DateTimeZone"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 106.84,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Time\\26\\DateTimeZone_20261003_015046.txt",
+  "test_file": "Claude\\TestCode\\Time\\26\\DateTimeZoneTest.java",
+  "usage": {
+    "prompt_tokens": 17843,
+    "completion_tokens": 8487,
+    "total_tokens": 26330
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 101258,
+    "daily_remaining_tokens": 98742
+  },
+  "timestamp": "20261003_015046"
+}

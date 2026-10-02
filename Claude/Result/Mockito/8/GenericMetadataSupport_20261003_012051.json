@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "8",
+  "tool": "claude",
+  "class": "org.mockito.internal.util.reflection.GenericMetadataSupport",
+  "target_classes": [
+    "org.mockito.internal.util.reflection.GenericMetadataSupport"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 128.76,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Mockito\\8\\GenericMetadataSupport_20261003_012051.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 9956,
+    "completion_tokens": 16384,
+    "total_tokens": 26340
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 199673,
+    "daily_remaining_tokens": 327
+  },
+  "timestamp": "20261003_012051"
+}

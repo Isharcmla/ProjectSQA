@@ -1,0 +1,33 @@
+{
+  "project": "Gson",
+  "bug_id": "1",
+  "tool": "claude",
+  "class": "com.google.gson.TypeInfoFactory",
+  "target_classes": [
+    "com.google.gson.TypeInfoFactory"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 67.7,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "Claude",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude/Prompt/Gson/1/TypeInfoFactory_20260921_074315.txt",
+  "test_file": "Claude/TestCode/Gson/1/TypeInfoFactoryTest.java",
+  "usage": {
+    "prompt_tokens": 3054,
+    "completion_tokens": 8544,
+    "total_tokens": 11598
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 208111,
+    "daily_remaining_tokens": -8111
+  },
+  "timestamp": "20260921_074315"
+}

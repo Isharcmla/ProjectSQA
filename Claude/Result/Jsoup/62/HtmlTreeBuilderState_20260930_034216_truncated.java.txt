@@ -1,0 +1,510 @@
+package org.jsoup.parser;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+/**
+ * Tests for HtmlTreeBuilderState.
+ * Since HtmlTreeBuilderState is package-private and is only exercised internally
+ * by the HtmlTreeBuilder during parsing, these tests drive it indirectly through
+ * the public org.jsoup.Jsoup API, using HTML fragments crafted to exercise the
+ * various states and branches of the state machine.
+ */
+public class HtmlTreeBuilderStateTest {
+
+    // ---------- Initial state ----------
+
+    @Test
+    public void testInitial_withValidDoctype_createsDoctypeAndTransitions() {
+        String html = "<!DOCTYPE html><html><head><title>T</title></head><body>Hi</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+        assertEquals("T", doc.title());
+    }
+
+    @Test
+    public void testInitial_withWhitespaceBeforeDoctype_ignoredWhitespace() {
+        String html = "   \n\t <!DOCTYPE html><html><body>x</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+        assertEquals("x", doc.body().text());
+    }
+
+    @Test
+    public void testInitial_withCommentBeforeDoctype_insertsComment() {
+        String html = "<!-- c1 --><!DOCTYPE html><html><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+        assertTrue(doc.childNode(0).toString().contains("c1") || doc.outerHtml().contains("c1"));
+    }
+
+    @Test
+    public void testInitial_withoutDoctype_transitionsToBeforeHtml() {
+        String html = "<html><head><title>NoDoctype</title></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals("NoDoctype", doc.title());
+    }
+
+    @Test
+    public void testInitial_emptyString_producesEmptyDocument() {
+        Document doc = Jsoup.parse("");
+        assertNotNull(doc);
+        assertNotNull(doc.body());
+    }
+
+    // ---------- BeforeHtml state ----------
+
+    @Test
+    public void testBeforeHtml_secondDoctypeIgnored() {
+        String html = "<!DOCTYPE html><!DOCTYPE html><html><body>ok</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals("ok", doc.body().text());
+    }
+
+    @Test
+    public void testBeforeHtml_commentAfterDoctype_inserted() {
+        String html = "<!DOCTYPE html><!--hi--><html><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertTrue(doc.outerHtml().contains("hi"));
+    }
+
+    @Test
+    public void testBeforeHtml_endTagInSetTriggersAnythingElse() {
+        String html = "<!DOCTYPE html></head><html><body>t</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+        assertEquals(1, doc.select("html").size());
+    }
+
+    @Test
+    public void testBeforeHtml_otherEndTagIgnored() {
+        String html = "<!DOCTYPE html></div><html><body>t2</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testBeforeHtml_otherTokenTriggersAnythingElse() {
+        String html = "<!DOCTYPE html>Hello<html><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+        assertTrue(doc.text().contains("Hello"));
+    }
+
+    // ---------- BeforeHead state ----------
+
+    @Test
+    public void testBeforeHead_commentInserted() {
+        String html = "<html><!--c--><head></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertTrue(doc.outerHtml().contains("c"));
+    }
+
+    @Test
+    public void testBeforeHead_doctypeInsideHtml_error() {
+        String html = "<html><!DOCTYPE html><head></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testBeforeHead_htmlStartTagDelegatesToInBody() {
+        String html = "<html><html><body>dup</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals("dup", doc.body().text());
+    }
+
+    @Test
+    public void testBeforeHead_headStartTag_setsHeadElement() {
+        String html = "<html><head><title>H</title></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals("H", doc.title());
+    }
+
+    @Test
+    public void testBeforeHead_endTagInSetInsertsHead() {
+        String html = "<html></body><body>x</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc.body());
+    }
+
+    @Test
+    public void testBeforeHead_otherStartTagInsertsHead() {
+        String html = "<html><p>para</p></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("p").size());
+    }
+
+    // ---------- InHead state ----------
+
+    @Test
+    public void testInHead_whitespaceInserted() {
+        String html = "<html><head>   <title>W</title></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals("W", doc.title());
+    }
+
+    @Test
+    public void testInHead_commentInserted() {
+        String html = "<html><head><!--headcomment--><title>C</title></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertTrue(doc.head().outerHtml().contains("headcomment"));
+    }
+
+    @Test
+    public void testInHead_baseTagWithHref_setsBaseUri() {
+        String html = "<html><head><base href='http://example.com/'></head><body><a href='x'>a</a></body></html>";
+        Document doc = Jsoup.parse(html, "http://original.com/");
+        Element a = doc.select("a").first();
+        assertNotNull(a);
+        assertTrue(a.attr("abs:href").contains("example.com") || a.attr("abs:href").contains("x"));
+    }
+
+    @Test
+    public void testInHead_metaTagInserted() {
+        String html = "<html><head><meta charset='utf-8'></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("meta").size());
+    }
+
+    @Test
+    public void testInHead_titleTag_handledAsRcData() {
+        String html = "<html><head><title>Title &amp; More</title></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals("Title & More", doc.title());
+    }
+
+    @Test
+    public void testInHead_styleTag_handledAsRawText() {
+        String html = "<html><head><style>body{color:<red>}</style></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("style").size());
+    }
+
+    @Test
+    public void testInHead_noscriptTag_transitionsToInHeadNoscript() {
+        String html = "<html><head><noscript><style>a{}</style></noscript></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("noscript").size());
+    }
+
+    @Test
+    public void testInHead_scriptTag_handledAsScriptData() {
+        String html = "<html><head><script>var a = '<b>';</script></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("script").size());
+    }
+
+    @Test
+    public void testInHead_headStartTag_errorIgnored() {
+        String html = "<html><head><head></head></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInHead_otherStartTag_triggersAnythingElse() {
+        String html = "<html><head><p>oops</p></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("p").size());
+    }
+
+    @Test
+    public void testInHead_endTagHead_transitionsToAfterHead() {
+        String html = "<html><head></head><body>body-content</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals("body-content", doc.body().text());
+    }
+
+    @Test
+    public void testInHead_endTagBodyHtmlBr_anythingElse() {
+        String html = "<html><head></body><p>after</p></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInHead_otherEndTag_error() {
+        String html = "<html><head></div></head><body>t</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    // ---------- InHeadNoscript state ----------
+
+    @Test
+    public void testInHeadNoscript_htmlStartTagDelegatesToInBody() {
+        String html = "<html><head><noscript><html></noscript></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInHeadNoscript_endTagNoscript_transitionsBackToInHead() {
+        String html = "<html><head><noscript></noscript><title>N</title></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals("N", doc.title());
+    }
+
+    @Test
+    public void testInHeadNoscript_whitespaceDelegatesToInHead() {
+        String html = "<html><head><noscript>   <link rel='x'></noscript></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInHeadNoscript_otherStartTag_anythingElse() {
+        String html = "<html><head><noscript><br></noscript></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInHeadNoscript_headOrNoscriptStartTag_error() {
+        String html = "<html><head><noscript><head></head></noscript></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    // ---------- AfterHead state ----------
+
+    @Test
+    public void testAfterHead_whitespaceInserted() {
+        String html = "<html><head></head>   <body>ok</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals("ok", doc.body().text());
+    }
+
+    @Test
+    public void testAfterHead_commentInserted() {
+        String html = "<html><head></head><!--afterhead--><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertTrue(doc.outerHtml().contains("afterhead"));
+    }
+
+    @Test
+    public void testAfterHead_bodyStartTag_transitionsToInBody() {
+        String html = "<html><head></head><body class='b'>content</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals("b", doc.body().className());
+    }
+
+    @Test
+    public void testAfterHead_framesetStartTag_transitionsToInFrameset() {
+        String html = "<html><head></head><frameset><frame src='a.html'></frameset></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("frameset").size());
+    }
+
+    @Test
+    public void testAfterHead_headElementStartTags_reprocessedInHead() {
+        String html = "<html><head></head><title>Late</title><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testAfterHead_otherStartTag_anythingElse() {
+        String html = "<html><head></head><p>direct</p></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("p").size());
+    }
+
+    @Test
+    public void testAfterHead_endTagBodyHtml_anythingElse() {
+        String html = "<html><head></head></body><p>x</p></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    // ---------- InBody state ----------
+
+    @Test
+    public void testInBody_nullCharacter_errorHandled() {
+        String html = "<html><body>a\u0000b</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_whitespaceCharacter_insertedAndFramesetOk() {
+        String html = "<html><body>   text</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertTrue(doc.body().text().contains("text"));
+    }
+
+    @Test
+    public void testInBody_anchorTag_pushesActiveFormatting() {
+        String html = "<html><body><a href='x'>link</a></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("a").size());
+    }
+
+    @Test
+    public void testInBody_duplicateAnchorTag_closesPrevious() {
+        String html = "<html><body><a href='1'>one<a href='2'>two</a></a></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertTrue(doc.select("a").size() >= 1);
+    }
+
+    @Test
+    public void testInBody_emptyFormattersLikeBr_insertedEmpty() {
+        String html = "<html><body>line1<br>line2</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("br").size());
+    }
+
+    @Test
+    public void testInBody_pClosersLikeDiv_closesOpenP() {
+        String html = "<html><body><p>para<div>divcontent</div></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("div").size());
+        assertEquals(1, doc.select("p").size());
+    }
+
+    @Test
+    public void testInBody_spanTag_insertedDirectly() {
+        String html = "<html><body><span>s</span></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("span").size());
+    }
+
+    @Test
+    public void testInBody_liTag_closesPreviousLi() {
+        String html = "<html><body><ul><li>one<li>two</li></ul></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(2, doc.select("li").size());
+    }
+
+    @Test
+    public void testInBody_htmlTagInsideBody_mergesAttributes() {
+        String html = "<html id='root'><body><html class='dup'>x</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_startToHeadTags_delegatedToInHead() {
+        String html = "<html><body><title>InBodyTitle</title></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_bodyStartTagAgain_mergesAttributes() {
+        String html = "<html><body class='first'><body class='second'>text</body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc.body());
+    }
+
+    @Test
+    public void testInBody_framesetStartTag_ignoredWhenFramesetNotOk() {
+        String html = "<html><body>text<frameset></frameset></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_headingTags_closesPreviousHeading() {
+        String html = "<html><body><h1>one<h2>two</h2></h1></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("h1").size());
+        assertEquals(1, doc.select("h2").size());
+    }
+
+    @Test
+    public void testInBody_preListing_setsFramesetNotOk() {
+        String html = "<html><body><pre>preformatted</pre></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("pre").size());
+    }
+
+    @Test
+    public void testInBody_formTag_insertsFormElement() {
+        String html = "<html><body><form action='/submit'><input name='a'></form></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("form").size());
+    }
+
+    @Test
+    public void testInBody_duplicateForm_errorIgnored() {
+        String html = "<html><body><form></form1><form></form></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_ddDtTags_closesPreviousSibling() {
+        String html = "<html><body><dl><dt>term<dd>def</dd></dt></dl></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("dt").size());
+        assertEquals(1, doc.select("dd").size());
+    }
+
+    @Test
+    public void testInBody_plaintextTag_switchesTokeniserState() {
+        String html = "<html><body><plaintext>rest is <b>not parsed</b></plaintext></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("plaintext").size());
+    }
+
+    @Test
+    public void testInBody_buttonTag_insertedAndReprocessedIfNested() {
+        String html = "<html><body><button>outer<button>inner</button></button></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertTrue(doc.select("button").size() >= 1);
+    }
+
+    @Test
+    public void testInBody_formattersTag_pushedToActiveFormatting() {
+        String html = "<html><body><b>bold<i>italic</i></b></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("b").size());
+        assertEquals(1, doc.select("i").size());
+    }
+
+    @Test
+    public void testInBody_nobrTag_closesExistingNobr() {
+        String html = "<html><body><nobr>one<nobr>two</nobr></nobr></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertTrue(doc.select("nobr").size() >= 1);
+    }
+
+    @Test
+    public void testInBody_appletTag_insertsMarker() {
+        String html = "<html><body><applet><param name='a' value='b'></applet></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("applet").size());
+    }
+
+    @Test
+    public void testInBody_tableTag_transitionsToInTable() {
+        String html = "<html><body><table><tr><td>cell</td></tr></table></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("table").size());
+        assertEquals("cell", doc.select("td").text());
+    }
+
+    @Test
+    public void testInBody_inputTag_setsFramesetNotOkWhenNotHidden() {
+        String html = "<html><body><input type='text' name='q'></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("input").size());
+    }
+
+    @Test
+    public void testInBody_inputHiddenTag_doesNotSetFramesetOk() {
+        String html = "<html><body><input type='hidden' name='q'></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("input").size());
+    }
+
+    @Test
+    public void testInBody_mediaTags_insertedEmpty() {
+        String html = "<html><body><video><source src='v.

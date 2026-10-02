@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "19",
+  "tool": "gemini",
+  "class": "org.mockito.internal.configuration.injection.filter.MockCandidateFilter",
+  "target_classes": [
+    "org.mockito.internal.configuration.injection.filter.MockCandidateFilter"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 10.79,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Mockito\\19\\MockCandidateFilter_20260926_034146.txt",
+  "test_file": "Gemini\\TestCode\\Mockito\\19\\MockCandidateFilterTest.java",
+  "usage": {
+    "prompt_tokens": 395,
+    "completion_tokens": 998,
+    "total_tokens": 1917
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 64722,
+    "daily_remaining_tokens": 285278
+  },
+  "timestamp": "20260926_034146"
+}

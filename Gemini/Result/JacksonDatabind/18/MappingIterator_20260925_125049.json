@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "18",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.MappingIterator",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.MappingIterator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 27.89,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\18\\MappingIterator_20260925_125049.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\18\\MappingIteratorTest.java",
+  "usage": {
+    "prompt_tokens": 2837,
+    "completion_tokens": 2593,
+    "total_tokens": 6922
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 185238,
+    "daily_remaining_tokens": 164762
+  },
+  "timestamp": "20260925_125049"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "94",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.NodeUtil",
+  "target_classes": [
+    "com.google.javascript.jscomp.NodeUtil"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 144.08,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\94\\NodeUtil_20260927_125724.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 28117,
+    "completion_tokens": 16384,
+    "total_tokens": 44501
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 123052,
+    "daily_remaining_tokens": 76948
+  },
+  "timestamp": "20260927_125724"
+}

@@ -1,0 +1,1146 @@
+package org.jsoup.parser;
+
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
+
+public class TokeniserStateTest {
+
+    private Tokeniser createTokeniser(String input) {
+        CharacterReader reader = new CharacterReader(input);
+        return new Tokeniser(reader, ParseErrorList.tracking(100));
+    }
+
+    private List<Token> tokenizeAll(String input) {
+        CharacterReader reader = new CharacterReader(input);
+        Tokeniser tokeniser = new Tokeniser(reader, ParseErrorList.tracking(100));
+        List<Token> tokens = new ArrayList<Token>();
+        Token token;
+        do {
+            token = tokeniser.read();
+            tokens.add(token);
+        } while (token.type != Token.TokenType.EOF);
+        return tokens;
+    }
+
+    @Test
+    public void testEnumValuesAndValueOf() {
+        TokeniserState[] states = TokeniserState.values();
+        assertTrue(states.length > 0);
+        assertEquals(TokeniserState.Data, TokeniserState.valueOf("Data"));
+        assertEquals(TokeniserState.CdataSection, TokeniserState.valueOf("CdataSection"));
+    }
+
+    @Test
+    public void testData_ampersand_advancesToCharacterReference() {
+        CharacterReader r = new CharacterReader("&amp;");
+        Tokeniser t = new Tokeniser(r, ParseErrorList.tracking(100));
+        TokeniserState.Data.read(t, r);
+        assertEquals(TokeniserState.CharacterReferenceInData, t.getState());
+        assertEquals('a', r.current());
+    }
+
+    @Test
+    public void testData_lessThan_advancesToTagOpen() {
+        CharacterReader r = new CharacterReader("<div>");
+        Tokeniser t = new Tokeniser(r, ParseErrorList.tracking(100));
+        TokeniserState.Data.read(t, r);
+        assertEquals(TokeniserState.TagOpen, t.getState());
+        assertEquals('d', r.current());
+    }
+
+    @Test
+    public void testData_nullChar_emitsAndErrors() {
+        CharacterReader r = new CharacterReader("\u0000abc");
+        Tokeniser t = new Tokeniser(r, ParseErrorList.tracking(100));
+        TokeniserState.Data.read(t, r);
+        assertFalse(t.getErrors().isEmpty());
+    }
+
+    @Test
+    public void testData_eof_emitsEOF() {
+        CharacterReader r = new CharacterReader("");
+        Tokeniser t = new Tokeniser(r, ParseErrorList.tracking(100));
+        TokeniserState.Data.read(t, r);
+        Token tok = t.read();
+        assertEquals(Token.TokenType.EOF, tok.type);
+    }
+
+    @Test
+    public void testData_normalText_emitsData() {
+        CharacterReader r = new CharacterReader("hello world<tag>");
+        Tokeniser t = new Tokeniser(r, ParseErrorList.tracking(100));
+        TokeniserState.Data.read(t, r);
+        assertEquals('<', r.current());
+    }
+
+    @Test
+    public void testCharacterReferenceInData_validRef() {
+        CharacterReader r = new CharacterReader("lt;rest");
+        Tokeniser t = new Tokeniser(r, ParseErrorList.tracking(100));
+        TokeniserState.CharacterReferenceInData.read(t, r);
+        assertEquals(TokeniserState.Data, t.getState());
+    }
+
+    @Test
+    public void testCharacterReferenceInData_invalidRef() {
+        CharacterReader r = new CharacterReader(" notaref");
+        Tokeniser t = new Tokeniser(r, ParseErrorList.tracking(100));
+        TokeniserState.CharacterReferenceInData.read(t, r);
+        assertEquals(TokeniserState.Data, t.getState());
+    }
+
+    @Test
+    public void testRcdata_branches() {
+        CharacterReader r1 = new CharacterReader("&amp;");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.Rcdata.read(t1, r1);
+        assertEquals(TokeniserState.CharacterReferenceInRcdata, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("<tag");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.Rcdata.read(t2, r2);
+        assertEquals(TokeniserState.RcdataLessthanSign, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("\u0000text");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.Rcdata.read(t3, r3);
+        assertFalse(t3.getErrors().isEmpty());
+
+        CharacterReader r4 = new CharacterReader("");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        TokeniserState.Rcdata.read(t4, r4);
+
+        CharacterReader r5 = new CharacterReader("normal text&");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        TokeniserState.Rcdata.read(t5, r5);
+        assertEquals('&', r5.current());
+    }
+
+    @Test
+    public void testCharacterReferenceInRcdata() {
+        CharacterReader r1 = new CharacterReader("gt;rest");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.CharacterReferenceInRcdata.read(t1, r1);
+        assertEquals(TokeniserState.Rcdata, t1.getState());
+
+        CharacterReader r2 = new CharacterReader(" invalid");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.CharacterReferenceInRcdata.read(t2, r2);
+        assertEquals(TokeniserState.Rcdata, t2.getState());
+    }
+
+    @Test
+    public void testRawtext_branches() {
+        CharacterReader r1 = new CharacterReader("<tag");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.Rawtext.read(t1, r1);
+        assertEquals(TokeniserState.RawtextLessthanSign, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("\u0000rest");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.Rawtext.read(t2, r2);
+        assertFalse(t2.getErrors().isEmpty());
+
+        CharacterReader r3 = new CharacterReader("");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.Rawtext.read(t3, r3);
+
+        CharacterReader r4 = new CharacterReader("plain raw text<");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        TokeniserState.Rawtext.read(t4, r4);
+        assertEquals('<', r4.current());
+    }
+
+    @Test
+    public void testScriptData_branches() {
+        CharacterReader r1 = new CharacterReader("<script");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptData.read(t1, r1);
+        assertEquals(TokeniserState.ScriptDataLessthanSign, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("\u0000rest");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptData.read(t2, r2);
+        assertFalse(t2.getErrors().isEmpty());
+
+        CharacterReader r3 = new CharacterReader("");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.ScriptData.read(t3, r3);
+
+        CharacterReader r4 = new CharacterReader("var x = 1;<");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        TokeniserState.ScriptData.read(t4, r4);
+        assertEquals('<', r4.current());
+    }
+
+    @Test
+    public void testPLAINTEXT_branches() {
+        CharacterReader r1 = new CharacterReader("\u0000text");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.PLAINTEXT.read(t1, r1);
+        assertFalse(t1.getErrors().isEmpty());
+
+        CharacterReader r2 = new CharacterReader("");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.PLAINTEXT.read(t2, r2);
+
+        CharacterReader r3 = new CharacterReader("normal plain text");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.PLAINTEXT.read(t3, r3);
+    }
+
+    @Test
+    public void testTagOpen_branches() {
+        CharacterReader r1 = new CharacterReader("!doctype");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.TagOpen.read(t1, r1);
+        assertEquals(TokeniserState.MarkupDeclarationOpen, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("/div>");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.TagOpen.read(t2, r2);
+        assertEquals(TokeniserState.EndTagOpen, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("?xml");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.TagOpen.read(t3, r3);
+        assertEquals(TokeniserState.BogusComment, t3.getState());
+
+        CharacterReader r4 = new CharacterReader("div>");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        TokeniserState.TagOpen.read(t4, r4);
+        assertEquals(TokeniserState.TagName, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("123");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        TokeniserState.TagOpen.read(t5, r5);
+        assertEquals(TokeniserState.Data, t5.getState());
+        assertFalse(t5.getErrors().isEmpty());
+    }
+
+    @Test
+    public void testEndTagOpen_branches() {
+        CharacterReader r1 = new CharacterReader("");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.EndTagOpen.read(t1, r1);
+        assertEquals(TokeniserState.Data, t1.getState());
+        assertFalse(t1.getErrors().isEmpty());
+
+        CharacterReader r2 = new CharacterReader("div>");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.EndTagOpen.read(t2, r2);
+        assertEquals(TokeniserState.TagName, t2.getState());
+
+        CharacterReader r3 = new CharacterReader(">");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.EndTagOpen.read(t3, r3);
+        assertEquals(TokeniserState.Data, t3.getState());
+
+        CharacterReader r4 = new CharacterReader("?bogus");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        TokeniserState.EndTagOpen.read(t4, r4);
+        assertEquals(TokeniserState.BogusComment, t4.getState());
+    }
+
+    @Test
+    public void testTagName_branches() {
+        CharacterReader r1 = new CharacterReader("div attr=1>");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTagPending(true);
+        TokeniserState.TagName.read(t1, r1);
+        assertEquals(TokeniserState.BeforeAttributeName, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("div/>");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTagPending(true);
+        TokeniserState.TagName.read(t2, r2);
+        assertEquals(TokeniserState.SelfClosingStartTag, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("div>");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        t3.createTagPending(true);
+        TokeniserState.TagName.read(t3, r3);
+        assertEquals(TokeniserState.Data, t3.getState());
+
+        CharacterReader r4 = new CharacterReader("di\u0000v");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        t4.createTagPending(true);
+        TokeniserState.TagName.read(t4, r4);
+
+        CharacterReader r5 = new CharacterReader("div");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        t5.createTagPending(true);
+        TokeniserState.TagName.read(t5, r5);
+        assertEquals(TokeniserState.Data, t5.getState());
+    }
+
+    @Test
+    public void testRcdataLessthanSign_branches() {
+        CharacterReader r1 = new CharacterReader("/title>");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.RcdataLessthanSign.read(t1, r1);
+        assertEquals(TokeniserState.RCDATAEndTagOpen, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("b>no end tag");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.appropriateEndTagName = "title";
+        TokeniserState.RcdataLessthanSign.read(t2, r2);
+        assertEquals(TokeniserState.Data, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("123");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.RcdataLessthanSign.read(t3, r3);
+        assertEquals(TokeniserState.Rcdata, t3.getState());
+    }
+
+    @Test
+    public void testRCDATAEndTagOpen_branches() {
+        CharacterReader r1 = new CharacterReader("title>");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTempBuffer();
+        TokeniserState.RCDATAEndTagOpen.read(t1, r1);
+        assertEquals(TokeniserState.RCDATAEndTagName, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("123");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.RCDATAEndTagOpen.read(t2, r2);
+        assertEquals(TokeniserState.Rcdata, t2.getState());
+    }
+
+    @Test
+    public void testRCDATAEndTagName_branches() {
+        CharacterReader r1 = new CharacterReader("itle ");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTagPending(false);
+        t1.appropriateEndTagName = "title";
+        t1.tagPending.appendTagName("t");
+        t1.dataBuffer.append("t");
+        TokeniserState.RCDATAEndTagName.read(t1, r1);
+        assertEquals("title", t1.tagPending.tagName);
+
+        CharacterReader r2 = new CharacterReader(" >");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTagPending(false);
+        t2.appropriateEndTagName = "title";
+        t2.tagPending.appendTagName("title");
+        TokeniserState.RCDATAEndTagName.read(t2, r2);
+        assertEquals(TokeniserState.BeforeAttributeName, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("/ >");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        t3.createTagPending(false);
+        t3.appropriateEndTagName = "title";
+        t3.tagPending.appendTagName("title");
+        TokeniserState.RCDATAEndTagName.read(t3, r3);
+        assertEquals(TokeniserState.SelfClosingStartTag, t3.getState());
+
+        CharacterReader r4 = new CharacterReader(">");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        t4.createTagPending(false);
+        t4.appropriateEndTagName = "title";
+        t4.tagPending.appendTagName("title");
+        TokeniserState.RCDATAEndTagName.read(t4, r4);
+        assertEquals(TokeniserState.Data, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("x");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        t5.createTagPending(false);
+        t5.appropriateEndTagName = "title";
+        t5.tagPending.appendTagName("mismatch");
+        t5.dataBuffer.append("mismatch");
+        TokeniserState.RCDATAEndTagName.read(t5, r5);
+        assertEquals(TokeniserState.Rcdata, t5.getState());
+
+        CharacterReader r6 = new CharacterReader(" ");
+        Tokeniser t6 = new Tokeniser(r6, ParseErrorList.tracking(100));
+        t6.createTagPending(false);
+        t6.appropriateEndTagName = "title";
+        t6.tagPending.appendTagName("other");
+        TokeniserState.RCDATAEndTagName.read(t6, r6);
+        assertEquals(TokeniserState.Rcdata, t6.getState());
+
+        CharacterReader r7 = new CharacterReader("/");
+        Tokeniser t7 = new Tokeniser(r7, ParseErrorList.tracking(100));
+        t7.createTagPending(false);
+        t7.appropriateEndTagName = "title";
+        t7.tagPending.appendTagName("other");
+        TokeniserState.RCDATAEndTagName.read(t7, r7);
+        assertEquals(TokeniserState.Rcdata, t7.getState());
+
+        CharacterReader r8 = new CharacterReader(">");
+        Tokeniser t8 = new Tokeniser(r8, ParseErrorList.tracking(100));
+        t8.createTagPending(false);
+        t8.appropriateEndTagName = "title";
+        t8.tagPending.appendTagName("other");
+        TokeniserState.RCDATAEndTagName.read(t8, r8);
+        assertEquals(TokeniserState.Rcdata, t8.getState());
+    }
+
+    @Test
+    public void testRawtextLessthanSign_branches() {
+        CharacterReader r1 = new CharacterReader("/style>");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.RawtextLessthanSign.read(t1, r1);
+        assertEquals(TokeniserState.RawtextEndTagOpen, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("style>");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.RawtextLessthanSign.read(t2, r2);
+        assertEquals(TokeniserState.Rawtext, t2.getState());
+    }
+
+    @Test
+    public void testRawtextEndTagOpen_branches() {
+        CharacterReader r1 = new CharacterReader("style>");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.RawtextEndTagOpen.read(t1, r1);
+        assertEquals(TokeniserState.RawtextEndTagName, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("123");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.RawtextEndTagOpen.read(t2, r2);
+        assertEquals(TokeniserState.Rawtext, t2.getState());
+    }
+
+    @Test
+    public void testRawtextEndTagName_branches() {
+        CharacterReader r1 = new CharacterReader("style ");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTagPending(false);
+        TokeniserState.RawtextEndTagName.read(t1, r1);
+        assertEquals("style", t1.tagPending.tagName);
+
+        CharacterReader r2 = new CharacterReader(" >");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTagPending(false);
+        t2.appropriateEndTagName = "style";
+        t2.tagPending.appendTagName("style");
+        TokeniserState.RawtextEndTagName.read(t2, r2);
+        assertEquals(TokeniserState.BeforeAttributeName, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("/ >");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        t3.createTagPending(false);
+        t3.appropriateEndTagName = "style";
+        t3.tagPending.appendTagName("style");
+        TokeniserState.RawtextEndTagName.read(t3, r3);
+        assertEquals(TokeniserState.SelfClosingStartTag, t3.getState());
+
+        CharacterReader r4 = new CharacterReader(">");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        t4.createTagPending(false);
+        t4.appropriateEndTagName = "style";
+        t4.tagPending.appendTagName("style");
+        TokeniserState.RawtextEndTagName.read(t4, r4);
+        assertEquals(TokeniserState.Data, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("x");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        t5.createTagPending(false);
+        t5.appropriateEndTagName = "style";
+        t5.tagPending.appendTagName("style");
+        TokeniserState.RawtextEndTagName.read(t5, r5);
+        assertEquals(TokeniserState.Rawtext, t5.getState());
+
+        CharacterReader r6 = new CharacterReader(">");
+        Tokeniser t6 = new Tokeniser(r6, ParseErrorList.tracking(100));
+        t6.createTagPending(false);
+        t6.appropriateEndTagName = "style";
+        t6.tagPending.appendTagName("other");
+        TokeniserState.RawtextEndTagName.read(t6, r6);
+        assertEquals(TokeniserState.Rawtext, t6.getState());
+    }
+
+    @Test
+    public void testScriptDataLessthanSign_branches() {
+        CharacterReader r1 = new CharacterReader("/script>");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataLessthanSign.read(t1, r1);
+        assertEquals(TokeniserState.ScriptDataEndTagOpen, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("!-- comment -->");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataLessthanSign.read(t2, r2);
+        assertEquals(TokeniserState.ScriptDataEscapeStart, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("other");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataLessthanSign.read(t3, r3);
+        assertEquals(TokeniserState.ScriptData, t3.getState());
+    }
+
+    @Test
+    public void testScriptDataEndTagOpen_branches() {
+        CharacterReader r1 = new CharacterReader("script>");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEndTagOpen.read(t1, r1);
+        assertEquals(TokeniserState.ScriptDataEndTagName, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("123");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEndTagOpen.read(t2, r2);
+        assertEquals(TokeniserState.ScriptData, t2.getState());
+    }
+
+    @Test
+    public void testScriptDataEndTagName_branches() {
+        CharacterReader r1 = new CharacterReader("script ");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTagPending(false);
+        TokeniserState.ScriptDataEndTagName.read(t1, r1);
+        assertEquals("script", t1.tagPending.tagName);
+
+        CharacterReader r2 = new CharacterReader(" >");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTagPending(false);
+        t2.appropriateEndTagName = "script";
+        t2.tagPending.appendTagName("script");
+        TokeniserState.ScriptDataEndTagName.read(t2, r2);
+        assertEquals(TokeniserState.BeforeAttributeName, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("/ >");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        t3.createTagPending(false);
+        t3.appropriateEndTagName = "script";
+        t3.tagPending.appendTagName("script");
+        TokeniserState.ScriptDataEndTagName.read(t3, r3);
+        assertEquals(TokeniserState.SelfClosingStartTag, t3.getState());
+
+        CharacterReader r4 = new CharacterReader(">");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        t4.createTagPending(false);
+        t4.appropriateEndTagName = "script";
+        t4.tagPending.appendTagName("script");
+        TokeniserState.ScriptDataEndTagName.read(t4, r4);
+        assertEquals(TokeniserState.Data, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("x");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        t5.createTagPending(false);
+        t5.appropriateEndTagName = "script";
+        t5.tagPending.appendTagName("script");
+        TokeniserState.ScriptDataEndTagName.read(t5, r5);
+        assertEquals(TokeniserState.ScriptData, t5.getState());
+
+        CharacterReader r6 = new CharacterReader(">");
+        Tokeniser t6 = new Tokeniser(r6, ParseErrorList.tracking(100));
+        t6.createTagPending(false);
+        t6.appropriateEndTagName = "script";
+        t6.tagPending.appendTagName("other");
+        TokeniserState.ScriptDataEndTagName.read(t6, r6);
+        assertEquals(TokeniserState.ScriptData, t6.getState());
+    }
+
+    @Test
+    public void testScriptDataEscapeStart_branches() {
+        CharacterReader r1 = new CharacterReader("-");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapeStart.read(t1, r1);
+        assertEquals(TokeniserState.ScriptDataEscapeStartDash, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("x");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapeStart.read(t2, r2);
+        assertEquals(TokeniserState.ScriptData, t2.getState());
+    }
+
+    @Test
+    public void testScriptDataEscapeStartDash_branches() {
+        CharacterReader r1 = new CharacterReader("-");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapeStartDash.read(t1, r1);
+        assertEquals(TokeniserState.ScriptDataEscapedDashDash, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("x");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapeStartDash.read(t2, r2);
+        assertEquals(TokeniserState.ScriptData, t2.getState());
+    }
+
+    @Test
+    public void testScriptDataEscaped_branches() {
+        CharacterReader r0 = new CharacterReader("");
+        Tokeniser t0 = new Tokeniser(r0, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscaped.read(t0, r0);
+        assertEquals(TokeniserState.Data, t0.getState());
+
+        CharacterReader r1 = new CharacterReader("-");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscaped.read(t1, r1);
+        assertEquals(TokeniserState.ScriptDataEscapedDash, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("<");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscaped.read(t2, r2);
+        assertEquals(TokeniserState.ScriptDataEscapedLessthanSign, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("\u0000");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscaped.read(t3, r3);
+        assertFalse(t3.getErrors().isEmpty());
+
+        CharacterReader r4 = new CharacterReader("some text-");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscaped.read(t4, r4);
+        assertEquals('-', r4.current());
+    }
+
+    @Test
+    public void testScriptDataEscapedDash_branches() {
+        CharacterReader r0 = new CharacterReader("");
+        Tokeniser t0 = new Tokeniser(r0, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedDash.read(t0, r0);
+        assertEquals(TokeniserState.Data, t0.getState());
+
+        CharacterReader r1 = new CharacterReader("-");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedDash.read(t1, r1);
+        assertEquals(TokeniserState.ScriptDataEscapedDashDash, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("<");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedDash.read(t2, r2);
+        assertEquals(TokeniserState.ScriptDataEscapedLessthanSign, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("\u0000");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedDash.read(t3, r3);
+        assertEquals(TokeniserState.ScriptDataEscaped, t3.getState());
+
+        CharacterReader r4 = new CharacterReader("x");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedDash.read(t4, r4);
+        assertEquals(TokeniserState.ScriptDataEscaped, t4.getState());
+    }
+
+    @Test
+    public void testScriptDataEscapedDashDash_branches() {
+        CharacterReader r0 = new CharacterReader("");
+        Tokeniser t0 = new Tokeniser(r0, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedDashDash.read(t0, r0);
+        assertEquals(TokeniserState.Data, t0.getState());
+
+        CharacterReader r1 = new CharacterReader("-");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedDashDash.read(t1, r1);
+
+        CharacterReader r2 = new CharacterReader("<");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedDashDash.read(t2, r2);
+        assertEquals(TokeniserState.ScriptDataEscapedLessthanSign, t2.getState());
+
+        CharacterReader r3 = new CharacterReader(">");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedDashDash.read(t3, r3);
+        assertEquals(TokeniserState.ScriptData, t3.getState());
+
+        CharacterReader r4 = new CharacterReader("\u0000");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedDashDash.read(t4, r4);
+        assertEquals(TokeniserState.ScriptDataEscaped, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("x");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedDashDash.read(t5, r5);
+        assertEquals(TokeniserState.ScriptDataEscaped, t5.getState());
+    }
+
+    @Test
+    public void testScriptDataEscapedLessthanSign_branches() {
+        CharacterReader r1 = new CharacterReader("s");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedLessthanSign.read(t1, r1);
+        assertEquals(TokeniserState.ScriptDataDoubleEscapeStart, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("/script>");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedLessthanSign.read(t2, r2);
+        assertEquals(TokeniserState.ScriptDataEscapedEndTagOpen, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("?");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedLessthanSign.read(t3, r3);
+        assertEquals(TokeniserState.ScriptDataEscaped, t3.getState());
+    }
+
+    @Test
+    public void testScriptDataEscapedEndTagOpen_branches() {
+        CharacterReader r1 = new CharacterReader("script>");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTempBuffer();
+        TokeniserState.ScriptDataEscapedEndTagOpen.read(t1, r1);
+        assertEquals(TokeniserState.ScriptDataEscapedEndTagName, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("123");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataEscapedEndTagOpen.read(t2, r2);
+        assertEquals(TokeniserState.ScriptDataEscaped, t2.getState());
+    }
+
+    @Test
+    public void testScriptDataEscapedEndTagName_branches() {
+        CharacterReader r1 = new CharacterReader("cript ");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTagPending(false);
+        t1.appropriateEndTagName = "script";
+        t1.tagPending.appendTagName("s");
+        TokeniserState.ScriptDataEscapedEndTagName.read(t1, r1);
+        assertEquals("script", t1.tagPending.tagName);
+
+        CharacterReader r2 = new CharacterReader(" >");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTagPending(false);
+        t2.appropriateEndTagName = "script";
+        t2.tagPending.appendTagName("script");
+        TokeniserState.ScriptDataEscapedEndTagName.read(t2, r2);
+        assertEquals(TokeniserState.BeforeAttributeName, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("/ >");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        t3.createTagPending(false);
+        t3.appropriateEndTagName = "script";
+        t3.tagPending.appendTagName("script");
+        TokeniserState.ScriptDataEscapedEndTagName.read(t3, r3);
+        assertEquals(TokeniserState.SelfClosingStartTag, t3.getState());
+
+        CharacterReader r4 = new CharacterReader(">");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        t4.createTagPending(false);
+        t4.appropriateEndTagName = "script";
+        t4.tagPending.appendTagName("script");
+        TokeniserState.ScriptDataEscapedEndTagName.read(t4, r4);
+        assertEquals(TokeniserState.Data, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("x");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        t5.createTagPending(false);
+        t5.appropriateEndTagName = "script";
+        t5.tagPending.appendTagName("script");
+        t5.dataBuffer.append("script");
+        TokeniserState.ScriptDataEscapedEndTagName.read(t5, r5);
+        assertEquals(TokeniserState.ScriptDataEscaped, t5.getState());
+
+        CharacterReader r6 = new CharacterReader(">");
+        Tokeniser t6 = new Tokeniser(r6, ParseErrorList.tracking(100));
+        t6.createTagPending(false);
+        t6.appropriateEndTagName = "script";
+        t6.tagPending.appendTagName("other");
+        t6.dataBuffer.append("other");
+        TokeniserState.ScriptDataEscapedEndTagName.read(t6, r6);
+        assertEquals(TokeniserState.ScriptDataEscaped, t6.getState());
+    }
+
+    @Test
+    public void testScriptDataDoubleEscapeStart_branches() {
+        CharacterReader r1 = new CharacterReader("cript>");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTempBuffer();
+        t1.dataBuffer.append('s');
+        TokeniserState.ScriptDataDoubleEscapeStart.read(t1, r1);
+        assertEquals("script", t1.dataBuffer.toString());
+
+        CharacterReader r2 = new CharacterReader(">");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTempBuffer();
+        t2.dataBuffer.append("script");
+        TokeniserState.ScriptDataDoubleEscapeStart.read(t2, r2);
+        assertEquals(TokeniserState.ScriptDataDoubleEscaped, t2.getState());
+
+        CharacterReader r3 = new CharacterReader(">");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        t3.createTempBuffer();
+        t3.dataBuffer.append("other");
+        TokeniserState.ScriptDataDoubleEscapeStart.read(t3, r3);
+        assertEquals(TokeniserState.ScriptDataEscaped, t3.getState());
+
+        CharacterReader r4 = new CharacterReader("?");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        t4.createTempBuffer();
+        TokeniserState.ScriptDataDoubleEscapeStart.read(t4, r4);
+        assertEquals(TokeniserState.ScriptDataEscaped, t4.getState());
+    }
+
+    @Test
+    public void testScriptDataDoubleEscaped_branches() {
+        CharacterReader r1 = new CharacterReader("-");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscaped.read(t1, r1);
+        assertEquals(TokeniserState.ScriptDataDoubleEscapedDash, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("<");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscaped.read(t2, r2);
+        assertEquals(TokeniserState.ScriptDataDoubleEscapedLessthanSign, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("\u0000");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscaped.read(t3, r3);
+        assertFalse(t3.getErrors().isEmpty());
+
+        CharacterReader r4 = new CharacterReader("");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscaped.read(t4, r4);
+        assertEquals(TokeniserState.Data, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("text<");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscaped.read(t5, r5);
+        assertEquals('<', r5.current());
+    }
+
+    @Test
+    public void testScriptDataDoubleEscapedDash_branches() {
+        CharacterReader r1 = new CharacterReader("-");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedDash.read(t1, r1);
+        assertEquals(TokeniserState.ScriptDataDoubleEscapedDashDash, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("<");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedDash.read(t2, r2);
+        assertEquals(TokeniserState.ScriptDataDoubleEscapedLessthanSign, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("\u0000");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedDash.read(t3, r3);
+        assertEquals(TokeniserState.ScriptDataDoubleEscaped, t3.getState());
+
+        CharacterReader r4 = new CharacterReader("");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedDash.read(t4, r4);
+        assertEquals(TokeniserState.Data, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("x");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedDash.read(t5, r5);
+        assertEquals(TokeniserState.ScriptDataDoubleEscaped, t5.getState());
+    }
+
+    @Test
+    public void testScriptDataDoubleEscapedDashDash_branches() {
+        CharacterReader r1 = new CharacterReader("-");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedDashDash.read(t1, r1);
+
+        CharacterReader r2 = new CharacterReader("<");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedDashDash.read(t2, r2);
+        assertEquals(TokeniserState.ScriptDataDoubleEscapedLessthanSign, t2.getState());
+
+        CharacterReader r3 = new CharacterReader(">");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedDashDash.read(t3, r3);
+        assertEquals(TokeniserState.ScriptData, t3.getState());
+
+        CharacterReader r4 = new CharacterReader("\u0000");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedDashDash.read(t4, r4);
+        assertEquals(TokeniserState.ScriptDataDoubleEscaped, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedDashDash.read(t5, r5);
+        assertEquals(TokeniserState.Data, t5.getState());
+
+        CharacterReader r6 = new CharacterReader("x");
+        Tokeniser t6 = new Tokeniser(r6, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedDashDash.read(t6, r6);
+        assertEquals(TokeniserState.ScriptDataDoubleEscaped, t6.getState());
+    }
+
+    @Test
+    public void testScriptDataDoubleEscapedLessthanSign_branches() {
+        CharacterReader r1 = new CharacterReader("/script");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedLessthanSign.read(t1, r1);
+        assertEquals(TokeniserState.ScriptDataDoubleEscapeEnd, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("x");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        TokeniserState.ScriptDataDoubleEscapedLessthanSign.read(t2, r2);
+        assertEquals(TokeniserState.ScriptDataDoubleEscaped, t2.getState());
+    }
+
+    @Test
+    public void testScriptDataDoubleEscapeEnd_branches() {
+        CharacterReader r1 = new CharacterReader("script>");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTempBuffer();
+        TokeniserState.ScriptDataDoubleEscapeEnd.read(t1, r1);
+        assertEquals("script", t1.dataBuffer.toString());
+
+        CharacterReader r2 = new CharacterReader(">");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTempBuffer();
+        t2.dataBuffer.append("script");
+        TokeniserState.ScriptDataDoubleEscapeEnd.read(t2, r2);
+        assertEquals(TokeniserState.ScriptDataEscaped, t2.getState());
+
+        CharacterReader r3 = new CharacterReader(">");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        t3.createTempBuffer();
+        t3.dataBuffer.append("other");
+        TokeniserState.ScriptDataDoubleEscapeEnd.read(t3, r3);
+        assertEquals(TokeniserState.ScriptDataDoubleEscaped, t3.getState());
+
+        CharacterReader r4 = new CharacterReader("?");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        t4.createTempBuffer();
+        TokeniserState.ScriptDataDoubleEscapeEnd.read(t4, r4);
+        assertEquals(TokeniserState.ScriptDataDoubleEscaped, t4.getState());
+    }
+
+    @Test
+    public void testBeforeAttributeName_branches() {
+        CharacterReader r1 = new CharacterReader(" \t\n\f\r");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTagPending(true);
+        TokeniserState.BeforeAttributeName.read(t1, r1);
+
+        CharacterReader r2 = new CharacterReader("/>");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTagPending(true);
+        TokeniserState.BeforeAttributeName.read(t2, r2);
+        assertEquals(TokeniserState.SelfClosingStartTag, t2.getState());
+
+        CharacterReader r3 = new CharacterReader(">");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        t3.createTagPending(true);
+        TokeniserState.BeforeAttributeName.read(t3, r3);
+        assertEquals(TokeniserState.Data, t3.getState());
+
+        CharacterReader r4 = new CharacterReader("\u0000attr");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        t4.createTagPending(true);
+        TokeniserState.BeforeAttributeName.read(t4, r4);
+        assertEquals(TokeniserState.AttributeName, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        t5.createTagPending(true);
+        TokeniserState.BeforeAttributeName.read(t5, r5);
+        assertEquals(TokeniserState.Data, t5.getState());
+
+        for (char c : new char[]{'\"', '\'', '<', '='}) {
+            CharacterReader r6 = new CharacterReader(String.valueOf(c));
+            Tokeniser t6 = new Tokeniser(r6, ParseErrorList.tracking(100));
+            t6.createTagPending(true);
+            TokeniserState.BeforeAttributeName.read(t6, r6);
+            assertEquals(TokeniserState.AttributeName, t6.getState());
+        }
+
+        CharacterReader r7 = new CharacterReader("attr=value");
+        Tokeniser t7 = new Tokeniser(r7, ParseErrorList.tracking(100));
+        t7.createTagPending(true);
+        TokeniserState.BeforeAttributeName.read(t7, r7);
+        assertEquals(TokeniserState.AttributeName, t7.getState());
+    }
+
+    @Test
+    public void testAttributeName_branches() {
+        CharacterReader r1 = new CharacterReader("attr ");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTagPending(true);
+        t1.tagPending.newAttribute();
+        TokeniserState.AttributeName.read(t1, r1);
+        assertEquals(TokeniserState.AfterAttributeName, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("attr/>");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTagPending(true);
+        t2.tagPending.newAttribute();
+        TokeniserState.AttributeName.read(t2, r2);
+        assertEquals(TokeniserState.SelfClosingStartTag, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("attr=val");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        t3.createTagPending(true);
+        t3.tagPending.newAttribute();
+        TokeniserState.AttributeName.read(t3, r3);
+        assertEquals(TokeniserState.BeforeAttributeValue, t3.getState());
+
+        CharacterReader r4 = new CharacterReader("attr>");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        t4.createTagPending(true);
+        t4.tagPending.newAttribute();
+        TokeniserState.AttributeName.read(t4, r4);
+        assertEquals(TokeniserState.Data, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("at\u0000tr");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        t5.createTagPending(true);
+        t5.tagPending.newAttribute();
+        TokeniserState.AttributeName.read(t5, r5);
+
+        CharacterReader r6 = new CharacterReader("attr");
+        Tokeniser t6 = new Tokeniser(r6, ParseErrorList.tracking(100));
+        t6.createTagPending(true);
+        t6.tagPending.newAttribute();
+        TokeniserState.AttributeName.read(t6, r6);
+        assertEquals(TokeniserState.Data, t6.getState());
+
+        for (char c : new char[]{'\"', '\'', '<'}) {
+            CharacterReader r7 = new CharacterReader("attr" + c);
+            Tokeniser t7 = new Tokeniser(r7, ParseErrorList.tracking(100));
+            t7.createTagPending(true);
+            t7.tagPending.newAttribute();
+            TokeniserState.AttributeName.read(t7, r7);
+        }
+    }
+
+    @Test
+    public void testAfterAttributeName_branches() {
+        CharacterReader r1 = new CharacterReader(" \t");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTagPending(true);
+        TokeniserState.AfterAttributeName.read(t1, r1);
+
+        CharacterReader r2 = new CharacterReader("/>");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTagPending(true);
+        TokeniserState.AfterAttributeName.read(t2, r2);
+        assertEquals(TokeniserState.SelfClosingStartTag, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("=val");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        t3.createTagPending(true);
+        TokeniserState.AfterAttributeName.read(t3, r3);
+        assertEquals(TokeniserState.BeforeAttributeValue, t3.getState());
+
+        CharacterReader r4 = new CharacterReader(">");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        t4.createTagPending(true);
+        TokeniserState.AfterAttributeName.read(t4, r4);
+        assertEquals(TokeniserState.Data, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("\u0000");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        t5.createTagPending(true);
+        TokeniserState.AfterAttributeName.read(t5, r5);
+        assertEquals(TokeniserState.AttributeName, t5.getState());
+
+        CharacterReader r6 = new CharacterReader("");
+        Tokeniser t6 = new Tokeniser(r6, ParseErrorList.tracking(100));
+        t6.createTagPending(true);
+        TokeniserState.AfterAttributeName.read(t6, r6);
+        assertEquals(TokeniserState.Data, t6.getState());
+
+        for (char c : new char[]{'\"', '\'', '<'}) {
+            CharacterReader r7 = new CharacterReader(String.valueOf(c));
+            Tokeniser t7 = new Tokeniser(r7, ParseErrorList.tracking(100));
+            t7.createTagPending(true);
+            TokeniserState.AfterAttributeName.read(t7, r7);
+            assertEquals(TokeniserState.AttributeName, t7.getState());
+        }
+
+        CharacterReader r8 = new CharacterReader("newAttr");
+        Tokeniser t8 = new Tokeniser(r8, ParseErrorList.tracking(100));
+        t8.createTagPending(true);
+        TokeniserState.AfterAttributeName.read(t8, r8);
+        assertEquals(TokeniserState.AttributeName, t8.getState());
+    }
+
+    @Test
+    public void testBeforeAttributeValue_branches() {
+        CharacterReader r1 = new CharacterReader(" \t");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTagPending(true);
+        TokeniserState.BeforeAttributeValue.read(t1, r1);
+
+        CharacterReader r2 = new CharacterReader("\"val\"");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTagPending(true);
+        TokeniserState.BeforeAttributeValue.read(t2, r2);
+        assertEquals(TokeniserState.AttributeValue_doubleQuoted, t2.getState());
+
+        CharacterReader r3 = new CharacterReader("&amp;");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        t3.createTagPending(true);
+        TokeniserState.BeforeAttributeValue.read(t3, r3);
+        assertEquals(TokeniserState.AttributeValue_unquoted, t3.getState());
+
+        CharacterReader r4 = new CharacterReader("'val'");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        t4.createTagPending(true);
+        TokeniserState.BeforeAttributeValue.read(t4, r4);
+        assertEquals(TokeniserState.AttributeValue_singleQuoted, t4.getState());
+
+        CharacterReader r5 = new CharacterReader("\u0000");
+        Tokeniser t5 = new Tokeniser(r5, ParseErrorList.tracking(100));
+        t5.createTagPending(true);
+        TokeniserState.BeforeAttributeValue.read(t5, r5);
+        assertEquals(TokeniserState.AttributeValue_unquoted, t5.getState());
+
+        CharacterReader r6 = new CharacterReader("");
+        Tokeniser t6 = new Tokeniser(r6, ParseErrorList.tracking(100));
+        t6.createTagPending(true);
+        TokeniserState.BeforeAttributeValue.read(t6, r6);
+        assertEquals(TokeniserState.Data, t6.getState());
+
+        CharacterReader r7 = new CharacterReader(">");
+        Tokeniser t7 = new Tokeniser(r7, ParseErrorList.tracking(100));
+        t7.createTagPending(true);
+        TokeniserState.BeforeAttributeValue.read(t7, r7);
+        assertEquals(TokeniserState.Data, t7.getState());
+
+        for (char c : new char[]{'<', '=', '`'}) {
+            CharacterReader r8 = new CharacterReader(String.valueOf(c));
+            Tokeniser t8 = new Tokeniser(r8, ParseErrorList.tracking(100));
+            t8.createTagPending(true);
+            TokeniserState.BeforeAttributeValue.read(t8, r8);
+            assertEquals(TokeniserState.AttributeValue_unquoted, t8.getState());
+        }
+
+        CharacterReader r9 = new CharacterReader("unquotedVal");
+        Tokeniser t9 = new Tokeniser(r9, ParseErrorList.tracking(100));
+        t9.createTagPending(true);
+        TokeniserState.BeforeAttributeValue.read(t9, r9);
+        assertEquals(TokeniserState.AttributeValue_unquoted, t9.getState());
+    }
+
+    @Test
+    public void testAttributeValue_doubleQuoted_branches() {
+        CharacterReader r1 = new CharacterReader("val\"");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTagPending(true);
+        TokeniserState.AttributeValue_doubleQuoted.read(t1, r1);
+        assertEquals(TokeniserState.AfterAttributeValue_quoted, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("val&amp;more\"");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTagPending(true);
+        TokeniserState.AttributeValue_doubleQuoted.read(t2, r2);
+
+        CharacterReader r2b = new CharacterReader("& notaref\"");
+        Tokeniser t2b = new Tokeniser(r2b, ParseErrorList.tracking(100));
+        t2b.createTagPending(true);
+        TokeniserState.AttributeValue_doubleQuoted.read(t2b, r2b);
+
+        CharacterReader r3 = new CharacterReader("val\u0000more\"");
+        Tokeniser t3 = new Tokeniser(r3, ParseErrorList.tracking(100));
+        t3.createTagPending(true);
+        TokeniserState.AttributeValue_doubleQuoted.read(t3, r3);
+
+        CharacterReader r4 = new CharacterReader("val");
+        Tokeniser t4 = new Tokeniser(r4, ParseErrorList.tracking(100));
+        t4.createTagPending(true);
+        TokeniserState.AttributeValue_doubleQuoted.read(t4, r4);
+        assertEquals(TokeniserState.Data, t4.getState());
+    }
+
+    @Test
+    public void testAttributeValue_singleQuoted_branches() {
+        CharacterReader r1 = new CharacterReader("val'");
+        Tokeniser t1 = new Tokeniser(r1, ParseErrorList.tracking(100));
+        t1.createTagPending(true);
+        TokeniserState.AttributeValue_singleQuoted.read(t1, r1);
+        assertEquals(TokeniserState.AfterAttributeValue_quoted, t1.getState());
+
+        CharacterReader r2 = new CharacterReader("val&amp;more'");
+        Tokeniser t2 = new Tokeniser(r2, ParseErrorList.tracking(100));
+        t2.createTagPending(true);
+        TokeniserState.AttributeValue_singleQuoted.read(

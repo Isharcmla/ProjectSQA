@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "93",
+  "tool": "claude",
+  "class": "org.apache.commons.math.util.MathUtils",
+  "target_classes": [
+    "org.apache.commons.math.util.MathUtils"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 136.66,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Math\\93\\MathUtils_20261003_001119.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 15065,
+    "completion_tokens": 16384,
+    "total_tokens": 31449
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 63410,
+    "daily_remaining_tokens": 136590
+  },
+  "timestamp": "20261003_001119"
+}

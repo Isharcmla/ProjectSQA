@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "43",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.TypedScopeCreator",
+  "target_classes": [
+    "com.google.javascript.jscomp.TypedScopeCreator"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 166.53,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\43\\TypedScopeCreator_20260926_023709.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 28433,
+    "completion_tokens": 16384,
+    "total_tokens": 44817
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 237684,
+    "daily_remaining_tokens": -37684
+  },
+  "timestamp": "20260926_023709"
+}

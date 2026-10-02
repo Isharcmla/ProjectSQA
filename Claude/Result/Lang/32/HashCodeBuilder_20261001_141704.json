@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "32",
+  "tool": "claude",
+  "class": "org.apache.commons.lang3.builder.HashCodeBuilder",
+  "target_classes": [
+    "org.apache.commons.lang3.builder.HashCodeBuilder"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 90.01,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Lang\\32\\HashCodeBuilder_20261001_141704.txt",
+  "test_file": "Claude\\TestCode\\Lang\\32\\HashCodeBuilderTest.java",
+  "usage": {
+    "prompt_tokens": 12504,
+    "completion_tokens": 12904,
+    "total_tokens": 25408
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 136148,
+    "daily_remaining_tokens": 63852
+  },
+  "timestamp": "20261001_141704"
+}

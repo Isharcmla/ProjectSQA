@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "11",
+  "tool": "claude",
+  "class": "org.mockito.internal.creation.DelegatingMethod",
+  "target_classes": [
+    "org.mockito.internal.creation.DelegatingMethod"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 20.83,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\11\\DelegatingMethod_20261003_002815.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\11\\DelegatingMethodTest.java",
+  "usage": {
+    "prompt_tokens": 1394,
+    "completion_tokens": 2994,
+    "total_tokens": 4388
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 54351,
+    "daily_remaining_tokens": 145649
+  },
+  "timestamp": "20261003_002815"
+}

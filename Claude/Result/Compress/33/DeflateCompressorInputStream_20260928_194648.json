@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "33",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStream",
+  "target_classes": [
+    "org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.43,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Compress\\33\\DeflateCompressorInputStream_20260928_194648.txt",
+  "test_file": "Claude\\TestCode\\Compress\\33\\DeflateCompressorInputStreamTest.java",
+  "usage": {
+    "prompt_tokens": 2009,
+    "completion_tokens": 4802,
+    "total_tokens": 6811
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 6811,
+    "daily_remaining_tokens": 193189
+  },
+  "timestamp": "20260928_194648"
+}

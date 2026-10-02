@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "97",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.node.POJONode",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.node.POJONode"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 56.36,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\97\\POJONode_20260930_015417.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\97\\POJONodeTest.java",
+  "usage": {
+    "prompt_tokens": 2453,
+    "completion_tokens": 7262,
+    "total_tokens": 9715
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 108686,
+    "daily_remaining_tokens": 91314
+  },
+  "timestamp": "20260930_015417"
+}

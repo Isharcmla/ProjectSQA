@@ -1,0 +1,76 @@
+package org.apache.commons.cli2.option;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
+import java.util.Set;
+
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import org.apache.commons.cli2.Argument;
+import org.apache.commons.cli2.CommandLine;
+import org.apache.commons.cli2.DisplaySetting;
+import org.apache.commons.cli2.HelpLine;
+import org.apache.commons.cli2.Option;
+import org.apache.commons.cli2.OptionException;
+import org.apache.commons.cli2.WriteableCommandLine;
+import org.apache.commons.cli2.validation.InvalidArgumentException;
+import org.apache.commons.cli2.validation.Validator;
+
+public class ArgumentImplTest {
+
+    // ---------------------------------------------------------------
+    // Test double implementations - minimal best effort implementations
+    // of the WriteableCommandLine/CommandLine interfaces and Validator
+    // used purely to exercise ArgumentImpl's public API without any
+    // mocking framework.
+    // ---------------------------------------------------------------
+    private static class FakeCommandLine implements WriteableCommandLine {
+        private final Map valuesMap = new HashMap();
+        private final Map defaultValuesMap = new HashMap();
+        private boolean looksLikeOptionFlag = false;
+
+        public void setLooksLikeOption(boolean flag) {
+            this.looksLikeOptionFlag = flag;
+        }
+
+        public void setValues(Option option, List values) {
+            valuesMap.put(option, values);
+        }
+
+        public List getSetDefaultValues(Option option) {
+            return (List) defaultValuesMap.get(option);
+        }
+
+        // WriteableCommandLine methods
+        public void addOption(Option option) {
+        }
+
+        public void addValue(Option option, Object value) {
+            List list = (List) valuesMap.get(option);
+            if (list == null) {
+                list = new ArrayList();
+                valuesMap.put(option, list);
+            }
+            list.add(value);
+        }
+
+        public void addSwitch(Option option, boolean value) {
+        }
+
+        public void addProperty(String property, String value) {
+        }
+
+        public void addOptionTriggerIterator(Iterator iterator) {
+        }
+
+        public void setDefaultValues(Option option, List defaultValues) {
+            defaultValuesMap.put(option, default

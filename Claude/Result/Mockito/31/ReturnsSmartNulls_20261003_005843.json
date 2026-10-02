@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "31",
+  "tool": "claude",
+  "class": "org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls",
+  "target_classes": [
+    "org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 35.78,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\31\\ReturnsSmartNulls_20261003_005843.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\31\\ReturnsSmartNullsTest.java",
+  "usage": {
+    "prompt_tokens": 2008,
+    "completion_tokens": 4036,
+    "total_tokens": 6044
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 165428,
+    "daily_remaining_tokens": 34572
+  },
+  "timestamp": "20261003_005843"
+}

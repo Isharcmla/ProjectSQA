@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "14",
+  "tool": "claude",
+  "class": "org.apache.commons.codec.language.bm.Rule",
+  "target_classes": [
+    "org.apache.commons.codec.language.bm.Rule"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 145.69,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Codec\\14\\Rule_20260927_132110.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 9830,
+    "completion_tokens": 16384,
+    "total_tokens": 26214
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 208255,
+    "daily_remaining_tokens": -8255
+  },
+  "timestamp": "20260927_132110"
+}

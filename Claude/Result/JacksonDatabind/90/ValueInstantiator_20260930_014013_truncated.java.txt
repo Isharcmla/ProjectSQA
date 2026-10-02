@@ -1,0 +1,323 @@
+package com.fasterxml.jackson.databind.deser;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.type.TypeFactory;
+
+public class ValueInstantiatorTest {
+
+    // ---------- Helper subclasses (no mocking, real subclasses) ----------
+
+    private static class DefaultInstantiator extends ValueInstantiator {
+    }
+
+    private static class NullValueClassInstantiator extends ValueInstantiator {
+        @Override
+        public Class<?> getValueClass() {
+            return null;
+        }
+    }
+
+    private static class StringCreatableInstantiator extends ValueInstantiator {
+        @Override
+        public boolean canCreateFromString() {
+            return true;
+        }
+    }
+
+    private static class BooleanCreatableInstantiator extends ValueInstantiator {
+        @Override
+        public boolean canCreateFromBoolean() {
+            return true;
+        }
+
+        @Override
+        public Object createFromBoolean(DeserializationContext ctxt, boolean value) {
+            // overridden to avoid depending on real DeserializationContext
+            return Boolean.valueOf(value);
+        }
+    }
+
+    // ---------- getValueClass ----------
+
+    @Test
+    public void testGetValueClass_default_returnsObjectClass() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertEquals(Object.class, vi.getValueClass());
+    }
+
+    // ---------- getValueTypeDesc ----------
+
+    @Test
+    public void testGetValueTypeDesc_default_returnsObjectClassName() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertEquals("java.lang.Object", vi.getValueTypeDesc());
+    }
+
+    @Test
+    public void testGetValueTypeDesc_nullValueClass_returnsUNKNOWN() {
+        ValueInstantiator vi = new NullValueClassInstantiator();
+        assertEquals("UNKNOWN", vi.getValueTypeDesc());
+    }
+
+    // ---------- canInstantiate ----------
+
+    @Test
+    public void testCanInstantiate_allFalse_returnsFalse() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertFalse(vi.canInstantiate());
+    }
+
+    @Test
+    public void testCanInstantiate_stringCreatable_returnsTrue() {
+        ValueInstantiator vi = new StringCreatableInstantiator();
+        assertTrue(vi.canInstantiate());
+    }
+
+    // ---------- canCreateFromXxx defaults ----------
+
+    @Test
+    public void testCanCreateFromString_default_returnsFalse() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertFalse(vi.canCreateFromString());
+    }
+
+    @Test
+    public void testCanCreateFromInt_default_returnsFalse() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertFalse(vi.canCreateFromInt());
+    }
+
+    @Test
+    public void testCanCreateFromLong_default_returnsFalse() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertFalse(vi.canCreateFromLong());
+    }
+
+    @Test
+    public void testCanCreateFromDouble_default_returnsFalse() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertFalse(vi.canCreateFromDouble());
+    }
+
+    @Test
+    public void testCanCreateFromBoolean_default_returnsFalse() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertFalse(vi.canCreateFromBoolean());
+    }
+
+    @Test
+    public void testCanCreateUsingDefault_default_returnsFalse() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertFalse(vi.canCreateUsingDefault());
+    }
+
+    @Test
+    public void testCanCreateUsingDelegate_default_returnsFalse() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertFalse(vi.canCreateUsingDelegate());
+    }
+
+    @Test
+    public void testCanCreateUsingArrayDelegate_default_returnsFalse() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertFalse(vi.canCreateUsingArrayDelegate());
+    }
+
+    @Test
+    public void testCanCreateFromObjectWith_default_returnsFalse() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertFalse(vi.canCreateFromObjectWith());
+    }
+
+    // ---------- getFromObjectArguments ----------
+
+    @Test
+    public void testGetFromObjectArguments_default_returnsNull() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertNull(vi.getFromObjectArguments(null));
+    }
+
+    // ---------- getDelegateType ----------
+
+    @Test
+    public void testGetDelegateType_default_returnsNull() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertNull(vi.getDelegateType(null));
+    }
+
+    // ---------- getArrayDelegateType ----------
+
+    @Test
+    public void testGetArrayDelegateType_default_returnsNull() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertNull(vi.getArrayDelegateType(null));
+    }
+
+    // ---------- getDefaultCreator / getDelegateCreator / getArrayDelegateCreator / getWithArgsCreator / getIncompleteParameter ----------
+
+    @Test
+    public void testGetDefaultCreator_default_returnsNull() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertNull(vi.getDefaultCreator());
+    }
+
+    @Test
+    public void testGetDelegateCreator_default_returnsNull() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertNull(vi.getDelegateCreator());
+    }
+
+    @Test
+    public void testGetArrayDelegateCreator_default_returnsNull() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertNull(vi.getArrayDelegateCreator());
+    }
+
+    @Test
+    public void testGetWithArgsCreator_default_returnsNull() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertNull(vi.getWithArgsCreator());
+    }
+
+    @Test
+    public void testGetIncompleteParameter_default_returnsNull() {
+        ValueInstantiator vi = new DefaultInstantiator();
+        assertNull(vi.getIncompleteParameter());
+    }
+
+    // ---------- createUsingDefault ----------
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateUsingDefault_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createUsingDefault(null);
+    }
+
+    // ---------- createFromObjectWith(ctxt, args) ----------
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromObjectWithArgs_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createFromObjectWith(null, new Object[] {});
+    }
+
+    // ---------- createFromObjectWith(ctxt, props, buffer) ----------
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromObjectWithBuffer_nullBuffer_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createFromObjectWith(null, new SettableBeanProperty[] {}, null);
+    }
+
+    // ---------- createUsingDelegate ----------
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateUsingDelegate_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createUsingDelegate(null, new Object());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateUsingDelegate_nullDelegate_stillThrowsNPEDueToNullContext() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createUsingDelegate(null, null);
+    }
+
+    // ---------- createUsingArrayDelegate ----------
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateUsingArrayDelegate_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createUsingArrayDelegate(null, new Object());
+    }
+
+    // ---------- createFromInt ----------
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromInt_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createFromInt(null, 5);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromInt_negativeValue_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createFromInt(null, -1);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromInt_zeroValue_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createFromInt(null, 0);
+    }
+
+    // ---------- createFromLong ----------
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromLong_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createFromLong(null, 100L);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromLong_maxValue_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createFromLong(null, Long.MAX_VALUE);
+    }
+
+    // ---------- createFromDouble ----------
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromDouble_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createFromDouble(null, 1.5);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromDouble_zeroValue_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createFromDouble(null, 0.0);
+    }
+
+    // ---------- createFromBoolean ----------
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromBoolean_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createFromBoolean(null, true);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromBoolean_falseValue_nullContext_throwsNPE() throws Exception {
+        ValueInstantiator vi = new DefaultInstantiator();
+        vi.createFromBoolean(null, false);
+    }
+
+    // ---------- createFromString / _createFromStringFallbacks ----------
+
+    @Test
+    public void testCreateFromString_booleanCreatable_trueString_returnsTrue() throws Exception {
+        ValueInstantiator vi = new BooleanCreatableInstantiator();
+        Object result = vi.createFromString(null, "true");
+        assertEquals(Boolean.TRUE, result);
+    }
+
+    @Test
+    public void testCreateFromString_booleanCreatable_falseStringWithSpaces_returnsFalse() throws Exception {
+        ValueInstantiator vi = new BooleanCreatableInstantiator();
+        Object result = vi.createFromString(null, "  false  ");
+        assertEquals(Boolean.FALSE, result);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromString_booleanCreatable_nonBooleanString_throwsNPE() throws Exception {
+        ValueInstantiator vi = new BooleanCreatableInstantiator();
+        vi.createFromString(null, "notABoolean");
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testCreateFromString_emptyString_nullContext_

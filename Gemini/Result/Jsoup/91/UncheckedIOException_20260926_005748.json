@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "91",
+  "tool": "gemini",
+  "class": "org.jsoup.UncheckedIOException",
+  "target_classes": [
+    "org.jsoup.UncheckedIOException"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 10.63,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\91\\UncheckedIOException_20260926_005748.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\91\\UncheckedIOExceptionTest.java",
+  "usage": {
+    "prompt_tokens": 347,
+    "completion_tokens": 568,
+    "total_tokens": 1823
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 264012,
+    "daily_remaining_tokens": 85988
+  },
+  "timestamp": "20260926_005748"
+}

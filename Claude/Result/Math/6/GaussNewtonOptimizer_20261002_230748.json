@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "6",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.optim.nonlinear.vector.jacobian.GaussNewtonOptimizer",
+  "target_classes": [
+    "org.apache.commons.math3.optim.nonlinear.vector.jacobian.GaussNewtonOptimizer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 108.66,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\6\\GaussNewtonOptimizer_20261002_230748.txt",
+  "test_file": "Claude\\TestCode\\Math\\6\\GaussNewtonOptimizerTest.java",
+  "usage": {
+    "prompt_tokens": 3436,
+    "completion_tokens": 14062,
+    "total_tokens": 17498
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 89626,
+    "daily_remaining_tokens": 110374
+  },
+  "timestamp": "20261002_230748"
+}

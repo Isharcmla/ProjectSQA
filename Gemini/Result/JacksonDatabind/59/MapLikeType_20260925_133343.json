@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "59",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.type.MapLikeType",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.type.MapLikeType"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 31.91,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\59\\MapLikeType_20260925_133343.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\59\\MapLikeTypeTest.java",
+  "usage": {
+    "prompt_tokens": 2622,
+    "completion_tokens": 2935,
+    "total_tokens": 7296
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 114856,
+    "daily_remaining_tokens": 235144
+  },
+  "timestamp": "20260925_133343"
+}

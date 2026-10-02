@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "4",
+  "tool": "gemini",
+  "class": "org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.zip.ZipArchiveOutputStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 34.57,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Compress\\4\\ZipArchiveOutputStream_20260925_111519.txt",
+  "test_file": "Gemini\\TestCode\\Compress\\4\\ZipArchiveOutputStreamTest.java",
+  "usage": {
+    "prompt_tokens": 7479,
+    "completion_tokens": 3445,
+    "total_tokens": 12548
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 317404,
+    "daily_remaining_tokens": 32596
+  },
+  "timestamp": "20260925_111519"
+}

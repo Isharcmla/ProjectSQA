@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "13",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.core.json.JsonGeneratorImpl",
+  "target_classes": [
+    "com.fasterxml.jackson.core.json.JsonGeneratorImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.49,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonCore\\13\\JsonGeneratorImpl_20260925_114630.txt",
+  "test_file": "Gemini\\TestCode\\JacksonCore\\13\\JsonGeneratorImplTest.java",
+  "usage": {
+    "prompt_tokens": 1715,
+    "completion_tokens": 2899,
+    "total_tokens": 5890
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 143446,
+    "daily_remaining_tokens": 206554
+  },
+  "timestamp": "20260925_114630"
+}

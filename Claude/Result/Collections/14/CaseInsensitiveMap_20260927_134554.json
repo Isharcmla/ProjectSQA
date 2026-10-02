@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "14",
+  "tool": "claude",
+  "class": "org.apache.commons.collections.map.CaseInsensitiveMap",
+  "target_classes": [
+    "org.apache.commons.collections.map.CaseInsensitiveMap"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 24.8,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Collections\\14\\CaseInsensitiveMap_20260927_134554.txt",
+  "test_file": "Claude\\TestCode\\Collections\\14\\CaseInsensitiveMapTest.java",
+  "usage": {
+    "prompt_tokens": 2840,
+    "completion_tokens": 3564,
+    "total_tokens": 6404
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 161462,
+    "daily_remaining_tokens": 38538
+  },
+  "timestamp": "20260927_134554"
+}

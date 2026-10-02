@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "3",
+  "tool": "claude",
+  "class": "org.jsoup.parser.Tag",
+  "target_classes": [
+    "org.jsoup.parser.Tag"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 36.95,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\3\\Tag_20260930_030532.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\3\\TagTest.java",
+  "usage": {
+    "prompt_tokens": 5738,
+    "completion_tokens": 4668,
+    "total_tokens": 10406
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 174546,
+    "daily_remaining_tokens": 25454
+  },
+  "timestamp": "20260930_030532"
+}

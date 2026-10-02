@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "86",
+  "tool": "claude",
+  "class": "org.jsoup.nodes.Comment",
+  "target_classes": [
+    "org.jsoup.nodes.Comment"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 17.03,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\86\\Comment_20261001_122156.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\86\\CommentTest.java",
+  "usage": {
+    "prompt_tokens": 1704,
+    "completion_tokens": 2324,
+    "total_tokens": 4028
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 121058,
+    "daily_remaining_tokens": 78942
+  },
+  "timestamp": "20261001_122156"
+}

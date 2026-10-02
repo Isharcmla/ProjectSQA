@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "32",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.parsing.JsDocInfoParser",
+  "target_classes": [
+    "com.google.javascript.jscomp.parsing.JsDocInfoParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 138.6,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\32\\JsDocInfoParser_20260926_020425.txt",
+  "test_file": "Claude\\TestCode\\Closure\\32\\JsDocInfoParserTest.java",
+  "usage": {
+    "prompt_tokens": 28430,
+    "completion_tokens": 16236,
+    "total_tokens": 44666
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 44666,
+    "daily_remaining_tokens": 155334
+  },
+  "timestamp": "20260926_020425"
+}

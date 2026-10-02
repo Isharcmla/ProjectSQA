@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "25",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.module.SimpleAbstractTypeResolver",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.module.SimpleAbstractTypeResolver"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 36.74,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\25\\SimpleAbstractTypeResolver_20260929_022729.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\25\\SimpleAbstractTypeResolverTest.java",
+  "usage": {
+    "prompt_tokens": 2163,
+    "completion_tokens": 4412,
+    "total_tokens": 6575
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 204826,
+    "daily_remaining_tokens": -4826
+  },
+  "timestamp": "20260929_022729"
+}

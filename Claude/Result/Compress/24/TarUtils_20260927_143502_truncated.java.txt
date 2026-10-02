@@ -1,0 +1,356 @@
+package org.apache.commons.compress.archivers.tar;
+
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.ByteBuffer;
+
+import org.apache.commons.compress.archivers.zip.ZipEncoding;
+import org.junit.Test;
+
+public class TarUtilsTest {
+
+    // Custom ZipEncoding implementation used to trigger IOException paths.
+    private static final ZipEncoding THROWS_ENCODING = new ZipEncoding() {
+        public boolean canEncode(String name) { return true; }
+
+        public ByteBuffer encode(String name) throws IOException {
+            throw new IOException("simulated encode failure");
+        }
+
+        public String decode(byte[] buffer) throws IOException {
+            throw new IOException("simulated decode failure");
+        }
+    };
+
+    // ---------------------- parseOctal ----------------------
+
+    @Test
+    public void testParseOctal_normalValue_returnsCorrectLong() {
+        byte[] buffer = "0000744 ".getBytes();
+        long result = TarUtils.parseOctal(buffer, 0, buffer.length);
+        assertEquals(484L, result);
+    }
+
+    @Test
+    public void testParseOctal_leadingNul_returnsZero() {
+        byte[] buffer = new byte[8]; // all zeros
+        long result = TarUtils.parseOctal(buffer, 0, buffer.length);
+        assertEquals(0L, result);
+    }
+
+    @Test
+    public void testParseOctal_allSpaces_returnsZero() {
+        byte[] buffer = "        ".getBytes();
+        long result = TarUtils.parseOctal(buffer, 0, buffer.length);
+        assertEquals(0L, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testParseOctal_lengthLessThanTwo_throwsException() {
+        TarUtils.parseOctal(new byte[]{'0'}, 0, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testParseOctal_invalidTrailer_throwsException() {
+        byte[] buffer = "1234567".getBytes(); // no trailing space/NUL
+        TarUtils.parseOctal(buffer, 0, buffer.length);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testParseOctal_invalidDigit_throwsException() {
+        byte[] buffer = "12x4567 ".getBytes();
+        TarUtils.parseOctal(buffer, 0, buffer.length);
+    }
+
+    // ---------------------- parseOctalOrBinary ----------------------
+
+    @Test
+    public void testParseOctalOrBinary_octalPath_returnsCorrectLong() {
+        byte[] buffer = "0000644 ".getBytes();
+        long result = TarUtils.parseOctalOrBinary(buffer, 0, buffer.length);
+        assertEquals(420L, result);
+    }
+
+    @Test
+    public void testParseOctalOrBinary_smallBinaryPositive_returnsCorrectLong() {
+        byte[] buffer = new byte[8];
+        buffer[0] = (byte) 0x80;
+        buffer[7] = 100;
+        long result = TarUtils.parseOctalOrBinary(buffer, 0, buffer.length);
+        assertEquals(100L, result);
+    }
+
+    @Test
+    public void testParseOctalOrBinary_smallBinaryNegative_returnsCorrectLong() {
+        byte[] buffer = new byte[8];
+        buffer[0] = (byte) 0xff;
+        for (int i = 1; i < 8; i++) {
+            buffer[i] = (byte) 0xff;
+        }
+        long result = TarUtils.parseOctalOrBinary(buffer, 0, buffer.length);
+        assertEquals(-1L, result);
+    }
+
+    @Test
+    public void testParseOctalOrBinary_bigIntegerPositive_returnsCorrectLong() {
+        byte[] buffer = new byte[9];
+        buffer[0] = (byte) 0x80;
+        buffer[8] = 5;
+        long result = TarUtils.parseOctalOrBinary(buffer, 0, buffer.length);
+        assertEquals(5L, result);
+    }
+
+    @Test
+    public void testParseOctalOrBinary_bigIntegerNegative_returnsCorrectLong() {
+        byte[] buffer = new byte[9];
+        buffer[0] = (byte) 0xff;
+        for (int i = 1; i < 9; i++) {
+            buffer[i] = (byte) 0xff;
+        }
+        long result = TarUtils.parseOctalOrBinary(buffer, 0, buffer.length);
+        assertEquals(-1L, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testParseOctalOrBinary_bigIntegerOverflow_throwsException() {
+        byte[] buffer = new byte[10];
+        buffer[0] = (byte) 0x80;
+        buffer[1] = 0x7F;
+        for (int i = 2; i < 10; i++) {
+            buffer[i] = (byte) 0xff;
+        }
+        TarUtils.parseOctalOrBinary(buffer, 0, buffer.length);
+    }
+
+    // ---------------------- parseBoolean ----------------------
+
+    @Test
+    public void testParseBoolean_byteOne_returnsTrue() {
+        byte[] buffer = new byte[]{1};
+        assertTrue(TarUtils.parseBoolean(buffer, 0));
+    }
+
+    @Test
+    public void testParseBoolean_byteZero_returnsFalse() {
+        byte[] buffer = new byte[]{0};
+        assertFalse(TarUtils.parseBoolean(buffer, 0));
+    }
+
+    @Test
+    public void testParseBoolean_otherByte_returnsFalse() {
+        byte[] buffer = new byte[]{5};
+        assertFalse(TarUtils.parseBoolean(buffer, 0));
+    }
+
+    // ---------------------- parseName ----------------------
+
+    @Test
+    public void testParseName_withTrailingNul_returnsTrimmedString() throws IOException {
+        byte[] buffer = "hello\0\0\0".getBytes();
+        String result = TarUtils.parseName(buffer, 0, buffer.length);
+        assertEquals("hello", result);
+    }
+
+    @Test
+    public void testParseName_noNul_returnsFullString() {
+        byte[] buffer = "helloabc".getBytes();
+        String result = TarUtils.parseName(buffer, 0, buffer.length);
+        assertEquals("helloabc", result);
+    }
+
+    @Test
+    public void testParseName_allNul_returnsEmptyString() {
+        byte[] buffer = new byte[8];
+        String result = TarUtils.parseName(buffer, 0, buffer.length);
+        assertEquals("", result);
+    }
+
+    @Test
+    public void testParseName_withEncoding_returnsCorrectString() throws IOException {
+        byte[] buffer = "test\0\0\0\0".getBytes();
+        String result = TarUtils.parseName(buffer, 0, buffer.length, TarUtils.DEFAULT_ENCODING);
+        assertEquals("test", result);
+    }
+
+    @Test(expected = IOException.class)
+    public void testParseName_withThrowingEncoding_throwsIOException() throws IOException {
+        byte[] buffer = "test".getBytes();
+        TarUtils.parseName(buffer, 0, buffer.length, THROWS_ENCODING);
+    }
+
+    // ---------------------- formatNameBytes ----------------------
+
+    @Test
+    public void testFormatNameBytes_normalName_padsWithNul() {
+        byte[] buf = new byte[10];
+        int result = TarUtils.formatNameBytes("test", buf, 0, buf.length);
+        assertEquals(10, result);
+        assertEquals('t', buf[0]);
+        assertEquals('e', buf[1]);
+        assertEquals('s', buf[2]);
+        assertEquals('t', buf[3]);
+        assertEquals(0, buf[4]);
+        assertEquals(0, buf[9]);
+    }
+
+    @Test
+    public void testFormatNameBytes_nameLongerThanBuffer_truncatesOutput() {
+        byte[] buf = new byte[4];
+        int result = TarUtils.formatNameBytes("abcdefgh", buf, 0, buf.length);
+        assertEquals(4, result);
+        assertEquals('a', buf[0]);
+        assertEquals('b', buf[1]);
+        assertEquals('c', buf[2]);
+        assertEquals('d', buf[3]);
+    }
+
+    @Test
+    public void testFormatNameBytes_emptyName_fillsAllNul() {
+        byte[] buf = new byte[5];
+        int result = TarUtils.formatNameBytes("", buf, 0, buf.length);
+        assertEquals(5, result);
+        for (byte b : buf) {
+            assertEquals(0, b);
+        }
+    }
+
+    @Test
+    public void testFormatNameBytes_withEncoding_returnsCorrectOffset() throws IOException {
+        byte[] buf = new byte[6];
+        int result = TarUtils.formatNameBytes("ab", buf, 0, buf.length, TarUtils.DEFAULT_ENCODING);
+        assertEquals(6, result);
+        assertEquals('a', buf[0]);
+        assertEquals('b', buf[1]);
+    }
+
+    @Test(expected = IOException.class)
+    public void testFormatNameBytes_withThrowingEncoding_throwsIOException() throws IOException {
+        byte[] buf = new byte[6];
+        TarUtils.formatNameBytes("ab", buf, 0, buf.length, THROWS_ENCODING);
+    }
+
+    // ---------------------- formatUnsignedOctalString ----------------------
+
+    @Test
+    public void testFormatUnsignedOctalString_valueZero_returnsZeroPadded() {
+        byte[] buf = new byte[4];
+        TarUtils.formatUnsignedOctalString(0L, buf, 0, buf.length);
+        assertEquals("0000", new String(buf));
+    }
+
+    @Test
+    public void testFormatUnsignedOctalString_normalValue_returnsCorrectOctal() {
+        byte[] buf = new byte[3];
+        TarUtils.formatUnsignedOctalString(8L, buf, 0, buf.length);
+        assertEquals("010", new String(buf));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFormatUnsignedOctalString_valueTooLarge_throwsException() {
+        byte[] buf = new byte[1];
+        TarUtils.formatUnsignedOctalString(8L, buf, 0, buf.length);
+    }
+
+    // ---------------------- formatOctalBytes ----------------------
+
+    @Test
+    public void testFormatOctalBytes_normalValue_returnsCorrectOffset() {
+        byte[] buf = new byte[8];
+        int result = TarUtils.formatOctalBytes(8L, buf, 0, buf.length);
+        assertEquals(8, result);
+        assertEquals(' ', (char) buf[6]);
+        assertEquals(0, buf[7]);
+    }
+
+    // ---------------------- formatLongOctalBytes ----------------------
+
+    @Test
+    public void testFormatLongOctalBytes_normalValue_returnsCorrectOffset() {
+        byte[] buf = new byte[8];
+        int result = TarUtils.formatLongOctalBytes(8L, buf, 0, buf.length);
+        assertEquals(8, result);
+        assertEquals(' ', (char) buf[7]);
+    }
+
+    // ---------------------- formatLongOctalOrBinaryBytes ----------------------
+
+    @Test
+    public void testFormatLongOctalOrBinaryBytes_smallValue_formatsAsOctal() {
+        byte[] buf = new byte[TarConstants.UIDLEN];
+        int result = TarUtils.formatLongOctalOrBinaryBytes(5L, buf, 0, TarConstants.UIDLEN);
+        assertEquals(TarConstants.UIDLEN, result);
+    }
+
+    @Test
+    public void testFormatLongOctalOrBinaryBytes_negativeValue_formatsAsBinary() {
+        byte[] buf = new byte[12];
+        int result = TarUtils.formatLongOctalOrBinaryBytes(-100L, buf, 0, 12);
+        assertEquals(12, result);
+        assertEquals((byte) 0xff, buf[0]);
+    }
+
+    @Test
+    public void testFormatLongOctalOrBinaryBytes_largePositiveValue_formatsAsBinary() {
+        byte[] buf = new byte[12];
+        long largeValue = Long.MAX_VALUE / 2;
+        int result = TarUtils.formatLongOctalOrBinaryBytes(largeValue, buf, 0, 12);
+        assertEquals(12, result);
+        assertEquals((byte) 0x80, buf[0]);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFormatLongOctalOrBinaryBytes_valueTooLargeForBinary_throwsException() {
+        byte[] buf = new byte[TarConstants.UIDLEN];
+        TarUtils.formatLongOctalOrBinaryBytes(Long.MAX_VALUE, buf, 0, TarConstants.UIDLEN);
+    }
+
+    // ---------------------- formatCheckSumOctalBytes ----------------------
+
+    @Test
+    public void testFormatCheckSumOctalBytes_normalValue_returnsCorrectOffset() {
+        byte[] buf = new byte[8];
+        int result = TarUtils.formatCheckSumOctalBytes(8L, buf, 0, buf.length);
+        assertEquals(8, result);
+        assertEquals(0, buf[6]);
+        assertEquals(' ', (char) buf[7]);
+    }
+
+    // ---------------------- computeCheckSum ----------------------
+
+    @Test
+    public void testComputeCheckSum_normalBuffer_returnsSumOfUnsignedBytes() {
+        byte[] buf = new byte[]{(byte) 0xFF, 0x01, 0x02};
+        long sum = TarUtils.computeCheckSum(buf);
+        assertEquals(255L + 1L + 2L, sum);
+    }
+
+    @Test
+    public void testComputeCheckSum_emptyBuffer_returnsZero() {
+        byte[] buf = new byte[0];
+        long sum = TarUtils.computeCheckSum(buf);
+        assertEquals(0L, sum);
+    }
+
+    // ---------------------- verifyCheckSum ----------------------
+
+    @Test
+    public void testVerifyCheckSum_correctChecksum_returnsTrue() {
+        byte[] header = new byte[512];
+        for (int i = 0; i < header.length; i++) {
+            header[i] = 'a';
+        }
+        for (int i = TarConstants.CHKSUM_OFFSET; i < TarConstants.CHKSUM_OFFSET + TarConstants.CHKSUMLEN; i++) {
+            header[i] = ' ';
+        }
+        long sum = TarUtils.computeCheckSum(header);
+        TarUtils.formatCheckSumOctalBytes(sum, header, TarConstants.CHKSUM_OFFSET, TarConstants.CHKSUMLEN);
+
+        assertTrue(TarUtils.verifyCheckSum(header));
+    }
+
+    @Test
+    public void testVerifyCheckSum_incorrectChecksum_returnsFalse() {
+        byte[] header = new byte[512];
+        for (int

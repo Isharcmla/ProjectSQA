@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "30",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.ObjectMapper",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ObjectMapper"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 140.73,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\30\\ObjectMapper_20260929_023902.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 54779,
+    "completion_tokens": 16384,
+    "total_tokens": 71163
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 204772,
+    "daily_remaining_tokens": -4772
+  },
+  "timestamp": "20260929_023902"
+}

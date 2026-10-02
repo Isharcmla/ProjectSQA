@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "26",
+  "tool": "claude",
+  "class": "org.apache.commons.collections4.keyvalue.MultiKey",
+  "target_classes": [
+    "org.apache.commons.collections4.keyvalue.MultiKey"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.73,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Collections\\26\\MultiKey_20260927_135635.txt",
+  "test_file": "Claude\\TestCode\\Collections\\26\\MultiKeyTest.java",
+  "usage": {
+    "prompt_tokens": 3976,
+    "completion_tokens": 4194,
+    "total_tokens": 8170
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 123963,
+    "daily_remaining_tokens": 76037
+  },
+  "timestamp": "20260927_135635"
+}

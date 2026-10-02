@@ -1,0 +1,1112 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+public class FastMathTest {
+
+    private static final double DELTA = 1e-9;
+    private static final double LOOSE_DELTA = 1e-6;
+
+    @Before
+    public void setUp() {
+    }
+
+    // ---------- sqrt ----------
+    @Test
+    public void testSqrt_positiveValue_returnsCorrectResult() {
+        assertEquals(2.0, FastMath.sqrt(4.0), DELTA);
+    }
+
+    @Test
+    public void testSqrt_zero_returnsZero() {
+        assertEquals(0.0, FastMath.sqrt(0.0), DELTA);
+    }
+
+    @Test
+    public void testSqrt_negativeValue_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.sqrt(-4.0)));
+    }
+
+    // ---------- cosh ----------
+    @Test
+    public void testCosh_typicalValue_returnsCorrectResult() {
+        assertEquals(Math.cosh(1.0), FastMath.cosh(1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testCosh_nan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.cosh(Double.NaN)));
+    }
+
+    @Test
+    public void testCosh_largePositive_usesExpPath() {
+        double result = FastMath.cosh(25.0);
+        assertEquals(Math.cosh(25.0), result, Math.cosh(25.0) * 1e-6);
+    }
+
+    @Test
+    public void testCosh_largeNegative_usesExpPath() {
+        double result = FastMath.cosh(-25.0);
+        assertEquals(Math.cosh(-25.0), result, Math.cosh(-25.0) * 1e-6);
+    }
+
+    @Test
+    public void testCosh_negativeSmallValue_returnsCorrectResult() {
+        assertEquals(Math.cosh(-2.0), FastMath.cosh(-2.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testCosh_zero_returnsOne() {
+        assertEquals(1.0, FastMath.cosh(0.0), DELTA);
+    }
+
+    // ---------- sinh ----------
+    @Test
+    public void testSinh_typicalValue_returnsCorrectResult() {
+        assertEquals(Math.sinh(1.0), FastMath.sinh(1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testSinh_nan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.sinh(Double.NaN)));
+    }
+
+    @Test
+    public void testSinh_largePositive_usesExpPath() {
+        double result = FastMath.sinh(25.0);
+        assertEquals(Math.sinh(25.0), result, Math.sinh(25.0) * 1e-6);
+    }
+
+    @Test
+    public void testSinh_largeNegative_usesExpPath() {
+        double result = FastMath.sinh(-25.0);
+        assertEquals(Math.sinh(-25.0), result, Math.abs(Math.sinh(-25.0)) * 1e-6);
+    }
+
+    @Test
+    public void testSinh_zero_returnsZero() {
+        assertEquals(0.0, FastMath.sinh(0.0), DELTA);
+    }
+
+    @Test
+    public void testSinh_smallPositiveValue_usesExpm1Path() {
+        assertEquals(Math.sinh(0.1), FastMath.sinh(0.1), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testSinh_smallNegativeValue_usesExpm1Path() {
+        assertEquals(Math.sinh(-0.1), FastMath.sinh(-0.1), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testSinh_moderatePositiveValue_usesExpPath() {
+        assertEquals(Math.sinh(1.0), FastMath.sinh(1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testSinh_moderateNegativeValue_usesExpPath() {
+        assertEquals(Math.sinh(-1.0), FastMath.sinh(-1.0), LOOSE_DELTA);
+    }
+
+    // ---------- tanh ----------
+    @Test
+    public void testTanh_typicalValue_returnsCorrectResult() {
+        assertEquals(Math.tanh(1.0), FastMath.tanh(1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testTanh_nan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.tanh(Double.NaN)));
+    }
+
+    @Test
+    public void testTanh_largePositive_returnsOne() {
+        assertEquals(1.0, FastMath.tanh(25.0), DELTA);
+    }
+
+    @Test
+    public void testTanh_largeNegative_returnsNegativeOne() {
+        assertEquals(-1.0, FastMath.tanh(-25.0), DELTA);
+    }
+
+    @Test
+    public void testTanh_zero_returnsZero() {
+        assertEquals(0.0, FastMath.tanh(0.0), DELTA);
+    }
+
+    @Test
+    public void testTanh_smallPositiveValue_usesExpm1Path() {
+        assertEquals(Math.tanh(0.1), FastMath.tanh(0.1), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testTanh_smallNegativeValue_usesExpm1Path() {
+        assertEquals(Math.tanh(-0.1), FastMath.tanh(-0.1), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testTanh_moderatePositiveValue_usesExpPath() {
+        assertEquals(Math.tanh(1.0), FastMath.tanh(1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testTanh_moderateNegativeValue_usesExpPath() {
+        assertEquals(Math.tanh(-1.0), FastMath.tanh(-1.0), LOOSE_DELTA);
+    }
+
+    // ---------- acosh ----------
+    @Test
+    public void testAcosh_typicalValue_returnsCorrectResult() {
+        assertEquals(0.0, FastMath.acosh(1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAcosh_greaterThanOne_returnsCorrectResult() {
+        double x = 2.0;
+        double expected = Math.log(x + Math.sqrt(x * x - 1));
+        assertEquals(expected, FastMath.acosh(x), LOOSE_DELTA);
+    }
+
+    // ---------- asinh ----------
+    @Test
+    public void testAsinh_positiveLargeValue_returnsCorrectResult() {
+        double x = 2.0;
+        double expected = Math.log(Math.sqrt(x * x + 1) + x);
+        assertEquals(expected, FastMath.asinh(x), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAsinh_negativeValue_returnsNegativeResult() {
+        assertEquals(-FastMath.asinh(2.0), FastMath.asinh(-2.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAsinh_mediumValue_usesSeriesPath1() {
+        double result = FastMath.asinh(0.1);
+        assertEquals(Math.log(0.1 + Math.sqrt(0.1 * 0.1 + 1)), result, LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAsinh_smallValue_usesSeriesPath2() {
+        double result = FastMath.asinh(0.05);
+        assertEquals(Math.log(0.05 + Math.sqrt(0.05 * 0.05 + 1)), result, LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAsinh_verySmallValue_usesSeriesPath3() {
+        double result = FastMath.asinh(0.001);
+        assertEquals(Math.log(0.001 + Math.sqrt(0.001 * 0.001 + 1)), result, LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAsinh_zero_returnsZero() {
+        assertEquals(0.0, FastMath.asinh(0.0), DELTA);
+    }
+
+    // ---------- atanh ----------
+    @Test
+    public void testAtanh_typicalValue_returnsCorrectResult() {
+        double x = 0.5;
+        double expected = 0.5 * Math.log((1 + x) / (1 - x));
+        assertEquals(expected, FastMath.atanh(x), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAtanh_negativeValue_returnsNegativeResult() {
+        assertEquals(-FastMath.atanh(0.5), FastMath.atanh(-0.5), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAtanh_mediumValue_usesSeriesPath1() {
+        double result = FastMath.atanh(0.1);
+        assertEquals(0.5 * Math.log(1.1 / 0.9), result, LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAtanh_smallValue_usesSeriesPath2() {
+        double result = FastMath.atanh(0.05);
+        assertEquals(0.5 * Math.log(1.05 / 0.95), result, LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAtanh_verySmallValue_usesSeriesPath3() {
+        double result = FastMath.atanh(0.001);
+        assertEquals(0.5 * Math.log(1.001 / 0.999), result, LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAtanh_zero_returnsZero() {
+        assertEquals(0.0, FastMath.atanh(0.0), DELTA);
+    }
+
+    // ---------- signum ----------
+    @Test
+    public void testSignum_positiveValue_returnsOne() {
+        assertEquals(1.0, FastMath.signum(5.0), DELTA);
+    }
+
+    @Test
+    public void testSignum_negativeValue_returnsNegativeOne() {
+        assertEquals(-1.0, FastMath.signum(-5.0), DELTA);
+    }
+
+    @Test
+    public void testSignum_zero_returnsZero() {
+        assertEquals(0.0, FastMath.signum(0.0), DELTA);
+    }
+
+    @Test
+    public void testSignum_nan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.signum(Double.NaN)));
+    }
+
+    // ---------- nextUp ----------
+    @Test
+    public void testNextUp_positiveValue_returnsNextGreater() {
+        double result = FastMath.nextUp(1.0);
+        assertTrue(result > 1.0);
+    }
+
+    // ---------- random ----------
+    @Test
+    public void testRandom_returnsValueInRange() {
+        double result = FastMath.random();
+        assertTrue(result >= 0.0 && result < 1.0);
+    }
+
+    // ---------- exp ----------
+    @Test
+    public void testExp_zero_returnsOne() {
+        assertEquals(1.0, FastMath.exp(0.0), DELTA);
+    }
+
+    @Test
+    public void testExp_one_returnsE() {
+        assertEquals(Math.E, FastMath.exp(1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testExp_negativeValue_returnsCorrectResult() {
+        assertEquals(Math.exp(-1.0), FastMath.exp(-1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testExp_largePositive_returnsInfinity() {
+        assertEquals(Double.POSITIVE_INFINITY, FastMath.exp(1000.0), DELTA);
+    }
+
+    @Test
+    public void testExp_largeNegative_returnsZero() {
+        assertEquals(0.0, FastMath.exp(-1000.0), DELTA);
+    }
+
+    @Test
+    public void testExp_subnormalRangeNegative_returnsSmallValue() {
+        double result = FastMath.exp(-715.0);
+        assertTrue(result >= 0.0);
+    }
+
+    @Test
+    public void testExp_boundaryNegative709_returnsCorrectValue() {
+        double result = FastMath.exp(-709.5);
+        assertEquals(Math.exp(-709.5), result, Math.abs(Math.exp(-709.5)) * 1e-3);
+    }
+
+    @Test
+    public void testExp_moderatePositiveValue_returnsCorrectResult() {
+        assertEquals(Math.exp(5.0), FastMath.exp(5.0), Math.exp(5.0) * 1e-9);
+    }
+
+    // ---------- expm1 ----------
+    @Test
+    public void testExpm1_zero_returnsZero() {
+        assertEquals(0.0, FastMath.expm1(0.0), DELTA);
+    }
+
+    @Test
+    public void testExpm1_nan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.expm1(Double.NaN)));
+    }
+
+    @Test
+    public void testExpm1_smallPositiveValue_returnsCorrectResult() {
+        assertEquals(Math.expm1(0.5), FastMath.expm1(0.5), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testExpm1_smallNegativeValue_returnsCorrectResult() {
+        assertEquals(Math.expm1(-0.5), FastMath.expm1(-0.5), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testExpm1_largePositiveValue_returnsCorrectResult() {
+        assertEquals(Math.expm1(2.0), FastMath.expm1(2.0), Math.expm1(2.0) * 1e-6);
+    }
+
+    @Test
+    public void testExpm1_largeNegativeValue_returnsCorrectResult() {
+        assertEquals(Math.expm1(-2.0), FastMath.expm1(-2.0), 1e-6);
+    }
+
+    // ---------- log ----------
+    @Test
+    public void testLog_one_returnsZero() {
+        assertEquals(0.0, FastMath.log(1.0), DELTA);
+    }
+
+    @Test
+    public void testLog_e_returnsOne() {
+        assertEquals(1.0, FastMath.log(Math.E), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testLog_negativeValue_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.log(-1.0)));
+    }
+
+    @Test
+    public void testLog_zero_returnsNegativeInfinity() {
+        assertEquals(Double.NEGATIVE_INFINITY, FastMath.log(0.0), DELTA);
+    }
+
+    @Test
+    public void testLog_positiveInfinity_returnsPositiveInfinity() {
+        assertEquals(Double.POSITIVE_INFINITY, FastMath.log(Double.POSITIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testLog_nan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.log(Double.NaN)));
+    }
+
+    @Test
+    public void testLog_valueNearOne_returnsSmallResult() {
+        double result = FastMath.log(1.005);
+        assertEquals(Math.log(1.005), result, LOOSE_DELTA);
+    }
+
+    @Test
+    public void testLog_subnormalValue_returnsCorrectResult() {
+        double subnormal = Double.MIN_VALUE * 10;
+        double result = FastMath.log(subnormal);
+        assertEquals(Math.log(subnormal), result, Math.abs(Math.log(subnormal)) * 1e-6);
+    }
+
+    @Test
+    public void testLog_typicalLargeValue_returnsCorrectResult() {
+        assertEquals(Math.log(100.0), FastMath.log(100.0), LOOSE_DELTA);
+    }
+
+    // ---------- log1p ----------
+    @Test
+    public void testLog1p_zero_returnsZero() {
+        assertEquals(0.0, FastMath.log1p(0.0), DELTA);
+    }
+
+    @Test
+    public void testLog1p_negativeOne_returnsNegativeInfinity() {
+        assertEquals(Double.NEGATIVE_INFINITY, FastMath.log1p(-1.0), DELTA);
+    }
+
+    @Test
+    public void testLog1p_infiniteX_returnsX() {
+        assertEquals(Double.POSITIVE_INFINITY, FastMath.log1p(Double.POSITIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testLog1p_smallX_usesTaylorSeries() {
+        double result = FastMath.log1p(1e-8);
+        assertEquals(Math.log1p(1e-8), result, 1e-15);
+    }
+
+    @Test
+    public void testLog1p_negativeSmallX_usesTaylorSeries() {
+        double result = FastMath.log1p(-1e-8);
+        assertEquals(Math.log1p(-1e-8), result, 1e-15);
+    }
+
+    @Test
+    public void testLog1p_typicalValue_usesLogPath() {
+        double result = FastMath.log1p(1.0);
+        assertEquals(Math.log1p(1.0), result, LOOSE_DELTA);
+    }
+
+    @Test
+    public void testLog1p_negativeTypicalValue_usesLogPath() {
+        double result = FastMath.log1p(-0.5);
+        assertEquals(Math.log1p(-0.5), result, LOOSE_DELTA);
+    }
+
+    // ---------- log10 ----------
+    @Test
+    public void testLog10_hundred_returnsTwo() {
+        assertEquals(2.0, FastMath.log10(100.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testLog10_one_returnsZero() {
+        assertEquals(0.0, FastMath.log10(1.0), DELTA);
+    }
+
+    @Test
+    public void testLog10_ten_returnsOne() {
+        assertEquals(1.0, FastMath.log10(10.0), LOOSE_DELTA);
+    }
+
+    // ---------- pow ----------
+    @Test
+    public void testPow_yZero_returnsOne() {
+        assertEquals(1.0, FastMath.pow(5.0, 0.0), DELTA);
+    }
+
+    @Test
+    public void testPow_xNaN_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.pow(Double.NaN, 2.0)));
+    }
+
+    @Test
+    public void testPow_xZeroYPositive_returnsZero() {
+        assertEquals(0.0, FastMath.pow(0.0, 2.0), DELTA);
+    }
+
+    @Test
+    public void testPow_xZeroYNegative_returnsPositiveInfinity() {
+        assertEquals(Double.POSITIVE_INFINITY, FastMath.pow(0.0, -2.0), DELTA);
+    }
+
+    @Test
+    public void testPow_xZeroYZero_returnsOne() {
+        assertEquals(1.0, FastMath.pow(0.0, 0.0), DELTA);
+    }
+
+    @Test
+    public void testPow_negativeZeroOddNegativeY_returnsNegativeInfinity() {
+        double result = FastMath.pow(-0.0, -3.0);
+        assertEquals(Double.NEGATIVE_INFINITY, result, DELTA);
+    }
+
+    @Test
+    public void testPow_negativeZeroOddPositiveY_returnsNegativeZero() {
+        double result = FastMath.pow(-0.0, 3.0);
+        assertEquals(0.0, result, DELTA);
+        assertTrue(1 / result < 0);
+    }
+
+    @Test
+    public void testPow_xPositiveInfinityYNan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.pow(Double.POSITIVE_INFINITY, Double.NaN)));
+    }
+
+    @Test
+    public void testPow_xPositiveInfinityYNegative_returnsZero() {
+        assertEquals(0.0, FastMath.pow(Double.POSITIVE_INFINITY, -1.0), DELTA);
+    }
+
+    @Test
+    public void testPow_xPositiveInfinityYPositive_returnsPositiveInfinity() {
+        assertEquals(Double.POSITIVE_INFINITY, FastMath.pow(Double.POSITIVE_INFINITY, 1.0), DELTA);
+    }
+
+    @Test
+    public void testPow_yPositiveInfinityXEqualsOne_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.pow(1.0, Double.POSITIVE_INFINITY)));
+    }
+
+    @Test
+    public void testPow_yPositiveInfinityXGreaterThanOne_returnsPositiveInfinity() {
+        assertEquals(Double.POSITIVE_INFINITY, FastMath.pow(2.0, Double.POSITIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testPow_yPositiveInfinityXLessThanOne_returnsZero() {
+        assertEquals(0.0, FastMath.pow(0.5, Double.POSITIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testPow_xNegativeInfinityYNan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.pow(Double.NEGATIVE_INFINITY, Double.NaN)));
+    }
+
+    @Test
+    public void testPow_xNegativeInfinityYNegativeOdd_returnsNegativeZero() {
+        double result = FastMath.pow(Double.NEGATIVE_INFINITY, -3.0);
+        assertEquals(0.0, result, DELTA);
+    }
+
+    @Test
+    public void testPow_xNegativeInfinityYNegativeEven_returnsZero() {
+        double result = FastMath.pow(Double.NEGATIVE_INFINITY, -2.0);
+        assertEquals(0.0, result, DELTA);
+    }
+
+    @Test
+    public void testPow_xNegativeInfinityYPositiveOdd_returnsNegativeInfinity() {
+        double result = FastMath.pow(Double.NEGATIVE_INFINITY, 3.0);
+        assertEquals(Double.NEGATIVE_INFINITY, result, DELTA);
+    }
+
+    @Test
+    public void testPow_xNegativeInfinityYPositiveEven_returnsPositiveInfinity() {
+        double result = FastMath.pow(Double.NEGATIVE_INFINITY, 2.0);
+        assertEquals(Double.POSITIVE_INFINITY, result, DELTA);
+    }
+
+    @Test
+    public void testPow_yNegativeInfinityXEqualsOne_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.pow(1.0, Double.NEGATIVE_INFINITY)));
+    }
+
+    @Test
+    public void testPow_yNegativeInfinityXLessThanOne_returnsPositiveInfinity() {
+        assertEquals(Double.POSITIVE_INFINITY, FastMath.pow(0.5, Double.NEGATIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testPow_yNegativeInfinityXGreaterThanOne_returnsZero() {
+        assertEquals(0.0, FastMath.pow(2.0, Double.NEGATIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testPow_xNegativeYVeryLargeEven_returnsPowOfPositive() {
+        double result = FastMath.pow(-2.0, 5e15);
+        double expected = FastMath.pow(2.0, 5e15);
+        assertEquals(expected, result, DELTA);
+    }
+
+    @Test
+    public void testPow_xNegativeYIntegerEven_returnsPositiveResult() {
+        assertEquals(4.0, FastMath.pow(-2.0, 2.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testPow_xNegativeYIntegerOdd_returnsNegativeResult() {
+        assertEquals(-8.0, FastMath.pow(-2.0, 3.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testPow_xNegativeYNonInteger_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.pow(-2.0, 2.5)));
+    }
+
+    @Test
+    public void testPow_typicalPositiveValues_returnsCorrectResult() {
+        assertEquals(Math.pow(2.0, 10.0), FastMath.pow(2.0, 10.0), Math.pow(2.0, 10.0) * 1e-9);
+    }
+
+    @Test
+    public void testPow_fractionalExponent_returnsCorrectResult() {
+        assertEquals(Math.pow(4.0, 0.5), FastMath.pow(4.0, 0.5), LOOSE_DELTA);
+    }
+
+    // ---------- sin ----------
+    @Test
+    public void testSin_zero_returnsZero() {
+        assertEquals(0.0, FastMath.sin(0.0), DELTA);
+    }
+
+    @Test
+    public void testSin_negativeZero_returnsNegativeZero() {
+        double result = FastMath.sin(-0.0);
+        assertEquals(0.0, result, DELTA);
+    }
+
+    @Test
+    public void testSin_nan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.sin(Double.NaN)));
+    }
+
+    @Test
+    public void testSin_positiveInfinity_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.sin(Double.POSITIVE_INFINITY)));
+    }
+
+    @Test
+    public void testSin_piOverTwo_returnsOne() {
+        assertEquals(1.0, FastMath.sin(Math.PI / 2.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testSin_negativeValue_returnsNegativeResult() {
+        assertEquals(Math.sin(-1.0), FastMath.sin(-1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testSin_largeValue_usesPayneHanek() {
+        double x = 4000000.0;
+        assertEquals(Math.sin(x), FastMath.sin(x), 1e-5);
+    }
+
+    @Test
+    public void testSin_valueInSecondQuadrant_returnsCorrectResult() {
+        double x = Math.PI - 0.5;
+        assertEquals(Math.sin(x), FastMath.sin(x), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testSin_moderateValueUsingCodyWaite_returnsCorrectResult() {
+        double x = 3.0;
+        assertEquals(Math.sin(x), FastMath.sin(x), LOOSE_DELTA);
+    }
+
+    // ---------- cos ----------
+    @Test
+    public void testCos_zero_returnsOne() {
+        assertEquals(1.0, FastMath.cos(0.0), DELTA);
+    }
+
+    @Test
+    public void testCos_nan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.cos(Double.NaN)));
+    }
+
+    @Test
+    public void testCos_positiveInfinity_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.cos(Double.POSITIVE_INFINITY)));
+    }
+
+    @Test
+    public void testCos_pi_returnsNegativeOne() {
+        assertEquals(-1.0, FastMath.cos(Math.PI), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testCos_negativeValue_returnsSameAsPositive() {
+        assertEquals(FastMath.cos(1.0), FastMath.cos(-1.0), DELTA);
+    }
+
+    @Test
+    public void testCos_largeValue_usesPayneHanek() {
+        double x = 4000000.0;
+        assertEquals(Math.cos(x), FastMath.cos(x), 1e-5);
+    }
+
+    @Test
+    public void testCos_moderateValueUsingCodyWaite_returnsCorrectResult() {
+        double x = 3.0;
+        assertEquals(Math.cos(x), FastMath.cos(x), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testCos_valueInThirdQuadrant_returnsCorrectResult() {
+        double x = Math.PI + 0.5;
+        assertEquals(Math.cos(x), FastMath.cos(x), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testCos_valueInFourthQuadrant_returnsCorrectResult() {
+        double x = 2 * Math.PI - 0.5;
+        assertEquals(Math.cos(x), FastMath.cos(x), LOOSE_DELTA);
+    }
+
+    // ---------- tan ----------
+    @Test
+    public void testTan_zero_returnsZero() {
+        assertEquals(0.0, FastMath.tan(0.0), DELTA);
+    }
+
+    @Test
+    public void testTan_negativeZero_returnsNegativeZero() {
+        double result = FastMath.tan(-0.0);
+        assertEquals(0.0, result, DELTA);
+    }
+
+    @Test
+    public void testTan_nan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.tan(Double.NaN)));
+    }
+
+    @Test
+    public void testTan_positiveInfinity_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.tan(Double.POSITIVE_INFINITY)));
+    }
+
+    @Test
+    public void testTan_piOverFour_returnsOne() {
+        assertEquals(1.0, FastMath.tan(Math.PI / 4.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testTan_negativeValue_returnsNegativeResult() {
+        assertEquals(Math.tan(-1.0), FastMath.tan(-1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testTan_largeValue_usesPayneHanek() {
+        double x = 4000000.0;
+        assertEquals(Math.tan(x), FastMath.tan(x), 1e-4);
+    }
+
+    @Test
+    public void testTan_valueNearPiOverTwo_usesAccuracyCorrection() {
+        double x = 1.55;
+        assertEquals(Math.tan(x), FastMath.tan(x), 1e-4);
+    }
+
+    @Test
+    public void testTan_moderateValue_returnsCorrectResult() {
+        double x = 2.0;
+        assertEquals(Math.tan(x), FastMath.tan(x), LOOSE_DELTA);
+    }
+
+    // ---------- atan ----------
+    @Test
+    public void testAtan_zero_returnsZero() {
+        assertEquals(0.0, FastMath.atan(0.0), DELTA);
+    }
+
+    @Test
+    public void testAtan_one_returnsPiOverFour() {
+        assertEquals(Math.PI / 4.0, FastMath.atan(1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAtan_negativeValue_returnsNegativeResult() {
+        assertEquals(-FastMath.atan(1.0), FastMath.atan(-1.0), DELTA);
+    }
+
+    @Test
+    public void testAtan_veryLargeValue_returnsPiOverTwo() {
+        assertEquals(Math.PI / 2.0, FastMath.atan(1e17), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAtan_veryLargeNegativeValue_returnsNegativePiOverTwo() {
+        assertEquals(-Math.PI / 2.0, FastMath.atan(-1e17), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAtan_valueGreaterThanOne_returnsCorrectResult() {
+        assertEquals(Math.atan(5.0), FastMath.atan(5.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAtan_valueLessThanOne_returnsCorrectResult() {
+        assertEquals(Math.atan(0.5), FastMath.atan(0.5), LOOSE_DELTA);
+    }
+
+    // ---------- atan2 ----------
+    @Test
+    public void testAtan2_xNanYNan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.atan2(Double.NaN, 1.0)));
+    }
+
+    @Test
+    public void testAtan2_yZeroXPositive_returnsZero() {
+        assertEquals(0.0, FastMath.atan2(0.0, 1.0), DELTA);
+    }
+
+    @Test
+    public void testAtan2_yZeroXNegative_returnsPi() {
+        assertEquals(Math.PI, FastMath.atan2(0.0, -1.0), DELTA);
+    }
+
+    @Test
+    public void testAtan2_yZeroXZero_returnsZero() {
+        assertEquals(0.0, FastMath.atan2(0.0, 0.0), DELTA);
+    }
+
+    @Test
+    public void testAtan2_yPositiveInfinityXPositiveInfinity_returnsPiOverFour() {
+        assertEquals(Math.PI / 4.0, FastMath.atan2(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testAtan2_yPositiveInfinityXNegativeInfinity_returnsThreePiOverFour() {
+        assertEquals(Math.PI * 3.0 / 4.0, FastMath.atan2(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testAtan2_yPositiveInfinityXFinite_returnsPiOverTwo() {
+        assertEquals(Math.PI / 2.0, FastMath.atan2(Double.POSITIVE_INFINITY, 1.0), DELTA);
+    }
+
+    @Test
+    public void testAtan2_yNegativeInfinityXPositiveInfinity_returnsNegativePiOverFour() {
+        assertEquals(-Math.PI / 4.0, FastMath.atan2(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testAtan2_yNegativeInfinityXNegativeInfinity_returnsNegativeThreePiOverFour() {
+        assertEquals(-Math.PI * 3.0 / 4.0, FastMath.atan2(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testAtan2_yNegativeInfinityXFinite_returnsNegativePiOverTwo() {
+        assertEquals(-Math.PI / 2.0, FastMath.atan2(Double.NEGATIVE_INFINITY, 1.0), DELTA);
+    }
+
+    @Test
+    public void testAtan2_xPositiveInfinityYPositive_returnsZero() {
+        assertEquals(0.0, FastMath.atan2(1.0, Double.POSITIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testAtan2_xPositiveInfinityYNegative_returnsNegativeZero() {
+        double result = FastMath.atan2(-1.0, Double.POSITIVE_INFINITY);
+        assertEquals(0.0, result, DELTA);
+    }
+
+    @Test
+    public void testAtan2_xNegativeInfinityYPositive_returnsPi() {
+        assertEquals(Math.PI, FastMath.atan2(1.0, Double.NEGATIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testAtan2_xNegativeInfinityYNegative_returnsNegativePi() {
+        assertEquals(-Math.PI, FastMath.atan2(-1.0, Double.NEGATIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testAtan2_xZeroYPositive_returnsPiOverTwo() {
+        assertEquals(Math.PI / 2.0, FastMath.atan2(1.0, 0.0), DELTA);
+    }
+
+    @Test
+    public void testAtan2_xZeroYNegative_returnsNegativePiOverTwo() {
+        assertEquals(-Math.PI / 2.0, FastMath.atan2(-1.0, 0.0), DELTA);
+    }
+
+    @Test
+    public void testAtan2_typicalValues_returnsCorrectResult() {
+        assertEquals(Math.atan2(1.0, 1.0), FastMath.atan2(1.0, 1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAtan2_xNegativeYPositive_returnsCorrectResult() {
+        assertEquals(Math.atan2(1.0, -1.0), FastMath.atan2(1.0, -1.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAtan2_largeXValue_usesScaling() {
+        double x = 9e298;
+        double y = 1e290;
+        double result = FastMath.atan2(y, x);
+        assertEquals(Math.atan2(y, x), result, LOOSE_DELTA);
+    }
+
+    // ---------- asin ----------
+    @Test
+    public void testAsin_nan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.asin(Double.NaN)));
+    }
+
+    @Test
+    public void testAsin_greaterThanOne_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.asin(1.5)));
+    }
+
+    @Test
+    public void testAsin_lessThanNegativeOne_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.asin(-1.5)));
+    }
+
+    @Test
+    public void testAsin_one_returnsPiOverTwo() {
+        assertEquals(Math.PI / 2.0, FastMath.asin(1.0), DELTA);
+    }
+
+    @Test
+    public void testAsin_negativeOne_returnsNegativePiOverTwo() {
+        assertEquals(-Math.PI / 2.0, FastMath.asin(-1.0), DELTA);
+    }
+
+    @Test
+    public void testAsin_zero_returnsZero() {
+        assertEquals(0.0, FastMath.asin(0.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAsin_typicalValue_returnsCorrectResult() {
+        assertEquals(Math.asin(0.5), FastMath.asin(0.5), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAsin_negativeTypicalValue_returnsCorrectResult() {
+        assertEquals(Math.asin(-0.5), FastMath.asin(-0.5), LOOSE_DELTA);
+    }
+
+    // ---------- acos ----------
+    @Test
+    public void testAcos_nan_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.acos(Double.NaN)));
+    }
+
+    @Test
+    public void testAcos_greaterThanOne_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.acos(1.5)));
+    }
+
+    @Test
+    public void testAcos_lessThanNegativeOne_returnsNaN() {
+        assertTrue(Double.isNaN(FastMath.acos(-1.5)));
+    }
+
+    @Test
+    public void testAcos_negativeOne_returnsPi() {
+        assertEquals(Math.PI, FastMath.acos(-1.0), DELTA);
+    }
+
+    @Test
+    public void testAcos_one_returnsZero() {
+        assertEquals(0.0, FastMath.acos(1.0), DELTA);
+    }
+
+    @Test
+    public void testAcos_zero_returnsPiOverTwo() {
+        assertEquals(Math.PI / 2.0, FastMath.acos(0.0), DELTA);
+    }
+
+    @Test
+    public void testAcos_typicalValue_returnsCorrectResult() {
+        assertEquals(Math.acos(0.5), FastMath.acos(0.5), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testAcos_negativeTypicalValue_returnsCorrectResult() {
+        assertEquals(Math.acos(-0.5), FastMath.acos(-0.5), LOOSE_DELTA);
+    }
+
+    // ---------- cbrt ----------
+    @Test
+    public void testCbrt_zero_returnsZero() {
+        assertEquals(0.0, FastMath.cbrt(0.0), DELTA);
+    }
+
+    @Test
+    public void testCbrt_eight_returnsTwo() {
+        assertEquals(2.0, FastMath.cbrt(8.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testCbrt_negativeEight_returnsNegativeTwo() {
+        assertEquals(-2.0, FastMath.cbrt(-8.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testCbrt_nan_returnsNan() {
+        assertTrue(Double.isNaN(FastMath.cbrt(Double.NaN)));
+    }
+
+    @Test
+    public void testCbrt_infinity_returnsInfinity() {
+        assertEquals(Double.POSITIVE_INFINITY, FastMath.cbrt(Double.POSITIVE_INFINITY), DELTA);
+    }
+
+    @Test
+    public void testCbrt_subnormalValue_returnsCorrectResult() {
+        double subnormal = Double.MIN_VALUE * 10;
+        double result = FastMath.cbrt(subnormal);
+        assertEquals(Math.cbrt(subnormal), result, Math.abs(Math.cbrt(subnormal)) * 1e-3);
+    }
+
+    @Test
+    public void testCbrt_typicalValue_returnsCorrectResult() {
+        assertEquals(Math.cbrt(27.0), FastMath.cbrt(27.0), LOOSE_DELTA);
+    }
+
+    // ---------- toRadians ----------
+    @Test
+    public void testToRadians_180Degrees_returnsPi() {
+        assertEquals(Math.PI, FastMath.toRadians(180.0), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testToRadians_zero_returnsZero() {
+        assertEquals(0.0, FastMath.toRadians(0.0), DELTA);
+    }
+
+    @Test
+    public void testToRadians_negativeValue_returnsCorrectResult() {
+        assertEquals(Math.toRadians(-90.0), FastMath.toRadians(-90.0), LOOSE_DELTA);
+    }
+
+    // ---------- toDegrees ----------
+    @Test
+    public void testToDegrees_pi_returns180() {
+        assertEquals(180.0, FastMath.toDegrees(Math.PI), LOOSE_DELTA);
+    }
+
+    @Test
+    public void testToDegrees_zero_returnsZero() {
+        assertEquals(0.0, FastMath.toDegrees(0.0), DELTA);
+    }
+
+    @Test
+    public void testToDegrees_negativeValue_returnsCorrectResult() {
+        assertEquals(Math.toDegrees(-Math.PI), FastMath.toDegrees(-Math.PI), LOOSE_DELTA);
+    }
+
+    // ---------- abs(int) ----------
+    @Test
+    public void testAbsInt_positiveValue_returnsSameValue() {
+        assertEquals(5, FastMath.abs(5));
+    }
+
+    @Test
+    public void testAbsInt_negativeValue_returnsPositiveValue() {
+        assertEquals(5, FastMath.abs(-5));
+    }
+
+    @Test
+    public void testAbsInt_zero_returnsZero() {
+        assertEquals(0, FastMath.abs(0));
+    }
+
+    // ---------- abs(long) ----------
+    @Test
+    public void testAbsLong_positiveValue_returnsSameValue() {
+        assertEquals(5L, FastMath.abs(5L));
+    }
+
+    @Test
+    public void testAbsLong_negativeValue_returnsPositiveValue() {
+        assertEquals(5L, FastMath.abs(-5L));
+    }
+
+    @Test
+    public void testAbsLong_zero_returnsZero() {
+        assertEquals(0L, FastMath.abs(0L));
+    }
+
+    // ---------- abs(float) ----------
+    @Test
+    public void testAbsFloat_positiveValue_returnsSameValue() {
+        assertEquals(5.0f, FastMath.abs(5.0f), 1e-6f);
+    }
+
+    @Test
+    public void testAbsFloat_negativeValue_returnsPositiveValue() {
+        assertEquals(5.0f, FastMath.abs(-5.0f), 1e-6f);
+    }
+
+    @Test
+    public void testAbsFloat_zero_returnsZero() {
+        assertEquals(0.0f, FastMath.abs(0.0f), 1e-6f);
+    }
+
+    // ---------- abs(double) ----------
+    @Test
+    public void testAbsDouble_positiveValue_returnsSameValue() {
+        assertEquals(5.0, FastMath.abs(5.0), DELTA);
+    }
+
+    @Test
+    public void testAbsDouble_negativeValue_returnsPositiveValue() {
+        assertEquals(5.0, FastMath.abs(-5.0), DELTA);
+    }
+
+    @Test
+    public void testAbsDouble_zero_returnsZero() {
+        assertEquals(0.0, FastMath.abs(0.0), DELTA);
+    }
+
+    // ---------- ulp ----------
+    @Test
+    public void testUlp_typicalValue_returnsPositiveSmallValue() {
+        double result = FastMath.ulp(1.0);
+        assertTrue(result > 0);
+    }
+
+    @Test
+    public void testUlp_zero_returnsSmallestPositive() {
+        double result = FastMath.ulp(0.0);

@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "23",
+  "tool": "gemini",
+  "class": "org.joda.time.DateTimeZone",
+  "target_classes": [
+    "org.joda.time.DateTimeZone"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 50.89,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Time\\23\\DateTimeZone_20260926_041130.txt",
+  "test_file": "Gemini\\TestCode\\Time\\23\\DateTimeZoneTest.java",
+  "usage": {
+    "prompt_tokens": 12652,
+    "completion_tokens": 6153,
+    "total_tokens": 20169
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 102321,
+    "daily_remaining_tokens": 247679
+  },
+  "timestamp": "20260926_041130"
+}

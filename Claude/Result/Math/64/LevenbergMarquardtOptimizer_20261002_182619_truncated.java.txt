@@ -1,0 +1,128 @@
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import org.apache.commons.math.FunctionEvaluationException;
+import org.apache.commons.math.analysis.DifferentiableMultivariateVectorialFunction;
+import org.apache.commons.math.analysis.MultivariateMatrixFunction;
+import org.apache.commons.math.optimization.OptimizationException;
+import org.apache.commons.math.optimization.VectorialConvergenceChecker;
+import org.apache.commons.math.optimization.VectorialPointValuePair;
+import org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizer;
+
+/**
+ * Unit tests for {@link LevenbergMarquardtOptimizer}.
+ *
+ * These tests exercise the public API (constructor, setters and the
+ * inherited optimize(...) method) using simple hand-crafted least squares
+ * problems. No mocking framework is used; test functions are implemented
+ * as small inner classes implementing the real functional interfaces.
+ */
+public class LevenbergMarquardtOptimizerTest {
+
+    // ---------------------------------------------------------------
+    // Helper test functions
+    // ---------------------------------------------------------------
+
+    /** Linear model: f(x) = a*x + b, parameters = [a, b]. */
+    private static class LinearModel implements DifferentiableMultivariateVectorialFunction {
+        private final double[] xs;
+
+        LinearModel(double[] xs) {
+            this.xs = xs;
+        }
+
+        public double[] value(double[] point) throws FunctionEvaluationException {
+            double[] v = new double[xs.length];
+            for (int i = 0; i < xs.length; i++) {
+                v[i] = point[0] * xs[i] + point[1];
+            }
+            return v;
+        }
+
+        public MultivariateMatrixFunction jacobian() {
+            return new MultivariateMatrixFunction() {
+                public double[][] value(double[] point) throws FunctionEvaluationException {
+                    double[][] jac = new double[xs.length][2];
+                    for (int i = 0; i < xs.length; i++) {
+                        jac[i][0] = xs[i];
+                        jac[i][1] = 1.0;
+                    }
+                    return jac;
+                }
+            };
+        }
+    }
+
+    /** Model with 3 parameters where the third column of the jacobian is
+     *  always zero, forcing a rank deficient jacobian matrix. */
+    private static class RankDeficientModel implements DifferentiableMultivariateVectorialFunction {
+        private final double[] xs;
+
+        RankDeficientModel(double[] xs) {
+            this.xs = xs;
+        }
+
+        public double[] value(double[] point) throws FunctionEvaluationException {
+            double[] v = new double[xs.length];
+            for (int i = 0; i < xs.length; i++) {
+                v[i] = point[0] * xs[i] + point[1];
+                // point[2] intentionally unused -> rank deficiency
+            }
+            return v;
+        }
+
+        public MultivariateMatrixFunction jacobian() {
+            return new MultivariateMatrixFunction() {
+                public double[][] value(double[] point) throws FunctionEvaluationException {
+                    double[][] jac = new double[xs.length][3];
+                    for (int i = 0; i < xs.length; i++) {
+                        jac[i][0] = xs[i];
+                        jac[i][1] = 1.0;
+                        jac[i][2] = 0.0;
+                    }
+                    return jac;
+                }
+            };
+        }
+    }
+
+    /** Nonlinear model: f(x) = a^2 + b*x, parameters = [a, b]. */
+    private static class SquareModel implements DifferentiableMultivariateVectorialFunction {
+        private final double[] xs;
+
+        SquareModel(double[] xs) {
+            this.xs = xs;
+        }
+
+        public double[] value(double[] point) throws FunctionEvaluationException {
+            double[] v = new double[xs.length];
+            for (int i = 0; i < xs.length; i++) {
+                v[i] = point[0] * point[0] + point[1] * xs[i];
+            }
+            return v;
+        }
+
+        public MultivariateMatrixFunction jacobian() {
+            return new MultivariateMatrixFunction() {
+                public double[][] value(double[] point) throws FunctionEvaluationException {
+                    double[][] jac = new double[xs.length][2];
+                    for (int i = 0; i < xs.length; i++) {
+                        jac[i][0] = 2 * point[0];
+                        jac[i][1] = xs[i];
+                    }
+                    return jac;
+                }
+            };
+        }
+    }
+
+    /** Model that throws FunctionEvaluationException for negative parameter. */
+    private static class ThrowingModel implements DifferentiableMultivariateVectorialFunction {
+        public double[] value(double[] point) throws FunctionEvaluationException {
+            if (point[0] < 0) {
+                throw new FunctionEvaluationException(point);
+            }
+            return new double[] { point[0] };
+        }
+
+        public MultivariateMatrixFunction jacobian

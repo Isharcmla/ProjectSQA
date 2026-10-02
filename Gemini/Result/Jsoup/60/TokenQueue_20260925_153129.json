@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "60",
+  "tool": "gemini",
+  "class": "org.jsoup.parser.TokenQueue",
+  "target_classes": [
+    "org.jsoup.parser.TokenQueue"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 43.89,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\60\\TokenQueue_20260925_153129.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\60\\TokenQueueTest.java",
+  "usage": {
+    "prompt_tokens": 3410,
+    "completion_tokens": 3173,
+    "total_tokens": 9893
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 167155,
+    "daily_remaining_tokens": 182845
+  },
+  "timestamp": "20260925_153129"
+}

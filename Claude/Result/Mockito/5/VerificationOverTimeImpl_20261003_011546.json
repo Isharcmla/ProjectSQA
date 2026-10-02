@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "5",
+  "tool": "claude",
+  "class": "org.mockito.internal.verification.VerificationOverTimeImpl",
+  "target_classes": [
+    "org.mockito.internal.verification.VerificationOverTimeImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 103.21,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\5\\VerificationOverTimeImpl_20261003_011546.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\5\\VerificationOverTimeImplTest.java",
+  "usage": {
+    "prompt_tokens": 2840,
+    "completion_tokens": 13450,
+    "total_tokens": 16290
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 126784,
+    "daily_remaining_tokens": 73216
+  },
+  "timestamp": "20261003_011546"
+}

@@ -1,0 +1,814 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+public class OpenMapRealVectorTest {
+
+    private OpenMapRealVector vector;
+
+    @Before
+    public void setUp() {
+        vector = new OpenMapRealVector(5);
+    }
+
+    // ---------- Constructor Tests ----------
+
+    @Test
+    public void testDefaultConstructor_zeroLength_dimensionZero() {
+        OpenMapRealVector v = new OpenMapRealVector();
+        assertEquals(0, v.getDimension());
+    }
+
+    @Test
+    public void testDimensionConstructor_normalInput_allZeros() {
+        OpenMapRealVector v = new OpenMapRealVector(10);
+        assertEquals(10, v.getDimension());
+        for (int i = 0; i < 10; i++) {
+            assertEquals(0.0, v.getEntry(i), 0.0);
+        }
+    }
+
+    @Test
+    public void testDimensionEpsilonConstructor_customEpsilon_valuesWithinEpsilonAreZero() {
+        OpenMapRealVector v = new OpenMapRealVector(3, 0.5);
+        v.setEntry(0, 0.3);
+        assertEquals(0.0, v.getEntry(0), 0.0);
+    }
+
+    @Test
+    public void testDimensionExpectedSizeConstructor_normalInput_correctDimension() {
+        OpenMapRealVector v = new OpenMapRealVector(5, 2);
+        assertEquals(5, v.getDimension());
+    }
+
+    @Test
+    public void testDimensionExpectedSizeEpsilonConstructor_normalInput_correctDimension() {
+        OpenMapRealVector v = new OpenMapRealVector(5, 2, 0.01);
+        assertEquals(5, v.getDimension());
+    }
+
+    @Test
+    public void testDoubleArrayConstructor_normalInput_valuesStored() {
+        double[] data = {1.0, 0.0, 3.0};
+        OpenMapRealVector v = new OpenMapRealVector(data);
+        assertEquals(3, v.getDimension());
+        assertEquals(1.0, v.getEntry(0), 0.0);
+        assertEquals(0.0, v.getEntry(1), 0.0);
+        assertEquals(3.0, v.getEntry(2), 0.0);
+    }
+
+    @Test
+    public void testDoubleArrayEpsilonConstructor_valuesWithinEpsilon_treatedAsZero() {
+        double[] data = {0.0001, 5.0};
+        OpenMapRealVector v = new OpenMapRealVector(data, 0.001);
+        assertEquals(0.0, v.getEntry(0), 0.0);
+        assertEquals(5.0, v.getEntry(1), 0.0);
+    }
+
+    @Test
+    public void testDoubleObjectArrayConstructor_normalInput_valuesStored() {
+        Double[] data = {1.0, 0.0, 2.0};
+        OpenMapRealVector v = new OpenMapRealVector(data);
+        assertEquals(3, v.getDimension());
+        assertEquals(1.0, v.getEntry(0), 0.0);
+        assertEquals(2.0, v.getEntry(2), 0.0);
+    }
+
+    @Test
+    public void testDoubleObjectArrayEpsilonConstructor_valuesWithinEpsilon_treatedAsZero() {
+        Double[] data = {0.0001, 5.0};
+        OpenMapRealVector v = new OpenMapRealVector(data, 0.001);
+        assertEquals(0.0, v.getEntry(0), 0.0);
+        assertEquals(5.0, v.getEntry(1), 0.0);
+    }
+
+    @Test
+    public void testCopyConstructor_normalInput_copiesCorrectly() {
+        OpenMapRealVector original = new OpenMapRealVector(new double[]{1.0, 2.0, 3.0});
+        OpenMapRealVector copyVec = new OpenMapRealVector(original);
+        assertEquals(original.getDimension(), copyVec.getDimension());
+        assertEquals(original.getEntry(0), copyVec.getEntry(0), 0.0);
+    }
+
+    @Test
+    public void testGenericRealVectorConstructor_fromArrayRealVector_copiesCorrectly() {
+        ArrayRealVector arv = new ArrayRealVector(new double[]{1.0, 0.0, 3.0});
+        OpenMapRealVector v = new OpenMapRealVector((RealVector) arv);
+        assertEquals(3, v.getDimension());
+        assertEquals(1.0, v.getEntry(0), 0.0);
+        assertEquals(3.0, v.getEntry(2), 0.0);
+    }
+
+    // ---------- add ----------
+
+    @Test
+    public void testAddOpenMapRealVector_normalInput_sumCorrect() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0, 0.0});
+        OpenMapRealVector v2 = new OpenMapRealVector(new double[]{0.0, 1.0, 3.0});
+        OpenMapRealVector result = v1.add(v2);
+        assertEquals(1.0, result.getEntry(0), 0.0);
+        assertEquals(3.0, result.getEntry(1), 0.0);
+        assertEquals(3.0, result.getEntry(2), 0.0);
+    }
+
+    @Test
+    public void testAddOpenMapRealVector_largerEntriesInV_copiesV() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 0.0, 0.0});
+        OpenMapRealVector v2 = new OpenMapRealVector(new double[]{1.0, 2.0, 3.0});
+        OpenMapRealVector result = v1.add(v2);
+        assertEquals(2.0, result.getEntry(0), 0.0);
+        assertEquals(2.0, result.getEntry(1), 0.0);
+        assertEquals(3.0, result.getEntry(2), 0.0);
+    }
+
+    @Test
+    public void testAddRealVector_withOpenMapInstance_usesOptimizedPath() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        RealVector v2 = new OpenMapRealVector(new double[]{3.0, 4.0});
+        RealVector result = v1.add(v2);
+        assertEquals(4.0, result.getEntry(0), 0.0);
+        assertEquals(6.0, result.getEntry(1), 0.0);
+    }
+
+    @Test
+    public void testAddRealVector_withNonOpenMapInstance_usesSuperAdd() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        RealVector v2 = new ArrayRealVector(new double[]{3.0, 4.0});
+        RealVector result = v1.add(v2);
+        assertEquals(4.0, result.getEntry(0), 0.0);
+        assertEquals(6.0, result.getEntry(1), 0.0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddOpenMapRealVector_mismatchedDimensions_throwsException() {
+        OpenMapRealVector v1 = new OpenMapRealVector(3);
+        OpenMapRealVector v2 = new OpenMapRealVector(4);
+        v1.add(v2);
+    }
+
+    // ---------- append ----------
+
+    @Test
+    public void testAppendOpenMapRealVector_normalInput_appendsCorrectly() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        OpenMapRealVector v2 = new OpenMapRealVector(new double[]{3.0, 4.0});
+        OpenMapRealVector result = v1.append(v2);
+        assertEquals(4, result.getDimension());
+        assertEquals(1.0, result.getEntry(0), 0.0);
+        assertEquals(2.0, result.getEntry(1), 0.0);
+        assertEquals(3.0, result.getEntry(2), 0.0);
+        assertEquals(4.0, result.getEntry(3), 0.0);
+    }
+
+    @Test
+    public void testAppendRealVector_withOpenMapInstance_usesOptimizedPath() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0});
+        RealVector v2 = new OpenMapRealVector(new double[]{2.0});
+        OpenMapRealVector result = v1.append(v2);
+        assertEquals(2, result.getDimension());
+        assertEquals(2.0, result.getEntry(1), 0.0);
+    }
+
+    @Test
+    public void testAppendRealVector_withNonOpenMapInstance_usesDataArrayPath() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0});
+        RealVector v2 = new ArrayRealVector(new double[]{2.0, 3.0});
+        OpenMapRealVector result = v1.append(v2);
+        assertEquals(3, result.getDimension());
+        assertEquals(2.0, result.getEntry(1), 0.0);
+        assertEquals(3.0, result.getEntry(2), 0.0);
+    }
+
+    @Test
+    public void testAppendDouble_normalInput_appendsSingleValue() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        OpenMapRealVector result = v1.append(5.0);
+        assertEquals(3, result.getDimension());
+        assertEquals(5.0, result.getEntry(2), 0.0);
+    }
+
+    @Test
+    public void testAppendDoubleArray_normalInput_appendsAllValues() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0});
+        OpenMapRealVector result = v1.append(new double[]{2.0, 3.0});
+        assertEquals(3, result.getDimension());
+        assertEquals(2.0, result.getEntry(1), 0.0);
+        assertEquals(3.0, result.getEntry(2), 0.0);
+    }
+
+    // ---------- copy ----------
+
+    @Test
+    public void testCopy_normalInput_producesEqualButIndependentCopy() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        OpenMapRealVector c = v.copy();
+        assertEquals(v.getEntry(0), c.getEntry(0), 0.0);
+        c.setEntry(0, 99.0);
+        assertEquals(1.0, v.getEntry(0), 0.0);
+    }
+
+    // ---------- dotProduct ----------
+
+    @Test
+    public void testDotProductOpenMapRealVector_normalInput_correctResult() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0, 3.0});
+        OpenMapRealVector v2 = new OpenMapRealVector(new double[]{4.0, 5.0, 6.0});
+        double result = v1.dotProduct(v2);
+        assertEquals(32.0, result, 0.0001);
+    }
+
+    @Test
+    public void testDotProductRealVector_withOpenMapInstance_usesOptimizedPath() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        RealVector v2 = new OpenMapRealVector(new double[]{3.0, 4.0});
+        double result = v1.dotProduct(v2);
+        assertEquals(11.0, result, 0.0001);
+    }
+
+    @Test
+    public void testDotProductRealVector_withNonOpenMapInstance_usesSuperDotProduct() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        RealVector v2 = new ArrayRealVector(new double[]{3.0, 4.0});
+        double result = v1.dotProduct(v2);
+        assertEquals(11.0, result, 0.0001);
+    }
+
+    // ---------- ebeDivide ----------
+
+    @Test
+    public void testEbeDivideRealVector_normalInput_correctResult() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{10.0, 20.0});
+        RealVector divisor = new ArrayRealVector(new double[]{2.0, 4.0});
+        OpenMapRealVector result = v.ebeDivide(divisor);
+        assertEquals(5.0, result.getEntry(0), 0.0001);
+        assertEquals(5.0, result.getEntry(1), 0.0001);
+    }
+
+    @Test
+    public void testEbeDivideDoubleArray_normalInput_correctResult() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{10.0, 20.0});
+        double[] divisor = {2.0, 5.0};
+        OpenMapRealVector result = v.ebeDivide(divisor);
+        assertEquals(5.0, result.getEntry(0), 0.0001);
+        assertEquals(4.0, result.getEntry(1), 0.0001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testEbeDivideDoubleArray_mismatchedDimension_throwsException() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        v.ebeDivide(new double[]{1.0});
+    }
+
+    // ---------- ebeMultiply ----------
+
+    @Test
+    public void testEbeMultiplyRealVector_normalInput_correctResult() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{2.0, 3.0});
+        RealVector multiplier = new ArrayRealVector(new double[]{4.0, 5.0});
+        OpenMapRealVector result = v.ebeMultiply(multiplier);
+        assertEquals(8.0, result.getEntry(0), 0.0001);
+        assertEquals(15.0, result.getEntry(1), 0.0001);
+    }
+
+    @Test
+    public void testEbeMultiplyDoubleArray_normalInput_correctResult() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{2.0, 3.0});
+        double[] multiplier = {4.0, 5.0};
+        OpenMapRealVector result = v.ebeMultiply(multiplier);
+        assertEquals(8.0, result.getEntry(0), 0.0001);
+        assertEquals(15.0, result.getEntry(1), 0.0001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testEbeMultiplyDoubleArray_mismatchedDimension_throwsException() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        v.ebeMultiply(new double[]{1.0});
+    }
+
+    // ---------- getSubVector ----------
+
+    @Test
+    public void testGetSubVector_normalInput_correctSubVector() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0, 3.0, 4.0, 5.0});
+        OpenMapRealVector sub = v.getSubVector(1, 3);
+        assertEquals(3, sub.getDimension());
+        assertEquals(2.0, sub.getEntry(0), 0.0);
+        assertEquals(3.0, sub.getEntry(1), 0.0);
+        assertEquals(4.0, sub.getEntry(2), 0.0);
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetSubVector_outOfBoundsIndex_throwsException() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0, 3.0});
+        v.getSubVector(1, 5);
+    }
+
+    // ---------- getData / toArray ----------
+
+    @Test
+    public void testGetData_normalInput_returnsCorrectArray() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 0.0, 3.0});
+        double[] data = v.getData();
+        assertArrayEquals(new double[]{1.0, 0.0, 3.0}, data, 0.0001);
+    }
+
+    @Test
+    public void testToArray_normalInput_returnsCorrectArray() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{5.0, 6.0});
+        double[] data = v.toArray();
+        assertArrayEquals(new double[]{5.0, 6.0}, data, 0.0001);
+    }
+
+    // ---------- getDimension ----------
+
+    @Test
+    public void testGetDimension_normalInput_correctValue() {
+        OpenMapRealVector v = new OpenMapRealVector(7);
+        assertEquals(7, v.getDimension());
+    }
+
+    @Test
+    public void testGetDimension_zeroDimension_returnsZero() {
+        OpenMapRealVector v = new OpenMapRealVector(0);
+        assertEquals(0, v.getDimension());
+    }
+
+    // ---------- getDistance ----------
+
+    @Test
+    public void testGetDistanceOpenMapRealVector_normalInput_correctResult() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{0.0, 3.0, 0.0});
+        OpenMapRealVector v2 = new OpenMapRealVector(new double[]{0.0, 0.0, 4.0});
+        double dist = v1.getDistance(v2);
+        assertEquals(5.0, dist, 0.0001);
+    }
+
+    @Test
+    public void testGetDistanceRealVector_withOpenMapInstance_usesOptimizedPath() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{0.0, 3.0});
+        RealVector v2 = new OpenMapRealVector(new double[]{4.0, 0.0});
+        double dist = v1.getDistance(v2);
+        assertEquals(5.0, dist, 0.0001);
+    }
+
+    @Test
+    public void testGetDistanceRealVector_withNonOpenMapInstance_usesDataArrayPath() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{0.0, 3.0});
+        RealVector v2 = new ArrayRealVector(new double[]{4.0, 0.0});
+        double dist = v1.getDistance(v2);
+        assertEquals(5.0, dist, 0.0001);
+    }
+
+    @Test
+    public void testGetDistanceDoubleArray_normalInput_correctResult() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{0.0, 3.0});
+        double[] v2 = {4.0, 0.0};
+        double dist = v1.getDistance(v2);
+        assertEquals(5.0, dist, 0.0001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetDistanceDoubleArray_mismatchedDimension_throwsException() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        v1.getDistance(new double[]{1.0});
+    }
+
+    // ---------- getEntry ----------
+
+    @Test
+    public void testGetEntry_normalInput_correctValue() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0, 3.0});
+        assertEquals(2.0, v.getEntry(1), 0.0);
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetEntry_negativeIndex_throwsException() {
+        OpenMapRealVector v = new OpenMapRealVector(3);
+        v.getEntry(-1);
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetEntry_outOfBoundsIndex_throwsException() {
+        OpenMapRealVector v = new OpenMapRealVector(3);
+        v.getEntry(5);
+    }
+
+    // ---------- getL1Distance ----------
+
+    @Test
+    public void testGetL1DistanceOpenMapRealVector_normalInput_correctResult() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        OpenMapRealVector v2 = new OpenMapRealVector(new double[]{3.0, 0.0});
+        double dist = v1.getL1Distance(v2);
+        assertEquals(4.0, dist, 0.0001);
+    }
+
+    @Test
+    public void testGetL1DistanceRealVector_withOpenMapInstance_usesOptimizedPath() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        RealVector v2 = new OpenMapRealVector(new double[]{3.0, 0.0});
+        double dist = v1.getL1Distance(v2);
+        assertEquals(4.0, dist, 0.0001);
+    }
+
+    @Test
+    public void testGetL1DistanceRealVector_withNonOpenMapInstance_usesDataArrayPath() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        RealVector v2 = new ArrayRealVector(new double[]{3.0, 0.0});
+        double dist = v1.getL1Distance(v2);
+        assertEquals(4.0, dist, 0.0001);
+    }
+
+    @Test
+    public void testGetL1DistanceDoubleArray_normalInput_correctResult() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        double[] v2 = {3.0, 0.0};
+        double dist = v1.getL1Distance(v2);
+        assertEquals(4.0, dist, 0.0001);
+    }
+
+    // ---------- getLInfNorm ----------
+
+    @Test
+    public void testGetLInfNorm_normalInput_correctSumOfValues() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0, 3.0});
+        double norm = v.getLInfNorm();
+        assertEquals(6.0, norm, 0.0001);
+    }
+
+    // ---------- getLInfDistance ----------
+
+    @Test
+    public void testGetLInfDistanceRealVector_withOpenMapInstance_usesOptimizedPath() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        RealVector v2 = new OpenMapRealVector(new double[]{3.0, 0.0});
+        double dist = v1.getLInfDistance(v2);
+        assertEquals(2.0, dist, 0.0001);
+    }
+
+    @Test
+    public void testGetLInfDistanceRealVector_withNonOpenMapInstance_usesDataArrayPath() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        RealVector v2 = new ArrayRealVector(new double[]{3.0, 0.0});
+        double dist = v1.getLInfDistance(v2);
+        assertEquals(2.0, dist, 0.0001);
+    }
+
+    @Test
+    public void testGetLInfDistanceDoubleArray_normalInput_correctResult() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        double[] v2 = {3.0, 0.0};
+        double dist = v1.getLInfDistance(v2);
+        assertEquals(2.0, dist, 0.0001);
+    }
+
+    // ---------- isInfinite ----------
+
+    @Test
+    public void testIsInfinite_noInfiniteValues_returnsFalse() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        assertFalse(v.isInfinite());
+    }
+
+    @Test
+    public void testIsInfinite_hasInfiniteValue_returnsTrue() {
+        OpenMapRealVector v = new OpenMapRealVector(3);
+        v.setEntry(0, Double.POSITIVE_INFINITY);
+        assertTrue(v.isInfinite());
+    }
+
+    @Test
+    public void testIsInfinite_hasNaNValue_returnsFalse() {
+        OpenMapRealVector v = new OpenMapRealVector(3);
+        v.setEntry(0, Double.NaN);
+        assertFalse(v.isInfinite());
+    }
+
+    // ---------- isNaN ----------
+
+    @Test
+    public void testIsNaN_noNaNValues_returnsFalse() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        assertFalse(v.isNaN());
+    }
+
+    @Test
+    public void testIsNaN_hasNaNValue_returnsTrue() {
+        OpenMapRealVector v = new OpenMapRealVector(3);
+        v.setEntry(0, Double.NaN);
+        assertTrue(v.isNaN());
+    }
+
+    // ---------- mapAdd / mapAddToSelf ----------
+
+    @Test
+    public void testMapAdd_normalInput_returnsNewVectorWithAddedValue() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        OpenMapRealVector result = v.mapAdd(5.0);
+        assertEquals(6.0, result.getEntry(0), 0.0001);
+        assertEquals(7.0, result.getEntry(1), 0.0001);
+        assertEquals(1.0, v.getEntry(0), 0.0001);
+    }
+
+    @Test
+    public void testMapAddToSelf_normalInput_modifiesInPlace() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        OpenMapRealVector result = v.mapAddToSelf(3.0);
+        assertSame(v, result);
+        assertEquals(4.0, v.getEntry(0), 0.0001);
+        assertEquals(5.0, v.getEntry(1), 0.0001);
+    }
+
+    // ---------- outerProduct ----------
+
+    @Test
+    public void testOuterProduct_normalInput_correctMatrix() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        double[] other = {3.0, 4.0};
+        RealMatrix result = v.outerProduct(other);
+        assertEquals(3.0, result.getEntry(0, 0), 0.0001);
+        assertEquals(4.0, result.getEntry(0, 1), 0.0001);
+        assertEquals(6.0, result.getEntry(1, 0), 0.0001);
+        assertEquals(8.0, result.getEntry(1, 1), 0.0001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testOuterProduct_mismatchedDimension_throwsException() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        v.outerProduct(new double[]{1.0});
+    }
+
+    // ---------- projection ----------
+
+    @Test
+    public void testProjectionRealVector_normalInput_correctResult() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 0.0});
+        RealVector onto = new ArrayRealVector(new double[]{2.0, 0.0});
+        RealVector result = v.projection(onto);
+        assertEquals(1.0, result.getEntry(0), 0.0001);
+        assertEquals(0.0, result.getEntry(1), 0.0001);
+    }
+
+    @Test
+    public void testProjectionDoubleArray_normalInput_correctResult() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 0.0});
+        double[] onto = {2.0, 0.0};
+        OpenMapRealVector result = v.projection(onto);
+        assertEquals(1.0, result.getEntry(0), 0.0001);
+        assertEquals(0.0, result.getEntry(1), 0.0001);
+    }
+
+    // ---------- setEntry ----------
+
+    @Test
+    public void testSetEntry_normalValue_setsCorrectly() {
+        OpenMapRealVector v = new OpenMapRealVector(3);
+        v.setEntry(1, 5.0);
+        assertEquals(5.0, v.getEntry(1), 0.0001);
+    }
+
+    @Test
+    public void testSetEntry_zeroValue_removesEntry() {
+        OpenMapRealVector v = new OpenMapRealVector(3);
+        v.setEntry(1, 5.0);
+        v.setEntry(1, 0.0);
+        assertEquals(0.0, v.getEntry(1), 0.0001);
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testSetEntry_outOfBoundsIndex_throwsException() {
+        OpenMapRealVector v = new OpenMapRealVector(3);
+        v.setEntry(10, 5.0);
+    }
+
+    // ---------- setSubVector ----------
+
+    @Test
+    public void testSetSubVectorRealVector_normalInput_setsCorrectly() {
+        OpenMapRealVector v = new OpenMapRealVector(5);
+        RealVector sub = new ArrayRealVector(new double[]{9.0, 8.0});
+        v.setSubVector(1, sub);
+        assertEquals(9.0, v.getEntry(1), 0.0001);
+        assertEquals(8.0, v.getEntry(2), 0.0001);
+    }
+
+    @Test
+    public void testSetSubVectorDoubleArray_normalInput_setsCorrectly() {
+        OpenMapRealVector v = new OpenMapRealVector(5);
+        double[] sub = {9.0, 8.0};
+        v.setSubVector(1, sub);
+        assertEquals(9.0, v.getEntry(1), 0.0001);
+        assertEquals(8.0, v.getEntry(2), 0.0001);
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testSetSubVectorDoubleArray_outOfBoundsIndex_throwsException() {
+        OpenMapRealVector v = new OpenMapRealVector(3);
+        v.setSubVector(2, new double[]{1.0, 2.0, 3.0});
+    }
+
+    // ---------- set ----------
+
+    @Test
+    public void testSet_normalInput_setsAllEntries() {
+        OpenMapRealVector v = new OpenMapRealVector(3);
+        v.set(7.0);
+        for (int i = 0; i < 3; i++) {
+            assertEquals(7.0, v.getEntry(i), 0.0001);
+        }
+    }
+
+    // ---------- subtract ----------
+
+    @Test
+    public void testSubtractOpenMapRealVector_normalInput_correctResult() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{5.0, 3.0});
+        OpenMapRealVector v2 = new OpenMapRealVector(new double[]{2.0, 1.0});
+        OpenMapRealVector result = v1.subtract(v2);
+        assertEquals(3.0, result.getEntry(0), 0.0001);
+        assertEquals(2.0, result.getEntry(1), 0.0001);
+    }
+
+    @Test
+    public void testSubtractOpenMapRealVector_entryNotInThis_negatesValue() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{0.0, 3.0});
+        OpenMapRealVector v2 = new OpenMapRealVector(new double[]{2.0, 1.0});
+        OpenMapRealVector result = v1.subtract(v2);
+        assertEquals(-2.0, result.getEntry(0), 0.0001);
+        assertEquals(2.0, result.getEntry(1), 0.0001);
+    }
+
+    @Test
+    public void testSubtractRealVector_withOpenMapInstance_usesOptimizedPath() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{5.0, 3.0});
+        RealVector v2 = new OpenMapRealVector(new double[]{2.0, 1.0});
+        OpenMapRealVector result = v1.subtract(v2);
+        assertEquals(3.0, result.getEntry(0), 0.0001);
+        assertEquals(2.0, result.getEntry(1), 0.0001);
+    }
+
+    @Test
+    public void testSubtractRealVector_withNonOpenMapInstance_usesDataArrayPath() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{5.0, 3.0});
+        RealVector v2 = new ArrayRealVector(new double[]{2.0, 1.0});
+        OpenMapRealVector result = v1.subtract(v2);
+        assertEquals(3.0, result.getEntry(0), 0.0001);
+        assertEquals(2.0, result.getEntry(1), 0.0001);
+    }
+
+    @Test
+    public void testSubtractDoubleArray_normalInput_correctResult() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{5.0, 0.0});
+        double[] v2 = {2.0, 1.0};
+        OpenMapRealVector result = v1.subtract(v2);
+        assertEquals(3.0, result.getEntry(0), 0.0001);
+        assertEquals(-1.0, result.getEntry(1), 0.0001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSubtractDoubleArray_mismatchedDimension_throwsException() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        v1.subtract(new double[]{1.0});
+    }
+
+    // ---------- unitVector / unitize ----------
+
+    @Test
+    public void testUnitVector_normalInput_returnsNormalizedVector() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{3.0, 4.0});
+        OpenMapRealVector unit = v.unitVector();
+        assertEquals(0.6, unit.getEntry(0), 0.0001);
+        assertEquals(0.8, unit.getEntry(1), 0.0001);
+        // original unaffected
+        assertEquals(3.0, v.getEntry(0), 0.0001);
+    }
+
+    @Test
+    public void testUnitize_normalInput_modifiesInPlace() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{3.0, 4.0});
+        v.unitize();
+        assertEquals(0.6, v.getEntry(0), 0.0001);
+        assertEquals(0.8, v.getEntry(1), 0.0001);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testUnitize_zeroNormVector_throwsException() {
+        OpenMapRealVector v = new OpenMapRealVector(3);
+        v.unitize();
+    }
+
+    // ---------- hashCode ----------
+
+    @Test
+    public void testHashCode_equalVectors_sameHashCode() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        OpenMapRealVector v2 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        assertEquals(v1.hashCode(), v2.hashCode());
+    }
+
+    @Test
+    public void testHashCode_differentVectors_notNecessarilyEqualButConsistent() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        int hash1 = v1.hashCode();
+        int hash2 = v1.hashCode();
+        assertEquals(hash1, hash2);
+    }
+
+    // ---------- equals ----------
+
+    @Test
+    public void testEquals_sameInstance_returnsTrue() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        assertTrue(v.equals(v));
+    }
+
+    @Test
+    public void testEquals_null_returnsFalse() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        assertFalse(v.equals(null));
+    }
+
+    @Test
+    public void testEquals_differentClass_returnsFalse() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        assertFalse(v.equals("not a vector"));
+    }
+
+    @Test
+    public void testEquals_differentDimension_returnsFalse() {
+        OpenMapRealVector v1 = new OpenMapRealVector(2);
+        OpenMapRealVector v2 = new OpenMapRealVector(3);
+        assertFalse(v1.equals(v2));
+    }
+
+    @Test
+    public void testEquals_differentEpsilon_returnsFalse() {
+        OpenMapRealVector v1 = new OpenMapRealVector(3, 0.1);
+        OpenMapRealVector v2 = new OpenMapRealVector(3, 0.2);
+        assertFalse(v1.equals(v2));
+    }
+
+    @Test
+    public void testEquals_equalVectors_returnsTrue() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0, 3.0});
+        OpenMapRealVector v2 = new OpenMapRealVector(new double[]{1.0, 2.0, 3.0});
+        assertTrue(v1.equals(v2));
+    }
+
+    @Test
+    public void testEquals_differentValues_returnsFalse() {
+        OpenMapRealVector v1 = new OpenMapRealVector(new double[]{1.0, 2.0});
+        OpenMapRealVector v2 = new OpenMapRealVector(new double[]{1.0, 9.0});
+        assertFalse(v1.equals(v2));
+    }
+
+    // ---------- getSparcity ----------
+
+    @Test
+    public void testGetSparcity_normalInput_correctRatio() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 0.0, 0.0, 4.0});
+        double sparcity = v.getSparcity();
+        assertEquals(0.5, sparcity, 0.0001);
+    }
+
+    @Test
+    public void testGetSparcity_allZeroVector_returnsZero() {
+        OpenMapRealVector v = new OpenMapRealVector(4);
+        double sparcity = v.getSparcity();
+        assertEquals(0.0, sparcity, 0.0001);
+    }
+
+    // ---------- sparseIterator ----------
+
+    @Test
+    public void testSparseIterator_normalInput_iteratesOverNonZeroEntries() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{0.0, 5.0, 0.0, 10.0});
+        java.util.Iterator<RealVector.Entry> iter = v.sparseIterator();
+        int count = 0;
+        double sum = 0.0;
+        while (iter.hasNext()) {
+            RealVector.Entry entry = iter.next();
+            sum += entry.getValue();
+            count++;
+            assertTrue(entry.getIndex() >= 0 && entry.getIndex() < 4);
+        }
+        assertEquals(2, count);
+        assertEquals(15.0, sum, 0.0001);
+    }
+
+    @Test
+    public void testSparseIterator_emptyVector_noElements() {
+        OpenMapRealVector v = new OpenMapRealVector(3);
+        java.util.Iterator<RealVector.Entry> iter = v.sparseIterator();
+        assertFalse(iter.hasNext());
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testSparseIterator_remove_throwsUnsupportedOperationException() {
+        OpenMapRealVector v = new OpenMapRealVector(new double[]{1.0, 2.0});
+        java.util.Iterator<RealVector.Entry> iter = v.sparseIterator();
+        iter.remove();
+    }
+
+    @Test
+    public

@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "88",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.jsontype.impl.ClassNameIdResolver"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 124.77,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\88\\ClassNameIdResolver_20260930_013535.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\88\\ClassNameIdResolverTest.java",
+  "usage": {
+    "prompt_tokens": 3220,
+    "completion_tokens": 14856,
+    "total_tokens": 18076
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 83348,
+    "daily_remaining_tokens": 116652
+  },
+  "timestamp": "20260930_013535"
+}

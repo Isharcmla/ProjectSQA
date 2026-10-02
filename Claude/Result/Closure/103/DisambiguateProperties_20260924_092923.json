@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "103",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.DisambiguateProperties",
+  "target_classes": [
+    "com.google.javascript.jscomp.DisambiguateProperties"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 142.32,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\103\\DisambiguateProperties_20260924_092923.txt",
+  "test_file": "Claude\\TestCode\\Closure\\103\\DisambiguatePropertiesTest.java",
+  "usage": {
+    "prompt_tokens": 13605,
+    "completion_tokens": 16278,
+    "total_tokens": 29883
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 29883,
+    "daily_remaining_tokens": 170117
+  },
+  "timestamp": "20260924_092923"
+}

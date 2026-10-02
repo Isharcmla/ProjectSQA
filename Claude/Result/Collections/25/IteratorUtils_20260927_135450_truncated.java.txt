@@ -1,0 +1,997 @@
+import org.apache.commons.collections4.iterators.EmptyIterator;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Vector;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+public class IteratorUtilsTest {
+
+    // Helper: simple Predicate implementation
+    private static final Predicate<Object> NOT_NULL_PREDICATE = new Predicate<Object>() {
+        @Override
+        public boolean evaluate(Object object) {
+            return object != null;
+        }
+    };
+
+    private static final Predicate<Integer> EVEN_PREDICATE = new Predicate<Integer>() {
+        @Override
+        public boolean evaluate(Integer object) {
+            return object % 2 == 0;
+        }
+    };
+
+    private static final Transformer<Object, String> TO_STRING_TRANSFORMER = new Transformer<Object, String>() {
+        @Override
+        public String transform(Object input) {
+            return String.valueOf(input);
+        }
+    };
+
+    // Custom class with public iterator() method, not Iterable
+    public static class CustomIterableLike {
+        private final List<String> data;
+
+        public CustomIterableLike(List<String> data) {
+            this.data = data;
+        }
+
+        public Iterator<String> iterator() {
+            return data.iterator();
+        }
+    }
+
+    private Document createDocument() throws Exception {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.newDocument();
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+        Element child1 = doc.createElement("child1");
+        Element child2 = doc.createElement("child2");
+        root.appendChild(child1);
+        root.appendChild(child2);
+        return doc;
+    }
+
+    // ---------------- Empty iterators ----------------
+
+    @Test
+    public void testEmptyIterator_returnsEmpty() {
+        Iterator<Object> it = IteratorUtils.emptyIterator();
+        Assert.assertFalse(it.hasNext());
+    }
+
+    @Test
+    public void testEmptyListIterator_returnsEmpty() {
+        ListIterator<Object> it = IteratorUtils.emptyListIterator();
+        Assert.assertFalse(it.hasNext());
+        Assert.assertFalse(it.hasPrevious());
+    }
+
+    @Test
+    public void testEmptyOrderedIterator_returnsEmpty() {
+        OrderedIterator<Object> it = IteratorUtils.emptyOrderedIterator();
+        Assert.assertFalse(it.hasNext());
+    }
+
+    @Test
+    public void testEmptyMapIterator_returnsEmpty() {
+        MapIterator<Object, Object> it = IteratorUtils.emptyMapIterator();
+        Assert.assertFalse(it.hasNext());
+    }
+
+    @Test
+    public void testEmptyOrderedMapIterator_returnsEmpty() {
+        OrderedMapIterator<Object, Object> it = IteratorUtils.emptyOrderedMapIterator();
+        Assert.assertFalse(it.hasNext());
+    }
+
+    // ---------------- Singleton ----------------
+
+    @Test
+    public void testSingletonIterator_normal_returnsSingleElement() {
+        Iterator<String> it = IteratorUtils.singletonIterator("a");
+        Assert.assertTrue(it.hasNext());
+        Assert.assertEquals("a", it.next());
+        Assert.assertFalse(it.hasNext());
+    }
+
+    @Test
+    public void testSingletonListIterator_normal_returnsSingleElement() {
+        ListIterator<String> it = IteratorUtils.singletonListIterator("b");
+        Assert.assertTrue(it.hasNext());
+        Assert.assertEquals("b", it.next());
+        Assert.assertFalse(it.hasNext());
+    }
+
+    // ---------------- Array iterators ----------------
+
+    @Test
+    public void testArrayIterator_objectArrayVarargs_iteratesAllElements() {
+        Iterator<String> it = IteratorUtils.arrayIterator("x", "y", "z");
+        Assert.assertEquals("x", it.next());
+        Assert.assertEquals("y", it.next());
+        Assert.assertEquals("z", it.next());
+        Assert.assertFalse(it.hasNext());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testArrayIterator_objectArrayNull_throwsNPE() {
+        Object[] arr = null;
+        IteratorUtils.arrayIterator(arr);
+    }
+
+    @Test
+    public void testArrayIterator_primitiveArray_iteratesWrapped() {
+        int[] arr = {1, 2, 3};
+        Iterator<Integer> it = IteratorUtils.arrayIterator(arr);
+        Assert.assertEquals(Integer.valueOf(1), it.next());
+        Assert.assertEquals(Integer.valueOf(2), it.next());
+        Assert.assertEquals(Integer.valueOf(3), it.next());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testArrayIterator_notAnArray_throwsIllegalArgumentException() {
+        Object notArray = "not an array";
+        IteratorUtils.arrayIterator(notArray);
+    }
+
+    @Test
+    public void testArrayIterator_objectArrayWithStart_iteratesFromStart() {
+        String[] arr = {"a", "b", "c"};
+        Iterator<String> it = IteratorUtils.arrayIterator(arr, 1);
+        Assert.assertEquals("b", it.next());
+        Assert.assertEquals("c", it.next());
+        Assert.assertFalse(it.hasNext());
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testArrayIterator_objectArrayStartOutOfBounds_throws() {
+        String[] arr = {"a", "b"};
+        IteratorUtils.arrayIterator(arr, -1);
+    }
+
+    @Test
+    public void testArrayIterator_primitiveArrayWithStart_iteratesFromStart() {
+        int[] arr = {10, 20, 30};
+        Iterator<Integer> it = IteratorUtils.arrayIterator((Object) arr, 1);
+        Assert.assertEquals(Integer.valueOf(20), it.next());
+    }
+
+    @Test
+    public void testArrayIterator_objectArrayWithStartEnd_iteratesRange() {
+        String[] arr = {"a", "b", "c", "d"};
+        Iterator<String> it = IteratorUtils.arrayIterator(arr, 1, 3);
+        Assert.assertEquals("b", it.next());
+        Assert.assertEquals("c", it.next());
+        Assert.assertFalse(it.hasNext());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testArrayIterator_objectArrayEndBeforeStart_throws() {
+        String[] arr = {"a", "b", "c"};
+        IteratorUtils.arrayIterator(arr, 2, 1);
+    }
+
+    @Test
+    public void testArrayIterator_primitiveArrayWithStartEnd_iteratesRange() {
+        int[] arr = {1, 2, 3, 4};
+        Iterator<Integer> it = IteratorUtils.arrayIterator((Object) arr, 1, 3);
+        Assert.assertEquals(Integer.valueOf(2), it.next());
+        Assert.assertEquals(Integer.valueOf(3), it.next());
+        Assert.assertFalse(it.hasNext());
+    }
+
+    // ---------------- Array list iterators ----------------
+
+    @Test
+    public void testArrayListIterator_objectArrayVarargs_iteratesAllElements() {
+        ListIterator<String> it = IteratorUtils.arrayListIterator("m", "n");
+        Assert.assertEquals("m", it.next());
+        Assert.assertEquals("n", it.next());
+    }
+
+    @Test
+    public void testArrayListIterator_primitiveArray_iteratesWrapped() {
+        int[] arr = {5, 6};
+        ListIterator<Integer> it = IteratorUtils.arrayListIterator(arr);
+        Assert.assertEquals(Integer.valueOf(5), it.next());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testArrayListIterator_notAnArray_throwsIllegalArgumentException() {
+        IteratorUtils.arrayListIterator("notanarray");
+    }
+
+    @Test
+    public void testArrayListIterator_objectArrayWithStart_iteratesFromStart() {
+        String[] arr = {"a", "b", "c"};
+        ListIterator<String> it = IteratorUtils.arrayListIterator(arr, 1);
+        Assert.assertEquals("b", it.next());
+    }
+
+    @Test
+    public void testArrayListIterator_primitiveArrayWithStart_iteratesFromStart() {
+        int[] arr = {1, 2, 3};
+        ListIterator<Integer> it = IteratorUtils.arrayListIterator((Object) arr, 1);
+        Assert.assertEquals(Integer.valueOf(2), it.next());
+    }
+
+    @Test
+    public void testArrayListIterator_objectArrayWithStartEnd_iteratesRange() {
+        String[] arr = {"a", "b", "c", "d"};
+        ListIterator<String> it = IteratorUtils.arrayListIterator(arr, 1, 3);
+        Assert.assertEquals("b", it.next());
+        Assert.assertEquals("c", it.next());
+        Assert.assertFalse(it.hasNext());
+    }
+
+    @Test
+    public void testArrayListIterator_primitiveArrayWithStartEnd_iteratesRange() {
+        int[] arr = {1, 2, 3, 4};
+        ListIterator<Integer> it = IteratorUtils.arrayListIterator((Object) arr, 1, 3);
+        Assert.assertEquals(Integer.valueOf(2), it.next());
+        Assert.assertEquals(Integer.valueOf(3), it.next());
+    }
+
+    // ---------------- Bounded ----------------
+
+    @Test
+    public void testBoundedIterator_maxOnly_limitsElements() {
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(1); list.add(2); list.add(3); list.add(4);
+        Iterator<Integer> it = IteratorUtils.boundedIterator(list.iterator(), 2);
+        Assert.assertEquals(Integer.valueOf(1), it.next());
+        Assert.assertEquals(Integer.valueOf(2), it.next());
+        Assert.assertFalse(it.hasNext());
+    }
+
+    @Test
+    public void testBoundedIterator_offsetAndMax_skipsAndLimits() {
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(1); list.add(2); list.add(3); list.add(4);
+        Iterator<Integer> it = IteratorUtils.boundedIterator(list.iterator(), 1, 2);
+        Assert.assertEquals(Integer.valueOf(2), it.next());
+        Assert.assertEquals(Integer.valueOf(3), it.next());
+        Assert.assertFalse(it.hasNext());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBoundedIterator_nullIterator_throws() {
+        IteratorUtils.boundedIterator(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBoundedIterator_negativeMax_throws() {
+        List<Integer> list = new ArrayList<Integer>();
+        IteratorUtils.boundedIterator(list.iterator(), -1);
+    }
+
+    // ---------------- Unmodifiable ----------------
+
+    @Test
+    public void testUnmodifiableIterator_normal_iteratesAndThrowsOnRemove() {
+        List<String> list = new ArrayList<String>();
+        list.add("a");
+        Iterator<String> it = IteratorUtils.unmodifiableIterator(list.iterator());
+        Assert.assertEquals("a", it.next());
+        try {
+            it.remove();
+            Assert.fail("Expected UnsupportedOperationException");
+        } catch (UnsupportedOperationException e) {
+            // expected
+        }
+    }
+
+    @Test
+    public void testUnmodifiableListIterator_normal_iterates() {
+        List<String> list = new ArrayList<String>();
+        list.add("a");
+        ListIterator<String> it = IteratorUtils.unmodifiableListIterator(list.listIterator());
+        Assert.assertEquals("a", it.next());
+    }
+
+    @Test
+    public void testUnmodifiableMapIterator_normal_iterates() {
+        MapIterator<Object, Object> mapIt = IteratorUtils.emptyMapIterator();
+        MapIterator<Object, Object> unmod = IteratorUtils.unmodifiableMapIterator(mapIt);
+        Assert.assertFalse(unmod.hasNext());
+    }
+
+    // ---------------- Chained ----------------
+
+    @Test
+    public void testChainedIterator_twoIterators_iteratesBoth() {
+        Iterator<String> it1 = java.util.Arrays.asList("a", "b").iterator();
+        Iterator<String> it2 = java.util.Arrays.asList("c", "d").iterator();
+        Iterator<String> chained = IteratorUtils.chainedIterator(it1, it2);
+        List<String> result = IteratorUtils.toList(chained);
+        Assert.assertEquals(java.util.Arrays.asList("a", "b", "c", "d"), result);
+    }
+
+    @Test
+    public void testChainedIterator_varargs_iteratesAll() {
+        Iterator<String> it1 = java.util.Arrays.asList("a").iterator();
+        Iterator<String> it2 = java.util.Arrays.asList("b").iterator();
+        Iterator<String> it3 = java.util.Arrays.asList("c").iterator();
+        @SuppressWarnings("unchecked")
+        Iterator<String> chained = IteratorUtils.chainedIterator(it1, it2, it3);
+        List<String> result = IteratorUtils.toList(chained);
+        Assert.assertEquals(java.util.Arrays.asList("a", "b", "c"), result);
+    }
+
+    @Test
+    public void testChainedIterator_collection_iteratesAll() {
+        Iterator<String> it1 = java.util.Arrays.asList("a").iterator();
+        Iterator<String> it2 = java.util.Arrays.asList("b").iterator();
+        List<Iterator<? extends String>> iterators = new ArrayList<Iterator<? extends String>>();
+        iterators.add(it1);
+        iterators.add(it2);
+        Iterator<String> chained = IteratorUtils.chainedIterator(iterators);
+        List<String> result = IteratorUtils.toList(chained);
+        Assert.assertEquals(java.util.Arrays.asList("a", "b"), result);
+    }
+
+    // ---------------- Collated ----------------
+
+    @Test
+    public void testCollatedIterator_twoIteratorsNaturalOrder_iteratesOrdered() {
+        Iterator<Integer> it1 = java.util.Arrays.asList(1, 3).iterator();
+        Iterator<Integer> it2 = java.util.Arrays.asList(2, 4).iterator();
+        Iterator<Integer> collated = IteratorUtils.collatedIterator(null, it1, it2);
+        List<Integer> result = IteratorUtils.toList(collated);
+        Assert.assertEquals(java.util.Arrays.asList(1, 2, 3, 4), result);
+    }
+
+    @Test
+    public void testCollatedIterator_varargsWithComparator_iteratesOrdered() {
+        Iterator<Integer> it1 = java.util.Arrays.asList(1, 5).iterator();
+        Iterator<Integer> it2 = java.util.Arrays.asList(2).iterator();
+        Iterator<Integer> it3 = java.util.Arrays.asList(3, 4).iterator();
+        @SuppressWarnings("unchecked")
+        Iterator<Integer> collated = IteratorUtils.collatedIterator(null, it1, it2, it3);
+        List<Integer> result = IteratorUtils.toList(collated);
+        Assert.assertEquals(java.util.Arrays.asList(1, 2, 3, 4, 5), result);
+    }
+
+    @Test
+    public void testCollatedIterator_collection_iteratesOrdered() {
+        Iterator<Integer> it1 = java.util.Arrays.asList(1, 3).iterator();
+        Iterator<Integer> it2 = java.util.Arrays.asList(2, 4).iterator();
+        List<Iterator<? extends Integer>> iterators = new ArrayList<Iterator<? extends Integer>>();
+        iterators.add(it1);
+        iterators.add(it2);
+        Iterator<Integer> collated = IteratorUtils.collatedIterator(null, iterators);
+        List<Integer> result = IteratorUtils.toList(collated);
+        Assert.assertEquals(java.util.Arrays.asList(1, 2, 3, 4), result);
+    }
+
+    // ---------------- Object graph ----------------
+
+    @Test
+    public void testObjectGraphIterator_simpleTransformer_flattensGraph() {
+        List<Object> root = new ArrayList<Object>();
+        root.add("a");
+        root.add(java.util.Arrays.asList("b", "c").iterator());
+        Transformer<Object, Object> transformer = new Transformer<Object, Object>() {
+            @Override
+            public Object transform(Object input) {
+                if (input instanceof List) {
+                    return ((List<?>) input).iterator();
+                }
+                return input;
+            }
+        };
+        Iterator<Object> it = IteratorUtils.objectGraphIterator(root, transformer);
+        List<Object> result = IteratorUtils.toList(it);
+        Assert.assertTrue(result.contains("a"));
+    }
+
+    @Test
+    public void testObjectGraphIterator_nullRoot_returnsEmptyIteration() {
+        Iterator<Object> it = IteratorUtils.objectGraphIterator(null, null);
+        Assert.assertFalse(it.hasNext());
+    }
+
+    // ---------------- Transformed ----------------
+
+    @Test
+    public void testTransformedIterator_normal_transformsElements() {
+        List<Integer> list = java.util.Arrays.asList(1, 2, 3);
+        Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
+            @Override
+            public String transform(Integer input) {
+                return "n" + input;
+            }
+        };
+        Iterator<String> it = IteratorUtils.transformedIterator(list.iterator(), transformer);
+        Assert.assertEquals("n1", it.next());
+        Assert.assertEquals("n2", it.next());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testTransformedIterator_nullIterator_throwsNPE() {
+        IteratorUtils.transformedIterator(null, TO_STRING_TRANSFORMER);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testTransformedIterator_nullTransformer_throwsNPE() {
+        List<Integer> list = java.util.Arrays.asList(1);
+        IteratorUtils.transformedIterator(list.iterator(), null);
+    }
+
+    // ---------------- Filtered ----------------
+
+    @Test
+    public void testFilteredIterator_normal_filtersElements() {
+        List<Integer> list = java.util.Arrays.asList(1, 2, 3, 4);
+        Iterator<Integer> it = IteratorUtils.filteredIterator(list.iterator(), EVEN_PREDICATE);
+        List<Integer> result = IteratorUtils.toList(it);
+        Assert.assertEquals(java.util.Arrays.asList(2, 4), result);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testFilteredIterator_nullIterator_throwsNPE() {
+        IteratorUtils.filteredIterator(null, EVEN_PREDICATE);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testFilteredIterator_nullPredicate_throwsNPE() {
+        List<Integer> list = java.util.Arrays.asList(1);
+        IteratorUtils.filteredIterator(list.iterator(), null);
+    }
+
+    @Test
+    public void testFilteredListIterator_normal_filtersElements() {
+        List<Integer> list = java.util.Arrays.asList(1, 2, 3, 4);
+        ListIterator<Integer> it = IteratorUtils.filteredListIterator(list.listIterator(), EVEN_PREDICATE);
+        Assert.assertEquals(Integer.valueOf(2), it.next());
+        Assert.assertEquals(Integer.valueOf(4), it.next());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testFilteredListIterator_nullListIterator_throwsNPE() {
+        IteratorUtils.filteredListIterator(null, EVEN_PREDICATE);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testFilteredListIterator_nullPredicate_throwsNPE() {
+        List<Integer> list = java.util.Arrays.asList(1);
+        IteratorUtils.filteredListIterator(list.listIterator(), null);
+    }
+
+    // ---------------- Looping ----------------
+
+    @Test
+    public void testLoopingIterator_normal_loopsContinuously() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        Iterator<String> it = IteratorUtils.loopingIterator(list);
+        Assert.assertEquals("a", it.next());
+        Assert.assertEquals("b", it.next());
+        Assert.assertEquals("a", it.next());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testLoopingIterator_nullCollection_throwsNPE() {
+        IteratorUtils.loopingIterator(null);
+    }
+
+    @Test
+    public void testLoopingListIterator_normal_loopsContinuously() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        ResettableListIterator<String> it = IteratorUtils.loopingListIterator(list);
+        Assert.assertEquals("a", it.next());
+        Assert.assertEquals("b", it.next());
+        Assert.assertEquals("a", it.next());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testLoopingListIterator_nullList_throwsNPE() {
+        IteratorUtils.loopingListIterator(null);
+    }
+
+    // ---------------- NodeList iterator ----------------
+
+    @Test
+    public void testNodeListIterator_nodeListParam_iteratesNodes() throws Exception {
+        Document doc = createDocument();
+        NodeList nodeList = doc.getDocumentElement().getChildNodes();
+        Iterator<Node> it = IteratorUtils.nodeListIterator(nodeList);
+        int count = 0;
+        while (it.hasNext()) {
+            it.next();
+            count++;
+        }
+        Assert.assertEquals(2, count);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testNodeListIterator_nullNodeList_throwsNPE() {
+        NodeList nl = null;
+        IteratorUtils.nodeListIterator(nl);
+    }
+
+    @Test
+    public void testNodeListIterator_nodeParam_iteratesChildNodes() throws Exception {
+        Document doc = createDocument();
+        Iterator<Node> it = IteratorUtils.nodeListIterator(doc.getDocumentElement());
+        int count = 0;
+        while (it.hasNext()) {
+            it.next();
+            count++;
+        }
+        Assert.assertEquals(2, count);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testNodeListIterator_nullNode_throwsNPE() {
+        Node n = null;
+        IteratorUtils.nodeListIterator(n);
+    }
+
+    // ---------------- Peeking ----------------
+
+    @Test
+    public void testPeekingIterator_normal_allowsPeek() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        org.apache.commons.collections4.iterators.PeekingIterator<String> it =
+                (org.apache.commons.collections4.iterators.PeekingIterator<String>)
+                        IteratorUtils.peekingIterator(list.iterator());
+        Assert.assertEquals("a", it.peek());
+        Assert.assertEquals("a", it.next());
+    }
+
+    // ---------------- Pushback ----------------
+
+    @Test
+    public void testPushbackIterator_normal_allowsPushback() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        org.apache.commons.collections4.iterators.PushbackIterator<String> it =
+                (org.apache.commons.collections4.iterators.PushbackIterator<String>)
+                        IteratorUtils.pushbackIterator(list.iterator());
+        String val = it.next();
+        it.pushback(val);
+        Assert.assertEquals(val, it.next());
+    }
+
+    // ---------------- Skipping ----------------
+
+    @Test
+    public void testSkippingIterator_normal_skipsElements() {
+        List<Integer> list = java.util.Arrays.asList(1, 2, 3, 4);
+        Iterator<Integer> it = IteratorUtils.skippingIterator(list.iterator(), 2);
+        Assert.assertEquals(Integer.valueOf(3), it.next());
+        Assert.assertEquals(Integer.valueOf(4), it.next());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSkippingIterator_negativeOffset_throws() {
+        List<Integer> list = java.util.Arrays.asList(1);
+        IteratorUtils.skippingIterator(list.iterator(), -1);
+    }
+
+    // ---------------- Zipping ----------------
+
+    @Test
+    public void testZippingIterator_twoIterators_interleaves() {
+        Iterator<Integer> a = java.util.Arrays.asList(1, 3).iterator();
+        Iterator<Integer> b = java.util.Arrays.asList(2, 4).iterator();
+        Iterator<Integer> zip = IteratorUtils.zippingIterator(a, b);
+        List<Integer> result = IteratorUtils.toList(zip);
+        Assert.assertEquals(java.util.Arrays.asList(1, 2, 3, 4), result);
+    }
+
+    @Test
+    public void testZippingIterator_threeIterators_interleaves() {
+        Iterator<Integer> a = java.util.Arrays.asList(1).iterator();
+        Iterator<Integer> b = java.util.Arrays.asList(2).iterator();
+        Iterator<Integer> c = java.util.Arrays.asList(3).iterator();
+        Iterator<Integer> zip = IteratorUtils.zippingIterator(a, b, c);
+        List<Integer> result = IteratorUtils.toList(zip);
+        Assert.assertEquals(java.util.Arrays.asList(1, 2, 3), result);
+    }
+
+    @Test
+    public void testZippingIterator_varargs_interleaves() {
+        Iterator<Integer> a = java.util.Arrays.asList(1).iterator();
+        Iterator<Integer> b = java.util.Arrays.asList(2).iterator();
+        @SuppressWarnings("unchecked")
+        Iterator<Integer> zip = IteratorUtils.zippingIterator(a, b);
+        List<Integer> result = IteratorUtils.toList(zip);
+        Assert.assertEquals(java.util.Arrays.asList(1, 2), result);
+    }
+
+    // ---------------- Views ----------------
+
+    @Test
+    public void testAsIterator_enumerationOnly_wrapsEnumeration() {
+        Vector<String> vector = new Vector<String>();
+        vector.add("a");
+        vector.add("b");
+        Iterator<String> it = IteratorUtils.asIterator(vector.elements());
+        Assert.assertEquals("a", it.next());
+        Assert.assertEquals("b", it.next());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testAsIterator_nullEnumeration_throwsNPE() {
+        Enumeration<String> e = null;
+        IteratorUtils.asIterator(e);
+    }
+
+    @Test
+    public void testAsIterator_enumerationWithRemoveCollection_removesFromCollection() {
+        Vector<String> vector = new Vector<String>();
+        vector.add("a");
+        List<String> removeCollection = new ArrayList<String>();
+        removeCollection.add("a");
+        Iterator<String> it = IteratorUtils.asIterator(vector.elements(), removeCollection);
+        Assert.assertEquals("a", it.next());
+        it.remove();
+        Assert.assertFalse(removeCollection.contains("a"));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testAsIterator_nullEnumerationWithCollection_throwsNPE() {
+        List<String> removeCollection = new ArrayList<String>();
+        IteratorUtils.asIterator((Enumeration<String>) null, removeCollection);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testAsIterator_enumerationWithNullCollection_throwsNPE() {
+        Vector<String> vector = new Vector<String>();
+        IteratorUtils.asIterator(vector.elements(), null);
+    }
+
+    @Test
+    public void testAsEnumeration_normal_wrapsIterator() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        Enumeration<String> e = IteratorUtils.asEnumeration(list.iterator());
+        Assert.assertTrue(e.hasMoreElements());
+        Assert.assertEquals("a", e.nextElement());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testAsEnumeration_nullIterator_throwsNPE() {
+        IteratorUtils.asEnumeration(null);
+    }
+
+    @Test
+    public void testAsIterable_normal_singleUse() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        Iterable<String> iterable = IteratorUtils.asIterable(list.iterator());
+        int count = 0;
+        for (String s : iterable) {
+            count++;
+        }
+        Assert.assertEquals(2, count);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testAsIterable_nullIterator_throwsNPE() {
+        IteratorUtils.asIterable(null);
+    }
+
+    @Test
+    public void testAsMultipleUseIterable_normal_multipleIterations() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        Iterable<String> iterable = IteratorUtils.asMultipleUseIterable(list.iterator());
+        int count1 = 0;
+        for (String s : iterable) {
+            count1++;
+        }
+        int count2 = 0;
+        for (String s : iterable) {
+            count2++;
+        }
+        Assert.assertEquals(2, count1);
+        Assert.assertEquals(2, count2);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testAsMultipleUseIterable_nullIterator_throwsNPE() {
+        IteratorUtils.asMultipleUseIterable(null);
+    }
+
+    @Test
+    public void testToListIterator_normal_wrapsIterator() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        ListIterator<String> it = IteratorUtils.toListIterator(list.iterator());
+        Assert.assertEquals("a", it.next());
+        Assert.assertEquals("b", it.next());
+        Assert.assertEquals("b", it.previous());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testToListIterator_nullIterator_throwsNPE() {
+        IteratorUtils.toListIterator(null);
+    }
+
+    @Test
+    public void testToArray_normal_returnsArray() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        Object[] arr = IteratorUtils.toArray(list.iterator());
+        Assert.assertEquals(2, arr.length);
+        Assert.assertEquals("a", arr[0]);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testToArray_nullIterator_throwsNPE() {
+        IteratorUtils.toArray(null);
+    }
+
+    @Test
+    public void testToArray_withClass_returnsTypedArray() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        String[] arr = IteratorUtils.toArray(list.iterator(), String.class);
+        Assert.assertEquals(2, arr.length);
+        Assert.assertEquals("a", arr[0]);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testToArray_withClassNullIterator_throwsNPE() {
+        IteratorUtils.toArray(null, String.class);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testToArray_withNullClass_throwsNPE() {
+        List<String> list = java.util.Arrays.asList("a");
+        IteratorUtils.toArray(list.iterator(), null);
+    }
+
+    @Test
+    public void testToList_normal_returnsList() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        List<String> result = IteratorUtils.toList(list.iterator());
+        Assert.assertEquals(list, result);
+    }
+
+    @Test
+    public void testToList_withEstimatedSize_returnsList() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        List<String> result = IteratorUtils.toList(list.iterator(), 5);
+        Assert.assertEquals(list, result);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testToList_nullIterator_throwsNPE() {
+        IteratorUtils.toList(null, 5);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testToList_estimatedSizeZero_throwsIllegalArgumentException() {
+        List<String> list = java.util.Arrays.asList("a");
+        IteratorUtils.toList(list.iterator(), 0);
+    }
+
+    // ---------------- getIterator ----------------
+
+    @Test
+    public void testGetIterator_null_returnsEmptyIterator() {
+        Iterator<?> it = IteratorUtils.getIterator(null);
+        Assert.assertFalse(it.hasNext());
+    }
+
+    @Test
+    public void testGetIterator_iteratorInstance_returnsSameIterator() {
+        Iterator<String> original = java.util.Arrays.asList("a").iterator();
+        Iterator<?> it = IteratorUtils.getIterator(original);
+        Assert.assertSame(original, it);
+    }
+
+    @Test
+    public void testGetIterator_iterable_returnsIterableIterator() {
+        List<String> list = java.util.Arrays.asList("a", "b");
+        Iterator<?> it = IteratorUtils.getIterator(list);
+        Assert.assertTrue(it.hasNext());
+    }
+
+    @Test
+    public void testGetIterator_objectArray_returnsArrayIterator() {
+        String[] arr = {"a", "b"};
+        Iterator<?> it = IteratorUtils.getIterator(arr);
+        Assert.assertEquals("a", it.next());
+    }
+
+    @Test
+    public void testGetIterator_enumeration_returnsEnumerationIterator() {
+        Vector<String> vector = new Vector<String>();
+        vector.add("a");
+        Iterator<?> it = IteratorUtils.getIterator(vector.elements());
+        Assert.assertEquals("a", it.next());
+    }
+
+    @Test
+    public void testGetIterator_map_returnsValuesIterator() {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("k", "v");
+        Iterator<?> it = IteratorUtils.getIterator(map);
+        Assert.assertEquals("v", it.next());
+    }
+
+    @Test
+    public void testGetIterator_nodeList_returnsNodeListIterator() throws Exception {
+        Document doc = createDocument();
+        NodeList nodeList = doc.getDocumentElement().getChildNodes();
+        Iterator<?> it = IteratorUtils.getIterator(nodeList);
+        Assert.assertTrue(it.hasNext());
+    }
+
+    @Test
+    public void testGetIterator_node_returnsChildNodesIterator() throws Exception {
+        Document doc = createDocument();
+        Iterator<?> it = IteratorUtils.getIterator(doc.getDocumentElement());
+        Assert.assertTrue(it.hasNext());
+    }
+
+    @Test
+    public void testGetIterator_dictionary_returnsElementsIterator() {
+        Dictionary<String, String> dict = new Properties();
+        dict.put("k", "v");
+        Iterator<?> it = IteratorUtils.getIterator(dict);
+        Assert.assertTrue(it.hasNext());
+    }
+
+    @Test
+    public void testGetIterator_primitiveArray_returnsArrayIterator() {
+        int[] arr = {1, 2};
+        Iterator<?> it = IteratorUtils.getIterator(arr);
+        Assert.assertEquals(Integer.valueOf(1), it.next());
+    }
+
+    @Test
+    public void testGetIterator_objectWithIteratorMethod_returnsIteratorFromMethod() {
+        List<String> data = java.util.Arrays.asList("x", "y");
+        CustomIterableLike custom = new CustomIterableLike(data);
+        Iterator<?> it = IteratorUtils.getIterator(custom);
+        Assert.assertEquals("x", it.next());
+    }
+
+    @Test
+    public void testGetIterator_plainObject_returnsSingletonIterator() {
+        Object obj = new Object();
+        Iterator<?> it = IteratorUtils.getIterator(obj);
+        Assert.assertSame(obj, it.next());
+        Assert.assertFalse(it.hasNext());
+    }
+
+    // ---------------- Utility methods ----------------
+
+    @Test
+    public void testApply_normal_appliesClosureToEachElement() {
+        final List<String> collected = new ArrayList<String>();
+        List<String> list = java.util.Arrays.asList("a", "b");
+        Closure<String> closure = new Closure<String>() {
+            @Override
+            public void execute(String input) {
+                collected.add(input);
+            }
+        };
+        IteratorUtils.apply(list.iterator(), closure);
+        Assert.assertEquals(list, collected);
+    }
+
+    @Test
+    public void testApply_nullIterator_doesNothing() {
+        final List<String> collected = new ArrayList<String>();
+        Closure<String> closure = new Closure<String>() {
+            @Override
+            public void execute(String input) {
+                collected.add(input);
+            }
+        };
+        IteratorUtils.apply(null, closure);
+        Assert.assertTrue(collected.isEmpty());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testApply_nullClosure_throwsNPE() {
+        List<String> list = java.util.Arrays.asList("a");
+        IteratorUtils.apply(list.iterator(), null);
+    }
+
+    @Test
+    public void testFind_matchFound_returnsElement() {
+        List<Integer> list = java.util.Arrays.asList(1, 2, 3, 4);
+        Integer result = IteratorUtils.find(list.iterator(), EVEN_PREDICATE);
+        Assert.assertEquals(Integer.valueOf(2), result);
+    }
+
+    @Test
+    public void testFind_noMatch_returnsNull() {
+        List<Integer> list = java.util.Arrays.asList(1, 3, 5);
+        Integer result = IteratorUtils.find(list.iterator(), EVEN_PREDICATE);
+        Assert.assertNull(result);
+    }
+
+    @Test
+    public void testFind_nullIterator_returnsNull() {
+        Integer result = IteratorUtils.find(null, EVEN_PREDICATE);
+        Assert.assertNull(result);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testFind_nullPredicate_throwsNPE() {
+        List<Integer> list = java.util.Arrays.asList(1);
+        IteratorUtils.find(list.iterator(), null);
+    }
+
+    @Test
+    public void testMatchesAny_matchExists_returnsTrue() {
+        List<Integer> list = java.util.Arrays.asList(1, 3, 4);
+        Assert.assertTrue(IteratorUtils.matchesAny(list.iterator(), EVEN_PREDICATE));
+    }
+
+    @Test
+    public void testMatchesAny_noMatch_returnsFalse() {
+        List<Integer> list = java.util.Arrays.asList(1, 3, 5);
+        Assert.assertFalse(IteratorUtils.matchesAny(list.iterator(), EVEN_PREDICATE));
+    }
+
+    @Test
+    public void testMatchesAny_nullIterator_returnsFalse() {
+        Assert.assertFalse(IteratorUtils.matchesAny(null, EVEN_PREDICATE));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testMatchesAny_nullPredicate_throwsNPE() {
+        List<Integer> list = java.util.Arrays.asList(1);
+        IteratorUtils.matchesAny(list.iterator(), null);
+    }
+
+    @Test
+    public void testMatchesAll_allMatch_returnsTrue() {
+        List<Integer> list = java.util.Arrays.asList(2, 4, 6);
+        Assert.assertTrue(IteratorUtils.matchesAll(list.iterator(), EVEN_PREDICATE));
+    }
+
+    @Test
+    public void testMatchesAll_notAllMatch_returnsFalse() {
+        List<Integer> list = java.util.Arrays.asList(2, 3, 4);
+        Assert.assertFalse(IteratorUtils.matchesAll(list.iterator(), EVEN_PREDICATE));
+    }
+
+    @Test
+    public void testMatchesAll_nullIterator_returnsTrue() {
+        Assert.assertTrue(IteratorUtils.matchesAll(null, EVEN_PREDICATE));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testMatchesAll_nullPredicate_throwsNPE() {
+        List<Integer> list = java.util.Arrays.asList(1);
+        IteratorUtils.matchesAll(list.iterator(), null);
+    }
+
+    @Test
+    public void testIsEmpty_nullIterator_returnsTrue() {
+        Assert.assertTrue(IteratorUtils.isEmpty(null));
+    }
+
+    @Test
+    public void testIsEmpty_emptyIterator_returnsTrue() {
+        List<String> list = new ArrayList<String>();
+        Assert.assertTrue(IteratorUtils.isEmpty(list.iterator()));
+    }
+
+    @Test
+    public void testIsEmpty_non

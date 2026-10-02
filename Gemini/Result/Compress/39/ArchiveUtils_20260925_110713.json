@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "39",
+  "tool": "gemini",
+  "class": "org.apache.commons.compress.utils.ArchiveUtils",
+  "target_classes": [
+    "org.apache.commons.compress.utils.ArchiveUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 29.43,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Compress\\39\\ArchiveUtils_20260925_110713.txt",
+  "test_file": "Gemini\\TestCode\\Compress\\39\\ArchiveUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 2890,
+    "completion_tokens": 2990,
+    "total_tokens": 7196
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 186531,
+    "daily_remaining_tokens": 163469
+  },
+  "timestamp": "20260925_110713"
+}

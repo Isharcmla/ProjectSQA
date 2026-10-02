@@ -1,0 +1,154 @@
+package com.fasterxml.jackson.databind.util;
+
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.EnumMap;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
+import org.junit.Test;
+
+import com.fasterxml.jackson.databind.annotation.JacksonStdImpl;
+import com.fasterxml.jackson.databind.annotation.NoClass;
+
+public class ClassUtilTest {
+
+    // ---------- Helper types ----------
+
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.FIELD)
+    @interface MarkerAnno {}
+
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.TYPE)
+    @interface TypeAnno {}
+
+    enum SimpleEnum { A, B }
+
+    enum BodyEnum {
+        X { @Override public int compute() { return 1; } },
+        Y { @Override public int compute() { return 2; } };
+        public abstract int compute();
+    }
+
+    enum AnnotatedEnum {
+        @MarkerAnno FIRST,
+        SECOND
+    }
+
+    @JacksonStdImpl
+    static class StdImplClass {}
+
+    static class NonStdImplClass {}
+
+    static class PublicCtor {
+        public PublicCtor() {}
+    }
+
+    static class PrivateCtor {
+        private PrivateCtor() {}
+    }
+
+    static class NoDefaultCtor {
+        public NoDefaultCtor(int x) {}
+    }
+
+    static class ThrowingCtor {
+        public ThrowingCtor() { throw new RuntimeException("boom"); }
+    }
+
+    static class TwoCtorClass {
+        public TwoCtorClass() {}
+        public TwoCtorClass(int x) {}
+    }
+
+    static class GetterHolder {
+        public String getValue() { return "x"; }
+        public static String staticMethod() { return "s"; }
+        public void voidMethod() {}
+        public String withArgs(String s) { return s; }
+    }
+
+    static class StaticInner {}
+
+    class NonStaticInner {}
+
+    @TypeAnno
+    static class AnnotatedClass {}
+
+    public static class PublicFieldHolder {
+        public int value;
+    }
+
+    static class PrivateFieldHolder {
+        private int secret;
+    }
+
+    // ---------- Tests ----------
+
+    @Test
+    public void testEmptyIterator_returnsEmpty() {
+        Iterator<String> it = ClassUtil.emptyIterator();
+        assertFalse(it.hasNext());
+    }
+
+    @Test
+    public void testFindSuperTypesJavaType_null_returnsEmptyList() {
+        List<?> result = ClassUtil.findSuperTypes(null, Object.class, true);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testFindRawSuperTypes_normal_returnsSuperTypes() {
+        List<Class<?>> result = ClassUtil.findRawSuperTypes(ArrayList.class, null, true);
+        assertTrue(result.contains(ArrayList.class));
+        assertTrue(result.contains(List.class));
+    }
+
+    @Test
+    public void testFindRawSuperTypes_null_returnsEmpty() {
+        List<Class<?>> result = ClassUtil.findRawSuperTypes(null, null, true);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testFindRawSuperTypes_objectClass_returnsEmpty() {
+        List<Class<?>> result = ClassUtil.findRawSuperTypes(Object.class, null, true);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testFindRawSuperTypes_endBeforeEqualsCls_returnsEmpty() {
+        List<Class<?>> result = ClassUtil.findRawSuperTypes(String.class, String.class, true);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testFindSuperClasses_normal_returnsChain() {
+        List<Class<?>> result = ClassUtil.findSuperClasses(ArrayList.class, null, true);
+        assertTrue(result.contains(ArrayList.class));
+        assertTrue(result.contains(java.util.AbstractList.class));
+        assertTrue(result.contains(Object.class));
+    }
+
+    @Test
+    public void testFindSuperClasses_null_returnsEmpty() {
+        List<Class<?>> result = ClassUtil.findSuperClasses(null, null, true);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testFindSuperClasses_endBeforeEqualsCls_returnsEmpty() {

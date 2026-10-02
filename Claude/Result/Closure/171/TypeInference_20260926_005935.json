@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "171",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.TypeInference",
+  "target_classes": [
+    "com.google.javascript.jscomp.TypeInference"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 84.51,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\171\\TypeInference_20260926_005935.txt",
+  "test_file": "Claude\\TestCode\\Closure\\171\\TypeInferenceTest.java",
+  "usage": {
+    "prompt_tokens": 22783,
+    "completion_tokens": 11037,
+    "total_tokens": 33820
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 58032,
+    "daily_remaining_tokens": 141968
+  },
+  "timestamp": "20260926_005935"
+}

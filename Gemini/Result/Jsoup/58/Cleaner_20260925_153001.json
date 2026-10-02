@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "58",
+  "tool": "gemini",
+  "class": "org.jsoup.safety.Cleaner",
+  "target_classes": [
+    "org.jsoup.safety.Cleaner"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 24.11,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\58\\Cleaner_20260925_153001.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\58\\CleanerTest.java",
+  "usage": {
+    "prompt_tokens": 1852,
+    "completion_tokens": 1907,
+    "total_tokens": 5368
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 147676,
+    "daily_remaining_tokens": 202324
+  },
+  "timestamp": "20260925_153001"
+}

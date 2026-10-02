@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "12",
+  "tool": "claude",
+  "class": "org.jfree.chart.plot.MultiplePiePlot",
+  "target_classes": [
+    "org.jfree.chart.plot.MultiplePiePlot"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 40.45,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Chart\\12\\MultiplePiePlot_20260924_073603.txt",
+  "test_file": "Claude\\TestCode\\Chart\\12\\MultiplePiePlotTest.java",
+  "usage": {
+    "prompt_tokens": 8623,
+    "completion_tokens": 6003,
+    "total_tokens": 14626
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 37237,
+    "daily_remaining_tokens": 162763
+  },
+  "timestamp": "20260924_073603"
+}

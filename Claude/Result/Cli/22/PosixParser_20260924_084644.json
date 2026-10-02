@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "22",
+  "tool": "claude",
+  "class": "org.apache.commons.cli.PosixParser",
+  "target_classes": [
+    "org.apache.commons.cli.PosixParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 56.2,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Cli\\22\\PosixParser_20260924_084644.txt",
+  "test_file": "Claude\\TestCode\\Cli\\22\\PosixParserTest.java",
+  "usage": {
+    "prompt_tokens": 4049,
+    "completion_tokens": 6820,
+    "total_tokens": 10869
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 98703,
+    "daily_remaining_tokens": 101297
+  },
+  "timestamp": "20260924_084644"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Csv",
+  "bug_id": "11",
+  "tool": "claude",
+  "class": "org.apache.commons.csv.CSVParser",
+  "target_classes": [
+    "org.apache.commons.csv.CSVParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 55.96,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Csv\\11\\CSVParser_20260928_202701.txt",
+  "test_file": "Claude\\TestCode\\Csv\\11\\CSVParserTest.java",
+  "usage": {
+    "prompt_tokens": 7089,
+    "completion_tokens": 7874,
+    "total_tokens": 14963
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 81196,
+    "daily_remaining_tokens": 118804
+  },
+  "timestamp": "20260928_202701"
+}

@@ -1,0 +1,771 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Stroke;
+import java.awt.Paint;
+import java.awt.image.BufferedImage;
+import java.awt.geom.Rectangle2D;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.List;
+import java.util.ArrayList;
+
+import org.jfree.chart.ChartRenderingInfo;
+import org.jfree.chart.axis.Axis;
+import org.jfree.chart.axis.AxisSpace;
+import org.jfree.chart.axis.AxisState;
+import org.jfree.chart.event.AxisChangeEvent;
+import org.jfree.chart.event.AxisChangeListener;
+import org.jfree.chart.plot.Plot;
+import org.jfree.chart.plot.PlotRenderingInfo;
+import org.jfree.chart.util.RectangleEdge;
+import org.jfree.chart.util.RectangleInsets;
+
+public class AxisTest {
+
+    /**
+     * Concrete subclass of Axis to allow instantiation for testing,
+     * since Axis is abstract.
+     */
+    static class TestAxis extends Axis {
+
+        public TestAxis(String label) {
+            super(label);
+        }
+
+        public void configure() {
+            // no-op for testing
+        }
+
+        public AxisSpace reserveSpace(Graphics2D g2, Plot plot,
+                Rectangle2D plotArea, RectangleEdge edge, AxisSpace space) {
+            return space;
+        }
+
+        public AxisState draw(Graphics2D g2, double cursor,
+                Rectangle2D plotArea, Rectangle2D dataArea,
+                RectangleEdge edge, PlotRenderingInfo plotState) {
+            return new AxisState(cursor);
+        }
+
+        public List refreshTicks(Graphics2D g2, AxisState state,
+                Rectangle2D dataArea, RectangleEdge edge) {
+            return new ArrayList();
+        }
+
+        // expose protected methods for testing purposes
+        public Rectangle2D publicGetLabelEnclosure(Graphics2D g2,
+                RectangleEdge edge) {
+            return getLabelEnclosure(g2, edge);
+        }
+
+        public AxisState publicDrawLabel(String label, Graphics2D g2,
+                Rectangle2D plotArea, Rectangle2D dataArea,
+                RectangleEdge edge, AxisState state,
+                PlotRenderingInfo plotState) {
+            return drawLabel(label, g2, plotArea, dataArea, edge, state,
+                    plotState);
+        }
+
+        public void publicDrawAxisLine(Graphics2D g2, double cursor,
+                Rectangle2D dataArea, RectangleEdge edge) {
+            drawAxisLine(g2, cursor, dataArea, edge);
+        }
+
+        public void publicNotifyListeners(AxisChangeEvent event) {
+            notifyListeners(event);
+        }
+    }
+
+    /**
+     * Simple listener implementation for testing notifications.
+     */
+    static class TestAxisChangeListener implements AxisChangeListener {
+        boolean notified = false;
+        AxisChangeEvent lastEvent = null;
+
+        public void axisChanged(AxisChangeEvent event) {
+            this.notified = true;
+            this.lastEvent = event;
+        }
+    }
+
+    private TestAxis axis;
+    private Graphics2D g2;
+
+    @Before
+    public void setUp() {
+        this.axis = new TestAxis("TestLabel");
+        BufferedImage img = new BufferedImage(200, 200,
+                BufferedImage.TYPE_INT_RGB);
+        this.g2 = img.createGraphics();
+    }
+
+    // ---------- Constructor ----------
+
+    @Test
+    public void testConstructor_defaultValues() {
+        TestAxis a = new TestAxis("MyLabel");
+        assertEquals("MyLabel", a.getLabel());
+        assertTrue(a.isVisible());
+        assertEquals(Axis.DEFAULT_AXIS_LABEL_FONT, a.getLabelFont());
+        assertEquals(Axis.DEFAULT_AXIS_LABEL_PAINT, a.getLabelPaint());
+        assertEquals(Axis.DEFAULT_AXIS_LABEL_INSETS, a.getLabelInsets());
+        assertEquals(0.0, a.getLabelAngle(), 0.0000001);
+        assertNull(a.getLabelToolTip());
+        assertNull(a.getLabelURL());
+        assertTrue(a.isAxisLineVisible());
+        assertEquals(Axis.DEFAULT_AXIS_LINE_PAINT, a.getAxisLinePaint());
+        assertEquals(Axis.DEFAULT_AXIS_LINE_STROKE, a.getAxisLineStroke());
+        assertTrue(a.isTickLabelsVisible());
+        assertEquals(Axis.DEFAULT_TICK_LABEL_FONT, a.getTickLabelFont());
+        assertEquals(Axis.DEFAULT_TICK_LABEL_PAINT, a.getTickLabelPaint());
+        assertEquals(Axis.DEFAULT_TICK_LABEL_INSETS, a.getTickLabelInsets());
+        assertTrue(a.isTickMarksVisible());
+        assertEquals(Axis.DEFAULT_TICK_MARK_INSIDE_LENGTH,
+                a.getTickMarkInsideLength(), 0.0000001);
+        assertEquals(Axis.DEFAULT_TICK_MARK_OUTSIDE_LENGTH,
+                a.getTickMarkOutsideLength(), 0.0000001);
+        assertNull(a.getPlot());
+    }
+
+    @Test
+    public void testConstructor_nullLabel() {
+        TestAxis a = new TestAxis(null);
+        assertNull(a.getLabel());
+    }
+
+    // ---------- visible ----------
+
+    @Test
+    public void testSetVisible_changeValue_notifiesListener() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setVisible(false);
+        assertFalse(this.axis.isVisible());
+        assertTrue(listener.notified);
+    }
+
+    @Test
+    public void testSetVisible_sameValue_noNotification() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setVisible(true); // already true by default
+        assertFalse(listener.notified);
+    }
+
+    // ---------- label ----------
+
+    @Test
+    public void testGetLabel_default() {
+        assertEquals("TestLabel", this.axis.getLabel());
+    }
+
+    @Test
+    public void testSetLabel_normalChange_notifiesListener() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setLabel("NewLabel");
+        assertEquals("NewLabel", this.axis.getLabel());
+        assertTrue(listener.notified);
+    }
+
+    @Test
+    public void testSetLabel_sameValue_noNotification() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setLabel("TestLabel");
+        assertFalse(listener.notified);
+    }
+
+    @Test
+    public void testSetLabel_existingNullSetNull_noNotification() {
+        TestAxis a = new TestAxis(null);
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        a.addChangeListener(listener);
+        a.setLabel(null);
+        assertFalse(listener.notified);
+    }
+
+    @Test
+    public void testSetLabel_existingNullSetValue_notifies() {
+        TestAxis a = new TestAxis(null);
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        a.addChangeListener(listener);
+        a.setLabel("Something");
+        assertTrue(listener.notified);
+        assertEquals("Something", a.getLabel());
+    }
+
+    @Test
+    public void testSetLabel_existingNotNullSetNull_notifies() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setLabel(null);
+        assertTrue(listener.notified);
+        assertNull(this.axis.getLabel());
+    }
+
+    // ---------- labelFont ----------
+
+    @Test
+    public void testGetLabelFont_default() {
+        assertEquals(Axis.DEFAULT_AXIS_LABEL_FONT, this.axis.getLabelFont());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetLabelFont_null_throwsException() {
+        this.axis.setLabelFont(null);
+    }
+
+    @Test
+    public void testSetLabelFont_normal_notifies() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        Font newFont = new Font("Serif", Font.BOLD, 20);
+        this.axis.setLabelFont(newFont);
+        assertEquals(newFont, this.axis.getLabelFont());
+        assertTrue(listener.notified);
+    }
+
+    @Test
+    public void testSetLabelFont_sameValue_noNotification() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setLabelFont(Axis.DEFAULT_AXIS_LABEL_FONT);
+        assertFalse(listener.notified);
+    }
+
+    // ---------- labelPaint ----------
+
+    @Test
+    public void testGetLabelPaint_default() {
+        assertEquals(Axis.DEFAULT_AXIS_LABEL_PAINT, this.axis.getLabelPaint());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetLabelPaint_null_throwsException() {
+        this.axis.setLabelPaint(null);
+    }
+
+    @Test
+    public void testSetLabelPaint_normal_notifies() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setLabelPaint(Color.RED);
+        assertEquals(Color.RED, this.axis.getLabelPaint());
+        assertTrue(listener.notified);
+    }
+
+    // ---------- labelInsets ----------
+
+    @Test
+    public void testGetLabelInsets_default() {
+        assertEquals(Axis.DEFAULT_AXIS_LABEL_INSETS,
+                this.axis.getLabelInsets());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetLabelInsets_null_throwsException() {
+        this.axis.setLabelInsets(null);
+    }
+
+    @Test
+    public void testSetLabelInsets_normal_notifies() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        RectangleInsets insets = new RectangleInsets(1.0, 1.0, 1.0, 1.0);
+        this.axis.setLabelInsets(insets);
+        assertEquals(insets, this.axis.getLabelInsets());
+        assertTrue(listener.notified);
+    }
+
+    @Test
+    public void testSetLabelInsets_sameValue_noNotification() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setLabelInsets(Axis.DEFAULT_AXIS_LABEL_INSETS);
+        assertFalse(listener.notified);
+    }
+
+    // ---------- labelAngle ----------
+
+    @Test
+    public void testGetSetLabelAngle() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setLabelAngle(1.5);
+        assertEquals(1.5, this.axis.getLabelAngle(), 0.0000001);
+        assertTrue(listener.notified);
+    }
+
+    // ---------- labelToolTip ----------
+
+    @Test
+    public void testGetSetLabelToolTip() {
+        assertNull(this.axis.getLabelToolTip());
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setLabelToolTip("tip");
+        assertEquals("tip", this.axis.getLabelToolTip());
+        assertTrue(listener.notified);
+    }
+
+    @Test
+    public void testSetLabelToolTip_null() {
+        this.axis.setLabelToolTip(null);
+        assertNull(this.axis.getLabelToolTip());
+    }
+
+    // ---------- labelURL ----------
+
+    @Test
+    public void testGetSetLabelURL() {
+        assertNull(this.axis.getLabelURL());
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setLabelURL("http://example.com");
+        assertEquals("http://example.com", this.axis.getLabelURL());
+        assertTrue(listener.notified);
+    }
+
+    // ---------- axisLineVisible ----------
+
+    @Test
+    public void testIsSetAxisLineVisible() {
+        assertTrue(this.axis.isAxisLineVisible());
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setAxisLineVisible(false);
+        assertFalse(this.axis.isAxisLineVisible());
+        assertTrue(listener.notified);
+    }
+
+    // ---------- axisLinePaint ----------
+
+    @Test
+    public void testGetAxisLinePaint_default() {
+        assertEquals(Axis.DEFAULT_AXIS_LINE_PAINT,
+                this.axis.getAxisLinePaint());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetAxisLinePaint_null_throwsException() {
+        this.axis.setAxisLinePaint(null);
+    }
+
+    @Test
+    public void testSetAxisLinePaint_normal_notifies() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setAxisLinePaint(Color.BLUE);
+        assertEquals(Color.BLUE, this.axis.getAxisLinePaint());
+        assertTrue(listener.notified);
+    }
+
+    // ---------- axisLineStroke ----------
+
+    @Test
+    public void testGetAxisLineStroke_default() {
+        assertEquals(Axis.DEFAULT_AXIS_LINE_STROKE,
+                this.axis.getAxisLineStroke());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetAxisLineStroke_null_throwsException() {
+        this.axis.setAxisLineStroke(null);
+    }
+
+    @Test
+    public void testSetAxisLineStroke_normal_notifies() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        Stroke newStroke = new BasicStroke(2.0f);
+        this.axis.setAxisLineStroke(newStroke);
+        assertEquals(newStroke, this.axis.getAxisLineStroke());
+        assertTrue(listener.notified);
+    }
+
+    // ---------- tickLabelsVisible ----------
+
+    @Test
+    public void testIsSetTickLabelsVisible() {
+        assertTrue(this.axis.isTickLabelsVisible());
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setTickLabelsVisible(false);
+        assertFalse(this.axis.isTickLabelsVisible());
+        assertTrue(listener.notified);
+    }
+
+    @Test
+    public void testSetTickLabelsVisible_sameValue_noNotification() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setTickLabelsVisible(true);
+        assertFalse(listener.notified);
+    }
+
+    // ---------- tickLabelFont ----------
+
+    @Test
+    public void testGetTickLabelFont_default() {
+        assertEquals(Axis.DEFAULT_TICK_LABEL_FONT,
+                this.axis.getTickLabelFont());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetTickLabelFont_null_throwsException() {
+        this.axis.setTickLabelFont(null);
+    }
+
+    @Test
+    public void testSetTickLabelFont_normal_notifies() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        Font f = new Font("Monospaced", Font.ITALIC, 8);
+        this.axis.setTickLabelFont(f);
+        assertEquals(f, this.axis.getTickLabelFont());
+        assertTrue(listener.notified);
+    }
+
+    @Test
+    public void testSetTickLabelFont_sameValue_noNotification() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setTickLabelFont(Axis.DEFAULT_TICK_LABEL_FONT);
+        assertFalse(listener.notified);
+    }
+
+    // ---------- tickLabelPaint ----------
+
+    @Test
+    public void testGetTickLabelPaint_default() {
+        assertEquals(Axis.DEFAULT_TICK_LABEL_PAINT,
+                this.axis.getTickLabelPaint());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetTickLabelPaint_null_throwsException() {
+        this.axis.setTickLabelPaint(null);
+    }
+
+    @Test
+    public void testSetTickLabelPaint_normal_notifies() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setTickLabelPaint(Color.GREEN);
+        assertEquals(Color.GREEN, this.axis.getTickLabelPaint());
+        assertTrue(listener.notified);
+    }
+
+    // ---------- tickLabelInsets ----------
+
+    @Test
+    public void testGetTickLabelInsets_default() {
+        assertEquals(Axis.DEFAULT_TICK_LABEL_INSETS,
+                this.axis.getTickLabelInsets());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetTickLabelInsets_null_throwsException() {
+        this.axis.setTickLabelInsets(null);
+    }
+
+    @Test
+    public void testSetTickLabelInsets_normal_notifies() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        RectangleInsets insets = new RectangleInsets(5.0, 5.0, 5.0, 5.0);
+        this.axis.setTickLabelInsets(insets);
+        assertEquals(insets, this.axis.getTickLabelInsets());
+        assertTrue(listener.notified);
+    }
+
+    @Test
+    public void testSetTickLabelInsets_sameValue_noNotification() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setTickLabelInsets(Axis.DEFAULT_TICK_LABEL_INSETS);
+        assertFalse(listener.notified);
+    }
+
+    // ---------- tickMarksVisible ----------
+
+    @Test
+    public void testIsSetTickMarksVisible() {
+        assertTrue(this.axis.isTickMarksVisible());
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setTickMarksVisible(false);
+        assertFalse(this.axis.isTickMarksVisible());
+        assertTrue(listener.notified);
+    }
+
+    @Test
+    public void testSetTickMarksVisible_sameValue_noNotification() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setTickMarksVisible(true);
+        assertFalse(listener.notified);
+    }
+
+    // ---------- tickMarkInsideLength ----------
+
+    @Test
+    public void testGetSetTickMarkInsideLength() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setTickMarkInsideLength(5.0f);
+        assertEquals(5.0f, this.axis.getTickMarkInsideLength(), 0.0001f);
+        assertTrue(listener.notified);
+    }
+
+    @Test
+    public void testSetTickMarkInsideLength_negative() {
+        this.axis.setTickMarkInsideLength(-3.0f);
+        assertEquals(-3.0f, this.axis.getTickMarkInsideLength(), 0.0001f);
+    }
+
+    // ---------- tickMarkOutsideLength ----------
+
+    @Test
+    public void testGetSetTickMarkOutsideLength() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setTickMarkOutsideLength(7.0f);
+        assertEquals(7.0f, this.axis.getTickMarkOutsideLength(), 0.0001f);
+        assertTrue(listener.notified);
+    }
+
+    // ---------- tickMarkStroke ----------
+
+    @Test
+    public void testGetTickMarkStroke_default() {
+        assertEquals(Axis.DEFAULT_TICK_MARK_STROKE,
+                this.axis.getTickMarkStroke());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetTickMarkStroke_null_throwsException() {
+        this.axis.setTickMarkStroke(null);
+    }
+
+    @Test
+    public void testSetTickMarkStroke_normal_notifies() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        Stroke s = new BasicStroke(3.0f);
+        this.axis.setTickMarkStroke(s);
+        assertEquals(s, this.axis.getTickMarkStroke());
+        assertTrue(listener.notified);
+    }
+
+    @Test
+    public void testSetTickMarkStroke_sameValue_noNotification() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setTickMarkStroke(Axis.DEFAULT_TICK_MARK_STROKE);
+        assertFalse(listener.notified);
+    }
+
+    // ---------- tickMarkPaint ----------
+
+    @Test
+    public void testGetTickMarkPaint_default() {
+        assertEquals(Axis.DEFAULT_TICK_MARK_PAINT,
+                this.axis.getTickMarkPaint());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetTickMarkPaint_null_throwsException() {
+        this.axis.setTickMarkPaint(null);
+    }
+
+    @Test
+    public void testSetTickMarkPaint_normal_notifies() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        this.axis.setTickMarkPaint(Color.YELLOW);
+        assertEquals(Color.YELLOW, this.axis.getTickMarkPaint());
+        assertTrue(listener.notified);
+    }
+
+    // ---------- plot ----------
+
+    @Test
+    public void testGetPlot_default_null() {
+        assertNull(this.axis.getPlot());
+    }
+
+    @Test
+    public void testSetPlot_null_callsConfigure() {
+        this.axis.setPlot(null);
+        assertNull(this.axis.getPlot());
+    }
+
+    // ---------- fixedDimension ----------
+
+    @Test
+    public void testGetSetFixedDimension() {
+        assertEquals(0.0, this.axis.getFixedDimension(), 0.0000001);
+        this.axis.setFixedDimension(100.0);
+        assertEquals(100.0, this.axis.getFixedDimension(), 0.0000001);
+    }
+
+    @Test
+    public void testSetFixedDimension_negative() {
+        this.axis.setFixedDimension(-50.0);
+        assertEquals(-50.0, this.axis.getFixedDimension(), 0.0000001);
+    }
+
+    // ---------- listeners ----------
+
+    @Test
+    public void testAddChangeListener_removeChangeListener_hasListener() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        assertFalse(this.axis.hasListener(listener));
+        this.axis.addChangeListener(listener);
+        assertTrue(this.axis.hasListener(listener));
+        this.axis.removeChangeListener(listener);
+        assertFalse(this.axis.hasListener(listener));
+    }
+
+    @Test
+    public void testNotifyListeners_callsListener() {
+        TestAxisChangeListener listener = new TestAxisChangeListener();
+        this.axis.addChangeListener(listener);
+        AxisChangeEvent event = new AxisChangeEvent(this.axis);
+        this.axis.publicNotifyListeners(event);
+        assertTrue(listener.notified);
+        assertSame(event, listener.lastEvent);
+    }
+
+    // ---------- abstract methods implemented (smoke test) ----------
+
+    @Test
+    public void testConfigure_noException() {
+        this.axis.configure();
+    }
+
+    @Test
+    public void testReserveSpace_returnsSpace() {
+        AxisSpace space = new AxisSpace();
+        Rectangle2D plotArea = new Rectangle2D.Double(0, 0, 100, 100);
+        AxisSpace result = this.axis.reserveSpace(this.g2, null, plotArea,
+                RectangleEdge.BOTTOM, space);
+        assertSame(space, result);
+    }
+
+    @Test
+    public void testDraw_returnsAxisState() {
+        Rectangle2D plotArea = new Rectangle2D.Double(0, 0, 100, 100);
+        Rectangle2D dataArea = new Rectangle2D.Double(10, 10, 80, 80);
+        AxisState state = this.axis.draw(this.g2, 10.0, plotArea, dataArea,
+                RectangleEdge.BOTTOM, null);
+        assertNotNull(state);
+        assertEquals(10.0, state.getCursor(), 0.0001);
+    }
+
+    @Test
+    public void testRefreshTicks_returnsList() {
+        Rectangle2D dataArea = new Rectangle2D.Double(0, 0, 100, 100);
+        AxisState state = new AxisState(0.0);
+        List ticks = this.axis.refreshTicks(this.g2, state, dataArea,
+                RectangleEdge.LEFT);
+        assertNotNull(ticks);
+        assertTrue(ticks.isEmpty());
+    }
+
+    // ---------- getLabelEnclosure ----------
+
+    @Test
+    public void testGetLabelEnclosure_withLabel_bottomEdge() {
+        Rectangle2D result = this.axis.publicGetLabelEnclosure(this.g2,
+                RectangleEdge.BOTTOM);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testGetLabelEnclosure_withLabel_leftEdge() {
+        Rectangle2D result = this.axis.publicGetLabelEnclosure(this.g2,
+                RectangleEdge.LEFT);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testGetLabelEnclosure_nullLabel_emptyRectangle() {
+        TestAxis a = new TestAxis(null);
+        Rectangle2D result = a.publicGetLabelEnclosure(this.g2,
+                RectangleEdge.BOTTOM);
+        assertNotNull(result);
+        assertEquals(0.0, result.getWidth(), 0.0001);
+        assertEquals(0.0, result.getHeight(), 0.0001);
+    }
+
+    @Test
+    public void testGetLabelEnclosure_emptyLabel_emptyRectangle() {
+        TestAxis a = new TestAxis("");
+        Rectangle2D result = a.publicGetLabelEnclosure(this.g2,
+                RectangleEdge.BOTTOM);
+        assertNotNull(result);
+        assertEquals(0.0, result.getWidth(), 0.0001);
+        assertEquals(0.0, result.getHeight(), 0.0001);
+    }
+
+    // ---------- drawLabel ----------
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDrawLabel_nullState_throwsException() {
+        Rectangle2D plotArea = new Rectangle2D.Double(0, 0, 100, 100);
+        Rectangle2D dataArea = new Rectangle2D.Double(10, 10, 80, 80);
+        this.axis.publicDrawLabel("label", this.g2, plotArea, dataArea,
+                RectangleEdge.BOTTOM, null, null);
+    }
+
+    @Test
+    public void testDrawLabel_nullLabel_returnsStateUnchanged() {
+        Rectangle2D plotArea = new Rectangle2D.Double(0, 0, 100, 100);
+        Rectangle2D dataArea = new Rectangle2D.Double(10, 10, 80, 80);
+        AxisState state = new AxisState(5.0);
+        AxisState result = this.axis.publicDrawLabel(null, this.g2, plotArea,
+                dataArea, RectangleEdge.BOTTOM, state, null);
+        assertSame(state, result);
+        assertEquals(5.0, result.getCursor(), 0.0001);
+    }
+
+    @Test
+    public void testDrawLabel_emptyLabel_returnsStateUnchanged() {
+        Rectangle2D plotArea = new Rectangle2D.Double(0, 0, 100, 100);
+        Rectangle2D dataArea = new Rectangle2D.Double(10, 10, 80, 80);
+        AxisState state = new AxisState(5.0);
+        AxisState result = this.axis.publicDrawLabel("", this.g2, plotArea,
+                dataArea, RectangleEdge.BOTTOM, state, null);
+        assertSame(state, result);
+    }
+
+    @Test
+    public void testDrawLabel_topEdge() {
+        Rectangle2D plotArea = new Rectangle2D.Double(0, 0, 100, 100);
+        Rectangle2D dataArea = new Rectangle2D.Double(10, 10, 80, 80);
+        AxisState state = new AxisState(50.0);
+        AxisState result = this.axis.publicDrawLabel("Top", this.g2,
+                plotArea, dataArea, RectangleEdge.TOP, state, null);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testDrawLabel_bottomEdge() {
+        Rectangle2D plotArea = new Rectangle2D.Double(0, 0, 100, 100);
+        Rectangle2D dataArea = new Rectangle2D.Double(10, 10, 80, 80);
+        AxisState state = new AxisState(50.0);
+        AxisState result = this.axis.publicDrawLabel("Bottom", this.g2,
+                plotArea, dataArea, RectangleEdge.BOTTOM, state, null);
+        assertNotNull(

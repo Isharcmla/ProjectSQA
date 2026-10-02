@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "20",
+  "tool": "gemini",
+  "class": "org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker",
+  "target_classes": [
+    "org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 41.97,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Mockito\\20\\ByteBuddyMockMaker_20260926_034307.txt",
+  "test_file": "Gemini\\TestCode\\Mockito\\20\\ByteBuddyMockMakerTest.java",
+  "usage": {
+    "prompt_tokens": 1493,
+    "completion_tokens": 2342,
+    "total_tokens": 7688
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 79497,
+    "daily_remaining_tokens": 270503
+  },
+  "timestamp": "20260926_034307"
+}

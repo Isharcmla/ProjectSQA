@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "15",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.FlowSensitiveInlineVariables",
+  "target_classes": [
+    "com.google.javascript.jscomp.FlowSensitiveInlineVariables"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 160.64,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\15\\FlowSensitiveInlineVariables_20260925_212136.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 7203,
+    "completion_tokens": 16384,
+    "total_tokens": 23587
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 65213,
+    "daily_remaining_tokens": 134787
+  },
+  "timestamp": "20260925_212136"
+}

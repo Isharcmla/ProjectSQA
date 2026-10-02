@@ -1,0 +1,266 @@
+package com.fasterxml.jackson.databind.deser;
+
+import static org.junit.Assert.*;
+
+import java.util.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.exc.InvalidDefinitionException;
+import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
+
+/**
+ * Test suite for {@link BeanDeserializerBase}.
+ *
+ * NOTE: BeanDeserializerBase is an abstract class whose real implementation
+ * (BeanDeserializer) is package-private / internal and instantiated through
+ * complex internal builders (BeanDeserializerBuilder, DeserializationContext, etc.).
+ * Since mocking frameworks are not allowed and we must only use real public API,
+ * this suite exercises BeanDeserializerBase's behavior indirectly through
+ * {@link ObjectMapper}, which is the standard, supported public entry point that
+ * creates and drives actual BeanDeserializerBase instances internally. This lets
+ * us cover the various code paths (resolve(), createContextual(), deserializeFromObject(),
+ * deserializeFromString/Number/Boolean/Array/Embedded, handleUnknownProperty,
+ * wrapAndThrow, Object Id handling, managed/back references, unwrapped properties,
+ * polymorphic handling, injectable values, etc.) without guessing internal APIs.
+ */
+public class BeanDeserializerBaseTest {
+
+    private ObjectMapper mapper;
+
+    @Before
+    public void setUp() {
+        mapper = new ObjectMapper();
+    }
+
+    /* ======================================================
+     * Simple / normal bean cases
+     * ====================================================== */
+
+    public static class SimpleBean {
+        public String name;
+        public int age;
+    }
+
+    @Test
+    public void testDeserializeFromObject_normalInput_returnsPopulatedBean() throws Exception {
+        SimpleBean bean = mapper.readValue("{\"name\":\"John\",\"age\":30}", SimpleBean.class);
+        assertNotNull(bean);
+        assertEquals("John", bean.name);
+        assertEquals(30, bean.age);
+    }
+
+    @Test
+    public void testDeserializeFromObject_emptyObject_returnsDefaultFields() throws Exception {
+        SimpleBean bean = mapper.readValue("{}", SimpleBean.class);
+        assertNotNull(bean);
+        assertNull(bean.name);
+        assertEquals(0, bean.age);
+    }
+
+    @Test
+    public void testDeserializeFromObject_nullFieldValue_setsNull() throws Exception {
+        SimpleBean bean = mapper.readValue("{\"name\":null,\"age\":5}", SimpleBean.class);
+        assertNull(bean.name);
+        assertEquals(5, bean.age);
+    }
+
+    @Test
+    public void testDeserializeFromObject_emptyStringName_edgeCase() throws Exception {
+        SimpleBean bean = mapper.readValue("{\"name\":\"\",\"age\":0}", SimpleBean.class);
+        assertEquals("", bean.name);
+        assertEquals(0, bean.age);
+    }
+
+    @Test
+    public void testDeserializeFromObject_negativeAge_edgeCase() throws Exception {
+        SimpleBean bean = mapper.readValue("{\"name\":\"X\",\"age\":-5}", SimpleBean.class);
+        assertEquals(-5, bean.age);
+    }
+
+    @Test
+    public void testDeserializeFromObject_boundaryMaxIntAge_edgeCase() throws Exception {
+        SimpleBean bean = mapper.readValue("{\"name\":\"X\",\"age\":" + Integer.MAX_VALUE + "}", SimpleBean.class);
+        assertEquals(Integer.MAX_VALUE, bean.age);
+    }
+
+    /* ======================================================
+     * Unknown property handling
+     * ====================================================== */
+
+    @Test(expected = UnrecognizedPropertyException.class)
+    public void testHandleUnknownProperty_failOnUnknownEnabled_throwsException() throws Exception {
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+        mapper.readValue("{\"name\":\"A\",\"extra\":\"B\"}", SimpleBean.class);
+    }
+
+    @Test
+    public void testHandleUnknownProperty_failOnUnknownDisabled_ignoresExtra() throws Exception {
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        SimpleBean bean = mapper.readValue("{\"name\":\"A\",\"extra\":\"B\"}", SimpleBean.class);
+        assertEquals("A", bean.name);
+    }
+
+    @Test
+    public void testHandleUnknownProperty_exceptionContainsKnownPropertyNames() throws Exception {
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+        try {
+            mapper.readValue("{\"name\":\"A\",\"extra\":\"B\"}", SimpleBean.class);
+            fail("Expected UnrecognizedPropertyException");
+        } catch (UnrecognizedPropertyException e) {
+            assertTrue(e.getKnownPropertyIds().contains("name"));
+            assertEquals("extra", e.getPropertyName());
+        }
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class IgnoreUnknownBean {
+        public String name;
+    }
+
+    @Test
+    public void testHandleUnknownProperty_classAnnotationIgnoreUnknown_noException() throws Exception {
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+        IgnoreUnknownBean bean = mapper.readValue("{\"name\":\"A\",\"extra\":\"B\"}", IgnoreUnknownBean.class);
+        assertEquals("A", bean.name);
+    }
+
+    @JsonIgnoreProperties({"secret"})
+    public static class IgnorablePropBean {
+        public String name;
+        public String secret;
+    }
+
+    @Test
+    public void testHandleIgnoredProperty_explicitlyIgnoredProp_notSet() throws Exception {
+        IgnorablePropBean bean = mapper.readValue("{\"name\":\"A\",\"secret\":\"S\"}", IgnorablePropBean.class);
+        assertEquals("A", bean.name);
+        assertNull(bean.secret);
+    }
+
+    /* ======================================================
+     * Any-setter handling (unknown properties routed to any-setter)
+     * ====================================================== */
+
+    public static class AnySetterBean {
+        public String name;
+        private Map<String, Object> other = new HashMap<String, Object>();
+
+        @JsonAnySetter
+        public void set(String key, Object value) {
+            other.put(key, value);
+        }
+
+        public Map<String, Object> getOther() {
+            return other;
+        }
+    }
+
+    @Test
+    public void testHandleUnknownVanilla_anySetterPresent_valuesCaptured() throws Exception {
+        AnySetterBean bean = mapper.readValue("{\"name\":\"A\",\"x\":1,\"y\":2}", AnySetterBean.class);
+        assertEquals("A", bean.name);
+        assertEquals(1, bean.getOther().get("x"));
+        assertEquals(2, bean.getOther().get("y"));
+    }
+
+    public static class ThrowingAnySetterBean {
+        public String name;
+
+        @JsonAnySetter
+        public void set(String key, Object value) {
+            throw new RuntimeException("boom");
+        }
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testWrapAndThrow_anySetterThrows_wrapsException() throws Exception {
+        mapper.readValue("{\"name\":\"A\",\"x\":1}", ThrowingAnySetterBean.class);
+    }
+
+    /* ======================================================
+     * Delegate / scalar creators -> deserializeFromString/Number/Boolean/Array
+     * ====================================================== */
+
+    public static class StringCreatorBean {
+        public String value;
+
+        @JsonCreator
+        public StringCreatorBean(String value) {
+            this.value = value;
+        }
+    }
+
+    @Test
+    public void testDeserializeFromString_singleStringCreator_returnsBean() throws Exception {
+        StringCreatorBean bean = mapper.readValue("\"hello\"", StringCreatorBean.class);
+        assertEquals("hello", bean.value);
+    }
+
+    @Test
+    public void testDeserializeFromString_emptyString_edgeCase() throws Exception {
+        StringCreatorBean bean = mapper.readValue("\"\"", StringCreatorBean.class);
+        assertEquals("", bean.value);
+    }
+
+    public static class IntCreatorBean {
+        public int value;
+
+        @JsonCreator
+        public IntCreatorBean(int value) {
+            this.value = value;
+        }
+    }
+
+    @Test
+    public void testDeserializeFromNumber_intCreator_returnsBean() throws Exception {
+        IntCreatorBean bean = mapper.readValue("42", IntCreatorBean.class);
+        assertEquals(42, bean.value);
+    }
+
+    @Test
+    public void testDeserializeFromNumber_negativeInt_edgeCase() throws Exception {
+        IntCreatorBean bean = mapper.readValue("-42", IntCreatorBean.class);
+        assertEquals(-42, bean.value);
+    }
+
+    public static class BooleanCreatorBean {
+        public boolean value;
+
+        @JsonCreator
+        public BooleanCreatorBean(boolean value) {
+            this.value = value;
+        }
+    }
+
+    @Test
+    public void testDeserializeFromBoolean_booleanCreator_returnsBean() throws Exception {
+        BooleanCreatorBean bean = mapper.readValue("true", BooleanCreatorBean.class);
+        assertTrue(bean.value);
+        BooleanCreatorBean bean2 = mapper.readValue("false", BooleanCreatorBean.class);
+        assertFalse(bean2.value);
+    }
+
+    public static class DoubleCreatorBean {
+        public double value;
+
+        @JsonCreator
+        public DoubleCreatorBean(double value) {
+            this.value = value;
+        }
+    }
+
+    @Test
+    public void testDeserializeFromDouble_doubleCreator_returnsBean() throws Exception {
+        DoubleCreatorBean bean = mapper.readValue("3.14", DoubleCreatorBean.class);
+        assertEquals(3.14, bean.value, 0.0001);
+    }
+
+    public static class ArrayDelegateBean {
+        public String[] values;
+
+        @JsonCreator
+        public Arr

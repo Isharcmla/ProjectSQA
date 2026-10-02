@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "4",
+  "tool": "claude",
+  "class": "org.apache.commons.lang3.text.translate.LookupTranslator",
+  "target_classes": [
+    "org.apache.commons.lang3.text.translate.LookupTranslator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.98,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Lang\\4\\LookupTranslator_20261002_163417.txt",
+  "test_file": "Claude\\TestCode\\Lang\\4\\LookupTranslatorTest.java",
+  "usage": {
+    "prompt_tokens": 1913,
+    "completion_tokens": 3682,
+    "total_tokens": 5595
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 5595,
+    "daily_remaining_tokens": 194405
+  },
+  "timestamp": "20261002_163417"
+}

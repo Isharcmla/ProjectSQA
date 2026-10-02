@@ -1,0 +1,498 @@
+package com.fasterxml.jackson.databind;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.Base64Variants;
+import com.fasterxml.jackson.core.FormatFeature;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.cfg.ContextAttributes;
+import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
+import com.fasterxml.jackson.databind.introspect.NopAnnotationIntrospector;
+import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
+import com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.fasterxml.jackson.databind.util.LinkedNode;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.TimeZone;
+
+public class DeserializationConfigTest {
+
+    // Simple POJO used for introspection related tests
+    static class Foo {
+        public int x;
+        public Foo() {}
+        public int getX() { return x; }
+        public void setX(int x) { this.x = x; }
+    }
+
+    private ObjectMapper mapper;
+    private DeserializationConfig config;
+
+    @Before
+    public void setUp() {
+        mapper = new ObjectMapper();
+        config = mapper.getDeserializationConfig();
+    }
+
+    // ---------------------------------------------------------
+    // DeserializationFeature based factory methods
+    // ---------------------------------------------------------
+
+    @Test
+    public void testWith_DeserializationFeature_enablesFeature() {
+        DeserializationConfig c2 = config.without(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        DeserializationConfig c3 = c2.with(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        assertTrue(c3.isEnabled(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES));
+        assertFalse(c2.isEnabled(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES));
+    }
+
+    @Test
+    public void testWith_DeserializationFeature_sameState_returnsSameInstance() {
+        DeserializationConfig c2 = config.with(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        DeserializationConfig c3 = c2.with(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        assertSame(c2, c3);
+    }
+
+    @Test
+    public void testWith_multipleDeserializationFeatures() {
+        DeserializationConfig c2 = config.with(DeserializationFeature.UNWRAP_ROOT_VALUE,
+                DeserializationFeature.ACCEPT_FLOAT_AS_INT);
+        assertTrue(c2.isEnabled(DeserializationFeature.UNWRAP_ROOT_VALUE));
+        assertTrue(c2.isEnabled(DeserializationFeature.ACCEPT_FLOAT_AS_INT));
+    }
+
+    @Test
+    public void testWithFeatures_deserialization() {
+        DeserializationConfig c2 = config.withFeatures(DeserializationFeature.UNWRAP_ROOT_VALUE);
+        assertTrue(c2.isEnabled(DeserializationFeature.UNWRAP_ROOT_VALUE));
+    }
+
+    @Test
+    public void testWithout_singleDeserializationFeature() {
+        DeserializationConfig c2 = config.with(DeserializationFeature.UNWRAP_ROOT_VALUE);
+        DeserializationConfig c3 = c2.without(DeserializationFeature.UNWRAP_ROOT_VALUE);
+        assertFalse(c3.isEnabled(DeserializationFeature.UNWRAP_ROOT_VALUE));
+    }
+
+    @Test
+    public void testWithout_multipleDeserializationFeatures() {
+        DeserializationConfig c2 = config.with(DeserializationFeature.UNWRAP_ROOT_VALUE,
+                DeserializationFeature.ACCEPT_FLOAT_AS_INT);
+        DeserializationConfig c3 = c2.without(DeserializationFeature.UNWRAP_ROOT_VALUE,
+                DeserializationFeature.ACCEPT_FLOAT_AS_INT);
+        assertFalse(c3.isEnabled(DeserializationFeature.UNWRAP_ROOT_VALUE));
+        assertFalse(c3.isEnabled(DeserializationFeature.ACCEPT_FLOAT_AS_INT));
+    }
+
+    @Test
+    public void testWithoutFeatures_deserialization() {
+        DeserializationConfig c2 = config.with(DeserializationFeature.UNWRAP_ROOT_VALUE);
+        DeserializationConfig c3 = c2.withoutFeatures(DeserializationFeature.UNWRAP_ROOT_VALUE);
+        assertFalse(c3.isEnabled(DeserializationFeature.UNWRAP_ROOT_VALUE));
+    }
+
+    // ---------------------------------------------------------
+    // MapperFeature based factory methods
+    // ---------------------------------------------------------
+
+    @Test
+    public void testWith_MapperFeatureArray() {
+        DeserializationConfig c2 = config.without(MapperFeature.AUTO_DETECT_FIELDS);
+        DeserializationConfig c3 = c2.with(MapperFeature.AUTO_DETECT_FIELDS);
+        assertTrue(c3.isEnabled(MapperFeature.AUTO_DETECT_FIELDS));
+    }
+
+    @Test
+    public void testWith_MapperFeatureArray_noChange_returnsSame() {
+        DeserializationConfig c2 = config.with(MapperFeature.AUTO_DETECT_FIELDS);
+        DeserializationConfig c3 = c2.with(MapperFeature.AUTO_DETECT_FIELDS);
+        assertSame(c2, c3);
+    }
+
+    @Test
+    public void testWithout_MapperFeatureArray() {
+        DeserializationConfig c2 = config.without(MapperFeature.AUTO_DETECT_SETTERS);
+        assertFalse(c2.isEnabled(MapperFeature.AUTO_DETECT_SETTERS));
+    }
+
+    @Test
+    public void testWith_MapperFeature_stateTrue() {
+        DeserializationConfig c2 = config.with(MapperFeature.AUTO_DETECT_CREATORS, true);
+        assertTrue(c2.isEnabled(MapperFeature.AUTO_DETECT_CREATORS));
+    }
+
+    @Test
+    public void testWith_MapperFeature_stateFalse() {
+        DeserializationConfig c2 = config.with(MapperFeature.AUTO_DETECT_CREATORS, false);
+        assertFalse(c2.isEnabled(MapperFeature.AUTO_DETECT_CREATORS));
+    }
+
+    // ---------------------------------------------------------
+    // MapperConfig.with(...) delegation methods (via BaseSettings)
+    // ---------------------------------------------------------
+
+    @Test
+    public void testWith_ClassIntrospector() {
+        DeserializationConfig c2 = config.with(config.getClassIntrospector());
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWith_AnnotationIntrospector() {
+        DeserializationConfig c2 = config.with(NopAnnotationIntrospector.instance);
+        assertNotNull(c2.getAnnotationIntrospector());
+    }
+
+    @Test
+    public void testWith_VisibilityChecker() {
+        VisibilityChecker<?> vc = config.getDefaultVisibilityChecker();
+        DeserializationConfig c2 = config.with(vc);
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWithVisibility() {
+        DeserializationConfig c2 = config.withVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWith_TypeResolverBuilder_null() {
+        DeserializationConfig c2 = config.with((com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder<?>) null);
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWith_SubtypeResolver_differentInstance() {
+        StdSubtypeResolver newResolver = new StdSubtypeResolver();
+        DeserializationConfig c2 = config.with(newResolver);
+        assertNotSame(config, c2);
+    }
+
+    @Test
+    public void testWith_SubtypeResolver_sameInstance_returnsSame() {
+        SubtypeResolver current = mapper.getSubtypeResolver();
+        DeserializationConfig c2 = config.with(current);
+        assertSame(config, c2);
+    }
+
+    @Test
+    public void testWith_PropertyNamingStrategy_null() {
+        DeserializationConfig c2 = config.with((PropertyNamingStrategy) null);
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWithRootName_nonNull() {
+        PropertyName rn = new PropertyName("root");
+        DeserializationConfig c2 = config.withRootName(rn);
+        assertTrue(c2.useRootWrapping());
+    }
+
+    @Test
+    public void testWithRootName_null_whenAlreadyNull_returnsSame() {
+        DeserializationConfig c2 = config.withRootName((PropertyName) null);
+        assertSame(config, c2);
+    }
+
+    @Test
+    public void testWithRootName_empty_disablesWrapping() {
+        DeserializationConfig c2 = config.withRootName(PropertyName.NO_NAME);
+        assertFalse(c2.useRootWrapping());
+    }
+
+    @Test
+    public void testWith_TypeFactory() {
+        TypeFactory tf = TypeFactory.defaultInstance();
+        DeserializationConfig c2 = config.with(tf);
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWith_DateFormat() {
+        DeserializationConfig c2 = config.with(new SimpleDateFormat("yyyy-MM-dd"));
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWith_HandlerInstantiator_null() {
+        DeserializationConfig c2 = config.with((HandlerInstantiator) null);
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWithInsertedAnnotationIntrospector() {
+        DeserializationConfig c2 = config.withInsertedAnnotationIntrospector(NopAnnotationIntrospector.instance);
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWithAppendedAnnotationIntrospector() {
+        DeserializationConfig c2 = config.withAppendedAnnotationIntrospector(NopAnnotationIntrospector.instance);
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWithView_differentClass() {
+        DeserializationConfig c2 = config.withView(Foo.class);
+        assertNotSame(config, c2);
+    }
+
+    @Test
+    public void testWithView_sameClass_returnsSame() {
+        DeserializationConfig c2 = config.withView(Foo.class);
+        DeserializationConfig c3 = c2.withView(Foo.class);
+        assertSame(c2, c3);
+    }
+
+    @Test
+    public void testWith_Locale() {
+        DeserializationConfig c2 = config.with(Locale.CANADA_FRENCH);
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWith_TimeZone() {
+        DeserializationConfig c2 = config.with(TimeZone.getTimeZone("GMT"));
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWith_Base64Variant() {
+        DeserializationConfig c2 = config.with(Base64Variants.getDefaultVariant());
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWith_ContextAttributes_differentInstance() {
+        ContextAttributes attrs = ContextAttributes.getEmpty().withSharedAttribute("foo", "bar");
+        DeserializationConfig c2 = config.with(attrs);
+        assertNotSame(config, c2);
+    }
+
+    @Test
+    public void testWith_ContextAttributes_sameInstance_returnsSame() {
+        ContextAttributes attrs = config.getAttributes();
+        DeserializationConfig c2 = config.with(attrs);
+        assertSame(config, c2);
+    }
+
+    // ---------------------------------------------------------
+    // JsonParser.Feature based factory methods
+    // ---------------------------------------------------------
+
+    @Test
+    public void testWith_ParserFeature() {
+        DeserializationConfig c2 = config.with(JsonParser.Feature.ALLOW_COMMENTS);
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWith_ParserFeature_noChange_returnsSame() {
+        DeserializationConfig c2 = config.with(JsonParser.Feature.ALLOW_COMMENTS);
+        DeserializationConfig c3 = c2.with(JsonParser.Feature.ALLOW_COMMENTS);
+        assertSame(c2, c3);
+    }
+
+    @Test
+    public void testWithFeatures_parserFeatureArray() {
+        DeserializationConfig c2 = config.withFeatures(JsonParser.Feature.ALLOW_COMMENTS,
+                JsonParser.Feature.ALLOW_SINGLE_QUOTES);
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWithout_ParserFeature() {
+        DeserializationConfig c2 = config.without(JsonParser.Feature.ALLOW_COMMENTS);
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWithoutFeatures_parserFeatureArray() {
+        DeserializationConfig c2 = config.withoutFeatures(JsonParser.Feature.ALLOW_COMMENTS,
+                JsonParser.Feature.ALLOW_SINGLE_QUOTES);
+        assertNotNull(c2);
+    }
+
+    // ---------------------------------------------------------
+    // FormatFeature based factory methods
+    // ---------------------------------------------------------
+
+    private FormatFeature customFormatFeature() {
+        return new FormatFeature() {
+            public boolean enabledByDefault() { return false; }
+            public int getMask() { return 0x01; }
+            public boolean enabledIn(int flags) { return (flags & getMask()) != 0; }
+        };
+    }
+
+    @Test
+    public void testWith_FormatFeature() {
+        DeserializationConfig c2 = config.with(customFormatFeature());
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWithFeatures_formatFeatureArray() {
+        DeserializationConfig c2 = config.withFeatures(customFormatFeature());
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWithout_FormatFeature() {
+        DeserializationConfig c2 = config.without(customFormatFeature());
+        assertNotNull(c2);
+    }
+
+    @Test
+    public void testWithoutFeatures_formatFeatureArray() {
+        DeserializationConfig c2 = config.withoutFeatures(customFormatFeature());
+        assertNotNull(c2);
+    }
+
+    // ---------------------------------------------------------
+    // Node factory & problem handlers
+    // ---------------------------------------------------------
+
+    @Test
+    public void testWith_JsonNodeFactory_sameInstance_returnsSame() {
+        DeserializationConfig c2 = config.with(JsonNodeFactory.instance);
+        assertSame(config, c2);
+    }
+
+    @Test
+    public void testWith_JsonNodeFactory_differentInstance() {
+        JsonNodeFactory f2 = JsonNodeFactory.instance.withExactBigDecimals(true);
+        DeserializationConfig c2 = config.with(f2);
+        assertNotSame(config, c2);
+        assertSame(f2, c2.getNodeFactory());
+    }
+
+    @Test
+    public void testWithHandler_addsHandler() {
+        DeserializationProblemHandler handler = new DeserializationProblemHandler() {};
+        DeserializationConfig c2 = config.withHandler(handler);
+        assertNotNull(c2.getProblemHandlers());
+    }
+
+    @Test
+    public void testWithHandler_sameHandlerTwice_returnsSame() {
+        DeserializationProblemHandler handler = new DeserializationProblemHandler() {};
+        DeserializationConfig c2 = config.withHandler(handler);
+        DeserializationConfig c3 = c2.withHandler(handler);
+        assertSame(c2, c3);
+    }
+
+    @Test
+    public void testWithNoProblemHandlers_whenNull_returnsSame() {
+        DeserializationConfig c2 = config.withNoProblemHandlers();
+        assertSame(config, c2);
+    }
+
+    @Test
+    public void testWithNoProblemHandlers_removesHandlers() {
+        DeserializationProblemHandler handler = new DeserializationProblemHandler() {};
+        DeserializationConfig c2 = config.withHandler(handler);
+        DeserializationConfig c3 = c2.withNoProblemHandlers();
+        assertNull(c3.getProblemHandlers());
+    }
+
+    @Test
+    public void testGetProblemHandlers_defaultNull() {
+        assertNull(config.getProblemHandlers());
+    }
+
+    // ---------------------------------------------------------
+    // initialize(JsonParser)
+    // ---------------------------------------------------------
+
+    @Test
+    public void testInitialize_noOverrides_doesNotThrow() throws IOException {
+        JsonFactory factory = new JsonFactory();
+        JsonParser p = factory.createParser("{}");
+        config.initialize(p);
+        p.close();
+    }
+
+    @Test
+    public void testInitialize_withParserFeatureOverride() throws IOException {
+        DeserializationConfig c2 = config.with(JsonParser.Feature.ALLOW_COMMENTS);
+        JsonFactory factory = new JsonFactory();
+        JsonParser p = factory.createParser("{}");
+        c2.initialize(p);
+        p.close();
+    }
+
+    @Test
+    public void testInitialize_withFormatFeatureOverride() throws IOException {
+        DeserializationConfig c2 = config.with(customFormatFeature());
+        JsonFactory factory = new JsonFactory();
+        JsonParser p = factory.createParser("{}");
+        c2.initialize(p);
+        p.close();
+    }
+
+    // ---------------------------------------------------------
+    // Annotation introspector & visibility checker overrides
+    // ---------------------------------------------------------
+
+    @Test
+    public void testGetAnnotationIntrospector_annotationsEnabled() {
+        assertNotNull(config.getAnnotationIntrospector());
+        assertFalse(config.getAnnotationIntrospector() instanceof NopAnnotationIntrospector);
+    }
+
+    @Test
+    public void testGetAnnotationIntrospector_annotationsDisabled_returnsNop() {
+        DeserializationConfig c2 = config.without(MapperFeature.USE_ANNOTATIONS);
+        assertSame(NopAnnotationIntrospector.instance, c2.getAnnotationIntrospector());
+    }
+
+    @Test
+    public void testGetDefaultVisibilityChecker_allAutoDetectEnabled() {
+        VisibilityChecker<?> vc = config.getDefaultVisibilityChecker();
+        assertNotNull(vc);
+    }
+
+    @Test
+    public void testGetDefaultVisibilityChecker_settersDisabled() {
+        DeserializationConfig c2 = config.without(MapperFeature.AUTO_DETECT_SETTERS);
+        VisibilityChecker<?> vc = c2.getDefaultVisibilityChecker();
+        assertEquals(Visibility.NONE, vc.getSetterVisibility());
+    }
+
+    @Test
+    public void testGetDefaultVisibilityChecker_creatorsDisabled() {
+        DeserializationConfig c2 = config.without(MapperFeature.AUTO_DETECT_CREATORS);
+        VisibilityChecker<?> vc = c2.getDefaultVisibilityChecker();
+        assertEquals(Visibility.NONE, vc.getCreatorVisibility());
+    }
+
+    @Test
+    public void testGetDefaultVisibilityChecker_fieldsDisabled() {
+        DeserializationConfig c2 = config.without(MapperFeature.AUTO_DETECT_FIELDS);
+        VisibilityChecker<?> vc = c2.getDefaultVisibilityChecker();
+        assertEquals(Visibility.NONE, vc.getFieldVisibility());
+    }
+
+    // ---------------------------------------------------------
+    // Default property inclusion / format
+    // ---------------------------------------------------------
+
+    @Test
+    public void testGetDefaultPropertyInclusion_noArg() {
+        assertNotNull(config.getDefaultPropertyInclusion());
+    }
+
+    @Test
+    public void testGetDefaultPropertyIncl

@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "15",
+  "tool": "gemini",
+  "class": "org.apache.commons.jxpath.ri.axes.UnionContext",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.axes.UnionContext"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 24.37,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JxPath\\15\\UnionContext_20260926_010741.txt",
+  "test_file": "Gemini\\TestCode\\JxPath\\15\\UnionContextTest.java",
+  "usage": {
+    "prompt_tokens": 849,
+    "completion_tokens": 1642,
+    "total_tokens": 4403
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 49374,
+    "daily_remaining_tokens": 300626
+  },
+  "timestamp": "20260926_010741"
+}

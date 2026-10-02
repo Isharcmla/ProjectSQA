@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "7",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.core.json.JsonWriteContext",
+  "target_classes": [
+    "com.fasterxml.jackson.core.json.JsonWriteContext"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 32.19,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonCore\\7\\JsonWriteContext_20260925_120702.txt",
+  "test_file": "Gemini\\TestCode\\JacksonCore\\7\\JsonWriteContextTest.java",
+  "usage": {
+    "prompt_tokens": 1936,
+    "completion_tokens": 2509,
+    "total_tokens": 6672
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 244796,
+    "daily_remaining_tokens": 105204
+  },
+  "timestamp": "20260925_120702"
+}

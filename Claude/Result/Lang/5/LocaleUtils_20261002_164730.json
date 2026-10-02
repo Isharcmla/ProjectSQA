@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "5",
+  "tool": "claude",
+  "class": "org.apache.commons.lang3.LocaleUtils",
+  "target_classes": [
+    "org.apache.commons.lang3.LocaleUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 36.21,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Lang\\5\\LocaleUtils_20261002_164730.txt",
+  "test_file": "Claude\\TestCode\\Lang\\5\\LocaleUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 5212,
+    "completion_tokens": 5230,
+    "total_tokens": 10442
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 54656,
+    "daily_remaining_tokens": 145344
+  },
+  "timestamp": "20261002_164730"
+}

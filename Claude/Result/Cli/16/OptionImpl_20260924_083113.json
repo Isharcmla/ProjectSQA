@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "16",
+  "tool": "claude",
+  "class": "org.apache.commons.cli2.option.OptionImpl",
+  "target_classes": [
+    "org.apache.commons.cli2.option.OptionImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 66.28,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Cli\\16\\OptionImpl_20260924_083113.txt",
+  "test_file": "Claude\\TestCode\\Cli\\16\\OptionImplTest.java",
+  "usage": {
+    "prompt_tokens": 2602,
+    "completion_tokens": 8884,
+    "total_tokens": 11486
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 168689,
+    "daily_remaining_tokens": 31311
+  },
+  "timestamp": "20260924_083113"
+}

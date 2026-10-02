@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "102",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.ser.std.DateTimeSerializerBase",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.std.DateTimeSerializerBase"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 126.35,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\102\\DateTimeSerializerBase_20260928_222625.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 4203,
+    "completion_tokens": 16384,
+    "total_tokens": 20587
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 64670,
+    "daily_remaining_tokens": 135330
+  },
+  "timestamp": "20260928_222625"
+}

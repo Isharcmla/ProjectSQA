@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "2",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser",
+  "target_classes": [
+    "com.fasterxml.jackson.core.json.UTF8StreamJsonParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 51.86,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonCore\\2\\UTF8StreamJsonParser_20260925_120325.txt",
+  "test_file": "Gemini\\TestCode\\JacksonCore\\2\\UTF8StreamJsonParserTest.java",
+  "usage": {
+    "prompt_tokens": 29308,
+    "completion_tokens": 6800,
+    "total_tokens": 36961
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 182852,
+    "daily_remaining_tokens": 167148
+  },
+  "timestamp": "20260925_120325"
+}

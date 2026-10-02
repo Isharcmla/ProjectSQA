@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "11",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer",
+  "target_classes": [
+    "com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 80.4,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonCore\\11\\ByteQuadsCanonicalizer_20260928_211705.txt",
+  "test_file": "Claude\\TestCode\\JacksonCore\\11\\ByteQuadsCanonicalizerTest.java",
+  "usage": {
+    "prompt_tokens": 16943,
+    "completion_tokens": 9572,
+    "total_tokens": 26515
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 200845,
+    "daily_remaining_tokens": -845
+  },
+  "timestamp": "20260928_211705"
+}

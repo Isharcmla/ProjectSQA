@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "15",
+  "tool": "claude",
+  "class": "org.apache.commons.cli2.commandline.WriteableCommandLineImpl",
+  "target_classes": [
+    "org.apache.commons.cli2.commandline.WriteableCommandLineImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 115.71,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Cli\\15\\WriteableCommandLineImpl_20260924_082402.txt",
+  "test_file": "Claude\\TestCode\\Cli\\15\\WriteableCommandLineImplTest.java",
+  "usage": {
+    "prompt_tokens": 3693,
+    "completion_tokens": 14400,
+    "total_tokens": 18093
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 108111,
+    "daily_remaining_tokens": 91889
+  },
+  "timestamp": "20260924_082402"
+}

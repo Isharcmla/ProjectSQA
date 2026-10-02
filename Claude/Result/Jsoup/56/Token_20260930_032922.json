@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "56",
+  "tool": "claude",
+  "class": "org.jsoup.parser.Token",
+  "target_classes": [
+    "org.jsoup.parser.Token"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 48.32,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\56\\Token_20260930_032922.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\56\\TokenTest.java",
+  "usage": {
+    "prompt_tokens": 4146,
+    "completion_tokens": 7084,
+    "total_tokens": 11230
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 127173,
+    "daily_remaining_tokens": 72827
+  },
+  "timestamp": "20260930_032922"
+}

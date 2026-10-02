@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "7",
+  "tool": "gemini",
+  "class": "org.apache.commons.jxpath.ri.compiler.CoreOperationLessThanOrEqual",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationLessThanOrEqual"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 20.39,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JxPath\\7\\CoreOperationLessThanOrEqual_20260926_012241.txt",
+  "test_file": "Gemini\\TestCode\\JxPath\\7\\CoreOperationLessThanOrEqualTest.java",
+  "usage": {
+    "prompt_tokens": 700,
+    "completion_tokens": 854,
+    "total_tokens": 3659
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 194505,
+    "daily_remaining_tokens": 155495
+  },
+  "timestamp": "20260926_012241"
+}

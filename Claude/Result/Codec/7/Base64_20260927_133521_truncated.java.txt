@@ -1,0 +1,357 @@
+package org.apache.commons.codec.binary;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+import java.math.BigInteger;
+
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.EncoderException;
+
+public class Base64Test {
+
+    // ---------- Constructors ----------
+
+    @Test
+    public void testDefaultConstructor_encodeNoChunking() {
+        Base64 b64 = new Base64();
+        byte[] data = "Hello".getBytes();
+        byte[] encoded = b64.encode(data);
+        assertNotNull(encoded);
+        assertFalse(b64.isUrlSafe());
+    }
+
+    @Test
+    public void testConstructorUrlSafeTrue_isUrlSafeTrue() {
+        Base64 b64 = new Base64(true);
+        assertTrue(b64.isUrlSafe());
+    }
+
+    @Test
+    public void testConstructorUrlSafeFalse_isUrlSafeFalse() {
+        Base64 b64 = new Base64(false);
+        assertFalse(b64.isUrlSafe());
+    }
+
+    @Test
+    public void testConstructorLineLength_encodeChunked() {
+        Base64 b64 = new Base64(4);
+        byte[] data = "Hello World".getBytes();
+        byte[] encoded = b64.encode(data);
+        assertNotNull(encoded);
+    }
+
+    @Test
+    public void testConstructorTwoArg_lineLengthAndSeparator_encodesWithSeparator() {
+        Base64 b64 = new Base64(4, new byte[]{'\n'});
+        byte[] data = "Hello World!".getBytes();
+        byte[] encoded = b64.encode(data);
+        String s = new String(encoded);
+        assertTrue(s.contains("\n"));
+    }
+
+    @Test
+    public void testConstructorLineLengthAndSeparator_encode() {
+        byte[] sep = {'\n'};
+        Base64 b64 = new Base64(4, sep, false);
+        byte[] data = "Hello World!".getBytes();
+        byte[] encoded = b64.encode(data);
+        assertNotNull(encoded);
+        String s = new String(encoded);
+        assertTrue(s.contains("\n"));
+    }
+
+    @Test
+    public void testConstructorNullLineSeparator_disablesChunking() {
+        Base64 b64 = new Base64(4, null);
+        byte[] data = "Hello World!".getBytes();
+        byte[] encoded = b64.encode(data);
+        assertNotNull(encoded);
+        String s = new String(encoded);
+        assertFalse(s.contains("\r\n"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructor_lineSeparatorContainsBase64Char_throwsException() {
+        byte[] sep = {'A'};
+        new Base64(4, sep);
+    }
+
+    @Test
+    public void testConstructorLineLengthSeparatorUrlSafe_encode() {
+        byte[] sep = {'\n'};
+        Base64 b64 = new Base64(76, sep, true);
+        assertTrue(b64.isUrlSafe());
+        byte[] data = {1, 2, 3, 4, 5};
+        byte[] encoded = b64.encode(data);
+        assertNotNull(encoded);
+    }
+
+    // ---------- hasData / avail ----------
+
+    @Test
+    public void testHasData_noDataInitially_false() {
+        Base64 b64 = new Base64();
+        assertFalse(b64.hasData());
+    }
+
+    @Test
+    public void testAvail_noBuffer_returnsZero() {
+        Base64 b64 = new Base64();
+        assertEquals(0, b64.avail());
+    }
+
+    @Test
+    public void testEncode_directCall_withPositiveAvail_bufferHasData() {
+        Base64 b64 = new Base64();
+        byte[] data = "abc".getBytes();
+        b64.encode(data, 0, data.length);
+        assertTrue(b64.hasData());
+        assertTrue(b64.avail() > 0);
+    }
+
+    @Test
+    public void testEncode_eofAfterEncode_finalizesBuffer() {
+        Base64 b64 = new Base64();
+        byte[] data = "abc".getBytes();
+        b64.encode(data, 0, data.length);
+        b64.encode(data, 0, -1);
+        assertTrue(b64.hasData());
+    }
+
+    @Test
+    public void testEncode_eofCalledTwice_noOp() {
+        Base64 b64 = new Base64();
+        byte[] data = "abc".getBytes();
+        b64.encode(data, 0, data.length);
+        b64.encode(data, 0, -1);
+        int availBefore = b64.avail();
+        b64.encode(data, 0, -1); // eof already true, should return immediately
+        assertEquals(availBefore, b64.avail());
+    }
+
+    @Test
+    public void testDecode_directCall_eofCalledTwice_noOp() {
+        Base64 b64 = new Base64();
+        byte[] data = "TWFu".getBytes();
+        b64.decode(data, 0, data.length);
+        b64.decode(data, 0, -1);
+        int availBefore = b64.avail();
+        b64.decode(data, 0, -1); // eof true, returns immediately
+        assertEquals(availBefore, b64.avail());
+    }
+
+    @Test
+    public void testReadResults_partialRead_returnsPartial() {
+        Base64 b64 = new Base64();
+        byte[] data = "abcdef".getBytes();
+        b64.encode(data, 0, data.length);
+        b64.encode(data, 0, -1);
+        byte[] out = new byte[4];
+        int read = b64.readResults(out, 0, 4);
+        assertEquals(4, read);
+        assertTrue(b64.hasData());
+    }
+
+    @Test
+    public void testReadResults_noBufferAndEofFalse_returnsZero() {
+        Base64 b64 = new Base64();
+        byte[] out = new byte[4];
+        int read = b64.readResults(out, 0, 4);
+        assertEquals(0, read);
+    }
+
+    @Test
+    public void testReadResults_noBufferAndEofTrue_returnsMinusOne() {
+        Base64 b64 = new Base64();
+        b64.decode(new byte[0], 0, -1); // sets eof true
+        byte[] out = new byte[4];
+        int read = b64.readResults(out, 0, 4);
+        assertEquals(-1, read);
+    }
+
+    @Test
+    public void testSetInitialBuffer_matchingLength_setsBufferDirectly() {
+        Base64 b64 = new Base64();
+        byte[] out = new byte[10];
+        b64.setInitialBuffer(out, 0, 10);
+        assertTrue(b64.hasData());
+    }
+
+    @Test
+    public void testSetInitialBuffer_nonMatchingLength_doesNotSetBuffer() {
+        Base64 b64 = new Base64();
+        byte[] out = new byte[10];
+        b64.setInitialBuffer(out, 0, 5);
+        assertFalse(b64.hasData());
+    }
+
+    // ---------- encode (instance) ----------
+
+    @Test
+    public void testEncode_nullInput_returnsNull() {
+        Base64 b64 = new Base64();
+        assertNull(b64.encode((byte[]) null));
+    }
+
+    @Test
+    public void testEncode_emptyInput_returnsEmpty() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.encode(new byte[0]);
+        assertEquals(0, result.length);
+    }
+
+    @Test
+    public void testEncode_normalInput_correctResult() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.encode("Man".getBytes());
+        assertEquals("TWFu", new String(result));
+    }
+
+    @Test
+    public void testEncode_singleByteInput_padded() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.encode(new byte[]{(byte) 'M'});
+        assertEquals("TQ==", new String(result));
+    }
+
+    @Test
+    public void testEncode_twoByteInput_padded() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.encode(new byte[]{(byte) 'M', (byte) 'a'});
+        assertEquals("TWE=", new String(result));
+    }
+
+    @Test
+    public void testEncode_multipleModulusCase_correctResult() {
+        Base64 b64 = new Base64();
+        byte[] data = "abcdefgh".getBytes();
+        byte[] result = b64.encode(data);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testEncode_urlSafeEncoding_noPaddingChars() {
+        Base64 b64 = new Base64(true);
+        byte[] data = new byte[]{(byte) 'M'};
+        byte[] encoded = b64.encode(data);
+        String s = new String(encoded);
+        assertFalse(s.contains("="));
+    }
+
+    @Test
+    public void testEncodeToString_normalInput_correctResult() {
+        Base64 b64 = new Base64();
+        String result = b64.encodeToString("Man".getBytes());
+        assertEquals("TWFu", result);
+    }
+
+    @Test
+    public void testEncodeObject_validByteArray_correctResult() throws EncoderException {
+        Base64 b64 = new Base64();
+        Object result = b64.encode((Object) "Man".getBytes());
+        assertTrue(result instanceof byte[]);
+        assertEquals("TWFu", new String((byte[]) result));
+    }
+
+    @Test(expected = EncoderException.class)
+    public void testEncodeObject_invalidType_throwsException() throws EncoderException {
+        Base64 b64 = new Base64();
+        b64.encode((Object) "not a byte array");
+    }
+
+    // ---------- decode (instance) ----------
+
+    @Test
+    public void testDecode_nullInput_returnsNull() {
+        Base64 b64 = new Base64();
+        assertNull(b64.decode((byte[]) null));
+    }
+
+    @Test
+    public void testDecode_emptyInput_returnsEmpty() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.decode(new byte[0]);
+        assertEquals(0, result.length);
+    }
+
+    @Test
+    public void testDecode_normalInput_correctResult() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.decode("TWFu".getBytes());
+        assertEquals("Man", new String(result));
+    }
+
+    @Test
+    public void testDecode_paddedInput_correctResult() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.decode("TQ==".getBytes());
+        assertEquals("M", new String(result));
+    }
+
+    @Test
+    public void testDecode_paddedInputTwoChars_correctResult() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.decode("TWE=".getBytes());
+        assertEquals("Ma", new String(result));
+    }
+
+    @Test
+    public void testDecode_modulus2NoPadding_correctResult() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.decode("TQ".getBytes());
+        assertEquals("M", new String(result));
+    }
+
+    @Test
+    public void testDecode_modulus3NoPadding_correctResult() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.decode("TWE".getBytes());
+        assertEquals("Ma", new String(result));
+    }
+
+    @Test
+    public void testDecode_onlyPaddingCharacters_returnsEmpty() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.decode("====".getBytes());
+        assertEquals(0, result.length);
+    }
+
+    @Test
+    public void testDecodeString_normalInput_correctResult() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.decode("TWFu");
+        assertEquals("Man", new String(result));
+    }
+
+    @Test
+    public void testDecode_dataWithInvalidCharacters_ignored() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.decode("TW!Fu".getBytes());
+        assertEquals("Man", new String(result));
+    }
+
+    @Test
+    public void testDecode_dataWithWhitespace_ignored() {
+        Base64 b64 = new Base64();
+        byte[] result = b64.decode("TW\r\nFu".getBytes());
+        assertEquals("Man", new String(result));
+    }
+
+    @Test
+    public void testDecode_negativeByte_ignored() {
+        Base64 b64 = new Base64();
+        byte[] data = {(byte) 'T', (byte) 'W', (byte) 0x80, (byte) 'F', (byte) 'u'};
+        byte[] result = b64.decode(data);
+        assertEquals("Man", new String(result));
+    }
+
+    @Test
+    public void testDecodeObject_byteArray_correctResult() throws DecoderException {
+        Base64 b64 = new Base64();
+        Object result = b64.decode((Object) "TWFu".getBytes());
+        assertEquals("Man", new String((byte[]) result));
+    }
+
+    @Test
+    public void testDecodeObject_string_correctResult() throws DecoderException {

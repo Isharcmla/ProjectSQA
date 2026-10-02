@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "28",
+  "tool": "claude",
+  "class": "org.apache.commons.lang3.text.translate.NumericEntityUnescaper",
+  "target_classes": [
+    "org.apache.commons.lang3.text.translate.NumericEntityUnescaper"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 29.19,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Lang\\28\\NumericEntityUnescaper_20261001_141215.txt",
+  "test_file": "Claude\\TestCode\\Lang\\28\\NumericEntityUnescaperTest.java",
+  "usage": {
+    "prompt_tokens": 1686,
+    "completion_tokens": 3670,
+    "total_tokens": 5356
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 124273,
+    "daily_remaining_tokens": 75727
+  },
+  "timestamp": "20261001_141215"
+}

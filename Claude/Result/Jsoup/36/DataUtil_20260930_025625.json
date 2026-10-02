@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "36",
+  "tool": "claude",
+  "class": "org.jsoup.helper.DataUtil",
+  "target_classes": [
+    "org.jsoup.helper.DataUtil"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 33.85,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\36\\DataUtil_20260930_025625.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\36\\DataUtilTest.java",
+  "usage": {
+    "prompt_tokens": 3371,
+    "completion_tokens": 4884,
+    "total_tokens": 8255
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 43409,
+    "daily_remaining_tokens": 156591
+  },
+  "timestamp": "20260930_025625"
+}

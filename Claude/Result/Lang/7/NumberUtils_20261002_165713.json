@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "7",
+  "tool": "claude",
+  "class": "org.apache.commons.lang3.math.NumberUtils",
+  "target_classes": [
+    "org.apache.commons.lang3.math.NumberUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 78.14,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Lang\\7\\NumberUtils_20261002_165713.txt",
+  "test_file": "Claude\\TestCode\\Lang\\7\\NumberUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 18085,
+    "completion_tokens": 12926,
+    "total_tokens": 31011
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 62536,
+    "daily_remaining_tokens": 137464
+  },
+  "timestamp": "20261002_165713"
+}

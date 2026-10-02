@@ -1,0 +1,140 @@
+import org.junit.Test;
+import org.junit.Assert;
+import java.math.BigDecimal;
+import org.apache.commons.math.util.MathUtils;
+
+public class MathUtilsTest {
+
+    private static final double DELTA = 1e-9;
+
+    // ---------- addAndCheck(int,int) ----------
+    @Test
+    public void testAddAndCheckInt_normal_returnsSum() {
+        Assert.assertEquals(7, MathUtils.addAndCheck(3, 4));
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testAddAndCheckInt_overflow_throwsException() {
+        MathUtils.addAndCheck(Integer.MAX_VALUE, 1);
+    }
+
+    // ---------- addAndCheck(long,long) ----------
+    @Test
+    public void testAddAndCheckLong_normal_returnsSum() {
+        Assert.assertEquals(15L, MathUtils.addAndCheck(7L, 8L));
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testAddAndCheckLong_positiveOverflow_throwsException() {
+        MathUtils.addAndCheck(Long.MAX_VALUE, 1L);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testAddAndCheckLong_negativeOverflow_throwsException() {
+        MathUtils.addAndCheck(Long.MIN_VALUE, -1L);
+    }
+
+    @Test
+    public void testAddAndCheckLong_oppositeSign_returnsSum() {
+        Assert.assertEquals(2L, MathUtils.addAndCheck(-3L, 5L));
+    }
+
+    // ---------- binomialCoefficient ----------
+    @Test
+    public void testBinomialCoefficient_normal_returnsExpected() {
+        Assert.assertEquals(10L, MathUtils.binomialCoefficient(5, 2));
+    }
+
+    @Test
+    public void testBinomialCoefficient_kEqualsN_returnsOne() {
+        Assert.assertEquals(1L, MathUtils.binomialCoefficient(5, 5));
+    }
+
+    @Test
+    public void testBinomialCoefficient_kEqualsZero_returnsOne() {
+        Assert.assertEquals(1L, MathUtils.binomialCoefficient(5, 0));
+    }
+
+    @Test
+    public void testBinomialCoefficient_kEqualsOne_returnsN() {
+        Assert.assertEquals(5L, MathUtils.binomialCoefficient(5, 1));
+    }
+
+    @Test
+    public void testBinomialCoefficient_kEqualsNMinusOne_returnsN() {
+        Assert.assertEquals(5L, MathUtils.binomialCoefficient(5, 4));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBinomialCoefficient_nLessThanK_throwsException() {
+        MathUtils.binomialCoefficient(2, 5);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBinomialCoefficient_negativeN_throwsException() {
+        MathUtils.binomialCoefficient(-1, 0);
+    }
+
+    // ---------- binomialCoefficientDouble ----------
+    @Test
+    public void testBinomialCoefficientDouble_normal_returnsExpected() {
+        Assert.assertEquals(10.0, MathUtils.binomialCoefficientDouble(5, 2), DELTA);
+    }
+
+    // ---------- binomialCoefficientLog ----------
+    @Test
+    public void testBinomialCoefficientLog_normal_returnsExpected() {
+        double expected = Math.log(10.0);
+        Assert.assertEquals(expected, MathUtils.binomialCoefficientLog(5, 2), DELTA);
+    }
+
+    @Test
+    public void testBinomialCoefficientLog_kEqualsZero_returnsZero() {
+        Assert.assertEquals(0.0, MathUtils.binomialCoefficientLog(5, 0), DELTA);
+    }
+
+    @Test
+    public void testBinomialCoefficientLog_kEqualsOne_returnsLogN() {
+        Assert.assertEquals(Math.log(5.0), MathUtils.binomialCoefficientLog(5, 1), DELTA);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBinomialCoefficientLog_nLessThanK_throwsException() {
+        MathUtils.binomialCoefficientLog(2, 5);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBinomialCoefficientLog_negativeN_throwsException() {
+        MathUtils.binomialCoefficientLog(-1, 0);
+    }
+
+    // ---------- cosh ----------
+    @Test
+    public void testCosh_zero_returnsOne() {
+        Assert.assertEquals(1.0, MathUtils.cosh(0.0), DELTA);
+    }
+
+    // ---------- equals(double,double) ----------
+    @Test
+    public void testEqualsDouble_sameValues_returnsTrue() {
+        Assert.assertTrue(MathUtils.equals(1.5, 1.5));
+    }
+
+    @Test
+    public void testEqualsDouble_bothNaN_returnsTrue() {
+        Assert.assertTrue(MathUtils.equals(Double.NaN, Double.NaN));
+    }
+
+    @Test
+    public void testEqualsDouble_differentValues_returnsFalse() {
+        Assert.assertFalse(MathUtils.equals(1.0, 2.0));
+    }
+
+    // ---------- equals(double[],double[]) ----------
+    @Test
+    public void testEqualsArray_bothNull_returnsTrue() {
+        Assert.assertTrue(MathUtils.equals((double[]) null, (double[]) null));
+    }
+
+    @Test
+    public void testEqualsArray_oneNull_retur

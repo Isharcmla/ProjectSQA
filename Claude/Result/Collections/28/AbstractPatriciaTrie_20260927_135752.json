@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "28",
+  "tool": "claude",
+  "class": "org.apache.commons.collections4.trie.AbstractPatriciaTrie",
+  "target_classes": [
+    "org.apache.commons.collections4.trie.AbstractPatriciaTrie"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 105.55,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Collections\\28\\AbstractPatriciaTrie_20260927_135752.txt",
+  "test_file": "Claude\\TestCode\\Collections\\28\\AbstractPatriciaTrieTest.java",
+  "usage": {
+    "prompt_tokens": 27582,
+    "completion_tokens": 13468,
+    "total_tokens": 41050
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 178998,
+    "daily_remaining_tokens": 21002
+  },
+  "timestamp": "20260927_135752"
+}

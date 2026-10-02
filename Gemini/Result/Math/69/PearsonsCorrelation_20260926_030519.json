@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "69",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.stat.correlation.PearsonsCorrelation",
+  "target_classes": [
+    "org.apache.commons.math.stat.correlation.PearsonsCorrelation"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.31,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\69\\PearsonsCorrelation_20260926_030519.txt",
+  "test_file": "Gemini\\TestCode\\Math\\69\\PearsonsCorrelationTest.java",
+  "usage": {
+    "prompt_tokens": 3108,
+    "completion_tokens": 2737,
+    "total_tokens": 7247
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 257308,
+    "daily_remaining_tokens": 92692
+  },
+  "timestamp": "20260926_030519"
+}

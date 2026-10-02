@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "7",
+  "tool": "claude",
+  "class": "org.apache.commons.jxpath.ri.compiler.CoreOperationGreaterThanOrEqual",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationGreaterThanOrEqual"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 41.18,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JxPath\\7\\CoreOperationGreaterThanOrEqual_20261001_133819.txt",
+  "test_file": "Claude\\TestCode\\JxPath\\7\\CoreOperationGreaterThanOrEqualTest.java",
+  "usage": {
+    "prompt_tokens": 1524,
+    "completion_tokens": 5173,
+    "total_tokens": 6697
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 105421,
+    "daily_remaining_tokens": 94579
+  },
+  "timestamp": "20261001_133819"
+}

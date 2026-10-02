@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "38",
+  "tool": "claude",
+  "class": "org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool",
+  "target_classes": [
+    "org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 48.54,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\38\\ArgumentMatchingTool_20261003_011000.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\38\\ArgumentMatchingToolTest.java",
+  "usage": {
+    "prompt_tokens": 1472,
+    "completion_tokens": 6607,
+    "total_tokens": 8079
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 61020,
+    "daily_remaining_tokens": 138980
+  },
+  "timestamp": "20261003_011000"
+}

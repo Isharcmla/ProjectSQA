@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "16",
+  "tool": "claude",
+  "class": "org.apache.commons.cli2.Option",
+  "target_classes": [
+    "org.apache.commons.cli2.Option"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 34.87,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Cli\\16\\Option_20260924_082559.txt",
+  "test_file": "Claude\\TestCode\\Cli\\16\\OptionTest.java",
+  "usage": {
+    "prompt_tokens": 3132,
+    "completion_tokens": 4777,
+    "total_tokens": 7909
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 116020,
+    "daily_remaining_tokens": 83980
+  },
+  "timestamp": "20260924_082559"
+}

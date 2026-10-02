@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "18",
+  "tool": "claude",
+  "class": "org.apache.commons.collections.set.ListOrderedSet",
+  "target_classes": [
+    "org.apache.commons.collections.set.ListOrderedSet"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.7,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Collections\\18\\ListOrderedSet_20260927_134802.txt",
+  "test_file": "Claude\\TestCode\\Collections\\18\\ListOrderedSetTest.java",
+  "usage": {
+    "prompt_tokens": 5145,
+    "completion_tokens": 5830,
+    "total_tokens": 10975
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 198051,
+    "daily_remaining_tokens": 1949
+  },
+  "timestamp": "20260927_134802"
+}

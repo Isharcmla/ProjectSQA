@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "143",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.RemoveConstantExpressions",
+  "target_classes": [
+    "com.google.javascript.jscomp.RemoveConstantExpressions"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 145.53,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\143\\RemoveConstantExpressions_20260925_200307.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 2416,
+    "completion_tokens": 16384,
+    "total_tokens": 18800
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 18800,
+    "daily_remaining_tokens": 181200
+  },
+  "timestamp": "20260925_200307"
+}

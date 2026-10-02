@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "23",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.ser.std.NumberSerializers",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.std.NumberSerializers"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 103.37,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\23\\NumberSerializers_20260929_021627.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\23\\NumberSerializersTest.java",
+  "usage": {
+    "prompt_tokens": 4116,
+    "completion_tokens": 13706,
+    "total_tokens": 17822
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 81157,
+    "daily_remaining_tokens": 118843
+  },
+  "timestamp": "20260929_021627"
+}

@@ -1,0 +1,212 @@
+package org.apache.commons.cli;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertTrue;
+
+/**
+ * JUnit 4 test suite for {@link PosixParser}.
+ *
+ * Note: Since this test class resides in the same package
+ * (org.apache.commons.cli), it can directly access the protected
+ * {@code flatten} and {@code burstToken} methods of PosixParser,
+ * as well as exercise the public parse(...) API inherited from Parser.
+ */
+public class PosixParserTest
+{
+    private PosixParser parser;
+    private Options options;
+
+    @Before
+    public void setUp()
+    {
+        parser = new PosixParser();
+        options = new Options();
+    }
+
+    // ---------------------------------------------------------------
+    // flatten() - normal / typical cases
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testFlatten_longOptionWithEquals_splitsIntoTwoTokens()
+    {
+        String[] args = {"--foo=bar"};
+        String[] result = parser.flatten(options, args, false);
+        assertArrayEquals(new String[]{"--foo", "bar"}, result);
+    }
+
+    @Test
+    public void testFlatten_longOptionWithoutEquals_addsAsSingleToken()
+    {
+        String[] args = {"--foo"};
+        String[] result = parser.flatten(options, args, false);
+        assertArrayEquals(new String[]{"--foo"}, result);
+    }
+
+    @Test
+    public void testFlatten_singleHyphen_addsAsIs()
+    {
+        String[] args = {"-"};
+        String[] result = parser.flatten(options, args, false);
+        assertArrayEquals(new String[]{"-"}, result);
+    }
+
+    @Test
+    public void testFlatten_validShortOption_addsToken()
+    {
+        options.addOption("a", false, "option a");
+        String[] args = {"-a"};
+        String[] result = parser.flatten(options, args, false);
+        assertArrayEquals(new String[]{"-a"}, result);
+    }
+
+    @Test
+    public void testFlatten_multiCharTokenRegisteredAsOption_addsAsIs()
+    {
+        options.addOption("ab", false, "option ab");
+        String[] args = {"-ab"};
+        String[] result = parser.flatten(options, args, false);
+        assertArrayEquals(new String[]{"-ab"}, result);
+    }
+
+    @Test
+    public void testFlatten_burstTokenTwoFlags_addsBothOptions()
+    {
+        options.addOption("a", false, "option a");
+        options.addOption("b", false, "option b");
+        String[] args = {"-ab"};
+        String[] result = parser.flatten(options, args, false);
+        assertArrayEquals(new String[]{"-a", "-b"}, result);
+    }
+
+    @Test
+    public void testFlatten_burstTokenWithArgument_addsOptionAndValue()
+    {
+        options.addOption("c", true, "option c with arg");
+        String[] args = {"-cvalue"};
+        String[] result = parser.flatten(options, args, false);
+        assertArrayEquals(new String[]{"-c", "value"}, result);
+    }
+
+    @Test
+    public void testFlatten_nonOptionTokenStopAtNonOptionFalse_addsAsIs()
+    {
+        String[] args = {"foo"};
+        String[] result = parser.flatten(options, args, false);
+        assertArrayEquals(new String[]{"foo"}, result);
+    }
+
+    // ---------------------------------------------------------------
+    // flatten() - edge cases
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testFlatten_emptyArguments_returnsEmptyArray()
+    {
+        String[] args = {};
+        String[] result = parser.flatten(options, args, false);
+        assertArrayEquals(new String[]{}, result);
+    }
+
+    @Test
+    public void testFlatten_invalidShortOptionStopAtNonOptionFalse_ignoresToken()
+    {
+        String[] args = {"-z"};
+        String[] result = parser.flatten(options, args, false);
+        assertArrayEquals(new String[]{}, result);
+    }
+
+    @Test
+    public void testFlatten_invalidShortOptionStopAtNonOptionTrue_addsTokenAndGobblesRest()
+    {
+        String[] args = {"-z", "foo", "bar"};
+        String[] result = parser.flatten(options, args, true);
+        assertArrayEquals(new String[]{"-z", "foo", "bar"}, result);
+    }
+
+    @Test
+    public void testFlatten_burstTokenUnknownCharStopAtNonOptionFalse_addsWholeToken()
+    {
+        options.addOption("a", false, "option a");
+        String[] args = {"-ax"};
+        String[] result = parser.flatten(options, args, false);
+        assertArrayEquals(new String[]{"-a", "-ax"}, result);
+    }
+
+    @Test
+    public void testFlatten_burstTokenUnknownCharStopAtNonOptionTrue_processesAndGobbles()
+    {
+        options.addOption("a", false, "option a");
+        String[] args = {"-ax", "extra1", "extra2"};
+        String[] result = parser.flatten(options, args, true);
+        assertArrayEquals(new String[]{"-a", "--", "x", "extra1", "extra2"}, result);
+    }
+
+    @Test
+    public void testFlatten_nonOptionTokenStopAtNonOptionTrueWithArgOption_processesArgument()
+    {
+        options.addOption("c", true, "option c with arg");
+        String[] args = {"-c", "argValue", "extra"};
+        String[] result = parser.flatten(options, args, true);
+        assertArrayEquals(new String[]{"-c", "argValue", "--", "extra"}, result);
+    }
+
+    @Test
+    public void testFlatten_multipleCallsResetState_previousStateCleared()
+    {
+        options.addOption("a", false, "option a");
+        String[] firstArgs = {"-a"};
+        parser.flatten(options, firstArgs, false);
+
+        String[] secondArgs = {"-"};
+        String[] result = parser.flatten(options, secondArgs, false);
+        // If internal state (tokens) wasn't reset via init(), the previous
+        // "-a" token would still be present in the result.
+        assertArrayEquals(new String[]{"-"}, result);
+    }
+
+    // ---------------------------------------------------------------
+    // flatten() - exception case
+    // ---------------------------------------------------------------
+
+    @Test(expected = NullPointerException.class)
+    public void testFlatten_nullArguments_throwsNullPointerException()
+    {
+        parser.flatten(options, null, false);
+    }
+
+    // ---------------------------------------------------------------
+    // public API (inherited parse methods) - normal cases
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testParse_simpleShortOption_commandLineHasOption() throws Exception
+    {
+        options.addOption("a", false, "option a");
+        CommandLine cmd = parser.parse(options, new String[]{"-a"});
+        assertTrue(cmd.hasOption("a"));
+    }
+
+    @Test
+    public void testParse_withStopAtNonOption_stopsProcessingAndCollectsArgs() throws Exception
+    {
+        options.addOption("a", false, "option a");
+        CommandLine cmd = parser.parse(options, new String[]{"-a", "nonopt", "more"}, true);
+        assertTrue(cmd.hasOption("a"));
+        assertArrayEquals(new String[]{"nonopt", "more"}, cmd.getArgs());
+    }
+
+    @Test
+    public void testParse_optionWithArgument_returnsCorrectValue() throws Exception
+    {
+        options.addOption("c", true, "option c with arg");
+        CommandLine cmd = parser.parse(options, new String[]{"-c", "value1"});
+        assertTrue(cmd.hasOption("c"));
+        assertArrayEquals(new String[]{"value1"}, cmd.getOptionValues("c"));
+    }
+
+    // ---------------------------------------------------------------
+    // public

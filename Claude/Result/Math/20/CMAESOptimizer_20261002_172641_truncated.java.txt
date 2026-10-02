@@ -1,0 +1,259 @@
+package org.apache.commons.math3.optimization.direct;
+
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.apache.commons.math3.analysis.MultivariateFunction;
+import org.apache.commons.math3.exception.DimensionMismatchException;
+import org.apache.commons.math3.exception.MathUnsupportedOperationException;
+import org.apache.commons.math3.exception.NotPositiveException;
+import org.apache.commons.math3.exception.OutOfRangeException;
+import org.apache.commons.math3.exception.TooManyEvaluationsException;
+import org.apache.commons.math3.optimization.GoalType;
+import org.apache.commons.math3.optimization.PointValuePair;
+import org.apache.commons.math3.optimization.SimpleValueChecker;
+import org.apache.commons.math3.random.MersenneTwister;
+import org.junit.Test;
+
+public class CMAESOptimizerTest {
+
+    /** Simple sphere function: f(x) = sum(x_i^2). Minimum at origin. */
+    private static class SphereFunction implements MultivariateFunction {
+        public double value(double[] point) {
+            double sum = 0;
+            for (double v : point) {
+                sum += v * v;
+            }
+            return sum;
+        }
+    }
+
+    /** Negative sphere function, used to test GoalType.MAXIMIZE. */
+    private static class NegativeSphereFunction implements MultivariateFunction {
+        public double value(double[] point) {
+            double sum = 0;
+            for (double v : point) {
+                sum += v * v;
+            }
+            return -sum;
+        }
+    }
+
+    // ---------------------- Constructors ----------------------
+
+    @Test
+    public void testDefaultConstructor_create_notNull() {
+        CMAESOptimizer optimizer = new CMAESOptimizer();
+        assertNotNull(optimizer);
+    }
+
+    @Test
+    public void testLambdaConstructor_create_notNull() {
+        CMAESOptimizer optimizer = new CMAESOptimizer(5);
+        assertNotNull(optimizer);
+    }
+
+    @Test
+    public void testLambdaSigmaConstructor_create_notNull() {
+        double[] sigma = {0.5, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(5, sigma);
+        assertNotNull(optimizer);
+    }
+
+    @Test
+    @SuppressWarnings("deprecation")
+    public void testDeprecatedFullConstructor_create_notNull() {
+        double[] sigma = {0.5, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(5, sigma, 1000, 0,
+                true, 0, 0, new MersenneTwister(), false);
+        assertNotNull(optimizer);
+    }
+
+    @Test
+    public void testFullConstructorWithChecker_create_notNull() {
+        double[] sigma = {0.5, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(5, sigma, 1000, 0,
+                true, 0, 0, new MersenneTwister(), false,
+                new SimpleValueChecker(1e-10, 1e-10));
+        assertNotNull(optimizer);
+    }
+
+    // ---------------------- Getters (before optimize) ----------------------
+
+    @Test
+    public void testGetStatisticsSigmaHistory_beforeOptimize_empty() {
+        CMAESOptimizer optimizer = new CMAESOptimizer(5);
+        List<Double> history = optimizer.getStatisticsSigmaHistory();
+        assertNotNull(history);
+        assertTrue(history.isEmpty());
+    }
+
+    @Test
+    public void testGetStatisticsMeanHistory_beforeOptimize_empty() {
+        CMAESOptimizer optimizer = new CMAESOptimizer(5);
+        assertTrue(optimizer.getStatisticsMeanHistory().isEmpty());
+    }
+
+    @Test
+    public void testGetStatisticsFitnessHistory_beforeOptimize_empty() {
+        CMAESOptimizer optimizer = new CMAESOptimizer(5);
+        assertTrue(optimizer.getStatisticsFitnessHistory().isEmpty());
+    }
+
+    @Test
+    public void testGetStatisticsDHistory_beforeOptimize_empty() {
+        CMAESOptimizer optimizer = new CMAESOptimizer(5);
+        assertTrue(optimizer.getStatisticsDHistory().isEmpty());
+    }
+
+    // ---------------------- Normal optimize scenarios ----------------------
+
+    @Test
+    public void testOptimize_sphereFunctionNoBounds_findsMinimumNearZero() {
+        double[] sigma = {0.5, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(10, sigma, 2000, 1e-10,
+                true, 0, 0, new MersenneTwister(12345), false,
+                new SimpleValueChecker(1e-12, 1e-12));
+        PointValuePair result = optimizer.optimize(20000, new SphereFunction(),
+                GoalType.MINIMIZE, new double[]{0.5, 0.5});
+        assertNotNull(result);
+        assertEquals(0.0, result.getValue(), 1.0);
+    }
+
+    @Test
+    public void testOptimize_sphereFunctionWithBounds_findsMinimumNearZero() {
+        double[] sigma = {1.0, 1.0};
+        CMAESOptimizer optimizer = new CMAESOptimizer(10, sigma, 2000, 1e-10,
+                true, 0, 0, new MersenneTwister(12345), false,
+                new SimpleValueChecker(1e-12, 1e-12));
+        PointValuePair result = optimizer.optimize(20000, new SphereFunction(),
+                GoalType.MINIMIZE, new double[]{1.0, 1.0},
+                new double[]{-10.0, -10.0}, new double[]{10.0, 10.0});
+        assertNotNull(result);
+        assertEquals(0.0, result.getValue(), 2.0);
+    }
+
+    @Test
+    public void testOptimize_maximizeNegativeSphere_findsMaximumNearZero() {
+        double[] sigma = {0.5, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(10, sigma, 2000, 0,
+                true, 0, 0, new MersenneTwister(12345), false,
+                new SimpleValueChecker(1e-12, 1e-12));
+        PointValuePair result = optimizer.optimize(20000, new NegativeSphereFunction(),
+                GoalType.MAXIMIZE, new double[]{0.5, 0.5});
+        assertNotNull(result);
+        assertEquals(0.0, result.getValue(), 1.0);
+    }
+
+    @Test
+    public void testOptimize_generateStatisticsTrue_historiesPopulated() {
+        double[] sigma = {0.5, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(10, sigma, 200, 0,
+                true, 0, 0, new MersenneTwister(12345), true,
+                new SimpleValueChecker(1e-12, 1e-12));
+        optimizer.optimize(2000, new SphereFunction(), GoalType.MINIMIZE,
+                new double[]{0.5, 0.5});
+        assertFalse(optimizer.getStatisticsSigmaHistory().isEmpty());
+        assertFalse(optimizer.getStatisticsMeanHistory().isEmpty());
+        assertFalse(optimizer.getStatisticsFitnessHistory().isEmpty());
+        assertFalse(optimizer.getStatisticsDHistory().isEmpty());
+    }
+
+    @Test
+    public void testOptimize_diagonalOnly_optimizeSuccessfully() {
+        double[] sigma = {0.5, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(10, sigma, 2000, 0,
+                true, 1, 0, new MersenneTwister(12345), false,
+                new SimpleValueChecker(1e-12, 1e-12));
+        PointValuePair result = optimizer.optimize(10000, new SphereFunction(),
+                GoalType.MINIMIZE, new double[]{0.5, 0.5});
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testOptimize_isActiveCMAFalse_optimizeSuccessfully() {
+        double[] sigma = {0.5, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(10, sigma, 2000, 0,
+                false, 0, 0, new MersenneTwister(12345), false,
+                new SimpleValueChecker(1e-12, 1e-12));
+        PointValuePair result = optimizer.optimize(10000, new SphereFunction(),
+                GoalType.MINIMIZE, new double[]{0.5, 0.5});
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testOptimize_checkFeasableCountWithBounds_optimizeSuccessfully() {
+        double[] sigma = {1.0, 1.0};
+        CMAESOptimizer optimizer = new CMAESOptimizer(10, sigma, 2000, 0,
+                true, 0, 3, new MersenneTwister(12345), false,
+                new SimpleValueChecker(1e-12, 1e-12));
+        PointValuePair result = optimizer.optimize(10000, new SphereFunction(),
+                GoalType.MINIMIZE, new double[]{1.0, 1.0},
+                new double[]{-5.0, -5.0}, new double[]{5.0, 5.0});
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testOptimize_withNoInputSigma_usesDefaultSigma() {
+        CMAESOptimizer optimizer = new CMAESOptimizer(5);
+        PointValuePair result = optimizer.optimize(2000, new SphereFunction(),
+                GoalType.MINIMIZE, new double[]{0.5, 0.5});
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testOptimize_lambdaZeroAutoCalculated_optimizeSuccessfully() {
+        CMAESOptimizer optimizer = new CMAESOptimizer(0);
+        PointValuePair result = optimizer.optimize(2000, new SphereFunction(),
+                GoalType.MINIMIZE, new double[]{0.5, 0.5, 0.5});
+        assertNotNull(result);
+    }
+
+    // ---------------------- Edge cases / exceptions ----------------------
+
+    @Test(expected = NotPositiveException.class)
+    public void testOptimize_negativeInputSigma_throwsNotPositiveException() {
+        double[] sigma = {-1.0, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(5, sigma);
+        optimizer.optimize(1000, new SphereFunction(), GoalType.MINIMIZE,
+                new double[]{0.5, 0.5});
+    }
+
+    @Test(expected = DimensionMismatchException.class)
+    public void testOptimize_inputSigmaDimensionMismatch_throwsDimensionMismatchException() {
+        double[] sigma = {0.5, 0.5, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(5, sigma);
+        optimizer.optimize(1000, new SphereFunction(), GoalType.MINIMIZE,
+                new double[]{0.5, 0.5});
+    }
+
+    @Test(expected = MathUnsupportedOperationException.class)
+    public void testOptimize_mixedFiniteInfiniteBounds_throwsMathUnsupportedOperationException() {
+        double[] sigma = {0.5, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(5, sigma);
+        optimizer.optimize(1000, new SphereFunction(), GoalType.MINIMIZE,
+                new double[]{0.5, 0.5},
+                new double[]{-1.0, Double.NEGATIVE_INFINITY},
+                new double[]{1.0, Double.POSITIVE_INFINITY});
+    }
+
+    @Test(expected = OutOfRangeException.class)
+    public void testOptimize_inputSigmaOutOfRange_throwsOutOfRangeException() {
+        double[] sigma = {5.0, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(5, sigma);
+        optimizer.optimize(1000, new SphereFunction(), GoalType.MINIMIZE,
+                new double[]{0.5, 0.5},
+                new double[]{-1.0, -1.0}, new double[]{1.0, 1.0});
+    }
+
+    @Test(expected = TooManyEvaluationsException.class)
+    public void testOptimize_maxEvaluationsZero_throwsTooManyEvaluationsException() {
+        double[] sigma = {0.5, 0.5};
+        CMAESOptimizer optimizer = new CMAESOptimizer(5, sigma);
+        optimizer.optimize(0, new SphereFunction(), GoalType.MINIMIZE,
+                new double[]{0.5, 0.5});
+    }
+
+    @Test
+    public void testOptimize_zeroStartPoint_optimizeSuccessfully

@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "96",
+  "tool": "claude",
+  "class": "org.apache.commons.math.complex.Complex",
+  "target_classes": [
+    "org.apache.commons.math.complex.Complex"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 56.18,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\96\\Complex_20261003_001615.txt",
+  "test_file": "Claude\\TestCode\\Math\\96\\ComplexTest.java",
+  "usage": {
+    "prompt_tokens": 13738,
+    "completion_tokens": 8813,
+    "total_tokens": 22551
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 124109,
+    "daily_remaining_tokens": 75891
+  },
+  "timestamp": "20261003_001615"
+}

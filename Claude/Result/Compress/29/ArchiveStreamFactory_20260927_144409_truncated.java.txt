@@ -1,0 +1,58 @@
+package org.apache.commons.compress.archivers;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import org.junit.Test;
+
+public class ArchiveStreamFactoryTest {
+
+    // Well known magic bytes for various archive formats
+    private static final byte[] AR_MAGIC = {
+            0x21, 0x3C, 0x61, 0x72, 0x63, 0x68, 0x3E, 0x0A
+    };
+    private static final byte[] ZIP_MAGIC = {
+            0x50, 0x4B, 0x03, 0x04
+    };
+    private static final byte[] CPIO_MAGIC = {
+            0x30, 0x37, 0x30, 0x37, 0x30, 0x31 // "070701"
+    };
+    private static final byte[] ARJ_MAGIC = {
+            0x60, (byte) 0xEA
+    };
+    private static final byte[] SEVENZ_MAGIC = {
+            0x37, 0x7A, (byte) 0xBC, (byte) 0xAF, 0x27, 0x1C
+    };
+
+    // -------------------------------------------------------------
+    // Constructors / encoding related
+    // -------------------------------------------------------------
+
+    @Test
+    public void testConstructorDefault_encodingIsNull() {
+        ArchiveStreamFactory factory = new ArchiveStreamFactory();
+        assertNull(factory.getEntryEncoding());
+    }
+
+    @Test
+    public void testConstructorWithEncoding_encodingIsSet() {
+        ArchiveStreamFactory factory = new ArchiveStreamFactory("UTF-8");
+        assertEquals("UTF-8", factory.getEntryEncoding());
+    }
+
+    @Test
+    public void testGetEntryEncoding_default_null() {
+        ArchiveStreamFactory factory = new ArchiveStreamFactory();
+        assertNull(factory.getEntryEncoding());
+    }
+
+    @Test
+    public void testGetEntryEncoding_withConstructorEnc

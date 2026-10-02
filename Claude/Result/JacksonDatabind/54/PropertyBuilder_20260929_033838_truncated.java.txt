@@ -1,0 +1,106 @@
+package com.fasterxml.jackson.databind.ser;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+import com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition;
+import com.fasterxml.jackson.databind.jsontype.TypeSerializer;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+import java.util.List;
+
+public class PropertyBuilderTest {
+
+    // ---------------------------------------------------------
+    // Helper subclass to expose protected methods for testing
+    // ---------------------------------------------------------
+    static class TestablePropertyBuilder extends PropertyBuilder {
+        public TestablePropertyBuilder(SerializationConfig config, BeanDescription beanDesc) {
+            super(config, beanDesc);
+        }
+
+        public BeanPropertyWriter callBuildWriter(SerializerProvider prov,
+                BeanPropertyDefinition propDef, JavaType declaredType, JsonSerializer<?> ser,
+                TypeSerializer typeSer, TypeSerializer contentTypeSer,
+                AnnotatedMember am, boolean defaultUseStaticTyping) throws JsonMappingException {
+            return buildWriter(prov, propDef, declaredType, ser, typeSer, contentTypeSer, am, defaultUseStaticTyping);
+        }
+
+        public JavaType callFindSerializationType(com.fasterxml.jackson.databind.introspect.Annotated a,
+                boolean useStaticTyping, JavaType declaredType) throws JsonMappingException {
+            return findSerializationType(a, useStaticTyping, declaredType);
+        }
+
+        public Object callGetDefaultBean() {
+            return getDefaultBean();
+        }
+
+        public Object callGetPropertyDefaultValue(String name, AnnotatedMember member, JavaType type) {
+            return getPropertyDefaultValue(name, member, type);
+        }
+
+        public Object callGetDefaultValue(JavaType type) {
+            return getDefaultValue(type);
+        }
+
+        public Object callThrowWrapped(Exception e, String propName, Object defaultBean) {
+            return _throwWrapped(e, propName, defaultBean);
+        }
+    }
+
+    // ---------------------------------------------------------
+    // Test bean classes
+    // ---------------------------------------------------------
+    public static class SimpleBean {
+        public int intValue;
+        public String stringValue;
+        public List<String> listValue;
+
+        public int getIntValue() { return intValue; }
+        public void setIntValue(int v) { intValue = v; }
+        public String getStringValue() { return stringValue; }
+        public void setStringValue(String v) { stringValue = v; }
+        public List<String> getListValue() { return listValue; }
+        public void setListValue(List<String> v) { listValue = v; }
+    }
+
+    public static class NoDefaultCtorBean {
+        private final int value;
+        public NoDefaultCtorBean(int value) { this.value = value; }
+        public int getValue() { return value; }
+    }
+
+    public static class ThrowingGetterBean {
+        public int value;
+        public int getValue() { throw new RuntimeException("boom"); }
+        public void setValue(int v) { value = v; }
+    }
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class NonNullBean {
+        public String value;
+        public String getValue() { return value; }
+        public void setValue(String v) { value = v; }
+    }
+
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    public static class NonEmptyBean {
+        public String value;
+        public String getValue() { return value; }
+        public void setValue(String v) { value = v; }
+    }
+
+    @JsonInclude(JsonInclude.Include.NON_ABSENT)
+    public static class NonAbsentBean {
+        public String value;
+        public String getValue() { return value; }
+        public void setValue(String v) { value = v; }
+    }
+
+    @JsonInclude(Json

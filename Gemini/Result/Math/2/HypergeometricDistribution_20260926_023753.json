@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "2",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.distribution.HypergeometricDistribution",
+  "target_classes": [
+    "org.apache.commons.math3.distribution.HypergeometricDistribution"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 24.59,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\2\\HypergeometricDistribution_20260926_023753.txt",
+  "test_file": "Gemini\\TestCode\\Math\\2\\HypergeometricDistributionTest.java",
+  "usage": {
+    "prompt_tokens": 3304,
+    "completion_tokens": 2710,
+    "total_tokens": 6893
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 94551,
+    "daily_remaining_tokens": 255449
+  },
+  "timestamp": "20260926_023753"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "JacksonXml",
+  "bug_id": "6",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator",
+  "target_classes": [
+    "com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 62.89,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonXml\\6\\ToXmlGenerator_20260925_141613.txt",
+  "test_file": "Gemini\\TestCode\\JacksonXml\\6\\ToXmlGeneratorTest.java",
+  "usage": {
+    "prompt_tokens": 10670,
+    "completion_tokens": 6489,
+    "total_tokens": 19965
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 55919,
+    "daily_remaining_tokens": 294081
+  },
+  "timestamp": "20260925_141613"
+}

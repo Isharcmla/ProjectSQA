@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "92",
+  "tool": "gemini",
+  "class": "org.jsoup.parser.XmlTreeBuilder",
+  "target_classes": [
+    "org.jsoup.parser.XmlTreeBuilder"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 24.97,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\92\\XmlTreeBuilder_20260926_010106.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\92\\XmlTreeBuilderTest.java",
+  "usage": {
+    "prompt_tokens": 1639,
+    "completion_tokens": 2487,
+    "total_tokens": 5279
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 304881,
+    "daily_remaining_tokens": 45119
+  },
+  "timestamp": "20260926_010106"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "46",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.archivers.zip.X5455_ExtendedTimestamp",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.zip.X5455_ExtendedTimestamp"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 63.09,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Compress\\46\\X5455_ExtendedTimestamp_20260928_200758.txt",
+  "test_file": "Claude\\TestCode\\Compress\\46\\X5455_ExtendedTimestampTest.java",
+  "usage": {
+    "prompt_tokens": 8957,
+    "completion_tokens": 9472,
+    "total_tokens": 18429
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 84680,
+    "daily_remaining_tokens": 115320
+  },
+  "timestamp": "20260928_200758"
+}

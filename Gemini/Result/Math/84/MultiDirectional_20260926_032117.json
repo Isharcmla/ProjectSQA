@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "84",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+  "target_classes": [
+    "org.apache.commons.math.optimization.direct.MultiDirectional"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 25.31,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\84\\MultiDirectional_20260926_032117.txt",
+  "test_file": "Gemini\\TestCode\\Math\\84\\MultiDirectionalTest.java",
+  "usage": {
+    "prompt_tokens": 1420,
+    "completion_tokens": 3064,
+    "total_tokens": 5117
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 161828,
+    "daily_remaining_tokens": 188172
+  },
+  "timestamp": "20260926_032117"
+}

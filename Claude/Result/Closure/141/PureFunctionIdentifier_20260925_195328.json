@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "141",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.PureFunctionIdentifier",
+  "target_classes": [
+    "com.google.javascript.jscomp.PureFunctionIdentifier"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 148.56,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\141\\PureFunctionIdentifier_20260925_195328.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 8832,
+    "completion_tokens": 16384,
+    "total_tokens": 25216
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 120763,
+    "daily_remaining_tokens": 79237
+  },
+  "timestamp": "20260925_195328"
+}

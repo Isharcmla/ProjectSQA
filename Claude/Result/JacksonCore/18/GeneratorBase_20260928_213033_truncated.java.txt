@@ -1,0 +1,412 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.io.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.core.base.GeneratorBase;
+import com.fasterxml.jackson.core.io.SerializedString;
+import com.fasterxml.jackson.core.json.JsonWriteContext;
+
+public class GeneratorBaseTest {
+
+    /**
+     * Concrete minimal implementation of GeneratorBase used to exercise
+     * the shared/base functionality being tested.
+     */
+    static class TestGenerator extends GeneratorBase {
+
+        StringBuilder sb = new StringBuilder();
+        boolean flushCalled = false;
+        boolean releaseBuffersCalled = false;
+        String lastVerifyMsg = null;
+
+        TestGenerator(int features, ObjectCodec codec) {
+            super(features, codec);
+        }
+
+        TestGenerator(int features, ObjectCodec codec, JsonWriteContext ctxt) {
+            super(features, codec, ctxt);
+        }
+
+        @Override
+        public void flush() throws IOException {
+            flushCalled = true;
+        }
+
+        @Override
+        protected void _releaseBuffers() {
+            releaseBuffersCalled = true;
+        }
+
+        @Override
+        protected void _verifyValueWrite(String typeMsg) throws IOException {
+            lastVerifyMsg = typeMsg;
+        }
+
+        // expose protected method for testing
+        public int callDecodeSurrogate(int s1, int s2) throws IOException {
+            return _decodeSurrogate(s1, s2);
+        }
+
+        public String callAsString(BigDecimal v) throws IOException {
+            return _asString(v);
+        }
+
+        @Override
+        public void writeStartArray() throws IOException {
+            _verifyValueWrite("start array");
+            sb.append("[");
+        }
+
+        @Override
+        public void writeEndArray() throws IOException {
+            sb.append("]");
+        }
+
+        @Override
+        public void writeStartObject() throws IOException {
+            _verifyValueWrite("start object");
+            sb.append("{");
+        }
+
+        @Override
+        public void writeEndObject() throws IOException {
+            sb.append("}");
+        }
+
+        @Override
+        public void writeFieldName(String name) throws IOException {
+            sb.append("\"").append(name).append("\":");
+        }
+
+        @Override
+        public void writeString(String text) throws IOException {
+            _verifyValueWrite(WRITE_STRING);
+            sb.append("\"").append(text).append("\"");
+        }
+
+        @Override
+        public void writeString(char[] text, int offset, int len) throws IOException {
+            sb.append(new String(text, offset, len));
+        }
+
+        @Override
+        public void writeRawUTF8String(byte[] text, int offset, int length) throws IOException {
+            sb.append("rawUtf8");
+        }
+
+        @Override
+        public void writeUTF8String(byte[] text, int offset, int length) throws IOException {
+            sb.append("utf8");
+        }
+
+        @Override
+        public void writeRaw(String text) throws IOException {
+            sb.append(text);
+        }
+
+        @Override
+        public void writeRaw(String text, int offset, int len) throws IOException {
+            sb.append(text.substring(offset, offset + len));
+        }
+
+        @Override
+        public void writeRaw(char[] text, int offset, int len) throws IOException {
+            sb.append(new String(text, offset, len));
+        }
+
+        @Override
+        public void writeRaw(char c) throws IOException {
+            sb.append(c);
+        }
+
+        @Override
+        public void writeBinary(Base64Variant b64variant, byte[] data, int offset, int len) throws IOException {
+            sb.append("binary");
+        }
+
+        @Override
+        public void writeNumber(int v) throws IOException {
+            _verifyValueWrite(WRITE_NUMBER);
+            sb.append(v);
+        }
+
+        @Override
+        public void writeNumber(long v) throws IOException {
+            sb.append(v);
+        }
+
+        @Override
+        public void writeNumber(BigInteger v) throws IOException {
+            sb.append(v);
+        }
+
+        @Override
+        public void writeNumber(double v) throws IOException {
+            sb.append(v);
+        }
+
+        @Override
+        public void writeNumber(float v) throws IOException {
+            sb.append(v);
+        }
+
+        @Override
+        public void writeNumber(BigDecimal v) throws IOException {
+            sb.append(_asString(v));
+        }
+
+        @Override
+        public void writeNumber(String encodedValue) throws IOException {
+            sb.append(encodedValue);
+        }
+
+        @Override
+        public void writeBoolean(boolean state) throws IOException {
+            _verifyValueWrite(WRITE_BOOLEAN);
+            sb.append(state);
+        }
+
+        @Override
+        public void writeNull() throws IOException {
+            _verifyValueWrite(WRITE_NULL);
+            sb.append("null");
+        }
+    }
+
+    private TestGenerator gen;
+
+    @Before
+    public void setUp() {
+        gen = new TestGenerator(JsonGenerator.Feature.collectDefaults(), null);
+    }
+
+    // ---------- Constructor tests ----------
+
+    @Test
+    public void testConstructor_defaultFeatures_initializesFields() {
+        TestGenerator g = new TestGenerator(0, null);
+        assertNotNull(g.getOutputContext());
+        assertFalse(g.isClosed());
+    }
+
+    @Test
+    public void testConstructor_withWriteContext_initializesFields() {
+        JsonWriteContext ctxt = JsonWriteContext.createRootContext(null);
+        TestGenerator g = new TestGenerator(0, null, ctxt);
+        assertSame(ctxt, g.getOutputContext());
+    }
+
+    @Test
+    public void testConstructor_withStrictDuplicateDetection_createsDupDetector() {
+        int features = JsonGenerator.Feature.STRICT_DUPLICATE_DETECTION.getMask();
+        TestGenerator g = new TestGenerator(features, null);
+        assertNotNull(g.getOutputContext().getDupDetector());
+    }
+
+    // ---------- version() ----------
+
+    @Test
+    public void testVersion_returnsNonNull() {
+        assertNotNull(gen.version());
+    }
+
+    // ---------- getCurrentValue / setCurrentValue ----------
+
+    @Test
+    public void testGetSetCurrentValue_normal() {
+        Object val = "hello";
+        gen.setCurrentValue(val);
+        assertEquals(val, gen.getCurrentValue());
+    }
+
+    @Test
+    public void testGetCurrentValue_initiallyNull() {
+        assertNull(gen.getCurrentValue());
+    }
+
+    // ---------- isEnabled / getFeatureMask ----------
+
+    @Test
+    public void testIsEnabled_defaultFeature() {
+        TestGenerator g = new TestGenerator(0, null);
+        assertFalse(g.isEnabled(JsonGenerator.Feature.WRITE_NUMBERS_AS_STRINGS));
+    }
+
+    @Test
+    public void testGetFeatureMask_returnsCorrectValue() {
+        int mask = JsonGenerator.Feature.WRITE_NUMBERS_AS_STRINGS.getMask();
+        TestGenerator g = new TestGenerator(mask, null);
+        assertEquals(mask, g.getFeatureMask());
+    }
+
+    // ---------- enable() ----------
+
+    @Test
+    public void testEnable_normalFeature_setsFlag() {
+        TestGenerator g = new TestGenerator(0, null);
+        g.enable(JsonGenerator.Feature.QUOTE_FIELD_NAMES);
+        assertTrue(g.isEnabled(JsonGenerator.Feature.QUOTE_FIELD_NAMES));
+    }
+
+    @Test
+    public void testEnable_writeNumbersAsStrings_setsCfgFlag() {
+        TestGenerator g = new TestGenerator(0, null);
+        g.enable(JsonGenerator.Feature.WRITE_NUMBERS_AS_STRINGS);
+        assertTrue(g.isEnabled(JsonGenerator.Feature.WRITE_NUMBERS_AS_STRINGS));
+    }
+
+    @Test
+    public void testEnable_escapeNonAscii_doesNotThrow() {
+        TestGenerator g = new TestGenerator(0, null);
+        g.enable(JsonGenerator.Feature.ESCAPE_NON_ASCII);
+        assertTrue(g.isEnabled(JsonGenerator.Feature.ESCAPE_NON_ASCII));
+    }
+
+    @Test
+    public void testEnable_strictDuplicateDetection_whenDupDetectorNull_setsDetector() {
+        TestGenerator g = new TestGenerator(0, null);
+        assertNull(g.getOutputContext().getDupDetector());
+        g.enable(JsonGenerator.Feature.STRICT_DUPLICATE_DETECTION);
+        assertNotNull(g.getOutputContext().getDupDetector());
+    }
+
+    @Test
+    public void testEnable_strictDuplicateDetection_whenAlreadySet_doesNotChangeDetector() {
+        int features = JsonGenerator.Feature.STRICT_DUPLICATE_DETECTION.getMask();
+        TestGenerator g = new TestGenerator(features, null);
+        Object before = g.getOutputContext().getDupDetector();
+        g.enable(JsonGenerator.Feature.STRICT_DUPLICATE_DETECTION);
+        Object after = g.getOutputContext().getDupDetector();
+        assertNotNull(after);
+        assertSame(before, after);
+    }
+
+    // ---------- disable() ----------
+
+    @Test
+    public void testDisable_normalFeature_clearsFlag() {
+        TestGenerator g = new TestGenerator(JsonGenerator.Feature.QUOTE_FIELD_NAMES.getMask(), null);
+        g.disable(JsonGenerator.Feature.QUOTE_FIELD_NAMES);
+        assertFalse(g.isEnabled(JsonGenerator.Feature.QUOTE_FIELD_NAMES));
+    }
+
+    @Test
+    public void testDisable_writeNumbersAsStrings_clearsCfgFlag() {
+        TestGenerator g = new TestGenerator(JsonGenerator.Feature.WRITE_NUMBERS_AS_STRINGS.getMask(), null);
+        g.disable(JsonGenerator.Feature.WRITE_NUMBERS_AS_STRINGS);
+        assertFalse(g.isEnabled(JsonGenerator.Feature.WRITE_NUMBERS_AS_STRINGS));
+    }
+
+    @Test
+    public void testDisable_escapeNonAscii_doesNotThrow() {
+        TestGenerator g = new TestGenerator(JsonGenerator.Feature.ESCAPE_NON_ASCII.getMask(), null);
+        g.disable(JsonGenerator.Feature.ESCAPE_NON_ASCII);
+        assertFalse(g.isEnabled(JsonGenerator.Feature.ESCAPE_NON_ASCII));
+    }
+
+    @Test
+    public void testDisable_strictDuplicateDetection_removesDetector() {
+        int features = JsonGenerator.Feature.STRICT_DUPLICATE_DETECTION.getMask();
+        TestGenerator g = new TestGenerator(features, null);
+        assertNotNull(g.getOutputContext().getDupDetector());
+        g.disable(JsonGenerator.Feature.STRICT_DUPLICATE_DETECTION);
+        assertNull(g.getOutputContext().getDupDetector());
+    }
+
+    // ---------- setFeatureMask() (deprecated) ----------
+
+    @Test
+    public void testSetFeatureMask_changedValue_updatesFeaturesAndDerived() {
+        TestGenerator g = new TestGenerator(0, null);
+        int newMask = JsonGenerator.Feature.WRITE_NUMBERS_AS_STRINGS.getMask();
+        g.setFeatureMask(newMask);
+        assertEquals(newMask, g.getFeatureMask());
+        assertTrue(g.isEnabled(JsonGenerator.Feature.WRITE_NUMBERS_AS_STRINGS));
+    }
+
+    @Test
+    public void testSetFeatureMask_sameValue_noChangeBranch() {
+        TestGenerator g = new TestGenerator(0, null);
+        g.setFeatureMask(0);
+        assertEquals(0, g.getFeatureMask());
+    }
+
+    // ---------- overrideStdFeatures() ----------
+
+    @Test
+    public void testOverrideStdFeatures_changedValue_updatesFeatures() {
+        TestGenerator g = new TestGenerator(0, null);
+        int mask = JsonGenerator.Feature.ESCAPE_NON_ASCII.getMask();
+        g.overrideStdFeatures(mask, mask);
+        assertTrue(g.isEnabled(JsonGenerator.Feature.ESCAPE_NON_ASCII));
+    }
+
+    @Test
+    public void testOverrideStdFeatures_noChange_maskZero() {
+        TestGenerator g = new TestGenerator(0, null);
+        int before = g.getFeatureMask();
+        g.overrideStdFeatures(0, 0);
+        assertEquals(before, g.getFeatureMask());
+    }
+
+    // ---------- useDefaultPrettyPrinter / setCodec / getCodec ----------
+
+    @Test
+    public void testUseDefaultPrettyPrinter_whenNoneSet_setsPrettyPrinter() {
+        TestGenerator g = new TestGenerator(0, null);
+        assertNull(g.getPrettyPrinter());
+        g.useDefaultPrettyPrinter();
+        assertNotNull(g.getPrettyPrinter());
+    }
+
+    @Test
+    public void testUseDefaultPrettyPrinter_whenAlreadySet_doesNotOverride() {
+        TestGenerator g = new TestGenerator(0, null);
+        g.useDefaultPrettyPrinter();
+        PrettyPrinter first = g.getPrettyPrinter();
+        g.useDefaultPrettyPrinter();
+        PrettyPrinter second = g.getPrettyPrinter();
+        assertSame(first, second);
+    }
+
+    @Test
+    public void testSetCodecGetCodec_nullCodec() {
+        TestGenerator g = new TestGenerator(0, null);
+        assertNull(g.getCodec());
+        g.setCodec(null);
+        assertNull(g.getCodec());
+    }
+
+    // ---------- getOutputContext ----------
+
+    @Test
+    public void testGetOutputContext_returnsWriteContext() {
+        assertNotNull(gen.getOutputContext());
+        assertTrue(gen.getOutputContext().inRoot());
+    }
+
+    // ---------- writeFieldName(SerializableString) ----------
+
+    @Test
+    public void testWriteFieldName_serializableString_delegatesToStringVersion() throws IOException {
+        SerializedString ss = new SerializedString("field1");
+        gen.writeFieldName(ss);
+        assertTrue(gen.sb.toString().contains("field1"));
+    }
+
+    // ---------- writeString(SerializableString) ----------
+
+    @Test
+    public void testWriteString_serializableString_delegatesToStringVersion() throws IOException {
+        SerializedString ss = new SerializedString("hello");
+        gen.writeString(ss);
+        assertTrue(gen.sb.toString().contains("hello"));
+        assertEquals(GeneratorBase.WRITE_STRING, gen.lastVerifyMsg);
+    }
+
+    //

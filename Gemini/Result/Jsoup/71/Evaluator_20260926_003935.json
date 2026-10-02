@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "71",
+  "tool": "gemini",
+  "class": "org.jsoup.select.Evaluator",
+  "target_classes": [
+    "org.jsoup.select.Evaluator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 57.89,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\71\\Evaluator_20260926_003935.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\71\\EvaluatorTest.java",
+  "usage": {
+    "prompt_tokens": 5246,
+    "completion_tokens": 6026,
+    "total_tokens": 13813
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 31875,
+    "daily_remaining_tokens": 318125
+  },
+  "timestamp": "20260926_003935"
+}

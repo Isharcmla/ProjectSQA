@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "158",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.DiagnosticGroups",
+  "target_classes": [
+    "com.google.javascript.jscomp.DiagnosticGroups"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 47.9,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\158\\DiagnosticGroups_20260925_211819.txt",
+  "test_file": "Claude\\TestCode\\Closure\\158\\DiagnosticGroupsTest.java",
+  "usage": {
+    "prompt_tokens": 4239,
+    "completion_tokens": 7116,
+    "total_tokens": 11355
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 11355,
+    "daily_remaining_tokens": 188645
+  },
+  "timestamp": "20260925_211819"
+}

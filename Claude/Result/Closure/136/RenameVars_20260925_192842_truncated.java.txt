@@ -1,0 +1,204 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.junit.Test;
+
+/**
+ * NOTE:
+ * RenameVars, ProcessVars, Assignment เป็น package-private class ดังนั้น test นี้ต้องอยู่ใน package
+ * com.google.javascript.jscomp เดียวกัน
+ *
+ * การทดสอบนี้ใช้ com.google.javascript.jscomp.Compiler (concrete implementation ของ AbstractCompiler)
+ * ร่วมกับ SourceFile และ CompilerOptions ซึ่งเป็น class จริงใน closure-compiler library
+ * (ไม่มีการ mock ใด ๆ) เนื่องจากไม่มี mocking framework ที่อนุญาตให้ใช้ และ AbstractCompiler
+ * เป็น abstract class ที่มี method จำนวนมากซึ่งไม่ได้ระบุไว้ใน dependencies ที่ให้มา
+ */
+public class RenameVarsTest {
+
+  private Compiler compiler;
+  private Node externsRoot;
+  private Node jsRoot;
+
+  private void compileAndGetRoots(String js) {
+    compiler = new Compiler();
+    CompilerOptions options = new CompilerOptions();
+    List<SourceFile> externs = Collections.emptyList();
+    List<SourceFile> inputs =
+        Collections.singletonList(SourceFile.fromCode("input.js", js));
+    compiler.init(externs, inputs, options);
+    compiler.parseInputs();
+    externsRoot = compiler.getExternsRoot();
+    jsRoot = compiler.getJsRoot();
+  }
+
+  // (ก) normal / typical input -----------------------------------------
+
+  @Test
+  public void testProcess_globalVariableRenaming_variablesRenamed() {
+    compileAndGetRoots("var xxxxxxx = 1; xxxxxxx = xxxxxxx + 1;");
+    RenameVars renameVars =
+        new RenameVars(compiler, "", false, false, false, null, null, null);
+    renameVars.process(externsRoot, jsRoot);
+    String source = compiler.toSource();
+    assertFalse(source.contains("xxxxxxx"));
+  }
+
+  @Test
+  public void testProcess_localRenamingOnly_onlyLocalVariablesRenamed() {
+    compileAndGetRoots(
+        "var globalVar = 1; function f(paramVar) { "
+            + "var localVar = paramVar + 1; return localVar; }");
+    RenameVars renameVars =
+        new RenameVars(compiler, "", true, false, false, null, null, null);
+    renameVars.process(externsRoot, jsRoot);
+    String source = compiler.toSource();
+    assertTrue(source.contains("globalVar"));
+    assertFalse(source.contains("localVar"));
+  }
+
+  @Test
+  public void testProcess_generatePseudoNames_pseudoNamesUsed() {
+    compileAndGetRoots("var myVariable = 1; myVariable = myVariable + 1;");
+    RenameVars renameVars =
+        new RenameVars(compiler, "", false, false, true, null, null, null);
+    renameVars.process(externsRoot, jsRoot);
+    String source = compiler.toSource();
+    assertTrue(source.contains("$myVariable$$"));
+  }
+
+  @Test
+  public void testProcess_withPrefix_originalNameNotPresent() {
+    compileAndGetRoots("var abcxyz = 1; abcxyz = abcxyz + 1;");
+    RenameVars renameVars =
+        new RenameVars(compiler, "pfx_", false, false, false, null, null, null);
+    renameVars.process(externsRoot, jsRoot);
+    String source = compiler.toSource();
+    assertFalse(source.contains("abcxyz"));
+  }
+
+  @Test
+  public void testGetVariableMap_afterProcess_returnsRenameMapping() {
+    compileAndGetRoots("var testVarName = 1;");
+    RenameVars renameVars =
+        new RenameVars(compiler, "", false, false, false, null, null, null);
+    renameVars.process(externsRoot, jsRoot);
+    VariableMap map = renameVars.getVariableMap();
+    assertNotNull(map);
+    assertNotNull(map.lookupNewName("testVarName"));
+  }
+
+  @Test
+  public void testProcess_externVariableNotRenamed() {
+    compiler = new Compiler();
+    CompilerOptions options = new CompilerOptions();
+    List<SourceFile> externs =
+        Collections.singletonList(SourceFile.fromCode("externs.js", "var externVar;"));
+    List<SourceFile> inputs =
+        Collections.singletonList(
+            SourceFile.fromCode(
+                "input.js", "externVar = 5; var localGlobalVar = externVar;"));
+    compiler.init(externs, inputs, options);
+    compiler.parseInputs();
+    externsRoot = compiler.getExternsRoot();
+    jsRoot = compiler.getJsRoot();
+
+    RenameVars renameVars =
+        new RenameVars(compiler, "", false, false, false, null, null, null);
+    renameVars.process(externsRoot, jsRoot);
+    String source = compiler.toSource();
+    assertTrue(source.contains("externVar"));
+  }
+
+  @Test
+  public void testProcess_withPreviouslyUsedVariableMap_reusesNames() {
+    compileAndGetRoots("var oldVarName = 1;");
+    RenameVars firstPass =
+        new RenameVars(compiler, "", false, false, false, null, null, null);
+    firstPass.process(externsRoot, jsRoot);
+    VariableMap prevMap = firstPass.getVariableMap();
+
+    compileAndGetRoots("var oldVarName = 1;");
+    RenameVars secondPass =
+        new RenameVars(compiler, "", false, false, false, prevMap, null, null);
+    secondPass.process(externsRoot, jsRoot);
+    VariableMap newMap = secondPass.getVariableMap();
+
+    assertEquals(prevMap.lookupNewName("oldVarName"), newMap.lookupNewName("oldVarName"));
+  }
+
+  @Test
+  public void testProcess_withReservedNamesSet_reservedNamesNotUsedAsNewNames() {
+    compileAndGetRoots("var one = 1; var two = 2; var three = 3;");
+    Set<String> reserved = new HashSet<String>(Arrays.asList("a", "b"));
+    RenameVars renameVars =
+        new RenameVars(compiler, "", false, false, false, null, null, reserved);
+    renameVars.process(externsRoot, jsRoot);
+    VariableMap map = renameVars.getVariableMap();
+    String newNameOne = map.lookupNewName("one");
+    assertNotNull(newNameOne);
+    assertFalse("a".equals(newNameOne));
+    assertFalse("b".equals(newNameOne));
+  }
+
+  @Test
+  public void testProcess_withReservedCharacters_noExceptionThrown() {
+    compileAndGetRoots("var abc = 1; abc = abc + 1;");
+    char[] reserved = {'a', 'b', 'c'};
+    RenameVars renameVars =
+        new RenameVars(compiler, "", false, false, false, null, reserved, null);
+    renameVars.process(externsRoot, jsRoot);
+    assertNotNull(renameVars.getVariableMap());
+  }
+
+  @Test
+  public void testProcess_preserveAnonymousFunctionNames_noExceptionThrown() {
+    compileAndGetRoots("var f = function() { return 1; };");
+    RenameVars renameVars =
+        new RenameVars(compiler, "", false, true, false, null, null, null);
+    renameVars.process(externsRoot, jsRoot);
+    assertNotNull(renameVars.getVariableMap());
+  }
+
+  // (ข) edge case: null / empty / boundary --------------------------------
+
+  @Test
+  public void testConstructor_nullPrefix_defaultsToEmptyString() {
+    compileAndGetRoots("var a1 = 1;");
+    RenameVars renameVars =
+        new RenameVars(compiler, null, false, false, false, null, null, null);
+    renameVars.process(externsRoot, jsRoot);
+    assertNotNull(renameVars.getVariableMap());
+  }
+
+  @Test
+  public void testConstructor_nullReservedNames_noExceptionThrown() {
+    compileAndGetRoots("var a2 = 1;");
+    RenameVars renameVars =
+        new RenameVars(compiler, "", false, false, false, null, null, null);
+    renameVars.process(externsRoot, jsRoot);
+    assertNotNull(renameVars.getVariableMap());
+  }
+
+  @Test
+  public void testProcess_emptySource_noExceptionNoVariables() {
+    compileAndGetRoots("");
+    RenameVars renameVars =
+        new RenameVars(compiler, "", false, false, false, null, null, null);
+    renameVars.process(externsRoot, jsRoot);
+    VariableMap map = renameVars.getVariableMap();
+    assertNotNull(map);
+  }
+
+  @Test
+  public void testProcess_singleCharacterVariableName_boundaryHandled() {
+    compileAndGetRoots("var a = 1; a =

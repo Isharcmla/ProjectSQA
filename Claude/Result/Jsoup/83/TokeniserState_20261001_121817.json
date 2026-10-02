@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "83",
+  "tool": "claude",
+  "class": "org.jsoup.parser.TokeniserState",
+  "target_classes": [
+    "org.jsoup.parser.TokeniserState"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 146.86,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\83\\TokeniserState_20261001_121817.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 19695,
+    "completion_tokens": 16384,
+    "total_tokens": 36079
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 100484,
+    "daily_remaining_tokens": 99516
+  },
+  "timestamp": "20261001_121817"
+}

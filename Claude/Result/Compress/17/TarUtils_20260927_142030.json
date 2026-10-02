@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "17",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.archivers.tar.TarUtils",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.tar.TarUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 105.53,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Compress\\17\\TarUtils_20260927_142030.txt",
+  "test_file": "Claude\\TestCode\\Compress\\17\\TarUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 9105,
+    "completion_tokens": 12926,
+    "total_tokens": 22031
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 95683,
+    "daily_remaining_tokens": 104317
+  },
+  "timestamp": "20260927_142030"
+}

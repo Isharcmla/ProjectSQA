@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "12",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser",
+  "target_classes": [
+    "com.fasterxml.jackson.core.json.ReaderBasedJsonParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 58.09,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonCore\\12\\ReaderBasedJsonParser_20260925_114435.txt",
+  "test_file": "Gemini\\TestCode\\JacksonCore\\12\\ReaderBasedJsonParserTest.java",
+  "usage": {
+    "prompt_tokens": 23982,
+    "completion_tokens": 5750,
+    "total_tokens": 32569
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 99721,
+    "daily_remaining_tokens": 250279
+  },
+  "timestamp": "20260925_114435"
+}

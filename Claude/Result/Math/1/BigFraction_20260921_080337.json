@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "1",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.fraction.BigFraction",
+  "target_classes": [
+    "org.apache.commons.math3.fraction.BigFraction"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 63.66,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "Claude",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude/Prompt/Math/1/BigFraction_20260921_080337.txt",
+  "test_file": "Claude/TestCode/Math/1/BigFractionTest.java",
+  "usage": {
+    "prompt_tokens": 15232,
+    "completion_tokens": 10205,
+    "total_tokens": 25437
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 207251,
+    "daily_remaining_tokens": -7251
+  },
+  "timestamp": "20260921_080337"
+}

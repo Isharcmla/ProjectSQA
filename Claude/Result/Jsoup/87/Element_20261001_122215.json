@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "87",
+  "tool": "claude",
+  "class": "org.jsoup.nodes.Element",
+  "target_classes": [
+    "org.jsoup.nodes.Element"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 85.79,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\87\\Element_20261001_122215.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\87\\ElementTest.java",
+  "usage": {
+    "prompt_tokens": 19335,
+    "completion_tokens": 13494,
+    "total_tokens": 32829
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 153887,
+    "daily_remaining_tokens": 46113
+  },
+  "timestamp": "20261001_122215"
+}

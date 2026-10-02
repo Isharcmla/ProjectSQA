@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "21",
+  "tool": "gemini",
+  "class": "org.apache.commons.jxpath.ri.model.beans.PropertyPointer",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.model.beans.PropertyPointer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 51.07,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JxPath\\21\\PropertyPointer_20260926_011450.txt",
+  "test_file": "Gemini\\TestCode\\JxPath\\21\\PropertyPointerTest.java",
+  "usage": {
+    "prompt_tokens": 2112,
+    "completion_tokens": 4364,
+    "total_tokens": 9663
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 125013,
+    "daily_remaining_tokens": 224987
+  },
+  "timestamp": "20260926_011450"
+}

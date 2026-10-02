@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "40",
+  "tool": "claude",
+  "class": "org.apache.commons.cli.TypeHandler",
+  "target_classes": [
+    "org.apache.commons.cli.TypeHandler"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 23.82,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Cli\\40\\TypeHandler_20260924_091402.txt",
+  "test_file": "Claude\\TestCode\\Cli\\40\\TypeHandlerTest.java",
+  "usage": {
+    "prompt_tokens": 3588,
+    "completion_tokens": 3395,
+    "total_tokens": 6983
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 39809,
+    "daily_remaining_tokens": 160191
+  },
+  "timestamp": "20260924_091402"
+}

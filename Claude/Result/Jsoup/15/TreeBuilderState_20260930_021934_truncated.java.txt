@@ -1,0 +1,156 @@
+package org.jsoup.parser;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class TreeBuilderStateTest {
+
+    // ---------- Initial state ----------
+    @Test
+    public void testInitial_commentBeforeDoctype_inserted() {
+        Document doc = Jsoup.parse("<!-- comment --><!DOCTYPE html><html><head></head><body></body></html>");
+        assertNotNull(doc);
+        assertTrue(doc.outerHtml().contains("comment"));
+    }
+
+    @Test
+    public void testInitial_doctypeParsed_setsDocType() {
+        Document doc = Jsoup.parse("<!DOCTYPE html><html><head></head><body></body></html>");
+        assertTrue(doc.childNode(0) instanceof org.jsoup.nodes.DocumentType);
+    }
+
+    @Test
+    public void testInitial_whitespaceIgnored() {
+        Document doc = Jsoup.parse("   <html><head></head><body></body></html>");
+        assertNotNull(doc.body());
+    }
+
+    @Test
+    public void testInitial_noDoctype_transitionsToBeforeHtml() {
+        Document doc = Jsoup.parse("<html><head></head><body>Hi</body></html>");
+        assertEquals("Hi", doc.body().text());
+    }
+
+    // ---------- BeforeHtml ----------
+    @Test
+    public void testBeforeHtml_startTagHtml() {
+        Document doc = Jsoup.parse("<html><body>test</body></html>");
+        assertEquals("test", doc.body().text());
+    }
+
+    @Test
+    public void testBeforeHtml_commentBeforeHtml() {
+        Document doc = Jsoup.parse("<!-- c --><html><body>x</body></html>");
+        assertNotNull(doc.body());
+    }
+
+    @Test
+    public void testBeforeHtml_textContent_anythingElse() {
+        Document doc = Jsoup.parse("Hello<html><body></body></html>");
+        assertTrue(doc.text().contains("Hello"));
+    }
+
+    @Test
+    public void testBeforeHtml_doctypeAfterContent_error() {
+        Document doc = Jsoup.parse("<html><!DOCTYPE html><body>x</body></html>");
+        assertNotNull(doc.body());
+    }
+
+    // ---------- BeforeHead ----------
+    @Test
+    public void testBeforeHead_startTagHead() {
+        Document doc = Jsoup.parse("<html><head><title>T</title></head><body></body></html>");
+        assertEquals("T", doc.title());
+    }
+
+    @Test
+    public void testBeforeHead_whitespaceIgnored() {
+        Document doc = Jsoup.parse("<html>   <head></head><body></body></html>");
+        assertNotNull(doc.head());
+    }
+
+    @Test
+    public void testBeforeHead_endTagBody_anythingElse() {
+        Document doc = Jsoup.parse("<html></body><body>x</body></html>");
+        assertNotNull(doc.body());
+    }
+
+    // ---------- InHead ----------
+    @Test
+    public void testInHead_metaTag() {
+        Document doc = Jsoup.parse("<html><head><meta charset='utf-8'></head><body></body></html>");
+        assertEquals(1, doc.head().getElementsByTag("meta").size());
+    }
+
+    @Test
+    public void testInHead_baseTagSetsBaseUri() {
+        Document doc = Jsoup.parse(
+            "<html><head><base href='http://example.com/'></head><body><a href='x'>l</a></body></html>",
+            "http://foo.com/");
+        Element a = doc.select("a").first();
+        assertEquals("http://example.com/x", a.absUrl("href"));
+    }
+
+    @Test
+    public void testInHead_titleHandledAsRcdata() {
+        Document doc = Jsoup.parse("<html><head><title>My &amp; Title</title></head><body></body></html>");
+        assertEquals("My & Title", doc.title());
+    }
+
+    @Test
+    public void testInHead_styleAsRawtext() {
+        Document doc = Jsoup.parse("<html><head><style>body { color: red; }</style></head><body></body></html>");
+        assertEquals(1, doc.select("style").size());
+    }
+
+    @Test
+    public void testInHead_scriptTransitionsToText() {
+        Document doc = Jsoup.parse("<html><head><script>var x = '<div>';</script></head><body></body></html>");
+        assertEquals(1, doc.select("script").size());
+    }
+
+    @Test
+    public void testInHead_noscriptTransition() {
+        Document doc = Jsoup.parse("<html><head><noscript><p>no js</p></noscript></head><body></body></html>");
+        assertNotNull(doc.select("noscript").first());
+    }
+
+    @Test
+    public void testInHead_endTagHeadTransitionsToAfterHead() {
+        Document doc = Jsoup.parse("<html><head></head><body>content</body></html>");
+        assertEquals("content", doc.body().text());
+    }
+
+    @Test
+    public void testInHead_headStartTagErrorIgnored() {
+        Document doc = Jsoup.parse("<html><head><head></head><body>x</body></html>");
+        assertNotNull(doc.head());
+    }
+
+    // ---------- InHeadNoscript ----------
+    @Test
+    public void testInHeadNoscript_allowedElementsPassedToInHead() {
+        Document doc = Jsoup.parse("<html><head><noscript><link rel='x'></noscript></head><body></body></html>");
+        assertNotNull(doc.head());
+    }
+
+    // ---------- AfterHead ----------
+    @Test
+    public void testAfterHead_bodyStartTag() {
+        Document doc = Jsoup.parse("<html><head></head><body class='c'>hi</body></html>");
+        assertEquals("c", doc.body().className());
+    }
+
+    @Test
+    public void testAfterHead_metaAfterHeadError() {
+        Document doc = Jsoup.parse("<html><head></head><meta charset='utf-8'><body>x</body></html>");
+        assertNotNull(doc.body());
+    }
+
+    @Test
+    public void testAfterHead_

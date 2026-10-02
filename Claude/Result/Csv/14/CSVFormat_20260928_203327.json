@@ -1,0 +1,33 @@
+{
+  "project": "Csv",
+  "bug_id": "14",
+  "tool": "claude",
+  "class": "org.apache.commons.csv.CSVFormat",
+  "target_classes": [
+    "org.apache.commons.csv.CSVFormat"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 93.77,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Csv\\14\\CSVFormat_20260928_203327.txt",
+  "test_file": "Claude\\TestCode\\Csv\\14\\CSVFormatTest.java",
+  "usage": {
+    "prompt_tokens": 25054,
+    "completion_tokens": 14572,
+    "total_tokens": 39626
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 204046,
+    "daily_remaining_tokens": -4046
+  },
+  "timestamp": "20260928_203327"
+}

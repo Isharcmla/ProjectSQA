@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "3",
+  "tool": "gemini",
+  "class": "org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 46.02,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JxPath\\3\\NullPropertyPointer_20260926_011722.txt",
+  "test_file": "Gemini\\TestCode\\JxPath\\3\\NullPropertyPointerTest.java",
+  "usage": {
+    "prompt_tokens": 1984,
+    "completion_tokens": 2677,
+    "total_tokens": 8780
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 148380,
+    "daily_remaining_tokens": 201620
+  },
+  "timestamp": "20260926_011722"
+}

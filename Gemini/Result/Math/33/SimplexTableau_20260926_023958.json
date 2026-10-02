@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "33",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.optimization.linear.SimplexTableau",
+  "target_classes": [
+    "org.apache.commons.math3.optimization.linear.SimplexTableau"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 34.04,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\33\\SimplexTableau_20260926_023958.txt",
+  "test_file": "Gemini\\TestCode\\Math\\33\\SimplexTableauTest.java",
+  "usage": {
+    "prompt_tokens": 6022,
+    "completion_tokens": 4568,
+    "total_tokens": 11039
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 121200,
+    "daily_remaining_tokens": 228800
+  },
+  "timestamp": "20260926_023958"
+}

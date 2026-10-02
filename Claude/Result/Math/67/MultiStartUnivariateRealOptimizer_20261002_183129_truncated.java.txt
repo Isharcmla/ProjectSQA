@@ -1,0 +1,155 @@
+package org.apache.commons.math.optimization;
+
+import org.apache.commons.math.ConvergenceException;
+import org.apache.commons.math.FunctionEvaluationException;
+import org.apache.commons.math.analysis.UnivariateRealFunction;
+import org.apache.commons.math.random.RandomGenerator;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class MultiStartUnivariateRealOptimizerTest {
+
+    /** Deterministic random generator used for testing. */
+    private static class TestRandomGenerator implements RandomGenerator {
+        private double[] values;
+        private int index = 0;
+
+        TestRandomGenerator(double[] values) {
+            this.values = values;
+        }
+
+        public double nextDouble() {
+            double v = values[index % values.length];
+            index++;
+            return v;
+        }
+
+        public void setSeed(int seed) { }
+        public void setSeed(int[] seed) { }
+        public void setSeed(long seed) { }
+        public void nextBytes(byte[] bytes) { }
+        public int nextInt() { return 0; }
+        public int nextInt(int n) { return 0; }
+        public long nextLong() { return 0; }
+        public boolean nextBoolean() { return false; }
+        public float nextFloat() { return 0f; }
+        public double nextGaussian() { return 0; }
+    }
+
+    /** Controllable single-start optimizer used to drive the multi-start behavior. */
+    private static class TestOptimizer implements UnivariateRealOptimizer {
+        private int maxIterations = Integer.MAX_VALUE;
+        private int maxEvaluations = Integer.MAX_VALUE;
+        private int iterationCount = 0;
+        private int evaluations = 0;
+        private double absoluteAccuracy = 1e-6;
+        private double relativeAccuracy = 1e-6;
+        private double result;
+        private double functionValue;
+        private int callCount = 0;
+        private boolean[] throwConvergence;
+        private boolean[] throwFunctionEval;
+
+        public double optimize(UnivariateRealFunction f, GoalType goalType, double min, double max)
+                throws ConvergenceException, FunctionEvaluationException {
+            int idx = callCount++;
+            iterationCount = 5;
+            evaluations = 10;
+            if (throwConvergence != null && idx < throwConvergence.length && throwConvergence[idx]) {
+                throw new ConvergenceException();
+            }
+            if (throwFunctionEval != null && idx < throwFunctionEval.length && throwFunctionEval[idx]) {
+                throw new FunctionEvaluationException(min);
+            }
+            double mid = (min + max) / 2.0;
+            functionValue = f.value(mid);
+            result = mid;
+            return result;
+        }
+
+        public double optimize(UnivariateRealFunction f, GoalType goalType, double min, double max, double startValue)
+                throws ConvergenceException, FunctionEvaluationException {
+            return optimize(f, goalType, min, max);
+        }
+
+        public double getFunctionValue() { return functionValue; }
+        public double getResult() { return result; }
+        public double getAbsoluteAccuracy() { return absoluteAccuracy; }
+        public int getIterationCount() { return iterationCount; }
+        public int getMaximalIterationCount() { return maxIterations; }
+        public int getMaxEvaluations() { return maxEvaluations; }
+        public int getEvaluations() { return evaluations; }
+        public double getRelativeAccuracy() { return relativeAccuracy; }
+        public void resetAbsoluteAccuracy() { absoluteAccuracy = 1e-6; }
+        public void resetMaximalIterationCount() { maxIterations = Integer.MAX_VALUE; }
+        public void resetRelativeAccuracy() { relativeAccuracy = 1e-6; }
+        public void setAbsoluteAccuracy(double accuracy) { this.absoluteAccuracy = accuracy; }
+        public void setMaximalIterationCount(int count) { this.maxIterations = count; }
+        public void setMaxEvaluations(int maxEvaluations) { this.maxEvaluations = maxEvaluations; }
+        public void setRelativeAccuracy(double accuracy) { this.relativeAccuracy = accuracy; }
+
+        void setThrowConvergence(boolean[] arr) { this.throwConvergence = arr; }
+        void setThrowFunctionEval(boolean[] arr) { this.throwFunctionEval = arr; }
+    }
+
+    /** Optimizer that returns a predetermined sequence of results/values, used to test sorting logic. */
+    private static class SequenceOptimizer implements UnivariateRealOptimizer {
+        private double[] results;
+        private double[] values;
+        private int callIndex = 0;
+        private int maxIterations = Integer.MAX_VALUE;
+        private int maxEvaluations = Integer.MAX_VALUE;
+        private double absoluteAccuracy = 1e-6;
+        private double relativeAccuracy = 1e-6;
+
+        SequenceOptimizer(double[] results, double[] values) {
+            this.results = results;
+            this.values = values;
+        }
+
+        public double optimize(UnivariateRealFunction f, GoalType goalType, double min, double max)
+                throws ConvergenceException, FunctionEvaluationException {
+            double r = results[callIndex];
+            callIndex++;
+            return r;
+        }
+
+        public double optimize(UnivariateRealFunction f, GoalType goalType, double min, double max, double startValue)
+                throws ConvergenceException, FunctionEvaluationException {
+            return optimize(f, goalType, min, max);
+        }
+
+        public double getFunctionValue() { return values[callIndex - 1]; }
+        public double getResult() { return results[callIndex - 1]; }
+        public double getAbsoluteAccuracy() { return absoluteAccuracy; }
+        public int getIterationCount() { return 1; }
+        public int getMaximalIterationCount() { return maxIterations; }
+        public int getMaxEvaluations() { return maxEvaluations; }
+        public int getEvaluations() { return 1; }
+        public double getRelativeAccuracy() { return relativeAccuracy; }
+        public void resetAbsoluteAccuracy() { absoluteAccuracy = 1e-6; }
+        public void resetMaximalIterationCount() { maxIterations = Integer.MAX_VALUE; }
+        public void resetRelativeAccuracy() { relativeAccuracy = 1e-6; }
+        public void setAbsoluteAccuracy(double accuracy) { this.absoluteAccuracy = accuracy; }
+        public void setMaximalIterationCount(int count) { this.maxIterations = count; }
+        public void setMaxEvaluations(int maxEvaluations) { this.maxEvaluations = maxEvaluations; }
+        public void setRelativeAccuracy(double accuracy) { this.relativeAccuracy = accuracy; }
+    }
+
+    private static class SimpleFunction implements UnivariateRealFunction {
+        public double value(double x) throws FunctionEvaluationException {
+            return x * x;
+        }
+    }
+
+    private TestOptimizer testOptimizer;
+    private TestRandomGenerator randomGenerator;
+    private SimpleFunction function;
+
+    @Before
+    public void setUp() {
+        testOptimizer = new TestOptimizer();
+        randomGenerator = new TestRandomGenerator(new double[] {0.3, 0.6, 0.1, 0.8});
+        function

@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "21",
+  "tool": "claude",
+  "class": "org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset",
+  "target_classes": [
+    "org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 98.83,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Chart\\21\\DefaultBoxAndWhiskerCategoryDataset_20260924_075314.txt",
+  "test_file": "Claude\\TestCode\\Chart\\21\\DefaultBoxAndWhiskerCategoryDatasetTest.java",
+  "usage": {
+    "prompt_tokens": 9588,
+    "completion_tokens": 14479,
+    "total_tokens": 24067
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 30949,
+    "daily_remaining_tokens": 169051
+  },
+  "timestamp": "20260924_075314"
+}

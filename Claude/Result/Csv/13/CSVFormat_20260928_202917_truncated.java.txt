@@ -1,0 +1,447 @@
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+
+import org.junit.Test;
+
+public class CSVFormatTest {
+
+    // ---------- Stub implementation for ResultSetMetaData (no mocking framework used) ----------
+    private static class StubResultSetMetaData implements ResultSetMetaData {
+        private final String[] labels;
+
+        StubResultSetMetaData(final String[] labels) {
+            this.labels = labels;
+        }
+
+        @Override
+        public int getColumnCount() {
+            return labels.length;
+        }
+
+        @Override
+        public String getColumnLabel(final int column) {
+            return labels[column - 1];
+        }
+
+        @Override
+        public boolean isAutoIncrement(final int column) {
+            return false;
+        }
+
+        @Override
+        public boolean isCaseSensitive(final int column) {
+            return false;
+        }
+
+        @Override
+        public boolean isSearchable(final int column) {
+            return false;
+        }
+
+        @Override
+        public boolean isCurrency(final int column) {
+            return false;
+        }
+
+        @Override
+        public int isNullable(final int column) {
+            return 0;
+        }
+
+        @Override
+        public boolean isSigned(final int column) {
+            return false;
+        }
+
+        @Override
+        public int getColumnDisplaySize(final int column) {
+            return 0;
+        }
+
+        @Override
+        public String getColumnName(final int column) {
+            return labels[column - 1];
+        }
+
+        @Override
+        public String getSchemaName(final int column) {
+            return "";
+        }
+
+        @Override
+        public int getPrecision(final int column) {
+            return 0;
+        }
+
+        @Override
+        public int getScale(final int column) {
+            return 0;
+        }
+
+        @Override
+        public String getTableName(final int column) {
+            return "";
+        }
+
+        @Override
+        public String getCatalogName(final int column) {
+            return "";
+        }
+
+        @Override
+        public int getColumnType(final int column) {
+            return 0;
+        }
+
+        @Override
+        public String getColumnTypeName(final int column) {
+            return "";
+        }
+
+        @Override
+        public boolean isReadOnly(final int column) {
+            return false;
+        }
+
+        @Override
+        public boolean isWritable(final int column) {
+            return false;
+        }
+
+        @Override
+        public boolean isDefinitelyWritable(final int column) {
+            return false;
+        }
+
+        @Override
+        public String getColumnClassName(final int column) {
+            return "";
+        }
+
+        @Override
+        public <T> T unwrap(final Class<T> iface) throws SQLException {
+            return null;
+        }
+
+        @Override
+        public boolean isWrapperFor(final Class<?> iface) throws SQLException {
+            return false;
+        }
+    }
+
+    // ---------------- Predefined formats ----------------
+
+    @Test
+    public void testDefaultFormat_fields_correctValues() {
+        assertEquals(',', CSVFormat.DEFAULT.getDelimiter());
+        assertEquals(Character.valueOf('"'), CSVFormat.DEFAULT.getQuoteCharacter());
+        assertEquals("\r\n", CSVFormat.DEFAULT.getRecordSeparator());
+        assertTrue(CSVFormat.DEFAULT.getIgnoreEmptyLines());
+    }
+
+    @Test
+    public void testRFC4180Format_ignoreEmptyLinesFalse() {
+        assertFalse(CSVFormat.RFC4180.getIgnoreEmptyLines());
+    }
+
+    @Test
+    public void testExcelFormat_allowMissingColumnNamesTrue() {
+        assertTrue(CSVFormat.EXCEL.getAllowMissingColumnNames());
+        assertFalse(CSVFormat.EXCEL.getIgnoreEmptyLines());
+    }
+
+    @Test
+    public void testTdfFormat_delimiterIsTab() {
+        assertEquals('\t', CSVFormat.TDF.getDelimiter());
+        assertTrue(CSVFormat.TDF.getIgnoreSurroundingSpaces());
+    }
+
+    @Test
+    public void testMysqlFormat_fields() {
+        assertEquals('\t', CSVFormat.MYSQL.getDelimiter());
+        assertNull(CSVFormat.MYSQL.getQuoteCharacter());
+        assertEquals(Character.valueOf('\\'), CSVFormat.MYSQL.getEscapeCharacter());
+        assertEquals("\n", CSVFormat.MYSQL.getRecordSeparator());
+        assertFalse(CSVFormat.MYSQL.getIgnoreEmptyLines());
+    }
+
+    @Test
+    public void testPredefinedEnum_getFormat_returnsCorrectFormat() {
+        assertEquals(CSVFormat.DEFAULT, CSVFormat.Predefined.Default.getFormat());
+        assertEquals(CSVFormat.EXCEL, CSVFormat.Predefined.Excel.getFormat());
+        assertEquals(CSVFormat.MYSQL, CSVFormat.Predefined.MySQL.getFormat());
+        assertEquals(CSVFormat.RFC4180, CSVFormat.Predefined.RFC4180.getFormat());
+        assertEquals(CSVFormat.TDF, CSVFormat.Predefined.TDF.getFormat());
+    }
+
+    @Test
+    public void testValueOf_default_returnsDefaultFormat() {
+        final CSVFormat format = CSVFormat.valueOf("Default");
+        assertEquals(CSVFormat.DEFAULT, format);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testValueOf_invalidName_throwsException() {
+        CSVFormat.valueOf("NotARealFormat");
+    }
+
+    // ---------------- newFormat ----------------
+
+    @Test
+    public void testNewFormat_validDelimiter_createsFormat() {
+        final CSVFormat format = CSVFormat.newFormat(';');
+        assertEquals(';', format.getDelimiter());
+        assertNull(format.getQuoteCharacter());
+        assertNull(format.getCommentMarker());
+        assertNull(format.getEscapeCharacter());
+        assertFalse(format.getIgnoreSurroundingSpaces());
+        assertFalse(format.getIgnoreEmptyLines());
+        assertNull(format.getRecordSeparator());
+        assertNull(format.getNullString());
+        assertNull(format.getHeader());
+        assertFalse(format.getSkipHeaderRecord());
+        assertFalse(format.getAllowMissingColumnNames());
+        assertFalse(format.getIgnoreHeaderCase());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testNewFormat_lineBreakDelimiter_throwsException() {
+        CSVFormat.newFormat('\n');
+    }
+
+    // ---------------- withDelimiter ----------------
+
+    @Test
+    public void testWithDelimiter_validCharacter_setsDelimiter() {
+        final CSVFormat format = CSVFormat.DEFAULT.withDelimiter(';');
+        assertEquals(';', format.getDelimiter());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithDelimiter_lineBreak_throwsException() {
+        CSVFormat.DEFAULT.withDelimiter('\r');
+    }
+
+    // ---------------- withCommentMarker ----------------
+
+    @Test
+    public void testWithCommentMarker_char_setsMarker() {
+        final CSVFormat format = CSVFormat.DEFAULT.withCommentMarker('#');
+        assertEquals(Character.valueOf('#'), format.getCommentMarker());
+        assertTrue(format.isCommentMarkerSet());
+    }
+
+    @Test
+    public void testWithCommentMarker_null_disablesMarker() {
+        final CSVFormat format = CSVFormat.DEFAULT.withCommentMarker('#').withCommentMarker((Character) null);
+        assertNull(format.getCommentMarker());
+        assertFalse(format.isCommentMarkerSet());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithCommentMarker_lineBreak_throwsException() {
+        CSVFormat.DEFAULT.withCommentMarker('\n');
+    }
+
+    // ---------------- withEscape ----------------
+
+    @Test
+    public void testWithEscape_char_setsEscape() {
+        final CSVFormat format = CSVFormat.DEFAULT.withEscape('\\');
+        assertEquals(Character.valueOf('\\'), format.getEscapeCharacter());
+        assertTrue(format.isEscapeCharacterSet());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithEscape_lineBreak_throwsException() {
+        CSVFormat.DEFAULT.withEscape('\n');
+    }
+
+    // ---------------- withHeader (String...) ----------------
+
+    @Test
+    public void testWithHeader_stringArray_setsHeader() {
+        final CSVFormat format = CSVFormat.DEFAULT.withHeader("A", "B", "C");
+        assertArrayEquals(new String[] { "A", "B", "C" }, format.getHeader());
+    }
+
+    @Test
+    public void testWithHeader_noArgs_emptyHeaderArray() {
+        final CSVFormat format = CSVFormat.DEFAULT.withHeader();
+        assertNotNull(format.getHeader());
+        assertEquals(0, format.getHeader().length);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithHeader_duplicateEntries_throwsException() {
+        CSVFormat.DEFAULT.withHeader("A", "A");
+    }
+
+    @Test
+    public void testGetHeader_returnsClone_notSameReference() {
+        final CSVFormat format = CSVFormat.DEFAULT.withHeader("A", "B");
+        final String[] header1 = format.getHeader();
+        final String[] header2 = format.getHeader();
+        assertArrayEquals(header1, header2);
+        assertNotEquals(System.identityHashCode(header1), System.identityHashCode(header2));
+    }
+
+    // ---------------- withHeader (ResultSet) ----------------
+
+    @Test
+    public void testWithHeader_resultSetNull_headerRemainsNull() throws SQLException {
+        final CSVFormat format = CSVFormat.DEFAULT.withHeader((ResultSet) null);
+        assertNull(format.getHeader());
+    }
+
+    // ---------------- withHeader (ResultSetMetaData) ----------------
+
+    @Test
+    public void testWithHeader_resultSetMetaData_setsHeaderFromLabels() throws SQLException {
+        final ResultSetMetaData metaData = new StubResultSetMetaData(new String[] { "col1", "col2", "col3" });
+        final CSVFormat format = CSVFormat.DEFAULT.withHeader(metaData);
+        assertArrayEquals(new String[] { "col1", "col2", "col3" }, format.getHeader());
+    }
+
+    @Test
+    public void testWithHeader_resultSetMetaDataNull_headerNull() throws SQLException {
+        final CSVFormat format = CSVFormat.DEFAULT.withHeader((ResultSetMetaData) null);
+        assertNull(format.getHeader());
+    }
+
+    // ---------------- withHeaderComments ----------------
+
+    @Test
+    public void testWithHeaderComments_setsHeaderComments() {
+        final CSVFormat format = CSVFormat.DEFAULT.withHeaderComments("Comment1", "Comment2");
+        assertArrayEquals(new String[] { "Comment1", "Comment2" }, format.getHeaderComments());
+    }
+
+    @Test
+    public void testGetHeaderComments_null_whenNotSet() {
+        assertNull(CSVFormat.DEFAULT.getHeaderComments());
+    }
+
+    @Test
+    public void testWithHeaderComments_withNullElement() {
+        final CSVFormat format = CSVFormat.DEFAULT.withHeaderComments("Comment1", null);
+        assertArrayEquals(new String[] { "Comment1", null }, format.getHeaderComments());
+    }
+
+    // ---------------- withAllowMissingColumnNames ----------------
+
+    @Test
+    public void testWithAllowMissingColumnNames_noArg_setsTrue() {
+        final CSVFormat format = CSVFormat.DEFAULT.withAllowMissingColumnNames();
+        assertTrue(format.getAllowMissingColumnNames());
+    }
+
+    @Test
+    public void testWithAllowMissingColumnNames_booleanFalse_setsFalse() {
+        final CSVFormat format = CSVFormat.DEFAULT.withAllowMissingColumnNames(false);
+        assertFalse(format.getAllowMissingColumnNames());
+    }
+
+    // ---------------- withIgnoreEmptyLines ----------------
+
+    @Test
+    public void testWithIgnoreEmptyLines_noArg_setsTrue() {
+        final CSVFormat format = CSVFormat.RFC4180.withIgnoreEmptyLines();
+        assertTrue(format.getIgnoreEmptyLines());
+    }
+
+    @Test
+    public void testWithIgnoreEmptyLines_booleanFalse_setsFalse() {
+        final CSVFormat format = CSVFormat.DEFAULT.withIgnoreEmptyLines(false);
+        assertFalse(format.getIgnoreEmptyLines());
+    }
+
+    // ---------------- withIgnoreSurroundingSpaces ----------------
+
+    @Test
+    public void testWithIgnoreSurroundingSpaces_noArg_setsTrue() {
+        final CSVFormat format = CSVFormat.DEFAULT.withIgnoreSurroundingSpaces();
+        assertTrue(format.getIgnoreSurroundingSpaces());
+    }
+
+    @Test
+    public void testWithIgnoreSurroundingSpaces_booleanFalse_setsFalse() {
+        final CSVFormat format = CSVFormat.DEFAULT.withIgnoreSurroundingSpaces(false);
+        assertFalse(format.getIgnoreSurroundingSpaces());
+    }
+
+    // ---------------- withIgnoreHeaderCase ----------------
+
+    @Test
+    public void testWithIgnoreHeaderCase_noArg_setsTrue() {
+        final CSVFormat format = CSVFormat.DEFAULT.withIgnoreHeaderCase();
+        assertTrue(format.getIgnoreHeaderCase());
+    }
+
+    @Test
+    public void testWithIgnoreHeaderCase_booleanFalse_setsFalse() {
+        final CSVFormat format = CSVFormat.DEFAULT.withIgnoreHeaderCase(false);
+        assertFalse(format.getIgnoreHeaderCase());
+    }
+
+    // ---------------- withNullString ----------------
+
+    @Test
+    public void testWithNullString_setsNullString() {
+        final CSVFormat format = CSVFormat.DEFAULT.withNullString("N/A");
+        assertEquals("N/A", format.getNullString());
+        assertTrue(format.isNullStringSet());
+    }
+
+    @Test
+    public void testWithNullString_null_disablesSubstitution() {
+        final CSVFormat format = CSVFormat.DEFAULT.withNullString("N/A").withNullString(null);
+        assertNull(format.getNullString());
+        assertFalse(format.isNullStringSet());
+    }
+
+    // ---------------- withQuote ----------------
+
+    @Test
+    public void testWithQuote_char_setsQuoteCharacter() {
+        final CSVFormat format = CSVFormat.DEFAULT.withQuote('\'');
+        assertEquals(Character.valueOf('\''), format.getQuoteCharacter());
+        assertTrue(format.isQuoteCharacterSet());
+    }
+
+    @Test
+    public void testWithQuote_null_disablesQuoting() {
+        final CSVFormat format = CSVFormat.DEFAULT.withEscape('\\').withQuote((Character) null);
+        assertNull(format.getQuoteCharacter());
+        assertFalse(format.isQuoteCharacterSet());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithQuote_lineBreak_throwsException() {
+        CSVFormat.DEFAULT.withQuote('\n');
+    }
+
+    // ---------------- withQuoteMode ----------------
+
+    @Test
+    public void testWithQuoteMode_setsQuoteMode() {
+        final CSVFormat format = CSVFormat.DEFAULT.withQuoteMode(QuoteMode.ALL);
+        assertEquals(QuoteMode.ALL, format.getQuoteMode());
+    }
+
+    @Test
+    public void testWithQuoteMode_none_withEscapeCharacter_isValid() {
+        final CS

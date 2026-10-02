@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "34",
+  "tool": "claude",
+  "class": "org.apache.commons.cli.OptionBuilder",
+  "target_classes": [
+    "org.apache.commons.cli.OptionBuilder"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.69,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Cli\\34\\OptionBuilder_20260924_090724.txt",
+  "test_file": "Claude\\TestCode\\Cli\\34\\OptionBuilderTest.java",
+  "usage": {
+    "prompt_tokens": 4397,
+    "completion_tokens": 5023,
+    "total_tokens": 9420
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 158919,
+    "daily_remaining_tokens": 41081
+  },
+  "timestamp": "20260924_090724"
+}

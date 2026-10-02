@@ -1,0 +1,246 @@
+package org.apache.commons.jxpath.ri.compiler;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import org.apache.commons.jxpath.Pointer;
+import org.apache.commons.jxpath.ri.EvalContext;
+import org.apache.commons.jxpath.ri.QName;
+import org.apache.commons.jxpath.ri.model.NodePointer;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.NoSuchElementException;
+
+public class ExpressionTest {
+
+    /**
+     * Concrete subclass of the abstract Expression class used purely for
+     * testing purposes. Allows configuring the return values of the
+     * abstract methods.
+     */
+    private static class TestExpression extends Expression {
+        private boolean contextDependentValue;
+        private Object computeResult;
+        private Object computeValueResult;
+        int computeContextDependentCallCount = 0;
+
+        TestExpression(boolean contextDependentValue, Object computeResult, Object computeValueResult) {
+            this.contextDependentValue = contextDependentValue;
+            this.computeResult = computeResult;
+            this.computeValueResult = computeValueResult;
+        }
+
+        public boolean computeContextDependent() {
+            computeContextDependentCallCount++;
+            return contextDependentValue;
+        }
+
+        public Object computeValue(EvalContext context) {
+            return computeValueResult;
+        }
+
+        public Object compute(EvalContext context) {
+            return computeResult;
+        }
+    }
+
+    /**
+     * Minimal implementation of the EvalContext interface used to test
+     * the branches in Expression that interact with an EvalContext
+     * instance. NOTE: The exact method set of EvalContext is not provided
+     * in the dependencies for this task; this stub implements the methods
+     * that are referenced (directly or indirectly) by Expression's source
+     * code (getRootContext/getCurrentNodePointer, plus the Iterator
+     * contract that EvalContext extends based on usage in iterate()).
+     */
+    private static class StubEvalContext implements EvalContext {
+        private Iterator source;
+        private NodePointer currentNodePointer;
+
+        StubEvalContext(Iterator source) {
+            this.source = source;
+        }
+
+        StubEvalContext(Iterator source, NodePointer pointer) {
+            this.source = source;
+            this.currentNodePointer = pointer;
+        }
+
+        public boolean hasNext() {
+            return source.hasNext();
+        }
+
+        public Object next() {
+            return source.next();
+        }
+
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+
+        public EvalContext getRootContext() {
+            return this;
+        }
+
+        public NodePointer getCurrentNodePointer() {
+            return currentNodePointer;
+        }
+
+        public int getCurrentPosition() {
+            return 0;
+        }
+
+        public boolean setPosition(int position) {
+            return false;
+        }
+
+        public boolean nextNode() {
+            return false;
+        }
+
+        public boolean nextSet() {
+            return false;
+        }
+
+        public Object getValue() {
+            return null;
+        }
+
+        public Pointer getSingleNodePointer() {
+            return null;
+        }
+    }
+
+    // ---------------------------------------------------------------
+    // computeContextDependent / isContextDependent
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testComputeContextDependent_directCall_returnsConfiguredValue() {
+        TestExpression expr = new TestExpression(true, null, null);
+        assertTrue(expr.computeContextDependent());
+    }
+
+    @Test
+    public void testIsContextDependent_cachesResult_callsComputeOnlyOnce() {
+        TestExpression expr = new TestExpression(true, null, null);
+        boolean first = expr.isContextDependent();
+        boolean second = expr.isContextDependent();
+        assertTrue(first);
+        assertTrue(second);
+        assertEquals(1, expr.computeContextDependentCallCount);
+    }
+
+    @Test
+    public void testIsContextDependent_falseValue_returnsFalse() {
+        TestExpression expr = new TestExpression(false, null, null);
+        assertFalse(expr.isContextDependent());
+        assertFalse(expr.isContextDependent());
+        assertEquals(1, expr.computeContextDependentCallCount);
+    }
+
+    // ---------------------------------------------------------------
+    // computeValue / compute
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testComputeValue_returnsConfiguredValue() {
+        TestExpression expr = new TestExpression(false, null, "hello");
+        assertEquals("hello", expr.computeValue(null));
+    }
+
+    @Test
+    public void testComputeValue_nullConfiguredValue_returnsNull() {
+        TestExpression expr = new TestExpression(false, null, null);
+        assertNull(expr.computeValue(null));
+    }
+
+    @Test
+    public void testCompute_returnsConfiguredValue() {
+        TestExpression expr = new TestExpression(false, "result", null);
+        assertEquals("result", expr.compute(null));
+    }
+
+    // ---------------------------------------------------------------
+    // iterate(EvalContext)
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testIterate_evalContextResult_wrapsInValueIterator() {
+        List data = new ArrayList();
+        data.add("x");
+        StubEvalContext stub = new StubEvalContext(data.iterator());
+        TestExpression expr = new TestExpression(false, stub, null);
+
+        Iterator it = expr.iterate(null);
+
+        assertTrue(it.hasNext());
+        assertEquals("x", it.next());
+    }
+
+    @Test
+    public void testIterate_normalResult_returnsIteratorWithValue() {
+        TestExpression expr = new TestExpression(false, "hello", null);
+
+        Iterator it = expr.iterate(null);
+
+        assertNotNull(it);
+        assertTrue(it.hasNext());
+        assertEquals("hello", it.next());
+    }
+
+    @Test
+    public void testIterate_nullResult_returnsEmptyIterator() {
+        TestExpression expr = new TestExpression(false, null, null);
+
+        Iterator it = expr.iterate(null);
+
+        assertNotNull(it);
+        assertFalse(it.hasNext());
+    }
+
+    // ---------------------------------------------------------------
+    // iteratePointers(EvalContext)
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testIteratePointers_nullResult_returnsEmptyIterator() {
+        TestExpression expr = new TestExpression(false, null, null);
+
+        Iterator it = expr.iteratePointers(null);
+
+        assertNotNull(it);
+        assertFalse(it.hasNext());
+    }
+
+    @Test
+    public void testIteratePointers_evalContextResult_returnsSameContextAsIterator() {
+        List data = new ArrayList();
+        data.add("a");
+        StubEvalContext stub = new StubEvalContext(data.iterator());
+        TestExpression expr = new TestExpression(false, stub, null);
+
+        Iterator it = expr.iteratePointers(null);
+
+        assertTrue(it.hasNext());
+        assertEquals("a", it.next());
+    }
+
+    @Test
+    public void testIteratePointers_normalResult_returnsPointerIterator() {
+        NodePointer pointer = NodePointer.newNodePointer(new QName(null, "root"), "rootObj", Locale.US);
+        StubEvalContext ctx = new StubEvalContext(null, pointer);
+        TestExpression expr = new TestExpression(false, "hello", null);
+
+        Iterator it = expr.iteratePointers(ctx);
+
+        assertTrue(it.hasNext());
+        Object value = it.next();
+        assertTrue(value instanceof Pointer);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testIteratePointers

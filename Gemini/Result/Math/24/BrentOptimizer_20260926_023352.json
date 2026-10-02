@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "24",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.optimization.univariate.BrentOptimizer",
+  "target_classes": [
+    "org.apache.commons.math3.optimization.univariate.BrentOptimizer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 13.93,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\24\\BrentOptimizer_20260926_023352.txt",
+  "test_file": "Gemini\\TestCode\\Math\\24\\BrentOptimizerTest.java",
+  "usage": {
+    "prompt_tokens": 2820,
+    "completion_tokens": 1992,
+    "total_tokens": 4812
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 39433,
+    "daily_remaining_tokens": 310567
+  },
+  "timestamp": "20260926_023352"
+}

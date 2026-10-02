@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "9",
+  "tool": "claude",
+  "class": "org.jfree.data.time.TimeSeries",
+  "target_classes": [
+    "org.jfree.data.time.TimeSeries"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 74.81,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Chart\\9\\TimeSeries_20260924_080955.txt",
+  "test_file": "Claude\\TestCode\\Chart\\9\\TimeSeriesTest.java",
+  "usage": {
+    "prompt_tokens": 13535,
+    "completion_tokens": 11584,
+    "total_tokens": 25119
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 173414,
+    "daily_remaining_tokens": 26586
+  },
+  "timestamp": "20260924_080955"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "41",
+  "tool": "claude",
+  "class": "org.apache.commons.math.stat.descriptive.moment.Variance",
+  "target_classes": [
+    "org.apache.commons.math.stat.descriptive.moment.Variance"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 45.65,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\41\\Variance_20261002_175237.txt",
+  "test_file": "Claude\\TestCode\\Math\\41\\VarianceTest.java",
+  "usage": {
+    "prompt_tokens": 9558,
+    "completion_tokens": 7057,
+    "total_tokens": 16615
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 142584,
+    "daily_remaining_tokens": 57416
+  },
+  "timestamp": "20261002_175237"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "10",
+  "tool": "claude",
+  "class": "org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs",
+  "target_classes": [
+    "org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 38.79,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\10\\ReturnsDeepStubs_20261003_002734.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\10\\ReturnsDeepStubsTest.java",
+  "usage": {
+    "prompt_tokens": 3439,
+    "completion_tokens": 4461,
+    "total_tokens": 7900
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 49963,
+    "daily_remaining_tokens": 150037
+  },
+  "timestamp": "20261003_002734"
+}

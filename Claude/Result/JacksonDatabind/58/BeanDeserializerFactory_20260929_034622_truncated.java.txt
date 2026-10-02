@@ -1,0 +1,78 @@
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.fasterxml.jackson.annotation.JacksonInject;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.BeanDescription;
+import com.fasterxml.jackson.databind.DeserializationConfig;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.InjectableValues;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import com.fasterxml.jackson.databind.cfg.DeserializerFactoryConfig;
+import com.fasterxml.jackson.databind.deser.BeanDeserializerFactory;
+import com.fasterxml.jackson.databind.deser.BeanDeserializerModifier;
+import com.fasterxml.jackson.databind.deser.DeserializerFactory;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+
+public class BeanDeserializerFactoryTest {
+
+    /* ===================== Helper POJOs ===================== */
+
+    public static class SimpleBean {
+        private String name;
+        private int age;
+        public SimpleBean() {}
+        public String getName() { return name; }
+        public void setName(String n) { this.name = n; }
+        public int getAge() { return age; }
+        public void setAge(int a) { this.age = a; }
+    }
+
+    public static class ExceptionBean extends Exception {
+        private static final long serialVersionUID = 1L;
+        private String extra;
+        public ExceptionBean() { super(); }
+        @JsonCreator
+        public ExceptionBean(@JsonProperty("message") String message) { super(message); }
+        public String getExtra() { return extra; }
+        public void setExtra(String e) { this.extra = e; }
+    }
+
+    public static abstract class AbstractBean {
+        public abstract String getName();
+    }
+
+    public static abstract class AbstractShape {
+        public abstract String getKind();
+    }
+
+    public static class ConcreteShape extends AbstractShape {
+        public String kind = "circle";
+        public String getKind() { return kind; }
+        public void setKind(String k) { this.kind = k; }
+    }
+
+    @JsonDeserialize(builder = PointBuilder.class)
+    public static class Point {
+        private final int x;
+        private final int y;
+        private Point(int x, int y) { this.x = x; this.y = y; }

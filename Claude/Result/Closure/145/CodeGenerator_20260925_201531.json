@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "145",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.CodeGenerator",
+  "target_classes": [
+    "com.google.javascript.jscomp.CodeGenerator"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 136.55,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\145\\CodeGenerator_20260925_201531.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 13438,
+    "completion_tokens": 16384,
+    "total_tokens": 29822
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 158635,
+    "daily_remaining_tokens": 41365
+  },
+  "timestamp": "20260925_201531"
+}

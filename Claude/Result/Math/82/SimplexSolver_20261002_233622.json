@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "82",
+  "tool": "claude",
+  "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+  "target_classes": [
+    "org.apache.commons.math.optimization.linear.SimplexSolver"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 62.83,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\82\\SimplexSolver_20261002_233622.txt",
+  "test_file": "Claude\\TestCode\\Math\\82\\SimplexSolverTest.java",
+  "usage": {
+    "prompt_tokens": 3472,
+    "completion_tokens": 8310,
+    "total_tokens": 11782
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 52349,
+    "daily_remaining_tokens": 147651
+  },
+  "timestamp": "20261002_233622"
+}

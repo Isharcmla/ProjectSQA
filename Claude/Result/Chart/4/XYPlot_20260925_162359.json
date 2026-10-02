@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "4",
+  "tool": "claude",
+  "class": "org.jfree.chart.plot.XYPlot",
+  "target_classes": [
+    "org.jfree.chart.plot.XYPlot"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 103.58,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Chart\\4\\XYPlot_20260925_162359.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 78385,
+    "completion_tokens": 16384,
+    "total_tokens": 94769
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 247131,
+    "daily_remaining_tokens": -47131
+  },
+  "timestamp": "20260925_162359"
+}

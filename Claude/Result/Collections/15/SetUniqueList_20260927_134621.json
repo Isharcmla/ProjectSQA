@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "15",
+  "tool": "claude",
+  "class": "org.apache.commons.collections.list.SetUniqueList",
+  "target_classes": [
+    "org.apache.commons.collections.list.SetUniqueList"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 40.0,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Collections\\15\\SetUniqueList_20260927_134621.txt",
+  "test_file": "Claude\\TestCode\\Collections\\15\\SetUniqueListTest.java",
+  "usage": {
+    "prompt_tokens": 4601,
+    "completion_tokens": 6063,
+    "total_tokens": 10664
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 172126,
+    "daily_remaining_tokens": 27874
+  },
+  "timestamp": "20260927_134621"
+}

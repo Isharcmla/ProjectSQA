@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "13",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.PeepholeOptimizationsPass",
+  "target_classes": [
+    "com.google.javascript.jscomp.PeepholeOptimizationsPass"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 145.72,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\13\\PeepholeOptimizationsPass_20260925_194605.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 2970,
+    "completion_tokens": 16384,
+    "total_tokens": 19354
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 19354,
+    "daily_remaining_tokens": 180646
+  },
+  "timestamp": "20260925_194605"
+}

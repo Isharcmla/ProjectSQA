@@ -1,0 +1,33 @@
+{
+  "project": "Csv",
+  "bug_id": "4",
+  "tool": "gemini",
+  "class": "org.apache.commons.csv.CSVParser",
+  "target_classes": [
+    "org.apache.commons.csv.CSVParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 27.44,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Csv\\4\\CSVParser_20260925_112552.txt",
+  "test_file": "Gemini\\TestCode\\Csv\\4\\CSVParserTest.java",
+  "usage": {
+    "prompt_tokens": 4229,
+    "completion_tokens": 4021,
+    "total_tokens": 8250
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 136619,
+    "daily_remaining_tokens": 213381
+  },
+  "timestamp": "20260925_112552"
+}

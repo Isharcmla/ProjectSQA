@@ -1,0 +1,1215 @@
+package com.google.javascript.jscomp;
+
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
+import com.google.common.collect.ImmutableSet;
+import com.google.javascript.rhino.IR;
+import com.google.javascript.rhino.InputId;
+import com.google.javascript.rhino.JSDocInfo;
+import com.google.javascript.rhino.JSDocInfoBuilder;
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.SimpleErrorReporter;
+import com.google.javascript.rhino.Token;
+import com.google.javascript.rhino.jstype.JSType;
+import com.google.javascript.rhino.jstype.JSTypeRegistry;
+import com.google.javascript.rhino.jstype.SimpleSlot;
+import com.google.javascript.rhino.jstype.StaticSourceFile;
+import com.google.javascript.rhino.jstype.TernaryValue;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+public class NodeUtilTest {
+
+  private final CodingConvention defaultConvention = new DefaultCodingConvention();
+
+  @Test
+  public void testIsStrWhiteSpaceChar_variousCharacters_correctTernaryValue() {
+    Assert.assertEquals(TernaryValue.UNKNOWN, NodeUtil.isStrWhiteSpaceChar('\u000B'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar(' '));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\n'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\r'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\t'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\u00A0'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\u000C'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\u2028'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\u2029'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\uFEFF'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\u2000')); // Unicode Space Separator
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.isStrWhiteSpaceChar('a'));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.isStrWhiteSpaceChar('0'));
+  }
+
+  @Test
+  public void testGetNearestFunctionName_variousNodes_returnsExpectedName() {
+    Assert.assertNull(NodeUtil.getNearestFunctionName(IR.name("notFn")));
+
+    // function foo() {}
+    Node fnNamed = IR.function(IR.name("foo"), IR.paramList(), IR.block());
+    Assert.assertEquals("foo", NodeUtil.getNearestFunctionName(fnNamed));
+
+    // { 'prop': function() {} }
+    Node fnInKey = IR.function(IR.name(""), IR.paramList(), IR.block());
+    Node strKey = IR.stringKey("prop", fnInKey);
+    Assert.assertEquals("prop", NodeUtil.getNearestFunctionName(fnInKey));
+
+    // { get getter() {} }
+    Node fnInGetter = IR.function(IR.name(""), IR.paramList(), IR.block());
+    Node getter = IR.getterDef("getter", fnInGetter);
+    Assert.assertEquals("getter", NodeUtil.getNearestFunctionName(fnInGetter));
+
+    // { set setter(v) {} }
+    Node fnInSetter = IR.function(IR.name(""), IR.paramList(IR.name("v")), IR.block());
+    Node setter = IR.setterDef("setter", fnInSetter);
+    Assert.assertEquals("setter", NodeUtil.getNearestFunctionName(fnInSetter));
+
+    // { 42: function() {} }
+    Node fnInNum = IR.function(IR.name(""), IR.paramList(), IR.block());
+    Node num = IR.number(42);
+    num.addChildToBack(fnInNum);
+    Assert.assertEquals("42", NodeUtil.getNearestFunctionName(fnInNum));
+
+    // Parent is an unsupported token
+    Node fnInBlock = IR.function(IR.name(""), IR.paramList(), IR.block());
+    IR.block(fnInBlock);
+    Assert.assertNull(NodeUtil.getNearestFunctionName(fnInBlock));
+  }
+
+  @Test
+  public void testIsLValue_variousScenarios_returnsCorrectBoolean() {
+    Node name = IR.name("x");
+    Assert.assertFalse(NodeUtil.isLValue(name));
+
+    // Var declaration: var x
+    IR.var(name);
+    Assert.assertTrue(NodeUtil.isLValue(name));
+
+    // Assignment: x = 1
+    Node assignName = IR.name("a");
+    IR.assign(assignName, IR.number(1));
+    Assert.assertTrue(NodeUtil.isLValue(assignName));
+
+    // For-in loop target: for (x in y)
+    Node forInName = IR.name("b");
+    IR.forIn(forInName, IR.name("obj"), IR.block());
+    Assert.assertTrue(NodeUtil.isLValue(forInName));
+
+    // Function name: function f() {}
+    Node fnName = IR.name("f");
+    IR.function(fnName, IR.paramList(), IR.block());
+    Assert.assertTrue(NodeUtil.isLValue(fnName));
+
+    // Increment/decrement: ++x, --x
+    Node incName = IR.name("c");
+    IR.inc(incName, 0);
+    Assert.assertTrue(NodeUtil.isLValue(incName));
+
+    Node decName = IR.name("d");
+    IR.dec(decName, 0);
+    Assert.assertTrue(NodeUtil.isLValue(decName));
+
+    // Parameter list: function(p) {}
+    Node paramName = IR.name("p");
+    IR.paramList(paramName);
+    Assert.assertTrue(NodeUtil.isLValue(paramName));
+
+    // Catch block: catch (e) {}
+    Node catchName = IR.name("e");
+    IR.catchNode(catchName, IR.block());
+    Assert.assertTrue(NodeUtil.isLValue(catchName));
+
+    // GETPROP and GETELEM as L-values
+    Node getProp = IR.getprop(IR.name("obj"), IR.string("prop"));
+    IR.assign(getProp, IR.number(2));
+    Assert.assertTrue(NodeUtil.isLValue(getProp));
+
+    Node getElem = IR.getelem(IR.name("arr"), IR.number(0));
+    IR.assign(getElem, IR.number(3));
+    Assert.assertTrue(NodeUtil.isLValue(getElem));
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testIsLValue_nonLValueType_throwsException() {
+    NodeUtil.isLValue(IR.number(1));
+  }
+
+  @Test
+  public void testNewQualifiedNameNode_singleAndMultiPartNames_createsCorrectTree() {
+    Node single = NodeUtil.newQualifiedNameNode(defaultConvention, "foo");
+    Assert.assertTrue(single.isName());
+    Assert.assertEquals("foo", single.getString());
+
+    Node multi = NodeUtil.newQualifiedNameNode(defaultConvention, "a.b.c");
+    Assert.assertTrue(multi.isGetProp());
+    Assert.assertEquals("c", multi.getLastChild().getString());
+    Assert.assertTrue(multi.getFirstChild().isGetProp());
+    Assert.assertEquals("b", multi.getFirstChild().getLastChild().getString());
+    Assert.assertTrue(multi.getFirstChild().getFirstChild().isName());
+    Assert.assertEquals("a", multi.getFirstChild().getFirstChild().getString());
+  }
+
+  @Test
+  public void testIsValidQualifiedName_validAndInvalidNames_returnsExpected() {
+    Assert.assertTrue(NodeUtil.isValidQualifiedName("a.b.c"));
+    Assert.assertTrue(NodeUtil.isValidQualifiedName("validName"));
+    Assert.assertTrue(NodeUtil.isValidQualifiedName("$foo._bar"));
+    Assert.assertFalse(NodeUtil.isValidQualifiedName(".a.b"));
+    Assert.assertFalse(NodeUtil.isValidQualifiedName("a.b."));
+    Assert.assertFalse(NodeUtil.isValidQualifiedName("a..b"));
+    Assert.assertFalse(NodeUtil.isValidQualifiedName("123.abc"));
+    Assert.assertFalse(NodeUtil.isValidQualifiedName("a.class.b"));
+    Assert.assertFalse(NodeUtil.isValidQualifiedName("a.สวัสดี.b"));
+  }
+
+  @Test
+  public void testGetFunctionParameters_validFunction_returnsParamList() {
+    Node paramList = IR.paramList(IR.name("a"), IR.name("b"));
+    Node fn = IR.function(IR.name("testFn"), paramList, IR.block());
+    Assert.assertSame(paramList, NodeUtil.getFunctionParameters(fn));
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testGetFunctionParameters_nonFunction_throwsException() {
+    NodeUtil.getFunctionParameters(IR.block());
+  }
+
+  @Test
+  public void testGetFunctionJSDocInfo_directAndAssignedFunctions_returnsJSDoc() {
+    JSDocInfo jsDoc = new JSDocInfoBuilder(true).build(null);
+
+    // Direct function with JSDoc
+    Node fn = IR.function(IR.name("foo"), IR.paramList(), IR.block());
+    fn.setJSDocInfo(jsDoc);
+    Assert.assertSame(jsDoc, NodeUtil.getFunctionJSDocInfo(fn));
+
+    // Function expression assigned to a var: var f = function() {};
+    Node fnExpr = IR.function(IR.name(""), IR.paramList(), IR.block());
+    Node nameNode = IR.name("f");
+    nameNode.addChildToBack(fnExpr);
+    Node varNode = IR.var(nameNode);
+    varNode.setJSDocInfo(jsDoc);
+    Assert.assertSame(jsDoc, NodeUtil.getFunctionJSDocInfo(fnExpr));
+
+    // Function expression in assign: f = function() {};
+    Node fnExpr2 = IR.function(IR.name(""), IR.paramList(), IR.block());
+    Node assignNode = IR.assign(IR.name("f"), fnExpr2);
+    assignNode.setJSDocInfo(jsDoc);
+    Assert.assertSame(jsDoc, NodeUtil.getFunctionJSDocInfo(fnExpr2));
+  }
+
+  @Test(expected = IllegalStateException.class)
+  public void testGetFunctionJSDocInfo_nonFunction_throwsException() {
+    NodeUtil.getFunctionJSDocInfo(IR.name("notAFunction"));
+  }
+
+  @Test
+  public void testGetSourceName_nodeWithOrWithoutSource_retrievesAncestorSource() {
+    Node parent = IR.script();
+    parent.setSourceFileName("test.js");
+    Node child = IR.exprResult(IR.number(1));
+    parent.addChildToBack(child);
+    Assert.assertEquals("test.js", NodeUtil.getSourceName(child));
+    Assert.assertNull(NodeUtil.getSourceName(IR.number(2)));
+  }
+
+  @Test
+  public void testGetSourceFile_nodeWithOrWithoutStaticSource_retrievesFile() {
+    StaticSourceFile mockFile = new SimpleSlot("file.js", null, false);
+    Node parent = IR.script();
+    parent.setStaticSourceFile(mockFile);
+    Node child = IR.block();
+    parent.addChildToBack(child);
+    Assert.assertSame(mockFile, NodeUtil.getSourceFile(child));
+    Assert.assertNull(NodeUtil.getSourceFile(IR.block()));
+  }
+
+  @Test
+  public void testGetInputId_scriptAndDescendants_returnsInputId() {
+    Node script = IR.script();
+    InputId id = new InputId("testId");
+    script.setInputId(id);
+    Node child = IR.exprResult(IR.nullNode());
+    script.addChildToBack(child);
+
+    Assert.assertEquals(id, NodeUtil.getInputId(child));
+    Assert.assertEquals(id, NodeUtil.getInputId(script));
+    Assert.assertNull(NodeUtil.getInputId(IR.block()));
+  }
+
+  @Test
+  public void testGetImpureBooleanValue_variousExpressions_evaluatesCorrectly() {
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getImpureBooleanValue(IR.arraylit()));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getImpureBooleanValue(IR.objectlit()));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getImpureBooleanValue(IR.voidNode(IR.number(0))));
+
+    Node assign = IR.assign(IR.name("x"), IR.number(1));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getImpureBooleanValue(assign));
+
+    Node comma = IR.comma(IR.number(1), IR.string(""));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getImpureBooleanValue(comma));
+
+    Node not = IR.not(IR.trueNode());
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getImpureBooleanValue(not));
+
+    Node and = IR.and(IR.trueNode(), IR.number(1));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getImpureBooleanValue(and));
+
+    Node or = IR.or(IR.falseNode(), IR.string(""));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getImpureBooleanValue(or));
+
+    Node hookSame = IR.hook(IR.name("cond"), IR.trueNode(), IR.number(1));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getImpureBooleanValue(hookSame));
+
+    Node hookDiff = IR.hook(IR.name("cond"), IR.trueNode(), IR.falseNode());
+    Assert.assertEquals(TernaryValue.UNKNOWN, NodeUtil.getImpureBooleanValue(hookDiff));
+  }
+
+  @Test
+  public void testGetPureBooleanValue_variousNodes_evaluatesCorrectly() {
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(IR.string("hello")));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(IR.string("")));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(IR.number(42)));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(IR.number(0)));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(IR.nullNode()));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(IR.falseNode()));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(IR.trueNode()));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(IR.regexp(IR.string("abc"))));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(IR.name("undefined")));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(IR.name("NaN")));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(IR.name("Infinity")));
+    Assert.assertEquals(TernaryValue.UNKNOWN, NodeUtil.getPureBooleanValue(IR.name("otherName")));
+
+    Node voidNode = IR.voidNode(IR.number(0));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(voidNode));
+
+    Node arrayLit = IR.arraylit(IR.number(1));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(arrayLit));
+
+    Node objLit = IR.objectlit(IR.stringKey("a", IR.number(1)));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(objLit));
+  }
+
+  @Test
+  public void testGetStringValue_variousTypes_returnsExpectedStringRepresentation() {
+    Assert.assertEquals("hello", NodeUtil.getStringValue(IR.string("hello")));
+    Assert.assertEquals("prop", NodeUtil.getStringValue(IR.stringKey("prop", IR.number(1))));
+    Assert.assertEquals("undefined", NodeUtil.getStringValue(IR.name("undefined")));
+    Assert.assertEquals("Infinity", NodeUtil.getStringValue(IR.name("Infinity")));
+    Assert.assertEquals("NaN", NodeUtil.getStringValue(IR.name("NaN")));
+    Assert.assertNull(NodeUtil.getStringValue(IR.name("foo")));
+
+    Assert.assertEquals("false", NodeUtil.getStringValue(IR.falseNode()));
+    Assert.assertEquals("true", NodeUtil.getStringValue(IR.trueNode()));
+    Assert.assertEquals("null", NodeUtil.getStringValue(IR.nullNode()));
+    Assert.assertEquals("undefined", NodeUtil.getStringValue(IR.voidNode(IR.number(0))));
+    Assert.assertEquals("[object Object]", NodeUtil.getStringValue(IR.objectlit()));
+
+    Assert.assertEquals("42", NodeUtil.getStringValue(IR.number(42.0)));
+    Assert.assertEquals("42.5", NodeUtil.getStringValue(IR.number(42.5)));
+    Assert.assertEquals("42", NodeUtil.getStringValue(42.0));
+    Assert.assertEquals("42.5", NodeUtil.getStringValue(42.5));
+
+    Node notTrue = IR.not(IR.trueNode());
+    Assert.assertEquals("false", NodeUtil.getStringValue(notTrue));
+
+    Node notUnknown = IR.not(IR.name("unknown"));
+    Assert.assertNull(NodeUtil.getStringValue(notUnknown));
+
+    Node array = IR.arraylit(IR.number(1), IR.nullNode(), IR.string("a"), IR.empty());
+    Assert.assertEquals("1,,a,", NodeUtil.getStringValue(array));
+
+    Node arrayWithUnconvertible = IR.arraylit(IR.name("foo"));
+    Assert.assertNull(NodeUtil.getStringValue(arrayWithUnconvertible));
+  }
+
+  @Test
+  public void testGetNumberValue_variousTypes_returnsExpectedDouble() {
+    Assert.assertEquals(Double.valueOf(1.0), NodeUtil.getNumberValue(IR.trueNode()));
+    Assert.assertEquals(Double.valueOf(0.0), NodeUtil.getNumberValue(IR.falseNode()));
+    Assert.assertEquals(Double.valueOf(0.0), NodeUtil.getNumberValue(IR.nullNode()));
+    Assert.assertEquals(Double.valueOf(10.5), NodeUtil.getNumberValue(IR.number(10.5)));
+    Assert.assertTrue(Double.isNaN(NodeUtil.getNumberValue(IR.voidNode(IR.number(0)))));
+    Assert.assertTrue(Double.isNaN(NodeUtil.getNumberValue(IR.name("undefined"))));
+    Assert.assertTrue(Double.isNaN(NodeUtil.getNumberValue(IR.name("NaN"))));
+    Assert.assertEquals(Double.valueOf(Double.POSITIVE_INFINITY), NodeUtil.getNumberValue(IR.name("Infinity")));
+    Assert.assertEquals(Double.valueOf(Double.NEGATIVE_INFINITY), NodeUtil.getNumberValue(IR.neg(IR.name("Infinity"))));
+    Assert.assertNull(NodeUtil.getNumberValue(IR.name("someVar")));
+    Assert.assertNull(NodeUtil.getNumberValue(IR.neg(IR.number(5))));
+
+    Assert.assertEquals(Double.valueOf(0.0), NodeUtil.getNumberValue(IR.not(IR.trueNode())));
+    Assert.assertEquals(Double.valueOf(1.0), NodeUtil.getNumberValue(IR.not(IR.falseNode())));
+    Assert.assertNull(NodeUtil.getNumberValue(IR.not(IR.name("unknown"))));
+
+    Assert.assertEquals(Double.valueOf(123.0), NodeUtil.getNumberValue(IR.string("123")));
+    Assert.assertEquals(Double.valueOf(1.0), NodeUtil.getNumberValue(IR.arraylit(IR.number(1))));
+    Assert.assertTrue(Double.isNaN(NodeUtil.getNumberValue(IR.objectlit())));
+  }
+
+  @Test
+  public void testGetStringNumberValue_variousStringFormats_parsesProperly() {
+    Assert.assertNull(NodeUtil.getStringNumberValue("foo\u000bbar"));
+    Assert.assertEquals(Double.valueOf(0.0), NodeUtil.getStringNumberValue("   "));
+    Assert.assertEquals(Double.valueOf(255.0), NodeUtil.getStringNumberValue("0xff"));
+    Assert.assertEquals(Double.valueOf(255.0), NodeUtil.getStringNumberValue("0XFF"));
+    Assert.assertTrue(Double.isNaN(NodeUtil.getStringNumberValue("0xGG")));
+    Assert.assertNull(NodeUtil.getStringNumberValue("+0x12"));
+    Assert.assertNull(NodeUtil.getStringNumberValue("-0x12"));
+    Assert.assertNull(NodeUtil.getStringNumberValue("infinity"));
+    Assert.assertNull(NodeUtil.getStringNumberValue("-infinity"));
+    Assert.assertNull(NodeUtil.getStringNumberValue("+infinity"));
+    Assert.assertEquals(Double.valueOf(123.45), NodeUtil.getStringNumberValue("  123.45 \t\n"));
+    Assert.assertTrue(Double.isNaN(NodeUtil.getStringNumberValue("not-a-number")));
+  }
+
+  @Test
+  public void testGetFunctionName_variousForms_returnsExpectedName() {
+    // function f() {}
+    Node fn1 = IR.function(IR.name("f"), IR.paramList(), IR.block());
+    Assert.assertEquals("f", NodeUtil.getFunctionName(fn1));
+
+    // var g = function() {}
+    Node fn2 = IR.function(IR.name(""), IR.paramList(), IR.block());
+    Node nameG = IR.name("g");
+    nameG.addChildToBack(fn2);
+    IR.var(nameG);
+    Assert.assertEquals("g", NodeUtil.getFunctionName(fn2));
+
+    // a.b = function() {}
+    Node fn3 = IR.function(IR.name(""), IR.paramList(), IR.block());
+    IR.assign(IR.getprop(IR.name("a"), IR.string("b")), fn3);
+    Assert.assertEquals("a.b", NodeUtil.getFunctionName(fn3));
+  }
+
+  @Test(expected = IllegalStateException.class)
+  public void testGetFunctionName_nonFunction_throwsException() {
+    NodeUtil.getFunctionName(IR.block());
+  }
+
+  @Test
+  public void testIsImmutableValue_variousNodes_returnsExpected() {
+    Assert.assertTrue(NodeUtil.isImmutableValue(IR.string("a")));
+    Assert.assertTrue(NodeUtil.isImmutableValue(IR.number(1)));
+    Assert.assertTrue(NodeUtil.isImmutableValue(IR.nullNode()));
+    Assert.assertTrue(NodeUtil.isImmutableValue(IR.trueNode()));
+    Assert.assertTrue(NodeUtil.isImmutableValue(IR.falseNode()));
+    Assert.assertTrue(NodeUtil.isImmutableValue(IR.not(IR.trueNode())));
+    Assert.assertTrue(NodeUtil.isImmutableValue(IR.voidNode(IR.number(0))));
+    Assert.assertTrue(NodeUtil.isImmutableValue(IR.neg(IR.number(1))));
+    Assert.assertTrue(NodeUtil.isImmutableValue(IR.name("undefined")));
+    Assert.assertTrue(NodeUtil.isImmutableValue(IR.name("Infinity")));
+    Assert.assertTrue(NodeUtil.isImmutableValue(IR.name("NaN")));
+    Assert.assertFalse(NodeUtil.isImmutableValue(IR.name("x")));
+    Assert.assertFalse(NodeUtil.isImmutableValue(IR.arraylit()));
+  }
+
+  @Test
+  public void testIsSymmetricOperation_variousOperators_returnsExpected() {
+    Assert.assertTrue(NodeUtil.isSymmetricOperation(new Node(Token.EQ)));
+    Assert.assertTrue(NodeUtil.isSymmetricOperation(new Node(Token.NE)));
+    Assert.assertTrue(NodeUtil.isSymmetricOperation(new Node(Token.SHEQ)));
+    Assert.assertTrue(NodeUtil.isSymmetricOperation(new Node(Token.SHNE)));
+    Assert.assertTrue(NodeUtil.isSymmetricOperation(new Node(Token.MUL)));
+    Assert.assertFalse(NodeUtil.isSymmetricOperation(new Node(Token.ADD)));
+  }
+
+  @Test
+  public void testIsRelationalOperation_variousOperators_returnsExpected() {
+    Assert.assertTrue(NodeUtil.isRelationalOperation(new Node(Token.GT)));
+    Assert.assertTrue(NodeUtil.isRelationalOperation(new Node(Token.GE)));
+    Assert.assertTrue(NodeUtil.isRelationalOperation(new Node(Token.LT)));
+    Assert.assertTrue(NodeUtil.isRelationalOperation(new Node(Token.LE)));
+    Assert.assertFalse(NodeUtil.isRelationalOperation(new Node(Token.EQ)));
+  }
+
+  @Test
+  public void testGetInverseOperator_validAndInvalid_returnsExpected() {
+    Assert.assertEquals(Token.LT, NodeUtil.getInverseOperator(Token.GT));
+    Assert.assertEquals(Token.GT, NodeUtil.getInverseOperator(Token.LT));
+    Assert.assertEquals(Token.LE, NodeUtil.getInverseOperator(Token.GE));
+    Assert.assertEquals(Token.GE, NodeUtil.getInverseOperator(Token.LE));
+    Assert.assertEquals(Token.ERROR, NodeUtil.getInverseOperator(Token.ADD));
+  }
+
+  @Test
+  public void testIsLiteralValue_variousNodes_returnsExpected() {
+    Node array = IR.arraylit(IR.number(1), IR.string("a"), IR.empty());
+    Assert.assertTrue(NodeUtil.isLiteralValue(array, false));
+
+    Node arrayWithVar = IR.arraylit(IR.name("x"));
+    Assert.assertFalse(NodeUtil.isLiteralValue(arrayWithVar, false));
+
+    Node regexp = IR.regexp(IR.string("abc"));
+    Assert.assertTrue(NodeUtil.isLiteralValue(regexp, false));
+
+    Node obj = IR.objectlit(IR.stringKey("k", IR.number(1)));
+    Assert.assertTrue(NodeUtil.isLiteralValue(obj, false));
+
+    Node objWithVar = IR.objectlit(IR.stringKey("k", IR.name("x")));
+    Assert.assertFalse(NodeUtil.isLiteralValue(objWithVar, false));
+
+    Node fnExpr = IR.function(IR.name(""), IR.paramList(), IR.block());
+    Assert.assertTrue(NodeUtil.isLiteralValue(fnExpr, true));
+    Assert.assertFalse(NodeUtil.isLiteralValue(fnExpr, false));
+
+    Node fnDecl = IR.function(IR.name("f"), IR.paramList(), IR.block());
+    IR.script(fnDecl);
+    Assert.assertFalse(NodeUtil.isLiteralValue(fnDecl, true));
+  }
+
+  @Test
+  public void testIsValidDefineValue_variousExpressions_checksCorrectness() {
+    Set<String> defines = ImmutableSet.of("DEF_A", "a.b.DEF_B");
+
+    Assert.assertTrue(NodeUtil.isValidDefineValue(IR.string("s"), defines));
+    Assert.assertTrue(NodeUtil.isValidDefineValue(IR.number(1), defines));
+    Assert.assertTrue(NodeUtil.isValidDefineValue(IR.trueNode(), defines));
+    Assert.assertTrue(NodeUtil.isValidDefineValue(IR.falseNode(), defines));
+
+    Node add = IR.add(IR.number(1), IR.number(2));
+    Assert.assertTrue(NodeUtil.isValidDefineValue(add, defines));
+
+    Node not = IR.not(IR.trueNode());
+    Assert.assertTrue(NodeUtil.isValidDefineValue(not, defines));
+
+    Node defName = IR.name("DEF_A");
+    Assert.assertTrue(NodeUtil.isValidDefineValue(defName, defines));
+
+    Node unknownName = IR.name("UNKNOWN");
+    Assert.assertFalse(NodeUtil.isValidDefineValue(unknownName, defines));
+
+    Node defProp = IR.getprop(IR.getprop(IR.name("a"), IR.string("b")), IR.string("DEF_B"));
+    Assert.assertTrue(NodeUtil.isValidDefineValue(defProp, defines));
+
+    Assert.assertFalse(NodeUtil.isValidDefineValue(IR.arraylit(), defines));
+  }
+
+  @Test
+  public void testIsEmptyBlock_emptyAndNonEmptyBlocks_returnsExpected() {
+    Node emptyBlock = IR.block();
+    Assert.assertTrue(NodeUtil.isEmptyBlock(emptyBlock));
+
+    Node blockWithEmpty = IR.block(IR.empty());
+    Assert.assertTrue(NodeUtil.isEmptyBlock(blockWithEmpty));
+
+    Node nonEmptyBlock = IR.block(IR.exprResult(IR.number(1)));
+    Assert.assertFalse(NodeUtil.isEmptyBlock(nonEmptyBlock));
+
+    Assert.assertFalse(NodeUtil.isEmptyBlock(IR.script()));
+  }
+
+  @Test
+  public void testIsSimpleOperator_variousTokens_identifiesCorrectly() {
+    Assert.assertTrue(NodeUtil.isSimpleOperator(IR.add(IR.number(1), IR.number(2))));
+    Assert.assertTrue(NodeUtil.isSimpleOperator(IR.pos(IR.number(1))));
+    Assert.assertTrue(NodeUtil.isSimpleOperator(IR.neg(IR.number(1))));
+    Assert.assertTrue(NodeUtil.isSimpleOperator(IR.typeof(IR.name("x"))));
+    Assert.assertFalse(NodeUtil.isSimpleOperator(IR.function(IR.name(""), IR.paramList(), IR.block())));
+  }
+
+  @Test
+  public void testNewExpr_createsExprResultNode() {
+    Node child = IR.number(1);
+    Node expr = NodeUtil.newExpr(child);
+    Assert.assertTrue(expr.isExprResult());
+    Assert.assertSame(child, expr.getFirstChild());
+  }
+
+  @Test
+  public void testMayEffectMutableState_andMayHaveSideEffects_evaluatesCorrectly() {
+    Node num = IR.number(1);
+    Assert.assertFalse(NodeUtil.mayEffectMutableState(num));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(num));
+
+    Node throwNode = IR.throwNode(IR.string("err"));
+    Assert.assertTrue(NodeUtil.mayEffectMutableState(throwNode));
+    Assert.assertTrue(NodeUtil.mayHaveSideEffects(throwNode));
+
+    Node objLit = IR.objectlit();
+    Assert.assertTrue(NodeUtil.mayEffectMutableState(objLit));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(objLit));
+
+    Node arrLit = IR.arraylit();
+    Assert.assertTrue(NodeUtil.mayEffectMutableState(arrLit));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(arrLit));
+
+    Node fnExpr = IR.function(IR.name(""), IR.paramList(), IR.block());
+    Assert.assertTrue(NodeUtil.mayEffectMutableState(fnExpr));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(fnExpr));
+
+    Node newObject = IR.newNode(IR.name("Object"));
+    Assert.assertTrue(NodeUtil.mayEffectMutableState(newObject));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(newObject));
+
+    Node newCustom = IR.newNode(IR.name("CustomType"));
+    Assert.assertTrue(NodeUtil.mayEffectMutableState(newCustom));
+    Assert.assertTrue(NodeUtil.mayHaveSideEffects(newCustom));
+
+    Node callBuiltin = IR.call(IR.name("String"), IR.number(1));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(callBuiltin));
+
+    Node callMethod = IR.call(IR.getprop(IR.name("obj"), IR.string("toString")));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(callMethod));
+
+    Node callMathFloor = IR.call(IR.getprop(IR.name("Math"), IR.string("floor")), IR.number(1.5));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(callMathFloor));
+
+    Node callCustom = IR.call(IR.name("myFunc"));
+    Assert.assertTrue(NodeUtil.mayHaveSideEffects(callCustom));
+
+    Node assignName = IR.assign(IR.name("x"), IR.number(1));
+    Assert.assertTrue(NodeUtil.mayHaveSideEffects(assignName));
+
+    Node assignPropToLit = IR.assign(IR.getprop(IR.arraylit(), IR.string("0")), IR.number(1));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(assignPropToLit));
+  }
+
+  @Test(expected = IllegalStateException.class)
+  public void testConstructorCallHasSideEffects_nonNewNode_throwsException() {
+    NodeUtil.constructorCallHasSideEffects(IR.call(IR.name("fn")));
+  }
+
+  @Test(expected = IllegalStateException.class)
+  public void testFunctionCallHasSideEffects_nonCallNode_throwsException() {
+    NodeUtil.functionCallHasSideEffects(IR.newNode(IR.name("fn")));
+  }
+
+  @Test
+  public void testCallHasLocalResult_andNewHasLocalResult() {
+    Node call = IR.call(IR.name("fn"));
+    call.setSideEffectFlags(Node.FLAG_LOCAL_RESULTS);
+    Assert.assertTrue(NodeUtil.callHasLocalResult(call));
+
+    Node callNoFlags = IR.call(IR.name("fn"));
+    Assert.assertFalse(NodeUtil.callHasLocalResult(callNoFlags));
+
+    Node newNode = IR.newNode(IR.name("Cls"));
+    newNode.setSideEffectFlags(Node.FLAG_LOCAL_RESULTS);
+    Assert.assertFalse(NodeUtil.newHasLocalResult(newNode));
+    newNode.setSideEffectFlags(Node.MODIFIES_THIS);
+    Assert.assertTrue(NodeUtil.newHasLocalResult(newNode));
+  }
+
+  @Test
+  public void testNodeTypeMayHaveSideEffects_variousNodes_returnsExpected() {
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(IR.delprop(IR.name("o"), IR.string("k"))));
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(IR.inc(IR.name("x"), 0)));
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(IR.dec(IR.name("x"), 0)));
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(IR.throwNode(IR.number(1))));
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(IR.assign(IR.name("x"), IR.number(1))));
+
+    Node nameWithChild = IR.name("x");
+    nameWithChild.addChildToBack(IR.number(1));
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(nameWithChild));
+
+    Assert.assertFalse(NodeUtil.nodeTypeMayHaveSideEffects(IR.name("x")));
+    Assert.assertFalse(NodeUtil.nodeTypeMayHaveSideEffects(IR.number(1)));
+  }
+
+  @Test
+  public void testCanBeSideEffected_variousTrees_returnsExpected() {
+    Assert.assertTrue(NodeUtil.canBeSideEffected(IR.call(IR.name("foo"))));
+    Assert.assertTrue(NodeUtil.canBeSideEffected(IR.newNode(IR.name("Foo"))));
+    Assert.assertTrue(NodeUtil.canBeSideEffected(IR.name("mutableName")));
+    Assert.assertFalse(NodeUtil.canBeSideEffected(IR.name("constName"), ImmutableSet.of("constName")));
+    Assert.assertTrue(NodeUtil.canBeSideEffected(IR.getprop(IR.name("constName"), IR.string("p"))));
+    Assert.assertTrue(NodeUtil.canBeSideEffected(IR.getelem(IR.name("constName"), IR.number(0))));
+
+    Node fnExpr = IR.function(IR.name(""), IR.paramList(), IR.block());
+    Assert.assertFalse(NodeUtil.canBeSideEffected(fnExpr));
+
+    Node block = IR.block(IR.number(1), IR.string("a"));
+    Assert.assertFalse(NodeUtil.canBeSideEffected(block));
+  }
+
+  @Test
+  public void testPrecedence_variousOperators_returnsExpectedValues() {
+    Assert.assertEquals(0, NodeUtil.precedence(Token.COMMA));
+    Assert.assertEquals(1, NodeUtil.precedence(Token.ASSIGN));
+    Assert.assertEquals(2, NodeUtil.precedence(Token.HOOK));
+    Assert.assertEquals(3, NodeUtil.precedence(Token.OR));
+    Assert.assertEquals(4, NodeUtil.precedence(Token.AND));
+    Assert.assertEquals(5, NodeUtil.precedence(Token.BITOR));
+    Assert.assertEquals(6, NodeUtil.precedence(Token.BITXOR));
+    Assert.assertEquals(7, NodeUtil.precedence(Token.BITAND));
+    Assert.assertEquals(8, NodeUtil.precedence(Token.EQ));
+    Assert.assertEquals(9, NodeUtil.precedence(Token.LT));
+    Assert.assertEquals(10, NodeUtil.precedence(Token.LSH));
+    Assert.assertEquals(11, NodeUtil.precedence(Token.ADD));
+    Assert.assertEquals(12, NodeUtil.precedence(Token.MUL));
+    Assert.assertEquals(13, NodeUtil.precedence(Token.NOT));
+    Assert.assertEquals(15, NodeUtil.precedence(Token.CALL));
+  }
+
+  @Test(expected = Error.class)
+  public void testPrecedence_unknownToken_throwsError() {
+    NodeUtil.precedence(Token.SCRIPT);
+  }
+
+  @Test
+  public void testIsNullOrUndefined_variousNodes_returnsExpected() {
+    Assert.assertTrue(NodeUtil.isNullOrUndefined(IR.nullNode()));
+    Assert.assertTrue(NodeUtil.isNullOrUndefined(IR.voidNode(IR.number(0))));
+    Assert.assertTrue(NodeUtil.isNullOrUndefined(IR.name("undefined")));
+    Assert.assertFalse(NodeUtil.isNullOrUndefined(IR.number(0)));
+  }
+
+  @Test
+  public void testAllResultsMatch_andAnyResultsMatch() {
+    Predicate<Node> isNumber = new Predicate<Node>() {
+      @Override
+      public boolean apply(Node input) {
+        return input.isNumber();
+      }
+    };
+
+    Node hook = IR.hook(IR.name("c"), IR.number(1), IR.number(2));
+    Assert.assertTrue(NodeUtil.allResultsMatch(hook, isNumber));
+    Assert.assertTrue(NodeUtil.anyResultsMatch(hook, isNumber));
+
+    Node hookMixed = IR.hook(IR.name("c"), IR.number(1), IR.string("s"));
+    Assert.assertFalse(NodeUtil.allResultsMatch(hookMixed, isNumber));
+    Assert.assertTrue(NodeUtil.anyResultsMatch(hookMixed, isNumber));
+
+    Node andMixed = IR.and(IR.string("a"), IR.string("b"));
+    Assert.assertFalse(NodeUtil.anyResultsMatch(andMixed, isNumber));
+  }
+
+  @Test
+  public void testIsNumericResult_isBooleanResult_mayBeString() {
+    Assert.assertTrue(NodeUtil.isNumericResult(IR.add(IR.number(1), IR.number(2))));
+    Assert.assertTrue(NodeUtil.isNumericResult(IR.sub(IR.number(1), IR.number(2))));
+    Assert.assertTrue(NodeUtil.isNumericResult(IR.name("NaN")));
+    Assert.assertTrue(NodeUtil.isNumericResult(IR.name("Infinity")));
+    Assert.assertFalse(NodeUtil.isNumericResult(IR.name("x")));
+
+    Assert.assertTrue(NodeUtil.isBooleanResult(IR.trueNode()));
+    Assert.assertTrue(NodeUtil.isBooleanResult(IR.falseNode()));
+    Assert.assertTrue(NodeUtil.isBooleanResult(IR.eq(IR.number(1), IR.number(2))));
+    Assert.assertTrue(NodeUtil.isBooleanResult(IR.delprop(IR.name("o"), IR.string("k"))));
+    Assert.assertFalse(NodeUtil.isBooleanResult(IR.number(1)));
+
+    Assert.assertTrue(NodeUtil.mayBeString(IR.string("abc")));
+    Assert.assertTrue(NodeUtil.mayBeString(IR.name("unknownVar"), false));
+    Assert.assertFalse(NodeUtil.mayBeString(IR.number(1)));
+    Assert.assertFalse(NodeUtil.mayBeString(IR.trueNode()));
+    Assert.assertFalse(NodeUtil.mayBeString(IR.nullNode()));
+    Assert.assertFalse(NodeUtil.mayBeString(IR.voidNode(IR.number(0))));
+  }
+
+  @Test
+  public void testIsAssociative_andIsCommutative() {
+    Assert.assertTrue(NodeUtil.isAssociative(Token.MUL));
+    Assert.assertTrue(NodeUtil.isAssociative(Token.AND));
+    Assert.assertFalse(NodeUtil.isAssociative(Token.ADD));
+    Assert.assertFalse(NodeUtil.isAssociative(Token.SUB));
+
+    Assert.assertTrue(NodeUtil.isCommutative(Token.MUL));
+    Assert.assertTrue(NodeUtil.isCommutative(Token.BITOR));
+    Assert.assertFalse(NodeUtil.isCommutative(Token.AND));
+    Assert.assertFalse(NodeUtil.isCommutative(Token.ADD));
+  }
+
+  @Test
+  public void testIsAssignmentOp_andGetOpFromAssignmentOp() {
+    Node assignAdd = new Node(Token.ASSIGN_ADD);
+    Assert.assertTrue(NodeUtil.isAssignmentOp(assignAdd));
+    Assert.assertEquals(Token.ADD, NodeUtil.getOpFromAssignmentOp(assignAdd));
+
+    Assert.assertEquals(Token.BITOR, NodeUtil.getOpFromAssignmentOp(new Node(Token.ASSIGN_BITOR)));
+    Assert.assertEquals(Token.BITXOR, NodeUtil.getOpFromAssignmentOp(new Node(Token.ASSIGN_BITXOR)));
+    Assert.assertEquals(Token.BITAND, NodeUtil.getOpFromAssignmentOp(new Node(Token.ASSIGN_BITAND)));
+    Assert.assertEquals(Token.LSH, NodeUtil.getOpFromAssignmentOp(new Node(Token.ASSIGN_LSH)));
+    Assert.assertEquals(Token.RSH, NodeUtil.getOpFromAssignmentOp(new Node(Token.ASSIGN_RSH)));
+    Assert.assertEquals(Token.URSH, NodeUtil.getOpFromAssignmentOp(new Node(Token.ASSIGN_URSH)));
+    Assert.assertEquals(Token.SUB, NodeUtil.getOpFromAssignmentOp(new Node(Token.ASSIGN_SUB)));
+    Assert.assertEquals(Token.MUL, NodeUtil.getOpFromAssignmentOp(new Node(Token.ASSIGN_MUL)));
+    Assert.assertEquals(Token.DIV, NodeUtil.getOpFromAssignmentOp(new Node(Token.ASSIGN_DIV)));
+    Assert.assertEquals(Token.MOD, NodeUtil.getOpFromAssignmentOp(new Node(Token.ASSIGN_MOD)));
+
+    Assert.assertFalse(NodeUtil.isAssignmentOp(IR.add(IR.number(1), IR.number(2))));
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testGetOpFromAssignmentOp_nonAssignOp_throwsException() {
+    NodeUtil.getOpFromAssignmentOp(IR.number(1));
+  }
+
+  @Test
+  public void testContainsFunction_andReferencesThis() {
+    Node blockWithFn = IR.block(IR.function(IR.name("f"), IR.paramList(), IR.block()));
+    Assert.assertTrue(NodeUtil.containsFunction(blockWithFn));
+    Assert.assertFalse(NodeUtil.containsFunction(IR.block(IR.number(1))));
+
+    Node blockWithThis = IR.block(IR.exprResult(IR.thisNode()));
+    Assert.assertTrue(NodeUtil.referencesThis(blockWithThis));
+    Assert.assertFalse(NodeUtil.referencesThis(IR.block(IR.number(1))));
+
+    Node fnWithThis = IR.function(IR.name(""), IR.paramList(), IR.block(IR.exprResult(IR.thisNode())));
+    Assert.assertTrue(NodeUtil.referencesThis(fnWithThis));
+  }
+
+  @Test
+  public void testIsGet_andIsVarDeclaration_andGetAssignedValue() {
+    Node getProp = IR.getprop(IR.name("a"), IR.string("b"));
+    Node getElem = IR.getelem(IR.name("a"), IR.number(0));
+    Assert.assertTrue(NodeUtil.isGet(getProp));
+    Assert.assertTrue(NodeUtil.isGet(getElem));
+    Assert.assertFalse(NodeUtil.isGet(IR.name("a")));
+
+    Node varName = IR.name("x");
+    Node val = IR.number(10);
+    varName.addChildToBack(val);
+    IR.var(varName);
+    Assert.assertTrue(NodeUtil.isVarDeclaration(varName));
+    Assert.assertSame(val, NodeUtil.getAssignedValue(varName));
+
+    Node assignName = IR.name("y");
+    Node assignVal = IR.number(20);
+    IR.assign(assignName, assignVal);
+    Assert.assertSame(assignVal, NodeUtil.getAssignedValue(assignName));
+  }
+
+  @Test
+  public void testIsExprAssign_andIsExprCall_andIsForIn() {
+    Node exprAssign = IR.exprResult(IR.assign(IR.name("x"), IR.number(1)));
+    Assert.assertTrue(NodeUtil.isExprAssign(exprAssign));
+    Assert.assertFalse(NodeUtil.isExprCall(exprAssign));
+
+    Node exprCall = IR.exprResult(IR.call(IR.name("fn")));
+    Assert.assertTrue(NodeUtil.isExprCall(exprCall));
+    Assert.assertFalse(NodeUtil.isExprAssign(exprCall));
+
+    Node forIn = IR.forIn(IR.name("k"), IR.name("o"), IR.block());
+    Assert.assertTrue(NodeUtil.isForIn(forIn));
+
+    Node forClassic = IR.forNode(IR.var(IR.name("i"), IR.number(0)), IR.lt(IR.name("i"), IR.number(10)), IR.inc(IR.name("i"), 0), IR.block());
+    Assert.assertFalse(NodeUtil.isForIn(forClassic));
+  }
+
+  @Test
+  public void testLoopStructures_andControlStructures() {
+    Node forNode = IR.forIn(IR.name("x"), IR.name("y"), IR.block());
+    Node doNode = IR.doNode(IR.block(), IR.trueNode());
+    Node whileNode = IR.whileNode(IR.trueNode(), IR.block());
+
+    Assert.assertTrue(NodeUtil.isLoopStructure(forNode));
+    Assert.assertTrue(NodeUtil.isLoopStructure(doNode));
+    Assert.assertTrue(NodeUtil.isLoopStructure(whileNode));
+    Assert.assertFalse(NodeUtil.isLoopStructure(IR.ifNode(IR.trueNode(), IR.block())));
+
+    Assert.assertSame(forNode.getLastChild(), NodeUtil.getLoopCodeBlock(forNode));
+    Assert.assertSame(doNode.getFirstChild(), NodeUtil.getLoopCodeBlock(doNode));
+    Assert.assertSame(whileNode.getLastChild(), NodeUtil.getLoopCodeBlock(whileNode));
+    Assert.assertNull(NodeUtil.getLoopCodeBlock(IR.block()));
+
+    Node childInLoop = IR.number(1);
+    whileNode.getLastChild().addChildToBack(childInLoop);
+    Assert.assertTrue(NodeUtil.isWithinLoop(childInLoop));
+    Assert.assertFalse(NodeUtil.isWithinLoop(IR.number(1)));
+
+    Assert.assertTrue(NodeUtil.isControlStructure(IR.ifNode(IR.trueNode(), IR.block())));
+    Assert.assertTrue(NodeUtil.isControlStructure(IR.switchNode(IR.name("x"))));
+    Assert.assertTrue(NodeUtil.isControlStructure(IR.tryFinally(IR.block(), IR.block())));
+  }
+
+  @Test
+  public void testIsControlStructureCodeBlock_andGetConditionExpression() {
+    Node forBlock = IR.block();
+    Node forNode = IR.forIn(IR.name("k"), IR.name("o"), forBlock);
+    Assert.assertTrue(NodeUtil.isControlStructureCodeBlock(forNode, forBlock));
+
+    Node ifCond = IR.trueNode();
+    Node ifBlock = IR.block();
+    Node ifNode = IR.ifNode(ifCond, ifBlock);
+    Assert.assertTrue(NodeUtil.isControlStructureCodeBlock(ifNode, ifBlock));
+    Assert.assertFalse(NodeUtil.isControlStructureCodeBlock(ifNode, ifCond));
+    Assert.assertSame(ifCond, NodeUtil.getConditionExpression(ifNode));
+
+    Node whileCond = IR.trueNode();
+    Node whileNode = IR.whileNode(whileCond, IR.block());
+    Assert.assertSame(whileCond, NodeUtil.getConditionExpression(whileNode));
+
+    Node doCond = IR.trueNode();
+    Node doNode = IR.doNode(IR.block(), doCond);
+    Assert.assertSame(doCond, NodeUtil.getConditionExpression(doNode));
+
+    Node forClassicCond = IR.trueNode();
+    Node forClassic = IR.forNode(IR.empty(), forClassicCond, IR.empty(), IR.block());
+    Assert.assertSame(forClassicCond, NodeUtil.getConditionExpression(forClassic));
+
+    Assert.assertNull(NodeUtil.getConditionExpression(forNode));
+  }
+
+  @Test
+  public void testStatements_andStatementBlocks_andSwitchCases() {
+    Node script = IR.script();
+    Node block = IR.block();
+    Assert.assertTrue(NodeUtil.isStatementBlock(script));
+    Assert.assertTrue(NodeUtil.isStatementBlock(block));
+    Assert.assertFalse(NodeUtil.isStatementBlock(IR.number(1)));
+
+    Node stmt = IR.exprResult(IR.number(1));
+    block.addChildToBack(stmt);
+    Assert.assertTrue(NodeUtil.isStatement(stmt));
+
+    Node caseNode = IR.caseNode(IR.number(1), IR.block());
+    Node defaultCase = IR.defaultCase(IR.block());
+    Assert.assertTrue(NodeUtil.isSwitchCase(caseNode));
+    Assert.assertTrue(NodeUtil.isSwitchCase(defaultCase));
+    Assert.assertFalse(NodeUtil.isSwitchCase(stmt));
+  }
+
+  @Test
+  public void testRemoveChild_variousAstContexts() {
+    // Statement in block
+    Node block = IR.block();
+    Node stmt1 = IR.exprResult(IR.number(1));
+    Node stmt2 = IR.exprResult(IR.number(2));
+    block.addChildrenToBack(stmt1);
+    block.addChildrenToBack(stmt2);
+    NodeUtil.removeChild(block, stmt1);
+    Assert.assertEquals(1, block.getChildCount());
+
+    // Multiple vars in var statement
+    Node v1 = IR.name("a");
+    Node v2 = IR.name("b");
+    Node varNode = IR.var(v1, v2);
+    NodeUtil.removeChild(varNode, v1);
+    Assert.assertEquals(1, varNode.getChildCount());
+
+    // Try-finally removal
+    Node tryBlock = IR.block();
+    Node catchBlock = IR.block(IR.catchNode(IR.name("e"), IR.block()));
+    Node finallyBlock = IR.block();
+    Node tryNode = new Node(Token.TRY, tryBlock, catchBlock, finallyBlock);
+    NodeUtil.removeChild(tryNode, finallyBlock);
+    Assert.assertEquals(2, tryNode.getChildCount());
+
+    // Four-child for loop removal
+    Node forInit = IR.var(IR.name("i"), IR.number(0));
+    Node forNode = IR.forNode(forInit, IR.number(1), IR.empty(), IR.block());
+    NodeUtil.removeChild(forNode, forInit);
+    Assert.assertTrue(forNode.getFirstChild().isEmpty());
+  }
+
+  @Test
+  public void testMaybeAddFinally_andTryMergeBlock() {
+    Node tryBlock = IR.block();
+    Node catchBlock = IR.block();
+    Node tryNode = new Node(Token.TRY, tryBlock, catchBlock);
+    Assert.assertFalse(NodeUtil.hasFinally(tryNode));
+    NodeUtil.maybeAddFinally(tryNode);
+    Assert.assertTrue(NodeUtil.hasFinally(tryNode));
+
+    Node parentBlock = IR.block();
+    Node innerBlock = IR.block(IR.exprResult(IR.number(1)));
+    parentBlock.addChildToBack(innerBlock);
+    Assert.assertTrue(NodeUtil.tryMergeBlock(innerBlock));
+    Assert.assertEquals(1, parentBlock.getChildCount());
+    Assert.assertTrue(parentBlock.getFirstChild().isExprResult());
+  }
+
+  @Test
+  public void testFunctionCharacteristics_declarations_expressions_varargs() {
+    Node fnDecl = IR.function(IR.name("decl"), IR.paramList(), IR.block());
+    IR.script(fnDecl);
+    Assert.assertTrue(NodeUtil.isFunctionDeclaration(fnDecl));
+    Assert.assertTrue(NodeUtil.isHoistedFunctionDeclaration(fnDecl));
+    Assert.assertFalse(NodeUtil.isFunctionExpression(fnDecl));
+
+    Node fnExpr = IR.function(IR.name(""), IR.paramList(), IR.block());
+    IR.assign(IR.name("f"), fnExpr);
+    Assert.assertFalse(NodeUtil.isFunctionDeclaration(fnExpr));
+    Assert.assertTrue(NodeUtil.isFunctionExpression(fnExpr));
+    Assert.assertTrue(NodeUtil.isEmptyFunctionExpression(fnExpr));
+
+    Node fnWithArgs = IR.function(IR.name(""), IR.paramList(), IR.block(IR.exprResult(IR.name("arguments"))));
+    Assert.assertTrue(NodeUtil.isVarArgsFunction(fnWithArgs));
+
+    Node namedFnExpr = IR.function(IR.name("bleeding"), IR.paramList(), IR.block());
+    IR.exprResult(namedFnExpr);
+    Assert.assertTrue(NodeUtil.isBleedingFunctionName(namedFnExpr.getFirstChild()));
+    Assert.assertSame(namedFnExpr.getLastChild(), NodeUtil.getFunctionBody(namedFnExpr));
+  }
+
+  @Test
+  public void testIsFunctionObjectCall_andIsFunctionObjectApply() {
+    Node call = IR.call(IR.getprop(IR.name("fn"), IR.string("call")), IR.thisNode());
+    Assert.assertTrue(NodeUtil.isFunctionObjectCall(call));
+    Assert.assertFalse(NodeUtil.isFunctionObjectApply(call));
+
+    Node apply = IR.call(IR.getprop(IR.name("fn"), IR.string("apply")), IR.thisNode());
+    Assert.assertTrue(NodeUtil.isFunctionObjectApply(apply));
+    Assert.assertFalse(NodeUtil.isFunctionObjectCall(apply));
+
+    Assert.assertFalse(NodeUtil.isFunctionObjectCall(IR.number(1)));
+  }
+
+  @Test
+  public void testObjectLitKeys_andTypes() {
+    Node key = IR.stringKey("foo", IR.number(1));
+    Node getter = IR.getterDef("bar", IR.function(IR.name(""), IR.paramList(), IR.block()));
+    Node setter = IR.setterDef("baz", IR.function(IR.name(""), IR.paramList(IR.name("v")), IR.block()));
+    Node obj = IR.objectlit(key, getter, setter);
+
+    Assert.assertTrue(NodeUtil.isObjectLitKey(key, obj));
+    Assert.assertTrue(NodeUtil.isObjectLitKey(getter, obj));
+    Assert.assertTrue(NodeUtil.isObjectLitKey(setter, obj));
+    Assert.assertTrue(NodeUtil.isGetOrSetKey(getter));
+    Assert.assertFalse(NodeUtil.isGetOrSetKey(key));
+
+    Assert.assertEquals("foo", NodeUtil.getObjectLitKeyName(key));
+    Assert.assertEquals("bar", NodeUtil.getObjectLitKeyName(getter));
+    Assert.assertEquals("baz", NodeUtil.getObjectLitKeyName(setter));
+
+    JSTypeRegistry registry = new JSTypeRegistry(new SimpleErrorReporter());
+    JSType fnType = registry.createFunctionType(registry.getNativeType(com.google.javascript.rhino.jstype.JSTypeNative.NUMBER_TYPE),
+        registry.createParameters(registry.getNativeType(com.google.javascript.rhino.jstype.JSTypeNative.STRING_TYPE)));
+
+    Assert.assertSame(registry.getNativeType(com.google.javascript.rhino.jstype.JSTypeNative.NUMBER_TYPE),
+        NodeUtil.getObjectLitKeyTypeFromValueType(getter, fnType));
+    Assert.assertSame(registry.getNativeType(com.google.javascript.rhino.jstype.JSTypeNative.STRING_TYPE),
+        NodeUtil.getObjectLitKeyTypeFromValueType(setter, fnType));
+    Assert.assertSame(fnType, NodeUtil.getObjectLitKeyTypeFromValueType(key, fnType));
+  }
+
+  @Test
+  public void testOpToStr_andOpToStrNoFail() {
+    Assert.assertEquals("+", NodeUtil.opToStr(Token.ADD));
+    Assert.assertEquals("===", NodeUtil.opToStr(Token.SHEQ));
+    Assert.assertEquals("void", NodeUtil.opToStr(Token.VOID));
+    Assert.assertNull(NodeUtil.opToStr(Token.SCRIPT));
+
+    Assert.assertEquals("+", NodeUtil.opToStrNoFail(Token.ADD));
+  }
+
+  @Test(expected = Error.class)
+  public void testOpToStrNoFail_invalidOp_throwsError() {
+    NodeUtil.opToStrNoFail(Token.SCRIPT);
+  }
+
+  @Test
+  public void testContainsType_andReferenceCounts() {
+    Node tree = IR.block(
+        IR.exprResult(IR.name("x")),
+        IR.exprResult(IR.name("x")),
+        IR.exprResult(IR.name("y")),
+        IR.exprResult(IR.number(42))
+    );
+
+    Assert.assertTrue(NodeUtil.containsType(tree, Token.NUMBER));
+    Assert.assertFalse(NodeUtil.containsType(tree, Token.STRING));
+    Assert.assertEquals(1, NodeUtil.getNodeTypeReferenceCount(tree, Token.NUMBER, Predicates.<Node>alwaysTrue()));
+    Assert.assertEquals(2, NodeUtil.getNameReferenceCount(tree, "x"));
+    Assert.assertTrue(NodeUtil.isNameReferenced(tree, "y"));
+    Assert.assertFalse(NodeUtil.isNameReferenced(tree, "z"));
+  }
+
+  @Test
+  public void testRedeclareVarsInsideBranch() {
+    Node script = IR.script();
+    Node ifBlock = IR.block(
+        IR.var(IR.name("localVar1")),
+        IR.var(IR.name("localVar2"))
+    );
+    script.addChildToBack(ifBlock);
+
+    NodeUtil.redeclareVarsInsideBranch(ifBlock);
+    Assert.assertEquals(3, script.getChildCount());
+  }
+
+  @Test
+  public void testNewName_andRootOfQualifiedName() {
+    Node basis = IR.name("oldName");
+    basis.setSourceFileName("source.js");
+
+    Node newNamed = NodeUtil.newName(defaultConvention, "newName", basis, "origName");
+    Assert.assertEquals("newName", newNamed.getString());
+    Assert.assertEquals("source.js", newNamed.getSourceFileName());
+    Assert.assertEquals("origName", newNamed.getProp(Node.ORIGINALNAME_PROP));
+
+    Node qName = NodeUtil.newQualifiedNameNode(defaultConvention, "a.b.c", basis, "origQName");
+    Assert.assertEquals("a", NodeUtil.getRootOfQualifiedName(qName).getString());
+  }
+
+  @Test
+  public void testIsLatin_andIsValidSimpleName_andIsValidPropertyName() {
+    Assert.assertTrue(NodeUtil.isLatin("abcXYZ0123_$$"));
+    Assert.assertFalse(NodeUtil.isLatin("สวัสดี"));
+
+    Assert.assertTrue(NodeUtil.isValidSimpleName("validVar"));
+    Assert.assertFalse(NodeUtil.isValidSimpleName("var")); // keyword
+    Assert.assertFalse(NodeUtil.isValidSimpleName("123var")); // invalid start
+    Assert.assertFalse(NodeUtil.isValidSimpleName("ชื่อตัวแปร")); // non-latin
+
+    Assert.assertTrue(NodeUtil.isValidPropertyName("validProp"));
+  }
+
+  @Test
+  public void testPrototypeHelpers() {
+    Node protoAssign = IR.exprResult(
+        IR.assign(
+            IR.getprop(IR.getprop(IR.name("MyClass"), IR.string("prototype")), IR.string("myMethod")),
+            IR.function(IR.name(""), IR.paramList(), IR.block())
+        )
+    );
+
+    Assert.assertTrue(NodeUtil.isPrototypePropertyDeclaration(protoAssign));
+    Node lhs = protoAssign.getFirstChild().getFirstChild();
+    Assert.assertTrue(NodeUtil.isPrototypeProperty(lhs));
+    Assert.assertEquals("MyClass", NodeUtil.getPrototypeClassName(lhs).getString());
+    Assert.assertEquals("myMethod", NodeUtil.getPrototypePropertyName(lhs));
+  }
+
+  @Test
+  public void testNewUndefinedNode_andNewVarNode_andNewCallNode() {
+    Node ref = IR.number(1);
+    ref.setSourceFileName("ref.js");
+
+    Node undef = NodeUtil.newUndefinedNode(ref);
+    Assert.assertTrue(undef.isVoid());
+    Assert.assertEquals("ref.js", undef.getSourceFileName());
+
+    Node varNode = NodeUtil.newVarNode("myVar", IR.number(100));
+    Assert.assertTrue(varNode.isVar());
+    Assert.assertEquals("myVar", varNode.getFirstChild().getString());
+
+    Node callNode = NodeUtil.newCallNode(IR.name("foo"), IR.number(1), IR.number(2));
+    Assert.assertTrue(callNode.isCall());
+    Assert.assertEquals(3, callNode.getChildCount());
+  }
+
+  @Test
+  public void testEvaluatesToLocalValue_variousNodes() {
+    Assert.assertTrue(NodeUtil.evaluatesToLocalValue(IR.number(1)));
+    Assert.assertTrue(NodeUtil.evaluatesToLocalValue(IR.string("str")));
+    Assert.assertTrue(NodeUtil.evaluatesToLocalValue(IR.arraylit()));
+    Assert.assertTrue(NodeUtil.evaluatesToLocalValue(IR.objectlit()));
+    Assert.assertTrue(NodeUtil.evaluatesToLocalValue(IR.regexp(IR.string("a"))));
+    Assert.assertTrue(NodeUtil.evaluatesToLocalValue(IR.add(IR.number(1), IR.number(2))));
+    Assert.assertFalse(NodeUtil.evaluatesToLocalValue(IR.name("globalVar")));
+  }
+
+  @Test
+  public void testGetArgumentForFunction_andGetArgumentForCallOrNew() {
+    Node param1 = IR.name("p1");
+    Node param2 = IR.name("p2");
+    Node fn = IR.function(IR.name("f"), IR.paramList(param1, param2), IR.block());
+
+    Assert.assertSame(param1, NodeUtil.getArgumentForFunction(fn, 0));
+    Assert.assertSame(param2, NodeUtil.getArgumentForFunction(fn, 1));
+    Assert.assertNull(NodeUtil.getArgumentForFunction(fn, 2));
+
+    Node arg1 = IR.number(10);
+    Node arg2 = IR.number(20);
+    Node call = IR.call(IR.name("fn"), arg1, arg2);
+
+    Assert.assertSame(arg1, NodeUtil.getArgumentForCallOrNew(call, 0));
+    Assert.assertSame(arg2, NodeUtil.getArgumentForCallOrNew(call, 1));
+    Assert.assertNull(NodeUtil.getArgumentForCallOrNew(call, 2));
+  }
+
+  @Test
+  public void testGetBestLValue_andRValue_andOwner_andName() {
+    // var myVar = 10;
+    Node varVal = IR.number(10);
+    Node varName = IR.name("myVar");
+    varName.addChildToBack(varVal);
+    IR.var(varName);
+
+    Assert.assertSame(varName, NodeUtil.getBestLValue(varVal));
+    Assert.assertSame(varVal, NodeUtil.getRValueOfLValue(varName));
+    Assert.assertEquals("myVar", NodeUtil.getBestLValueName(varName));
+    Assert.assertNull(NodeUtil.getBestLValueOwner(varName));
+
+    // obj.prop = 20;
+    Node propVal = IR.number(20);
+    Node getProp = IR.getprop(IR.name("obj"), IR.string("prop"));
+    IR.assign(getProp, propVal);
+
+    Assert.assertSame(getProp, NodeUtil.getBestLValue(propVal));
+    Assert.assertSame(propVal, NodeUtil.getRValueOfLValue(getProp));
+    Assert.assertEquals("obj.prop", NodeUtil.getBestLValueName(getProp));
+    Assert.assertEquals("obj", NodeUtil.getBestLValueOwner(getProp).getString());
+  }
+
+  @Test
+  public void testIsExpressionResultUsed_variousContexts() {
+    Node numInExprResult = IR.number(1);
+    IR.exprResult(numInExprResult);
+    Assert.assertFalse(NodeUtil.isExpressionResultUsed(numInExprResult));
+
+    Node hookCond = IR.name("cond");
+    IR.hook(hookCond, IR.number(1), IR.number(2));
+    Assert.assertTrue(NodeUtil.isExpressionResultUsed(hookCond));
+
+    Node comma1 = IR.number(1);
+    Node comma2 = IR.number(2);
+    IR.comma(comma1, comma2);
+    Assert.assertFalse(NodeUtil.isExpressionResultUsed(comma1));
+  }
+
+  @Test
+  public void testIsExecutedExactlyOnce_variousScenarios() {
+    Node script = IR.script();
+    Node expr = IR.exprResult(IR.number(1));
+    script.addChildToBack(expr);
+    Assert.assertTrue(NodeUtil.isExecutedExactlyOnce(expr.getFirstChild()));
+
+    Node ifBranch = IR.exprResult(IR.number(2));
+    Node ifNode = IR.ifNode(IR.trueNode(), IR.block(ifBranch));
+    script.addChildToBack(ifNode);
+    Assert.assertFalse(NodeUtil.isExecutedExactlyOnce(ifBranch.getFirstChild()));
+
+    Node whileBody = IR.exprResult(IR.number(3));
+    Node whileNode = IR.whileNode(IR.trueNode(), IR.block(whileBody));
+    script.addChildToBack(whileNode);
+    Assert.assertFalse(NodeUtil.isExecutedExactlyOnce(whileBody.getFirstChild()));
+  }
+
+  @Test
+  public void testBooleanNode_andNumberNode() {
+    Node t = NodeUtil.booleanNode(true);
+    Assert.assertTrue(t.isTrue());
+
+    Node f = NodeUtil.booleanNode(false);
+    Assert.assertTrue(f.isFalse());
+
+    Node nan = NodeUtil.numberNode(Double.NaN, null);
+    Assert.assertTrue(nan.isName());
+    Assert.assertEquals("NaN", nan.getString());
+
+    Node inf = NodeUtil.numberNode(Double.POSITIVE_INFINITY, null);
+    Assert.assertTrue(inf.isName());
+    Assert.assertEquals("Infinity", inf.getString());
+
+    Node negInf = NodeUtil.numberNode(Double.NEGATIVE_INFINITY, null);
+    Assert.assertTrue(negInf.isNeg());
+
+    Node normalNum = NodeUtil.numberNode(42.5, null);
+    Assert.assertTrue(normalNum.isNumber());
+    Assert.assertEquals(42.5, normalNum.getDouble(), 0.0001);
+  }
+
+  @Test
+  public void testTraversalMethods_visitPreOrder_andVisitPostOrder() {
+    Node root = IR.block(IR.name("a"), IR.name("b"));
+    final java.util.List<String> visitedPre = new java.util.ArrayList<String>();
+    NodeUtil.visitPreOrder(root, new NodeUtil.Visitor() {
+      @Override
+      public void visit(Node node) {
+        if (node.isName()) {
+          visitedPre.add(node.getString());
+        }
+      }
+    }, Predicates.<Node>alwaysTrue());
+    Assert.assertEquals(java.util.Arrays.asList("a", "b"), visitedPre);
+
+    final java.util.List<String> visitedPost = new java.util.ArrayList<String>();
+    NodeUtil.visitPostOrder(root, new NodeUtil.Visitor() {
+      @Override
+      public void visit(

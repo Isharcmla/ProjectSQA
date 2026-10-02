@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "16",
+  "tool": "claude",
+  "class": "org.joda.time.format.DateTimeFormatter",
+  "target_classes": [
+    "org.joda.time.format.DateTimeFormatter"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 74.48,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Time\\16\\DateTimeFormatter_20261003_013515.txt",
+  "test_file": "Claude\\TestCode\\Time\\16\\DateTimeFormatterTest.java",
+  "usage": {
+    "prompt_tokens": 14120,
+    "completion_tokens": 11792,
+    "total_tokens": 25912
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 25912,
+    "daily_remaining_tokens": 174088
+  },
+  "timestamp": "20261003_013515"
+}

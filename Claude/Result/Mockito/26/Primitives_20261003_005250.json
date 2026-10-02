@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "26",
+  "tool": "claude",
+  "class": "org.mockito.internal.util.Primitives",
+  "target_classes": [
+    "org.mockito.internal.util.Primitives"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 20.0,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\26\\Primitives_20261003_005250.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\26\\PrimitivesTest.java",
+  "usage": {
+    "prompt_tokens": 1939,
+    "completion_tokens": 2905,
+    "total_tokens": 4844
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 99650,
+    "daily_remaining_tokens": 100350
+  },
+  "timestamp": "20261003_005250"
+}

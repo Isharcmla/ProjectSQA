@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "45",
+  "tool": "gemini",
+  "class": "org.apache.commons.lang.WordUtils",
+  "target_classes": [
+    "org.apache.commons.lang.WordUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 15.42,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Lang\\45\\WordUtils_20260926_020022.txt",
+  "test_file": "Gemini\\TestCode\\Lang\\45\\WordUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 6883,
+    "completion_tokens": 2195,
+    "total_tokens": 9078
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 59735,
+    "daily_remaining_tokens": 290265
+  },
+  "timestamp": "20260926_020022"
+}

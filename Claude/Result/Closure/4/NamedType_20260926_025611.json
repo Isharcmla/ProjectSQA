@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "4",
+  "tool": "claude",
+  "class": "com.google.javascript.rhino.jstype.NamedType",
+  "target_classes": [
+    "com.google.javascript.rhino.jstype.NamedType"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 104.36,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\4\\NamedType_20260926_025611.txt",
+  "test_file": "Claude\\TestCode\\Closure\\4\\NamedTypeTest.java",
+  "usage": {
+    "prompt_tokens": 5850,
+    "completion_tokens": 12751,
+    "total_tokens": 18601
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 193743,
+    "daily_remaining_tokens": 6257
+  },
+  "timestamp": "20260926_025611"
+}

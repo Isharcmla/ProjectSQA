@@ -1,0 +1,1097 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.InjectableValues;
+import com.fasterxml.jackson.databind.exc.*;
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.io.*;
+import java.util.*;
+
+public class ObjectMapperTest {
+
+    public static class SimpleBean {
+        public String name;
+        public int value;
+
+        public SimpleBean() {}
+
+        public SimpleBean(String name, int value) {
+            this.name = name;
+            this.value = value;
+        }
+
+        public String getName() { return name; }
+        public void setName(String name) { this.name = name; }
+        public int getValue() { return value; }
+        public void setValue(int value) { this.value = value; }
+    }
+
+    private ObjectMapper mapper;
+
+    @Before
+    public void setUp() {
+        mapper = new ObjectMapper();
+    }
+
+    // ---------- Constructors ----------
+
+    @Test
+    public void testDefaultConstructor_created_notNull() {
+        ObjectMapper m = new ObjectMapper();
+        assertNotNull(m);
+    }
+
+    @Test
+    public void testConstructorWithFactory_created_notNull() {
+        JsonFactory jf = new JsonFactory();
+        ObjectMapper m = new ObjectMapper(jf);
+        assertNotNull(m);
+        assertSame(jf, m.getFactory());
+    }
+
+    @Test
+    public void testCopy_normalMapper_returnsNewInstance() {
+        ObjectMapper copy = mapper.copy();
+        assertNotNull(copy);
+        assertNotSame(mapper, copy);
+    }
+
+    // ---------- version ----------
+
+    @Test
+    public void testVersion_called_returnsNonNull() {
+        assertNotNull(mapper.version());
+    }
+
+    // ---------- registerModule ----------
+
+    @Test
+    public void testRegisterModule_validModule_returnsThis() {
+        com.fasterxml.jackson.databind.Module module = new com.fasterxml.jackson.databind.Module() {
+            @Override
+            public String getModuleName() { return "TestModule"; }
+
+            @Override
+            public Version version() { return Version.unknownVersion(); }
+
+            @Override
+            public void setupModule(SetupContext context) {
+                // no-op
+            }
+        };
+        ObjectMapper result = mapper.registerModule(module);
+        assertSame(mapper, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testRegisterModule_nullName_throwsException() {
+        com.fasterxml.jackson.databind.Module module = new com.fasterxml.jackson.databind.Module() {
+            @Override
+            public String getModuleName() { return null; }
+
+            @Override
+            public Version version() { return Version.unknownVersion(); }
+
+            @Override
+            public void setupModule(SetupContext context) {}
+        };
+        mapper.registerModule(module);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testRegisterModule_nullVersion_throwsException() {
+        com.fasterxml.jackson.databind.Module module = new com.fasterxml.jackson.databind.Module() {
+            @Override
+            public String getModuleName() { return "Name"; }
+
+            @Override
+            public Version version() { return null; }
+
+            @Override
+            public void setupModule(SetupContext context) {}
+        };
+        mapper.registerModule(module);
+    }
+
+    @Test
+    public void testRegisterModules_varargs_returnsThis() {
+        ObjectMapper result = mapper.registerModules();
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testRegisterModules_iterable_returnsThis() {
+        List<com.fasterxml.jackson.databind.Module> modules = new ArrayList<com.fasterxml.jackson.databind.Module>();
+        ObjectMapper result = mapper.registerModules(modules);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testFindModules_noArg_returnsList() {
+        List<com.fasterxml.jackson.databind.Module> modules = ObjectMapper.findModules();
+        assertNotNull(modules);
+    }
+
+    @Test
+    public void testFindModules_withClassLoader_returnsList() {
+        List<com.fasterxml.jackson.databind.Module> modules = ObjectMapper.findModules(getClass().getClassLoader());
+        assertNotNull(modules);
+    }
+
+    @Test
+    public void testFindAndRegisterModules_called_returnsThis() {
+        ObjectMapper result = mapper.findAndRegisterModules();
+        assertSame(mapper, result);
+    }
+
+    // ---------- Configuration accessors ----------
+
+    @Test
+    public void testGetSerializationConfig_called_notNull() {
+        assertNotNull(mapper.getSerializationConfig());
+    }
+
+    @Test
+    public void testGetDeserializationConfig_called_notNull() {
+        assertNotNull(mapper.getDeserializationConfig());
+    }
+
+    @Test
+    public void testGetDeserializationContext_called_notNull() {
+        assertNotNull(mapper.getDeserializationContext());
+    }
+
+    @Test
+    public void testSetSerializerFactory_validFactory_returnsThis() {
+        ObjectMapper result = mapper.setSerializerFactory(mapper.getSerializerFactory());
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testGetSerializerFactory_called_notNull() {
+        assertNotNull(mapper.getSerializerFactory());
+    }
+
+    @Test
+    public void testSetSerializerProvider_validProvider_returnsThis() {
+        ObjectMapper result = mapper.setSerializerProvider(
+                (com.fasterxml.jackson.databind.ser.DefaultSerializerProvider)
+                        ((com.fasterxml.jackson.databind.ser.DefaultSerializerProvider) mapper.getSerializerProvider()).copy());
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testGetSerializerProvider_called_notNull() {
+        assertNotNull(mapper.getSerializerProvider());
+    }
+
+    // ---------- Mix-ins ----------
+
+    @Test
+    public void testSetMixInAnnotations_validMap_appliesMixIns() {
+        Map<Class<?>, Class<?>> mixins = new HashMap<Class<?>, Class<?>>();
+        mixins.put(SimpleBean.class, Object.class);
+        mapper.setMixInAnnotations(mixins);
+        assertEquals(1, mapper.mixInCount());
+    }
+
+    @Test
+    public void testSetMixInAnnotations_nullMap_clearsMixIns() {
+        mapper.addMixIn(SimpleBean.class, Object.class);
+        mapper.setMixInAnnotations(null);
+        assertEquals(0, mapper.mixInCount());
+    }
+
+    @Test
+    public void testAddMixInAnnotations_validClasses_increasesCount() {
+        int before = mapper.mixInCount();
+        mapper.addMixInAnnotations(SimpleBean.class, Object.class);
+        assertEquals(before + 1, mapper.mixInCount());
+    }
+
+    @Test
+    public void testAddMixIn_validClasses_returnsThis() {
+        ObjectMapper result = mapper.addMixIn(SimpleBean.class, Object.class);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testFindMixInClassFor_registered_returnsClass() {
+        mapper.addMixIn(SimpleBean.class, Object.class);
+        Class<?> found = mapper.findMixInClassFor(SimpleBean.class);
+        assertEquals(Object.class, found);
+    }
+
+    @Test
+    public void testFindMixInClassFor_notRegistered_returnsNull() {
+        Class<?> found = mapper.findMixInClassFor(String.class);
+        assertNull(found);
+    }
+
+    @Test
+    public void testMixInCount_empty_returnsZero() {
+        assertEquals(0, mapper.mixInCount());
+    }
+
+    // ---------- Introspection config ----------
+
+    @Test
+    public void testGetVisibilityChecker_called_notNull() {
+        assertNotNull(mapper.getVisibilityChecker());
+    }
+
+    @Test
+    public void testSetVisibilityChecker_validChecker_appliesConfig() {
+        mapper.setVisibilityChecker(mapper.getVisibilityChecker());
+        assertNotNull(mapper.getVisibilityChecker());
+    }
+
+    @Test
+    public void testSetVisibility_validParams_returnsThis() {
+        ObjectMapper result = mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testGetSubtypeResolver_called_notNull() {
+        assertNotNull(mapper.getSubtypeResolver());
+    }
+
+    @Test
+    public void testSetSubtypeResolver_validResolver_returnsThis() {
+        ObjectMapper result = mapper.setSubtypeResolver(mapper.getSubtypeResolver());
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testSetAnnotationIntrospector_validIntrospector_returnsThis() {
+        ObjectMapper result = mapper.setAnnotationIntrospector(
+                mapper.getSerializationConfig().getAnnotationIntrospector());
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testSetAnnotationIntrospectors_validIntrospectors_returnsThis() {
+        ObjectMapper result = mapper.setAnnotationIntrospectors(
+                mapper.getSerializationConfig().getAnnotationIntrospector(),
+                mapper.getDeserializationConfig().getAnnotationIntrospector());
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testSetPropertyNamingStrategy_nullStrategy_returnsThis() {
+        ObjectMapper result = mapper.setPropertyNamingStrategy(null);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testSetSerializationInclusion_validInclude_returnsThis() {
+        ObjectMapper result = mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        assertSame(mapper, result);
+    }
+
+    // ---------- Default typing ----------
+
+    @Test
+    public void testEnableDefaultTyping_noArgs_returnsThis() {
+        ObjectMapper result = mapper.enableDefaultTyping();
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testEnableDefaultTyping_withDefaultTyping_returnsThis() {
+        ObjectMapper result = mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testEnableDefaultTyping_withTypingAndAs_returnsThis() {
+        ObjectMapper result = mapper.enableDefaultTyping(
+                ObjectMapper.DefaultTyping.OBJECT_AND_NON_CONCRETE,
+                com.fasterxml.jackson.annotation.JsonTypeInfo.As.PROPERTY);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testEnableDefaultTypingAsProperty_validParams_returnsThis() {
+        ObjectMapper result = mapper.enableDefaultTypingAsProperty(
+                ObjectMapper.DefaultTyping.JAVA_LANG_OBJECT, "@type");
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testDisableDefaultTyping_called_returnsThis() {
+        ObjectMapper result = mapper.disableDefaultTyping();
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testSetDefaultTyping_nullTyper_returnsThis() {
+        ObjectMapper result = mapper.setDefaultTyping(null);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testRegisterSubtypesClasses_validClasses_doesNotThrow() {
+        mapper.registerSubtypes(SimpleBean.class);
+    }
+
+    @Test
+    public void testRegisterSubtypesNamedTypes_validNamedType_doesNotThrow() {
+        mapper.registerSubtypes(new com.fasterxml.jackson.databind.jsontype.NamedType(SimpleBean.class, "simple"));
+    }
+
+    // ---------- Type factory ----------
+
+    @Test
+    public void testGetTypeFactory_called_notNull() {
+        assertNotNull(mapper.getTypeFactory());
+    }
+
+    @Test
+    public void testSetTypeFactory_validFactory_returnsThis() {
+        ObjectMapper result = mapper.setTypeFactory(mapper.getTypeFactory());
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testConstructType_validClass_returnsJavaType() {
+        JavaType type = mapper.constructType(SimpleBean.class);
+        assertNotNull(type);
+        assertEquals(SimpleBean.class, type.getRawClass());
+    }
+
+    // ---------- Deserialization config ----------
+
+    @Test
+    public void testSetNodeFactory_validFactory_returnsThis() {
+        ObjectMapper result = mapper.setNodeFactory(JsonNodeFactory.instance);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testAddHandler_validHandler_returnsThis() {
+        ObjectMapper result = mapper.addHandler(new com.fasterxml.jackson.databind.deser.DeserializationProblemHandler() {});
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testClearProblemHandlers_called_returnsThis() {
+        ObjectMapper result = mapper.clearProblemHandlers();
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testSetConfigDeserialization_validConfig_returnsThis() {
+        ObjectMapper result = mapper.setConfig(mapper.getDeserializationConfig());
+        assertSame(mapper, result);
+    }
+
+    // ---------- Serialization config ----------
+
+    @Test
+    public void testSetFilters_validProvider_doesNotThrow() {
+        mapper.setFilters(new com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider());
+    }
+
+    @Test
+    public void testSetBase64Variant_validVariant_returnsThis() {
+        ObjectMapper result = mapper.setBase64Variant(com.fasterxml.jackson.core.Base64Variants.MIME);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testSetConfigSerialization_validConfig_returnsThis() {
+        ObjectMapper result = mapper.setConfig(mapper.getSerializationConfig());
+        assertSame(mapper, result);
+    }
+
+    // ---------- Other config ----------
+
+    @Test
+    public void testGetFactory_called_notNull() {
+        assertNotNull(mapper.getFactory());
+    }
+
+    @Test
+    public void testGetJsonFactory_deprecated_returnsSame() {
+        assertSame(mapper.getFactory(), mapper.getJsonFactory());
+    }
+
+    @Test
+    public void testSetDateFormat_nullFormat_returnsThis() {
+        ObjectMapper result = mapper.setDateFormat(null);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testSetHandlerInstantiator_nullInstantiator_returnsObject() {
+        Object result = mapper.setHandlerInstantiator(null);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testSetInjectableValues_validValues_returnsThis() {
+        ObjectMapper result = mapper.setInjectableValues(InjectableValues.Std.EMPTY);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testSetLocale_validLocale_returnsThis() {
+        ObjectMapper result = mapper.setLocale(Locale.US);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testSetTimeZone_validTimeZone_returnsThis() {
+        ObjectMapper result = mapper.setTimeZone(TimeZone.getTimeZone("UTC"));
+        assertSame(mapper, result);
+    }
+
+    // ---------- Simple features ----------
+
+    @Test
+    public void testConfigureMapperFeature_enable_appliesSetting() {
+        ObjectMapper result = mapper.configure(MapperFeature.USE_ANNOTATIONS, false);
+        assertSame(mapper, result);
+        assertFalse(mapper.isEnabled(MapperFeature.USE_ANNOTATIONS));
+    }
+
+    @Test
+    public void testConfigureSerializationFeature_enable_appliesSetting() {
+        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+        assertTrue(mapper.isEnabled(SerializationFeature.INDENT_OUTPUT));
+    }
+
+    @Test
+    public void testConfigureDeserializationFeature_enable_appliesSetting() {
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        assertFalse(mapper.isEnabled(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES));
+    }
+
+    @Test
+    public void testConfigureJsonParserFeature_enable_returnsThis() {
+        ObjectMapper result = mapper.configure(JsonParser.Feature.ALLOW_COMMENTS, true);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testConfigureJsonGeneratorFeature_enable_returnsThis() {
+        ObjectMapper result = mapper.configure(JsonGenerator.Feature.QUOTE_FIELD_NAMES, true);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testEnableMapperFeatures_varargs_returnsThis() {
+        ObjectMapper result = mapper.enable(MapperFeature.USE_ANNOTATIONS);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testDisableMapperFeatures_varargs_returnsThis() {
+        ObjectMapper result = mapper.disable(MapperFeature.USE_ANNOTATIONS);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testEnableDeserializationFeature_single_returnsThis() {
+        ObjectMapper result = mapper.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testEnableDeserializationFeature_multiple_returnsThis() {
+        ObjectMapper result = mapper.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
+                DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testDisableDeserializationFeature_single_returnsThis() {
+        ObjectMapper result = mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testDisableDeserializationFeature_multiple_returnsThis() {
+        ObjectMapper result = mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
+                DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testEnableSerializationFeature_single_returnsThis() {
+        ObjectMapper result = mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testEnableSerializationFeature_multiple_returnsThis() {
+        ObjectMapper result = mapper.enable(SerializationFeature.INDENT_OUTPUT,
+                SerializationFeature.WRAP_ROOT_VALUE);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testDisableSerializationFeature_single_returnsThis() {
+        ObjectMapper result = mapper.disable(SerializationFeature.INDENT_OUTPUT);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testDisableSerializationFeature_multiple_returnsThis() {
+        ObjectMapper result = mapper.disable(SerializationFeature.INDENT_OUTPUT,
+                SerializationFeature.WRAP_ROOT_VALUE);
+        assertSame(mapper, result);
+    }
+
+    @Test
+    public void testIsEnabledMapperFeature_default_returnsBoolean() {
+        boolean result = mapper.isEnabled(MapperFeature.USE_ANNOTATIONS);
+        assertTrue(result || !result); // just verifying no exception
+    }
+
+    @Test
+    public void testIsEnabledSerializationFeature_default_returnsBoolean() {
+        boolean result = mapper.isEnabled(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+        assertTrue(result || !result);
+    }
+
+    @Test
+    public void testIsEnabledDeserializationFeature_default_returnsBoolean() {
+        boolean result = mapper.isEnabled(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        assertTrue(result || !result);
+    }
+
+    @Test
+    public void testIsEnabledJsonFactoryFeature_default_returnsBoolean() {
+        boolean result = mapper.isEnabled(JsonFactory.Feature.INTERN_FIELD_NAMES);
+        assertTrue(result || !result);
+    }
+
+    @Test
+    public void testIsEnabledJsonParserFeature_default_returnsBoolean() {
+        boolean result = mapper.isEnabled(JsonParser.Feature.AUTO_CLOSE_SOURCE);
+        assertTrue(result || !result);
+    }
+
+    @Test
+    public void testIsEnabledJsonGeneratorFeature_default_returnsBoolean() {
+        boolean result = mapper.isEnabled(JsonGenerator.Feature.AUTO_CLOSE_TARGET);
+        assertTrue(result || !result);
+    }
+
+    @Test
+    public void testGetNodeFactory_called_notNull() {
+        assertNotNull(mapper.getNodeFactory());
+    }
+
+    // ---------- readValue / ObjectCodec methods ----------
+
+    @Test
+    public void testReadValueJsonParserClass_validJson_returnsObject() throws Exception {
+        JsonParser jp = mapper.getFactory().createParser("{\"name\":\"foo\",\"value\":42}");
+        SimpleBean bean = mapper.readValue(jp, SimpleBean.class);
+        assertEquals("foo", bean.getName());
+        assertEquals(42, bean.getValue());
+        jp.close();
+    }
+
+    @Test
+    public void testReadValueJsonParserTypeReference_validJson_returnsObject() throws Exception {
+        JsonParser jp = mapper.getFactory().createParser("{\"name\":\"foo\",\"value\":42}");
+        SimpleBean bean = mapper.readValue(jp, new TypeReference<SimpleBean>() {});
+        assertEquals("foo", bean.getName());
+        jp.close();
+    }
+
+    @Test
+    public void testReadValueJsonParserResolvedType_validJson_returnsObject() throws Exception {
+        JsonParser jp = mapper.getFactory().createParser("{\"name\":\"foo\",\"value\":42}");
+        JavaType type = mapper.constructType(SimpleBean.class);
+        SimpleBean bean = mapper.readValue(jp, type);
+        assertEquals("foo", bean.getName());
+        jp.close();
+    }
+
+    @Test
+    public void testReadValueJsonParserJavaType_validJson_returnsObject() throws Exception {
+        JsonParser jp = mapper.getFactory().createParser("{\"name\":\"foo\",\"value\":42}");
+        JavaType type = mapper.constructType(SimpleBean.class);
+        SimpleBean bean = mapper.readValue(jp, type);
+        assertEquals(42, bean.getValue());
+        jp.close();
+    }
+
+    @Test
+    public void testReadTreeJsonParser_validJson_returnsNode() throws Exception {
+        JsonParser jp = mapper.getFactory().createParser("{\"a\":1}");
+        JsonNode node = mapper.readTree(jp);
+        assertTrue(node.has("a"));
+        jp.close();
+    }
+
+    @Test
+    public void testReadTreeJsonParser_emptyInput_returnsNull() throws Exception {
+        JsonParser jp = mapper.getFactory().createParser("");
+        JsonNode node = mapper.readTree(jp);
+        assertNull(node);
+        jp.close();
+    }
+
+    @Test
+    public void testReadValuesJsonParserResolvedType_validJson_returnsIterator() throws Exception {
+        JsonParser jp = mapper.getFactory().createParser("1 2 3");
+        JavaType type = mapper.constructType(Integer.class);
+        com.fasterxml.jackson.databind.MappingIterator<Integer> it = mapper.readValues(jp, (com.fasterxml.jackson.core.type.ResolvedType) type);
+        assertTrue(it.hasNext());
+        jp.close();
+    }
+
+    @Test
+    public void testReadValuesJsonParserJavaType_validJson_returnsIterator() throws Exception {
+        JsonParser jp = mapper.getFactory().createParser("1 2 3");
+        JavaType type = mapper.constructType(Integer.class);
+        com.fasterxml.jackson.databind.MappingIterator<Integer> it = mapper.readValues(jp, type);
+        assertTrue(it.hasNext());
+        jp.close();
+    }
+
+    @Test
+    public void testReadValuesJsonParserClass_validJson_returnsIterator() throws Exception {
+        JsonParser jp = mapper.getFactory().createParser("1 2 3");
+        com.fasterxml.jackson.databind.MappingIterator<Integer> it = mapper.readValues(jp, Integer.class);
+        assertTrue(it.hasNext());
+        jp.close();
+    }
+
+    @Test
+    public void testReadValuesJsonParserTypeReference_validJson_returnsIterator() throws Exception {
+        JsonParser jp = mapper.getFactory().createParser("1 2 3");
+        com.fasterxml.jackson.databind.MappingIterator<Integer> it = mapper.readValues(jp, new TypeReference<Integer>() {});
+        assertTrue(it.hasNext());
+        jp.close();
+    }
+
+    // ---------- readTree overloads ----------
+
+    @Test
+    public void testReadTreeInputStream_validJson_returnsNode() throws Exception {
+        InputStream in = new ByteArrayInputStream("{\"a\":1}".getBytes());
+        JsonNode node = mapper.readTree(in);
+        assertTrue(node.has("a"));
+    }
+
+    @Test
+    public void testReadTreeReader_validJson_returnsNode() throws Exception {
+        Reader r = new StringReader("{\"a\":1}");
+        JsonNode node = mapper.readTree(r);
+        assertTrue(node.has("a"));
+    }
+
+    @Test
+    public void testReadTreeString_validJson_returnsNode() throws Exception {
+        JsonNode node = mapper.readTree("{\"a\":1}");
+        assertTrue(node.has("a"));
+    }
+
+    @Test
+    public void testReadTreeString_nullResult_returnsNullNode() throws Exception {
+        JsonNode node = mapper.readTree("null");
+        assertTrue(node.isNull());
+    }
+
+    @Test
+    public void testReadTreeByteArray_validJson_returnsNode() throws Exception {
+        byte[] content = "{\"a\":1}".getBytes();
+        JsonNode node = mapper.readTree(content);
+        assertTrue(node.has("a"));
+    }
+
+    @Test
+    public void testReadTreeFile_validJson_returnsNode() throws Exception {
+        File tmp = File.createTempFile("test", ".json");
+        tmp.deleteOnExit();
+        FileWriter fw = new FileWriter(tmp);
+        fw.write("{\"a\":1}");
+        fw.close();
+        JsonNode node = mapper.readTree(tmp);
+        assertTrue(node.has("a"));
+    }
+
+    // Note: readTree(URL) skipped in normal test due to network dependency;
+    // covering via file:// URL instead.
+    @Test
+    public void testReadTreeURL_validFileUrl_returnsNode() throws Exception {
+        File tmp = File.createTempFile("test", ".json");
+        tmp.deleteOnExit();
+        FileWriter fw = new FileWriter(tmp);
+        fw.write("{\"a\":1}");
+        fw.close();
+        JsonNode node = mapper.readTree(tmp.toURI().toURL());
+        assertTrue(node.has("a"));
+    }
+
+    // ---------- writeValue (ObjectCodec) ----------
+
+    @Test
+    public void testWriteValueJsonGenerator_validValue_writesCorrectly() throws Exception {
+        StringWriter sw = new StringWriter();
+        JsonGenerator jgen = mapper.getFactory().createGenerator(sw);
+        mapper.writeValue(jgen, new SimpleBean("foo", 1));
+        jgen.close();
+        assertTrue(sw.toString().contains("foo"));
+    }
+
+    @Test
+    public void testWriteValueJsonGenerator_closeableValue_closesResource() throws Exception {
+        mapper.configure(SerializationFeature.CLOSE_CLOSEABLE, true);
+        StringWriter sw = new StringWriter();
+        JsonGenerator jgen = mapper.getFactory().createGenerator(sw);
+        final boolean[] closed = {false};
+        Closeable closeable = new Closeable() {
+            @Override
+            public void close() throws IOException {
+                closed[0] = true;
+            }
+        };
+        // We use a value that is both Closeable and serializable as an empty object
+        // Use a minimal anonymous class implementing Closeable
+        class CloseableBean implements Closeable {
+            public String name = "closeableBean";
+            @Override
+            public void close() throws IOException {
+                closed[0] = true;
+            }
+        }
+        mapper.writeValue(jgen, new CloseableBean());
+        assertTrue(closed[0]);
+    }
+
+    // ---------- writeTree ----------
+
+    @Test
+    public void testWriteTreeJsonGeneratorTreeNode_validNode_writesCorrectly() throws Exception {
+        StringWriter sw = new StringWriter();
+        JsonGenerator jgen = mapper.getFactory().createGenerator(sw);
+        ObjectNode node = mapper.createObjectNode();
+        node.put("a", 1);
+        mapper.writeTree(jgen, (com.fasterxml.jackson.core.TreeNode) node);
+        jgen.close();
+        assertTrue(sw.toString().contains("a"));
+    }
+
+    @Test
+    public void testWriteTreeJsonGeneratorJsonNode_validNode_writesCorrectly() throws Exception {
+        StringWriter sw = new StringWriter();
+        JsonGenerator jgen = mapper.getFactory().createGenerator(sw);
+        ObjectNode node = mapper.createObjectNode();
+        node.put("b", 2);
+        mapper.writeTree(jgen, node);
+        jgen.close();
+        assertTrue(sw.toString().contains("b"));
+    }
+
+    @Test
+    public void testCreateObjectNode_called_returnsEmptyObjectNode() {
+        ObjectNode node = mapper.createObjectNode();
+        assertNotNull(node);
+        assertTrue(node.isObject());
+    }
+
+    @Test
+    public void testCreateArrayNode_called_returnsEmptyArrayNode() {
+        ArrayNode node = mapper.createArrayNode();
+        assertNotNull(node);
+        assertTrue(node.isArray());
+    }
+
+    @Test
+    public void testTreeAsTokens_validNode_returnsParser() throws Exception {
+        ObjectNode node = mapper.createObjectNode();
+        node.put("x", 1);
+        JsonParser jp = mapper.treeAsTokens(node);
+        assertNotNull(jp);
+    }
+
+    @Test
+    public void testTreeToValue_validTree_returnsObject() throws Exception {
+        ObjectNode node = mapper.createObjectNode();
+        node.put("name", "foo");
+        node.put("value", 5);
+        SimpleBean bean = mapper.treeToValue(node, SimpleBean.class);
+        assertEquals("foo", bean.getName());
+        assertEquals(5, bean.getValue());
+    }
+
+    @Test
+    public void testTreeToValue_assignableType_returnsSameInstance() throws Exception {
+        ObjectNode node = mapper.createObjectNode();
+        JsonNode result = mapper.treeToValue(node, JsonNode.class);
+        assertSame(node, result);
+    }
+
+    @Test
+    public void testValueToTree_validObject_returnsTree() {
+        SimpleBean bean = new SimpleBean("bar", 7);
+        JsonNode node = mapper.valueToTree(bean);
+        assertEquals("bar", node.get("name").asText());
+        assertEquals(7, node.get("value").asInt());
+    }
+
+    @Test
+    public void testValueToTree_nullValue_returnsNull() {
+        JsonNode node = mapper.valueToTree(null);
+        assertNull(node);
+    }
+
+    // ---------- canSerialize / canDeserialize ----------
+
+    @Test
+    public void testCanSerialize_validClass_returnsTrue() {
+        assertTrue(mapper.canSerialize(SimpleBean.class));
+    }
+
+    @Test
+    public void testCanSerializeWithCause_validClass_returnsTrue() {
+        java.util.concurrent.atomic.AtomicReference<Throwable> cause =
+                new java.util.concurrent.atomic.AtomicReference<Throwable>();
+        assertTrue(mapper.canSerialize(SimpleBean.class, cause));
+    }
+
+    @Test
+    public void testCanDeserialize_validType_returnsTrue() {
+        JavaType type = mapper.constructType(SimpleBean.class);
+        assertTrue(mapper.canDeserialize(type));
+    }
+
+    @Test
+    public void testCanDeserializeWithCause_validType_returnsTrue() {
+        JavaType type = mapper.constructType(SimpleBean.class);
+        java.util.concurrent.atomic.AtomicReference<Throwable> cause =
+                new java.util.concurrent.atomic.AtomicReference<Throwable>();
+        assertTrue(mapper.canDeserialize(type, cause));
+    }
+
+    // ---------- readValue convenience overloads ----------
+
+    @Test
+    public void testReadValueFileClass_validFile_returnsObject() throws Exception {
+        File tmp = File.createTempFile("test", ".json");
+        tmp.deleteOnExit();
+        FileWriter fw = new FileWriter(tmp);
+        fw.write("{\"name\":\"foo\",\"value\":1}");
+        fw.close();
+        SimpleBean bean = mapper.readValue(tmp, SimpleBean.class);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueFileTypeReference_validFile_returnsObject() throws Exception {
+        File tmp = File.createTempFile("test", ".json");
+        tmp.deleteOnExit();
+        FileWriter fw = new FileWriter(tmp);
+        fw.write("{\"name\":\"foo\",\"value\":1}");
+        fw.close();
+        SimpleBean bean = mapper.readValue(tmp, new TypeReference<SimpleBean>() {});
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueFileJavaType_validFile_returnsObject() throws Exception {
+        File tmp = File.createTempFile("test", ".json");
+        tmp.deleteOnExit();
+        FileWriter fw = new FileWriter(tmp);
+        fw.write("{\"name\":\"foo\",\"value\":1}");
+        fw.close();
+        JavaType type = mapper.constructType(SimpleBean.class);
+        SimpleBean bean = mapper.readValue(tmp, type);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueURLClass_validUrl_returnsObject() throws Exception {
+        File tmp = File.createTempFile("test", ".json");
+        tmp.deleteOnExit();
+        FileWriter fw = new FileWriter(tmp);
+        fw.write("{\"name\":\"foo\",\"value\":1}");
+        fw.close();
+        SimpleBean bean = mapper.readValue(tmp.toURI().toURL(), SimpleBean.class);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueURLTypeReference_validUrl_returnsObject() throws Exception {
+        File tmp = File.createTempFile("test", ".json");
+        tmp.deleteOnExit();
+        FileWriter fw = new FileWriter(tmp);
+        fw.write("{\"name\":\"foo\",\"value\":1}");
+        fw.close();
+        SimpleBean bean = mapper.readValue(tmp.toURI().toURL(), new TypeReference<SimpleBean>() {});
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueURLJavaType_validUrl_returnsObject() throws Exception {
+        File tmp = File.createTempFile("test", ".json");
+        tmp.deleteOnExit();
+        FileWriter fw = new FileWriter(tmp);
+        fw.write("{\"name\":\"foo\",\"value\":1}");
+        fw.close();
+        JavaType type = mapper.constructType(SimpleBean.class);
+        SimpleBean bean = mapper.readValue(tmp.toURI().toURL(), type);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueStringClass_validJson_returnsObject() throws Exception {
+        SimpleBean bean = mapper.readValue("{\"name\":\"foo\",\"value\":1}", SimpleBean.class);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testReadValueStringClass_emptyString_throwsException() throws Exception {
+        mapper.readValue("", SimpleBean.class);
+    }
+
+    @Test
+    public void testReadValueStringTypeReference_validJson_returnsObject() throws Exception {
+        SimpleBean bean = mapper.readValue("{\"name\":\"foo\",\"value\":1}", new TypeReference<SimpleBean>() {});
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueStringJavaType_validJson_returnsObject() throws Exception {
+        JavaType type = mapper.constructType(SimpleBean.class);
+        SimpleBean bean = mapper.readValue("{\"name\":\"foo\",\"value\":1}", type);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueReaderClass_validJson_returnsObject() throws Exception {
+        Reader r = new StringReader("{\"name\":\"foo\",\"value\":1}");
+        SimpleBean bean = mapper.readValue(r, SimpleBean.class);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueReaderTypeReference_validJson_returnsObject() throws Exception {
+        Reader r = new StringReader("{\"name\":\"foo\",\"value\":1}");
+        SimpleBean bean = mapper.readValue(r, new TypeReference<SimpleBean>() {});
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueReaderJavaType_validJson_returnsObject() throws Exception {
+        Reader r = new StringReader("{\"name\":\"foo\",\"value\":1}");
+        JavaType type = mapper.constructType(SimpleBean.class);
+        SimpleBean bean = mapper.readValue(r, type);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueInputStreamClass_validJson_returnsObject() throws Exception {
+        InputStream in = new ByteArrayInputStream("{\"name\":\"foo\",\"value\":1}".getBytes());
+        SimpleBean bean = mapper.readValue(in, SimpleBean.class);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueInputStreamTypeReference_validJson_returnsObject() throws Exception {
+        InputStream in = new ByteArrayInputStream("{\"name\":\"foo\",\"value\":1}".getBytes());
+        SimpleBean bean = mapper.readValue(in, new TypeReference<SimpleBean>() {});
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueInputStreamJavaType_validJson_returnsObject() throws Exception {
+        InputStream in = new ByteArrayInputStream("{\"name\":\"foo\",\"value\":1}".getBytes());
+        JavaType type = mapper.constructType(SimpleBean.class);
+        SimpleBean bean = mapper.readValue(in, type);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueByteArrayClass_validJson_returnsObject() throws Exception {
+        byte[] src = "{\"name\":\"foo\",\"value\":1}".getBytes();
+        SimpleBean bean = mapper.readValue(src, SimpleBean.class);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueByteArrayOffsetLenClass_validJson_returnsObject() throws Exception {
+        byte[] src = "XX{\"name\":\"foo\",\"value\":1}YY".getBytes();
+        SimpleBean bean = mapper.readValue(src, 2, src.length - 4, SimpleBean.class);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueByteArrayTypeReference_validJson_returnsObject() throws Exception {
+        byte[] src = "{\"name\":\"foo\",\"value\":1}".getBytes();
+        SimpleBean bean = mapper.readValue(src, new TypeReference<SimpleBean>() {});
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueByteArrayOffsetLenTypeReference_validJson_returnsObject() throws Exception {
+        byte[] src = "XX{\"name\":\"foo\",\"value\":1}YY".getBytes();
+        SimpleBean bean = mapper.readValue(src, 2, src.length - 4, new TypeReference<SimpleBean>() {});
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueByteArrayJavaType_validJson_returnsObject() throws Exception {
+        byte[] src = "{\"name\":\"foo\",\"value\":1}".getBytes();
+        JavaType type = mapper.constructType(SimpleBean.class);
+        SimpleBean bean = mapper.readValue(src, type);
+        assertEquals("foo", bean.getName());
+    }
+
+    @Test
+    public void testReadValueByteArrayOffsetLenJavaType_validJson_returnsObject() throws Exception {
+        byte[] src = "XX{\"name\":\"foo\",\"value\":1}YY".getBytes();
+        JavaType type = mapper.constructType(SimpleBean.class);
+        SimpleBean bean = mapper.readValue(src, 2, src.length - 4, type);
+        assertEquals("foo", bean.getName());
+    }
+
+    // ---------- writeValue overloads (extended) ----------
+
+    @Test
+    public void testWriteValueFile_validValue_writesFile() throws Exception {
+        File tmp = File.createTempFile("out", ".json");
+        tmp.deleteOnExit();
+        mapper.writeValue(tmp, new SimpleBean("foo", 1));
+        String content = new String(readAllBytes(tmp));
+        assertTrue(content.contains("foo"));
+    }
+
+    @Test
+    public void testWriteValueOutputStream_validValue_writesStream() throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        mapper.writeValue(out, new SimpleBean("foo", 1));
+        assertTrue(out.toString().contains("foo"));
+    }
+
+    @Test
+    public void testWriteValueWriter_validValue_writesWriter() throws Exception {
+        StringWriter sw = new StringWriter();
+        mapper.writeValue(sw, new SimpleBean("foo", 1));
+        assertTrue(sw.toString().

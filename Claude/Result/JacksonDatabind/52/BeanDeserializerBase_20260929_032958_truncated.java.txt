@@ -1,0 +1,333 @@
+package com.fasterxml.jackson.databind.deser;
+
+import java.io.IOException;
+import java.util.*;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+
+public class BeanDeserializerBaseTest {
+
+    // ---------------------------------------------------------
+    // Test POJOs
+    // ---------------------------------------------------------
+
+    static class SimplePojo {
+        public String name;
+        public int age;
+        public SimplePojo() {}
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    static class IgnoreUnknownPojo {
+        public String name;
+        public IgnoreUnknownPojo() {}
+    }
+
+    static class StrictPojo {
+        public String name;
+        public StrictPojo() {}
+    }
+
+    @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
+    static class ObjectIdPojo {
+        public int id;
+        public String name;
+        public ObjectIdPojo() {}
+    }
+
+    @JsonPropertyOrder({ "name", "age" })
+    @JsonFormat(shape = JsonFormat.Shape.ARRAY)
+    static class ArrayShapePojo {
+        public String name;
+        public int age;
+        public ArrayShapePojo() {}
+    }
+
+    static class SingleStringCreatorPojo {
+        public String value;
+        public SingleStringCreatorPojo() {}
+        @JsonCreator
+        public SingleStringCreatorPojo(String value) {
+            this.value = value;
+        }
+    }
+
+    static class AnySetterPojo {
+        public String name;
+        private Map<String, Object> extra = new HashMap<String, Object>();
+        public AnySetterPojo() {}
+        @JsonAnySetter
+        public void setExtra(String key, Object value) {
+            extra.put(key, value);
+        }
+        public Map<String, Object> getExtra() {
+            return extra;
+        }
+    }
+
+    @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY, property = "@class")
+    static class PolymorphicBase {
+        public String name;
+        public PolymorphicBase() {}
+    }
+
+    static class PolymorphicSub extends PolymorphicBase {
+        public int extra;
+        public PolymorphicSub() {}
+    }
+
+    static class ParentPojo {
+        public String name;
+        @JsonManagedReference
+        public List<ChildPojo> children;
+        public ParentPojo() {}
+    }
+
+    static class ChildPojo {
+        public String name;
+        @JsonBackReference
+        public ParentPojo parent;
+        public ChildPojo() {}
+    }
+
+    // ---------------------------------------------------------
+    // Capture helper
+    // ---------------------------------------------------------
+
+    private Map<Class<?>, BeanDeserializerBase> capturedMap;
+
+    @Before
+    public void setUp() {
+        capturedMap = new HashMap<Class<?>, BeanDeserializerBase>();
+    }
+
+    private void setupCapture(ObjectMapper mapper) {
+        SimpleModule module = new SimpleModule();
+        module.setDeserializerModifier(new BeanDeserializerModifier() {
+            @Override
+            public JsonDeserializer<?> modifyDeserializer(DeserializationConfig config,
+                    BeanDescription beanDesc, JsonDeserializer<?> deserializer) {
+                if (deserializer instanceof BeanDeserializerBase) {
+                    capturedMap.put(beanDesc.getBeanClass(), (BeanDeserializerBase) deserializer);
+                }
+                return deserializer;
+            }
+        });
+        mapper.registerModule(module);
+    }
+
+    // ---------------------------------------------------------
+    // Accessor tests
+    // ---------------------------------------------------------
+
+    @Test
+    public void testHandledType_simplePojo_returnsCorrectClass() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertNotNull(deser);
+        assertEquals(SimplePojo.class, deser.handledType());
+    }
+
+    @Test
+    public void testIsCachable_alwaysReturnsTrue() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertTrue(deser.isCachable());
+    }
+
+    @Test
+    public void testGetValueType_returnsBeanJavaType() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertEquals(SimplePojo.class, deser.getValueType().getRawClass());
+    }
+
+    @Test
+    public void testGetBeanClass_deprecatedMethod_sameAsHandledType() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertEquals(deser.handledType(), deser.getBeanClass());
+    }
+
+    @Test
+    public void testGetPropertyCount_simplePojo_returnsExpectedCount() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertEquals(2, deser.getPropertyCount());
+    }
+
+    @Test
+    public void testHasProperty_existingProperty_returnsTrue() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertTrue(deser.hasProperty("name"));
+    }
+
+    @Test
+    public void testHasProperty_nonExistingProperty_returnsFalse() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertFalse(deser.hasProperty("doesNotExist"));
+    }
+
+    @Test
+    public void testFindPropertyByName_existing_returnsProperty() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertNotNull(deser.findProperty("age"));
+    }
+
+    @Test
+    public void testFindPropertyByName_nonExisting_returnsNull() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertNull(deser.findProperty("missingProp"));
+    }
+
+    @Test
+    public void testFindPropertyByPropertyName_existing_returnsProperty() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        PropertyName pn = new PropertyName("name");
+        assertNotNull(deser.findProperty(pn));
+    }
+
+    @Test
+    public void testFindPropertyByIndex_valid_returnsNotNull() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        // index 0 should correspond to a valid internal property index in most cases
+        SettableBeanProperty prop = deser.findProperty(0);
+        // Might be null depending on internal indexing scheme, but should not throw
+        assertTrue(prop == null || prop.getName() != null);
+    }
+
+    @Test
+    public void testFindPropertyByIndex_negative_returnsNull() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertNull(deser.findProperty(-1));
+    }
+
+    @Test
+    public void testFindPropertyByIndex_outOfRange_returnsNull() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertNull(deser.findProperty(999999));
+    }
+
+    @Test
+    public void testGetKnownPropertyNames_containsFieldNames() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        Collection<Object> names = deser.getKnownPropertyNames();
+        assertTrue(names.contains("name"));
+        assertTrue(names.contains("age"));
+    }
+
+    @Test
+    public void testPropertiesIterator_hasNext_true() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        Iterator<SettableBeanProperty> it = deser.properties();
+        assertNotNull(it);
+        assertTrue(it.hasNext());
+    }
+
+    @Test
+    public void testCreatorProperties_noCreator_emptyIterator() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        Iterator<SettableBeanProperty> it = deser.creatorProperties();
+        assertNotNull(it);
+        assertFalse(it.hasNext());
+    }
+
+    @Test
+    public void testGetValueInstantiator_notNull() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertNotNull(deser.getValueInstantiator());
+    }
+
+    @Test
+    public void testGetObjectIdReader_noAnnotation_returnsNull() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertNull(deser.getObjectIdReader());
+    }
+
+    @Test
+    public void testGetObjectIdReader_withAnnotation_returnsNotNull() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"id\":1,\"name\":\"foo\"}", ObjectIdPojo.class);
+        BeanDeserializerBase deser = capturedMap.get(ObjectIdPojo.class);
+        assertNotNull(deser);
+        assertNotNull(deser.getObjectIdReader());
+    }
+
+    @Test
+    public void testHasViews_default_false() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertFalse(deser.hasViews());
+    }
+
+    @Test
+    public void testFindBackReference_noBackRefs_returnsNull() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        setupCapture(mapper);
+        mapper.readValue("{\"name\":\"foo\",\"age\":5}", SimplePojo.class);
+        BeanDeserializerBase deser = capturedMap.get(SimplePojo.class);
+        assertNull(deser.findBackReference("someRef"));
+    }
+
+    @Test
+    public void testFindBackReference_withBackRef_returnsProperty() throws IOException {
+        Object

@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "2",
+  "tool": "claude",
+  "class": "org.joda.time.Partial",
+  "target_classes": [
+    "org.joda.time.Partial"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 135.33,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Time\\2\\Partial_20261003_015810.txt",
+  "test_file": "Claude\\TestCode\\Time\\2\\PartialTest.java",
+  "usage": {
+    "prompt_tokens": 13877,
+    "completion_tokens": 12949,
+    "total_tokens": 26826
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 186002,
+    "daily_remaining_tokens": 13998
+  },
+  "timestamp": "20261003_015810"
+}

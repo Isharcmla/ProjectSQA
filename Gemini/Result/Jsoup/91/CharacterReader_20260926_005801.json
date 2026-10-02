@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "91",
+  "tool": "gemini",
+  "class": "org.jsoup.parser.CharacterReader",
+  "target_classes": [
+    "org.jsoup.parser.CharacterReader"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 41.78,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\91\\CharacterReader_20260926_005801.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\91\\CharacterReaderTest.java",
+  "usage": {
+    "prompt_tokens": 4343,
+    "completion_tokens": 4304,
+    "total_tokens": 10491
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 273595,
+    "daily_remaining_tokens": 76405
+  },
+  "timestamp": "20260926_005801"
+}

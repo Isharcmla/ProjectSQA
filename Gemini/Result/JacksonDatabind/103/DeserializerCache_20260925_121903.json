@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "103",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.deser.DeserializerCache",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.DeserializerCache"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 32.58,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\103\\DeserializerCache_20260925_121903.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\103\\DeserializerCacheTest.java",
+  "usage": {
+    "prompt_tokens": 6198,
+    "completion_tokens": 3524,
+    "total_tokens": 10961
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 126558,
+    "daily_remaining_tokens": 223442
+  },
+  "timestamp": "20260925_121903"
+}

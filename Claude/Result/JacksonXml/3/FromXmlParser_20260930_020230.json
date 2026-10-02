@@ -1,0 +1,33 @@
+{
+  "project": "JacksonXml",
+  "bug_id": "3",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.dataformat.xml.deser.FromXmlParser",
+  "target_classes": [
+    "com.fasterxml.jackson.dataformat.xml.deser.FromXmlParser"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 159.02,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonXml\\3\\FromXmlParser_20260930_020230.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 12043,
+    "completion_tokens": 16384,
+    "total_tokens": 28427
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 206179,
+    "daily_remaining_tokens": -6179
+  },
+  "timestamp": "20260930_020230"
+}

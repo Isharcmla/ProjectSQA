@@ -1,0 +1,250 @@
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.google.javascript.rhino.jstype.SimpleSourceFile;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Iterator;
+
+public class NodeTest {
+
+    // ---------- Constructors ----------
+
+    @Test
+    public void testConstructor_singleType_normal() {
+        Node n = new Node(Token.NAME);
+        assertEquals(Token.NAME, n.getType());
+        assertNull(n.getParent());
+        assertNull(n.getFirstChild());
+    }
+
+    @Test
+    public void testConstructor_withOneChild_normal() {
+        Node child = new Node(Token.NUMBER);
+        Node parent = new Node(Token.BLOCK, child);
+        assertSame(child, parent.getFirstChild());
+        assertSame(child, parent.getLastChild());
+        assertSame(parent, child.getParent());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructor_withOneChild_existingParent_throws() {
+        Node child = new Node(Token.NUMBER);
+        new Node(Token.BLOCK, child);
+        new Node(Token.BLOCK, child); // child already has parent
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructor_withOneChild_existingSibling_throws() {
+        Node child = new Node(Token.NUMBER);
+        Node sibling = new Node(Token.NUMBER);
+        new Node(Token.BLOCK, child, sibling);
+        new Node(Token.BLOCK, child); // child already has next
+    }
+
+    @Test
+    public void testConstructor_withTwoChildren_normal() {
+        Node left = new Node(Token.NAME);
+        Node right = new Node(Token.NUMBER);
+        Node parent = new Node(Token.ASSIGN, left, right);
+        assertSame(left, parent.getFirstChild());
+        assertSame(right, parent.getLastChild());
+        assertSame(right, left.getNext());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructor_withTwoChildren_leftHasParent_throws() {
+        Node left = new Node(Token.NAME);
+        new Node(Token.BLOCK, left);
+        Node right = new Node(Token.NUMBER);
+        new Node(Token.ASSIGN, left, right);
+    }
+
+    @Test
+    public void testConstructor_withThreeChildren_normal() {
+        Node left = new Node(Token.NAME);
+        Node mid = new Node(Token.NUMBER);
+        Node right = new Node(Token.STRING, "x");
+        Node parent = new Node(Token.HOOK, left, mid, right);
+        assertSame(left, parent.getFirstChild());
+        assertSame(right, parent.getLastChild());
+        assertSame(mid, left.getNext());
+        assertSame(right, mid.getNext());
+    }
+
+    @Test
+    public void testConstructor_withFourChildren_normal() {
+        Node left = new Node(Token.NAME);
+        Node mid = new Node(Token.NUMBER);
+        Node mid2 = new Node(Token.NUMBER);
+        Node right = new Node(Token.NUMBER);
+        Node parent = new Node(Token.CALL, left, mid, mid2, right);
+        assertSame(left, parent.getFirstChild());
+        assertSame(right, parent.getLastChild());
+    }
+
+    @Test
+    public void testConstructor_lineCharNo_normal() {
+        Node n = new Node(Token.NAME, 5, 10);
+        assertEquals(5, n.getLineno());
+        assertEquals(10, n.getCharno());
+    }
+
+    @Test
+    public void testConstructor_lineCharNo_negativeLineno_edge() {
+        Node n = new Node(Token.NAME, -1, 10);
+        assertEquals(-1, n.getLineno());
+        assertEquals(-1, n.getCharno());
+    }
+
+    @Test
+    public void testConstructor_childWithLineCharNo_normal() {
+        Node child = new Node(Token.NUMBER);
+        Node parent = new Node(Token.BLOCK, child, 3, 4);
+        assertEquals(3, parent.getLineno());
+        assertEquals(4, parent.getCharno());
+    }
+
+    @Test
+    public void testConstructor_leftRightWithLineCharNo_normal() {
+        Node left = new Node(Token.NAME);
+        Node right = new Node(Token.NUMBER);
+        Node parent = new Node(Token.ASSIGN, left, right, 1, 2);
+        assertEquals(1, parent.getLineno());
+        assertEquals(2, parent.getCharno());
+    }
+
+    @Test
+    public void testConstructor_leftMidRightWithLineCharNo_normal() {
+        Node left = new Node(Token.NAME);
+        Node mid = new Node(Token.NUMBER);
+        Node right = new Node(Token.NUMBER);
+        Node parent = new Node(Token.HOOK, left, mid, right, 6, 7);
+        assertEquals(6, parent.getLineno());
+        assertEquals(7, parent.getCharno());
+    }
+
+    @Test
+    public void testConstructor_leftMidMid2RightWithLineCharNo_normal() {
+        Node left = new Node(Token.NAME);
+        Node mid = new Node(Token.NUMBER);
+        Node mid2 = new Node(Token.NUMBER);
+        Node right = new Node(Token.NUMBER);
+        Node parent = new Node(Token.CALL, left, mid, mid2, right, 8, 9);
+        assertEquals(8, parent.getLineno());
+        assertEquals(9, parent.getCharno());
+    }
+
+    @Test
+    public void testConstructor_nodeArray_normal() {
+        Node a = new Node(Token.NAME);
+        Node b = new Node(Token.NUMBER);
+        Node c = new Node(Token.NUMBER);
+        Node[] children = new Node[] {a, b, c};
+        Node parent = new Node(Token.CALL, children);
+        assertSame(a, parent.getFirstChild());
+        assertSame(c, parent.getLastChild());
+        assertEquals(3, parent.getChildCount());
+    }
+
+    @Test
+    public void testConstructor_nodeArray_empty_edge() {
+        Node[] children = new Node[0];
+        Node parent = new Node(Token.CALL, children);
+        assertNull(parent.getFirstChild());
+        assertFalse(parent.hasChildren());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructor_nodeArray_duplicate_throws() {
+        Node a = new Node(Token.NAME);
+        Node[] children = new Node[] {a, a};
+        new Node(Token.CALL, children);
+    }
+
+    @Test
+    public void testConstructor_nodeArrayWithLineCharNo_normal() {
+        Node a = new Node(Token.NAME);
+        Node[] children = new Node[] {a};
+        Node parent = new Node(Token.CALL, children, 11, 12);
+        assertEquals(11, parent.getLineno());
+        assertEquals(12, parent.getCharno());
+    }
+
+    // ---------- Factory methods ----------
+
+    @Test
+    public void testNewNumber_normal() {
+        Node n = Node.newNumber(3.14);
+        assertEquals(3.14, n.getDouble(), 0.0001);
+        assertEquals(Token.NUMBER, n.getType());
+    }
+
+    @Test
+    public void testNewNumber_withLineCharno_normal() {
+        Node n = Node.newNumber(2.0, 1, 1);
+        assertEquals(2.0, n.getDouble(), 0.0001);
+        assertEquals(1, n.getLineno());
+    }
+
+    @Test
+    public void testNewString_normal() {
+        Node n = Node.newString("hello");
+        assertEquals("hello", n.getString());
+        assertEquals(Token.STRING, n.getType());
+    }
+
+    @Test
+    public void testNewString_withType_normal() {
+        Node n = Node.newString(Token.NAME, "foo");
+        assertEquals("foo", n.getString());
+        assertEquals(Token.NAME, n.getType());
+    }
+
+    @Test
+    public void testNewString_withLineCharNo_normal() {
+        Node n = Node.newString("abc", 2, 3);
+        assertEquals("abc", n.getString());
+        assertEquals(2, n.getLineno());
+    }
+
+    @Test
+    public void testNewString_withTypeAndLineCharNo_normal() {
+        Node n = Node.newString(Token.NAME, "abc", 5, 6);
+        assertEquals("abc", n.getString());
+        assertEquals(5, n.getLineno());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testNewString_nullString_throws() {
+        Node.newString(null);
+    }
+
+    // ---------- Type accessors ----------
+
+    @Test
+    public void testGetSetType_normal() {
+        Node n = new Node(Token.NAME);
+        n.setType(Token.NUMBER);
+        assertEquals(Token.NUMBER, n.getType());
+    }
+
+    // ---------- Children navigation ----------
+
+    @Test
+    public void testHasChildren_trueFalse() {
+        Node n = new Node(Token.BLOCK);
+        assertFalse(n.hasChildren());
+        Node c = new Node(Token.NAME);
+        n.addChildToBack(c);
+        assertTrue(n.hasChildren());
+    }
+
+    @Test
+    public void testGetChildBefore_firstChild_returnsNull() {
+        Node a = new Node(Token.NAME);
+        Node b = new Node(Token.NAME);
+        Node parent = new Node(Token.BLOCK, a, b);
+        assertNull(parent.getChildBefore(a));
+        assertSame(a

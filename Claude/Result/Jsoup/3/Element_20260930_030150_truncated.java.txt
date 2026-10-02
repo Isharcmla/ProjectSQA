@@ -1,0 +1,577 @@
+package org.jsoup.nodes;
+
+import org.jsoup.parser.Parser;
+import org.jsoup.parser.Tag;
+import org.jsoup.select.Elements;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class ElementTest {
+
+    private Tag divTag;
+    private Tag pTag;
+    private Tag spanTag;
+    private Tag aTag;
+
+    @Before
+    public void setUp() {
+        divTag = Tag.valueOf("div");
+        pTag = Tag.valueOf("p");
+        spanTag = Tag.valueOf("span");
+        aTag = Tag.valueOf("a");
+    }
+
+    // ---------- Constructor ----------
+
+    @Test
+    public void testConstructor_withAttributes_created() {
+        Attributes attrs = new Attributes();
+        attrs.put("id", "test");
+        Element el = new Element(divTag, "http://example.com/", attrs);
+        assertEquals("div", el.tagName());
+        assertEquals("test", el.id());
+    }
+
+    @Test
+    public void testConstructor_withoutAttributes_created() {
+        Element el = new Element(divTag, "http://example.com/");
+        assertEquals("div", el.tagName());
+        assertEquals("", el.id());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructor_nullTag_throwsException() {
+        new Element(null, "");
+    }
+
+    // ---------- nodeName / tagName / tag / isBlock ----------
+
+    @Test
+    public void testNodeName_returnsTagName() {
+        Element el = new Element(divTag, "");
+        assertEquals("div", el.nodeName());
+    }
+
+    @Test
+    public void testTagName_returnsTagName() {
+        Element el = new Element(pTag, "");
+        assertEquals("p", el.tagName());
+    }
+
+    @Test
+    public void testTag_returnsTagObject() {
+        Element el = new Element(divTag, "");
+        assertEquals(divTag, el.tag());
+    }
+
+    @Test
+    public void testIsBlock_blockElement_true() {
+        Element el = new Element(divTag, "");
+        assertTrue(el.isBlock());
+    }
+
+    @Test
+    public void testIsBlock_inlineElement_false() {
+        Element el = new Element(spanTag, "");
+        assertFalse(el.isBlock());
+    }
+
+    // ---------- id ----------
+
+    @Test
+    public void testId_withIdAttribute_returnsId() {
+        Element el = new Element(divTag, "");
+        el.attr("id", "myId");
+        assertEquals("myId", el.id());
+    }
+
+    @Test
+    public void testId_withoutIdAttribute_returnsEmptyString() {
+        Element el = new Element(divTag, "");
+        assertEquals("", el.id());
+    }
+
+    // ---------- attr ----------
+
+    @Test
+    public void testAttr_setAndGet() {
+        Element el = new Element(divTag, "");
+        Element result = el.attr("data-x", "1");
+        assertSame(el, result);
+        assertEquals("1", el.attr("data-x"));
+        el.attr("data-x", "2");
+        assertEquals("2", el.attr("data-x"));
+    }
+
+    // ---------- parent / parents ----------
+
+    @Test
+    public void testParent_hasParent_returnsParent() {
+        Element parent = new Element(divTag, "");
+        Element child = new Element(pTag, "");
+        parent.appendChild(child);
+        assertEquals(parent, child.parent());
+    }
+
+    @Test
+    public void testParent_noParent_returnsNull() {
+        Element el = new Element(divTag, "");
+        assertNull(el.parent());
+    }
+
+    @Test
+    public void testParents_multipleAncestors_returnsAll() {
+        Element grandparent = new Element(divTag, "");
+        Element parent = new Element(divTag, "");
+        Element child = new Element(pTag, "");
+        grandparent.appendChild(parent);
+        parent.appendChild(child);
+
+        Elements parents = child.parents();
+        assertEquals(2, parents.size());
+        assertEquals(parent, parents.get(0));
+        assertEquals(grandparent, parents.get(1));
+    }
+
+    @Test
+    public void testParents_noParent_returnsEmpty() {
+        Element el = new Element(divTag, "");
+        Elements parents = el.parents();
+        assertEquals(0, parents.size());
+    }
+
+    // ---------- child / children ----------
+
+    @Test
+    public void testChild_validIndex_returnsElement() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        Element c2 = new Element(spanTag, "");
+        parent.appendChild(c1);
+        parent.appendChild(c2);
+        assertEquals(c2, parent.child(1));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testChild_invalidIndex_throwsException() {
+        Element parent = new Element(divTag, "");
+        parent.child(5);
+    }
+
+    @Test
+    public void testChildren_withMixedNodes_returnsOnlyElements() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        parent.appendChild(c1);
+        parent.appendText("some text");
+        Elements children = parent.children();
+        assertEquals(1, children.size());
+        assertEquals(c1, children.get(0));
+    }
+
+    @Test
+    public void testChildren_noChildren_returnsEmpty() {
+        Element parent = new Element(divTag, "");
+        Elements children = parent.children();
+        assertEquals(0, children.size());
+    }
+
+    // ---------- select ----------
+
+    @Test
+    public void testSelect_validQuery_returnsMatches() {
+        Element root = new Element(divTag, "");
+        Element p1 = new Element(pTag, "");
+        Element p2 = new Element(pTag, "");
+        root.appendChild(p1);
+        root.appendChild(p2);
+        Elements results = root.select("p");
+        assertEquals(2, results.size());
+    }
+
+    // ---------- appendChild / prependChild ----------
+
+    @Test
+    public void testAppendChild_addsToEnd() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        Element c2 = new Element(spanTag, "");
+        parent.appendChild(c1);
+        parent.appendChild(c2);
+        assertEquals(c2, parent.children().get(1));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAppendChild_nullChild_throwsException() {
+        Element parent = new Element(divTag, "");
+        parent.appendChild(null);
+    }
+
+    @Test
+    public void testPrependChild_addsToStart() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        Element c2 = new Element(spanTag, "");
+        parent.appendChild(c1);
+        parent.prependChild(c2);
+        assertEquals(c2, parent.children().get(0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testPrependChild_nullChild_throwsException() {
+        Element parent = new Element(divTag, "");
+        parent.prependChild(null);
+    }
+
+    // ---------- appendElement / prependElement ----------
+
+    @Test
+    public void testAppendElement_createsAndAppends() {
+        Element parent = new Element(divTag, "");
+        Element child = parent.appendElement("span");
+        assertEquals("span", child.tagName());
+        assertEquals(1, parent.children().size());
+        assertEquals(child, parent.children().get(0));
+    }
+
+    @Test
+    public void testPrependElement_createsAndPrepends() {
+        Element parent = new Element(divTag, "");
+        parent.appendElement("p");
+        Element child = parent.prependElement("span");
+        assertEquals("span", child.tagName());
+        assertEquals(child, parent.children().get(0));
+    }
+
+    // ---------- appendText / prependText ----------
+
+    @Test
+    public void testAppendText_addsTextNode() {
+        Element el = new Element(divTag, "");
+        el.appendText("Hello");
+        assertEquals("Hello", el.text());
+    }
+
+    @Test
+    public void testPrependText_addsTextNode() {
+        Element el = new Element(divTag, "");
+        el.appendText("World");
+        el.prependText("Hello ");
+        assertEquals("Hello World", el.text());
+    }
+
+    // ---------- append / prepend (html) ----------
+
+    @Test
+    public void testAppend_parsesAndAppendsHtml() {
+        Element el = new Element(divTag, "");
+        el.append("<p>Test</p>");
+        assertEquals(1, el.children().size());
+        assertEquals("p", el.children().get(0).tagName());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAppend_nullHtml_throwsException() {
+        Element el = new Element(divTag, "");
+        el.append(null);
+    }
+
+    @Test
+    public void testPrepend_parsesAndPrependsHtml() {
+        Element el = new Element(divTag, "");
+        el.appendElement("span");
+        el.prepend("<p>First</p>");
+        assertEquals("p", el.children().get(0).tagName());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testPrepend_nullHtml_throwsException() {
+        Element el = new Element(divTag, "");
+        el.prepend(null);
+    }
+
+    // ---------- empty ----------
+
+    @Test
+    public void testEmpty_removesAllChildren() {
+        Element el = new Element(divTag, "");
+        el.appendElement("p");
+        el.appendText("text");
+        el.empty();
+        assertEquals(0, el.childNodes().size());
+    }
+
+    // ---------- wrap ----------
+
+    @Test
+    public void testWrap_wrapsElement() {
+        Element parent = new Element(divTag, "");
+        Element child = new Element(pTag, "");
+        parent.appendChild(child);
+
+        Element result = child.wrap("<span></span>");
+        assertNotNull(result);
+        assertEquals("span", child.parent().tagName());
+        assertEquals(parent, child.parent().parent());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWrap_emptyHtml_throwsException() {
+        Element el = new Element(divTag, "");
+        el.wrap("");
+    }
+
+    @Test
+    public void testWrap_nullWrapContent_returnsNull() {
+        Element parent = new Element(divTag, "");
+        Element child = new Element(pTag, "");
+        parent.appendChild(child);
+
+        Element result = child.wrap("just plain text");
+        assertNull(result);
+    }
+
+    // ---------- siblingElements / nextElementSibling / previousElementSibling / first / last ----------
+
+    @Test
+    public void testSiblingElements_returnsSiblings() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        Element c2 = new Element(spanTag, "");
+        parent.appendChild(c1);
+        parent.appendChild(c2);
+
+        Elements siblings = c1.siblingElements();
+        assertEquals(2, siblings.size());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testSiblingElements_noParent_throwsException() {
+        Element el = new Element(divTag, "");
+        el.siblingElements();
+    }
+
+    @Test
+    public void testNextElementSibling_hasNext_returnsNext() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        Element c2 = new Element(spanTag, "");
+        parent.appendChild(c1);
+        parent.appendChild(c2);
+
+        assertEquals(c2, c1.nextElementSibling());
+    }
+
+    @Test
+    public void testNextElementSibling_noNext_returnsNull() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        parent.appendChild(c1);
+
+        assertNull(c1.nextElementSibling());
+    }
+
+    @Test
+    public void testPreviousElementSibling_hasPrevious_returnsPrevious() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        Element c2 = new Element(spanTag, "");
+        parent.appendChild(c1);
+        parent.appendChild(c2);
+
+        assertEquals(c1, c2.previousElementSibling());
+    }
+
+    @Test
+    public void testPreviousElementSibling_noPrevious_returnsNull() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        parent.appendChild(c1);
+
+        assertNull(c1.previousElementSibling());
+    }
+
+    @Test
+    public void testFirstElementSibling_multipleSiblings_returnsFirst() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        Element c2 = new Element(spanTag, "");
+        parent.appendChild(c1);
+        parent.appendChild(c2);
+
+        assertEquals(c1, c2.firstElementSibling());
+    }
+
+    @Test
+    public void testFirstElementSibling_singleSibling_returnsNull() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        parent.appendChild(c1);
+
+        assertNull(c1.firstElementSibling());
+    }
+
+    @Test
+    public void testElementSiblingIndex_returnsIndex() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        Element c2 = new Element(spanTag, "");
+        parent.appendChild(c1);
+        parent.appendChild(c2);
+
+        assertEquals(Integer.valueOf(1), c2.elementSiblingIndex());
+    }
+
+    @Test
+    public void testElementSiblingIndex_noParent_returnsZero() {
+        Element el = new Element(divTag, "");
+        assertEquals(Integer.valueOf(0), el.elementSiblingIndex());
+    }
+
+    @Test
+    public void testLastElementSibling_multipleSiblings_returnsLast() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        Element c2 = new Element(spanTag, "");
+        parent.appendChild(c1);
+        parent.appendChild(c2);
+
+        assertEquals(c2, c1.lastElementSibling());
+    }
+
+    @Test
+    public void testLastElementSibling_singleSibling_returnsNull() {
+        Element parent = new Element(divTag, "");
+        Element c1 = new Element(pTag, "");
+        parent.appendChild(c1);
+
+        assertNull(c1.lastElementSibling());
+    }
+
+    // ---------- getElementsByX ----------
+
+    @Test
+    public void testGetElementsByTag_matchingTag_returnsElements() {
+        Element root = new Element(divTag, "");
+        Element span1 = new Element(spanTag, "");
+        root.appendChild(span1);
+
+        Elements results = root.getElementsByTag("span");
+        assertEquals(1, results.size());
+        assertEquals(span1, results.get(0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetElementsByTag_emptyString_throwsException() {
+        Element root = new Element(divTag, "");
+        root.getElementsByTag("");
+    }
+
+    @Test
+    public void testGetElementById_found_returnsElement() {
+        Element root = new Element(divTag, "");
+        Element p1 = new Element(pTag, "");
+        p1.attr("id", "first");
+        root.appendChild(p1);
+
+        Element found = root.getElementById("first");
+        assertEquals(p1, found);
+    }
+
+    @Test
+    public void testGetElementById_notFound_returnsNull() {
+        Element root = new Element(divTag, "");
+        Element result = root.getElementById("missing");
+        assertNull(result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetElementById_emptyString_throwsException() {
+        Element root = new Element(divTag, "");
+        root.getElementById("");
+    }
+
+    @Test
+    public void testGetElementsByClass_found_returnsElements() {
+        Element root = new Element(divTag, "");
+        Element p1 = new Element(pTag, "");
+        p1.attr("class", "header main");
+        Element p2 = new Element(pTag, "");
+        p2.attr("class", "header");
+        root.appendChild(p1);
+        root.appendChild(p2);
+
+        Elements results = root.getElementsByClass("header");
+        assertEquals(2, results.size());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetElementsByClass_emptyString_throwsException() {
+        Element root = new Element(divTag, "");
+        root.getElementsByClass("");
+    }
+
+    @Test
+    public void testGetElementsByAttribute_found_returnsElements() {
+        Element root = new Element(divTag, "");
+        Element span1 = new Element(spanTag, "");
+        span1.attr("data-foo", "bar");
+        root.appendChild(span1);
+
+        Elements results = root.getElementsByAttribute("data-foo");
+        assertEquals(1, results.size());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetElementsByAttribute_emptyString_throwsException() {
+        Element root = new Element(divTag, "");
+        root.getElementsByAttribute("");
+    }
+
+    @Test
+    public void testGetElementsByAttributeValue_found_returnsElements() {
+        Element root = new Element(divTag, "");
+        Element p1 = new Element(pTag, "");
+        p1.attr("id", "first");
+        root.appendChild(p1);
+
+        Elements results = root.getElementsByAttributeValue("id", "first");
+        assertEquals(1, results.size());
+        assertEquals(p1, results.get(0));
+    }
+
+    @Test
+    public void testGetElementsByAttributeValueNot_returnsElements() {
+        Element root = new Element(divTag, "");
+        Element p1 = new Element(pTag, "");
+        p1.attr("id", "first");
+        Element p2 = new Element(pTag, "");
+        p2.attr("id", "second");
+        root.appendChild(p1);
+        root.appendChild(p2);
+
+        Elements results = root.getElementsByAttributeValueNot("id", "first");
+        assertTrue(results.contains(p2));
+        assertFalse(results.contains(p1));
+    }
+
+    @Test
+    public void testGetElementsByAttributeValueStarting_returnsElements() {
+        Element root = new Element(divTag, "");
+        Element p1 = new Element(pTag, "");
+        p1.attr("id", "first");
+        root.appendChild(p1);
+
+        Elements results = root.getElementsByAttributeValueStarting("id", "fir");
+        assertEquals(1, results.size());
+        assertEquals(p1, results.get(0));
+    }
+
+    @Test
+    public void testGetElementsByAttributeValueEnding_returnsElements() {
+        Element root = new Element(div

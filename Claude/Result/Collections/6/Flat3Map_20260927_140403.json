@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "6",
+  "tool": "claude",
+  "class": "org.apache.commons.collections.map.Flat3Map",
+  "target_classes": [
+    "org.apache.commons.collections.map.Flat3Map"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 87.26,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Collections\\6\\Flat3Map_20260927_140403.txt",
+  "test_file": "Claude\\TestCode\\Collections\\6\\Flat3MapTest.java",
+  "usage": {
+    "prompt_tokens": 12066,
+    "completion_tokens": 13919,
+    "total_tokens": 25985
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 81055,
+    "daily_remaining_tokens": 118945
+  },
+  "timestamp": "20260927_140403"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "24",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.core.base.ParserBase",
+  "target_classes": [
+    "com.fasterxml.jackson.core.base.ParserBase"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 62.71,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonCore\\24\\ParserBase_20260925_115808.txt",
+  "test_file": "Gemini\\TestCode\\JacksonCore\\24\\ParserBaseTest.java",
+  "usage": {
+    "prompt_tokens": 10696,
+    "completion_tokens": 8459,
+    "total_tokens": 19983
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 39401,
+    "daily_remaining_tokens": 310599
+  },
+  "timestamp": "20260925_115808"
+}

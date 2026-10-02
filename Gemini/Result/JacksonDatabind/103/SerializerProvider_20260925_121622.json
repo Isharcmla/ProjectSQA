@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "103",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.SerializerProvider",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.SerializerProvider"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 51.11,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\103\\SerializerProvider_20260925_121622.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\103\\SerializerProviderTest.java",
+  "usage": {
+    "prompt_tokens": 13004,
+    "completion_tokens": 6270,
+    "total_tokens": 20560
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 70322,
+    "daily_remaining_tokens": 279678
+  },
+  "timestamp": "20260925_121622"
+}

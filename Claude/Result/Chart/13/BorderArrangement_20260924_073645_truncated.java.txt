@@ -1,0 +1,345 @@
+package org.jfree.chart.block;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+
+import org.jfree.chart.util.RectangleEdge;
+import org.jfree.chart.util.Size2D;
+import org.jfree.data.Range;
+import org.junit.Before;
+import org.junit.Test;
+
+public class BorderArrangementTest {
+
+    private Graphics2D g2;
+    private BlockContainer container;
+
+    @Before
+    public void setUp() {
+        BufferedImage image = new BufferedImage(500, 500,
+                BufferedImage.TYPE_INT_ARGB);
+        this.g2 = image.createGraphics();
+        this.container = new BlockContainer();
+    }
+
+    // ---------------------------------------------------------------
+    // add() tests
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testAdd_nullKey_setsCenterBlock() {
+        BorderArrangement a1 = new BorderArrangement();
+        EmptyBlock block = new EmptyBlock(10.0, 20.0);
+        a1.add(block, null);
+
+        BorderArrangement a2 = new BorderArrangement();
+        a2.add(block, null);
+
+        assertTrue(a1.equals(a2));
+    }
+
+    @Test
+    public void testAdd_topEdge_setsTopBlock() {
+        BorderArrangement a1 = new BorderArrangement();
+        EmptyBlock block = new EmptyBlock(10.0, 20.0);
+        a1.add(block, RectangleEdge.TOP);
+
+        BorderArrangement a2 = new BorderArrangement();
+        a2.add(block, RectangleEdge.TOP);
+
+        assertTrue(a1.equals(a2));
+    }
+
+    @Test
+    public void testAdd_bottomEdge_setsBottomBlock() {
+        BorderArrangement a1 = new BorderArrangement();
+        EmptyBlock block = new EmptyBlock(10.0, 20.0);
+        a1.add(block, RectangleEdge.BOTTOM);
+
+        BorderArrangement a2 = new BorderArrangement();
+        a2.add(block, RectangleEdge.BOTTOM);
+
+        assertTrue(a1.equals(a2));
+    }
+
+    @Test
+    public void testAdd_leftEdge_setsLeftBlock() {
+        BorderArrangement a1 = new BorderArrangement();
+        EmptyBlock block = new EmptyBlock(10.0, 20.0);
+        a1.add(block, RectangleEdge.LEFT);
+
+        BorderArrangement a2 = new BorderArrangement();
+        a2.add(block, RectangleEdge.LEFT);
+
+        assertTrue(a1.equals(a2));
+    }
+
+    @Test
+    public void testAdd_rightEdge_setsRightBlock() {
+        BorderArrangement a1 = new BorderArrangement();
+        EmptyBlock block = new EmptyBlock(10.0, 20.0);
+        a1.add(block, RectangleEdge.RIGHT);
+
+        BorderArrangement a2 = new BorderArrangement();
+        a2.add(block, RectangleEdge.RIGHT);
+
+        assertTrue(a1.equals(a2));
+    }
+
+    @Test
+    public void testAdd_nullBlockWithEdge_doesNotThrow() {
+        BorderArrangement a1 = new BorderArrangement();
+        a1.add(null, RectangleEdge.TOP);
+        // No exception expected, top block should remain null
+        BorderArrangement a2 = new BorderArrangement();
+        assertTrue(a1.equals(a2));
+    }
+
+    @Test(expected = ClassCastException.class)
+    public void testAdd_invalidKeyType_throwsClassCastException() {
+        BorderArrangement arrangement = new BorderArrangement();
+        EmptyBlock block = new EmptyBlock(10.0, 20.0);
+        // Passing a non-RectangleEdge key should cause a ClassCastException
+        arrangement.add(block, "not-a-valid-edge");
+    }
+
+    // ---------------------------------------------------------------
+    // equals() tests
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testEquals_sameInstance_returnsTrue() {
+        BorderArrangement a1 = new BorderArrangement();
+        assertTrue(a1.equals(a1));
+    }
+
+    @Test
+    public void testEquals_differentClass_returnsFalse() {
+        BorderArrangement a1 = new BorderArrangement();
+        assertFalse(a1.equals("not a BorderArrangement"));
+    }
+
+    @Test
+    public void testEquals_nullObject_returnsFalse() {
+        BorderArrangement a1 = new BorderArrangement();
+        assertFalse(a1.equals(null));
+    }
+
+    @Test
+    public void testEquals_twoDefaultInstances_returnsTrue() {
+        BorderArrangement a1 = new BorderArrangement();
+        BorderArrangement a2 = new BorderArrangement();
+        assertTrue(a1.equals(a2));
+    }
+
+    @Test
+    public void testEquals_differentTopBlock_returnsFalse() {
+        BorderArrangement a1 = new BorderArrangement();
+        a1.add(new EmptyBlock(1.0, 1.0), RectangleEdge.TOP);
+
+        BorderArrangement a2 = new BorderArrangement();
+        a2.add(new EmptyBlock(2.0, 2.0), RectangleEdge.TOP);
+
+        assertFalse(a1.equals(a2));
+    }
+
+    @Test
+    public void testEquals_differentBottomBlock_returnsFalse() {
+        BorderArrangement a1 = new BorderArrangement();
+        a1.add(new EmptyBlock(1.0, 1.0), RectangleEdge.BOTTOM);
+
+        BorderArrangement a2 = new BorderArrangement();
+        a2.add(new EmptyBlock(2.0, 2.0), RectangleEdge.BOTTOM);
+
+        assertFalse(a1.equals(a2));
+    }
+
+    @Test
+    public void testEquals_differentLeftBlock_returnsFalse() {
+        BorderArrangement a1 = new BorderArrangement();
+        a1.add(new EmptyBlock(1.0, 1.0), RectangleEdge.LEFT);
+
+        BorderArrangement a2 = new BorderArrangement();
+        a2.add(new EmptyBlock(2.0, 2.0), RectangleEdge.LEFT);
+
+        assertFalse(a1.equals(a2));
+    }
+
+    @Test
+    public void testEquals_differentRightBlock_returnsFalse() {
+        BorderArrangement a1 = new BorderArrangement();
+        a1.add(new EmptyBlock(1.0, 1.0), RectangleEdge.RIGHT);
+
+        BorderArrangement a2 = new BorderArrangement();
+        a2.add(new EmptyBlock(2.0, 2.0), RectangleEdge.RIGHT);
+
+        assertFalse(a1.equals(a2));
+    }
+
+    @Test
+    public void testEquals_differentCenterBlock_returnsFalse() {
+        BorderArrangement a1 = new BorderArrangement();
+        a1.add(new EmptyBlock(1.0, 1.0), null);
+
+        BorderArrangement a2 = new BorderArrangement();
+        a2.add(new EmptyBlock(2.0, 2.0), null);
+
+        assertFalse(a1.equals(a2));
+    }
+
+    // ---------------------------------------------------------------
+    // clear() tests
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testClear_resetsAllBlocksToNull() {
+        BorderArrangement a1 = new BorderArrangement();
+        a1.add(new EmptyBlock(1.0, 1.0), RectangleEdge.TOP);
+        a1.add(new EmptyBlock(2.0, 2.0), RectangleEdge.BOTTOM);
+        a1.add(new EmptyBlock(3.0, 3.0), RectangleEdge.LEFT);
+        a1.add(new EmptyBlock(4.0, 4.0), RectangleEdge.RIGHT);
+        a1.add(new EmptyBlock(5.0, 5.0), null);
+
+        a1.clear();
+
+        BorderArrangement a2 = new BorderArrangement();
+        assertTrue(a1.equals(a2));
+    }
+
+    // ---------------------------------------------------------------
+    // arrange() tests - NONE/NONE branch (arrangeNN)
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testArrange_noneNone_emptyArrangement_returnsZeroSize() {
+        BorderArrangement arrangement = new BorderArrangement();
+        Size2D size = arrangement.arrange(this.container, this.g2,
+                RectangleConstraint.NONE);
+        assertEquals(0.0, size.getWidth(), 0.01);
+        assertEquals(0.0, size.getHeight(), 0.01);
+    }
+
+    @Test
+    public void testArrange_noneNone_withAllBlocks_returnsExpectedSize() {
+        BorderArrangement arrangement = new BorderArrangement();
+        arrangement.add(new EmptyBlock(50.0, 10.0), RectangleEdge.TOP);
+        arrangement.add(new EmptyBlock(60.0, 15.0), RectangleEdge.BOTTOM);
+        arrangement.add(new EmptyBlock(20.0, 30.0), RectangleEdge.LEFT);
+        arrangement.add(new EmptyBlock(25.0, 35.0), RectangleEdge.RIGHT);
+        arrangement.add(new EmptyBlock(100.0, 40.0), null);
+
+        Size2D size = arrangement.arrange(this.container, this.g2,
+                RectangleConstraint.NONE);
+
+        // width = max(50, max(60, 20+100+25)) = 145
+        // centerHeight = max(35, max(35, 40)) = 40
+        // height = 10 + 15 + 40 = 65
+        assertEquals(145.0, size.getWidth(), 0.5);
+        assertEquals(65.0, size.getHeight(), 0.5);
+    }
+
+    // ---------------------------------------------------------------
+    // arrange() tests - NONE/FIXED and NONE/RANGE : not implemented
+    // ---------------------------------------------------------------
+
+    @Test(expected = RuntimeException.class)
+    public void testArrange_noneFixed_throwsRuntimeException() {
+        BorderArrangement arrangement = new BorderArrangement();
+        RectangleConstraint constraint = new RectangleConstraint(0.0, null,
+                LengthConstraintType.NONE, 100.0, null,
+                LengthConstraintType.FIXED);
+        arrangement.arrange(this.container, this.g2, constraint);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testArrange_noneRange_throwsRuntimeException() {
+        BorderArrangement arrangement = new BorderArrangement();
+        RectangleConstraint constraint = new RectangleConstraint(0.0, null,
+                LengthConstraintType.NONE, 0.0, new Range(0.0, 100.0),
+                LengthConstraintType.RANGE);
+        arrangement.arrange(this.container, this.g2, constraint);
+    }
+
+    // ---------------------------------------------------------------
+    // arrange() tests - RANGE/NONE and RANGE/FIXED : not implemented
+    // ---------------------------------------------------------------
+
+    @Test(expected = RuntimeException.class)
+    public void testArrange_rangeNone_throwsRuntimeException() {
+        BorderArrangement arrangement = new BorderArrangement();
+        RectangleConstraint constraint = new RectangleConstraint(0.0,
+                new Range(0.0, 100.0), LengthConstraintType.RANGE, 0.0, null,
+                LengthConstraintType.NONE);
+        arrangement.arrange(this.container, this.g2, constraint);
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testArrange_rangeFixed_throwsRuntimeException() {
+        BorderArrangement arrangement = new BorderArrangement();
+        RectangleConstraint constraint = new RectangleConstraint(0.0,
+                new Range(0.0, 100.0), LengthConstraintType.RANGE, 50.0,
+                null, LengthConstraintType.FIXED);
+        arrangement.arrange(this.container, this.g2, constraint);
+    }
+
+    // ---------------------------------------------------------------
+    // arrange() tests - FIXED/NONE (arrangeFN)
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testArrange_fixedNone_emptyArrangement_returnsFixedWidth() {
+        BorderArrangement arrangement = new BorderArrangement();
+        RectangleConstraint constraint = new RectangleConstraint(200.0, null,
+                LengthConstraintType.FIXED, 0.0, null,
+                LengthConstraintType.NONE);
+        Size2D size = arrangement.arrange(this.container, this.g2,
+                constraint);
+        assertEquals(200.0, size.getWidth(), 0.5);
+        assertEquals(0.0, size.getHeight(), 0.5);
+    }
+
+    @Test
+    public void testArrange_fixedNone_withBlocks_doesNotThrow() {
+        BorderArrangement arrangement = new BorderArrangement();
+        arrangement.add(new EmptyBlock(50.0, 10.0), RectangleEdge.TOP);
+        arrangement.add(new EmptyBlock(60.0, 15.0), RectangleEdge.BOTTOM);
+        arrangement.add(new EmptyBlock(20.0, 30.0), RectangleEdge.LEFT);
+        arrangement.add(new EmptyBlock(25.0, 35.0), RectangleEdge.RIGHT);
+        arrangement.add(new EmptyBlock(100.0, 40.0), null);
+
+        RectangleConstraint constraint = new RectangleConstraint(300.0, null,
+                LengthConstraintType.FIXED, 0.0, null,
+                LengthConstraintType.NONE);
+        Size2D size = arrangement.arrange(this.container, this.g2,
+                constraint);
+        assertEquals(300.0, size.getWidth(), 0.5);
+        assertTrue(size.getHeight() >= 0.0);
+    }
+
+    // ---------------------------------------------------------------
+    // arrange() tests - FIXED/FIXED (arrangeFF)
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testArrange_fixedFixed_emptyArrangement_returnsExactSize() {
+        BorderArrangement arrangement = new BorderArrangement();
+        RectangleConstraint constraint = new RectangleConstraint(200.0,
+                100.0);
+        Size2D size = arrangement.arrange(this.container, this.g2,
+                constraint);
+        assertEquals(200.0, size.getWidth(), 0.5);
+        assertEquals(100.0, size.getHeight(), 0.5);
+    }
+
+    @Test
+    public void testArrange_fixedFixed_withAllBlocks_returnsExactSize() {
+        BorderArrangement arrangement = new BorderArrangement();
+        arrangement.add(new EmptyBlock(50.0, 10.0), RectangleEdge.TOP);
+        arrangement.add(new EmptyBlock(60.0, 15.0), RectangleEdge.BOTTOM);
+        arrangement.add(new EmptyBlock(20.0, 30.0), RectangleEdge.LEFT);
+        arrangement.add(new EmptyBlock(25.0, 35.

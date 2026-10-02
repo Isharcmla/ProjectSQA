@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "25",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.optimization.fitting.HarmonicFitter",
+  "target_classes": [
+    "org.apache.commons.math3.optimization.fitting.HarmonicFitter"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 87.65,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\25\\HarmonicFitter_20261002_173149.txt",
+  "test_file": "Claude\\TestCode\\Math\\25\\HarmonicFitterTest.java",
+  "usage": {
+    "prompt_tokens": 7006,
+    "completion_tokens": 10621,
+    "total_tokens": 17627
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 210724,
+    "daily_remaining_tokens": -10724
+  },
+  "timestamp": "20261002_173149"
+}

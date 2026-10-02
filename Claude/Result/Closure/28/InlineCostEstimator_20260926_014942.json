@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "28",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.InlineCostEstimator",
+  "target_classes": [
+    "com.google.javascript.jscomp.InlineCostEstimator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 75.32,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\28\\InlineCostEstimator_20260926_014942.txt",
+  "test_file": "Claude\\TestCode\\Closure\\28\\InlineCostEstimatorTest.java",
+  "usage": {
+    "prompt_tokens": 1905,
+    "completion_tokens": 8222,
+    "total_tokens": 10127
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 80960,
+    "daily_remaining_tokens": 119040
+  },
+  "timestamp": "20260926_014942"
+}

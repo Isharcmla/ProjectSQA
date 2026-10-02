@@ -1,0 +1,59 @@
+package org.jsoup.parser;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class TokeniserTest {
+
+    private Tokeniser newTokeniser(String input) {
+        return new Tokeniser(new CharacterReader(input), ParseErrorList.noTracking());
+    }
+
+    // ---------- Constructor / basic state ----------
+
+    @Test
+    public void testConstructor_createsInstance_stateIsData() {
+        Tokeniser t = newTokeniser("hello");
+        assertEquals(TokeniserState.Data, t.getState());
+    }
+
+    @Test
+    public void testGetState_initial_returnsDataState() {
+        Tokeniser t = newTokeniser("");
+        assertEquals(TokeniserState.Data, t.getState());
+    }
+
+    @Test
+    public void testTransition_changesState() {
+        Tokeniser t = newTokeniser("");
+        t.transition(TokeniserState.TagOpen);
+        assertEquals(TokeniserState.TagOpen, t.getState());
+    }
+
+    @Test
+    public void testAdvanceTransition_advancesReaderAndChangesState() {
+        CharacterReader reader = new CharacterReader("ab");
+        Tokeniser t = new Tokeniser(reader, ParseErrorList.noTracking());
+        t.advanceTransition(TokeniserState.TagOpen);
+        assertEquals('b', reader.current());
+        assertEquals(TokeniserState.TagOpen, t.getState());
+    }
+
+    // ---------- read() ----------
+
+    @Test
+    public void testRead_emptyInput_returnsEOFToken() {
+        Tokeniser t = newTokeniser("");
+        Token token = t.read();
+        assertEquals(Token.TokenType.EOF, token.type);
+    }
+
+    @Test
+    public void testRead_simpleCharacterData_returnsCharacterToken() {
+        Tokeniser t = newTokeniser("hello");
+        Token token = t.read();
+        assertEquals(Token.TokenType.Character, token.type);
+    }
+
+    @Test
+    public void testRead_startTagAndEndTag_return

@@ -1,0 +1,67 @@
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.Base64Variant;
+import com.fasterxml.jackson.core.Base64Variants;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.TreeNode;
+import com.fasterxml.jackson.core.Version;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.cfg.ContextAttributes;
+import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
+import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
+import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
+import com.fasterxml.jackson.databind.jsontype.NamedType;
+import com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.io.*;
+import java.net.URL;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
+
+public class ObjectMapperTest {
+
+    private ObjectMapper mapper;
+
+    public static class SimpleBean {
+        public int id;
+        public String name;
+        public SimpleBean() {}
+        public SimpleBean(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+    }
+
+    static class TestModule extends Module {
+        private final String name;
+        private final Version version;
+        TestModule(String name, Version version) {
+            this.name = name;
+            this.version = version;
+        }
+        @Override
+        public String getModuleName() { return name; }
+        @Override
+        public Version version() { return version; }
+        @Override
+        public void setupModule(SetupContext context) { }
+    }
+
+    static class NoOpProblemHandler extends DeserializationProblemHandler {
+    }
+
+    @Before
+    public void setUp() {
+        mapper = new ObjectMapper();

@@ -1,0 +1,33 @@
+{
+  "project": "Gson",
+  "bug_id": "3",
+  "tool": "gemini",
+  "class": "com.google.gson.internal.ConstructorConstructor",
+  "target_classes": [
+    "com.google.gson.internal.ConstructorConstructor"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 29.06,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Gson\\3\\ConstructorConstructor_20260925_113627.txt",
+  "test_file": "Gemini\\TestCode\\Gson\\3\\ConstructorConstructorTest.java",
+  "usage": {
+    "prompt_tokens": 2156,
+    "completion_tokens": 2420,
+    "total_tokens": 6421
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 292284,
+    "daily_remaining_tokens": 57716
+  },
+  "timestamp": "20260925_113627"
+}

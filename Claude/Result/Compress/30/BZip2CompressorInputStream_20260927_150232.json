@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "30",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream",
+  "target_classes": [
+    "org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 121.03,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Compress\\30\\BZip2CompressorInputStream_20260927_150232.txt",
+  "test_file": "Claude\\TestCode\\Compress\\30\\BZip2CompressorInputStreamTest.java",
+  "usage": {
+    "prompt_tokens": 13318,
+    "completion_tokens": 13645,
+    "total_tokens": 26963
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 143436,
+    "daily_remaining_tokens": 56564
+  },
+  "timestamp": "20260927_150232"
+}

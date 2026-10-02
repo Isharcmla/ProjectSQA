@@ -1,0 +1,237 @@
+package org.jsoup.parser;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class TreeBuilderStateTest {
+
+    // ---------- Enum basic API tests ----------
+
+    @Test
+    public void testValues_returnsAllEnumConstants() {
+        TreeBuilderState[] states = TreeBuilderState.values();
+        assertEquals(23, states.length);
+    }
+
+    @Test
+    public void testValueOf_validName_returnsCorrectEnum() {
+        assertEquals(TreeBuilderState.InBody, TreeBuilderState.valueOf("InBody"));
+        assertEquals(TreeBuilderState.Initial, TreeBuilderState.valueOf("Initial"));
+        assertEquals(TreeBuilderState.ForeignContent, TreeBuilderState.valueOf("ForeignContent"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testValueOf_invalidName_throwsIllegalArgumentException() {
+        TreeBuilderState.valueOf("NotARealState");
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testValueOf_nullName_throwsNullPointerException() {
+        TreeBuilderState.valueOf(null);
+    }
+
+    @Test
+    public void testName_returnsCorrectName() {
+        assertEquals("InBody", TreeBuilderState.InBody.name());
+    }
+
+    @Test
+    public void testOrdinal_isConsistentWithDeclarationOrder() {
+        assertTrue(TreeBuilderState.Initial.ordinal() < TreeBuilderState.BeforeHtml.ordinal());
+        assertTrue(TreeBuilderState.InBody.ordinal() < TreeBuilderState.Text.ordinal() + 1);
+    }
+
+    // ---------- Parsing based tests exercising each state indirectly ----------
+
+    @Test
+    public void testParse_emptyString_returnsDocumentWithHtmlHeadBody() {
+        Document doc = Jsoup.parse("");
+        assertNotNull(doc);
+        assertNotNull(doc.head());
+        assertNotNull(doc.body());
+    }
+
+    @Test
+    public void testParse_simpleHtml_parsesElementsCorrectly() {
+        Document doc = Jsoup.parse("<html><head><title>Test</title></head><body><p>Hello</p></body></html>");
+        assertEquals("Test", doc.title());
+        assertEquals("Hello", doc.select("p").text());
+    }
+
+    @Test
+    public void testParse_withDoctype_setsDoctypeNode() {
+        Document doc = Jsoup.parse("<!DOCTYPE html><html><head></head><body></body></html>");
+        assertTrue(doc.childNodes().size() > 0);
+        assertTrue(doc.html().toLowerCase().contains("doctype"));
+    }
+
+    @Test
+    public void testParse_withComment_insertsCommentNode() {
+        Document doc = Jsoup.parse("<html><!-- comment --><head></head><body></body></html>");
+        assertTrue(doc.html().contains("comment"));
+    }
+
+    @Test
+    public void testParse_withLeadingWhitespace_ignoresWhitespaceBeforeHtml() {
+        Document doc = Jsoup.parse("   <html><head></head><body>content</body></html>");
+        assertEquals("content", doc.body().text());
+    }
+
+    @Test
+    public void testParse_missingHtmlTag_insertsHtmlAutomatically() {
+        Document doc = Jsoup.parse("<head><title>NoHtml</title></head><body>Body content</body>");
+        assertEquals("NoHtml", doc.title());
+    }
+
+    @Test
+    public void testParse_endTagBeforeHtml_handledGracefully() {
+        Document doc = Jsoup.parse("</head><html><body>test</body></html>");
+        assertNotNull(doc.body());
+    }
+
+    @Test
+    public void testParse_headEndTagHeadBodyHtmlBr_beforeHtmlAnythingElse() {
+        Document doc = Jsoup.parse("</br><html><body>x</body></html>");
+        assertNotNull(doc.body());
+    }
+
+    @Test
+    public void testParse_beforeHeadEndTag_processesHeadStartTag() {
+        Document doc = Jsoup.parse("<html></head><body>content</body></html>");
+        assertEquals("content", doc.body().text());
+    }
+
+    @Test
+    public void testParse_metaAndLinkAndBase_inHeadElementsHandled() {
+        String html = "<html><head><base href='http://example.com/'/><meta charset='utf-8'/><link rel='stylesheet' href='style.css'/></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("meta").size());
+        assertEquals(1, doc.select("link").size());
+        assertEquals(1, doc.select("base").size());
+    }
+
+    @Test
+    public void testParse_scriptInHead_transitionsToTextState() {
+        String html = "<html><head><script>var x = 1;</script></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("script").size());
+        assertTrue(doc.select("script").html().contains("var x = 1;"));
+    }
+
+    @Test
+    public void testParse_styleInHead_transitionsToTextState() {
+        String html = "<html><head><style>body{color:red;}</style></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("style").size());
+    }
+
+    @Test
+    public void testParse_noscriptInHead_transitionsToInHeadNoscript() {
+        String html = "<html><head><noscript><link rel='x' href='y'/></noscript></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("noscript").size());
+    }
+
+    @Test
+    public void testParse_noscriptWithInvalidContent_handlesAnythingElse() {
+        String html = "<html><head><noscript><p>hi</p></noscript></head><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc.head());
+    }
+
+    @Test
+    public void testParse_afterHeadFrameset_transitionsToInFrameset() {
+        String html = "<html><head></head><frameset><frame src='a.html'/><frame src='b.html'/></frameset></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("frameset").size());
+        assertEquals(2, doc.select("frame").size());
+    }
+
+    @Test
+    public void testParse_afterHeadDuplicateBaseElement_reprocessedInHead() {
+        String html = "<html><head></head><base href='http://example.com/'/><body></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc.head());
+    }
+
+    @Test
+    public void testParse_bodyWithHeadingElements_closesPreviousHeading() {
+        Document doc = Jsoup.parse("<html><body><h1>One<h2>Two</h2></h1></body></html>");
+        assertTrue(doc.select("h1").size() >= 1);
+        assertTrue(doc.select("h2").size() >= 1);
+    }
+
+    @Test
+    public void testParse_bodyWithListItems_closesPreviousLi() {
+        Document doc = Jsoup.parse("<html><body><ul><li>Item1<li>Item2<li>Item3</ul></body></html>");
+        assertEquals(3, doc.select("li").size());
+    }
+
+    @Test
+    public void testParse_bodyWithDefinitionList_closesPreviousDdDt() {
+        Document doc = Jsoup.parse("<html><body><dl><dt>Term<dd>Definition</dl></body></html>");
+        assertEquals(1, doc.select("dt").size());
+        assertEquals(1, doc.select("dd").size());
+    }
+
+    @Test
+    public void testParse_formElement_setsFormElement() {
+        Document doc = Jsoup.parse("<html><body><form><input type='text' name='q'/></form></body></html>");
+        assertEquals(1, doc.select("form").size());
+        assertEquals(1, doc.select("input").size());
+    }
+
+    @Test
+    public void testParse_duplicateFormElement_ignoresSecondForm() {
+        Document doc = Jsoup.parse("<html><body><form><form>content</form></form></body></html>");
+        assertEquals(1, doc.select("form").size());
+    }
+
+    @Test
+    public void testParse_buttonElement_reprocessesOnDuplicate() {
+        Document doc = Jsoup.parse("<html><body><button>Click<button>Click2</button></button></body></html>");
+        assertTrue(doc.select("button").size() >= 1);
+    }
+
+    @Test
+    public void testParse_anchorElement_closesPreviousAnchor() {
+        Document doc = Jsoup.parse("<html><body><a href='#'>Link1<a href='#'>Link2</a></a></body></html>");
+        assertEquals(2, doc.select("a").size());
+    }
+
+    @Test
+    public void testParse_formattingElements_boldItalic() {
+        Document doc = Jsoup.parse("<html><body><b>Bold <i>Italic</i></b></body></html>");
+        assertEquals(1, doc.select("b").size());
+        assertEquals(1, doc.select("i").size());
+    }
+
+    @Test
+    public void testParse_nobrElement_closesPreviousNobr() {
+        Document doc = Jsoup.parse("<html><body><nobr>one<nobr>two</nobr></nobr></body></html>");
+        assertTrue(doc.select("nobr").size() >= 1);
+    }
+
+    @Test
+    public void testParse_tableElement_transitionsToInTable() {
+        String html = "<html><body><table><caption>Cap</caption><tr><td>Cell1</td></tr></table></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("table").size());
+        assertEquals(1, doc.select("caption").size());
+        assertEquals(1, doc.select("td").size());
+    }
+
+    @Test
+    public void testParse_tableWithColgroupAndCol_parsedCorrectly() {
+        String html = "<html><body><table><colgroup><col/><col/></colgroup><tr><td>x</td></tr></table></body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals(1, doc.select("colgroup").size());
+        assertEquals(2, doc.select("col").size());
+    }
+
+    @Test
+    public void testParse_tableWithTbodyTheadTfoot_parsedCorrectly() {
+        String html = "<html><body><table><thead><tr><th>H</th></tr></thead><tbody><t

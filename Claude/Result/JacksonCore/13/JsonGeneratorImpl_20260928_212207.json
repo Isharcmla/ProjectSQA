@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "13",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.core.json.JsonGeneratorImpl",
+  "target_classes": [
+    "com.fasterxml.jackson.core.json.JsonGeneratorImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 99.0,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonCore\\13\\JsonGeneratorImpl_20260928_212207.txt",
+  "test_file": "Claude\\TestCode\\JacksonCore\\13\\JsonGeneratorImplTest.java",
+  "usage": {
+    "prompt_tokens": 2971,
+    "completion_tokens": 12715,
+    "total_tokens": 15686
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 125986,
+    "daily_remaining_tokens": 74014
+  },
+  "timestamp": "20260928_212207"
+}

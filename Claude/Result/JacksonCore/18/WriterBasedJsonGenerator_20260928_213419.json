@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "18",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.core.json.WriterBasedJsonGenerator",
+  "target_classes": [
+    "com.fasterxml.jackson.core.json.WriterBasedJsonGenerator"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 128.24,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonCore\\18\\WriterBasedJsonGenerator_20260928_213419.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 24507,
+    "completion_tokens": 16384,
+    "total_tokens": 40891
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 106682,
+    "daily_remaining_tokens": 93318
+  },
+  "timestamp": "20260928_213419"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "85",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+  "target_classes": [
+    "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.68,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\85\\UnivariateRealSolverUtils_20260926_032144.txt",
+  "test_file": "Gemini\\TestCode\\Math\\85\\UnivariateRealSolverUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 2809,
+    "completion_tokens": 2215,
+    "total_tokens": 7007
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 168202,
+    "daily_remaining_tokens": 181798
+  },
+  "timestamp": "20260926_032144"
+}

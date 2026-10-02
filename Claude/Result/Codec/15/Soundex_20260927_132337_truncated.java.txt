@@ -1,0 +1,135 @@
+import org.apache.commons.codec.EncoderException;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SoundexTest {
+
+    // ---------- Constructors ----------
+
+    @Test
+    public void testDefaultConstructor_usEnglishMapping_encodesCorrectly() {
+        Soundex soundex = new Soundex();
+        assertEquals("R163", soundex.soundex("Robert"));
+    }
+
+    @Test
+    public void testCharArrayConstructor_customMapping_encodesUsingCustomMapping() {
+        char[] mapping = Soundex.US_ENGLISH_MAPPING_STRING.toCharArray();
+        Soundex soundex = new Soundex(mapping);
+        assertEquals("R163", soundex.soundex("Robert"));
+    }
+
+    @Test
+    public void testStringConstructor_customMapping_encodesUsingCustomMapping() {
+        Soundex soundex = new Soundex(Soundex.US_ENGLISH_MAPPING_STRING);
+        assertEquals("R163", soundex.soundex("Robert"));
+    }
+
+    @Test
+    public void testCharArrayConstructor_shortMapping_throwsIllegalArgumentExceptionForUnmappedChar() {
+        // Only A, B, C are mapped (indices 0,1,2). 'D' is out of range.
+        Soundex soundex = new Soundex(new char[] {'0', '1', '2'});
+        try {
+            soundex.encode("D");
+            fail("Expected IllegalArgumentException for unmapped character");
+        } catch (IllegalArgumentException e) {
+            // expected
+        }
+    }
+
+    // ---------- soundex(String) ----------
+
+    @Test
+    public void testSoundex_typicalName_Robert_returnsR163() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        assertEquals("R163", soundex.soundex("Robert"));
+    }
+
+    @Test
+    public void testSoundex_typicalName_Rupert_returnsR163() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        assertEquals("R163", soundex.soundex("Rupert"));
+    }
+
+    @Test
+    public void testSoundex_lowerCaseInput_convertedAndEncodedProperly() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        assertEquals("R163", soundex.soundex("robert"));
+    }
+
+    @Test
+    public void testSoundex_null_returnsNull() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        assertNull(soundex.soundex(null));
+    }
+
+    @Test
+    public void testSoundex_emptyString_returnsEmptyString() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        assertEquals("", soundex.soundex(""));
+    }
+
+    @Test
+    public void testSoundex_singleCharacter_returnsPaddedWithZeros() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        assertEquals("A000", soundex.soundex("A"));
+    }
+
+    @Test
+    public void testSoundex_hRuleWithSameCode_Ashcraft_returnsA261() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        assertEquals("A261", soundex.soundex("Ashcraft"));
+    }
+
+    @Test
+    public void testSoundex_vowelSeparatorAllowsRepeatCode_Tymczak_returnsT522() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        assertEquals("T522", soundex.soundex("Tymczak"));
+    }
+
+    @Test
+    public void testSoundex_consecutiveHWBeforeConsonant_returnsA000() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        // 'AHHB': B's code should be suppressed because preceding char before H is also H
+        assertEquals("A000", soundex.soundex("AHHB"));
+    }
+
+    @Test
+    public void testSoundex_consecutiveWWBeforeConsonant_returnsA000() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        // 'AWWB': same behavior as HH case but using W
+        assertEquals("A000", soundex.soundex("AWWB"));
+    }
+
+    @Test
+    public void testSoundex_wSeparatorDifferentCode_returnsA230() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        // 'ASWD': hwChar is 'W' but does not trigger suppression because codes differ
+        assertEquals("A230", soundex.soundex("ASWD"));
+    }
+
+    @Test
+    public void testSoundex_smithAndSmyth_produceSameCode() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        assertEquals(soundex.soundex("Smith"), soundex.soundex("Smyth"));
+        assertEquals("S530", soundex.soundex("Smith"));
+    }
+
+    // ---------- encode(String) ----------
+
+    @Test
+    public void testEncodeString_typicalInput_returnsSoundexCode() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        assertEquals("R163", soundex.encode("Robert"));
+    }
+
+    @Test
+    public void testEncodeString_null_returnsNull() {
+        Soundex soundex = Soundex.US_ENGLISH;
+        assertNull(soundex.encode((String) null));
+    }
+
+    // ---------- encode(Object) ----------
+
+    @Test
+    public void testEncodeObject_withSt

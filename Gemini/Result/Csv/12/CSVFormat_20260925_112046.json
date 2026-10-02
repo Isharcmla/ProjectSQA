@@ -1,0 +1,33 @@
+{
+  "project": "Csv",
+  "bug_id": "12",
+  "tool": "gemini",
+  "class": "org.apache.commons.csv.CSVFormat",
+  "target_classes": [
+    "org.apache.commons.csv.CSVFormat"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 35.41,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Csv\\12\\CSVFormat_20260925_112046.txt",
+  "test_file": "Gemini\\TestCode\\Csv\\12\\CSVFormatTest.java",
+  "usage": {
+    "prompt_tokens": 9365,
+    "completion_tokens": 3992,
+    "total_tokens": 14585
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 37421,
+    "daily_remaining_tokens": 312579
+  },
+  "timestamp": "20260925_112046"
+}

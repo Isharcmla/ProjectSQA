@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "17",
+  "tool": "claude",
+  "class": "org.apache.commons.lang3.text.translate.CharSequenceTranslator",
+  "target_classes": [
+    "org.apache.commons.lang3.text.translate.CharSequenceTranslator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 60.8,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Lang\\17\\CharSequenceTranslator_20261001_135942.txt",
+  "test_file": "Claude\\TestCode\\Lang\\17\\CharSequenceTranslatorTest.java",
+  "usage": {
+    "prompt_tokens": 2555,
+    "completion_tokens": 7549,
+    "total_tokens": 10104
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 10104,
+    "daily_remaining_tokens": 189896
+  },
+  "timestamp": "20261001_135942"
+}

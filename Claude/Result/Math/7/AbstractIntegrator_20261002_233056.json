@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "7",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.ode.AbstractIntegrator",
+  "target_classes": [
+    "org.apache.commons.math3.ode.AbstractIntegrator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 107.94,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\7\\AbstractIntegrator_20261002_233056.txt",
+  "test_file": "Claude\\TestCode\\Math\\7\\AbstractIntegratorTest.java",
+  "usage": {
+    "prompt_tokens": 6593,
+    "completion_tokens": 14570,
+    "total_tokens": 21163
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 169659,
+    "daily_remaining_tokens": 30341
+  },
+  "timestamp": "20261002_233056"
+}

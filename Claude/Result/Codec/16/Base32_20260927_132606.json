@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "16",
+  "tool": "claude",
+  "class": "org.apache.commons.codec.binary.Base32",
+  "target_classes": [
+    "org.apache.commons.codec.binary.Base32"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 61.85,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Codec\\16\\Base32_20260927_132606.txt",
+  "test_file": "Claude\\TestCode\\Codec\\16\\Base32Test.java",
+  "usage": {
+    "prompt_tokens": 11304,
+    "completion_tokens": 8110,
+    "total_tokens": 19414
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 40236,
+    "daily_remaining_tokens": 159764
+  },
+  "timestamp": "20260927_132606"
+}

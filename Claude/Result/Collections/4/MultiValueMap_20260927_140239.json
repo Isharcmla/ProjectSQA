@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "4",
+  "tool": "claude",
+  "class": "org.apache.commons.collections.map.MultiValueMap",
+  "target_classes": [
+    "org.apache.commons.collections.map.MultiValueMap"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 40.53,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Collections\\4\\MultiValueMap_20260927_140239.txt",
+  "test_file": "Claude\\TestCode\\Collections\\4\\MultiValueMapTest.java",
+  "usage": {
+    "prompt_tokens": 5784,
+    "completion_tokens": 5746,
+    "total_tokens": 11530
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 44397,
+    "daily_remaining_tokens": 155603
+  },
+  "timestamp": "20260927_140239"
+}

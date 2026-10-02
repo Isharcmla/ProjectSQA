@@ -1,0 +1,230 @@
+package com.fasterxml.jackson.databind.ser;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+import java.util.List;
+
+public class PropertyBuilderTest {
+
+    // ---------- Test bean classes ----------
+
+    public static class SimpleBean {
+        public int number;
+        public String text;
+        public List<String> list;
+    }
+
+    public static class NoDefaultCtorBean {
+        private final int x;
+        public NoDefaultCtorBean(int x) { this.x = x; }
+        public int getX() { return x; }
+    }
+
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
+    public static class NonDefaultBean {
+        public int number = 5;
+        public String text = "hello";
+    }
+
+    public static class NonEmptyBean {
+        @JsonInclude(JsonInclude.Include.NON_EMPTY)
+        public String value;
+    }
+
+    public static class NonNullBean {
+        @JsonInclude(JsonInclude.Include.NON_NULL)
+        public String value;
+    }
+
+    public static class NonAbsentBean {
+        @JsonInclude(JsonInclude.Include.NON_ABSENT)
+        public String value;
+    }
+
+    public static class BadTypeBean {
+        @JsonSerialize(as = Integer.class)
+        public String value;
+    }
+
+    public static class StaticTypingBean {
+        @JsonSerialize(typing = JsonSerialize.Typing.STATIC)
+        public Object value;
+    }
+
+    public static class DynamicTypingBean {
+        @JsonSerialize(typing = JsonSerialize.Typing.DYNAMIC)
+        public Object value;
+    }
+
+    // ---------- helper methods ----------
+
+    private PropertyBuilder builderFor(Class<?> cls, ObjectMapper mapper) {
+        SerializationConfig config = mapper.getSerializationConfig();
+        JavaType type = mapper.constructType(cls);
+        BeanDescription beanDesc = config.introspect(type);
+        return new PropertyBuilder(config, beanDesc);
+    }
+
+    private BeanDescription beanDescFor(Class<?> cls, ObjectMapper mapper) {
+        SerializationConfig config = mapper.getSerializationConfig();
+        JavaType type = mapper.constructType(cls);
+        return config.introspect(type);
+    }
+
+    private BeanPropertyDefinition findProp(BeanDescription beanDesc, String name) {
+        for (BeanPropertyDefinition p : beanDesc.findProperties()) {
+            if (p.getName().equals(name)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    // ---------- Constructor tests ----------
+
+    @Test
+    public void testConstructor_normalBean_createsInstance() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(SimpleBean.class, mapper);
+        assertNotNull(builder);
+        assertFalse(builder._useRealPropertyDefaults);
+        assertNotNull(builder._config);
+        assertNotNull(builder._beanDesc);
+        assertNotNull(builder._annotationIntrospector);
+    }
+
+    @Test
+    public void testConstructor_nonDefaultAnnotatedClass_setsUseRealPropertyDefaultsTrue() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(NonDefaultBean.class, mapper);
+        assertTrue(builder._useRealPropertyDefaults);
+        assertNotNull(builder._defaultInclusion);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testConstructor_nullConfig_throwsNPE() {
+        ObjectMapper mapper = new ObjectMapper();
+        BeanDescription beanDesc = beanDescFor(SimpleBean.class, mapper);
+        new PropertyBuilder(null, beanDesc);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testConstructor_nullBeanDesc_throwsNPE() {
+        ObjectMapper mapper = new ObjectMapper();
+        SerializationConfig config = mapper.getSerializationConfig();
+        new PropertyBuilder(config, null);
+    }
+
+    // ---------- getClassAnnotations tests ----------
+
+    @Test
+    public void testGetClassAnnotations_simpleBean_returnsNotNull() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(SimpleBean.class, mapper);
+        com.fasterxml.jackson.databind.introspect.Annotations ann = builder.getClassAnnotations();
+        assertNotNull(ann);
+    }
+
+    @Test
+    public void testGetClassAnnotations_annotatedBean_returnsNotNull() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(NonDefaultBean.class, mapper);
+        com.fasterxml.jackson.databind.introspect.Annotations ann = builder.getClassAnnotations();
+        assertNotNull(ann);
+    }
+
+    // ---------- getDefaultValue tests ----------
+
+    @Test
+    public void testGetDefaultValue_primitiveInt_returnsZero() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(SimpleBean.class, mapper);
+        Object result = builder.getDefaultValue(mapper.constructType(int.class));
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testGetDefaultValue_wrapperInteger_returnsZero() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(SimpleBean.class, mapper);
+        Object result = builder.getDefaultValue(mapper.constructType(Integer.class));
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testGetDefaultValue_primitiveBoolean_returnsFalse() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(SimpleBean.class, mapper);
+        Object result = builder.getDefaultValue(mapper.constructType(boolean.class));
+        assertEquals(false, result);
+    }
+
+    @Test
+    public void testGetDefaultValue_stringType_returnsEmptyString() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(SimpleBean.class, mapper);
+        Object result = builder.getDefaultValue(mapper.constructType(String.class));
+        assertEquals("", result);
+    }
+
+    @Test
+    public void testGetDefaultValue_listType_returnsNonEmptyMarker() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(SimpleBean.class, mapper);
+        Object result = builder.getDefaultValue(mapper.constructType(List.class));
+        assertEquals(JsonInclude.Include.NON_EMPTY, result);
+    }
+
+    @Test
+    public void testGetDefaultValue_mapType_returnsNonEmptyMarker() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(SimpleBean.class, mapper);
+        Object result = builder.getDefaultValue(mapper.constructType(java.util.Map.class));
+        assertEquals(JsonInclude.Include.NON_EMPTY, result);
+    }
+
+    @Test
+    public void testGetDefaultValue_arrayType_returnsNonEmptyMarker() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(SimpleBean.class, mapper);
+        Object result = builder.getDefaultValue(mapper.constructType(int[].class));
+        assertEquals(JsonInclude.Include.NON_EMPTY, result);
+    }
+
+    @Test
+    public void testGetDefaultValue_objectType_returnsNull() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(SimpleBean.class, mapper);
+        Object result = builder.getDefaultValue(mapper.constructType(Object.class));
+        assertNull(result);
+    }
+
+    // ---------- getDefaultBean tests ----------
+
+    @Test
+    public void testGetDefaultBean_beanWithDefaultCtor_returnsInstance() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(SimpleBean.class, mapper);
+        Object def = builder.getDefaultBean();
+        assertNotNull(def);
+        assertTrue(def instanceof SimpleBean);
+    }
+
+    @Test
+    public void testGetDefaultBean_beanWithoutDefaultCtor_returnsNull() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(NoDefaultCtorBean.class, mapper);
+        Object def = builder.getDefaultBean();
+        assertNull(def);
+    }
+
+    @Test
+    public void testGetDefaultBean_calledTwice_returnsCachedValue() {
+        ObjectMapper mapper = new ObjectMapper();
+        PropertyBuilder builder = builderFor(SimpleB

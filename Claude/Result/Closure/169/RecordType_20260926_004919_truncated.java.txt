@@ -1,0 +1,92 @@
+package com.google.javascript.rhino.jstype;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
+import com.google.javascript.rhino.ErrorReporter;
+import com.google.javascript.rhino.jstype.RecordTypeBuilder.RecordProperty;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class RecordTypeTest {
+
+  private JSTypeRegistry registry;
+
+  private static final ErrorReporter NULL_REPORTER = new ErrorReporter() {
+    @Override
+    public void warning(String message, String sourceName, int line,
+        String lineSource, int lineOffset) {
+      // no-op for tests
+    }
+
+    @Override
+    public void error(String message, String sourceName, int line,
+        String lineSource, int lineOffset) {
+      // no-op for tests
+    }
+  };
+
+  @Before
+  public void setUp() {
+    registry = new JSTypeRegistry(NULL_REPORTER);
+  }
+
+  private RecordType buildRecordType(Map<String, JSType> props, boolean synthesized) {
+    RecordTypeBuilder builder = new RecordTypeBuilder(registry);
+    builder.setSynthesized(synthesized);
+    for (Map.Entry<String, JSType> entry : props.entrySet()) {
+      builder.addProperty(entry.getKey(), entry.getValue(), null);
+    }
+    JSType built = builder.build();
+    RecordType record = built.toMaybeRecordType();
+    assertNotNull("Expected build() to produce a RecordType", record);
+    return record;
+  }
+
+  // ---------------- Constructor tests ----------------
+
+  @Test
+  public void testConstructor_declaredTrue_isSyntheticFalse() {
+    Map<String, JSType> props = new HashMap<>();
+    props.put("a", registry.getNativeType(JSTypeNative.STRING_TYPE));
+    RecordType record = buildRecordType(props, false);
+    assertFalse(record.isSynthetic());
+  }
+
+  @Test
+  public void testConstructor_declaredFalse_isSyntheticTrue() {
+    Map<String, JSType> props = new HashMap<>();
+    props.put("a", registry.getNativeType(JSTypeNative.STRING_TYPE));
+    RecordType record = buildRecordType(props, true);
+    assertTrue(record.isSynthetic());
+  }
+
+  @Test
+  public void testConstructor_emptyProperties_declaredFalse_isSyntheticTrue() {
+    Map<String, RecordProperty> props = new HashMap<>();
+    RecordType record = new RecordType(registry, props, false);
+    assertTrue(record.isSynthetic());
+  }
+
+  @Test
+  public void testConstructor_singleArgConstructor_defaultDeclaredTrue() {
+    Map<String, RecordProperty> props = new HashMap<>();
+    RecordType record = new RecordType(registry, props);
+    assertFalse(record.isSynthetic());
+  }
+
+  @Test(expected = IllegalStateException.class)
+  public void testConstructor_nullRecordProperty_throwsIllegalStateException() {
+    Map<String, RecordProperty> props = new HashMap<>();
+    props.put("a", null);
+    new RecordType(registry, props, true);
+  }
+
+  // ---------------- checkRecordEquivalenceHelper tests ----------

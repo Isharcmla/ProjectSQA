@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "22",
+  "tool": "gemini",
+  "class": "org.joda.time.base.BasePeriod",
+  "target_classes": [
+    "org.joda.time.base.BasePeriod"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 68.69,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Time\\22\\BasePeriod_20260926_041019.txt",
+  "test_file": "Gemini\\TestCode\\Time\\22\\BasePeriodTest.java",
+  "usage": {
+    "prompt_tokens": 6388,
+    "completion_tokens": 8040,
+    "total_tokens": 16578
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 84302,
+    "daily_remaining_tokens": 265698
+  },
+  "timestamp": "20260926_041019"
+}

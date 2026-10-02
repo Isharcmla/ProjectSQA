@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "74",
+  "tool": "claude",
+  "class": "org.jsoup.helper.StringUtil",
+  "target_classes": [
+    "org.jsoup.helper.StringUtil"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 38.09,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\74\\StringUtil_20261001_120437.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\74\\StringUtilTest.java",
+  "usage": {
+    "prompt_tokens": 3979,
+    "completion_tokens": 5824,
+    "total_tokens": 9803
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 108240,
+    "daily_remaining_tokens": 91760
+  },
+  "timestamp": "20261001_120437"
+}

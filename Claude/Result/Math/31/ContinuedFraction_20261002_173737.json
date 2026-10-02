@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "31",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.util.ContinuedFraction",
+  "target_classes": [
+    "org.apache.commons.math3.util.ContinuedFraction"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 70.01,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\31\\ContinuedFraction_20261002_173737.txt",
+  "test_file": "Claude\\TestCode\\Math\\31\\ContinuedFractionTest.java",
+  "usage": {
+    "prompt_tokens": 3670,
+    "completion_tokens": 8567,
+    "total_tokens": 12237
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 93295,
+    "daily_remaining_tokens": 106705
+  },
+  "timestamp": "20261002_173737"
+}

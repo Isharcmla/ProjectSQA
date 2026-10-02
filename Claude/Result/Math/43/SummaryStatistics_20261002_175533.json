@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "43",
+  "tool": "claude",
+  "class": "org.apache.commons.math.stat.descriptive.SummaryStatistics",
+  "target_classes": [
+    "org.apache.commons.math.stat.descriptive.SummaryStatistics"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 53.09,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\43\\SummaryStatistics_20261002_175533.txt",
+  "test_file": "Claude\\TestCode\\Math\\43\\SummaryStatisticsTest.java",
+  "usage": {
+    "prompt_tokens": 10347,
+    "completion_tokens": 8448,
+    "total_tokens": 18795
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 187040,
+    "daily_remaining_tokens": 12960
+  },
+  "timestamp": "20261002_175533"
+}

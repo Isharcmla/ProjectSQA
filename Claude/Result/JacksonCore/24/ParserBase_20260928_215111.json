@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "24",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.core.base.ParserBase",
+  "target_classes": [
+    "com.fasterxml.jackson.core.base.ParserBase"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 161.37,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonCore\\24\\ParserBase_20260928_215111.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 15870,
+    "completion_tokens": 16384,
+    "total_tokens": 32254
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 151884,
+    "daily_remaining_tokens": 48116
+  },
+  "timestamp": "20260928_215111"
+}

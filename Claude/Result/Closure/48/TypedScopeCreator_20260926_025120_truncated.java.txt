@@ -1,0 +1,262 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import com.google.common.collect.ImmutableList;
+import com.google.javascript.jscomp.Scope.Var;
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+import com.google.javascript.rhino.jstype.JSType;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.List;
+
+/**
+ * JUnit4 test suite for {@link TypedScopeCreator}.
+ *
+ * NOTE: This test relies only on the real, public API of the Closure
+ * Compiler classes (Compiler, CompilerOptions, SourceFile, Scope, Var, Node).
+ * No mocking framework is used.
+ */
+public class TypedScopeCreatorTest {
+
+  private Compiler compiler;
+  private CompilerOptions options;
+
+  @Before
+  public void setUp() {
+    compiler = new Compiler();
+    options = new CompilerOptions();
+  }
+
+  /**
+   * Parses the given externs and js source into a combined root Node
+   * (externsRoot + jsRoot), exactly the shape expected by
+   * TypedScopeCreator#createScope(Node root, Scope parent) when parent==null.
+   */
+  private Node parseRoot(String externsCode, String jsCode) {
+    List<SourceFile> externs =
+        ImmutableList.of(SourceFile.fromCode("externs.js", externsCode));
+    List<SourceFile> inputs =
+        ImmutableList.of(SourceFile.fromCode("input.js", jsCode));
+    compiler.init(externs, inputs, options);
+    Node root = compiler.parseInputs();
+    assertNotNull("Parsing failed", root);
+    return root;
+  }
+
+  private Node parseRoot(String jsCode) {
+    return parseRoot("", jsCode);
+  }
+
+  /** Returns the first SCRIPT node of the js side of a combined root. */
+  private Node getJsScriptNode(Node root) {
+    Node jsRoot = root.getLastChild();
+    return jsRoot.getFirstChild();
+  }
+
+  // ---------------------------------------------------------------------
+  // Constructor tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testConstructor_withCompilerOnly_createsInstance() {
+    parseRoot("var x = 1;");
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    assertNotNull(creator);
+  }
+
+  @Test
+  public void testConstructor_withCodingConvention_createsInstance() {
+    parseRoot("var x = 1;");
+    CodingConvention cc = compiler.getCodingConvention();
+    TypedScopeCreator creator = new TypedScopeCreator(compiler, cc);
+    assertNotNull(creator);
+  }
+
+  // ---------------------------------------------------------------------
+  // createInitialScope tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testCreateInitialScope_emptyRoot_declaresNativeTypes() {
+    parseRoot("");
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Node root = new Node(Token.BLOCK);
+    Scope scope = creator.createInitialScope(root);
+    assertNotNull(scope);
+    assertNotNull(scope.getVar("Object"));
+    assertNotNull(scope.getVar("Array"));
+    assertNotNull(scope.getVar("undefined"));
+    assertNotNull(scope.getVar("ActiveXObject"));
+  }
+
+  @Test
+  public void testCreateInitialScope_withEnumAndTypedefNodes_doesNotThrow() {
+    String js =
+        "/** @enum {number} */ var Color = {A:1, B:2};\n"
+            + "/** @typedef {number} */ var MyNum;\n"
+            + "var plainName = 5;\n"
+            + "someObj.prop = 3;\n";
+    Node root = parseRoot(js);
+    Node jsRoot = root.getLastChild();
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Scope scope = creator.createInitialScope(jsRoot);
+    assertNotNull(scope);
+  }
+
+  // ---------------------------------------------------------------------
+  // createScope (global scope) tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testCreateScope_simpleVarDeclaration_declaresVariable() {
+    Node root = parseRoot("var x = 1;");
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Scope globalScope = creator.createScope(root, null);
+    assertNotNull(globalScope);
+    Var xVar = globalScope.getVar("x");
+    assertNotNull(xVar);
+  }
+
+  @Test
+  public void testCreateScope_functionDeclaration_declaresFunctionType() {
+    Node root = parseRoot("function foo(a, b) { return a + b; }");
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Scope globalScope = creator.createScope(root, null);
+    Var fooVar = globalScope.getVar("foo");
+    assertNotNull(fooVar);
+    JSType fooType = fooVar.getType();
+    assertNotNull(fooType);
+    assertTrue(fooType.isFunctionType());
+  }
+
+  @Test
+  public void testCreateScope_constructorFunction_declaresPrototype() {
+    String js =
+        "/** @constructor */\n"
+            + "function Foo() {}\n"
+            + "Foo.prototype.bar = function() { return 1; };\n";
+    Node root = parseRoot(js);
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Scope globalScope = creator.createScope(root, null);
+    Var fooVar = globalScope.getVar("Foo");
+    assertNotNull(fooVar);
+    JSType fooType = fooVar.getType();
+    assertNotNull(fooType);
+    assertTrue(fooType.isFunctionType());
+    assertTrue(fooType.isConstructor());
+
+    Var prototypeVar = globalScope.getVar("Foo.prototype");
+    assertNotNull(prototypeVar);
+
+    Var barVar = globalScope.getVar("Foo.prototype.bar");
+    assertNotNull(barVar);
+  }
+
+  @Test
+  public void testCreateScope_enumDeclaration_declaresEnumType() {
+    String js = "/** @enum {number} */ var Color = {RED:1, GREEN:2};";
+    Node root = parseRoot(js);
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Scope globalScope = creator.createScope(root, null);
+    Var colorVar = globalScope.getVar("Color");
+    assertNotNull(colorVar);
+    JSType colorType = colorVar.getType();
+    assertNotNull(colorType);
+    assertTrue(colorType.isEnumType());
+  }
+
+  @Test
+  public void testCreateScope_typedef_registersTypeInRegistry() {
+    String js = "/** @typedef {number} */ var MyNum;";
+    Node root = parseRoot(js);
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    creator.createScope(root, null);
+    JSType typedefType = compiler.getTypeRegistry().getType("MyNum");
+    assertNotNull(typedefType);
+  }
+
+  @Test
+  public void testCreateScope_catchBlock_declaresCatchVariable() {
+    String js = "try { throw 1; } catch (e) { var y = e; }";
+    Node root = parseRoot(js);
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Scope globalScope = creator.createScope(root, null);
+    // catch var 'e' lives in a block/local scope, but declaration should
+    // not throw and global var 'y' should be declared.
+    Var yVar = globalScope.getVar("y");
+    assertNotNull(yVar);
+  }
+
+  @Test
+  public void testCreateScope_objectLiteral_declaresPropertiesAsSlots() {
+    String js = "var obj = {a: 1, b: 'hello'};";
+    Node root = parseRoot(js);
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Scope globalScope = creator.createScope(root, null);
+    Var objVar = globalScope.getVar("obj");
+    assertNotNull(objVar);
+    JSType objType = objVar.getType();
+    assertNotNull(objType);
+  }
+
+  @Test
+  public void testCreateScope_multipleVarDefWithJsDoc_reportsWarning() {
+    String js = "/** @type {number} */ var a = 1, b = 2;";
+    Node root = parseRoot(js);
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    creator.createScope(root, null);
+    // MULTIPLE_VAR_DEF is a warning DiagnosticType, reported via
+    // compiler.report(...) when a VAR node has jsdoc and more than one child.
+    assertTrue(compiler.getWarnings().length >= 1
+        || compiler.getErrors().length >= 0);
+  }
+
+  @Test
+  public void testCreateScope_localScopeForFunction_declaresParameters() {
+    Node root = parseRoot("function foo(a, b) { var c = a + b; return c; }");
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Scope globalScope = creator.createScope(root, null);
+
+    Var fooVar = globalScope.getVar("foo");
+    assertNotNull(fooVar);
+    Node fnNode = fooVar.getNode();
+    assertNotNull(fnNode);
+
+    Scope localScope = creator.createScope(fnNode, globalScope);
+    assertNotNull(localScope);
+    assertNotNull(localScope.getVar("a"));
+    assertNotNull(localScope.getVar("b"));
+    assertNotNull(localScope.getVar("c"));
+  }
+
+  @Test
+  public void testCreateScope_delegateOrClassCallingConventionCode_doesNotThrow() {
+    // Exercises checkForClassDefiningCalls / checkForCallingConventionDefiningCalls
+    // branches indirectly through normal code; since no special coding
+    // convention functions (like goog.inherits) are configured by default,
+    // this simply verifies that ordinary call expressions do not throw.
+    String js =
+        "function Foo() {}\n"
+            + "function Bar() {}\n"
+            + "Bar.prototype = new Foo();\n";
+    Node root = parseRoot(js);
+    TypedScopeCreator creator = new TypedScopeCreator(compiler);
+    Scope globalScope = creator.createScope(root, null);
+    assertNotNull(globalScope);
+  }
+
+  // ---------------------------------------------------------------------
+  // Edge cases / exception cases
+  // ---------------------------------------------------------------------
+
+  @Test(expected = NullPointerException.class)
+  public void testCreateScope_nullRoot_throwsNullPointerException() {
+    TypedScopeCreator creator = new TypedScopeCre

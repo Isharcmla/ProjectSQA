@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "10",
+  "tool": "claude",
+  "class": "org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.compiler.CoreOperationRelationalExpression"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 118.31,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JxPath\\10\\CoreOperationRelationalExpression_20261001_124400.txt",
+  "test_file": "Claude\\TestCode\\JxPath\\10\\CoreOperationRelationalExpressionTest.java",
+  "usage": {
+    "prompt_tokens": 2277,
+    "completion_tokens": 14641,
+    "total_tokens": 16918
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 16918,
+    "daily_remaining_tokens": 183082
+  },
+  "timestamp": "20261001_124400"
+}

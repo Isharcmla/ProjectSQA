@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "40",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.deser.std.NumberDeserializers",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.std.NumberDeserializers"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 89.41,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\40\\NumberDeserializers_20260929_030456.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\40\\NumberDeserializersTest.java",
+  "usage": {
+    "prompt_tokens": 9460,
+    "completion_tokens": 12421,
+    "total_tokens": 21881
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 78228,
+    "daily_remaining_tokens": 121772
+  },
+  "timestamp": "20260929_030456"
+}

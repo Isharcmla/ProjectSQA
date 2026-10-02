@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "61",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.distribution.PoissonDistributionImpl",
+  "target_classes": [
+    "org.apache.commons.math.distribution.PoissonDistributionImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 27.87,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\61\\PoissonDistributionImpl_20260926_030006.txt",
+  "test_file": "Gemini\\TestCode\\Math\\61\\PoissonDistributionImplTest.java",
+  "usage": {
+    "prompt_tokens": 2426,
+    "completion_tokens": 2486,
+    "total_tokens": 6506
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 169265,
+    "daily_remaining_tokens": 180735
+  },
+  "timestamp": "20260926_030006"
+}

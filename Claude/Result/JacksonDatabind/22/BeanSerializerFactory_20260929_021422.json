@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "22",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.ser.BeanSerializerFactory",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.BeanSerializerFactory"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 122.49,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\22\\BeanSerializerFactory_20260929_021422.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\22\\BeanSerializerFactoryTest.java",
+  "usage": {
+    "prompt_tokens": 13359,
+    "completion_tokens": 15922,
+    "total_tokens": 29281
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 63335,
+    "daily_remaining_tokens": 136665
+  },
+  "timestamp": "20260929_021422"
+}

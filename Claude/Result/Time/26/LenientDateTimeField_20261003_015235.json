@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "26",
+  "tool": "claude",
+  "class": "org.joda.time.field.LenientDateTimeField",
+  "target_classes": [
+    "org.joda.time.field.LenientDateTimeField"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 63.14,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Time\\26\\LenientDateTimeField_20261003_015235.txt",
+  "test_file": "Claude\\TestCode\\Time\\26\\LenientDateTimeFieldTest.java",
+  "usage": {
+    "prompt_tokens": 1825,
+    "completion_tokens": 6806,
+    "total_tokens": 8631
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 109889,
+    "daily_remaining_tokens": 90111
+  },
+  "timestamp": "20261003_015235"
+}

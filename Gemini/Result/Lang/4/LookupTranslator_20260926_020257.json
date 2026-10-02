@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "4",
+  "tool": "gemini",
+  "class": "org.apache.commons.lang3.text.translate.LookupTranslator",
+  "target_classes": [
+    "org.apache.commons.lang3.text.translate.LookupTranslator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 20.45,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Lang\\4\\LookupTranslator_20260926_020257.txt",
+  "test_file": "Gemini\\TestCode\\Lang\\4\\LookupTranslatorTest.java",
+  "usage": {
+    "prompt_tokens": 1041,
+    "completion_tokens": 1473,
+    "total_tokens": 3978
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 125199,
+    "daily_remaining_tokens": 224801
+  },
+  "timestamp": "20260926_020257"
+}

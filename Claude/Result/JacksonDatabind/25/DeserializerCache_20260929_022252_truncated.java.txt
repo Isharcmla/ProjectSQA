@@ -1,0 +1,176 @@
+package com.fasterxml.jackson.databind.deser;
+
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.KeyDeserializer;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+
+public class DeserializerCacheTest {
+
+    private DeserializerCache cache;
+
+    private static DeserializationContext capturedContext;
+
+    /**
+     * Custom deserializer used only to capture a real, fully-configured
+     * DeserializationContext instance that we can later feed into a
+     * freshly created DeserializerCache under test. This avoids the need
+     * for any mocking framework.
+     */
+    public static class CapturingDeserializer extends JsonDeserializer<String> {
+        @Override
+        public String deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
+            capturedContext = ctxt;
+            return p.getValueAsString();
+        }
+    }
+
+    public static class SampleBean {
+        public String name;
+        public int value;
+    }
+
+    @Before
+    public void setUp() {
+        cache = new DeserializerCache();
+    }
+
+    private DeserializationContext getRealContext() throws Exception {
+        SimpleModule module = new SimpleModule();
+        module.addDeserializer(String.class, new CapturingDeserializer());
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(module);
+        mapper.readValue("\"test\"", String.class);
+        assertNotNull(capturedContext);
+        return capturedContext;
+    }
+
+    // ---------------------------------------------------------
+    // Constructor / basic cache accessor tests
+    // ---------------------------------------------------------
+
+    @Test
+    public void testConstructor_createsEmptyCache() {
+        assertNotNull(cache);
+        assertEquals(0, cache.cachedDeserializersCount());
+    }
+
+    @Test
+    public void testCachedDeserializersCount_initiallyZero() {
+        assertEquals(0, cache.cachedDeserializersCount());
+    }
+
+    @Test
+    public void testFlushCachedDeserializers_onEmptyCache_doesNotThrowAndStaysEmpty() {
+        cache.flushCachedDeserializers();
+        assertEquals(0, cache.cachedDeserializersCount());
+    }
+
+    // ---------------------------------------------------------
+    // findValueDeserializer
+    // ---------------------------------------------------------
+
+    @Test
+    public void testFindValueDeserializer_normalScalarType_returnsNonNullDeserializer() throws Exception {
+        DeserializationContext ctxt = getRealContext();
+        DeserializerFactory factory = BeanDeserializerFactory.instance;
+        JavaType type = ctxt.getTypeFactory().constructType(Integer.class);
+
+        JsonDeserializer<Object> deser = cache.findValueDeserializer(ctxt, factory, type);
+
+        assertNotNull(deser);
+    }
+
+    @Test
+    public void testFindValueDeserializer_primitiveType_returnsNonNullDeserializer() throws Exception {
+        DeserializationContext ctxt = getRealContext();
+        DeserializerFactory factory = BeanDeserializerFactory.instance;
+        JavaType type = ctxt.getTypeFactory().constructType(int.class);
+
+        JsonDeserializer<Object> deser = cache.findValueDeserializer(ctxt, factory, type);
+
+        assertNotNull(deser);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindValueDeserializer_nullType_throwsIllegalArgumentException() throws Exception {
+        DeserializationContext ctxt = getRealContext();
+        DeserializerFactory factory = BeanDeserializerFactory.instance;
+
+        cache.findValueDeserializer(ctxt, factory, null);
+    }
+
+    @Test
+    public void testFindValueDeserializer_beanType_cachesDeserializerAndFlushWorks() throws Exception {
+        DeserializationContext ctxt = getRealContext();
+        DeserializerFactory factory = BeanDeserializerFactory.instance;
+        JavaType type = ctxt.getTypeFactory().constructType(SampleBean.class);
+
+        assertEquals(0, cache.cachedDeserializersCount());
+
+        JsonDeserializer<Object> deser1 = cache.findValueDeserializer(ctxt, factory, type);
+        assertNotNull(deser1);
+        int countAfterFirst = cache.cachedDeserializersCount();
+        assertTrue(countAfterFirst >= 1);
+
+        // second call should hit the cache, so count should not grow
+        JsonDeserializer<Object> deser2 = cache.findValueDeserializer(ctxt, factory, type);
+        assertNotNull(deser2);
+        assertEquals(countAfterFirst, cache.cachedDeserializersCount());
+
+        cache.flushCachedDeserializers();
+        assertEquals(0, cache.cachedDeserializersCount());
+    }
+
+    @Test
+    public void testFindValueDeserializer_calledOnTwoIndependentCaches_bothWorkIndependently() throws Exception {
+        DeserializationContext ctxt = getRealContext();
+        DeserializerFactory factory = BeanDeserializerFactory.instance;
+        JavaType type = ctxt.getTypeFactory().constructType(SampleBean.class);
+
+        DeserializerCache anotherCache = new DeserializerCache();
+
+        JsonDeserializer<Object> deser1 = cache.findValueDeserializer(ctxt, factory, type);
+        assertNotNull(deser1);
+
+        JsonDeserializer<Object> deser2 = anotherCache.findValueDeserializer(ctxt, factory, type);
+        assertNotNull(deser2);
+
+        assertTrue(cache.cachedDeserializersCount() >= 1);
+        assertTrue(anotherCache.cachedDeserializersCount() >= 1);
+    }
+
+    // ---------------------------------------------------------
+    // findKeyDeserializer
+    // ---------------------------------------------------------
+
+    @Test
+    public void testFindKeyDeserializer_stringType_returnsNonNullKeyDeserializer() throws Exception {
+        DeserializationContext ctxt = getRealContext();
+        DeserializerFactory factory = BeanDeserializerFactory.instance;
+        JavaType type = ctxt.getTypeFactory().constructType(String.class);
+
+        KeyDeserializer kd = cache.findKeyDeserializer(ctxt, factory, type);
+
+        assertNotNull(kd);
+    }
+
+    @Test
+    public void testFindKeyDeserializer_integerType_returnsNonNullKeyDeserializer() throws Exception {
+        DeserializationContext ctxt = getRealContext();
+        DeserializerFactory factory = BeanDeserializerFactory.instance;
+        JavaType type = ctxt.getTypeFactory().constructType(Integer.class);
+
+        KeyDeserializer kd = cache.findKeyDeserializer(ctxt, factory, type);
+
+        assert

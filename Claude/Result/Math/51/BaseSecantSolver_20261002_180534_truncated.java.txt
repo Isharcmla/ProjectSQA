@@ -1,0 +1,186 @@
+package org.apache.commons.math.analysis.solvers;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+import org.apache.commons.math.FunctionEvaluationException;
+import org.apache.commons.math.analysis.UnivariateRealFunction;
+
+public class BaseSecantSolverTest {
+
+    private UnivariateRealFunction quadraticMinusTwo() {
+        return new UnivariateRealFunction() {
+            public double value(double x) throws FunctionEvaluationException {
+                return x * x - 2;
+            }
+        };
+    }
+
+    private UnivariateRealFunction linearRoot() {
+        return new UnivariateRealFunction() {
+            public double value(double x) throws FunctionEvaluationException {
+                return x - 1;
+            }
+        };
+    }
+
+    private UnivariateRealFunction alwaysPositive() {
+        return new UnivariateRealFunction() {
+            public double value(double x) throws FunctionEvaluationException {
+                return x * x + 1;
+            }
+        };
+    }
+
+    private BaseSecantSolver createSolver(final BaseSecantSolver.Method method) {
+        return new BaseSecantSolver(BaseSecantSolver.DEFAULT_ABSOLUTE_ACCURACY, method) {};
+    }
+
+    private BaseSecantSolver createSolverWithFunctionValueAccuracy(
+            final double relativeAccuracy, final double absoluteAccuracy,
+            final double functionValueAccuracy, final BaseSecantSolver.Method method) {
+        return new BaseSecantSolver(relativeAccuracy, absoluteAccuracy, functionValueAccuracy, method) {};
+    }
+
+    // ---------- Normal / typical input cases ----------
+
+    @Test
+    public void testDoSolve_regulaFalsiMethod_convergesToSqrtTwo() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.REGULA_FALSI);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2);
+        assertEquals(Math.sqrt(2), root, 1e-5);
+    }
+
+    @Test
+    public void testDoSolve_illinoisMethod_convergesToSqrtTwo() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.ILLINOIS);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2);
+        assertEquals(Math.sqrt(2), root, 1e-5);
+    }
+
+    @Test
+    public void testDoSolve_pegasusMethod_convergesToSqrtTwo() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.PEGASUS);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2);
+        assertEquals(Math.sqrt(2), root, 1e-5);
+    }
+
+    @Test
+    public void testSolve_withStartValue_overloadDelegatesCorrectly() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.REGULA_FALSI);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2, 1.0);
+        assertEquals(Math.sqrt(2), root, 1e-5);
+    }
+
+    @Test
+    public void testSolve_withStartValueAndAllowedSolution_anySide() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.REGULA_FALSI);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2, 1.0, AllowedSolution.ANY_SIDE);
+        assertEquals(Math.sqrt(2), root, 1e-5);
+    }
+
+    @Test
+    public void testSolve_withoutStartValue_anySide() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.REGULA_FALSI);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2, AllowedSolution.ANY_SIDE);
+        assertEquals(Math.sqrt(2), root, 1e-5);
+    }
+
+    @Test
+    public void testConstructor_relativeAndAbsoluteAccuracy_createsSolver() {
+        BaseSecantSolver solver = new BaseSecantSolver(1e-9, 1e-9, BaseSecantSolver.Method.ILLINOIS) {};
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2);
+        assertEquals(Math.sqrt(2), root, 1e-5);
+    }
+
+    @Test
+    public void testConstructor_absoluteAccuracyOnly_createsSolver() {
+        BaseSecantSolver solver = new BaseSecantSolver(1e-9, BaseSecantSolver.Method.PEGASUS) {};
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2);
+        assertEquals(Math.sqrt(2), root, 1e-5);
+    }
+
+    // ---------- Edge cases ----------
+
+    @Test
+    public void testDoSolve_exactRootAtMinBound_returnsMin() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.REGULA_FALSI);
+        UnivariateRealFunction f = new UnivariateRealFunction() {
+            public double value(double x) throws FunctionEvaluationException {
+                return x; // root at 0
+            }
+        };
+        double root = solver.solve(100, f, 0, 1);
+        assertEquals(0.0, root, 1e-12);
+    }
+
+    @Test
+    public void testDoSolve_exactRootAtMaxBound_returnsMax() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.REGULA_FALSI);
+        double root = solver.solve(100, linearRoot(), 0, 1);
+        assertEquals(1.0, root, 1e-12);
+    }
+
+    @Test
+    public void testDoSolve_exactRootFoundDuringIteration_returnsRootImmediately() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.REGULA_FALSI);
+        // f(x) = x - 1 on [0,2]: neither bound is an exact root, but the
+        // first secant approximation lands exactly on the root (x = 1).
+        double root = solver.solve(100, linearRoot(), 0, 2);
+        assertEquals(1.0, root, 1e-12);
+    }
+
+    @Test
+    public void testDoSolve_leftSideAllowedSolution_returnsValidResult() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.REGULA_FALSI);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2, AllowedSolution.LEFT_SIDE);
+        assertTrue(root >= 0 && root <= 2);
+    }
+
+    @Test
+    public void testDoSolve_rightSideAllowedSolution_returnsValidResult() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.REGULA_FALSI);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2, AllowedSolution.RIGHT_SIDE);
+        assertTrue(root >= 0 && root <= 2);
+    }
+
+    @Test
+    public void testDoSolve_belowSideAllowedSolution_returnsValidResult() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.REGULA_FALSI);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2, AllowedSolution.BELOW_SIDE);
+        assertTrue(root >= 0 && root <= 2);
+    }
+
+    @Test
+    public void testDoSolve_aboveSideAllowedSolution_returnsValidResult() {
+        BaseSecantSolver solver = createSolver(BaseSecantSolver.Method.REGULA_FALSI);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2, AllowedSolution.ABOVE_SIDE);
+        assertTrue(root >= 0 && root <= 2);
+    }
+
+    @Test
+    public void testDoSolve_functionValueAccuracyTriggersEarlyReturn_anySide() {
+        BaseSecantSolver solver = createSolverWithFunctionValueAccuracy(
+                1e-9, 1e-9, 0.5, BaseSecantSolver.Method.REGULA_FALSI);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2, AllowedSolution.ANY_SIDE);
+        assertTrue(root >= 0 && root <= 2);
+    }
+
+    @Test
+    public void testDoSolve_functionValueAccuracyTriggersEarlyReturn_leftSide() {
+        BaseSecantSolver solver = createSolverWithFunctionValueAccuracy(
+                1e-9, 1e-9, 0.5, BaseSecantSolver.Method.REGULA_FALSI);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2, AllowedSolution.LEFT_SIDE);
+        assertTrue(root >= 0 && root <= 2);
+    }
+
+    @Test
+    public void testDoSolve_functionValueAccuracyTriggersEarlyReturn_rightSide() {
+        BaseSecantSolver solver = createSolverWithFunctionValueAccuracy(
+                1e-9, 1e-9, 0.5, BaseSecantSolver.Method.REGULA_FALSI);
+        double root = solver.solve(100, quadraticMinusTwo(), 0, 2, AllowedSolution.RIGHT_SIDE);
+        assertTrue(root >= 0 && root <= 2);
+    }
+
+    @Test
+    public void testDoSolve_functionValueAccuracyTriggersEarlyReturn_belowSide() {

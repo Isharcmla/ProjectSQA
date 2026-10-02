@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "9",
+  "tool": "claude",
+  "class": "org.jsoup.nodes.Entities",
+  "target_classes": [
+    "org.jsoup.nodes.Entities"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 63.3,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\9\\Entities_20261001_124255.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\9\\EntitiesTest.java",
+  "usage": {
+    "prompt_tokens": 36390,
+    "completion_tokens": 7278,
+    "total_tokens": 43668
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 222308,
+    "daily_remaining_tokens": -22308
+  },
+  "timestamp": "20261001_124255"
+}

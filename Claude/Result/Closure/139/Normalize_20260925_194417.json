@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "139",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.Normalize",
+  "target_classes": [
+    "com.google.javascript.jscomp.Normalize"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 106.37,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\139\\Normalize_20260925_194417.txt",
+  "test_file": "Claude\\TestCode\\Closure\\139\\NormalizeTest.java",
+  "usage": {
+    "prompt_tokens": 8500,
+    "completion_tokens": 12058,
+    "total_tokens": 20558
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 202556,
+    "daily_remaining_tokens": -2556
+  },
+  "timestamp": "20260925_194417"
+}

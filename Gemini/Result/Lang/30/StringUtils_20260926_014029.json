@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "30",
+  "tool": "gemini",
+  "class": "org.apache.commons.lang3.StringUtils",
+  "target_classes": [
+    "org.apache.commons.lang3.StringUtils"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 110.21,
+  "num_test_files_generated": 0,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Gemini\\Prompt\\Lang\\30\\StringUtils_20260926_014029.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 69125,
+    "completion_tokens": 14174,
+    "total_tokens": 85505
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 321042,
+    "daily_remaining_tokens": 28958
+  },
+  "timestamp": "20260926_014029"
+}

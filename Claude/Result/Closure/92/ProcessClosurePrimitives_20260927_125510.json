@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "92",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.ProcessClosurePrimitives",
+  "target_classes": [
+    "com.google.javascript.jscomp.ProcessClosurePrimitives"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 131.02,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\92\\ProcessClosurePrimitives_20260927_125510.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 13419,
+    "completion_tokens": 16384,
+    "total_tokens": 29803
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 78551,
+    "daily_remaining_tokens": 121449
+  },
+  "timestamp": "20260927_125510"
+}

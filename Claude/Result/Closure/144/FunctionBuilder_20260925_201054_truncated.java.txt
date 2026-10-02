@@ -1,0 +1,190 @@
+package com.google.javascript.rhino.jstype;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.google.javascript.rhino.ErrorReporter;
+import com.google.javascript.rhino.Node;
+
+/**
+ * Test suite for {@link FunctionBuilder}.
+ *
+ * หมายเหตุ: FunctionBuilder ต้องใช้ dependency จริงหลายตัว (JSTypeRegistry,
+ * FunctionParamBuilder, JSType, ObjectType, JSTypeNative, ErrorReporter)
+ * ซึ่งเป็นคลาสจริงในไลบรารี Closure Compiler (com.google.javascript.rhino.*)
+ * ทดสอบนี้สร้าง instance จริงของคลาสเหล่านี้ผ่าน public API เท่านั้น
+ * ไม่มีการใช้ mocking framework ใด ๆ
+ */
+public class FunctionBuilderTest {
+
+  private JSTypeRegistry registry;
+
+  @Before
+  public void setUp() {
+    ErrorReporter reporter = new ErrorReporter() {
+      @Override
+      public void warning(String message, String sourceName, int line, int lineOffset) {
+        // no-op for testing purposes
+      }
+
+      @Override
+      public void error(String message, String sourceName, int line, int lineOffset) {
+        // no-op for testing purposes
+      }
+    };
+    registry = new JSTypeRegistry(reporter);
+  }
+
+  @Test
+  public void testWithName_normalValue_setsNameOnBuiltType() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    FunctionBuilder result = builder.withName("myFunction");
+    assertSame(builder, result);
+    FunctionType type = builder.build();
+    assertEquals("myFunction", type.getReferenceName());
+  }
+
+  @Test
+  public void testWithName_nullValue_referenceNameIsNull() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    builder.withName(null);
+    FunctionType type = builder.build();
+    assertNull(type.getReferenceName());
+  }
+
+  @Test
+  public void testWithName_emptyString_referenceNameIsEmpty() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    builder.withName("");
+    FunctionType type = builder.build();
+    assertEquals("", type.getReferenceName());
+  }
+
+  @Test
+  public void testWithSourceNode_normalValue_sourceIsSet() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    Node sourceNode = Node.newString("source");
+    FunctionBuilder result = builder.withSourceNode(sourceNode);
+    assertSame(builder, result);
+    FunctionType type = builder.build();
+    assertSame(sourceNode, type.getSource());
+  }
+
+  @Test
+  public void testWithSourceNode_nullValue_sourceIsNull() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    builder.withSourceNode(null);
+    FunctionType type = builder.build();
+    assertNull(type.getSource());
+  }
+
+  @Test
+  public void testWithParams_normalFunctionParamBuilder_setsParametersNode() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    FunctionParamBuilder paramBuilder = new FunctionParamBuilder(registry);
+    FunctionBuilder result = builder.withParams(paramBuilder);
+    assertSame(builder, result);
+    FunctionType type = builder.build();
+    assertNotNull(type.getParametersNode());
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testWithParams_nullParamBuilder_throwsNullPointerException() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    builder.withParams(null);
+  }
+
+  @Test
+  public void testWithParamsNode_normalValue_setsParametersNode() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    Node paramsNode = new FunctionParamBuilder(registry).build();
+    FunctionBuilder result = builder.withParamsNode(paramsNode);
+    assertSame(builder, result);
+    FunctionType type = builder.build();
+    assertSame(paramsNode, type.getParametersNode());
+  }
+
+  @Test
+  public void testWithParamsNode_nullValue_parametersNodeIsNull() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    builder.withParamsNode(null);
+    FunctionType type = builder.build();
+    assertNull(type.getParametersNode());
+  }
+
+  @Test
+  public void testWithReturnType_normalValue_setsReturnTypeNotInferred() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    JSType numberType = registry.getNativeType(JSTypeNative.NUMBER_TYPE);
+    FunctionBuilder result = builder.withReturnType(numberType);
+    assertSame(builder, result);
+    FunctionType type = builder.build();
+    assertSame(numberType, type.getReturnType());
+  }
+
+  @Test
+  public void testWithReturnType_nullValue_returnTypeIsNull() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    builder.withReturnType(null);
+    FunctionType type = builder.build();
+    assertNull(type.getReturnType());
+  }
+
+  @Test
+  public void testWithInferredReturnType_normalValue_setsInferredReturnType() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    JSType stringType = registry.getNativeType(JSTypeNative.STRING_TYPE);
+    FunctionBuilder result = builder.withInferredReturnType(stringType);
+    assertSame(builder, result);
+    FunctionType type = builder.build();
+    assertSame(stringType, type.getReturnType());
+  }
+
+  @Test
+  public void testWithTypeOfThis_normalValue_setsTypeOfThis() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    ObjectType objectType = (ObjectType) registry.getNativeType(JSTypeNative.OBJECT_TYPE);
+    FunctionBuilder result = builder.withTypeOfThis(objectType);
+    assertSame(builder, result);
+    FunctionType type = builder.build();
+    assertSame(objectType, type.getTypeOfThis());
+  }
+
+  @Test
+  public void testWithTypeOfThis_nullValue_doesNotThrow() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    builder.withTypeOfThis(null);
+    FunctionType type = builder.build();
+    assertNotNull(type);
+  }
+
+  @Test
+  public void testWithTemplateName_normalValue_setsTemplateName() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    FunctionBuilder result = builder.withTemplateName("T");
+    assertSame(builder, result);
+    FunctionType type = builder.build();
+    assertEquals("T", type.getTemplateTypeName());
+  }
+
+  @Test
+  public void testWithTemplateName_nullValue_templateNameIsNull() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    builder.withTemplateName(null);
+    FunctionType type = builder.build();
+    assertNull(type.getTemplateTypeName());
+  }
+
+  @Test
+  public void testForConstructor_setsIsConstructorTrue() {
+    FunctionBuilder builder = new FunctionBuilder(registry);
+    FunctionBuilder result = builder.forConstructor();
+    assertSame(builder, result);
+    FunctionType type = builder.build();
+    assertTrue(type.isConstructor());
+  }
+
+  @Test
+  public void testBuild_withoutForConstructor_isConst

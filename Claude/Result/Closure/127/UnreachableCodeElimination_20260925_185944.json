@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "127",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.UnreachableCodeElimination",
+  "target_classes": [
+    "com.google.javascript.jscomp.UnreachableCodeElimination"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 50.24,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\127\\UnreachableCodeElimination_20260925_185944.txt",
+  "test_file": "Claude\\TestCode\\Closure\\127\\UnreachableCodeEliminationTest.java",
+  "usage": {
+    "prompt_tokens": 4317,
+    "completion_tokens": 6388,
+    "total_tokens": 10705
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 118011,
+    "daily_remaining_tokens": 81989
+  },
+  "timestamp": "20260925_185944"
+}

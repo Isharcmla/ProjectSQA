@@ -1,0 +1,33 @@
+{
+  "project": "Gson",
+  "bug_id": "10",
+  "tool": "claude",
+  "class": "com.google.gson.internal.bind.ReflectiveTypeAdapterFactory",
+  "target_classes": [
+    "com.google.gson.internal.bind.ReflectiveTypeAdapterFactory"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 116.42,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Gson\\10\\ReflectiveTypeAdapterFactory_20260928_204525.txt",
+  "test_file": "Claude\\TestCode\\Gson\\10\\ReflectiveTypeAdapterFactoryTest.java",
+  "usage": {
+    "prompt_tokens": 4402,
+    "completion_tokens": 13689,
+    "total_tokens": 18091
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 178814,
+    "daily_remaining_tokens": 21186
+  },
+  "timestamp": "20260928_204525"
+}

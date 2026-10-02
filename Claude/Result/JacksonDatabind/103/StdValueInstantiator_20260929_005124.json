@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "103",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.deser.std.StdValueInstantiator",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.std.StdValueInstantiator"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 155.45,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\103\\StdValueInstantiator_20260929_005124.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 7638,
+    "completion_tokens": 16384,
+    "total_tokens": 24022
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 180942,
+    "daily_remaining_tokens": 19058
+  },
+  "timestamp": "20260929_005124"
+}

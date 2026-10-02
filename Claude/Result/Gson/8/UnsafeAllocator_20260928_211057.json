@@ -1,0 +1,33 @@
+{
+  "project": "Gson",
+  "bug_id": "8",
+  "tool": "claude",
+  "class": "com.google.gson.internal.UnsafeAllocator",
+  "target_classes": [
+    "com.google.gson.internal.UnsafeAllocator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 45.92,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Gson\\8\\UnsafeAllocator_20260928_211057.txt",
+  "test_file": "Claude\\TestCode\\Gson\\8\\UnsafeAllocatorTest.java",
+  "usage": {
+    "prompt_tokens": 2333,
+    "completion_tokens": 4861,
+    "total_tokens": 7194
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 89513,
+    "daily_remaining_tokens": 110487
+  },
+  "timestamp": "20260928_211057"
+}

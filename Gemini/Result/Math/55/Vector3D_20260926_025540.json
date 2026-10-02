@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "55",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.geometry.Vector3D",
+  "target_classes": [
+    "org.apache.commons.math.geometry.Vector3D"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 50.2,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\55\\Vector3D_20260926_025540.txt",
+  "test_file": "Gemini\\TestCode\\Math\\55\\Vector3DTest.java",
+  "usage": {
+    "prompt_tokens": 6157,
+    "completion_tokens": 5276,
+    "total_tokens": 13580
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 76868,
+    "daily_remaining_tokens": 273132
+  },
+  "timestamp": "20260926_025540"
+}

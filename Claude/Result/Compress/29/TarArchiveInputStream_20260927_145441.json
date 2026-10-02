@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "29",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.archivers.tar.TarArchiveInputStream",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.tar.TarArchiveInputStream"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 168.22,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Compress\\29\\TarArchiveInputStream_20260927_145441.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 9520,
+    "completion_tokens": 16384,
+    "total_tokens": 25904
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 49337,
+    "daily_remaining_tokens": 150663
+  },
+  "timestamp": "20260927_145441"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "30",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.stat.inference.MannWhitneyUTest",
+  "target_classes": [
+    "org.apache.commons.math3.stat.inference.MannWhitneyUTest"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 24.79,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\30\\MannWhitneyUTest_20260926_023820.txt",
+  "test_file": "Gemini\\TestCode\\Math\\30\\MannWhitneyUTestTest.java",
+  "usage": {
+    "prompt_tokens": 2704,
+    "completion_tokens": 1896,
+    "total_tokens": 6348
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 100020,
+    "daily_remaining_tokens": 249980
+  },
+  "timestamp": "20260926_023820"
+}

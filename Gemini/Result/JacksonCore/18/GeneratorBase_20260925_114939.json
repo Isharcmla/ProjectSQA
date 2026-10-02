@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "18",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.core.base.GeneratorBase",
+  "target_classes": [
+    "com.fasterxml.jackson.core.base.GeneratorBase"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 62.44,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonCore\\18\\GeneratorBase_20260925_114939.txt",
+  "test_file": "Gemini\\TestCode\\JacksonCore\\18\\GeneratorBaseTest.java",
+  "usage": {
+    "prompt_tokens": 4125,
+    "completion_tokens": 5551,
+    "total_tokens": 13377
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 202912,
+    "daily_remaining_tokens": 147088
+  },
+  "timestamp": "20260925_114939"
+}

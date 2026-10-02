@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "23",
+  "tool": "claude",
+  "class": "org.apache.commons.collections4.trie.UnmodifiableTrie",
+  "target_classes": [
+    "org.apache.commons.collections4.trie.UnmodifiableTrie"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.81,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Collections\\23\\UnmodifiableTrie_20260927_135315.txt",
+  "test_file": "Claude\\TestCode\\Collections\\23\\UnmodifiableTrieTest.java",
+  "usage": {
+    "prompt_tokens": 2906,
+    "completion_tokens": 5812,
+    "total_tokens": 8718
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 67542,
+    "daily_remaining_tokens": 132458
+  },
+  "timestamp": "20260927_135315"
+}

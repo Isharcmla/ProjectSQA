@@ -1,0 +1,213 @@
+package org.apache.commons.compress.compressors.bzip2;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+
+import org.junit.Test;
+
+public class BZip2CompressorInputStreamTest {
+
+    // ---- helper builders --------------------------------------------------
+
+    /**
+     * Builds the shortest possible valid bzip2 stream: header + end-of-stream
+     * block magic + combined CRC (0 for an empty compressed payload).
+     */
+    private byte[] buildEmptyStream(char blockSizeChar) {
+        return new byte[] {
+            'B', 'Z', 'h', (byte) blockSizeChar,
+            0x17, 0x72, 0x45, 0x38, 0x50, (byte) 0x90,
+            0x00, 0x00, 0x00, 0x00
+        };
+    }
+
+    private byte[] buildEmptyStreamWithCorruptedCrc() {
+        return new byte[] {
+            'B', 'Z', 'h', '9',
+            0x17, 0x72, 0x45, 0x38, 0x50, (byte) 0x90,
+            0x00, 0x00, 0x00, 0x01
+        };
+    }
+
+    private byte[] concat(byte[] a, byte[] b) {
+        byte[] result = new byte[a.length + b.length];
+        System.arraycopy(a, 0, result, 0, a.length);
+        System.arraycopy(b, 0, result, a.length, b.length);
+        return result;
+    }
+
+    // ---- constructor tests -------------------------------------------------
+
+    @Test(expected = IOException.class)
+    public void testConstructor_withNullInputStream_throwsIOException() throws IOException {
+        new BZip2CompressorInputStream(null);
+    }
+
+    @Test(expected = IOException.class)
+    public void testConstructor_withEmptyUnderlyingStream_throwsIOException() throws IOException {
+        new BZip2CompressorInputStream(new ByteArrayInputStream(new byte[0]));
+    }
+
+    @Test(expected = IOException.class)
+    public void testConstructor_withInvalidSignature_throwsIOException() throws IOException {
+        byte[] data = { 'X', 'Y', 'Z', '1' };
+        new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+    }
+
+    @Test(expected = IOException.class)
+    public void testConstructor_withInvalidBlockSizeTooLow_throwsIOException() throws IOException {
+        byte[] data = { 'B', 'Z', 'h', '0' };
+        new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+    }
+
+    @Test(expected = IOException.class)
+    public void testConstructor_withInvalidBlockSizeTooHigh_throwsIOException() throws IOException {
+        byte[] data = { 'B', 'Z', 'h', ':' };
+        new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+    }
+
+    @Test
+    public void testConstructor_withBoundaryBlockSizeOne_success() throws IOException {
+        byte[] data = buildEmptyStream('1');
+        BZip2CompressorInputStream in = new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+        assertEquals(-1, in.read());
+        in.close();
+    }
+
+    @Test
+    public void testConstructor_withBoundaryBlockSizeNine_success() throws IOException {
+        byte[] data = buildEmptyStream('9');
+        BZip2CompressorInputStream in = new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+        assertEquals(-1, in.read());
+        in.close();
+    }
+
+    @Test(expected = IOException.class)
+    public void testConstructor_withBadBlockHeader_throwsIOException() throws IOException {
+        byte[] data = { 'B', 'Z', 'h', '9', 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+        new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+    }
+
+    @Test(expected = IOException.class)
+    public void testConstructor_withTruncatedStreamDuringBlockMagic_throwsIOException() throws IOException {
+        byte[] data = { 'B', 'Z', 'h', '9', 0x17 };
+        new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+    }
+
+    @Test(expected = IOException.class)
+    public void testConstructor_withCorruptedCombinedCrc_throwsIOException() throws IOException {
+        byte[] data = buildEmptyStreamWithCorruptedCrc();
+        new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+    }
+
+    @Test
+    public void testConstructor_singleArgDefaultsToNonConcatenated_leavesRemainingBytesUnread() throws IOException {
+        byte[] single = buildEmptyStream('9');
+        byte[] doubled = concat(single, single);
+        ByteArrayInputStream bais = new ByteArrayInputStream(doubled);
+
+        BZip2CompressorInputStream bzIn = new BZip2CompressorInputStream(bais);
+        assertEquals(-1, bzIn.read());
+        // second stream should remain untouched
+        assertEquals(single.length, bais.available());
+        bzIn.close();
+    }
+
+    @Test
+    public void testConstructor_explicitFalseConcatenated_leavesRemainingBytesUnread() throws IOException {
+        byte[] single = buildEmptyStream('9');
+        byte[] doubled = concat(single, single);
+        ByteArrayInputStream bais = new ByteArrayInputStream(doubled);
+
+        BZip2CompressorInputStream bzIn = new BZip2CompressorInputStream(bais, false);
+        assertEquals(-1, bzIn.read());
+        assertEquals(single.length, bais.available());
+        bzIn.close();
+    }
+
+    @Test
+    public void testConstructor_withDecompressConcatenatedTrue_consumesAllStreams() throws IOException {
+        byte[] single = buildEmptyStream('9');
+        byte[] doubled = concat(single, single);
+        ByteArrayInputStream bais = new ByteArrayInputStream(doubled);
+
+        BZip2CompressorInputStream bzIn = new BZip2CompressorInputStream(bais, true);
+        assertEquals(-1, bzIn.read());
+        assertEquals(0, bais.available());
+        bzIn.close();
+    }
+
+    // ---- read() tests -------------------------------------------------------
+
+    @Test
+    public void testRead_onEmptyStream_returnsMinusOne() throws IOException {
+        byte[] data = buildEmptyStream('9');
+        BZip2CompressorInputStream in = new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+        assertEquals(-1, in.read());
+        in.close();
+    }
+
+    @Test
+    public void testRead_multipleCallsAfterEof_alwaysReturnsMinusOne() throws IOException {
+        byte[] data = buildEmptyStream('9');
+        BZip2CompressorInputStream in = new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+        assertEquals(-1, in.read());
+        assertEquals(-1, in.read());
+        assertEquals(-1, in.read());
+        in.close();
+    }
+
+    @Test(expected = IOException.class)
+    public void testRead_afterClose_throwsIOException() throws IOException {
+        byte[] data = buildEmptyStream('9');
+        BZip2CompressorInputStream in = new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+        in.close();
+        in.read();
+    }
+
+    // ---- read(byte[], int, int) tests ---------------------------------------
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testReadByteArray_withNegativeOffset_throwsIndexOutOfBoundsException() throws IOException {
+        byte[] data = buildEmptyStream('9');
+        BZip2CompressorInputStream in = new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+        byte[] dest = new byte[5];
+        in.read(dest, -1, 3);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testReadByteArray_withNegativeLength_throwsIndexOutOfBoundsException() throws IOException {
+        byte[] data = buildEmptyStream('9');
+        BZip2CompressorInputStream in = new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+        byte[] dest = new byte[5];
+        in.read(dest, 0, -1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testReadByteArray_withOffsetPlusLenExceedingDestLength_throwsIndexOutOfBoundsException() throws IOException {
+        byte[] data = buildEmptyStream('9');
+        BZip2CompressorInputStream in = new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+        byte[] dest = new byte[5];
+        in.read(dest, 3, 5);
+    }
+
+    @Test(expected = IOException.class)
+    public void testReadByteArray_afterClose_throwsIOException() throws IOException {
+        byte[] data = buildEmptyStream('9');
+        BZip2CompressorInputStream in = new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+        in.close();
+        byte[] dest = new byte[5];
+        in.read(dest, 0, 5);
+    }
+
+    @Test
+    public void testReadByteArray_onEmptyStream_returnsMinusOne() throws IOException {
+        byte[] data = buildEmptyStream('9');
+        BZip2CompressorInputStream in = new BZip2CompressorInputStream(new ByteArrayInputStream(data));
+        byte[] dest = new byte[5];
+        int result = in

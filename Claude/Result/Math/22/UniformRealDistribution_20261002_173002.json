@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "22",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.distribution.UniformRealDistribution",
+  "target_classes": [
+    "org.apache.commons.math3.distribution.UniformRealDistribution"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 22.13,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\22\\UniformRealDistribution_20261002_173002.txt",
+  "test_file": "Claude\\TestCode\\Math\\22\\UniformRealDistributionTest.java",
+  "usage": {
+    "prompt_tokens": 3284,
+    "completion_tokens": 3355,
+    "total_tokens": 6639
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 173264,
+    "daily_remaining_tokens": 26736
+  },
+  "timestamp": "20261002_173002"
+}

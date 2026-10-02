@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "3",
+  "tool": "claude",
+  "class": "org.apache.commons.collections.CollectionUtils",
+  "target_classes": [
+    "org.apache.commons.collections.CollectionUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 99.81,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Collections\\3\\CollectionUtils_20260927_140057.txt",
+  "test_file": "Claude\\TestCode\\Collections\\3\\CollectionUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 17370,
+    "completion_tokens": 15497,
+    "total_tokens": 32867
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 32867,
+    "daily_remaining_tokens": 167133
+  },
+  "timestamp": "20260927_140057"
+}

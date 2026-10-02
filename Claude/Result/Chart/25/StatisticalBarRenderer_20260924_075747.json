@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "25",
+  "tool": "claude",
+  "class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+  "target_classes": [
+    "org.jfree.chart.renderer.category.StatisticalBarRenderer"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 129.82,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Chart\\25\\StatisticalBarRenderer_20260924_075747.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 8662,
+    "completion_tokens": 16384,
+    "total_tokens": 25046
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 96246,
+    "daily_remaining_tokens": 103754
+  },
+  "timestamp": "20260924_075747"
+}

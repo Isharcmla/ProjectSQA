@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "46",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.complex.Complex",
+  "target_classes": [
+    "org.apache.commons.math.complex.Complex"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 33.59,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\46\\Complex_20260926_024907.txt",
+  "test_file": "Gemini\\TestCode\\Math\\46\\ComplexTest.java",
+  "usage": {
+    "prompt_tokens": 11937,
+    "completion_tokens": 4944,
+    "total_tokens": 16881
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 297835,
+    "daily_remaining_tokens": 52165
+  },
+  "timestamp": "20260926_024907"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "81",
+  "tool": "claude",
+  "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+  "target_classes": [
+    "org.apache.commons.math.linear.EigenDecompositionImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 100.0,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\81\\EigenDecompositionImpl_20261002_233440.txt",
+  "test_file": "Claude\\TestCode\\Math\\81\\EigenDecompositionImplTest.java",
+  "usage": {
+    "prompt_tokens": 26575,
+    "completion_tokens": 13992,
+    "total_tokens": 40567
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 40567,
+    "daily_remaining_tokens": 159433
+  },
+  "timestamp": "20261002_233440"
+}

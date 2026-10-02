@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "8",
+  "tool": "gemini",
+  "class": "org.mockito.internal.util.reflection.GenericMetadataSupport",
+  "target_classes": [
+    "org.mockito.internal.util.reflection.GenericMetadataSupport"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 36.0,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Mockito\\8\\GenericMetadataSupport_20260926_035812.txt",
+  "test_file": "Gemini\\TestCode\\Mockito\\8\\GenericMetadataSupportTest.java",
+  "usage": {
+    "prompt_tokens": 6060,
+    "completion_tokens": 3727,
+    "total_tokens": 11350
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 206714,
+    "daily_remaining_tokens": 143286
+  },
+  "timestamp": "20260926_035812"
+}

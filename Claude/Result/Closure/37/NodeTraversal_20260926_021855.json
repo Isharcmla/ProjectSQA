@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "37",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.NodeTraversal",
+  "target_classes": [
+    "com.google.javascript.jscomp.NodeTraversal"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 132.53,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\37\\NodeTraversal_20260926_021855.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 8396,
+    "completion_tokens": 16384,
+    "total_tokens": 24780
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 210076,
+    "daily_remaining_tokens": -10076
+  },
+  "timestamp": "20260926_021855"
+}

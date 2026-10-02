@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "39",
+  "tool": "gemini",
+  "class": "org.jsoup.helper.DataUtil",
+  "target_classes": [
+    "org.jsoup.helper.DataUtil"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 36.45,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\39\\DataUtil_20260925_144441.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\39\\DataUtilTest.java",
+  "usage": {
+    "prompt_tokens": 2247,
+    "completion_tokens": 3139,
+    "total_tokens": 7583
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 96874,
+    "daily_remaining_tokens": 253126
+  },
+  "timestamp": "20260925_144441"
+}

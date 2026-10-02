@@ -1,0 +1,631 @@
+import com.fasterxml.jackson.core.Base64Variants;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.TreeNode;
+import com.fasterxml.jackson.core.Version;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.cfg.ContextAttributes;
+import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.*;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TimeZone;
+
+import static org.junit.Assert.*;
+
+public class ObjectReaderTest {
+
+    public static class SimpleBean {
+        public String name;
+        public int age;
+
+        public SimpleBean() {}
+
+        public SimpleBean(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+    }
+
+    private ObjectMapper mapper;
+    private ObjectReader baseReader;
+    private File tempFile;
+
+    @Before
+    public void setUp() {
+        mapper = new ObjectMapper();
+        baseReader = mapper.reader();
+    }
+
+    @After
+    public void tearDown() {
+        if (tempFile != null && tempFile.exists()) {
+            tempFile.delete();
+        }
+    }
+
+    // ---------------- version ----------------
+
+    @Test
+    public void testVersion_returnsNonNull_versionInfo() {
+        Version v = baseReader.version();
+        assertNotNull(v);
+    }
+
+    // ---------------- DeserializationFeature fluent ----------------
+
+    @Test
+    public void testWith_singleDeserializationFeature_enabled() {
+        ObjectReader r = baseReader.with(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        assertTrue(r.isEnabled(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES));
+    }
+
+    @Test
+    public void testWith_multipleDeserializationFeatures_enabled() {
+        ObjectReader r = baseReader.with(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
+                DeserializationFeature.UNWRAP_ROOT_VALUE);
+        assertTrue(r.isEnabled(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES));
+        assertTrue(r.isEnabled(DeserializationFeature.UNWRAP_ROOT_VALUE));
+    }
+
+    @Test
+    public void testWithFeatures_deserializationFeatureArray_enabled() {
+        ObjectReader r = baseReader.withFeatures(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        assertTrue(r.isEnabled(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES));
+    }
+
+    @Test
+    public void testWithout_singleDeserializationFeature_disabled() {
+        ObjectReader r = baseReader.without(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        assertFalse(r.isEnabled(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES));
+    }
+
+    @Test
+    public void testWithout_multipleDeserializationFeatures_disabled() {
+        ObjectReader r = baseReader.without(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
+                DeserializationFeature.UNWRAP_ROOT_VALUE);
+        assertFalse(r.isEnabled(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES));
+        assertFalse(r.isEnabled(DeserializationFeature.UNWRAP_ROOT_VALUE));
+    }
+
+    @Test
+    public void testWithoutFeatures_deserializationFeatureArray_disabled() {
+        ObjectReader r = baseReader.withoutFeatures(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        assertFalse(r.isEnabled(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES));
+    }
+
+    // ---------------- JsonParser.Feature fluent ----------------
+
+    @Test
+    public void testWith_jsonParserFeature_enabled() {
+        ObjectReader r = baseReader.with(JsonParser.Feature.ALLOW_COMMENTS);
+        assertTrue(r.isEnabled(JsonParser.Feature.ALLOW_COMMENTS));
+    }
+
+    @Test
+    public void testWithFeatures_jsonParserFeatureArray_enabled() {
+        ObjectReader r = baseReader.withFeatures(JsonParser.Feature.ALLOW_COMMENTS);
+        assertTrue(r.isEnabled(JsonParser.Feature.ALLOW_COMMENTS));
+    }
+
+    @Test
+    public void testWithout_jsonParserFeature_disabled() {
+        ObjectReader r = baseReader.with(JsonParser.Feature.ALLOW_COMMENTS)
+                .without(JsonParser.Feature.ALLOW_COMMENTS);
+        assertFalse(r.isEnabled(JsonParser.Feature.ALLOW_COMMENTS));
+    }
+
+    @Test
+    public void testWithoutFeatures_jsonParserFeatureArray_disabled() {
+        ObjectReader r = baseReader.with(JsonParser.Feature.ALLOW_COMMENTS)
+                .withoutFeatures(JsonParser.Feature.ALLOW_COMMENTS);
+        assertFalse(r.isEnabled(JsonParser.Feature.ALLOW_COMMENTS));
+    }
+
+    // ---------------- other fluent factories ----------------
+
+    @Test
+    public void testWith_deserializationConfig_sameConfig_returnsSameInstance() {
+        DeserializationConfig cfg = baseReader.getConfig();
+        ObjectReader r = baseReader.with(cfg);
+        assertSame(baseReader, r);
+    }
+
+    @Test
+    public void testWith_injectableValues_sameInstance_returnsThis() {
+        InjectableValues iv = null;
+        ObjectReader r = baseReader.with(iv);
+        assertSame(baseReader, r);
+    }
+
+    @Test
+    public void testWith_injectableValues_differentInstance_returnsNewInstance() {
+        InjectableValues.Std iv = new InjectableValues.Std();
+        ObjectReader r = baseReader.with(iv);
+        assertNotNull(r);
+        assertNotSame(baseReader, r);
+    }
+
+    @Test
+    public void testWith_jsonNodeFactory_returnsNewInstance() {
+        ObjectReader r = baseReader.with(JsonNodeFactory.instance);
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWith_jsonFactory_sameFactory_returnsThis() {
+        ObjectReader r = baseReader.with(baseReader.getFactory());
+        assertSame(baseReader, r);
+    }
+
+    @Test
+    public void testWith_jsonFactory_differentFactory_returnsNewInstance() throws IOException {
+        JsonFactory f = new JsonFactory();
+        ObjectReader r = baseReader.with(f);
+        assertNotNull(r);
+        assertSame(f, r.getFactory());
+    }
+
+    @Test
+    public void testWithRootName_returnsNewInstance() {
+        ObjectReader r = baseReader.withRootName("root");
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWith_formatSchema_null_noChange() {
+        ObjectReader r = baseReader.with((FormatSchema) null);
+        assertSame(baseReader, r);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWith_formatSchema_unsupportedSchema_throwsException() {
+        FormatSchema schema = new FormatSchema() {
+            @Override
+            public String getSchemaType() {
+                return "test-schema";
+            }
+        };
+        baseReader.with(schema);
+    }
+
+    @Test
+    public void testForType_javaType_sameType_returnsThis() {
+        JavaType t = mapper.getTypeFactory().constructType(SimpleBean.class);
+        ObjectReader r1 = baseReader.forType(t);
+        ObjectReader r2 = r1.forType(t);
+        assertSame(r1, r2);
+    }
+
+    @Test
+    public void testForType_class_returnsNewInstance() {
+        ObjectReader r = baseReader.forType(SimpleBean.class);
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testForType_typeReference_returnsNewInstance() {
+        ObjectReader r = baseReader.forType(new TypeReference<SimpleBean>() {});
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWithType_javaType_deprecated_returnsNewInstance() {
+        JavaType t = mapper.getTypeFactory().constructType(SimpleBean.class);
+        ObjectReader r = baseReader.withType(t);
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWithType_class_deprecated_returnsNewInstance() {
+        ObjectReader r = baseReader.withType(SimpleBean.class);
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWithType_reflectType_deprecated_returnsNewInstance() {
+        ObjectReader r = baseReader.withType((java.lang.reflect.Type) String.class);
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWithType_typeReference_deprecated_returnsNewInstance() {
+        ObjectReader r = baseReader.withType(new TypeReference<List<String>>() {});
+        assertNotNull(r);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithValueToUpdate_null_throwsException() {
+        baseReader.withValueToUpdate(null);
+    }
+
+    @Test
+    public void testWithValueToUpdate_sameValue_returnsThis() {
+        SimpleBean bean = new SimpleBean("a", 1);
+        ObjectReader r1 = baseReader.withValueToUpdate(bean);
+        ObjectReader r2 = r1.withValueToUpdate(bean);
+        assertSame(r1, r2);
+    }
+
+    @Test
+    public void testWithValueToUpdate_validValue_returnsNewInstance() {
+        SimpleBean bean = new SimpleBean("a", 1);
+        ObjectReader r = baseReader.withValueToUpdate(bean);
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWithView_returnsNewInstance() {
+        ObjectReader r = baseReader.withView(Object.class);
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWith_locale_returnsNewInstance() {
+        ObjectReader r = baseReader.with(Locale.US);
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWith_timeZone_returnsNewInstance() {
+        ObjectReader r = baseReader.with(TimeZone.getTimeZone("UTC"));
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWithHandler_returnsNewInstance() {
+        DeserializationProblemHandler handler = new DeserializationProblemHandler() {};
+        ObjectReader r = baseReader.withHandler(handler);
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWith_base64Variant_returnsNewInstance() {
+        ObjectReader r = baseReader.with(Base64Variants.getDefaultVariant());
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWithFormatDetection_readersArray_returnsNewInstance() {
+        ObjectReader r = baseReader.forType(SimpleBean.class)
+                .withFormatDetection(baseReader.forType(SimpleBean.class));
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWithFormatDetection_readersArray_readValueWorks() throws IOException {
+        ObjectReader detecting = baseReader.forType(SimpleBean.class)
+                .withFormatDetection(baseReader.forType(SimpleBean.class));
+        byte[] json = "{\"name\":\"abc\",\"age\":5}".getBytes("UTF-8");
+        SimpleBean bean = detecting.readValue(json);
+        assertEquals("abc", bean.name);
+        assertEquals(5, bean.age);
+    }
+
+    @Test(expected = JsonProcessingException.class)
+    public void testWithFormatDetection_readerFromString_throwsException() throws IOException {
+        ObjectReader detecting = baseReader.forType(SimpleBean.class)
+                .withFormatDetection(baseReader.forType(SimpleBean.class));
+        detecting.readValue("{\"name\":\"abc\",\"age\":5}");
+    }
+
+    @Test
+    public void testWith_contextAttributes_returnsNewInstance() {
+        ObjectReader r = baseReader.with(ContextAttributes.getEmpty());
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWithAttributes_returnsNewInstance() {
+        Map<Object, Object> attrs = new HashMap<Object, Object>();
+        attrs.put("key", "value");
+        ObjectReader r = baseReader.withAttributes(attrs);
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testWithAttribute_returnsNewInstance() {
+        ObjectReader r = baseReader.withAttribute("key", "value");
+        assertNotNull(r);
+        assertEquals("value", r.getAttributes().getAttribute("key"));
+    }
+
+    @Test
+    public void testWithoutAttribute_returnsNewInstance() {
+        ObjectReader r = baseReader.withAttribute("key", "value").withoutAttribute("key");
+        assertNull(r.getAttributes().getAttribute("key"));
+    }
+
+    // ---------------- simple accessors ----------------
+
+    @Test
+    public void testIsEnabled_deserializationFeature_returnsBoolean() {
+        boolean enabled = baseReader.isEnabled(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        assertTrue(enabled || !enabled);
+    }
+
+    @Test
+    public void testIsEnabled_mapperFeature_returnsBoolean() {
+        boolean enabled = baseReader.isEnabled(MapperFeature.USE_ANNOTATIONS);
+        assertTrue(enabled || !enabled);
+    }
+
+    @Test
+    public void testIsEnabled_jsonParserFeature_returnsBoolean() {
+        boolean enabled = baseReader.isEnabled(JsonParser.Feature.ALLOW_COMMENTS);
+        assertFalse(enabled);
+    }
+
+    @Test
+    public void testGetConfig_returnsNonNull() {
+        assertNotNull(baseReader.getConfig());
+    }
+
+    @Test
+    public void testGetFactory_returnsNonNull() {
+        assertNotNull(baseReader.getFactory());
+    }
+
+    @SuppressWarnings("deprecation")
+    @Test
+    public void testGetJsonFactory_deprecated_returnsSameAsFactory() {
+        assertSame(baseReader.getFactory(), baseReader.getJsonFactory());
+    }
+
+    @Test
+    public void testGetTypeFactory_returnsNonNull() {
+        assertNotNull(baseReader.getTypeFactory());
+    }
+
+    @Test
+    public void testGetAttributes_returnsNonNull() {
+        assertNotNull(baseReader.getAttributes());
+    }
+
+    // ---------------- readValue(JsonParser...) ----------------
+
+    @Test
+    public void testReadValue_jsonParser_normalInput() throws IOException {
+        JsonParser p = mapper.getFactory().createParser("{\"name\":\"a\",\"age\":1}");
+        SimpleBean bean = baseReader.forType(SimpleBean.class).readValue(p);
+        assertEquals("a", bean.name);
+        assertEquals(1, bean.age);
+        p.close();
+    }
+
+    @Test
+    public void testReadValue_jsonParser_class_normalInput() throws IOException {
+        JsonParser p = mapper.getFactory().createParser("{\"name\":\"b\",\"age\":2}");
+        SimpleBean bean = baseReader.readValue(p, SimpleBean.class);
+        assertEquals("b", bean.name);
+        p.close();
+    }
+
+    @Test
+    public void testReadValue_jsonParser_typeReference_normalInput() throws IOException {
+        JsonParser p = mapper.getFactory().createParser("{\"name\":\"c\",\"age\":3}");
+        SimpleBean bean = baseReader.readValue(p, new TypeReference<SimpleBean>() {});
+        assertEquals("c", bean.name);
+        p.close();
+    }
+
+    @Test
+    public void testReadValue_jsonParser_resolvedType_normalInput() throws IOException {
+        JsonParser p = mapper.getFactory().createParser("{\"name\":\"d\",\"age\":4}");
+        JavaType t = mapper.getTypeFactory().constructType(SimpleBean.class);
+        SimpleBean bean = baseReader.readValue(p, (com.fasterxml.jackson.core.type.ResolvedType) t);
+        assertEquals("d", bean.name);
+        p.close();
+    }
+
+    @Test
+    public void testReadValue_jsonParser_javaType_normalInput() throws IOException {
+        JsonParser p = mapper.getFactory().createParser("{\"name\":\"e\",\"age\":5}");
+        JavaType t = mapper.getTypeFactory().constructType(SimpleBean.class);
+        SimpleBean bean = baseReader.readValue(p, t);
+        assertEquals("e", bean.name);
+        p.close();
+    }
+
+    @Test
+    public void testReadValues_jsonParser_class_iteratesValues() throws IOException {
+        JsonParser p = mapper.getFactory().createParser("[{\"name\":\"a\",\"age\":1},{\"name\":\"b\",\"age\":2}]");
+        Iterator<SimpleBean> it = baseReader.readValues(p, SimpleBean.class);
+        List<SimpleBean> list = new ArrayList<SimpleBean>();
+        while (it.hasNext()) {
+            list.add(it.next());
+        }
+        assertEquals(2, list.size());
+        p.close();
+    }
+
+    @Test
+    public void testReadValues_jsonParser_typeReference_iteratesValues() throws IOException {
+        JsonParser p = mapper.getFactory().createParser("[{\"name\":\"a\",\"age\":1}]");
+        Iterator<SimpleBean> it = baseReader.readValues(p, new TypeReference<SimpleBean>() {});
+        assertTrue(it.hasNext());
+        p.close();
+    }
+
+    @Test
+    public void testReadValues_jsonParser_resolvedType_iteratesValues() throws IOException {
+        JsonParser p = mapper.getFactory().createParser("[{\"name\":\"a\",\"age\":1}]");
+        JavaType t = mapper.getTypeFactory().constructType(SimpleBean.class);
+        Iterator<SimpleBean> it = baseReader.readValues(p, (com.fasterxml.jackson.core.type.ResolvedType) t);
+        assertTrue(it.hasNext());
+        p.close();
+    }
+
+    @Test
+    public void testReadValues_jsonParser_javaType_iteratesValues() throws IOException {
+        JsonParser p = mapper.getFactory().createParser("[{\"name\":\"a\",\"age\":1}]");
+        JavaType t = mapper.getTypeFactory().constructType(SimpleBean.class);
+        Iterator<SimpleBean> it = baseReader.readValues(p, t);
+        assertTrue(it.hasNext());
+        p.close();
+    }
+
+    // ---------------- tree codec ----------------
+
+    @Test
+    public void testCreateArrayNode_returnsArrayNode() {
+        JsonNode node = baseReader.createArrayNode();
+        assertTrue(node.isArray());
+    }
+
+    @Test
+    public void testCreateObjectNode_returnsObjectNode() {
+        JsonNode node = baseReader.createObjectNode();
+        assertTrue(node.isObject());
+    }
+
+    @Test
+    public void testTreeAsTokens_returnsParser() throws IOException {
+        JsonNode node = mapper.createObjectNode().put("name", "x");
+        JsonParser p = baseReader.treeAsTokens(node);
+        assertNotNull(p);
+        p.close();
+    }
+
+    @Test
+    public void testReadTree_jsonParser_normalInput() throws IOException {
+        JsonParser p = mapper.getFactory().createParser("{\"name\":\"a\"}");
+        JsonNode node = baseReader.readTree(p);
+        assertTrue(node.isObject());
+        p.close();
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteTree_throwsUnsupportedOperationException() throws IOException {
+        baseReader.writeTree(null, null);
+    }
+
+    // ---------------- readValue from various sources ----------------
+
+    @Test
+    public void testReadValue_inputStream_normalInput() throws IOException {
+        InputStream in = new ByteArrayInputStream("{\"name\":\"a\",\"age\":1}".getBytes("UTF-8"));
+        SimpleBean bean = baseReader.forType(SimpleBean.class).readValue(in);
+        assertEquals("a", bean.name);
+    }
+
+    @Test
+    public void testReadValue_reader_normalInput() throws IOException {
+        Reader in = new StringReader("{\"name\":\"a\",\"age\":1}");
+        SimpleBean bean = baseReader.forType(SimpleBean.class).readValue(in);
+        assertEquals("a", bean.name);
+    }
+
+    @Test
+    public void testReadValue_string_normalInput() throws IOException {
+        SimpleBean bean = baseReader.forType(SimpleBean.class).readValue("{\"name\":\"a\",\"age\":1}");
+        assertEquals("a", bean.name);
+    }
+
+    @Test(expected = JsonProcessingException.class)
+    public void testReadValue_string_emptyInput_throwsException() throws IOException {
+        baseReader.forType(SimpleBean.class).readValue("");
+    }
+
+    @Test
+    public void testReadValue_byteArray_normalInput() throws IOException {
+        byte[] src = "{\"name\":\"a\",\"age\":1}".getBytes("UTF-8");
+        SimpleBean bean = baseReader.forType(SimpleBean.class).readValue(src);
+        assertEquals("a", bean.name);
+    }
+
+    @Test
+    public void testReadValue_byteArrayOffsetLength_normalInput() throws IOException {
+        byte[] src = "XX{\"name\":\"a\",\"age\":1}YY".getBytes("UTF-8");
+        SimpleBean bean = baseReader.forType(SimpleBean.class).readValue(src, 2, src.length - 4);
+        assertEquals("a", bean.name);
+    }
+
+    @Test
+    public void testReadValue_file_normalInput() throws IOException {
+        tempFile = File.createTempFile("objectReaderTest", ".json");
+        FileWriter fw = new FileWriter(tempFile);
+        fw.write("{\"name\":\"a\",\"age\":1}");
+        fw.close();
+        SimpleBean bean = baseReader.forType(SimpleBean.class).readValue(tempFile);
+        assertEquals("a", bean.name);
+    }
+
+    @Test
+    public void testReadValue_url_normalInput() throws IOException {
+        tempFile = File.createTempFile("objectReaderTest", ".json");
+        FileWriter fw = new FileWriter(tempFile);
+        fw.write("{\"name\":\"a\",\"age\":1}");
+        fw.close();
+        URL url = tempFile.toURI().toURL();
+        SimpleBean bean = baseReader.forType(SimpleBean.class).readValue(url);
+        assertEquals("a", bean.name);
+    }
+
+    @Test
+    public void testReadValue_jsonNode_normalInput() throws IOException {
+        JsonNode node = mapper.valueToTree(new SimpleBean("a", 1));
+        SimpleBean bean = baseReader.forType(SimpleBean.class).readValue(node);
+        assertEquals("a", bean.name);
+    }
+
+    @Test
+    public void testReadTree_inputStream_normalInput() throws IOException {
+        InputStream in = new ByteArrayInputStream("{\"name\":\"a\"}".getBytes("UTF-8"));
+        JsonNode node = baseReader.readTree(in);
+        assertTrue(node.isObject());
+    }
+
+    @Test
+    public void testReadTree_reader_normalInput() throws IOException {
+        Reader r = new StringReader("{\"name\":\"a\"}");
+        JsonNode node = baseReader.readTree(r);
+        assertTrue(node.isObject());
+    }
+
+    @Test
+    public void testReadTree_string_normalInput() throws IOException {
+        JsonNode node = baseReader.readTree("{\"name\":\"a\"}");
+        assertTrue(node.isObject());
+    }
+
+    // ---------------- readValues sequences ----------------
+
+    @Test
+    public void testReadValues_jsonParser_noType_iteratesValues() throws IOException {
+        JsonParser p = mapper.getFactory().createParser("[{\"name\":\"a\"},{\"name\":\"b\"}]");
+        MappingIterator<JsonNode> it = baseReader.forType(JsonNode.class).readValues(p);
+        List<JsonNode> list = new ArrayList<JsonNode>();
+        while (it.hasNext()) {
+            list.add(it.next());
+        }
+        assertEquals(2, list.size());
+        p.close();
+    }
+
+    @Test
+    public void testReadValues_inputStream_iteratesValues() throws IOException {
+        InputStream in = new ByteArrayInputStream("[{\"name\":\"a\"},{\"name\":\"b\"}]".getBytes("UTF-8"));
+        MappingIterator<JsonNode> it = baseReader.forType(JsonNode.class).readValues(in);
+        List<JsonNode> list = new ArrayList<JsonNode>();
+        while (it.hasNext()) {
+            list.add(it.next());
+        }
+        assertEquals(2, list.size());
+    }
+
+    @Test
+    public void testReadValues_reader_iteratesValues() throws IOException {
+        Reader r = new StringReader("[{\"name\":\"a\"},{\"name\":\"b\"}]");
+        MappingIter

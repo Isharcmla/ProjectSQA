@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "27",
+  "tool": "gemini",
+  "class": "org.joda.time.format.PeriodFormatterBuilder",
+  "target_classes": [
+    "org.joda.time.format.PeriodFormatterBuilder"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 54.18,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Time\\27\\PeriodFormatterBuilder_20260926_041616.txt",
+  "test_file": "Gemini\\TestCode\\Time\\27\\PeriodFormatterBuilderTest.java",
+  "usage": {
+    "prompt_tokens": 16432,
+    "completion_tokens": 6090,
+    "total_tokens": 24442
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 184742,
+    "daily_remaining_tokens": 165258
+  },
+  "timestamp": "20260926_041616"
+}

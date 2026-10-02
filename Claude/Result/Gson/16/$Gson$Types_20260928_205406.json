@@ -1,0 +1,33 @@
+{
+  "project": "Gson",
+  "bug_id": "16",
+  "tool": "claude",
+  "class": "com.google.gson.internal.$Gson$Types",
+  "target_classes": [
+    "com.google.gson.internal.$Gson$Types"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 102.99,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Gson\\16\\$Gson$Types_20260928_205406.txt",
+  "test_file": "Claude\\TestCode\\Gson\\16\\$Gson$TypesTest.java",
+  "usage": {
+    "prompt_tokens": 9224,
+    "completion_tokens": 13264,
+    "total_tokens": 22488
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 105377,
+    "daily_remaining_tokens": 94623
+  },
+  "timestamp": "20260928_205406"
+}

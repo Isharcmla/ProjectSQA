@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "23",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.archivers.sevenz.Coders",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.sevenz.Coders"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 156.94,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Compress\\23\\Coders_20260927_143223.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 4821,
+    "completion_tokens": 16384,
+    "total_tokens": 21205
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 21205,
+    "daily_remaining_tokens": 178795
+  },
+  "timestamp": "20260927_143223"
+}

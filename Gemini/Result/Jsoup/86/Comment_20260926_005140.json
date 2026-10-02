@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "86",
+  "tool": "gemini",
+  "class": "org.jsoup.nodes.Comment",
+  "target_classes": [
+    "org.jsoup.nodes.Comment"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 14.3,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\86\\Comment_20260926_005140.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\86\\CommentTest.java",
+  "usage": {
+    "prompt_tokens": 893,
+    "completion_tokens": 1101,
+    "total_tokens": 2934
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 168619,
+    "daily_remaining_tokens": 181381
+  },
+  "timestamp": "20260926_005140"
+}

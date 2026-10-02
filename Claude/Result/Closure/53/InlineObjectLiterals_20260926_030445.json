@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "53",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.InlineObjectLiterals",
+  "target_classes": [
+    "com.google.javascript.jscomp.InlineObjectLiterals"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 104.94,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\53\\InlineObjectLiterals_20260926_030445.txt",
+  "test_file": "Claude\\TestCode\\Closure\\53\\InlineObjectLiteralsTest.java",
+  "usage": {
+    "prompt_tokens": 6633,
+    "completion_tokens": 11343,
+    "total_tokens": 17976
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 67020,
+    "daily_remaining_tokens": 132980
+  },
+  "timestamp": "20260926_030445"
+}

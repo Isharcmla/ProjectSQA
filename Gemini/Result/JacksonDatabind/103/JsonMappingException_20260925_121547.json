@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "103",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.JsonMappingException",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.JsonMappingException"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 34.05,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\103\\JsonMappingException_20260925_121547.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\103\\JsonMappingExceptionTest.java",
+  "usage": {
+    "prompt_tokens": 4521,
+    "completion_tokens": 4980,
+    "total_tokens": 9501
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 49762,
+    "daily_remaining_tokens": 300238
+  },
+  "timestamp": "20260925_121547"
+}

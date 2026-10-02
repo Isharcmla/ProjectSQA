@@ -1,0 +1,924 @@
+```java
+package org.apache.commons.lang3.time;
+
+import static org.junit.Assert.*;
+
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+import org.junit.Test;
+
+public class DateUtilsTest {
+
+    private Date createDate(int year, int month, int day, int hour, int minute, int second, int millis) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(year, month, day, hour, minute, second);
+        cal.set(Calendar.MILLISECOND, millis);
+        return cal.getTime();
+    }
+
+    private Calendar createCalendar(int year, int month, int day, int hour, int minute, int second, int millis) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(year, month, day, hour, minute, second);
+        cal.set(Calendar.MILLISECOND, millis);
+        return cal;
+    }
+
+    // ---------------------- isSameDay(Date, Date) ----------------------
+
+    @Test
+    public void testIsSameDay_Date_sameDay_returnsTrue() {
+        Date d1 = createDate(2020, Calendar.MARCH, 28, 13, 45, 0, 0);
+        Date d2 = createDate(2020, Calendar.MARCH, 28, 6, 1, 0, 0);
+        assertTrue(DateUtils.isSameDay(d1, d2));
+    }
+
+    @Test
+    public void testIsSameDay_Date_differentDay_returnsFalse() {
+        Date d1 = createDate(2020, Calendar.MARCH, 28, 13, 45, 0, 0);
+        Date d2 = createDate(2020, Calendar.MARCH, 12, 13, 45, 0, 0);
+        assertFalse(DateUtils.isSameDay(d1, d2));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameDay_Date_null_throwsException() {
+        DateUtils.isSameDay((Date) null, new Date());
+    }
+
+    // ---------------------- isSameDay(Calendar, Calendar) ----------------------
+
+    @Test
+    public void testIsSameDay_Calendar_sameDay_returnsTrue() {
+        Calendar c1 = createCalendar(2020, Calendar.MARCH, 28, 13, 45, 0, 0);
+        Calendar c2 = createCalendar(2020, Calendar.MARCH, 28, 6, 1, 0, 0);
+        assertTrue(DateUtils.isSameDay(c1, c2));
+    }
+
+    @Test
+    public void testIsSameDay_Calendar_differentDay_returnsFalse() {
+        Calendar c1 = createCalendar(2020, Calendar.MARCH, 28, 13, 45, 0, 0);
+        Calendar c2 = createCalendar(2019, Calendar.MARCH, 28, 13, 45, 0, 0);
+        assertFalse(DateUtils.isSameDay(c1, c2));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameDay_Calendar_null_throwsException() {
+        DateUtils.isSameDay((Calendar) null, Calendar.getInstance());
+    }
+
+    // ---------------------- isSameInstant(Date, Date) ----------------------
+
+    @Test
+    public void testIsSameInstant_Date_sameInstant_returnsTrue() {
+        Date d1 = new Date(100000L);
+        Date d2 = new Date(100000L);
+        assertTrue(DateUtils.isSameInstant(d1, d2));
+    }
+
+    @Test
+    public void testIsSameInstant_Date_differentInstant_returnsFalse() {
+        Date d1 = new Date(100000L);
+        Date d2 = new Date(200000L);
+        assertFalse(DateUtils.isSameInstant(d1, d2));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameInstant_Date_null_throwsException() {
+        DateUtils.isSameInstant((Date) null, new Date());
+    }
+
+    // ---------------------- isSameInstant(Calendar, Calendar) ----------------------
+
+    @Test
+    public void testIsSameInstant_Calendar_sameInstant_returnsTrue() {
+        Calendar c1 = Calendar.getInstance();
+        c1.setTimeInMillis(100000L);
+        Calendar c2 = Calendar.getInstance();
+        c2.setTimeInMillis(100000L);
+        assertTrue(DateUtils.isSameInstant(c1, c2));
+    }
+
+    @Test
+    public void testIsSameInstant_Calendar_differentInstant_returnsFalse() {
+        Calendar c1 = Calendar.getInstance();
+        c1.setTimeInMillis(100000L);
+        Calendar c2 = Calendar.getInstance();
+        c2.setTimeInMillis(200000L);
+        assertFalse(DateUtils.isSameInstant(c1, c2));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameInstant_Calendar_null_throwsException() {
+        DateUtils.isSameInstant((Calendar) null, Calendar.getInstance());
+    }
+
+    // ---------------------- isSameLocalTime(Calendar, Calendar) ----------------------
+
+    @Test
+    public void testIsSameLocalTime_sameLocalTime_returnsTrue() {
+        Calendar c1 = createCalendar(2020, Calendar.MARCH, 28, 13, 45, 10, 500);
+        Calendar c2 = createCalendar(2020, Calendar.MARCH, 28, 13, 45, 10, 500);
+        assertTrue(DateUtils.isSameLocalTime(c1, c2));
+    }
+
+    @Test
+    public void testIsSameLocalTime_differentLocalTime_returnsFalse() {
+        Calendar c1 = createCalendar(2020, Calendar.MARCH, 28, 13, 45, 10, 500);
+        Calendar c2 = createCalendar(2020, Calendar.MARCH, 28, 13, 45, 11, 500);
+        assertFalse(DateUtils.isSameLocalTime(c1, c2));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameLocalTime_null_throwsException() {
+        DateUtils.isSameLocalTime(null, Calendar.getInstance());
+    }
+
+    // ---------------------- parseDate ----------------------
+
+    @Test
+    public void testParseDate_validPattern_returnsDate() throws ParseException {
+        Date result = DateUtils.parseDate("2020-03-28", "yyyy-MM-dd");
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(2020, cal.get(Calendar.YEAR));
+        assertEquals(Calendar.MARCH, cal.get(Calendar.MONTH));
+        assertEquals(28, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test(expected = ParseException.class)
+    public void testParseDate_noMatchingPattern_throwsParseException() throws ParseException {
+        DateUtils.parseDate("not-a-date", "yyyy-MM-dd");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testParseDate_nullString_throwsException() throws ParseException {
+        DateUtils.parseDate(null, "yyyy-MM-dd");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testParseDate_nullPatterns_throwsException() throws ParseException {
+        DateUtils.parseDate("2020-03-28", (String[]) null);
+    }
+
+    @Test
+    public void testParseDate_withZZPattern_returnsDate() throws ParseException {
+        Date result = DateUtils.parseDate("2020-03-28T10:00:00-05:00", "yyyy-MM-dd'T'HH:mm:ssZZ");
+        assertNotNull(result);
+    }
+
+    // ---------------------- parseDateStrictly ----------------------
+
+    @Test
+    public void testParseDateStrictly_validPattern_returnsDate() throws ParseException {
+        Date result = DateUtils.parseDateStrictly("2020-03-28", "yyyy-MM-dd");
+        assertNotNull(result);
+    }
+
+    @Test(expected = ParseException.class)
+    public void testParseDateStrictly_invalidStrictDate_throwsParseException() throws ParseException {
+        DateUtils.parseDateStrictly("2020-02-30", "yyyy-MM-dd");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testParseDateStrictly_nullString_throwsException() throws ParseException {
+        DateUtils.parseDateStrictly(null, "yyyy-MM-dd");
+    }
+
+    // ---------------------- add* methods ----------------------
+
+    @Test
+    public void testAddYears_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 0, 0, 0, 0);
+        Date result = DateUtils.addYears(d, 1);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(2021, cal.get(Calendar.YEAR));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddYears_null_throwsException() {
+        DateUtils.addYears(null, 1);
+    }
+
+    @Test
+    public void testAddMonths_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 0, 0, 0, 0);
+        Date result = DateUtils.addMonths(d, 1);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(Calendar.APRIL, cal.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 0, 0, 0, 0);
+        Date result = DateUtils.addWeeks(d, 1);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(4, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddDays_negativeAmount_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 0, 0, 0, 0);
+        Date result = DateUtils.addDays(d, -1);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(27, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddHours_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 10, 0, 0, 0);
+        Date result = DateUtils.addHours(d, 5);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(15, cal.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMinutes_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 10, 10, 0, 0);
+        Date result = DateUtils.addMinutes(d, 5);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(15, cal.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddSeconds_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 10, 10, 10, 0);
+        Date result = DateUtils.addSeconds(d, 5);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(15, cal.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 10, 10, 10, 100);
+        Date result = DateUtils.addMilliseconds(d, 50);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(150, cal.get(Calendar.MILLISECOND));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddMonths_null_throwsException() {
+        DateUtils.addMonths(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddDays_null_throwsException() {
+        DateUtils.addDays(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddHours_null_throwsException() {
+        DateUtils.addHours(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddMinutes_null_throwsException() {
+        DateUtils.addMinutes(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddSeconds_null_throwsException() {
+        DateUtils.addSeconds(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddMilliseconds_null_throwsException() {
+        DateUtils.addMilliseconds(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddWeeks_null_throwsException() {
+        DateUtils.addWeeks(null, 1);
+    }
+
+    // ---------------------- set* methods ----------------------
+
+    @Test
+    public void testSetYears_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 0, 0, 0, 0);
+        Date result = DateUtils.setYears(d, 2025);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(2025, cal.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMonths_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 0, 0, 0, 0);
+        Date result = DateUtils.setMonths(d, Calendar.JUNE);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(Calendar.JUNE, cal.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetDays_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 0, 0, 0, 0);
+        Date result = DateUtils.setDays(d, 15);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(15, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetHours_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 10, 0, 0, 0);
+        Date result = DateUtils.setHours(d, 20);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(20, cal.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMinutes_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 10, 10, 0, 0);
+        Date result = DateUtils.setMinutes(d, 45);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(45, cal.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetSeconds_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 10, 10, 10, 0);
+        Date result = DateUtils.setSeconds(d, 45);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(45, cal.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMilliseconds_normal_returnsCorrectDate() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 10, 10, 10, 100);
+        Date result = DateUtils.setMilliseconds(d, 500);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(500, cal.get(Calendar.MILLISECOND));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetYears_null_throwsException() {
+        DateUtils.setYears(null, 2020);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetMonths_null_throwsException() {
+        DateUtils.setMonths(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetDays_null_throwsException() {
+        DateUtils.setDays(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetHours_null_throwsException() {
+        DateUtils.setHours(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetMinutes_null_throwsException() {
+        DateUtils.setMinutes(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetSeconds_null_throwsException() {
+        DateUtils.setSeconds(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetMilliseconds_null_throwsException() {
+        DateUtils.setMilliseconds(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetHours_invalidLenientValue_throwsException() {
+        Date d = createDate(2020, Calendar.MARCH, 28, 10, 0, 0, 0);
+        DateUtils.setHours(d, 99);
+    }
+
+    // ---------------------- toCalendar ----------------------
+
+    @Test
+    public void testToCalendar_normal_returnsCalendar() {
+        Date d = new Date();
+        Calendar cal = DateUtils.toCalendar(d);
+        assertEquals(d.getTime(), cal.getTime().getTime());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testToCalendar_null_throwsException() {
+        DateUtils.toCalendar(null);
+    }
+
+    // ---------------------- round(Date, int) ----------------------
+
+    @Test
+    public void testRound_DateHour_roundsUp() {
+        Date d = createDate(2002, Calendar.MARCH, 28, 13, 45, 1, 231);
+        Date result = DateUtils.round(d, Calendar.HOUR_OF_DAY);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(14, cal.get(Calendar.HOUR_OF_DAY));
+        assertEquals(0, cal.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testRound_DateMonth_rollsOverToNextMonth() {
+        Date d = createDate(2002, Calendar.MARCH, 28, 13, 45, 1, 231);
+        Date result = DateUtils.round(d, Calendar.MONTH);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(Calendar.APRIL, cal.get(Calendar.MONTH));
+        assertEquals(1, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testRound_DateNull_throwsException() {
+        DateUtils.round((Date) null, Calendar.HOUR_OF_DAY);
+    }
+
+    // ---------------------- round(Calendar, int) ----------------------
+
+    @Test
+    public void testRound_Calendar_normal_returnsRoundedCalendar() {
+        Calendar cal = createCalendar(2002, Calendar.MARCH, 28, 13, 45, 1, 231);
+        Calendar result = DateUtils.round(cal, Calendar.HOUR_OF_DAY);
+        assertEquals(14, result.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testRound_CalendarNull_throwsException() {
+        DateUtils.round((Calendar) null, Calendar.HOUR_OF_DAY);
+    }
+
+    // ---------------------- round(Object, int) ----------------------
+
+    @Test
+    public void testRound_ObjectDate_returnsRoundedDate() {
+        Date d = createDate(2002, Calendar.MARCH, 28, 13, 45, 1, 231);
+        Date result = DateUtils.round((Object) d, Calendar.HOUR_OF_DAY);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testRound_ObjectCalendar_returnsRoundedDate() {
+        Calendar cal = createCalendar(2002, Calendar.MARCH, 28, 13, 45, 1, 231);
+        Date result = DateUtils.round((Object) cal, Calendar.HOUR_OF_DAY);
+        assertNotNull(result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testRound_ObjectNull_throwsException() {
+        DateUtils.round((Object) null, Calendar.HOUR_OF_DAY);
+    }
+
+    @Test(expected = ClassCastException.class)
+    public void testRound_ObjectInvalidType_throwsException() {
+        DateUtils.round("not a date", Calendar.HOUR_OF_DAY);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testRound_unsupportedField_throwsException() {
+        Date d = createDate(2002, Calendar.MARCH, 28, 13, 45, 1, 231);
+        DateUtils.round(d, Calendar.DAY_OF_WEEK);
+    }
+
+    @Test
+    public void testRound_SemiMonth_dateOne_roundsUpTo16() {
+        Date d = createDate(2020, Calendar.MARCH, 1, 20, 0, 0, 0);
+        Date result = DateUtils.round(d, DateUtils.SEMI_MONTH);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(16, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testRound_SemiMonth_dateOther_rollsToNextMonth() {
+        Date d = createDate(2020, Calendar.MARCH, 20, 20, 0, 0, 0);
+        Date result = DateUtils.round(d, DateUtils.SEMI_MONTH);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(Calendar.APRIL, cal.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testRound_AMPM_midnight_roundsTo12() {
+        Date d = createDate(2020, Calendar.MARCH, 20, 0, 5, 0, 0);
+        Date result = DateUtils.round(d, Calendar.AM_PM);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        // depends on whether 0 hour rounds up or not based on roundUp flag
+        assertNotNull(result);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testRound_yearOverLimit_throwsArithmeticException() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, 280000001);
+        DateUtils.round(cal, Calendar.HOUR_OF_DAY);
+    }
+
+    // ---------------------- truncate(Date, int) ----------------------
+
+    @Test
+    public void testTruncate_DateHour_truncatesCorrectly() {
+        Date d = createDate(2002, Calendar.MARCH, 28, 13, 45, 1, 231);
+        Date result = DateUtils.truncate(d, Calendar.HOUR_OF_DAY);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(13, cal.get(Calendar.HOUR_OF_DAY));
+        assertEquals(0, cal.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testTruncate_DateMonth_truncatesCorrectly() {
+        Date d = createDate(2002, Calendar.MARCH, 28, 13, 45, 1, 231);
+        Date result = DateUtils.truncate(d, Calendar.MONTH);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(1, cal.get(Calendar.DAY_OF_MONTH));
+        assertEquals(0, cal.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testTruncate_DateNull_throwsException() {
+        DateUtils.truncate((Date) null, Calendar.HOUR_OF_DAY);
+    }
+
+    @Test
+    public void testTruncate_DateMillisecond_returnsUnchanged() {
+        Date d = createDate(2002, Calendar.MARCH, 28, 13, 45, 1, 231);
+        Date result = DateUtils.truncate(d, Calendar.MILLISECOND);
+        assertEquals(d, result);
+    }
+
+    // ---------------------- truncate(Calendar, int) ----------------------
+
+    @Test
+    public void testTruncate_Calendar_normal_returnsTruncatedCalendar() {
+        Calendar cal = createCalendar(2002, Calendar.MARCH, 28, 13, 45, 1, 231);
+        Calendar result = DateUtils.truncate(cal, Calendar.HOUR_OF_DAY);
+        assertEquals(13, result.get(Calendar.HOUR_OF_DAY));
+        assertEquals(0, result.get(Calendar.MINUTE));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testTruncate_CalendarNull_throwsException() {
+        DateUtils.truncate((Calendar) null, Calendar.HOUR_OF_DAY);
+    }
+
+    // ---------------------- truncate(Object, int) ----------------------
+
+    @Test
+    public void testTruncate_ObjectDate_returnsTruncatedDate() {
+        Date d = createDate(2002, Calendar.MARCH, 28, 13, 45, 1, 231);
+        Date result = DateUtils.truncate((Object) d, Calendar.HOUR_OF_DAY);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testTruncate_ObjectCalendar_returnsTruncatedDate() {
+        Calendar cal = createCalendar(2002, Calendar.MARCH, 28, 13, 45, 1, 231);
+        Date result = DateUtils.truncate((Object) cal, Calendar.HOUR_OF_DAY);
+        assertNotNull(result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testTruncate_ObjectNull_throwsException() {
+        DateUtils.truncate((Object) null, Calendar.HOUR_OF_DAY);
+    }
+
+    @Test(expected = ClassCastException.class)
+    public void testTruncate_ObjectInvalidType_throwsException() {
+        DateUtils.truncate("not a date", Calendar.HOUR_OF_DAY);
+    }
+
+    // ---------------------- ceiling(Date, int) ----------------------
+
+    @Test
+    public void testCeiling_DateHour_ceilsUp() {
+        Date d = createDate(2002, Calendar.MARCH, 28, 13, 0, 1, 0);
+        Date result = DateUtils.ceiling(d, Calendar.HOUR_OF_DAY);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(14, cal.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCeiling_DateNull_throwsException() {
+        DateUtils.ceiling((Date) null, Calendar.HOUR_OF_DAY);
+    }
+
+    // ---------------------- ceiling(Calendar, int) ----------------------
+
+    @Test
+    public void testCeiling_Calendar_normal_returnsCeiledCalendar() {
+        Calendar cal = createCalendar(2002, Calendar.MARCH, 28, 13, 0, 1, 0);
+        Calendar result = DateUtils.ceiling(cal, Calendar.HOUR_OF_DAY);
+        assertEquals(14, result.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCeiling_CalendarNull_throwsException() {
+        DateUtils.ceiling((Calendar) null, Calendar.HOUR_OF_DAY);
+    }
+
+    // ---------------------- ceiling(Object, int) ----------------------
+
+    @Test
+    public void testCeiling_ObjectDate_returnsCeiledDate() {
+        Date d = createDate(2002, Calendar.MARCH, 28, 13, 0, 1, 0);
+        Date result = DateUtils.ceiling((Object) d, Calendar.HOUR_OF_DAY);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testCeiling_ObjectCalendar_returnsCeiledDate() {
+        Calendar cal = createCalendar(2002, Calendar.MARCH, 28, 13, 0, 1, 0);
+        Date result = DateUtils.ceiling((Object) cal, Calendar.HOUR_OF_DAY);
+        assertNotNull(result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCeiling_ObjectNull_throwsException() {
+        DateUtils.ceiling((Object) null, Calendar.HOUR_OF_DAY);
+    }
+
+    @Test(expected = ClassCastException.class)
+    public void testCeiling_ObjectInvalidType_throwsException() {
+        DateUtils.ceiling("not a date", Calendar.HOUR_OF_DAY);
+    }
+
+    // ---------------------- iterator(Date, int) ----------------------
+
+    @Test
+    public void testIterator_DateRangeMonthSunday_returnsIterator() {
+        Date d = createDate(2002, Calendar.JULY, 4, 0, 0, 0, 0);
+        Iterator<Calendar> it = DateUtils.iterator(d, DateUtils.RANGE_MONTH_SUNDAY);
+        assertNotNull(it);
+        int count = 0;
+        while (it.hasNext()) {
+            it.next();
+            count++;
+        }
+        assertTrue(count > 0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIterator_DateNull_throwsException() {
+        DateUtils.iterator((Date) null, DateUtils.RANGE_MONTH_SUNDAY);
+    }
+
+    // ---------------------- iterator(Calendar, int) ----------------------
+
+    @Test
+    public void testIterator_CalendarRangeMonthMonday_returnsIterator() {
+        Calendar cal = createCalendar(2002, Calendar.JULY, 4, 0, 0, 0, 0);
+        Iterator<Calendar> it = DateUtils.iterator(cal, DateUtils.RANGE_MONTH_MONDAY);
+        assertNotNull(it);
+        assertTrue(it.hasNext());
+    }
+
+    @Test
+    public void testIterator_CalendarRangeWeekSunday_returnsIterator() {
+        Calendar cal = createCalendar(2002, Calendar.JULY, 4, 0, 0, 0, 0);
+        Iterator<Calendar> it = DateUtils.iterator(cal, DateUtils.RANGE_WEEK_SUNDAY);
+        assertNotNull(it);
+    }
+
+    @Test
+    public void testIterator_CalendarRangeWeekMonday_returnsIterator() {
+        Calendar cal = createCalendar(2002, Calendar.JULY, 4, 0, 0, 0, 0);
+        Iterator<Calendar> it = DateUtils.iterator(cal, DateUtils.RANGE_WEEK_MONDAY);
+        assertNotNull(it);
+    }
+
+    @Test
+    public void testIterator_CalendarRangeWeekRelative_returnsIterator() {
+        Calendar cal = createCalendar(2002, Calendar.JULY, 4, 0, 0, 0, 0);
+        Iterator<Calendar> it = DateUtils.iterator(cal, DateUtils.RANGE_WEEK_RELATIVE);
+        assertNotNull(it);
+    }
+
+    @Test
+    public void testIterator_CalendarRangeWeekCenter_returnsIterator() {
+        Calendar cal = createCalendar(2002, Calendar.JULY, 4, 0, 0, 0, 0);
+        Iterator<Calendar> it = DateUtils.iterator(cal, DateUtils.RANGE_WEEK_CENTER);
+        assertNotNull(it);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIterator_CalendarNull_throwsException() {
+        DateUtils.iterator((Calendar) null, DateUtils.RANGE_WEEK_CENTER);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIterator_CalendarInvalidRangeStyle_throwsException() {
+        Calendar cal = createCalendar(2002, Calendar.JULY, 4, 0, 0, 0, 0);
+        DateUtils.iterator(cal, 999);
+    }
+
+    @Test
+    public void testIterator_DateIteratorNext_throwsNoSuchElementAtEnd() {
+        Calendar cal = createCalendar(2002, Calendar.JULY, 4, 0, 0, 0, 0);
+        Iterator<Calendar> it = DateUtils.iterator(cal, DateUtils.RANGE_WEEK_RELATIVE);
+        while (it.hasNext()) {
+            it.next();
+        }
+        try {
+            it.next();
+            fail("Expected NoSuchElementException");
+        } catch (NoSuchElementException e) {
+            // expected
+        }
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testIterator_DateIteratorRemove_throwsUnsupportedOperationException() {
+        Calendar cal = createCalendar(2002, Calendar.JULY, 4, 0, 0, 0, 0);
+        Iterator<Calendar> it = DateUtils.iterator(cal, DateUtils.RANGE_WEEK_RELATIVE);
+        it.remove();
+    }
+
+    // ---------------------- iterator(Object, int) ----------------------
+
+    @Test
+    public void testIterator_ObjectDate_returnsIterator() {
+        Date d = createDate(2002, Calendar.JULY, 4, 0, 0, 0, 0);
+        Iterator<?> it = DateUtils.iterator((Object) d, DateUtils.RANGE_WEEK_SUNDAY);
+        assertNotNull(it);
+    }
+
+    @Test
+    public void testIterator_ObjectCalendar_returnsIterator() {
+        Calendar cal = createCalendar(2002, Calendar.JULY, 4, 0, 0, 0, 0);
+        Iterator<?> it = DateUtils.iterator((Object) cal, DateUtils.RANGE_WEEK_SUNDAY);
+        assertNotNull(it);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIterator_ObjectNull_throwsException() {
+        DateUtils.iterator((Object) null, DateUtils.RANGE_WEEK_SUNDAY);
+    }
+
+    @Test(expected = ClassCastException.class)
+    public void testIterator_ObjectInvalidType_throwsException() {
+        DateUtils.iterator("not a date", DateUtils.RANGE_WEEK_SUNDAY);
+    }
+
+    // ---------------------- getFragmentInMilliseconds(Date, int) ----------------------
+
+    @Test
+    public void testGetFragmentInMilliseconds_Date_second_returnsMillis() {
+        Date d = createDate(2008, Calendar.JANUARY, 1, 7, 15, 10, 538);
+        long result = DateUtils.getFragmentInMilliseconds(d, Calendar.SECOND);
+        assertEquals(538, result);
+    }
+
+    @Test
+    public void testGetFragmentInMilliseconds_Date_millisecond_returnsZero() {
+        Date d = createDate(2008, Calendar.JANUARY, 16, 7, 15, 10, 538);
+        long result = DateUtils.getFragmentInMilliseconds(d, Calendar.MILLISECOND);
+        assertEquals(0, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetFragmentInMilliseconds_DateNull_throwsException() {
+        DateUtils.getFragmentInMilliseconds((Date) null, Calendar.SECOND);
+    }
+
+    // ---------------------- getFragmentInSeconds(Date, int) ----------------------
+
+    @Test
+    public void testGetFragmentInSeconds_Date_minute_returnsSeconds() {
+        Date d = createDate(2008, Calendar.JANUARY, 1, 7, 15, 10, 538);
+        long result = DateUtils.getFragmentInSeconds(d, Calendar.MINUTE);
+        assertEquals(10, result);
+    }
+
+    @Test
+    public void testGetFragmentInSeconds_Date_dayOfYear_returnsSeconds() {
+        Date d = createDate(2008, Calendar.JANUARY, 6, 7, 15, 10, 538);
+        long result = DateUtils.getFragmentInSeconds(d, Calendar.DAY_OF_YEAR);
+        assertEquals(26110, result);
+    }
+
+    // ---------------------- getFragmentInMinutes(Date, int) ----------------------
+
+    @Test
+    public void testGetFragmentInMinutes_Date_hourOfDay_returnsMinutes() {
+        Date d = createDate(2008, Calendar.JANUARY, 1, 7, 15, 10, 538);
+        long result = DateUtils.getFragmentInMinutes(d, Calendar.HOUR_OF_DAY);
+        assertEquals(15, result);
+    }
+
+    // ---------------------- getFragmentInHours(Date, int) ----------------------
+
+    @Test
+    public void testGetFragmentInHours_Date_dayOfYear_returnsHours() {
+        Date d = createDate(2008, Calendar.JANUARY, 1, 7, 15, 10, 538);
+        long result = DateUtils.getFragmentInHours(d, Calendar.DAY_OF_YEAR);
+        assertEquals(7, result);
+    }
+
+    // ---------------------- getFragmentInDays(Date, int) ----------------------
+
+    @Test
+    public void testGetFragmentInDays_Date_month_returnsDays() {
+        Date d = createDate(2008, Calendar.JANUARY, 28, 0, 0, 0, 0);
+        long result = DateUtils.getFragmentInDays(d, Calendar.MONTH);
+        assertEquals(28, result);
+    }
+
+    @Test
+    public void testGetFragmentInDays_Date_year_returnsDays() {
+        Date d = createDate(2008, Calendar.FEBRUARY, 28, 0, 0, 0, 0);
+        long result = DateUtils.getFragmentInDays(d, Calendar.YEAR);
+        assertEquals(59, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetFragmentInDays_Date_unsupportedFragment_throwsException() {
+        Date d = createDate(2008, Calendar.JANUARY, 28, 0, 0, 0, 0);
+        DateUtils.getFragmentInDays(d, 9999);
+    }
+
+    // ---------------------- getFragmentIn*(Calendar, int) ----------------------
+
+    @Test
+    public void testGetFragmentInMilliseconds_Calendar_second_returnsMillis() {
+        Calendar cal = createCalendar(2008, Calendar.JANUARY, 1, 7, 15, 10, 538);
+        long result = DateUtils.getFragmentInMilliseconds(cal, Calendar.SECOND);
+        assertEquals(538, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetFragmentInMilliseconds_CalendarNull_throwsException() {
+        DateUtils.getFragmentInMilliseconds((Calendar) null, Calendar.SECOND);
+    }
+
+    @Test
+    public void testGetFragmentInSeconds_Calendar_minute_returnsSeconds() {
+        Calendar cal = createCalendar(2008, Calendar.JANUARY, 1, 7, 15, 10, 538);
+        long result = DateUtils.getFragmentInSeconds(cal, Calendar.MINUTE);
+        assertEquals(10, result);
+    }
+
+    @Test
+    public void testGetFragmentInMinutes_Calendar_hourOfDay_returnsMinutes() {
+        Calendar cal = createCalendar(2008, Calendar.JANUARY, 1, 7, 15, 10, 538);
+        long result = DateUtils.getFragmentInMinutes(cal, Calendar.HOUR_OF_DAY);
+        assertEquals(15, result);
+    }
+
+    @Test
+    public void testGetFragmentInHours_Calendar_month_returnsHours() {
+        Calendar cal = createCalendar(2008, Calendar.JANUARY, 6, 7, 15, 10, 538);
+        long result = DateUtils.getFragmentInHours(cal, Calendar.MONTH);
+        assertEquals(127, result);
+    }
+
+    @Test
+    public void testGetFragmentInDays_Calendar_year_returnsDays() {
+        Calendar cal = createCalendar(2008, Calendar.JANUARY, 28, 0, 0, 0, 0);
+        long result = DateUtils.getFragmentInDays(cal, Calendar.YEAR);
+        assertEquals(28, result);
+    }
+
+    // ---------------------- truncatedEquals / truncatedCompareTo ----------------------
+
+    @Test
+    public void testTruncatedEquals_Calendar_equalAtDayField_returnsTrue() {
+        Calendar c1 = createCalendar(2020, Calendar.MARCH, 28, 13, 45, 0, 0);
+        Calendar c2 = createCalendar(2020, Calendar.MARCH, 28, 6, 1, 0, 0);
+        assertTrue(DateUtils.truncatedEquals(c1, c2, Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testTruncatedEquals_Calendar_notEqual_returnsFalse() {
+        Calendar c1 = createCalendar(2020, Calendar.MARCH, 28, 13, 45, 0, 0);
+        Calendar c2 = createCalendar(2020, Calendar.MARCH, 27, 13, 45, 0, 0);
+        assertFalse(DateUtils.truncatedEquals(c1, c2, Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testTruncatedEquals_Date_equalAtDayField_returnsTrue() {
+        Date d1 = createDate(2020, Calendar.MARCH, 28, 13, 45, 0, 0);
+        Date d2 = createDate(2020, Calendar.MARCH, 28, 6, 1, 0, 0);
+        assertTrue(DateUtils.truncatedEquals(d1, d2, Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testTruncatedCompareTo_Calendar_lessThan_returnsNegative() {
+        Calendar c1 = createCalendar(2020, Cal

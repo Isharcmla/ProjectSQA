@@ -1,0 +1,84 @@
+package org.jsoup.nodes;
+
+import org.jsoup.Jsoup;
+import org.jsoup.parser.Tag;
+import org.jsoup.select.Elements;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.*;
+import java.util.regex.Pattern;
+
+import static org.junit.Assert.*;
+
+public class ElementTest {
+
+    private Document doc;
+
+    @Before
+    public void setUp() {
+        doc = Jsoup.parse("<html><head></head><body><div id='div1' class='header main'>" +
+                "<p>Hello <b>there</b> now!</p>" +
+                "<span data-foo='bar' data-lang='java'>Span text</span>" +
+                "</div><div id='div2'></div></body></html>");
+    }
+
+    @Test
+    public void testConstructor_validTag_createsElement() {
+        Element el = new Element(Tag.valueOf("div"), "http://example.com");
+        assertEquals("div", el.tagName());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructor_nullTag_throwsException() {
+        new Element(null, "http://example.com");
+    }
+
+    @Test
+    public void testConstructorWithAttributes_createsElementWithGivenAttributes() {
+        Attributes attrs = new Attributes();
+        attrs.put("id", "test1");
+        Element el = new Element(Tag.valueOf("div"), "http://example.com", attrs);
+        assertEquals("test1", el.id());
+    }
+
+    @Test
+    public void testNodeName_returnsTagName() {
+        Element el = new Element(Tag.valueOf("span"), "");
+        assertEquals("span", el.nodeName());
+    }
+
+    @Test
+    public void testTagName_getReturnsTagName() {
+        Element el = doc.getElementById("div1");
+        assertEquals("div", el.tagName());
+    }
+
+    @Test
+    public void testTagName_setChangesTag() {
+        Element el = doc.getElementById("div1");
+        el.tagName("section");
+        assertEquals("section", el.tagName());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testTagName_setEmpty_throwsException() {
+        Element el = doc.getElementById("div1");
+        el.tagName("");
+    }
+
+    @Test
+    public void testTag_returnsTagObject() {
+        Element el = doc.getElementById("div1");
+        assertNotNull(el.tag());
+        assertEquals("div", el.tag().getName());
+    }
+
+    @Test
+    public void testIsBlock_divIsBlock_true() {
+        Element el = doc.getElementById("div1");
+        assertTrue(el.isBlock());
+    }
+
+    @Test
+    public void testIsBlock_spanIsInline_false() {

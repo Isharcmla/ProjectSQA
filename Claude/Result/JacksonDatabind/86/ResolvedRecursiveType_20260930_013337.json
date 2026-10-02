@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "86",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.type.ResolvedRecursiveType",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.type.ResolvedRecursiveType"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 29.03,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\86\\ResolvedRecursiveType_20260930_013337.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\86\\ResolvedRecursiveTypeTest.java",
+  "usage": {
+    "prompt_tokens": 1931,
+    "completion_tokens": 4135,
+    "total_tokens": 6066
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 46104,
+    "daily_remaining_tokens": 153896
+  },
+  "timestamp": "20260930_013337"
+}

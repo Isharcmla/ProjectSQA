@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "167",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.type.SemanticReverseAbstractInterpreter",
+  "target_classes": [
+    "com.google.javascript.jscomp.type.SemanticReverseAbstractInterpreter"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 159.22,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\167\\SemanticReverseAbstractInterpreter_20260925_215027.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 8533,
+    "completion_tokens": 16384,
+    "total_tokens": 24917
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 176226,
+    "daily_remaining_tokens": 23774
+  },
+  "timestamp": "20260925_215027"
+}

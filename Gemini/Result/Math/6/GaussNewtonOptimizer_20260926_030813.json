@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "6",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.optim.nonlinear.vector.jacobian.GaussNewtonOptimizer",
+  "target_classes": [
+    "org.apache.commons.math3.optim.nonlinear.vector.jacobian.GaussNewtonOptimizer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.93,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\6\\GaussNewtonOptimizer_20260926_030813.txt",
+  "test_file": "Gemini\\TestCode\\Math\\6\\GaussNewtonOptimizerTest.java",
+  "usage": {
+    "prompt_tokens": 1992,
+    "completion_tokens": 2821,
+    "total_tokens": 6250
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 302164,
+    "daily_remaining_tokens": 47836
+  },
+  "timestamp": "20260926_030813"
+}

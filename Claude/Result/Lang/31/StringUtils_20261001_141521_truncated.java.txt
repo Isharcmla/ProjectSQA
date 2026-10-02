@@ -1,0 +1,1247 @@
+import org.junit.Test;
+import org.junit.Assert;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+
+import org.apache.commons.lang3.StringUtils;
+
+public class StringUtilsTest {
+
+    // isEmpty / isNotEmpty
+    @Test
+    public void testIsEmpty_null_true() {
+        Assert.assertTrue(StringUtils.isEmpty(null));
+    }
+
+    @Test
+    public void testIsEmpty_empty_true() {
+        Assert.assertTrue(StringUtils.isEmpty(""));
+    }
+
+    @Test
+    public void testIsEmpty_nonEmpty_false() {
+        Assert.assertFalse(StringUtils.isEmpty("abc"));
+    }
+
+    @Test
+    public void testIsNotEmpty_normal() {
+        Assert.assertTrue(StringUtils.isNotEmpty("abc"));
+        Assert.assertFalse(StringUtils.isNotEmpty(""));
+    }
+
+    // isBlank / isNotBlank
+    @Test
+    public void testIsBlank_null_true() {
+        Assert.assertTrue(StringUtils.isBlank(null));
+    }
+
+    @Test
+    public void testIsBlank_whitespace_true() {
+        Assert.assertTrue(StringUtils.isBlank("   "));
+    }
+
+    @Test
+    public void testIsBlank_nonBlank_false() {
+        Assert.assertFalse(StringUtils.isBlank("bob"));
+    }
+
+    @Test
+    public void testIsNotBlank_normal() {
+        Assert.assertTrue(StringUtils.isNotBlank("bob"));
+        Assert.assertFalse(StringUtils.isNotBlank("  "));
+    }
+
+    // trim
+    @Test
+    public void testTrim_null_returnsNull() {
+        Assert.assertNull(StringUtils.trim(null));
+    }
+
+    @Test
+    public void testTrim_normal() {
+        Assert.assertEquals("abc", StringUtils.trim("  abc  "));
+    }
+
+    @Test
+    public void testTrimToNull_blank_returnsNull() {
+        Assert.assertNull(StringUtils.trimToNull("   "));
+    }
+
+    @Test
+    public void testTrimToNull_normal() {
+        Assert.assertEquals("abc", StringUtils.trimToNull("  abc  "));
+    }
+
+    @Test
+    public void testTrimToEmpty_null_returnsEmpty() {
+        Assert.assertEquals("", StringUtils.trimToEmpty(null));
+    }
+
+    @Test
+    public void testTrimToEmpty_normal() {
+        Assert.assertEquals("abc", StringUtils.trimToEmpty("  abc  "));
+    }
+
+    // strip
+    @Test
+    public void testStrip_null_returnsNull() {
+        Assert.assertNull(StringUtils.strip(null));
+    }
+
+    @Test
+    public void testStrip_normal() {
+        Assert.assertEquals("abc", StringUtils.strip(" abc "));
+    }
+
+    @Test
+    public void testStripToNull_blank_returnsNull() {
+        Assert.assertNull(StringUtils.stripToNull("   "));
+    }
+
+    @Test
+    public void testStripToNull_null_returnsNull() {
+        Assert.assertNull(StringUtils.stripToNull(null));
+    }
+
+    @Test
+    public void testStripToEmpty_null_returnsEmpty() {
+        Assert.assertEquals("", StringUtils.stripToEmpty(null));
+    }
+
+    @Test
+    public void testStripWithChars_normal() {
+        Assert.assertEquals("  abc", StringUtils.strip("  abcyx", "xyz"));
+    }
+
+    @Test
+    public void testStripWithChars_null_returnsNull() {
+        Assert.assertNull(StringUtils.strip(null, "xyz"));
+    }
+
+    @Test
+    public void testStripWithChars_empty_returnsEmpty() {
+        Assert.assertEquals("", StringUtils.strip("", "xyz"));
+    }
+
+    @Test
+    public void testStripStart_null_returnsNull() {
+        Assert.assertNull(StringUtils.stripStart(null, "xyz"));
+    }
+
+    @Test
+    public void testStripStart_emptyStripChars_returnsStr() {
+        Assert.assertEquals("abc", StringUtils.stripStart("abc", ""));
+    }
+
+    @Test
+    public void testStripStart_nullStripChars_whitespace() {
+        Assert.assertEquals("abc", StringUtils.stripStart("  abc", null));
+    }
+
+    @Test
+    public void testStripStart_withChars() {
+        Assert.assertEquals("abc  ", StringUtils.stripStart("yxabc  ", "xyz"));
+    }
+
+    @Test
+    public void testStripEnd_null_returnsNull() {
+        Assert.assertNull(StringUtils.stripEnd(null, "xyz"));
+    }
+
+    @Test
+    public void testStripEnd_emptyStripChars_returnsStr() {
+        Assert.assertEquals("abc", StringUtils.stripEnd("abc", ""));
+    }
+
+    @Test
+    public void testStripEnd_nullStripChars_whitespace() {
+        Assert.assertEquals("abc", StringUtils.stripEnd("abc  ", null));
+    }
+
+    @Test
+    public void testStripEnd_withChars() {
+        Assert.assertEquals("  abc", StringUtils.stripEnd("  abcyx", "xyz"));
+    }
+
+    // stripAll
+    @Test
+    public void testStripAll_null_returnsNull() {
+        Assert.assertNull(StringUtils.stripAll((String[]) null));
+    }
+
+    @Test
+    public void testStripAll_normal() {
+        String[] result = StringUtils.stripAll(new String[]{"abc", "  abc"});
+        Assert.assertArrayEquals(new String[]{"abc", "abc"}, result);
+    }
+
+    @Test
+    public void testStripAllWithChars_normal() {
+        String[] result = StringUtils.stripAll(new String[]{"abc  ", null}, null);
+        Assert.assertArrayEquals(new String[]{"abc", null}, result);
+    }
+
+    // equals / equalsIgnoreCase
+    @Test
+    public void testEquals_bothNull_true() {
+        Assert.assertTrue(StringUtils.equals(null, null));
+    }
+
+    @Test
+    public void testEquals_normal_true() {
+        Assert.assertTrue(StringUtils.equals("abc", "abc"));
+    }
+
+    @Test
+    public void testEquals_caseSensitive_false() {
+        Assert.assertFalse(StringUtils.equals("abc", "ABC"));
+    }
+
+    @Test
+    public void testEqualsIgnoreCase_normal_true() {
+        Assert.assertTrue(StringUtils.equalsIgnoreCase("abc", "ABC"));
+    }
+
+    @Test
+    public void testEqualsIgnoreCase_nullBoth_true() {
+        Assert.assertTrue(StringUtils.equalsIgnoreCase(null, null));
+    }
+
+    @Test
+    public void testEqualsIgnoreCase_oneNull_false() {
+        Assert.assertFalse(StringUtils.equalsIgnoreCase("abc", null));
+    }
+
+    // indexOf char
+    @Test
+    public void testIndexOfChar_null_returnsNegative1() {
+        Assert.assertEquals(-1, StringUtils.indexOf(null, 'a'));
+    }
+
+    @Test
+    public void testIndexOfChar_normal() {
+        Assert.assertEquals(2, StringUtils.indexOf("aabaabaa", 'b'));
+    }
+
+    @Test
+    public void testIndexOfCharStartPos_normal() {
+        Assert.assertEquals(5, StringUtils.indexOf("aabaabaa", 'b', 3));
+    }
+
+    @Test
+    public void testIndexOfCharStartPos_empty() {
+        Assert.assertEquals(-1, StringUtils.indexOf("", 'b', 0));
+    }
+
+    // indexOf String
+    @Test
+    public void testIndexOfString_null_returnsNegative1() {
+        Assert.assertEquals(-1, StringUtils.indexOf(null, "a"));
+    }
+
+    @Test
+    public void testIndexOfString_normal() {
+        Assert.assertEquals(1, StringUtils.indexOf("aabaabaa", "ab"));
+    }
+
+    @Test
+    public void testIndexOfStringStartPos_normal() {
+        Assert.assertEquals(5, StringUtils.indexOf("aabaabaa", "b", 3));
+    }
+
+    // ordinalIndexOf
+    @Test
+    public void testOrdinalIndexOf_normal() {
+        Assert.assertEquals(1, StringUtils.ordinalIndexOf("aabaabaa", "a", 2));
+    }
+
+    @Test
+    public void testOrdinalIndexOf_null_returnsNegative1() {
+        Assert.assertEquals(-1, StringUtils.ordinalIndexOf(null, "a", 1));
+    }
+
+    @Test
+    public void testOrdinalIndexOf_zeroOrdinal() {
+        Assert.assertEquals(-1, StringUtils.ordinalIndexOf("abc", "a", 0));
+    }
+
+    @Test
+    public void testOrdinalIndexOf_emptySearch() {
+        Assert.assertEquals(0, StringUtils.ordinalIndexOf("abc", "", 1));
+    }
+
+    @Test
+    public void testOrdinalIndexOf_notFound() {
+        Assert.assertEquals(-1, StringUtils.ordinalIndexOf("abc", "z", 1));
+    }
+
+    // indexOfIgnoreCase
+    @Test
+    public void testIndexOfIgnoreCase_normal() {
+        Assert.assertEquals(0, StringUtils.indexOfIgnoreCase("aabaabaa", "A"));
+    }
+
+    @Test
+    public void testIndexOfIgnoreCase_null() {
+        Assert.assertEquals(-1, StringUtils.indexOfIgnoreCase(null, "A"));
+    }
+
+    @Test
+    public void testIndexOfIgnoreCaseStartPos_negative() {
+        Assert.assertEquals(2, StringUtils.indexOfIgnoreCase("aabaabaa", "B", -1));
+    }
+
+    @Test
+    public void testIndexOfIgnoreCaseStartPos_emptySearch() {
+        Assert.assertEquals(2, StringUtils.indexOfIgnoreCase("aabaabaa", "", 2));
+    }
+
+    @Test
+    public void testIndexOfIgnoreCaseStartPos_beyondEnd() {
+        Assert.assertEquals(-1, StringUtils.indexOfIgnoreCase("aabaabaa", "B", 9));
+    }
+
+    // lastIndexOf char
+    @Test
+    public void testLastIndexOfChar_normal() {
+        Assert.assertEquals(7, StringUtils.lastIndexOf("aabaabaa", 'a'));
+    }
+
+    @Test
+    public void testLastIndexOfChar_null() {
+        Assert.assertEquals(-1, StringUtils.lastIndexOf((String) null, 'a'));
+    }
+
+    @Test
+    public void testLastIndexOfCharStartPos_normal() {
+        Assert.assertEquals(2, StringUtils.lastIndexOf("aabaabaa", 'b', 4));
+    }
+
+    // lastIndexOf String
+    @Test
+    public void testLastIndexOfString_normal() {
+        Assert.assertEquals(2, StringUtils.lastIndexOf("aabaabaa", "b"));
+    }
+
+    @Test
+    public void testLastIndexOfString_null() {
+        Assert.assertEquals(-1, StringUtils.lastIndexOf((String) null, "a"));
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf_normal() {
+        Assert.assertEquals(5, StringUtils.lastOrdinalIndexOf("aabaabaa", "b", 1));
+    }
+
+    @Test
+    public void testLastIndexOfStringStartPos_normal() {
+        Assert.assertEquals(4, StringUtils.lastIndexOf("aabaabaa", "ab", 8));
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_normal() {
+        Assert.assertEquals(7, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "A"));
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_null() {
+        Assert.assertEquals(-1, StringUtils.lastIndexOfIgnoreCase(null, "A"));
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCaseStartPos_normal() {
+        Assert.assertEquals(5, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "B", 8));
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCaseStartPos_negative() {
+        Assert.assertEquals(-1, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "B", -1));
+    }
+
+    // contains
+    @Test
+    public void testContainsChar_normal() {
+        Assert.assertTrue(StringUtils.contains("abc", 'a'));
+    }
+
+    @Test
+    public void testContainsChar_null_false() {
+        Assert.assertFalse(StringUtils.contains(null, 'a'));
+    }
+
+    @Test
+    public void testContainsString_normal() {
+        Assert.assertTrue(StringUtils.contains("abc", "a"));
+    }
+
+    @Test
+    public void testContainsString_null_false() {
+        Assert.assertFalse(StringUtils.contains(null, "a"));
+        Assert.assertFalse(StringUtils.contains("abc", null));
+    }
+
+    @Test
+    public void testContainsIgnoreCase_normal() {
+        Assert.assertTrue(StringUtils.containsIgnoreCase("abc", "A"));
+    }
+
+    @Test
+    public void testContainsIgnoreCase_null_false() {
+        Assert.assertFalse(StringUtils.containsIgnoreCase(null, "A"));
+    }
+
+    // indexOfAny chars
+    @Test
+    public void testIndexOfAnyChars_normal() {
+        Assert.assertEquals(0, StringUtils.indexOfAny("zzabyycdxx", new char[]{'z', 'a'}));
+    }
+
+    @Test
+    public void testIndexOfAnyChars_null() {
+        Assert.assertEquals(-1, StringUtils.indexOfAny((CharSequence) null, new char[]{'a'}));
+    }
+
+    @Test
+    public void testIndexOfAnyChars_emptySearch() {
+        Assert.assertEquals(-1, StringUtils.indexOfAny("abc", new char[]{}));
+    }
+
+    @Test
+    public void testIndexOfAnyString_normal() {
+        Assert.assertEquals(3, StringUtils.indexOfAny("zzabyycdxx", "by"));
+    }
+
+    @Test
+    public void testIndexOfAnyString_null() {
+        Assert.assertEquals(-1, StringUtils.indexOfAny((CharSequence) null, "za"));
+    }
+
+    // containsAny
+    @Test
+    public void testContainsAnyChars_normal() {
+        Assert.assertTrue(StringUtils.containsAny("zzabyycdxx", new char[]{'z', 'a'}));
+    }
+
+    @Test
+    public void testContainsAnyChars_null_false() {
+        Assert.assertFalse(StringUtils.containsAny(null, new char[]{'a'}));
+    }
+
+    @Test
+    public void testContainsAnyChars_notFound() {
+        Assert.assertFalse(StringUtils.containsAny("aba", new char[]{'z'}));
+    }
+
+    @Test
+    public void testContainsAnyString_normal() {
+        Assert.assertTrue(StringUtils.containsAny("zzabyycdxx", "za"));
+    }
+
+    @Test
+    public void testContainsAnyString_nullSearch_false() {
+        Assert.assertFalse(StringUtils.containsAny("abc", (String) null));
+    }
+
+    // indexOfAnyBut
+    @Test
+    public void testIndexOfAnyButChars_normal() {
+        Assert.assertEquals(3, StringUtils.indexOfAnyBut("zzabyycdxx", new char[]{'z', 'a'}));
+    }
+
+    @Test
+    public void testIndexOfAnyButChars_null() {
+        Assert.assertEquals(-1, StringUtils.indexOfAnyBut((CharSequence) null, new char[]{'a'}));
+    }
+
+    @Test
+    public void testIndexOfAnyButString_normal() {
+        Assert.assertEquals(3, StringUtils.indexOfAnyBut("zzabyycdxx", "za"));
+    }
+
+    @Test
+    public void testIndexOfAnyButString_null() {
+        Assert.assertEquals(-1, StringUtils.indexOfAnyBut((String) null, "za"));
+    }
+
+    // containsOnly
+    @Test
+    public void testContainsOnlyChars_normal() {
+        Assert.assertTrue(StringUtils.containsOnly("abab", new char[]{'a', 'b', 'c'}));
+    }
+
+    @Test
+    public void testContainsOnlyChars_null_false() {
+        Assert.assertFalse(StringUtils.containsOnly((CharSequence) null, new char[]{'a'}));
+        Assert.assertFalse(StringUtils.containsOnly("abc", (char[]) null));
+    }
+
+    @Test
+    public void testContainsOnlyChars_emptyStr_true() {
+        Assert.assertTrue(StringUtils.containsOnly("", new char[]{'a'}));
+    }
+
+    @Test
+    public void testContainsOnlyChars_emptyValid_false() {
+        Assert.assertFalse(StringUtils.containsOnly("ab", new char[]{}));
+    }
+
+    @Test
+    public void testContainsOnlyString_normal() {
+        Assert.assertTrue(StringUtils.containsOnly("abab", "abc"));
+    }
+
+    @Test
+    public void testContainsOnlyString_null_false() {
+        Assert.assertFalse(StringUtils.containsOnly((CharSequence) null, "abc"));
+        Assert.assertFalse(StringUtils.containsOnly("abc", (String) null));
+    }
+
+    // containsNone
+    @Test
+    public void testContainsNoneChars_normal_true() {
+        Assert.assertTrue(StringUtils.containsNone("abab", new char[]{'x', 'y', 'z'}));
+    }
+
+    @Test
+    public void testContainsNoneChars_found_false() {
+        Assert.assertFalse(StringUtils.containsNone("abz", new char[]{'x', 'y', 'z'}));
+    }
+
+    @Test
+    public void testContainsNoneChars_null_true() {
+        Assert.assertTrue(StringUtils.containsNone(null, new char[]{'a'}));
+        Assert.assertTrue(StringUtils.containsNone("abc", (char[]) null));
+    }
+
+    @Test
+    public void testContainsNoneString_normal_true() {
+        Assert.assertTrue(StringUtils.containsNone("abab", "xyz"));
+    }
+
+    @Test
+    public void testContainsNoneString_null_true() {
+        Assert.assertTrue(StringUtils.containsNone(null, "xyz"));
+    }
+
+    // indexOfAny String[]
+    @Test
+    public void testIndexOfAnyStringArray_normal() {
+        Assert.assertEquals(2, StringUtils.indexOfAny("zzabyycdxx", new String[]{"ab", "cd"}));
+    }
+
+    @Test
+    public void testIndexOfAnyStringArray_null() {
+        Assert.assertEquals(-1, StringUtils.indexOfAny((String) null, new String[]{"ab"}));
+        Assert.assertEquals(-1, StringUtils.indexOfAny("abc", (String[]) null));
+    }
+
+    @Test
+    public void testIndexOfAnyStringArray_withNullEntry() {
+        Assert.assertEquals(0, StringUtils.indexOfAny("zzabyycdxx", new String[]{null, "zz"}));
+    }
+
+    @Test
+    public void testIndexOfAnyStringArray_notFound() {
+        Assert.assertEquals(-1, StringUtils.indexOfAny("zzabyycdxx", new String[]{"mn", "op"}));
+    }
+
+    // lastIndexOfAny
+    @Test
+    public void testLastIndexOfAny_normal() {
+        Assert.assertEquals(6, StringUtils.lastIndexOfAny("zzabyycdxx", new String[]{"ab", "cd"}));
+    }
+
+    @Test
+    public void testLastIndexOfAny_null() {
+        Assert.assertEquals(-1, StringUtils.lastIndexOfAny(null, new String[]{"ab"}));
+        Assert.assertEquals(-1, StringUtils.lastIndexOfAny("abc", (String[]) null));
+    }
+
+    // substring
+    @Test
+    public void testSubstringStart_null_returnsNull() {
+        Assert.assertNull(StringUtils.substring(null, 0));
+    }
+
+    @Test
+    public void testSubstringStart_negative() {
+        Assert.assertEquals("bc", StringUtils.substring("abc", -2));
+    }
+
+    @Test
+    public void testSubstringStart_beyondLength() {
+        Assert.assertEquals("", StringUtils.substring("abc", 4));
+    }
+
+    @Test
+    public void testSubstringStart_negativeOverflow() {
+        Assert.assertEquals("abc", StringUtils.substring("abc", -4));
+    }
+
+    @Test
+    public void testSubstringStartEnd_null_returnsNull() {
+        Assert.assertNull(StringUtils.substring(null, 0, 2));
+    }
+
+    @Test
+    public void testSubstringStartEnd_normal() {
+        Assert.assertEquals("ab", StringUtils.substring("abc", 0, 2));
+    }
+
+    @Test
+    public void testSubstringStartEnd_startGreaterThanEnd() {
+        Assert.assertEquals("", StringUtils.substring("abc", 2, 0));
+    }
+
+    @Test
+    public void testSubstringStartEnd_negativeIndices() {
+        Assert.assertEquals("b", StringUtils.substring("abc", -2, -1));
+    }
+
+    // left/right/mid
+    @Test
+    public void testLeft_null_returnsNull() {
+        Assert.assertNull(StringUtils.left(null, 2));
+    }
+
+    @Test
+    public void testLeft_negativeLen_returnsEmpty() {
+        Assert.assertEquals("", StringUtils.left("abc", -1));
+    }
+
+    @Test
+    public void testLeft_normal() {
+        Assert.assertEquals("ab", StringUtils.left("abc", 2));
+    }
+
+    @Test
+    public void testLeft_lenGreaterThanLength() {
+        Assert.assertEquals("abc", StringUtils.left("abc", 4));
+    }
+
+    @Test
+    public void testRight_null_returnsNull() {
+        Assert.assertNull(StringUtils.right(null, 2));
+    }
+
+    @Test
+    public void testRight_negativeLen_returnsEmpty() {
+        Assert.assertEquals("", StringUtils.right("abc", -1));
+    }
+
+    @Test
+    public void testRight_normal() {
+        Assert.assertEquals("bc", StringUtils.right("abc", 2));
+    }
+
+    @Test
+    public void testMid_null_returnsNull() {
+        Assert.assertNull(StringUtils.mid(null, 0, 2));
+    }
+
+    @Test
+    public void testMid_negativeLen_returnsEmpty() {
+        Assert.assertEquals("", StringUtils.mid("abc", 0, -1));
+    }
+
+    @Test
+    public void testMid_posGreaterThanLength_returnsEmpty() {
+        Assert.assertEquals("", StringUtils.mid("abc", 4, 2));
+    }
+
+    @Test
+    public void testMid_negativePos() {
+        Assert.assertEquals("ab", StringUtils.mid("abc", -2, 2));
+    }
+
+    @Test
+    public void testMid_normal() {
+        Assert.assertEquals("c", StringUtils.mid("abc", 2, 4));
+    }
+
+    // substringBefore/After
+    @Test
+    public void testSubstringBefore_null_returnsNull() {
+        Assert.assertNull(StringUtils.substringBefore(null, "a"));
+    }
+
+    @Test
+    public void testSubstringBefore_nullSeparator() {
+        Assert.assertEquals("abc", StringUtils.substringBefore("abc", null));
+    }
+
+    @Test
+    public void testSubstringBefore_emptySeparator() {
+        Assert.assertEquals("", StringUtils.substringBefore("abc", ""));
+    }
+
+    @Test
+    public void testSubstringBefore_notFound() {
+        Assert.assertEquals("abc", StringUtils.substringBefore("abc", "d"));
+    }
+
+    @Test
+    public void testSubstringAfter_null_returnsNull() {
+        Assert.assertNull(StringUtils.substringAfter(null, "a"));
+    }
+
+    @Test
+    public void testSubstringAfter_nullSeparator_returnsEmpty() {
+        Assert.assertEquals("", StringUtils.substringAfter("abc", null));
+    }
+
+    @Test
+    public void testSubstringAfter_normal() {
+        Assert.assertEquals("bc", StringUtils.substringAfter("abc", "a"));
+    }
+
+    @Test
+    public void testSubstringBeforeLast_null_returnsNull() {
+        Assert.assertNull(StringUtils.substringBeforeLast(null, "b"));
+    }
+
+    @Test
+    public void testSubstringBeforeLast_normal() {
+        Assert.assertEquals("abc", StringUtils.substringBeforeLast("abcba", "b"));
+    }
+
+    @Test
+    public void testSubstringAfterLast_null_returnsNull() {
+        Assert.assertNull(StringUtils.substringAfterLast(null, "b"));
+    }
+
+    @Test
+    public void testSubstringAfterLast_normal() {
+        Assert.assertEquals("a", StringUtils.substringAfterLast("abcba", "b"));
+    }
+
+    @Test
+    public void testSubstringAfterLast_separatorAtEnd() {
+        Assert.assertEquals("", StringUtils.substringAfterLast("abc", "c"));
+    }
+
+    // substringBetween
+    @Test
+    public void testSubstringBetweenTag_normal() {
+        Assert.assertEquals("abc", StringUtils.substringBetween("tagabctag", "tag"));
+    }
+
+    @Test
+    public void testSubstringBetweenTag_null() {
+        Assert.assertNull(StringUtils.substringBetween(null, "tag"));
+    }
+
+    @Test
+    public void testSubstringBetweenOpenClose_normal() {
+        Assert.assertEquals("b", StringUtils.substringBetween("wx[b]yz", "[", "]"));
+    }
+
+    @Test
+    public void testSubstringBetweenOpenClose_null() {
+        Assert.assertNull(StringUtils.substringBetween(null, "[", "]"));
+        Assert.assertNull(StringUtils.substringBetween("abc", null, "]"));
+        Assert.assertNull(StringUtils.substringBetween("abc", "[", null));
+    }
+
+    @Test
+    public void testSubstringBetweenOpenClose_noMatch() {
+        Assert.assertNull(StringUtils.substringBetween("", "[", "]"));
+    }
+
+    @Test
+    public void testSubstringsBetween_normal() {
+        String[] result = StringUtils.substringsBetween("[a][b][c]", "[", "]");
+        Assert.assertArrayEquals(new String[]{"a", "b", "c"}, result);
+    }
+
+    @Test
+    public void testSubstringsBetween_null() {
+        Assert.assertNull(StringUtils.substringsBetween(null, "[", "]"));
+        Assert.assertNull(StringUtils.substringsBetween("abc", null, "]"));
+        Assert.assertNull(StringUtils.substringsBetween("abc", "[", null));
+    }
+
+    @Test
+    public void testSubstringsBetween_empty() {
+        String[] result = StringUtils.substringsBetween("", "[", "]");
+        Assert.assertArrayEquals(new String[]{}, result);
+    }
+
+    @Test
+    public void testSubstringsBetween_noMatch_returnsNull() {
+        Assert.assertNull(StringUtils.substringsBetween("abc", "[", "]"));
+    }
+
+    // split
+    @Test
+    public void testSplit_null_returnsNull() {
+        Assert.assertNull(StringUtils.split(null));
+    }
+
+    @Test
+    public void testSplit_normal() {
+        Assert.assertArrayEquals(new String[]{"abc", "def"}, StringUtils.split("abc def"));
+    }
+
+    @Test
+    public void testSplitChar_normal() {
+        Assert.assertArrayEquals(new String[]{"a", "b", "c"}, StringUtils.split("a.b.c", '.'));
+    }
+
+    @Test
+    public void testSplitStringSeparatorChars_normal() {
+        Assert.assertArrayEquals(new String[]{"ab", "cd", "ef"}, StringUtils.split("ab:cd:ef", ":"));
+    }
+
+    @Test
+    public void testSplitStringSeparatorCharsMax_normal() {
+        Assert.assertArrayEquals(new String[]{"ab", "cd:ef"}, StringUtils.split("ab:cd:ef", ":", 2));
+    }
+
+    @Test
+    public void testSplitByWholeSeparator_normal() {
+        Assert.assertArrayEquals(new String[]{"ab", "cd", "ef"}, StringUtils.splitByWholeSeparator("ab:cd:ef", ":"));
+    }
+
+    @Test
+    public void testSplitByWholeSeparator_null_returnsNull() {
+        Assert.assertNull(StringUtils.splitByWholeSeparator(null, ":"));
+    }
+
+    @Test
+    public void testSplitByWholeSeparatorMax_normal() {
+        Assert.assertArrayEquals(new String[]{"ab", "cd:ef"}, StringUtils.splitByWholeSeparator("ab:cd:ef", ":", 2));
+    }
+
+    @Test
+    public void testSplitByWholeSeparatorPreserveAllTokens_normal() {
+        Assert.assertArrayEquals(new String[]{"ab", "", "", "de", "fg"},
+                StringUtils.splitByWholeSeparatorPreserveAllTokens("ab   de fg", null));
+    }
+
+    @Test
+    public void testSplitByWholeSeparatorPreserveAllTokensMax_normal() {
+        Assert.assertArrayEquals(new String[]{"ab", "cd-!-ef"},
+                StringUtils.splitByWholeSeparatorPreserveAllTokens("ab-!-cd-!-ef", "-!-", 2));
+    }
+
+    @Test
+    public void testSplitPreserveAllTokens_null_returnsNull() {
+        Assert.assertNull(StringUtils.splitPreserveAllTokens(null));
+    }
+
+    @Test
+    public void testSplitPreserveAllTokens_normal() {
+        Assert.assertArrayEquals(new String[]{"abc", "", "def"}, StringUtils.splitPreserveAllTokens("abc  def"));
+    }
+
+    @Test
+    public void testSplitPreserveAllTokensChar_normal() {
+        Assert.assertArrayEquals(new String[]{"a", "", "b", "c"}, StringUtils.splitPreserveAllTokens("a..b.c", '.'));
+    }
+
+    @Test
+    public void testSplitPreserveAllTokensStringSeparator_normal() {
+        Assert.assertArrayEquals(new String[]{"ab", "cd", "ef", ""}, StringUtils.splitPreserveAllTokens("ab:cd:ef:", ":"));
+    }
+
+    @Test
+    public void testSplitPreserveAllTokensStringSeparatorMax_normal() {
+        Assert.assertArrayEquals(new String[]{"ab", "cd:ef"}, StringUtils.splitPreserveAllTokens("ab:cd:ef", ":", 2));
+    }
+
+    @Test
+    public void testSplitByCharacterType_normal() {
+        Assert.assertArrayEquals(new String[]{"ab", " ", "de", " ", "fg"}, StringUtils.splitByCharacterType("ab de fg"));
+    }
+
+    @Test
+    public void testSplitByCharacterType_null_returnsNull() {
+        Assert.assertNull(StringUtils.splitByCharacterType(null));
+    }
+
+    @Test
+    public void testSplitByCharacterTypeCamelCase_normal() {
+        Assert.assertArrayEquals(new String[]{"foo", "Bar"}, StringUtils.splitByCharacterTypeCamelCase("fooBar"));
+    }
+
+    // join
+    @Test
+    public void testJoinObjectArray_null_returnsNull() {
+        Assert.assertNull(StringUtils.join((Object[]) null));
+    }
+
+    @Test
+    public void testJoinObjectArray_normal() {
+        Assert.assertEquals("abc", StringUtils.join(new Object[]{"a", "b", "c"}));
+    }
+
+    @Test
+    public void testJoinObjectArrayChar_normal() {
+        Assert.assertEquals("a;b;c", StringUtils.join(new Object[]{"a", "b", "c"}, ';'));
+    }
+
+    @Test
+    public void testJoinObjectArrayChar_null_returnsNull() {
+        Assert.assertNull(StringUtils.join((Object[]) null, ';'));
+    }
+
+    @Test
+    public void testJoinObjectArrayCharStartEnd_normal() {
+        Assert.assertEquals("b;c", StringUtils.join(new Object[]{"a", "b", "c"}, ';', 1, 3));
+    }
+
+    @Test
+    public void testJoinObjectArrayCharStartEnd_emptyRange() {
+        Assert.assertEquals("", StringUtils.join(new Object[]{"a", "b", "c"}, ';', 1, 1));
+    }
+
+    @Test
+    public void testJoinObjectArrayString_normal() {
+        Assert.assertEquals("a--b--c", StringUtils.join(new Object[]{"a", "b", "c"}, "--"));
+    }
+
+    @Test
+    public void testJoinObjectArrayString_nullSeparator() {
+        Assert.assertEquals("abc", StringUtils.join(new Object[]{"a", "b", "c"}, (String) null));
+    }
+
+    @Test
+    public void testJoinObjectArrayStringStartEnd_normal() {
+        Assert.assertEquals("b--c", StringUtils.join(new Object[]{"a", "b", "c"}, "--", 1, 3));
+    }
+
+    @Test
+    public void testJoinIteratorChar_null_returnsNull() {
+        Assert.assertNull(StringUtils.join((Iterator<?>) null, ';'));
+    }
+
+    @Test
+    public void testJoinIteratorChar_empty_returnsEmpty() {
+        List<String> list = new ArrayList<String>();
+        Assert.assertEquals("", StringUtils.join(list.iterator(), ';'));
+    }
+
+    @Test
+    public void testJoinIteratorChar_oneElement() {
+        List<String> list = new ArrayList<String>();
+        list.add("a");
+        Assert.assertEquals("a", StringUtils.join(list.iterator(), ';'));
+    }
+
+    @Test
+    public void testJoinIteratorChar_normal() {
+        List<String> list = new ArrayList<String>();
+        list.add("a");
+        list.add("b");
+        Assert.assertEquals("a;b", StringUtils.join(list.iterator(), ';'));
+    }
+
+    @Test
+    public void testJoinIteratorString_normal() {
+        List<String> list = new ArrayList<String>();
+        list.add("a");
+        list.add("b");
+        Assert.assertEquals("a--b", StringUtils.join(list.iterator(), "--"));
+    }
+
+    @Test
+    public void testJoinIteratorString_null_returnsNull() {
+        Assert.assertNull(StringUtils.join((Iterator<?>) null, "--"));
+    }
+
+    @Test
+    public void testJoinIterableChar_null_returnsNull() {
+        Assert.assertNull(StringUtils.join((Iterable<?>) null, ';'));
+    }
+
+    @Test
+    public void testJoinIterableChar_normal() {
+        List<String> list = new ArrayList<String>();
+        list.add("a");
+        list.add("b");
+        Assert.assertEquals("a;b", StringUtils.join((Iterable<?>) list, ';'));
+    }
+
+    @Test
+    public void testJoinIterableString_null_returnsNull() {
+        Assert.assertNull(StringUtils.join((Iterable<?>) null, "--"));
+    }
+
+    @Test
+    public void testJoinIterableString_normal() {
+        List<String> list = new ArrayList<String>();
+        list.add("a");
+        list.add("b");
+        Assert.assertEquals("a--b", StringUtils.join((Iterable<?>) list, "--"));
+    }
+
+    // deleteWhitespace
+    @Test
+    public void testDeleteWhitespace_null_returnsNull() {
+        Assert.assertNull(StringUtils.deleteWhitespace(null));
+    }
+
+    @Test
+    public void testDeleteWhitespace_normal() {
+        Assert.assertEquals("abc", StringUtils.deleteWhitespace("   ab  c  "));
+    }
+
+    @Test
+    public void testDeleteWhitespace_noWhitespace() {
+        Assert.assertEquals("abc", StringUtils.deleteWhitespace("abc"));
+    }
+
+    // removeStart/End
+    @Test
+    public void testRemoveStart_normal() {
+        Assert.assertEquals("domain.com", StringUtils.removeStart("www.domain.com", "www."));
+    }
+
+    @Test
+    public void testRemoveStart_null() {
+        Assert.assertNull(StringUtils.removeStart(null, "www."));
+    }
+
+    @Test
+    public void testRemoveStart_nullRemove() {
+        Assert.assertEquals("abc", StringUtils.removeStart("abc", null));
+    }
+
+    @Test
+    public void testRemoveStartIgnoreCase_normal() {
+        Assert.assertEquals("domain.com", StringUtils.removeStartIgnoreCase("www.domain.com", "WWW."));
+    }
+
+    @Test
+    public void testRemoveEnd_normal() {
+        Assert.assertEquals("www.domain", StringUtils.removeEnd("www.domain.com", ".com"));
+    }
+
+    @Test
+    public void testRemoveEnd_null() {
+        Assert.assertNull(StringUtils.removeEnd(null, ".com"));
+    }
+
+    @Test
+    public void testRemoveEndIgnoreCase_normal() {
+        Assert.assertEquals("www.domain", StringUtils.removeEndIgnoreCase("www.domain.COM", ".com"));
+    }
+
+    @Test
+    public void testRemoveString_normal() {
+        Assert.assertEquals("qd", StringUtils.remove("queued", "ue"));
+    }
+
+    @Test
+    public void testRemoveString_null() {
+        Assert.assertNull(StringUtils.remove(null, "a"));
+    }
+
+    @Test
+    public void testRemoveString_nullRemove() {
+        Assert.assertEquals("abc", StringUtils.remove("abc", (String) null));
+    }
+
+    @Test
+    public void testRemoveChar_normal() {
+        Assert.assertEquals("qeed", StringUtils.remove("queued", 'u'));
+    }
+
+    @Test
+    public void testRemoveChar_notFound() {
+        Assert.assertEquals("queued", StringUtils.remove("queued", 'z'));
+    }
+
+    @Test
+    public void testRemoveChar_null() {
+        Assert.assertNull(StringUtils.remove(null, 'a'));
+    }
+
+    // replace
+    @Test
+    public void testReplaceOnce_normal() {
+        Assert.assertEquals("zba", StringUtils.replaceOnce("aba", "a", "z"));
+    }
+
+    @Test
+    public void testReplace_normal() {
+        Assert.assertEquals("zbz", StringUtils.replace("aba", "a", "z"));
+    }
+
+    @Test
+    public void testReplace_null() {
+        Assert.assertNull(StringUtils.replace(null, "a", "z"));
+    }
+
+    @Test
+    public void testReplaceMax_normal() {
+        Assert.assertEquals("zbza", StringUtils.replace("abaa", "a", "z", 2));
+    }
+
+    @Test
+    public void testReplaceMax_zero() {
+        Assert.assertEquals("abaa", StringUtils.replace("abaa", "a", "z", 0));
+    }
+
+    @Test
+    public void testReplaceMax_nullReplacement() {
+        Assert.assertEquals("abaa", StringUtils.replace("abaa", "a", null, -1));
+    }
+
+    @Test
+    public void testReplaceEach_normal() {
+        Assert.assertEquals("wcte", StringUtils.replaceEach("abcde", new String[]{"ab", "d"}, new String[]{"w", "t"}));
+    }
+
+    @Test
+    public void testReplaceEach_null_returnsNull() {
+        Assert.assertNull(StringUtils.replaceEach(null, new String[]{"a"}, new String[]{"b"}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testReplaceEach_mismatchedLengths_throwsException() {
+        StringUtils.replaceEach("abc", new String[]{"a", "b"}, new String[]{"x"});
+    }
+
+    @Test
+    public void testReplaceEachRepeatedly_normal() {
+        Assert.assertEquals("tcte", StringUtils.replaceEachRepeatedly("abcde", new String[]{"ab", "d"}, new String[]{"d", "t"}));
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testReplaceEachRepeatedly_endlessLoop_throwsException() {
+        StringUtils.replaceEachRepeatedly("abcde", new String[]{"ab", "d"}, new String[]{"d", "ab"});
+    }
+
+    // replaceChars
+    @Test
+    public void testReplaceCharsCharChar_normal() {
+        Assert.assertEquals("aycya", StringUtils.replaceChars("abcba", 'b', 'y'));
+    }
+
+    @Test
+    public void testReplaceCharsCharChar_null() {
+        Assert.assertNull(StringUtils.replaceChars(null, 'b', 'y'));
+    }
+
+    @Test
+    public void testReplaceCharsStringString_normal() {
+        Assert.assertEquals("ayzya", StringUtils.replaceChars("abcba", "bc", "yz"));
+    }
+
+    @Test
+    public void testReplaceCharsStringString_null() {
+        Assert.assertNull(StringUtils.replaceChars(null, "bc", "yz"));
+    }
+
+    @Test
+    public void testReplaceCharsStringString_nullReplace() {
+        Assert.assertEquals("ac", StringUtils.replaceChars("abc", "b", null));
+    }
+
+    // overlay
+    @Test
+    public void testOverlay_normal() {
+        Assert.assertEquals("abzzzzef", StringUtils.overlay("abcdef", "zzzz", 2, 4));
+    }
+
+    @Test
+    public void testOverlay_null() {
+        Assert.assertNull(StringUtils.overlay(null, "x", 0, 0));
+    }
+
+    @Test
+    public void testOverlay_nullOverlay() {
+        Assert.assertEquals("abef", StringUtils.overlay("abcdef", null, 2, 4));
+    }
+
+    @Test
+    public void testOverlay_negativeStart() {
+        Assert.assertEquals("zzzzef", StringUtils.overlay("abcdef", "zzzz", -1, 4));
+    }
+
+    @Test
+    public void testOverlay_startGreaterThanEnd() {
+        Assert.assertEquals("abzzzzef", StringUtils.overlay("abcdef", "zzzz", 4, 2));
+    }
+
+    // chomp
+    @Test
+    public void testChomp_null_returnsNull() {
+        Assert.assertNull(StringUtils.chomp(null));
+    }
+
+    @Test
+    public void testChomp_normal() {
+        Assert.assertEquals("abc", StringUtils.chomp("abc\n"));
+    }
+
+    @Test
+    public void testChomp_crlf() {
+        Assert.assertEquals("abc", StringUtils.chomp("abc\r\n"));
+    }
+
+    @Test
+    public void testChomp_singleCharCR() {
+        Assert.assertEquals("", StringUtils.chomp("\r"));
+    }
+
+    @Test
+    public void testChomp_noNewline() {
+        Assert.assertEquals("abc", StringUtils.chomp("abc"));
+    }
+
+    @Test
+    public void testChompSeparator_normal() {
+        Assert.assertEquals("foo", StringUtils.chomp("foobar", "bar"));
+    }
+
+    @Test
+    public void testChompSeparator_null_returnsNull() {
+        Assert.assertNull(StringUtils.chomp(null, "bar"));
+    }
+
+    @Test
+    public void testChompSeparator_nullSeparator() {
+        Assert.assertEquals("foo", StringUtils.chomp("foo", null));
+    }
+
+    // chop
+    @Test
+    public void testChop_null_returnsNull() {
+        Assert.assertNull(StringUtils.chop(null));
+    }
+
+    @Test
+    public void testChop_normal() {
+        Assert.assertEquals("ab", StringUtils.chop("abc"));
+    }
+
+    @Test
+    public void testChop_crlf() {
+        Assert.assertEquals("abc", StringUtils.chop("abc\r\n"));
+    }
+
+    @Test
+    public void testChop_shortString() {
+        Assert.assertEquals("", StringUtils.chop("a"));
+    }
+
+    // repeat
+    @Test
+    public void testRepeat_null_returnsNull() {
+        Assert.assertNull(StringUtils.repeat(null, 2));
+    }
+
+    @Test
+    public void testRepeat_normal() {
+        Assert.assertEquals("aaa", StringUtils.repeat("a", 3));
+    }
+
+    @Test
+    public void testRepeat_twoChars() {
+        Assert.ass

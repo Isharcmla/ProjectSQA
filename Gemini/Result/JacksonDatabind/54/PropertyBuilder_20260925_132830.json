@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "54",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.ser.PropertyBuilder",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.PropertyBuilder"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 45.79,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\54\\PropertyBuilder_20260925_132830.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\54\\PropertyBuilderTest.java",
+  "usage": {
+    "prompt_tokens": 3659,
+    "completion_tokens": 4620,
+    "total_tokens": 10329
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 45438,
+    "daily_remaining_tokens": 304562
+  },
+  "timestamp": "20260925_132830"
+}

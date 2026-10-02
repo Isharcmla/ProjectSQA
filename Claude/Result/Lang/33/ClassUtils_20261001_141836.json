@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "33",
+  "tool": "claude",
+  "class": "org.apache.commons.lang3.ClassUtils",
+  "target_classes": [
+    "org.apache.commons.lang3.ClassUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 83.23,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Lang\\33\\ClassUtils_20261001_141836.txt",
+  "test_file": "Claude\\TestCode\\Lang\\33\\ClassUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 15904,
+    "completion_tokens": 13597,
+    "total_tokens": 29501
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 165649,
+    "daily_remaining_tokens": 34351
+  },
+  "timestamp": "20261001_141836"
+}

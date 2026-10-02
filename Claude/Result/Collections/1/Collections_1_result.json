@@ -1,0 +1,58 @@
+{
+  "project": "Collections",
+  "bug_id": "1",
+  "tool": "claude",
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 109.76,
+  "num_test_files_generated": 0,
+  "target_classes": [
+    "org.apache.commons.collections.map.Flat3Map"
+  ],
+  "model_name": "Claude",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "class_results": [
+    {
+      "project": "Collections",
+      "bug_id": "1",
+      "tool": "claude",
+      "class": "org.apache.commons.collections.map.Flat3Map",
+      "target_classes": [
+        "org.apache.commons.collections.map.Flat3Map"
+      ],
+      "status": "failed",
+      "generation_status": "failed",
+      "compile_result": "not_run",
+      "elapsed_sec": 109.56,
+      "num_test_files_generated": 0,
+      "model_requested": "claude",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Claude",
+      "max_tokens": 16384,
+      "temperature": 0.2,
+      "finish_reason": "length",
+      "prompt_file": "Claude/Prompt/Collections/1/Flat3Map_20260920_055411.txt",
+      "test_file": null,
+      "usage": {
+        "prompt_tokens": 11983,
+        "completion_tokens": 16384,
+        "total_tokens": 28367
+      },
+      "model_quota": {
+        "daily_quota_tokens": 200000,
+        "daily_usage_tokens": 197696,
+        "daily_remaining_tokens": 2304
+      },
+      "timestamp": "20260920_055411"
+    }
+  ],
+  "failures": [
+    {
+      "class": "org.apache.commons.collections.map.Flat3Map",
+      "error": "finish_reason=length"
+    }
+  ],
+  "timestamp": "2026-09-20T05:56:01"
+}

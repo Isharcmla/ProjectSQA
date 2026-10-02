@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "22",
+  "tool": "claude",
+  "class": "org.mockito.internal.matchers.Equality",
+  "target_classes": [
+    "org.mockito.internal.matchers.Equality"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.62,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\22\\Equality_20261003_004849.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\22\\EqualityTest.java",
+  "usage": {
+    "prompt_tokens": 1323,
+    "completion_tokens": 4439,
+    "total_tokens": 5762
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 62419,
+    "daily_remaining_tokens": 137581
+  },
+  "timestamp": "20261003_004849"
+}

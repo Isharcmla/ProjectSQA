@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "39",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.deser.std.NullifyingDeserializer",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.std.NullifyingDeserializer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 61.34,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\39\\NullifyingDeserializer_20260929_030158.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\39\\NullifyingDeserializerTest.java",
+  "usage": {
+    "prompt_tokens": 1472,
+    "completion_tokens": 7223,
+    "total_tokens": 8695
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 40533,
+    "daily_remaining_tokens": 159467
+  },
+  "timestamp": "20260929_030158"
+}

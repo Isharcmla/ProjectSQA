@@ -1,0 +1,1349 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.io.Reader;
+import java.io.Writer;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class StrBuilderTest {
+
+    private StrBuilder sb;
+
+    @Before
+    public void setUp() {
+        sb = new StrBuilder();
+    }
+
+    // ---------------- Constructors ----------------
+
+    @Test
+    public void testConstructor_default_hasCapacity32() {
+        StrBuilder b = new StrBuilder();
+        assertEquals(32, b.capacity());
+        assertEquals(0, b.length());
+    }
+
+    @Test
+    public void testConstructor_withPositiveCapacity() {
+        StrBuilder b = new StrBuilder(10);
+        assertEquals(10, b.capacity());
+    }
+
+    @Test
+    public void testConstructor_withZeroCapacity_usesDefault() {
+        StrBuilder b = new StrBuilder(0);
+        assertEquals(32, b.capacity());
+    }
+
+    @Test
+    public void testConstructor_withNegativeCapacity_usesDefault() {
+        StrBuilder b = new StrBuilder(-5);
+        assertEquals(32, b.capacity());
+    }
+
+    @Test
+    public void testConstructor_withString() {
+        StrBuilder b = new StrBuilder("hello");
+        assertEquals("hello", b.toString());
+        assertEquals(5 + StrBuilder.CAPACITY, b.capacity());
+    }
+
+    @Test
+    public void testConstructor_withNullString() {
+        StrBuilder b = new StrBuilder((String) null);
+        assertEquals(0, b.length());
+        assertEquals(32, b.capacity());
+    }
+
+    // ---------------- newLineText ----------------
+
+    @Test
+    public void testGetSetNewLineText_normal() {
+        sb.setNewLineText("abc");
+        assertEquals("abc", sb.getNewLineText());
+    }
+
+    @Test
+    public void testGetSetNewLineText_null() {
+        sb.setNewLineText(null);
+        assertNull(sb.getNewLineText());
+    }
+
+    // ---------------- nullText ----------------
+
+    @Test
+    public void testGetSetNullText_normal() {
+        sb.setNullText("NULL");
+        assertEquals("NULL", sb.getNullText());
+    }
+
+    @Test
+    public void testSetNullText_emptyString_setsToNull() {
+        sb.setNullText("");
+        assertNull(sb.getNullText());
+    }
+
+    @Test
+    public void testSetNullText_null() {
+        sb.setNullText(null);
+        assertNull(sb.getNullText());
+    }
+
+    // ---------------- length / setLength ----------------
+
+    @Test
+    public void testLength_initial() {
+        assertEquals(0, sb.length());
+    }
+
+    @Test
+    public void testSetLength_shrink() {
+        sb.append("hello");
+        sb.setLength(3);
+        assertEquals("hel", sb.toString());
+    }
+
+    @Test
+    public void testSetLength_grow() {
+        sb.append("ab");
+        sb.setLength(5);
+        assertEquals(5, sb.length());
+        assertEquals('\0', sb.charAt(4));
+    }
+
+    @Test
+    public void testSetLength_sameSize() {
+        sb.append("abc");
+        sb.setLength(3);
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testSetLength_negative_throws() {
+        sb.setLength(-1);
+    }
+
+    // ---------------- capacity / ensureCapacity / minimizeCapacity ----------------
+
+    @Test
+    public void testCapacity_initial() {
+        assertEquals(32, sb.capacity());
+    }
+
+    @Test
+    public void testEnsureCapacity_increase() {
+        sb.ensureCapacity(100);
+        assertTrue(sb.capacity() >= 100);
+    }
+
+    @Test
+    public void testEnsureCapacity_noChangeWhenSmaller() {
+        int cap = sb.capacity();
+        sb.ensureCapacity(1);
+        assertEquals(cap, sb.capacity());
+    }
+
+    @Test
+    public void testMinimizeCapacity() {
+        sb.append("ab");
+        sb.minimizeCapacity();
+        assertEquals(2, sb.capacity());
+    }
+
+    // ---------------- size / isEmpty / clear ----------------
+
+    @Test
+    public void testSize_afterAppend() {
+        sb.append("abc");
+        assertEquals(3, sb.size());
+    }
+
+    @Test
+    public void testIsEmpty_trueWhenEmpty() {
+        assertTrue(sb.isEmpty());
+    }
+
+    @Test
+    public void testIsEmpty_falseWhenNotEmpty() {
+        sb.append("x");
+        assertFalse(sb.isEmpty());
+    }
+
+    @Test
+    public void testClear() {
+        sb.append("abc");
+        sb.clear();
+        assertEquals(0, sb.length());
+    }
+
+    // ---------------- charAt / setCharAt / deleteCharAt ----------------
+
+    @Test
+    public void testCharAt_valid() {
+        sb.append("abc");
+        assertEquals('b', sb.charAt(1));
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testCharAt_negativeIndex_throws() {
+        sb.append("abc");
+        sb.charAt(-1);
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testCharAt_tooLargeIndex_throws() {
+        sb.append("abc");
+        sb.charAt(10);
+    }
+
+    @Test
+    public void testSetCharAt_valid() {
+        sb.append("abc");
+        sb.setCharAt(0, 'z');
+        assertEquals("zbc", sb.toString());
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testSetCharAt_invalidIndex_throws() {
+        sb.append("abc");
+        sb.setCharAt(10, 'z');
+    }
+
+    @Test
+    public void testDeleteCharAt_valid() {
+        sb.append("abc");
+        sb.deleteCharAt(1);
+        assertEquals("ac", sb.toString());
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testDeleteCharAt_invalidIndex_throws() {
+        sb.append("abc");
+        sb.deleteCharAt(10);
+    }
+
+    // ---------------- toCharArray ----------------
+
+    @Test
+    public void testToCharArray_empty() {
+        char[] arr = sb.toCharArray();
+        assertEquals(0, arr.length);
+    }
+
+    @Test
+    public void testToCharArray_normal() {
+        sb.append("abc");
+        char[] arr = sb.toCharArray();
+        assertArrayEquals(new char[]{'a', 'b', 'c'}, arr);
+    }
+
+    @Test
+    public void testToCharArrayRange_normal() {
+        sb.append("abcdef");
+        char[] arr = sb.toCharArray(1, 4);
+        assertArrayEquals(new char[]{'b', 'c', 'd'}, arr);
+    }
+
+    @Test
+    public void testToCharArrayRange_emptyRange() {
+        sb.append("abcdef");
+        char[] arr = sb.toCharArray(2, 2);
+        assertEquals(0, arr.length);
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testToCharArrayRange_invalidStart_throws() {
+        sb.append("abc");
+        sb.toCharArray(-1, 2);
+    }
+
+    // ---------------- getChars ----------------
+
+    @Test
+    public void testGetChars_nullDestination() {
+        sb.append("abc");
+        char[] result = sb.getChars(null);
+        assertArrayEquals(new char[]{'a', 'b', 'c'}, result);
+    }
+
+    @Test
+    public void testGetChars_tooSmallDestination() {
+        sb.append("abc");
+        char[] result = sb.getChars(new char[1]);
+        assertArrayEquals(new char[]{'a', 'b', 'c'}, result);
+    }
+
+    @Test
+    public void testGetChars_withRange() {
+        sb.append("abcdef");
+        char[] dest = new char[10];
+        sb.getChars(1, 4, dest, 0);
+        assertEquals('b', dest[0]);
+        assertEquals('c', dest[1]);
+        assertEquals('d', dest[2]);
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testGetChars_negativeStart_throws() {
+        sb.append("abc");
+        sb.getChars(-1, 2, new char[5], 0);
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testGetChars_endGreaterThanLength_throws() {
+        sb.append("abc");
+        sb.getChars(0, 100, new char[5], 0);
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testGetChars_startGreaterThanEnd_throws() {
+        sb.append("abc");
+        sb.getChars(2, 1, new char[5], 0);
+    }
+
+    // ---------------- appendNewLine / appendNull ----------------
+
+    @Test
+    public void testAppendNewLine_default() {
+        sb.appendNewLine();
+        assertTrue(sb.length() > 0);
+    }
+
+    @Test
+    public void testAppendNewLine_customText() {
+        sb.setNewLineText("\n");
+        sb.appendNewLine();
+        assertEquals("\n", sb.toString());
+    }
+
+    @Test
+    public void testAppendNull_noNullText() {
+        sb.appendNull();
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testAppendNull_withNullText() {
+        sb.setNullText("NULL");
+        sb.appendNull();
+        assertEquals("NULL", sb.toString());
+    }
+
+    // ---------------- append(Object) ----------------
+
+    @Test
+    public void testAppendObject_normal() {
+        sb.append((Object) "hi");
+        assertEquals("hi", sb.toString());
+    }
+
+    @Test
+    public void testAppendObject_null() {
+        sb.append((Object) null);
+        assertEquals("", sb.toString());
+    }
+
+    // ---------------- append(String) ----------------
+
+    @Test
+    public void testAppendString_normal() {
+        sb.append("hello");
+        assertEquals("hello", sb.toString());
+    }
+
+    @Test
+    public void testAppendString_null() {
+        sb.append((String) null);
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testAppendString_empty() {
+        sb.append("");
+        assertEquals("", sb.toString());
+    }
+
+    // ---------------- append(String,start,len) ----------------
+
+    @Test
+    public void testAppendStringRange_normal() {
+        sb.append("abcdef", 1, 3);
+        assertEquals("bcd", sb.toString());
+    }
+
+    @Test
+    public void testAppendStringRange_null() {
+        sb.append((String) null, 0, 0);
+        assertEquals("", sb.toString());
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testAppendStringRange_invalidStartIndex_throws() {
+        sb.append("abc", -1, 1);
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testAppendStringRange_invalidLength_throws() {
+        sb.append("abc", 0, 10);
+    }
+
+    @Test
+    public void testAppendStringRange_zeroLength() {
+        sb.append("abc", 0, 0);
+        assertEquals("", sb.toString());
+    }
+
+    // ---------------- append(StringBuffer) ----------------
+
+    @Test
+    public void testAppendStringBuffer_normal() {
+        sb.append(new StringBuffer("xyz"));
+        assertEquals("xyz", sb.toString());
+    }
+
+    @Test
+    public void testAppendStringBuffer_null() {
+        sb.append((StringBuffer) null);
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testAppendStringBuffer_empty() {
+        sb.append(new StringBuffer(""));
+        assertEquals("", sb.toString());
+    }
+
+    // ---------------- append(StringBuffer,start,len) ----------------
+
+    @Test
+    public void testAppendStringBufferRange_normal() {
+        sb.append(new StringBuffer("abcdef"), 1, 3);
+        assertEquals("bcd", sb.toString());
+    }
+
+    @Test
+    public void testAppendStringBufferRange_null() {
+        sb.append((StringBuffer) null, 0, 0);
+        assertEquals("", sb.toString());
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testAppendStringBufferRange_invalidStart_throws() {
+        sb.append(new StringBuffer("abc"), -1, 1);
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testAppendStringBufferRange_invalidLength_throws() {
+        sb.append(new StringBuffer("abc"), 0, 10);
+    }
+
+    // ---------------- append(StrBuilder) ----------------
+
+    @Test
+    public void testAppendStrBuilder_normal() {
+        StrBuilder other = new StrBuilder("foo");
+        sb.append(other);
+        assertEquals("foo", sb.toString());
+    }
+
+    @Test
+    public void testAppendStrBuilder_null() {
+        sb.append((StrBuilder) null);
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testAppendStrBuilder_empty() {
+        sb.append(new StrBuilder());
+        assertEquals("", sb.toString());
+    }
+
+    // ---------------- append(StrBuilder,start,len) ----------------
+
+    @Test
+    public void testAppendStrBuilderRange_normal() {
+        StrBuilder other = new StrBuilder("abcdef");
+        sb.append(other, 1, 3);
+        assertEquals("bcd", sb.toString());
+    }
+
+    @Test
+    public void testAppendStrBuilderRange_null() {
+        sb.append((StrBuilder) null, 0, 0);
+        assertEquals("", sb.toString());
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testAppendStrBuilderRange_invalidStart_throws() {
+        sb.append(new StrBuilder("abc"), -1, 1);
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testAppendStrBuilderRange_invalidLength_throws() {
+        sb.append(new StrBuilder("abc"), 0, 10);
+    }
+
+    // ---------------- append(char[]) ----------------
+
+    @Test
+    public void testAppendCharArray_normal() {
+        sb.append(new char[]{'a', 'b', 'c'});
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testAppendCharArray_null() {
+        sb.append((char[]) null);
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testAppendCharArray_empty() {
+        sb.append(new char[0]);
+        assertEquals("", sb.toString());
+    }
+
+    // ---------------- append(char[],start,len) ----------------
+
+    @Test
+    public void testAppendCharArrayRange_normal() {
+        sb.append(new char[]{'a', 'b', 'c', 'd'}, 1, 2);
+        assertEquals("bc", sb.toString());
+    }
+
+    @Test
+    public void testAppendCharArrayRange_null() {
+        sb.append((char[]) null, 0, 0);
+        assertEquals("", sb.toString());
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testAppendCharArrayRange_invalidStart_throws() {
+        sb.append(new char[]{'a', 'b'}, -1, 1);
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testAppendCharArrayRange_invalidLength_throws() {
+        sb.append(new char[]{'a', 'b'}, 0, 10);
+    }
+
+    // ---------------- append primitives ----------------
+
+    @Test
+    public void testAppendBoolean_true() {
+        sb.append(true);
+        assertEquals("true", sb.toString());
+    }
+
+    @Test
+    public void testAppendBoolean_false() {
+        sb.append(false);
+        assertEquals("false", sb.toString());
+    }
+
+    @Test
+    public void testAppendChar() {
+        sb.append('x');
+        assertEquals("x", sb.toString());
+    }
+
+    @Test
+    public void testAppendInt() {
+        sb.append(123);
+        assertEquals("123", sb.toString());
+    }
+
+    @Test
+    public void testAppendLong() {
+        sb.append(123456789L);
+        assertEquals("123456789", sb.toString());
+    }
+
+    @Test
+    public void testAppendFloat() {
+        sb.append(1.5f);
+        assertEquals(String.valueOf(1.5f), sb.toString());
+    }
+
+    @Test
+    public void testAppendDouble() {
+        sb.append(1.5d);
+        assertEquals(String.valueOf(1.5d), sb.toString());
+    }
+
+    // ---------------- appendWithSeparators ----------------
+
+    @Test
+    public void testAppendWithSeparators_objectArray_normal() {
+        sb.appendWithSeparators(new Object[]{"a", "b", "c"}, ",");
+        assertEquals("a,b,c", sb.toString());
+    }
+
+    @Test
+    public void testAppendWithSeparators_objectArray_null() {
+        sb.appendWithSeparators((Object[]) null, ",");
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testAppendWithSeparators_objectArray_emptyArray() {
+        sb.appendWithSeparators(new Object[0], ",");
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testAppendWithSeparators_objectArray_nullSeparator() {
+        sb.appendWithSeparators(new Object[]{"a", "b"}, null);
+        assertEquals("ab", sb.toString());
+    }
+
+    @Test
+    public void testAppendWithSeparators_collection_normal() {
+        List<String> list = new ArrayList<String>();
+        list.add("x");
+        list.add("y");
+        sb.appendWithSeparators(list, "-");
+        assertEquals("x-y", sb.toString());
+    }
+
+    @Test
+    public void testAppendWithSeparators_collection_null() {
+        sb.appendWithSeparators((java.util.Collection) null, "-");
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testAppendWithSeparators_collection_empty() {
+        List<String> list = new ArrayList<String>();
+        sb.appendWithSeparators(list, "-");
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testAppendWithSeparators_iterator_normal() {
+        List<String> list = new ArrayList<String>();
+        list.add("1");
+        list.add("2");
+        sb.appendWithSeparators(list.iterator(), ",");
+        assertEquals("1,2", sb.toString());
+    }
+
+    @Test
+    public void testAppendWithSeparators_iterator_null() {
+        sb.appendWithSeparators((Iterator) null, ",");
+        assertEquals("", sb.toString());
+    }
+
+    // ---------------- appendPadding ----------------
+
+    @Test
+    public void testAppendPadding_normal() {
+        sb.appendPadding(3, '*');
+        assertEquals("***", sb.toString());
+    }
+
+    @Test
+    public void testAppendPadding_negative_noEffect() {
+        sb.appendPadding(-1, '*');
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testAppendPadding_zero() {
+        sb.appendPadding(0, '*');
+        assertEquals("", sb.toString());
+    }
+
+    // ---------------- appendFixedWidthPadLeft ----------------
+
+    @Test
+    public void testAppendFixedWidthPadLeft_object_padded() {
+        sb.appendFixedWidthPadLeft("ab", 5, '0');
+        assertEquals("000ab", sb.toString());
+    }
+
+    @Test
+    public void testAppendFixedWidthPadLeft_object_truncated() {
+        sb.appendFixedWidthPadLeft("abcdef", 3, '0');
+        assertEquals("def", sb.toString());
+    }
+
+    @Test
+    public void testAppendFixedWidthPadLeft_object_null() {
+        sb.setNullText("N");
+        sb.appendFixedWidthPadLeft((Object) null, 3, '0');
+        assertEquals("00N", sb.toString());
+    }
+
+    @Test
+    public void testAppendFixedWidthPadLeft_object_nullWithNoNullText() {
+        sb.appendFixedWidthPadLeft((Object) null, 3, '0');
+        // nullText is null, so str becomes "null" literal from getNullText() returning null -> NPE expected?
+        // getNullText() returns null -> str = null -> str.length() NPE
+    }
+
+    @Test
+    public void testAppendFixedWidthPadLeft_widthZero_noEffect() {
+        sb.appendFixedWidthPadLeft("ab", 0, '0');
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testAppendFixedWidthPadLeft_int_normal() {
+        sb.appendFixedWidthPadLeft(5, 3, '0');
+        assertEquals("005", sb.toString());
+    }
+
+    // ---------------- appendFixedWidthPadRight ----------------
+
+    @Test
+    public void testAppendFixedWidthPadRight_object_padded() {
+        sb.appendFixedWidthPadRight("ab", 5, '0');
+        assertEquals("ab000", sb.toString());
+    }
+
+    @Test
+    public void testAppendFixedWidthPadRight_object_truncated() {
+        sb.appendFixedWidthPadRight("abcdef", 3, '0');
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testAppendFixedWidthPadRight_object_null() {
+        sb.setNullText("N");
+        sb.appendFixedWidthPadRight((Object) null, 3, '0');
+        assertEquals("N00", sb.toString());
+    }
+
+    @Test
+    public void testAppendFixedWidthPadRight_widthZero_noEffect() {
+        sb.appendFixedWidthPadRight("ab", 0, '0');
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testAppendFixedWidthPadRight_int_normal() {
+        sb.appendFixedWidthPadRight(5, 3, '0');
+        assertEquals("500", sb.toString());
+    }
+
+    // ---------------- insert ----------------
+
+    @Test
+    public void testInsertObject_normal() {
+        sb.append("ac");
+        sb.insert(1, (Object) "b");
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testInsertObject_null() {
+        sb.append("ac");
+        sb.setNullText("X");
+        sb.insert(1, (Object) null);
+        assertEquals("aXc", sb.toString());
+    }
+
+    @Test
+    public void testInsertString_normal() {
+        sb.append("ac");
+        sb.insert(1, "b");
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testInsertString_null() {
+        sb.append("ac");
+        sb.insert(1, (String) null);
+        assertEquals("ac", sb.toString());
+    }
+
+    @Test
+    public void testInsertString_emptyString() {
+        sb.append("ac");
+        sb.insert(1, "");
+        assertEquals("ac", sb.toString());
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testInsertString_invalidIndex_throws() {
+        sb.append("ac");
+        sb.insert(10, "b");
+    }
+
+    @Test
+    public void testInsertCharArray_normal() {
+        sb.append("ac");
+        sb.insert(1, new char[]{'b'});
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testInsertCharArray_null() {
+        sb.append("ac");
+        sb.insert(1, (char[]) null);
+        assertEquals("ac", sb.toString());
+    }
+
+    @Test
+    public void testInsertCharArray_empty() {
+        sb.append("ac");
+        sb.insert(1, new char[0]);
+        assertEquals("ac", sb.toString());
+    }
+
+    @Test
+    public void testInsertCharArrayRange_normal() {
+        sb.append("ac");
+        sb.insert(1, new char[]{'x', 'b', 'y'}, 1, 1);
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testInsertCharArrayRange_null() {
+        sb.append("ac");
+        sb.insert(1, (char[]) null, 0, 0);
+        assertEquals("ac", sb.toString());
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testInsertCharArrayRange_invalidOffset_throws() {
+        sb.append("ac");
+        sb.insert(1, new char[]{'a'}, -1, 1);
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testInsertCharArrayRange_invalidLength_throws() {
+        sb.append("ac");
+        sb.insert(1, new char[]{'a'}, 0, 10);
+    }
+
+    @Test
+    public void testInsertCharArrayRange_zeroLength() {
+        sb.append("ac");
+        sb.insert(1, new char[]{'a'}, 0, 0);
+        assertEquals("ac", sb.toString());
+    }
+
+    @Test
+    public void testInsertBoolean_true() {
+        sb.append("ac");
+        sb.insert(1, true);
+        assertEquals("atruec", sb.toString());
+    }
+
+    @Test
+    public void testInsertBoolean_false() {
+        sb.append("ac");
+        sb.insert(1, false);
+        assertEquals("afalsec", sb.toString());
+    }
+
+    @Test
+    public void testInsertChar() {
+        sb.append("ac");
+        sb.insert(1, 'b');
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testInsertInt() {
+        sb.append("ac");
+        sb.insert(1, 5);
+        assertEquals("a5c", sb.toString());
+    }
+
+    @Test
+    public void testInsertLong() {
+        sb.append("ac");
+        sb.insert(1, 5L);
+        assertEquals("a5c", sb.toString());
+    }
+
+    @Test
+    public void testInsertFloat() {
+        sb.append("ac");
+        sb.insert(1, 1.5f);
+        assertEquals("a" + String.valueOf(1.5f) + "c", sb.toString());
+    }
+
+    @Test
+    public void testInsertDouble() {
+        sb.append("ac");
+        sb.insert(1, 1.5d);
+        assertEquals("a" + String.valueOf(1.5d) + "c", sb.toString());
+    }
+
+    // ---------------- delete ----------------
+
+    @Test
+    public void testDelete_normal() {
+        sb.append("abcdef");
+        sb.delete(1, 3);
+        assertEquals("adef", sb.toString());
+    }
+
+    @Test
+    public void testDelete_endTooLarge_treatedAsSize() {
+        sb.append("abcdef");
+        sb.delete(2, 100);
+        assertEquals("ab", sb.toString());
+    }
+
+    @Test
+    public void testDelete_zeroLengthRange_noChange() {
+        sb.append("abc");
+        sb.delete(1, 1);
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testDelete_negativeStart_throws() {
+        sb.append("abc");
+        sb.delete(-1, 2);
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testDelete_startGreaterThanEnd_throws() {
+        sb.append("abc");
+        sb.delete(2, 1);
+    }
+
+    // ---------------- deleteAll(char) / deleteFirst(char) ----------------
+
+    @Test
+    public void testDeleteAllChar_normal() {
+        sb.append("abcabc");
+        sb.deleteAll('a');
+        assertEquals("bcbc", sb.toString());
+    }
+
+    @Test
+    public void testDeleteAllChar_consecutive() {
+        sb.append("aabbaa");
+        sb.deleteAll('a');
+        assertEquals("bb", sb.toString());
+    }
+
+    @Test
+    public void testDeleteAllChar_notFound() {
+        sb.append("bcd");
+        sb.deleteAll('a');
+        assertEquals("bcd", sb.toString());
+    }
+
+    @Test
+    public void testDeleteFirstChar_normal() {
+        sb.append("abcabc");
+        sb.deleteFirst('a');
+        assertEquals("bcabc", sb.toString());
+    }
+
+    @Test
+    public void testDeleteFirstChar_notFound() {
+        sb.append("bcd");
+        sb.deleteFirst('a');
+        assertEquals("bcd", sb.toString());
+    }
+
+    // ---------------- deleteAll(String) / deleteFirst(String) ----------------
+
+    @Test
+    public void testDeleteAllString_normal() {
+        sb.append("abcabc");
+        sb.deleteAll("bc");
+        assertEquals("aa", sb.toString());
+    }
+
+    @Test
+    public void testDeleteAllString_null() {
+        sb.append("abc");
+        sb.deleteAll((String) null);
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testDeleteAllString_empty() {
+        sb.append("abc");
+        sb.deleteAll("");
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testDeleteFirstString_normal() {
+        sb.append("abcabc");
+        sb.deleteFirst("bc");
+        assertEquals("aabc", sb.toString());
+    }
+
+    @Test
+    public void testDeleteFirstString_notFound() {
+        sb.append("abc");
+        sb.deleteFirst("xyz");
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testDeleteFirstString_null() {
+        sb.append("abc");
+        sb.deleteFirst((String) null);
+        assertEquals("abc", sb.toString());
+    }
+
+    // ---------------- deleteAll(StrMatcher) / deleteFirst(StrMatcher) ----------------
+
+    @Test
+    public void testDeleteAllMatcher_normal() {
+        sb.append("a1b2c3");
+        sb.deleteAll(StrMatcher.charMatcher('1'));
+        assertEquals("ab2c3", sb.toString());
+    }
+
+    @Test
+    public void testDeleteAllMatcher_null() {
+        sb.append("abc");
+        sb.deleteAll((StrMatcher) null);
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testDeleteFirstMatcher_normal() {
+        sb.append("a1b1c");
+        sb.deleteFirst(StrMatcher.charMatcher('1'));
+        assertEquals("ab1c", sb.toString());
+    }
+
+    @Test
+    public void testDeleteFirstMatcher_null() {
+        sb.append("abc");
+        sb.deleteFirst((StrMatcher) null);
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testDeleteAllMatcher_emptyBuilder() {
+        StrBuilder empty = new StrBuilder();
+        empty.deleteAll(StrMatcher.charMatcher('a'));
+        assertEquals("", empty.toString());
+    }
+
+    // ---------------- replace(int,int,String) ----------------
+
+    @Test
+    public void testReplaceRange_normal() {
+        sb.append("abcdef");
+        sb.replace(1, 3, "XY");
+        assertEquals("aXYdef", sb.toString());
+    }
+
+    @Test
+    public void testReplaceRange_null() {
+        sb.append("abcdef");
+        sb.replace(1, 3, (String) null);
+        assertEquals("adef", sb.toString());
+    }
+
+    @Test
+    public void testReplaceRange_differentLength_shorter() {
+        sb.append("abcdef");
+        sb.replace(1, 5, "X");
+        assertEquals("aXf", sb.toString());
+    }
+
+    @Test
+    public void testReplaceRange_differentLength_longer() {
+        sb.append("abc");
+        sb.replace(1, 2, "XYZ");
+        assertEquals("aXYZc", sb.toString());
+    }
+
+    // ---------------- replaceAll(char,char) / replaceFirst(char,char) ----------------
+
+    @Test
+    public void testReplaceAllChar_normal() {
+        sb.append("abcabc");
+        sb.replaceAll('a', 'z');
+        assertEquals("zbczbc", sb.toString());
+    }
+
+    @Test
+    public void testReplaceAllChar_sameChar_noEffect() {
+        sb.append("abc");
+        sb.replaceAll('a', 'a');
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testReplaceFirstChar_normal() {
+        sb.append("abcabc");
+        sb.replaceFirst('a', 'z');
+        assertEquals("zbcabc", sb.toString());
+    }
+
+    @Test
+    public void testReplaceFirstChar_sameChar_noEffect() {
+        sb.append("abc");
+        sb.replaceFirst('a', 'a');
+        assertEquals("abc", sb.toString());
+    }
+
+    // ---------------- replaceAll(String,String) / replaceFirst(String,String) ----------------
+
+    @Test
+    public void testReplaceAllString_normal() {
+        sb.append("abcabc");
+        sb.replaceAll("bc", "X");
+        assertEquals("aXaX", sb.toString());
+    }
+
+    @Test
+    public void testReplaceAllString_nullSearch_noEffect() {
+        sb.append("abc");
+        sb.replaceAll((String) null, "X");
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testReplaceAllString_nullReplace() {
+        sb.append("abcabc");
+        sb.replaceAll("bc", (String) null);
+        assertEquals("aa", sb.toString());
+    }
+
+    @Test
+    public void testReplaceFirstString_normal() {
+        sb.append("abcabc");
+        sb.replaceFirst("bc", "X");
+        assertEquals("aXabc", sb.toString());
+    }
+
+    @Test
+    public void testReplaceFirstString_notFound() {
+        sb.append("abc");
+        sb.replaceFirst("xyz", "X");
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testReplaceFirstString_nullSearch_noEffect() {
+        sb.append("abc");
+        sb.replaceFirst((String) null, "X");
+        assertEquals("abc", sb.toString());
+    }
+
+    // ---------------- replaceAll(StrMatcher,String) / replaceFirst(StrMatcher,String) ----------------
+
+    @Test
+    public void testReplaceAllMatcher_normal() {
+        sb.append("a1b1c");
+        sb.replaceAll(StrMatcher.charMatcher('1'), "X");
+        assertEquals("aXbXc", sb.toString());
+    }
+
+    @Test
+    public void testReplaceFirstMatcher_normal() {
+        sb.append("a1b1c");
+        sb.replaceFirst(StrMatcher.charMatcher('1'), "X");
+        assertEquals("aXb1c", sb.toString());
+    }
+
+    // ---------------- replace(StrMatcher,String,start,end,count) ----------------
+
+    @Test
+    public void testReplaceMatcherFull_normal() {
+        sb.append("a1b1c1");
+        sb.replace(StrMatcher.charMatcher('1'), "X", 0, sb.size(), -1);
+        assertEquals("aXbXcX", sb.toString());
+    }
+
+    @Test
+    public void testReplaceMatcherFull_nullMatcher_noEffect() {
+        sb.append("abc");
+        sb.replace((StrMatcher) null, "X", 0, sb.size(), -1);
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testReplaceMatcherFull_limitedCount() {
+        sb.append("a1b1c1");
+        sb.replace(StrMatcher.charMatcher('1'), "X", 0, sb.size(), 1);
+        assertEquals("aXb1c1", sb.toString());
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testReplaceMatcher_invalidStart_throws() {
+        sb.append("abc");
+        sb.replace(StrMatcher.charMatcher('a'), "X", -1, 2, -1);
+    }
+
+    // ---------------- reverse ----------------
+
+    @Test
+    public void testReverse_normal() {
+        sb.append("abc");
+        sb.reverse();
+        assertEquals("cba", sb.toString());
+    }
+
+    @Test
+    public void testReverse_empty() {
+        sb.reverse();
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testReverse_singleChar() {
+        sb.append("a");
+        sb.reverse();
+        assertEquals("a", sb.toString());
+    }
+
+    // ---------------- trim ----------------
+
+    @Test
+    public void testTrim_normal() {
+        sb.append("  abc  ");
+        sb.trim();
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testTrim_empty() {
+        sb.trim();
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testTrim_allWhitespace() {
+        sb.append("   ");
+        sb.trim();
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testTrim_noWhitespace() {
+        sb.append("abc");
+        sb.trim();
+        assertEquals("abc", sb.toString());
+    }
+
+    // ---------------- startsWith / endsWith ----------------
+
+    @Test
+    public void testStartsWith_true() {
+        sb.append("abcdef");
+        assertTrue(sb.startsWith("abc"));
+    }
+
+    @Test
+    public void testStartsWith_false() {
+        sb.append("abcdef");
+        assertFalse(sb.startsWith("xyz"));
+    }
+
+    @Test
+    public void testStartsWith_null() {
+        sb.append("abc");
+        assertFalse(sb.startsWith(null));
+    }
+
+    @Test
+    public void testStartsWith_emptyString() {
+        sb.append("abc");
+        assertTrue(sb.startsWith(""));
+    }
+
+    @Test
+    public void testStartsWith_tooLong() {
+        sb.append("ab");
+        assertFalse(sb.startsWith("abcdef"));
+    }
+
+    @Test
+    public void testEndsWith_true() {
+        sb.append("abcdef");
+        assertTrue(sb.endsWith("def"));
+    }
+
+    @Test
+    public void testEndsWith_false() {
+        sb.append("abcdef");
+        assertFalse(sb.endsWith("xyz"));
+    }
+
+    @Test
+    public void testEndsWith_null() {
+        sb.append("abc");
+        assertFalse(sb.endsWith(null));
+    }
+
+    @Test
+    public void testEndsWith_emptyString() {
+        sb.append("abc");
+        assertTrue(sb.endsWith(""));
+    }
+
+    @Test
+    public void testEndsWith_tooLong() {
+        sb.append("ab");
+        assertFalse(sb.endsWith("abcdef"));
+    }
+
+    // ---------------- substring ----------------
+
+    @Test
+    public void testSubstring_oneArg() {
+        sb.append("abcdef");
+        assertEquals("cdef", sb.substring(2));
+    }
+
+    @Test
+    public void testSubstring_twoArgs() {
+        sb.append("abcdef");
+        assertEquals("cd", sb.substring(2, 4));
+    }
+
+    @Test
+    public void testSubstring_endTooLarge() {
+        sb.append("abc");
+        assertEquals("bc", sb.substring(1, 100));
+    }
+
+    @Test(expected = StringIndexOutOfBoundsException.class)
+    public void testSubstring_negativeStart_throws() {
+        sb.append("abc");
+        sb.substring(-1, 2);
+    }
+
+    // ---------------- leftString / rightString / midString ----------------
+
+    @Test
+    public void testLeftString_normal() {
+        sb.append("abcdef");
+        assertEquals("abc", sb.leftString(3));
+    }
+
+    @Test
+    public void testLeftString_negative() {
+        sb.append("abcdef");
+        assertEquals("", sb.leftString(-1));
+    }
+
+    @Test
+    public void testLeftString_tooLarge() {
+        sb.append("abc");
+        assertEquals("abc", sb.leftString(100));
+    }
+
+    @Test
+    public void testRightString_normal() {
+        sb.append("abcdef");
+        assertEquals("def", sb.rightString(3));
+    }
+
+    @Test
+    public void testRightString_negative() {

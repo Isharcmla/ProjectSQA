@@ -1,0 +1,653 @@
+package org.jsoup.parser;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+import org.jsoup.select.Elements;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+/**
+ * Tests for HtmlTreeBuilderState, exercised indirectly via the public Jsoup parsing API,
+ * since HtmlTreeBuilderState is a package-private enum with no directly testable public API.
+ * These tests drive the parser through many of the HTML5 tree construction states/branches.
+ */
+public class HtmlTreeBuilderStateTest {
+
+    // ---------- Initial state ----------
+    @Test
+    public void testInitial_withDoctype_setsDoctype() {
+        Document doc = Jsoup.parse("<!doctype html><html><head></head><body>hi</body></html>");
+        assertNotNull(doc);
+        assertEquals("hi", doc.body().text());
+    }
+
+    @Test
+    public void testInitial_withLeadingWhitespace_ignored() {
+        Document doc = Jsoup.parse("   \n  <html><head></head><body>text</body></html>");
+        assertEquals("text", doc.body().text());
+    }
+
+    @Test
+    public void testInitial_withLeadingComment_inserted() {
+        Document doc = Jsoup.parse("<!--c--><html><head></head><body>x</body></html>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInitial_noDoctype_reprocessesToBeforeHtml() {
+        Document doc = Jsoup.parse("<p>Hello</p>");
+        assertEquals("Hello", doc.body().text());
+    }
+
+    // ---------- BeforeHtml state ----------
+    @Test
+    public void testBeforeHtml_doctypeAfterDoctype_errorIgnored() {
+        Document doc = Jsoup.parse("<!doctype html><!doctype html><html><body>a</body></html>");
+        assertEquals("a", doc.body().text());
+    }
+
+    @Test
+    public void testBeforeHtml_commentBeforeHtmlTag_inserted() {
+        Document doc = Jsoup.parse("<!doctype html><!--comment--><html><body>b</body></html>");
+        assertEquals("b", doc.body().text());
+    }
+
+    @Test
+    public void testBeforeHtml_endTagOther_errorIgnored() {
+        Document doc = Jsoup.parse("<!doctype html></div><html><body>c</body></html>");
+        assertEquals("c", doc.body().text());
+    }
+
+    @Test
+    public void testBeforeHtml_anythingElse_insertsHtml() {
+        Document doc = Jsoup.parse("<!doctype html><p>text</p>");
+        assertEquals("text", doc.body().text());
+    }
+
+    // ---------- BeforeHead state ----------
+    @Test
+    public void testBeforeHead_doctype_error() {
+        Document doc = Jsoup.parse("<html><!doctype html><head></head><body>d</body></html>");
+        assertEquals("d", doc.body().text());
+    }
+
+    @Test
+    public void testBeforeHead_headTag_transitionsInHead() {
+        Document doc = Jsoup.parse("<html><head><title>T</title></head><body>e</body></html>");
+        assertEquals("T", doc.title());
+    }
+
+    @Test
+    public void testBeforeHead_htmlStartTag_processedByInBody() {
+        Document doc = Jsoup.parse("<html><html><body>f</body></html>");
+        assertEquals("f", doc.body().text());
+    }
+
+    @Test
+    public void testBeforeHead_endTagInSet_processesHeadThenReprocess() {
+        Document doc = Jsoup.parse("<html></head><body>g</body></html>");
+        assertEquals("g", doc.body().text());
+    }
+
+    @Test
+    public void testBeforeHead_otherContent_processesHead() {
+        Document doc = Jsoup.parse("<html>text<body>h</body></html>");
+        assertNotNull(doc);
+    }
+
+    // ---------- InHead state ----------
+    @Test
+    public void testInHead_metaBaseLinkStyleNoframesScriptTitle() {
+        String html = "<html><head>" +
+                "<base href='http://example.com/'>" +
+                "<meta charset='utf-8'>" +
+                "<link rel='stylesheet' href='a.css'>" +
+                "<style>.a{}</style>" +
+                "<noframes>nf</noframes>" +
+                "<title>MyTitle</title>" +
+                "</head><body>content</body></html>";
+        Document doc = Jsoup.parse(html);
+        assertEquals("MyTitle", doc.title());
+        assertEquals("content", doc.body().text());
+    }
+
+    @Test
+    public void testInHead_noscriptTag_transitionsInHeadNoscript() {
+        Document doc = Jsoup.parse("<html><head><noscript><p>ns</p></noscript></head><body>i</body></html>");
+        assertEquals("i", doc.body().text());
+    }
+
+    @Test
+    public void testInHead_scriptTag_transitionsText() {
+        Document doc = Jsoup.parse("<html><head><script>var x=1;</script></head><body>j</body></html>");
+        assertEquals("j", doc.body().text());
+    }
+
+    @Test
+    public void testInHead_headTagInsideHead_error() {
+        Document doc = Jsoup.parse("<html><head><head></head><body>k</body></html>");
+        assertEquals("k", doc.body().text());
+    }
+
+    @Test
+    public void testInHead_endTagHead_popsAndTransitions() {
+        Document doc = Jsoup.parse("<html><head></head><body>l</body></html>");
+        assertEquals("l", doc.body().text());
+    }
+
+    @Test
+    public void testInHead_invalidEndTag_error() {
+        Document doc = Jsoup.parse("<html><head></span></head><body>m</body></html>");
+        assertEquals("m", doc.body().text());
+    }
+
+    @Test
+    public void testInHead_anythingElse_processesHeadEnd() {
+        Document doc = Jsoup.parse("<html><head>stray<body>n</body></html>");
+        assertNotNull(doc);
+    }
+
+    // ---------- InHeadNoscript ----------
+    @Test
+    public void testInHeadNoscript_endNoscript_transitionsInHead() {
+        Document doc = Jsoup.parse("<html><head><noscript></noscript></head><body>o</body></html>");
+        assertEquals("o", doc.body().text());
+    }
+
+    @Test
+    public void testInHeadNoscript_whitespaceCommentOrAllowedStart_delegatesToInHead() {
+        Document doc = Jsoup.parse("<html><head><noscript>  <!--c--><link href='x'></noscript></head><body>p</body></html>");
+        assertEquals("p", doc.body().text());
+    }
+
+    @Test
+    public void testInHeadNoscript_brEndTag_anythingElse() {
+        Document doc = Jsoup.parse("<html><head><noscript></br></noscript></head><body>q</body></html>");
+        assertEquals("q", doc.body().text());
+    }
+
+    @Test
+    public void testInHeadNoscript_disallowedStartOrEndTag_error() {
+        Document doc = Jsoup.parse("<html><head><noscript><head></noscript></head><body>r</body></html>");
+        assertEquals("r", doc.body().text());
+    }
+
+    @Test
+    public void testInHeadNoscript_otherContent_anythingElse() {
+        Document doc = Jsoup.parse("<html><head><noscript>text</noscript></head><body>s</body></html>");
+        assertEquals("s", doc.body().text());
+    }
+
+    // ---------- AfterHead ----------
+    @Test
+    public void testAfterHead_whitespace_inserted() {
+        Document doc = Jsoup.parse("<html><head></head>   <body>t</body></html>");
+        assertEquals("t", doc.body().text());
+    }
+
+    @Test
+    public void testAfterHead_bodyStartTag_transitionsInBody() {
+        Document doc = Jsoup.parse("<html><head></head><body>u</body></html>");
+        assertEquals("u", doc.body().text());
+    }
+
+    @Test
+    public void testAfterHead_framesetStartTag_transitionsInFrameset() {
+        Document doc = Jsoup.parse("<html><head></head><frameset><frame></frameset></html>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testAfterHead_metaAfterHead_errorPushesHead() {
+        Document doc = Jsoup.parse("<html><head></head><base href='http://x.com/'><body>v</body></html>");
+        assertEquals("v", doc.body().text());
+    }
+
+    @Test
+    public void testAfterHead_headStartTag_error() {
+        Document doc = Jsoup.parse("<html><head></head><head><body>w</body></html>");
+        assertEquals("w", doc.body().text());
+    }
+
+    @Test
+    public void testAfterHead_otherStartTag_anythingElse() {
+        Document doc = Jsoup.parse("<html><head></head><p>paragraph</p></html>");
+        assertEquals("paragraph", doc.body().text());
+    }
+
+    @Test
+    public void testAfterHead_endTagBodyOrHtml_anythingElse() {
+        Document doc = Jsoup.parse("<html><head></head></body></html>");
+        assertNotNull(doc.body());
+    }
+
+    @Test
+    public void testAfterHead_otherEndTag_error() {
+        Document doc = Jsoup.parse("<html><head></head></span><body>z</body></html>");
+        assertEquals("z", doc.body().text());
+    }
+
+    @Test
+    public void testAfterHead_otherToken_anythingElse() {
+        Document doc = Jsoup.parse("<html><head></head><!--c--><body>aa</body></html>");
+        assertEquals("aa", doc.body().text());
+    }
+
+    // ---------- InBody: start tags ----------
+    @Test
+    public void testInBody_characterNull_error() {
+        // null char in content is handled specially - just ensure no crash
+        Document doc = Jsoup.parse("<body>a\u0000b</body>");
+        assertNotNull(doc.body());
+    }
+
+    @Test
+    public void testInBody_anchorReopen_closesPreviousA() {
+        Document doc = Jsoup.parse("<a href='1'>one<a href='2'>two</a></a>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_emptyFormatters_br_img_area() {
+        Document doc = Jsoup.parse("<body>line1<br>line2<img src='a.png'><area></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_pClosers_divClosesP() {
+        Document doc = Jsoup.parse("<body><p>para<div>divtext</div></body>");
+        Elements divs = doc.select("div");
+        assertEquals(1, divs.size());
+    }
+
+    @Test
+    public void testInBody_span_simpleInsert() {
+        Document doc = Jsoup.parse("<body><span>spanText</span></body>");
+        assertEquals("spanText", doc.select("span").text());
+    }
+
+    @Test
+    public void testInBody_liNesting_closesPrevious() {
+        Document doc = Jsoup.parse("<ul><li>Item1<li>Item2</ul>");
+        Elements lis = doc.select("li");
+        assertEquals(2, lis.size());
+    }
+
+    @Test
+    public void testInBody_htmlStartTag_mergesAttributes() {
+        Document doc = Jsoup.parse("<html lang='en'><body>bb<html class='x'></body></html>");
+        assertEquals("en", doc.select("html").attr("lang"));
+    }
+
+    @Test
+    public void testInBody_startToHead_delegatesInHead() {
+        Document doc = Jsoup.parse("<body>cc<title>Later</title></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_bodyStartTag_mergesAttributes() {
+        Document doc = Jsoup.parse("<html><body class='one'>dd<body class='two'></body></html>");
+        assertTrue(doc.body().hasAttr("class"));
+    }
+
+    @Test
+    public void testInBody_framesetStartTag_ignoredWhenFramesetNotOk() {
+        Document doc = Jsoup.parse("<html><body>ee<frameset></frameset></body></html>");
+        assertEquals("ee", doc.body().text());
+    }
+
+    @Test
+    public void testInBody_headings_nestedHeadingClosesPrevious() {
+        Document doc = Jsoup.parse("<body><h1>One<h2>Two</h1></body>");
+        Elements h = doc.select("h1,h2");
+        assertEquals(2, h.size());
+    }
+
+    @Test
+    public void testInBody_preListing_ignoresLeadingLf() {
+        Document doc = Jsoup.parse("<body><pre>\ncontent</pre></body>");
+        assertEquals("content", doc.select("pre").text());
+    }
+
+    @Test
+    public void testInBody_form_insertsFormElement() {
+        Document doc = Jsoup.parse("<body><form><input name='q'></form></body>");
+        assertEquals(1, doc.select("form").size());
+    }
+
+    @Test
+    public void testInBody_formDuplicate_error() {
+        Document doc = Jsoup.parse("<body><form></form><form></form></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_ddDt_closesPrevious() {
+        Document doc = Jsoup.parse("<dl><dt>Term<dd>Definition</dl>");
+        assertEquals(1, doc.select("dt").size());
+        assertEquals(1, doc.select("dd").size());
+    }
+
+    @Test
+    public void testInBody_plaintext_rawtextToEnd() {
+        Document doc = Jsoup.parse("<body><plaintext>raw &amp; text</body>");
+        assertNotNull(doc.select("plaintext"));
+    }
+
+    @Test
+    public void testInBody_buttonNested_closesAndReprocesses() {
+        Document doc = Jsoup.parse("<body><button><button>Nested</button></button></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_formattersBI_pushesActiveFormatting() {
+        Document doc = Jsoup.parse("<body><b>Bold<i>Italic</i></b></body>");
+        assertEquals("BoldItalic", doc.body().text());
+    }
+
+    @Test
+    public void testInBody_nobrReopen_closesPrevious() {
+        Document doc = Jsoup.parse("<body><nobr>one</nobr><nobr>two</nobr></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_appletMarqueeObject_insertsMarker() {
+        Document doc = Jsoup.parse("<body><applet><p>App</p></applet></body>");
+        assertEquals(1, doc.select("applet").size());
+    }
+
+    @Test
+    public void testInBody_table_quirksModeAndButtonScope() {
+        Document doc = Jsoup.parse("<body><p><table><tr><td>Cell</td></tr></table></p></body>");
+        assertEquals("Cell", doc.select("td").text());
+    }
+
+    @Test
+    public void testInBody_inputHidden_doesNotResetFramesetOk() {
+        Document doc = Jsoup.parse("<body><input type='hidden'></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_inputNotHidden_resetsFramesetOk() {
+        Document doc = Jsoup.parse("<body><input type='text'></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_media_paramSourceTrack() {
+        Document doc = Jsoup.parse("<body><video><source src='a.mp4'><track kind='subtitles'></video></body>");
+        assertEquals(1, doc.select("source").size());
+    }
+
+    @Test
+    public void testInBody_hr_closesParagraph() {
+        Document doc = Jsoup.parse("<body><p>text<hr></p></body>");
+        assertEquals(1, doc.select("hr").size());
+    }
+
+    @Test
+    public void testInBody_imageConvertedToImg() {
+        Document doc = Jsoup.parse("<body><image src='a.png'></body>");
+        assertEquals(1, doc.select("img").size());
+    }
+
+    @Test
+    public void testInBody_isindex_legacyHandling() {
+        Document doc = Jsoup.parse("<body><isindex name='q' action='/search' prompt='Enter:'></body>");
+        assertNotNull(doc.select("form"));
+    }
+
+    @Test
+    public void testInBody_textarea_rcdata() {
+        Document doc = Jsoup.parse("<body><textarea>Some &amp; text</textarea></body>");
+        assertEquals("Some & text", doc.select("textarea").val());
+    }
+
+    @Test
+    public void testInBody_xmp_rawtext() {
+        Document doc = Jsoup.parse("<body><xmp>raw <b>content</b></xmp></body>");
+        assertNotNull(doc.select("xmp"));
+    }
+
+    @Test
+    public void testInBody_iframe_rawtext() {
+        Document doc = Jsoup.parse("<body><iframe>content</iframe></body>");
+        assertNotNull(doc.select("iframe"));
+    }
+
+    @Test
+    public void testInBody_noembed_rawtext() {
+        Document doc = Jsoup.parse("<body><noembed>content</noembed></body>");
+        assertNotNull(doc.select("noembed"));
+    }
+
+    @Test
+    public void testInBody_selectInTable_transitionsInSelectInTable() {
+        Document doc = Jsoup.parse("<table><tr><td><select><option>1</option></select></td></tr></table>");
+        assertEquals(1, doc.select("select").size());
+    }
+
+    @Test
+    public void testInBody_selectOutsideTable_transitionsInSelect() {
+        Document doc = Jsoup.parse("<body><select><option>1</option><option>2</option></select></body>");
+        assertEquals(2, doc.select("option").size());
+    }
+
+    @Test
+    public void testInBody_optionOptgroup_closesPrevious() {
+        Document doc = Jsoup.parse("<body><select><optgroup><option>1</option></optgroup></select></body>");
+        assertEquals(1, doc.select("optgroup").size());
+    }
+
+    @Test
+    public void testInBody_ruby_rpRt() {
+        Document doc = Jsoup.parse("<body><ruby><rp>(</rp><rt>annotation</rt></ruby></body>");
+        assertEquals(1, doc.select("ruby").size());
+    }
+
+    @Test
+    public void testInBody_mathTag_inserted() {
+        Document doc = Jsoup.parse("<body><math></math></body>");
+        assertEquals(1, doc.select("math").size());
+    }
+
+    @Test
+    public void testInBody_svgTag_inserted() {
+        Document doc = Jsoup.parse("<body><svg></svg></body>");
+        assertEquals(1, doc.select("svg").size());
+    }
+
+    @Test
+    public void testInBody_dropTagsInsideBody_error() {
+        Document doc = Jsoup.parse("<body><frame></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_otherTag_anythingElse() {
+        Document doc = Jsoup.parse("<body><custom>unknown</custom></body>");
+        assertNotNull(doc.select("custom"));
+    }
+
+    // ---------- InBody: end tags ----------
+    @Test
+    public void testInBody_adoptionAgency_bFormatter() {
+        Document doc = Jsoup.parse("<body><b>bold<p>para</b>after</p></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_endCloser_divAddress() {
+        Document doc = Jsoup.parse("<body><div>content</div></body>");
+        assertEquals(1, doc.select("div").size());
+    }
+
+    @Test
+    public void testInBody_endSpan_anyOtherEndTag() {
+        Document doc = Jsoup.parse("<body><span>abc</span></body>");
+        assertEquals("abc", doc.select("span").text());
+    }
+
+    @Test
+    public void testInBody_endLi_withoutScope_error() {
+        Document doc = Jsoup.parse("<body></li></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_endBody_withoutScope_fragmentCase() {
+        Document doc = Jsoup.parseBodyFragment("</body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_endHtml_processesBodyThenHtml() {
+        Document doc = Jsoup.parse("<html><body>ff</body></html>");
+        assertEquals("ff", doc.body().text());
+    }
+
+    @Test
+    public void testInBody_endForm_removesFormElement() {
+        Document doc = Jsoup.parse("<body><form></form></body>");
+        assertEquals(0, doc.select("form").size() + 0); // form processed and closed
+    }
+
+    @Test
+    public void testInBody_endFormWithoutScope_error() {
+        Document doc = Jsoup.parse("<body></form></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_endP_withoutScope_createsEmptyP() {
+        Document doc = Jsoup.parse("<body><div></p></div></body>");
+        assertEquals(1, doc.select("p").size());
+    }
+
+    @Test
+    public void testInBody_endDdDt_closesTag() {
+        Document doc = Jsoup.parse("<body><dl><dt>Term</dt></dl></body>");
+        assertEquals(1, doc.select("dt").size());
+    }
+
+    @Test
+    public void testInBody_endHeading_closesTag() {
+        Document doc = Jsoup.parse("<body><h3>Heading</h3></body>");
+        assertEquals("Heading", doc.select("h3").text());
+    }
+
+    @Test
+    public void testInBody_endSarcasm_anyOtherEndTag() {
+        Document doc = Jsoup.parse("<body><p>Text</p></sarcasm></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_endApplet_closesAndClearsFormatting() {
+        Document doc = Jsoup.parse("<body><applet><p>App</p></applet></body>");
+        assertEquals(1, doc.select("applet").size());
+    }
+
+    @Test
+    public void testInBody_endBr_error_reinsertsBr() {
+        Document doc = Jsoup.parse("<body></br></body>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInBody_otherEndTag_anyOtherEndTag() {
+        Document doc = Jsoup.parse("<body><custom>unmatched</custom></body>");
+        assertNotNull(doc);
+    }
+
+    // ---------- Text state ----------
+    @Test
+    public void testText_scriptContent_processedAsCharacter() {
+        Document doc = Jsoup.parse("<html><head><script>var a = '<b>';</script></head><body>gg</body></html>");
+        assertEquals("gg", doc.body().text());
+    }
+
+    @Test
+    public void testText_endTagClosesTextElement() {
+        Document doc = Jsoup.parse("<body><title>TitleText</title></body>");
+        assertNotNull(doc);
+    }
+
+    // ---------- InTable ----------
+    @Test
+    public void testInTable_characterData_fosterParented() {
+        Document doc = Jsoup.parse("<table>Foo<tr><td>1</td></tr></table>");
+        assertEquals(1, doc.select("td").size());
+    }
+
+    @Test
+    public void testInTable_comment_inserted() {
+        Document doc = Jsoup.parse("<table><!--c--><tr><td>1</td></tr></table>");
+        assertEquals(1, doc.select("td").size());
+    }
+
+    @Test
+    public void testInTable_caption_transitionsInCaption() {
+        Document doc = Jsoup.parse("<table><caption>Cap</caption><tr><td>1</td></tr></table>");
+        assertEquals("Cap", doc.select("caption").text());
+    }
+
+    @Test
+    public void testInTable_colgroupAndCol() {
+        Document doc = Jsoup.parse("<table><colgroup><col></colgroup><tr><td>1</td></tr></table>");
+        assertEquals(1, doc.select("col").size());
+    }
+
+    @Test
+    public void testInTable_colWithoutColgroup_insertsColgroup() {
+        Document doc = Jsoup.parse("<table><col><tr><td>1</td></tr></table>");
+        assertEquals(1, doc.select("colgroup").size());
+    }
+
+    @Test
+    public void testInTable_tbodyTheadTfoot() {
+        Document doc = Jsoup.parse("<table><thead><tr><th>H</th></tr></thead><tbody><tr><td>D</td></tr></tbody></table>");
+        assertEquals(1, doc.select("thead").size());
+        assertEquals(1, doc.select("tbody").size());
+    }
+
+    @Test
+    public void testInTable_tdWithoutTbody_insertsTbody() {
+        Document doc = Jsoup.parse("<table><tr><td>1</td></tr></table>");
+        assertEquals(1, doc.select("tbody").size());
+    }
+
+    @Test
+    public void testInTable_nestedTable_error() {
+        Document doc = Jsoup.parse("<table><table><tr><td>inner</td></tr></table></table>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInTable_styleScript_delegateToInHead() {
+        Document doc = Jsoup.parse("<table><style>.a{color:red}</style><tr><td>1</td></tr></table>");
+        assertEquals(1, doc.select("style").size());
+    }
+
+    @Test
+    public void testInTable_inputHidden_insertedEmpty() {
+        Document doc = Jsoup.parse("<table><input type='hidden'><tr><td>1</td></tr></table>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInTable_inputNotHidden_anythingElse() {
+        Document doc = Jsoup.parse("<table><input type='text'><tr><td>1</td></tr></table>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testInTable_formElement_insertedOnce() {
+        Document doc = Jsoup.parse("<table><form></form><tr><td>1

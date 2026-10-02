@@ -1,0 +1,185 @@
+package org.apache.commons.cli;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.*;
+
+public class PosixParserTest {
+
+    private PosixParser parser;
+
+    @Before
+    public void setUp() {
+        parser = new PosixParser();
+    }
+
+    @Test
+    public void testConstructor_createsInstance() {
+        PosixParser p = new PosixParser();
+        assertNotNull(p);
+    }
+
+    // ---------- Normal / typical cases ----------
+
+    @Test
+    public void testParse_simpleShortOption_optionRecognized() throws ParseException {
+        Options options = new Options();
+        options.addOption("a", false, "a option");
+
+        CommandLine cmd = parser.parse(options, new String[] { "-a" });
+
+        assertTrue(cmd.hasOption("a"));
+    }
+
+    @Test
+    public void testParse_longOptionWithEquals_valueParsed() throws ParseException {
+        Options options = new Options();
+        options.addOption("f", "foo", true, "foo option");
+
+        CommandLine cmd = parser.parse(options, new String[] { "--foo=bar" });
+
+        assertEquals("bar", cmd.getOptionValue("f"));
+    }
+
+    @Test
+    public void testParse_longOptionWithoutEquals_flagSet() throws ParseException {
+        Options options = new Options();
+        options.addOption("f", "foo", false, "foo option");
+
+        CommandLine cmd = parser.parse(options, new String[] { "--foo" });
+
+        assertTrue(cmd.hasOption("f"));
+    }
+
+    @Test
+    public void testParse_twoCharValidOption_recognized() throws ParseException {
+        Options options = new Options();
+        options.addOption("b", false, "b option");
+
+        CommandLine cmd = parser.parse(options, new String[] { "-b" });
+
+        assertTrue(cmd.hasOption("b"));
+    }
+
+    @Test
+    public void testParse_multiCharTokenDirectMatch_recognizedWithoutBursting() throws ParseException {
+        Options options = new Options();
+        options.addOption("abc", false, "multi char option id");
+
+        CommandLine cmd = parser.parse(options, new String[] { "-abc" });
+
+        assertTrue(cmd.hasOption("abc"));
+    }
+
+    @Test
+    public void testParse_burstToken_multipleFlagOptions() throws ParseException {
+        Options options = new Options();
+        options.addOption("a", false, "a");
+        options.addOption("b", false, "b");
+        options.addOption("c", false, "c");
+
+        CommandLine cmd = parser.parse(options, new String[] { "-abc" });
+
+        assertTrue(cmd.hasOption("a"));
+        assertTrue(cmd.hasOption("b"));
+        assertTrue(cmd.hasOption("c"));
+    }
+
+    @Test
+    public void testParse_burstToken_withArgumentOption() throws ParseException {
+        Options options = new Options();
+        options.addOption("a", true, "a option requires arg");
+
+        CommandLine cmd = parser.parse(options, new String[] { "-abc" });
+
+        assertTrue(cmd.hasOption("a"));
+        assertEquals("bc", cmd.getOptionValue("a"));
+    }
+
+    @Test
+    public void testParse_plainArgument_addedDirectly() throws ParseException {
+        Options options = new Options();
+
+        CommandLine cmd = parser.parse(options, new String[] { "file.txt" });
+
+        assertTrue(cmd.getArgList().contains("file.txt"));
+    }
+
+    @Test
+    public void testParse_doubleHyphenLiteral_stopsOptionProcessing() throws ParseException {
+        Options options = new Options();
+        options.addOption("a", false, "a option");
+
+        CommandLine cmd = parser.parse(options, new String[] { "--", "-a" });
+
+        assertFalse(cmd.hasOption("a"));
+        assertTrue(cmd.getArgList().contains("-a"));
+    }
+
+    // ---------- Edge cases ----------
+
+    @Test
+    public void testParse_singleHyphen_addedAsArgument() throws ParseException {
+        Options options = new Options();
+
+        CommandLine cmd = parser.parse(options, new String[] { "-" });
+
+        List argList = cmd.getArgList();
+        assertEquals(1, argList.size());
+        assertEquals("-", (String) argList.get(0));
+    }
+
+    @Test
+    public void testParse_twoCharInvalidOption_stopAtNonOptionFalse_ignoredSilently() throws ParseException {
+        Options options = new Options();
+        options.addOption("a", false, "a option");
+
+        CommandLine cmd = parser.parse(options, new String[] { "-x" }, false);
+
+        assertFalse(cmd.hasOption("x"));
+        assertEquals(0, cmd.getArgList().size());
+    }
+
+    @Test
+    public void testParse_twoCharInvalidOption_stopAtNonOptionTrue_remainingGobbled() throws ParseException {
+        Options options = new Options();
+
+        CommandLine cmd = parser.parse(options, new String[] { "-x", "arg1" }, true);
+
+        assertFalse(cmd.hasOption("x"));
+        assertTrue(cmd.getArgList().contains("arg1"));
+    }
+
+    @Test
+    public void testParse_burstToken_stopAtNonOption_processesRemainder() throws ParseException {
+        Options options = new Options();
+        options.addOption("a", false, "a option no arg");
+
+        CommandLine cmd = parser.parse(options, new String[] { "-ax" }, true);
+
+        assertTrue(cmd.hasOption("a"));
+        assertTrue(cmd.getArgList().contains("x"));
+    }
+
+    @Test
+    public void testParse_nonOptionToken_stopAtNonOption_processCalled() throws ParseException {
+        Options options = new Options();
+        options.addOption("a", true, "a option requires arg");
+
+        CommandLine cmd = parser.parse(options, new String[] { "-a", "value1", "extra" }, true);
+
+        assertEquals("value1", cmd.getOptionValue("a"));
+        assertTrue(cmd.getArgList().contains("extra"));
+    }
+
+    @Test
+    public void testParse_emptyArguments_noArgsNoOptions() throws ParseException {
+        Options options = new Options();
+
+        CommandLine cmd = parser.parse(options, new String[0]);
+
+        assertEquals(0, cmd.getArgList().size());
+        assertEquals(0,

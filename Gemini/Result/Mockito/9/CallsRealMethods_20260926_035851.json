@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "9",
+  "tool": "gemini",
+  "class": "org.mockito.internal.stubbing.answers.CallsRealMethods",
+  "target_classes": [
+    "org.mockito.internal.stubbing.answers.CallsRealMethods"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 21.41,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Mockito\\9\\CallsRealMethods_20260926_035851.txt",
+  "test_file": "Gemini\\TestCode\\Mockito\\9\\CallsRealMethodsTest.java",
+  "usage": {
+    "prompt_tokens": 707,
+    "completion_tokens": 1203,
+    "total_tokens": 3806
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 208957,
+    "daily_remaining_tokens": 141043
+  },
+  "timestamp": "20260926_035851"
+}

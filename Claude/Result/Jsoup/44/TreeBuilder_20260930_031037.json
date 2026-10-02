@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "44",
+  "tool": "claude",
+  "class": "org.jsoup.parser.TreeBuilder",
+  "target_classes": [
+    "org.jsoup.parser.TreeBuilder"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 93.71,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\44\\TreeBuilder_20260930_031037.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\44\\TreeBuilderTest.java",
+  "usage": {
+    "prompt_tokens": 1694,
+    "completion_tokens": 10752,
+    "total_tokens": 12446
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 51130,
+    "daily_remaining_tokens": 148870
+  },
+  "timestamp": "20260930_031037"
+}

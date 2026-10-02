@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "22",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.core.filter.FilteringParserDelegate",
+  "target_classes": [
+    "com.fasterxml.jackson.core.filter.FilteringParserDelegate"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 43.92,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonCore\\22\\FilteringParserDelegate_20260925_115641.txt",
+  "test_file": "Gemini\\TestCode\\JacksonCore\\22\\FilteringParserDelegateTest.java",
+  "usage": {
+    "prompt_tokens": 7844,
+    "completion_tokens": 4673,
+    "total_tokens": 14327
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 14327,
+    "daily_remaining_tokens": 335673
+  },
+  "timestamp": "20260925_115641"
+}

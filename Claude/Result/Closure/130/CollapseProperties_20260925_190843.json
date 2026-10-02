@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "130",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.CollapseProperties",
+  "target_classes": [
+    "com.google.javascript.jscomp.CollapseProperties"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 111.31,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\130\\CollapseProperties_20260925_190843.txt",
+  "test_file": "Claude\\TestCode\\Closure\\130\\CollapsePropertiesTest.java",
+  "usage": {
+    "prompt_tokens": 14513,
+    "completion_tokens": 13263,
+    "total_tokens": 27776
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 219009,
+    "daily_remaining_tokens": -19009
+  },
+  "timestamp": "20260925_190843"
+}

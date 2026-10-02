@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "103",
+  "tool": "claude",
+  "class": "org.apache.commons.math.distribution.NormalDistributionImpl",
+  "target_classes": [
+    "org.apache.commons.math.distribution.NormalDistributionImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 76.17,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\103\\NormalDistributionImpl_20261002_170622.txt",
+  "test_file": "Claude\\TestCode\\Math\\103\\NormalDistributionImplTest.java",
+  "usage": {
+    "prompt_tokens": 3197,
+    "completion_tokens": 5001,
+    "total_tokens": 8198
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 175600,
+    "daily_remaining_tokens": 24400
+  },
+  "timestamp": "20261002_170622"
+}

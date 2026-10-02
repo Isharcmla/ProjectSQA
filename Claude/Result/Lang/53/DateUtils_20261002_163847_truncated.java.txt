@@ -1,0 +1,369 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class DateUtilsTest {
+
+    private Date buildDate(int year, int month, int day, int hour, int minute, int second, int millis) {
+        Calendar cal = Calendar.getInstance();
+        cal.clear();
+        cal.set(year, month - 1, day, hour, minute, second);
+        cal.set(Calendar.MILLISECOND, millis);
+        return cal.getTime();
+    }
+
+    private Calendar toCalendar(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal;
+    }
+
+    // ---------------------- isSameDay(Date, Date) ----------------------
+
+    @Test
+    public void testIsSameDayDate_sameDay_returnsTrue() {
+        Date d1 = buildDate(2002, 3, 28, 13, 45, 0, 0);
+        Date d2 = buildDate(2002, 3, 28, 6, 1, 0, 0);
+        assertTrue(DateUtils.isSameDay(d1, d2));
+    }
+
+    @Test
+    public void testIsSameDayDate_differentDay_returnsFalse() {
+        Date d1 = buildDate(2002, 3, 28, 13, 45, 0, 0);
+        Date d2 = buildDate(2002, 3, 12, 13, 45, 0, 0);
+        assertFalse(DateUtils.isSameDay(d1, d2));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameDayDate_null1_throwsException() {
+        DateUtils.isSameDay(null, new Date());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameDayDate_null2_throwsException() {
+        DateUtils.isSameDay(new Date(), null);
+    }
+
+    // ---------------------- isSameDay(Calendar, Calendar) ----------------------
+
+    @Test
+    public void testIsSameDayCalendar_sameDay_returnsTrue() {
+        Calendar c1 = toCalendar(buildDate(2002, 3, 28, 13, 45, 0, 0));
+        Calendar c2 = toCalendar(buildDate(2002, 3, 28, 6, 1, 0, 0));
+        assertTrue(DateUtils.isSameDay(c1, c2));
+    }
+
+    @Test
+    public void testIsSameDayCalendar_differentDay_returnsFalse() {
+        Calendar c1 = toCalendar(buildDate(2002, 3, 28, 13, 45, 0, 0));
+        Calendar c2 = toCalendar(buildDate(2002, 3, 12, 13, 45, 0, 0));
+        assertFalse(DateUtils.isSameDay(c1, c2));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameDayCalendar_null1_throwsException() {
+        DateUtils.isSameDay(null, Calendar.getInstance());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameDayCalendar_null2_throwsException() {
+        DateUtils.isSameDay(Calendar.getInstance(), null);
+    }
+
+    // ---------------------- isSameInstant(Date, Date) ----------------------
+
+    @Test
+    public void testIsSameInstantDate_sameInstant_returnsTrue() {
+        Date d1 = new Date(100000L);
+        Date d2 = new Date(100000L);
+        assertTrue(DateUtils.isSameInstant(d1, d2));
+    }
+
+    @Test
+    public void testIsSameInstantDate_differentInstant_returnsFalse() {
+        Date d1 = new Date(100000L);
+        Date d2 = new Date(100001L);
+        assertFalse(DateUtils.isSameInstant(d1, d2));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameInstantDate_null_throwsException() {
+        DateUtils.isSameInstant(null, new Date());
+    }
+
+    // ---------------------- isSameInstant(Calendar, Calendar) ----------------------
+
+    @Test
+    public void testIsSameInstantCalendar_sameInstant_returnsTrue() {
+        Calendar c1 = Calendar.getInstance();
+        c1.setTimeInMillis(500000L);
+        Calendar c2 = Calendar.getInstance();
+        c2.setTimeInMillis(500000L);
+        assertTrue(DateUtils.isSameInstant(c1, c2));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameInstantCalendar_null_throwsException() {
+        DateUtils.isSameInstant(null, Calendar.getInstance());
+    }
+
+    // ---------------------- isSameLocalTime(Calendar, Calendar) ----------------------
+
+    @Test
+    public void testIsSameLocalTime_sameLocal_returnsTrue() {
+        Calendar c1 = toCalendar(buildDate(2002, 3, 28, 13, 45, 1, 100));
+        Calendar c2 = toCalendar(buildDate(2002, 3, 28, 13, 45, 1, 100));
+        assertTrue(DateUtils.isSameLocalTime(c1, c2));
+    }
+
+    @Test
+    public void testIsSameLocalTime_differentClass_returnsFalse() {
+        Calendar c1 = new GregorianCalendar(2002, 2, 28, 13, 45, 1);
+        c1.set(Calendar.MILLISECOND, 100);
+        Calendar c2 = new java.util.Calendar() {
+            public void add(int field, int amount) {}
+            public void roll(int field, boolean up) {}
+            protected void computeTime() {}
+            protected void computeFields() {}
+            public int getMinimum(int field) { return 0; }
+            public int getMaximum(int field) { return 0; }
+            public int getGreatestMinimum(int field) { return 0; }
+            public int getLeastMaximum(int field) { return 0; }
+        };
+        c2.setTimeInMillis(c1.getTimeInMillis());
+        assertFalse(DateUtils.isSameLocalTime(c1, c2));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIsSameLocalTime_null_throwsException() {
+        DateUtils.isSameLocalTime(null, Calendar.getInstance());
+    }
+
+    // ---------------------- parseDate ----------------------
+
+    @Test
+    public void testParseDate_validPattern_returnsDate() throws ParseException {
+        Date result = DateUtils.parseDate("2002-03-28", new String[]{"yyyy-MM-dd"});
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testParseDate_multiplePatternsSecondMatches_returnsDate() throws ParseException {
+        Date result = DateUtils.parseDate("28/03/2002", new String[]{"yyyy-MM-dd", "dd/MM/yyyy"});
+        assertNotNull(result);
+    }
+
+    @Test(expected = ParseException.class)
+    public void testParseDate_noPatternMatches_throwsParseException() throws ParseException {
+        DateUtils.parseDate("notadate", new String[]{"yyyy-MM-dd"});
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testParseDate_nullString_throwsException() throws ParseException {
+        DateUtils.parseDate(null, new String[]{"yyyy-MM-dd"});
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testParseDate_nullPatterns_throwsException() throws ParseException {
+        DateUtils.parseDate("2002-03-28", null);
+    }
+
+    // ---------------------- add* methods ----------------------
+
+    @Test
+    public void testAddYears_positiveAmount_addsYears() {
+        Date date = buildDate(2002, 3, 28, 0, 0, 0, 0);
+        Date result = DateUtils.addYears(date, 1);
+        Calendar cal = toCalendar(result);
+        assertEquals(2003, cal.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMonths_negativeAmount_subtractsMonths() {
+        Date date = buildDate(2002, 3, 28, 0, 0, 0, 0);
+        Date result = DateUtils.addMonths(date, -1);
+        Calendar cal = toCalendar(result);
+        assertEquals(Calendar.FEBRUARY, cal.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_normal_addsWeeks() {
+        Date date = buildDate(2002, 3, 28, 0, 0, 0, 0);
+        Date result = DateUtils.addWeeks(date, 1);
+        Calendar cal = toCalendar(result);
+        assertEquals(4, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddDays_normal_addsDays() {
+        Date date = buildDate(2002, 3, 28, 0, 0, 0, 0);
+        Date result = DateUtils.addDays(date, 2);
+        Calendar cal = toCalendar(result);
+        assertEquals(30, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddHours_normal_addsHours() {
+        Date date = buildDate(2002, 3, 28, 10, 0, 0, 0);
+        Date result = DateUtils.addHours(date, 5);
+        Calendar cal = toCalendar(result);
+        assertEquals(15, cal.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMinutes_normal_addsMinutes() {
+        Date date = buildDate(2002, 3, 28, 10, 0, 0, 0);
+        Date result = DateUtils.addMinutes(date, 30);
+        Calendar cal = toCalendar(result);
+        assertEquals(30, cal.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddSeconds_normal_addsSeconds() {
+        Date date = buildDate(2002, 3, 28, 10, 0, 0, 0);
+        Date result = DateUtils.addSeconds(date, 45);
+        Calendar cal = toCalendar(result);
+        assertEquals(45, cal.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_normal_addsMillis() {
+        Date date = buildDate(2002, 3, 28, 10, 0, 0, 0);
+        Date result = DateUtils.addMilliseconds(date, 500);
+        Calendar cal = toCalendar(result);
+        assertEquals(500, cal.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAdd_customField_addsAmount() {
+        Date date = buildDate(2002, 3, 28, 0, 0, 0, 0);
+        Date result = DateUtils.add(date, Calendar.DATE, 3);
+        Calendar cal = toCalendar(result);
+        assertEquals(31, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAdd_nullDate_throwsException() {
+        DateUtils.add(null, Calendar.DATE, 1);
+    }
+
+    // ---------------------- round(Date, field) ----------------------
+
+    @Test
+    public void testRoundDate_hourRoundUp_returnsNextHour() {
+        Date date = buildDate(2002, 3, 28, 13, 45, 1, 231);
+        Date result = DateUtils.round(date, Calendar.HOUR_OF_DAY);
+        Calendar cal = toCalendar(result);
+        assertEquals(14, cal.get(Calendar.HOUR_OF_DAY));
+        assertEquals(0, cal.get(Calendar.MINUTE));
+        assertEquals(0, cal.get(Calendar.SECOND));
+        assertEquals(0, cal.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testRoundDate_monthRoundUp_returnsNextMonth() {
+        Date date = buildDate(2002, 3, 28, 13, 45, 1, 231);
+        Date result = DateUtils.round(date, Calendar.MONTH);
+        Calendar cal = toCalendar(result);
+        assertEquals(Calendar.APRIL, cal.get(Calendar.MONTH));
+        assertEquals(1, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testRoundDate_minuteRoundUp_returnsNextMinute() {
+        Date date = buildDate(2002, 3, 28, 13, 45, 31, 0);
+        Date result = DateUtils.round(date, Calendar.MINUTE);
+        Calendar cal = toCalendar(result);
+        assertEquals(46, cal.get(Calendar.MINUTE));
+        assertEquals(0, cal.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testRoundDate_secondRoundUp_returnsNextSecond() {
+        Date date = buildDate(2002, 3, 28, 13, 45, 1, 600);
+        Date result = DateUtils.round(date, Calendar.SECOND);
+        Calendar cal = toCalendar(result);
+        assertEquals(2, cal.get(Calendar.SECOND));
+        assertEquals(0, cal.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testRoundDate_millisecondField_noChange() {
+        Date date = buildDate(2002, 3, 28, 13, 45, 1, 231);
+        Date result = DateUtils.round(date, Calendar.MILLISECOND);
+        assertEquals(date.getTime(), result.getTime());
+    }
+
+    @Test
+    public void testRoundDate_dateFieldHourBelow12_sameDay() {
+        Date date = buildDate(2002, 3, 28, 10, 0, 0, 0);
+        Date result = DateUtils.round(date, Calendar.DATE);
+        Calendar cal = toCalendar(result);
+        assertEquals(28, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testRoundDate_dateFieldHourAbove12_nextDay() {
+        Date date = buildDate(2002, 3, 28, 13, 0, 0, 0);
+        Date result = DateUtils.round(date, Calendar.DATE);
+        Calendar cal = toCalendar(result);
+        assertEquals(29, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testRoundDate_semiMonthLowerRange_roundsToFirst() {
+        Date date = buildDate(2002, 3, 5, 10, 0, 0, 0);
+        Date result = DateUtils.round(date, DateUtils.SEMI_MONTH);
+        Calendar cal = toCalendar(result);
+        assertEquals(1, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testRoundDate_semiMonthUpperOfLowerHalf_roundsTo16() {
+        Date date = buildDate(2002, 3, 10, 10, 0, 0, 0);
+        Date result = DateUtils.round(date, DateUtils.SEMI_MONTH);
+        Calendar cal = toCalendar(result);
+        assertEquals(16, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testRoundDate_semiMonthLowerOfUpperHalf_staysAt16() {
+        Date date = buildDate(2002, 3, 20, 10, 0, 0, 0);
+        Date result = DateUtils.round(date, DateUtils.SEMI_MONTH);
+        Calendar cal = toCalendar(result);
+        assertEquals(16, cal.get(Calendar.DAY_OF_MONTH));
+        assertEquals(Calendar.MARCH, cal.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testRoundDate_semiMonthUpperRange_roundsToNextMonthFirst() {
+        Date date = buildDate(2002, 3, 28, 10, 0, 0, 0);
+        Date result = DateUtils.round(date, DateUtils.SEMI_MONTH);
+        Calendar cal = toCalendar(result);
+        assertEquals(1, cal.get(Calendar.DAY_OF_MONTH));
+        assertEquals(Calendar.APRIL, cal.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testRoundDate_amPmFloorAm_roundsDown() {
+        Date date = buildDate(2002, 3, 28, 3, 0, 0, 0);
+        Date result = DateUtils.round(date, Calendar.AM_PM);
+        Calendar cal = toCalendar(result);
+        assertEquals(0, cal.get(Calendar.HOUR_OF_DAY));
+        assertEquals(28, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testRoundDate_amPmRoundUp_increasesDay() {
+        Date date = buildDate(2002, 3, 28, 20, 0, 0, 0);
+        Date result = DateUtils.round(date, Calendar.AM_PM);
+        Calendar cal = toCalendar(result);
+        assertEquals(12, cal.get(Calendar.HOUR_OF_DAY));
+        assertEqu

@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "1",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.core.io.NumberInput",
+  "target_classes": [
+    "com.fasterxml.jackson.core.io.NumberInput"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 69.59,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "Claude",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude/Prompt/JacksonCore/1/NumberInput_20260921_074758.txt",
+  "test_file": "Claude/TestCode/JacksonCore/1/NumberInputTest.java",
+  "usage": {
+    "prompt_tokens": 4476,
+    "completion_tokens": 9238,
+    "total_tokens": 13714
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 13714,
+    "daily_remaining_tokens": 186286
+  },
+  "timestamp": "20260921_074758"
+}

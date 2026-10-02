@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "12",
+  "tool": "gemini",
+  "class": "org.jsoup.select.Selector",
+  "target_classes": [
+    "org.jsoup.select.Selector"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 39.58,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\12\\Selector_20260925_141844.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\12\\SelectorTest.java",
+  "usage": {
+    "prompt_tokens": 5032,
+    "completion_tokens": 4599,
+    "total_tokens": 10875
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 81709,
+    "daily_remaining_tokens": 268291
+  },
+  "timestamp": "20260925_141844"
+}

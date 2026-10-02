@@ -1,0 +1,145 @@
+package org.jsoup.parser;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class TokeniserStateTest {
+
+    // ---------- Data state ----------
+    @Test
+    public void testData_normalText_parsesText() {
+        Document doc = Jsoup.parse("<p>Hello World</p>");
+        assertEquals("Hello World", doc.select("p").text());
+    }
+
+    @Test
+    public void testData_ampersandEntity_decodesEntity() {
+        Document doc = Jsoup.parse("<p>&amp;</p>");
+        assertEquals("&", doc.select("p").text());
+    }
+
+    @Test
+    public void testData_nullCharacterInText_doesNotThrow() {
+        String html = "<p>a\u0000b</p>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc.select("p").text());
+    }
+
+    @Test
+    public void testData_emptyInput_returnsEmptyDocument() {
+        Document doc = Jsoup.parse("");
+        assertNotNull(doc);
+        assertEquals("", doc.body().text());
+    }
+
+    // ---------- TagOpen ----------
+    @Test
+    public void testTagOpen_letterAfterLessThan_parsesTag() {
+        Document doc = Jsoup.parse("<div>test</div>");
+        assertEquals("test", doc.select("div").text());
+    }
+
+    @Test
+    public void testTagOpen_notLetterAfterLessThan_emitsLiteral() {
+        Document doc = Jsoup.parse("<p>1 < 2</p>");
+        String text = doc.select("p").text();
+        assertTrue(text.contains("1"));
+    }
+
+    @Test
+    public void testTagOpen_questionMark_createsBogusComment() {
+        Document doc = Jsoup.parse("<?xml version=\"1.0\"?><p>data</p>");
+        assertEquals("data", doc.select("p").text());
+    }
+
+    @Test
+    public void testTagOpen_exclamationMark_markupDeclaration() {
+        Document doc = Jsoup.parse("<!-- comment --><p>after</p>");
+        assertEquals("after", doc.select("p").text());
+    }
+
+    // ---------- EndTagOpen ----------
+    @Test
+    public void testEndTagOpen_properEndTag_closesElement() {
+        Document doc = Jsoup.parse("<div>x</div><p>y</p>");
+        assertEquals("y", doc.select("p").text());
+    }
+
+    @Test
+    public void testEndTagOpen_greaterThanImmediately_transitionsToData() {
+        Document doc = Jsoup.parse("<p>before</></p>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testEndTagOpen_notLetterNorGreater_createsBogusComment() {
+        Document doc = Jsoup.parse("<p>before</ ></p>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testEndTagOpen_eofAfterSlash_handledGracefully() {
+        Document doc = Jsoup.parse("<div>x</");
+        assertNotNull(doc);
+    }
+
+    // ---------- TagName / Attributes ----------
+    @Test
+    public void testTagName_withAttributes_parsesAttributes() {
+        Document doc = Jsoup.parse("<div id=\"a\" class='b' data-x=c disabled>text</div>");
+        Element div = doc.select("div").first();
+        assertEquals("a", div.attr("id"));
+        assertEquals("b", div.attr("class"));
+        assertEquals("c", div.attr("data-x"));
+        assertTrue(div.hasAttr("disabled"));
+        assertEquals("text", div.text());
+    }
+
+    @Test
+    public void testTagName_unterminatedEof_handledGracefully() {
+        Document doc = Jsoup.parse("<div");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testTagName_nullCharInName_handledGracefully() {
+        String html = "<di\u0000v>text</di\u0000v>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testAttributeValue_unquoted_parsesCorrectly() {
+        Document doc = Jsoup.parse("<a href=http://example.com>link</a>");
+        assertEquals("http://example.com", doc.select("a").attr("href"));
+    }
+
+    @Test
+    public void testAttributeValue_doubleQuotedWithEntity_decodesEntity() {
+        Document doc = Jsoup.parse("<a href=\"?a=1&amp;b=2\">x</a>");
+        assertEquals("?a=1&b=2", doc.select("a").attr("href"));
+    }
+
+    @Test
+    public void testAttributeValue_singleQuoted_parsesCorrectly() {
+        Document doc = Jsoup.parse("<a href='single'>x</a>");
+        assertEquals("single", doc.select("a").attr("href"));
+    }
+
+    @Test
+    public void testSelfClosingStartTag_parsesWithoutException() {
+        Document doc = Jsoup.parse("<img src='a.png'/>");
+        Element img = doc.select("img").first();
+        assertNotNull(img);
+        assertEquals("a.png", img.attr("src"));
+    }
+
+    @Test
+    public void testAfterAttributeValueQuoted_garbageChar_handledGracefully() {
+        Document doc = Jsoup.parse("<div id=\"a\" garbage>text</div>");
+        assertEquals("text

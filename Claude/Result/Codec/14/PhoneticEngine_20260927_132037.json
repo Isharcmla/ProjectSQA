@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "14",
+  "tool": "claude",
+  "class": "org.apache.commons.codec.language.bm.PhoneticEngine",
+  "target_classes": [
+    "org.apache.commons.codec.language.bm.PhoneticEngine"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 30.65,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Codec\\14\\PhoneticEngine_20260927_132037.txt",
+  "test_file": "Claude\\TestCode\\Codec\\14\\PhoneticEngineTest.java",
+  "usage": {
+    "prompt_tokens": 7752,
+    "completion_tokens": 4238,
+    "total_tokens": 11990
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 182041,
+    "daily_remaining_tokens": 17959
+  },
+  "timestamp": "20260927_132037"
+}

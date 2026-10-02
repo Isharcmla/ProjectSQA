@@ -1,0 +1,503 @@
+package org.apache.commons.collections4.map;
+
+import static org.junit.Assert.*;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Set;
+
+import org.apache.commons.collections4.OrderedMapIterator;
+import org.apache.commons.collections4.ResettableIterator;
+import org.junit.Before;
+import org.junit.Test;
+
+public class ListOrderedMapTest {
+
+    private ListOrderedMap<String, String> map;
+
+    @Before
+    public void setUp() {
+        map = new ListOrderedMap<String, String>();
+    }
+
+    // ---------- Constructors / factory ----------
+    @Test
+    public void testDefaultConstructor_createsEmptyMap() {
+        assertTrue(map.isEmpty());
+    }
+
+    @Test
+    public void testListOrderedMapFactory_wrapsExistingMap() {
+        Map<String, String> hashMap = new HashMap<String, String>();
+        hashMap.put("a", "1");
+        ListOrderedMap<String, String> lom = ListOrderedMap.listOrderedMap(hashMap);
+        assertEquals(1, lom.size());
+        assertEquals("1", lom.get("a"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testListOrderedMapFactory_nullMap_throwsException() {
+        ListOrderedMap.listOrderedMap(null);
+    }
+
+    // ---------- put ----------
+    @Test
+    public void testPut_newKey_addsToEnd() {
+        map.put("a", "1");
+        map.put("b", "2");
+        assertEquals("a", map.firstKey());
+        assertEquals("b", map.lastKey());
+    }
+
+    @Test
+    public void testPut_existingKey_retainsOrder() {
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("a", "3");
+        assertEquals("a", map.firstKey());
+        assertEquals("3", map.get("a"));
+    }
+
+    // ---------- firstKey / lastKey ----------
+    @Test(expected = NoSuchElementException.class)
+    public void testFirstKey_emptyMap_throwsException() {
+        map.firstKey();
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void testLastKey_emptyMap_throwsException() {
+        map.lastKey();
+    }
+
+    @Test
+    public void testFirstKey_nonEmptyMap_returnsFirst() {
+        map.put("a", "1");
+        map.put("b", "2");
+        assertEquals("a", map.firstKey());
+    }
+
+    @Test
+    public void testLastKey_nonEmptyMap_returnsLast() {
+        map.put("a", "1");
+        map.put("b", "2");
+        assertEquals("b", map.lastKey());
+    }
+
+    // ---------- nextKey / previousKey ----------
+    @Test
+    public void testNextKey_middleKey_returnsNext() {
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
+        assertEquals("c", map.nextKey("b"));
+    }
+
+    @Test
+    public void testNextKey_lastKey_returnsNull() {
+        map.put("a", "1");
+        assertNull(map.nextKey("a"));
+    }
+
+    @Test
+    public void testNextKey_nonExistentKey_returnsNull() {
+        map.put("a", "1");
+        assertNull(map.nextKey("z"));
+    }
+
+    @Test
+    public void testPreviousKey_middleKey_returnsPrevious() {
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
+        assertEquals("b", map.previousKey("c"));
+    }
+
+    @Test
+    public void testPreviousKey_firstKey_returnsNull() {
+        map.put("a", "1");
+        assertNull(map.previousKey("a"));
+    }
+
+    @Test
+    public void testPreviousKey_nonExistentKey_returnsNull() {
+        map.put("a", "1");
+        assertNull(map.previousKey("z"));
+    }
+
+    // ---------- putAll(Map) ----------
+    @Test
+    public void testPutAll_map_addsAllEntries() {
+        Map<String, String> other = new LinkedHashMap<String, String>();
+        other.put("x", "1");
+        other.put("y", "2");
+        map.putAll(other);
+        assertEquals(2, map.size());
+        assertEquals("x", map.firstKey());
+    }
+
+    // ---------- putAll(index, Map) ----------
+    @Test
+    public void testPutAll_indexMap_insertsAtIndex() {
+        map.put("a", "1");
+        map.put("b", "2");
+        Map<String, String> other = new LinkedHashMap<String, String>();
+        other.put("x", "10");
+        other.put("y", "20");
+        map.putAll(1, other);
+        assertEquals("a", map.get(0));
+        assertEquals("x", map.get(1));
+        assertEquals("y", map.get(2));
+        assertEquals("b", map.get(3));
+    }
+
+    @Test
+    public void testPutAll_indexMapWithExistingKey_updatesPosition() {
+        map.put("a", "1");
+        map.put("b", "2");
+        map.put("c", "3");
+        Map<String, String> other = new LinkedHashMap<String, String>();
+        other.put("c", "30");
+        map.putAll(0, other);
+        assertEquals("c", map.get(0));
+        assertEquals("30", map.get("c"));
+    }
+
+    @Test
+    public void testPutAllIndexMap_emptyMap_noChange() {
+        map.put("a", "1");
+        Map<String, String> emptyMap = new HashMap<String, String>();
+        map.putAll(0, emptyMap);
+        assertEquals(1, map.size());
+    }
+
+    // ---------- remove(Object) ----------
+    @Test
+    public void testRemove_existingKey_removesAndReturnsValue() {
+        map.put("a", "1");
+        String result = map.remove("a");
+        assertEquals("1", result);
+        assertFalse(map.containsKey("a"));
+    }
+
+    @Test
+    public void testRemove_nonExistingKey_returnsNull() {
+        assertNull(map.remove("z"));
+    }
+
+    // ---------- remove(int) ----------
+    @Test
+    public void testRemoveIndex_validIndex_removesElement() {
+        map.put("a", "1");
+        map.put("b", "2");
+        String result = map.remove(0);
+        assertEquals("1", result);
+        assertFalse(map.containsKey("a"));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testRemoveIndex_invalidIndex_throwsException() {
+        map.remove(0);
+    }
+
+    // ---------- clear ----------
+    @Test
+    public void testClear_removesAllEntries() {
+        map.put("a", "1");
+        map.clear();
+        assertTrue(map.isEmpty());
+        assertEquals(0, map.keyList().size());
+    }
+
+    // ---------- keySet ----------
+    @Test
+    public void testKeySet_returnsKeysInOrder() {
+        map.put("a", "1");
+        map.put("b", "2");
+        Set<String> keys = map.keySet();
+        Iterator<String> it = keys.iterator();
+        assertEquals("a", it.next());
+        assertEquals("b", it.next());
+    }
+
+    @Test
+    public void testKeySet_contains_returnsTrueForExistingKey() {
+        map.put("a", "1");
+        Set<String> keys = map.keySet();
+        assertTrue(keys.contains("a"));
+        assertFalse(keys.contains("z"));
+    }
+
+    @Test
+    public void testKeySet_clear_clearsMap() {
+        map.put("a", "1");
+        Set<String> keys = map.keySet();
+        keys.clear();
+        assertTrue(map.isEmpty());
+    }
+
+    @Test
+    public void testKeySet_size_matchesMapSize() {
+        map.put("a", "1");
+        map.put("b", "2");
+        assertEquals(2, map.keySet().size());
+    }
+
+    // ---------- keyList ----------
+    @Test
+    public void testKeyList_returnsUnmodifiableList() {
+        map.put("a", "1");
+        List<String> keys = map.keyList();
+        assertEquals(1, keys.size());
+        try {
+            keys.add("b");
+            fail("Should throw UnsupportedOperationException");
+        } catch (UnsupportedOperationException e) {
+            // expected
+        }
+    }
+
+    // ---------- values ----------
+    @Test
+    public void testValues_returnsValuesInOrder() {
+        map.put("a", "1");
+        map.put("b", "2");
+        Collection<String> values = map.values();
+        Iterator<String> it = values.iterator();
+        assertEquals("1", it.next());
+        assertEquals("2", it.next());
+    }
+
+    @Test
+    public void testValues_contains_returnsTrueForExistingValue() {
+        map.put("a", "1");
+        Collection<String> values = map.values();
+        assertTrue(values.contains("1"));
+        assertFalse(values.contains("z"));
+    }
+
+    @Test
+    public void testValues_clear_clearsMap() {
+        map.put("a", "1");
+        Collection<String> values = map.values();
+        values.clear();
+        assertTrue(map.isEmpty());
+    }
+
+    @Test
+    public void testValues_size_matchesMapSize() {
+        map.put("a", "1");
+        assertEquals(1, map.values().size());
+    }
+
+    // ---------- valueList ----------
+    @Test
+    public void testValueList_get_returnsValueAtIndex() {
+        map.put("a", "1");
+        map.put("b", "2");
+        List<String> values = map.valueList();
+        assertEquals("1", values.get(0));
+        assertEquals("2", values.get(1));
+    }
+
+    @Test
+    public void testValueList_set_updatesValue() {
+        map.put("a", "1");
+        List<String> values = map.valueList();
+        String old = values.set(0, "100");
+        assertEquals("1", old);
+        assertEquals("100", map.get("a"));
+    }
+
+    @Test
+    public void testValueList_remove_removesValueAtIndex() {
+        map.put("a", "1");
+        map.put("b", "2");
+        List<String> values = map.valueList();
+        String removed = values.remove(0);
+        assertEquals("1", removed);
+        assertEquals(1, map.size());
+    }
+
+    // ---------- entrySet ----------
+    @Test
+    public void testEntrySet_returnsEntriesInOrder() {
+        map.put("a", "1");
+        map.put("b", "2");
+        Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
+        Map.Entry<String, String> e1 = it.next();
+        assertEquals("a", e1.getKey());
+        assertEquals("1", e1.getValue());
+    }
+
+    @Test
+    public void testEntrySet_size_matchesMapSize() {
+        map.put("a", "1");
+        assertEquals(1, map.entrySet().size());
+    }
+
+    @Test
+    public void testEntrySet_isEmpty_reflectsMapState() {
+        assertTrue(map.entrySet().isEmpty());
+        map.put("a", "1");
+        assertFalse(map.entrySet().isEmpty());
+    }
+
+    @Test
+    public void testEntrySet_contains_returnsTrueForExistingEntry() {
+        map.put("a", "1");
+        Set<Map.Entry<String, String>> entrySet = map.entrySet();
+        Map<String, String> tmp = new HashMap<String, String>();
+        tmp.put("a", "1");
+        Map.Entry<String, String> entry = tmp.entrySet().iterator().next();
+        assertTrue(entrySet.contains(entry));
+    }
+
+    @Test
+    public void testEntrySet_containsAll_returnsTrueWhenAllPresent() {
+        map.put("a", "1");
+        map.put("b", "2");
+        Map<String, String> tmp = new HashMap<String, String>();
+        tmp.put("a", "1");
+        Set<Map.Entry<String, String>> entrySet = map.entrySet();
+        assertTrue(entrySet.containsAll(tmp.entrySet()));
+    }
+
+    @Test
+    public void testEntrySet_remove_removesEntry() {
+        map.put("a", "1");
+        Set<Map.Entry<String, String>> entrySet = map.entrySet();
+        Map<String, String> tmp = new HashMap<String, String>();
+        tmp.put("a", "1");
+        Map.Entry<String, String> entry = tmp.entrySet().iterator().next();
+        boolean removed = entrySet.remove(entry);
+        assertTrue(removed);
+        assertFalse(map.containsKey("a"));
+    }
+
+    @Test
+    public void testEntrySet_remove_nonEntryObject_returnsFalse() {
+        map.put("a", "1");
+        Set<Map.Entry<String, String>> entrySet = map.entrySet();
+        assertFalse(entrySet.remove("notAnEntry"));
+    }
+
+    @Test
+    public void testEntrySet_remove_nonExistingEntry_returnsFalse() {
+        map.put("a", "1");
+        Set<Map.Entry<String, String>> entrySet = map.entrySet();
+        Map<String, String> tmp = new HashMap<String, String>();
+        tmp.put("z", "999");
+        Map.Entry<String, String> entry = tmp.entrySet().iterator().next();
+        assertFalse(entrySet.remove(entry));
+    }
+
+    @Test
+    public void testEntrySet_clear_clearsMap() {
+        map.put("a", "1");
+        map.entrySet().clear();
+        assertTrue(map.isEmpty());
+    }
+
+    @Test
+    public void testEntrySet_equals_sameInstance_returnsTrue() {
+        map.put("a", "1");
+        Set<Map.Entry<String, String>> entrySet = map.entrySet();
+        assertTrue(entrySet.equals(entrySet));
+    }
+
+    @Test
+    public void testEntrySet_equals_differentSet_comparesCorrectly() {
+        map.put("a", "1");
+        Map<String, String> tmp = new HashMap<String, String>();
+        tmp.put("a", "1");
+        assertTrue(map.entrySet().equals(tmp.entrySet()));
+    }
+
+    @Test
+    public void testEntrySet_hashCode_matchesUnderlyingSet() {
+        map.put("a", "1");
+        Map<String, String> tmp = new HashMap<String, String>();
+        tmp.put("a", "1");
+        assertEquals(tmp.entrySet().hashCode(), map.entrySet().hashCode());
+    }
+
+    @Test
+    public void testEntrySet_toString_returnsNonNullString() {
+        map.put("a", "1");
+        assertNotNull(map.entrySet().toString());
+    }
+
+    @Test
+    public void testEntrySetIterator_remove_removesFromMap() {
+        map.put("a", "1");
+        map.put("b", "2");
+        Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
+        it.next();
+        it.remove();
+        assertEquals(1, map.size());
+        assertFalse(map.containsKey("a"));
+    }
+
+    @Test
+    public void testEntrySetEntry_setValue_updatesMap() {
+        map.put("a", "1");
+        Map.Entry<String, String> entry = map.entrySet().iterator().next();
+        String old = entry.setValue("100");
+        assertEquals("1", old);
+        assertEquals("100", map.get("a"));
+    }
+
+    // ---------- toString ----------
+    @Test
+    public void testToString_emptyMap_returnsBraces() {
+        assertEquals("{}", map.toString());
+    }
+
+    @Test
+    public void testToString_nonEmptyMap_returnsFormattedString() {
+        map.put("a", "1");
+        assertEquals("{a=1}", map.toString());
+    }
+
+    @Test
+    public void testToString_multipleEntries_returnsCommaSeparated() {
+        map.put("a", "1");
+        map.put("b", "2");
+        assertEquals("{a=1, b=2}", map.toString());
+    }
+
+    @Test
+    public void testToString_selfReferencingKeyAndValue_handlesGracefully() {
+        ListOrderedMap<Object, Object> selfMap = new ListOrderedMap<Object, Object>();
+        selfMap.put(selfMap, selfMap);
+        assertEquals("{(this Map)=(this Map)}", selfMap.toString());
+    }
+
+    // ---------- get(int) ----------
+    @Test
+    public void testGetIndex_validIndex_returnsKey() {
+        map.put("a", "1");
+        map.put("b", "2");
+        assertEquals("a", map.get(0));
+        assertEquals("b", map.get(1));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetIndex_invalidIndex_throwsException() {
+        map.get(0);
+    }
+
+    // ---------- getValue(int) ----------
+    @Test
+    public void testGetValueIndex_validIndex_returnsValue() {
+        map.put("a", "1");
+        assertEquals("1", map.getValue(0));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public

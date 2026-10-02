@@ -1,0 +1,409 @@
+package com.fasterxml.jackson.databind.type;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
+
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.lang.reflect.GenericArrayType;
+import java.lang.reflect.TypeVariable;
+import java.lang.reflect.WildcardType;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
+
+public class TypeFactoryTest {
+
+    private TypeFactory factory;
+
+    // Fields used for reflection-based generic Type extraction
+    private Map<String, Integer> mapField;
+    private List<String>[] listArrayField;
+    private List<? extends Number> wildcardField;
+
+    private enum SampleEnum { A, B }
+
+    static class GenericHolder<T> {
+        public T getValue() { return null; }
+    }
+
+    static class GenericBase<T> {}
+    static class GenericSub<T> extends GenericBase<T> {}
+    static class ConcreteSub extends GenericBase<String> {}
+    interface GenericIface<T> {}
+    static class GenericIfaceSub<T> implements GenericIface<T> {}
+    interface MyMapLike<K, V> {}
+
+    static class NoOpModifier extends TypeModifier {
+        @Override
+        public JavaType modifyType(JavaType type, Type jdkType, TypeBindings context, TypeFactory typeFactory) {
+            return type;
+        }
+    }
+
+    static class NullReturningModifier extends TypeModifier {
+        @Override
+        public JavaType modifyType(JavaType type, Type jdkType, TypeBindings context, TypeFactory typeFactory) {
+            return null;
+        }
+    }
+
+    @Before
+    public void setUp() {
+        factory = TypeFactory.defaultInstance();
+    }
+
+    // ---------------- basic instance methods ----------------
+
+    @Test
+    public void testDefaultInstance_notNull() {
+        assertNotNull(TypeFactory.defaultInstance());
+    }
+
+    @Test
+    public void testGetClassLoader_defaultInstance_returnsNull() {
+        assertNull(factory.getClassLoader());
+    }
+
+    @Test
+    public void testWithClassLoader_returnsFactoryWithLoader() {
+        ClassLoader loader = this.getClass().getClassLoader();
+        TypeFactory tf2 = factory.withClassLoader(loader);
+        assertNotNull(tf2);
+        assertEquals(loader, tf2.getClassLoader());
+    }
+
+    @Test
+    public void testClearCache_noException() {
+        factory.constructType(String.class);
+        factory.clearCache();
+        // no exception means success
+        assertTrue(true);
+    }
+
+    @Test
+    public void testUnknownType_returnsObjectType() {
+        JavaType t = TypeFactory.unknownType();
+        assertNotNull(t);
+        assertEquals(Object.class, t.getRawClass());
+    }
+
+    // ---------------- rawClass ----------------
+
+    @Test
+    public void testRawClass_withClass_returnsClass() {
+        assertEquals(String.class, TypeFactory.rawClass(String.class));
+    }
+
+    @Test
+    public void testRawClass_withParameterizedType_returnsRawClass() throws Exception {
+        Field f = TypeFactoryTest.class.getDeclaredField("mapField");
+        Type genType = f.getGenericType();
+        assertTrue(genType instanceof ParameterizedType);
+        Class<?> raw = TypeFactory.rawClass(genType);
+        assertEquals(Map.class, raw);
+    }
+
+    // ---------------- findClass ----------------
+
+    @Test
+    public void testFindClass_primitiveInt_returnsIntClass() throws Exception {
+        Class<?> cls = factory.findClass("int");
+        assertEquals(Integer.TYPE, cls);
+    }
+
+    @Test
+    public void testFindClass_normalClass_returnsClass() throws Exception {
+        Class<?> cls = factory.findClass("java.lang.String");
+        assertEquals(String.class, cls);
+    }
+
+    @Test(expected = ClassNotFoundException.class)
+    public void testFindClass_invalidClass_throwsClassNotFoundException() throws Exception {
+        factory.findClass("com.nonexistent.NoSuchClassXYZ123");
+    }
+
+    // ---------------- constructSpecializedType ----------------
+
+    @Test
+    public void testConstructSpecializedType_sameClass_returnsSameType() {
+        JavaType base = factory.constructType(String.class);
+        JavaType result = factory.constructSpecializedType(base, String.class);
+        assertSame(base, result);
+    }
+
+    @Test
+    public void testConstructSpecializedType_fromObjectBase_returnsSubclassType() {
+        JavaType base = factory.constructType(Object.class);
+        JavaType result = factory.constructSpecializedType(base, String.class);
+        assertEquals(String.class, result.getRawClass());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructSpecializedType_notAssignable_throwsIllegalArgumentException() {
+        JavaType base = factory.constructType(List.class);
+        factory.constructSpecializedType(base, String.class);
+    }
+
+    @Test
+    public void testConstructSpecializedType_emptyBindings_returnsSubclassType() {
+        JavaType base = factory.constructType(Number.class);
+        JavaType result = factory.constructSpecializedType(base, Integer.class);
+        assertEquals(Integer.class, result.getRawClass());
+    }
+
+    @Test
+    public void testConstructSpecializedType_mapLikeShortcut_returnsHashMapType() {
+        JavaType base = factory.constructMapType(Map.class, String.class, Integer.class);
+        JavaType result = factory.constructSpecializedType(base, HashMap.class);
+        assertEquals(HashMap.class, result.getRawClass());
+    }
+
+    @Test
+    public void testConstructSpecializedType_collectionLikeShortcut_returnsArrayListType() {
+        JavaType base = factory.constructCollectionType(List.class, String.class);
+        JavaType result = factory.constructSpecializedType(base, ArrayList.class);
+        assertEquals(ArrayList.class, result.getRawClass());
+    }
+
+    @Test
+    public void testConstructSpecializedType_noTypeParamSubclass_returnsType() {
+        JavaType base = factory.constructParametricType(GenericBase.class, String.class);
+        JavaType result = factory.constructSpecializedType(base, ConcreteSub.class);
+        assertEquals(ConcreteSub.class, result.getRawClass());
+    }
+
+    @Test
+    public void testConstructSpecializedType_genericSubclassClassBase_returnsType() {
+        JavaType base = factory.constructParametricType(GenericBase.class, String.class);
+        JavaType result = factory.constructSpecializedType(base, GenericSub.class);
+        assertNotNull(result);
+        assertEquals(GenericSub.class, result.getRawClass());
+    }
+
+    @Test
+    public void testConstructSpecializedType_genericSubclassInterfaceBase_returnsType() {
+        JavaType base = factory.constructParametricType(GenericIface.class, String.class);
+        JavaType result = factory.constructSpecializedType(base, GenericIfaceSub.class);
+        assertNotNull(result);
+        assertEquals(GenericIfaceSub.class, result.getRawClass());
+    }
+
+    // ---------------- constructGeneralizedType ----------------
+
+    @Test
+    public void testConstructGeneralizedType_normal_returnsSuperType() {
+        JavaType base = factory.constructType(ArrayList.class);
+        JavaType result = factory.constructGeneralizedType(base, List.class);
+        assertEquals(List.class, result.getRawClass());
+    }
+
+    @Test
+    public void testConstructGeneralizedType_sameClass_returnsSameType() {
+        JavaType base = factory.constructType(ArrayList.class);
+        JavaType result = factory.constructGeneralizedType(base, ArrayList.class);
+        assertSame(base, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructGeneralizedType_notRelated_throwsIllegalArgumentException() {
+        JavaType base = factory.constructType(String.class);
+        factory.constructGeneralizedType(base, Number.class);
+    }
+
+    // ---------------- constructFromCanonical ----------------
+
+    @Test
+    public void testConstructFromCanonical_validCanonical_returnsType() {
+        JavaType t = factory.constructFromCanonical("java.lang.String");
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructFromCanonical_invalidCanonical_throwsIllegalArgumentException() {
+        factory.constructFromCanonical("this.is.not.a.valid.Canonical$$$Form<<");
+    }
+
+    // ---------------- findTypeParameters ----------------
+
+    @Test
+    public void testFindTypeParameters_withMatch_returnsParams() throws Exception {
+        Field f = TypeFactoryTest.class.getDeclaredField("mapField");
+        JavaType mapType = factory.constructType(f.getGenericType());
+        JavaType[] params = factory.findTypeParameters(mapType, Map.class);
+        assertEquals(2, params.length);
+    }
+
+    @Test
+    public void testFindTypeParameters_noMatch_returnsEmptyArray() {
+        JavaType stringType = factory.constructType(String.class);
+        JavaType[] params = factory.findTypeParameters(stringType, List.class);
+        assertEquals(0, params.length);
+    }
+
+    @SuppressWarnings("deprecation")
+    @Test
+    public void testFindTypeParameters_deprecatedClassOverload() {
+        JavaType[] params = factory.findTypeParameters(ArrayList.class, List.class);
+        assertNotNull(params);
+    }
+
+    @SuppressWarnings("deprecation")
+    @Test
+    public void testFindTypeParameters_deprecatedClassBindingsOverload() {
+        JavaType[] params = factory.findTypeParameters(ArrayList.class, List.class, TypeBindings.emptyBindings());
+        assertNotNull(params);
+    }
+
+    // ---------------- moreSpecificType ----------------
+
+    @Test
+    public void testMoreSpecificType_type1Null_returnsType2() {
+        JavaType t2 = factory.constructType(String.class);
+        JavaType result = factory.moreSpecificType(null, t2);
+        assertSame(t2, result);
+    }
+
+    @Test
+    public void testMoreSpecificType_type2Null_returnsType1() {
+        JavaType t1 = factory.constructType(String.class);
+        JavaType result = factory.moreSpecificType(t1, null);
+        assertSame(t1, result);
+    }
+
+    @Test
+    public void testMoreSpecificType_sameRaw_returnsType1() {
+        JavaType t1 = factory.constructType(String.class);
+        JavaType t2 = factory.constructType(String.class);
+        JavaType result = factory.moreSpecificType(t1, t2);
+        assertSame(t1, result);
+    }
+
+    @Test
+    public void testMoreSpecificType_assignable_returnsType2() {
+        JavaType t1 = factory.constructType(Number.class);
+        JavaType t2 = factory.constructType(Integer.class);
+        JavaType result = factory.moreSpecificType(t1, t2);
+        assertSame(t2, result);
+    }
+
+    @Test
+    public void testMoreSpecificType_notRelated_returnsType1() {
+        JavaType t1 = factory.constructType(String.class);
+        JavaType t2 = factory.constructType(Integer.class);
+        JavaType result = factory.moreSpecificType(t1, t2);
+        assertSame(t1, result);
+    }
+
+    // ---------------- constructType variants ----------------
+
+    @Test
+    public void testConstructType_class_returnsSimpleType() {
+        JavaType t = factory.constructType(String.class);
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @Test
+    public void testConstructType_parameterizedType_returnsMapType() throws Exception {
+        Field f = TypeFactoryTest.class.getDeclaredField("mapField");
+        JavaType t = factory.constructType(f.getGenericType());
+        assertEquals(Map.class, t.getRawClass());
+    }
+
+    @Test
+    public void testConstructType_genericArrayType_returnsArrayType() throws Exception {
+        Field f = TypeFactoryTest.class.getDeclaredField("listArrayField");
+        Type genType = f.getGenericType();
+        assertTrue(genType instanceof GenericArrayType);
+        JavaType t = factory.constructType(genType);
+        assertNotNull(t);
+        assertTrue(t.getRawClass().isArray());
+    }
+
+    @Test
+    public void testConstructType_typeVariable_returnsResolvedType() throws Exception {
+        Method m = GenericHolder.class.getMethod("getValue");
+        Type genType = m.getGenericReturnType();
+        assertTrue(genType instanceof TypeVariable<?>);
+        JavaType t = factory.constructType(genType);
+        assertNotNull(t);
+    }
+
+    @Test
+    public void testConstructType_wildcardType_returnsUpperBoundType() throws Exception {
+        Field f = TypeFactoryTest.class.getDeclaredField("wildcardField");
+        Type genType = f.getGenericType();
+        assertTrue(genType instanceof ParameterizedType);
+        Type argType = ((ParameterizedType) genType).getActualTypeArguments()[0];
+        assertTrue(argType instanceof WildcardType);
+        JavaType t = factory.constructType(argType);
+        assertNotNull(t);
+        assertEquals(Number.class, t.getRawClass());
+    }
+
+    @Test
+    public void testConstructType_javaType_returnsSameInstance() {
+        JavaType original = factory.constructType(String.class);
+        JavaType result = factory.constructType((Type) original);
+        assertSame(original, result);
+    }
+
+    @Test
+    public void testConstructType_withBindings() {
+        JavaType t = factory.constructType(String.class, TypeBindings.emptyBindings());
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @Test
+    public void testConstructType_typeReference_returnsListType() {
+        TypeReference<List<String>> ref = new TypeReference<List<String>>() {};
+        JavaType t = factory.constructType(ref);
+        assertEquals(List.class, t.getRawClass());
+    }
+
+    @SuppressWarnings("deprecation")
+    @Test
+    public void testConstructType_deprecatedWithContextClass_null() {
+        JavaType t = factory.constructType(String.class, (Class<?>) null);
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @SuppressWarnings("deprecation")
+    @Test
+    public void testConstructType_deprecatedWithContextClass_nonNull() {
+        JavaType t = factory.constructType(String.class, ArrayList.class);
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @SuppressWarnings("deprecation")
+    @Test
+    public void testConstructType_deprecatedWithContextType_null() {
+        JavaType t = factory.constructType(String.class, (JavaType) null);
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @SuppressWarnings("deprecation")
+    @Test
+    public void testConstructType_deprecatedWithContextType_nonNull() {
+        JavaType ctxType = factory.constructType(ArrayList.class);
+        JavaType t = factory.constructType(String.class, ctxType);
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    // ---------------- constructArrayType ----------------
+
+    @Test
+    public void testConstructArrayType_class() {
+        ArrayType at = factory.constructArrayType(String.class);
+        assertNotNull(at);
+        assertEquals(String.class, at.getContentType().getRawClass());
+    }
+
+    @Test
+    public void testConstructArrayType_javaType() {
+        JavaType elem = factory.constructType(String.class);

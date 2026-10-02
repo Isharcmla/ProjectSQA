@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "15",
+  "tool": "claude",
+  "class": "org.joda.time.field.FieldUtils",
+  "target_classes": [
+    "org.joda.time.field.FieldUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 43.39,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Time\\15\\FieldUtils_20261003_013430.txt",
+  "test_file": "Claude\\TestCode\\Time\\15\\FieldUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 4847,
+    "completion_tokens": 6458,
+    "total_tokens": 11305
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 204746,
+    "daily_remaining_tokens": -4746
+  },
+  "timestamp": "20261003_013430"
+}

@@ -1,0 +1,103 @@
+package com.fasterxml.jackson.databind.deser;
+
+import java.io.IOException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.fasterxml.jackson.annotation.JacksonInject;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.BeanDescription;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.InjectableValues;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import com.fasterxml.jackson.databind.cfg.DeserializerFactoryConfig;
+
+public class BeanDeserializerFactoryTest {
+
+    // ---------------------------------------------------------------
+    // Helper POJOs used across tests
+    // ---------------------------------------------------------------
+
+    public static class SimpleBean {
+        public String name;
+        public int age;
+        public SimpleBean() {}
+    }
+
+    public static class MyException extends Exception {
+        private static final long serialVersionUID = 1L;
+        @JsonCreator
+        public MyException(@JsonProperty("message") String message) {
+            super(message);
+        }
+    }
+
+    @JsonDeserialize(builder = PersonBuilder.class)
+    public static class Person {
+        private final String name;
+        private final int age;
+        Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+        public String getName() { return name; }
+        public int getAge() { return age; }
+    }
+
+    @JsonPOJOBuilder(withPrefix = "with")
+    public static class PersonBuilder {
+        private String name;
+        private int age;
+        public PersonBuilder() {}
+        public PersonBuilder withName(String name) { this.name = name; return this; }
+        public PersonBuilder withAge(int age) { this.age = age; return this; }
+        public Person build() { return new Person(name, age); }
+    }
+
+    public static abstract class AbstractThing {
+        public String value;
+        public abstract String getValue();
+    }
+
+    public static class AnySetterBean {
+        public String name;
+        private Map<String, Object> extra = new HashMap<String, Object>();
+        @JsonAnySetter
+        public void setExtra(String key, Object value) { extra.put(key, value); }
+        public Map<String, Object> getExtra() { return extra; }
+    }
+
+    public static class ParentBean {
+        public String id;
+        @JsonManagedReference
+        public List<ChildBean> children;
+    }
+
+    public static class ChildBean {
+        public String name;
+        @JsonBackReference
+        public ParentBean parent;
+    }
+
+    @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id")
+    public static class NodeBean {
+        public int id;
+        public String name;

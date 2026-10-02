@@ -1,0 +1,564 @@
+import org.apache.commons.cli2.Argument;
+import org.apache.commons.cli2.Option;
+import org.apache.commons.cli2.WriteableCommandLine;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Set;
+
+import static org.junit.Assert.*;
+
+/**
+ * JUnit4 test suite for {@link org.apache.commons.cli2.commandline.WriteableCommandLineImpl}.
+ *
+ * NOTE: Since Option/Argument are interfaces coming from the commons-cli2
+ * dependency (no mocking framework allowed), simple concrete test
+ * implementations are provided below that implement only the methods
+ * required by the Option / Argument contracts as used by
+ * WriteableCommandLineImpl. If the real interface contains additional
+ * methods not represented here, this is due to insufficient information
+ * about the exact dependency API and is noted here rather than guessed
+ * further.
+ */
+public class WriteableCommandLineImplTest {
+
+    /**
+     * Minimal concrete implementation of the Option interface, sufficient to
+     * exercise WriteableCommandLineImpl's public API.
+     */
+    private static class TestOption implements Option {
+        private final String preferredName;
+        private final List triggers;
+        private final Set prefixes;
+
+        TestOption(String preferredName) {
+            this(preferredName, new ArrayList());
+        }
+
+        TestOption(String preferredName, List triggers) {
+            this.preferredName = preferredName;
+            this.triggers = triggers;
+            Set p = new HashSet();
+            p.add("-");
+            p.add("--");
+            this.prefixes = p;
+        }
+
+        public int getId() {
+            return 0;
+        }
+
+        public boolean canProcess(WriteableCommandLine commandLine, String arg) {
+            return false;
+        }
+
+        public Set getPrefixes() {
+            return prefixes;
+        }
+
+        public List getTriggers() {
+            return triggers;
+        }
+
+        public void process(WriteableCommandLine commandLine, ListIterator arguments) {
+            // no-op for testing purposes
+        }
+
+        public void validate(WriteableCommandLine commandLine) {
+            // no-op for testing purposes
+        }
+
+        public void appendUsage(StringBuffer buffer, Set helpSettings, Comparator comp) {
+            // no-op for testing purposes
+        }
+
+        public void defaults(WriteableCommandLine commandLine) {
+            // no-op for testing purposes
+        }
+
+        public String getPreferredName() {
+            return preferredName;
+        }
+
+        public String getDescription() {
+            return "test option";
+        }
+
+        public List helpLines(int depth, Set helpSettings, Comparator comp) {
+            return Collections.EMPTY_LIST;
+        }
+
+        public boolean isRequired() {
+            return false;
+        }
+    }
+
+    /**
+     * Minimal concrete implementation of the Argument interface (which
+     * extends Option) sufficient to exercise the "instanceof Argument"
+     * branch inside addValue().
+     */
+    private static class TestArgument extends TestOption implements Argument {
+        TestArgument(String preferredName) {
+            super(preferredName);
+        }
+
+        TestArgument(String preferredName, List triggers) {
+            super(preferredName, triggers);
+        }
+
+        public void validate(WriteableCommandLine commandLine, Option option) {
+            // no-op for testing purposes
+        }
+
+        public String getInitialSeparator() {
+            return "=";
+        }
+
+        public String getSubsequentSeparator() {
+            return ",";
+        }
+    }
+
+    private Option rootOption;
+    private List normalisedArgs;
+
+    @Before
+    public void setUp() {
+        rootOption = new TestOption("root");
+        normalisedArgs = new ArrayList();
+        normalisedArgs.add("arg1");
+        normalisedArgs.add("arg2");
+    }
+
+    private WriteableCommandLineImpl createCommandLine() {
+        return new WriteableCommandLineImpl(rootOption, normalisedArgs);
+    }
+
+    // --------------------------------------------------------------
+    // Constructor
+    // --------------------------------------------------------------
+
+    @Test
+    public void testConstructor_withValidRootOption_createsInstance() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        assertNotNull(cmdLine);
+        assertEquals(normalisedArgs, cmdLine.getNormalised());
+    }
+
+    // --------------------------------------------------------------
+    // addOption / hasOption / getOption
+    // --------------------------------------------------------------
+
+    @Test
+    public void testAddOption_normal_addsOptionAndTriggers() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        List triggers = new ArrayList();
+        triggers.add("t");
+        triggers.add("test");
+        Option option = new TestOption("test", triggers);
+
+        cmdLine.addOption(option);
+
+        assertTrue(cmdLine.hasOption(option));
+        assertSame(option, cmdLine.getOption("t"));
+        assertSame(option, cmdLine.getOption("test"));
+    }
+
+    @Test
+    public void testHasOption_optionNotAdded_returnsFalse() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("notAdded");
+
+        assertFalse(cmdLine.hasOption(option));
+    }
+
+    @Test
+    public void testGetOption_nonExistingTrigger_returnsNull() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+
+        assertNull(cmdLine.getOption("doesNotExist"));
+    }
+
+    // --------------------------------------------------------------
+    // addValue / getValues
+    // --------------------------------------------------------------
+
+    @Test
+    public void testAddValue_withNonArgumentOption_doesNotAutoAddOption() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("plain");
+
+        cmdLine.addValue(option, "value1");
+
+        // Non-Argument options are not auto-added via addValue
+        assertFalse(cmdLine.hasOption(option));
+        List values = cmdLine.getValues(option, null);
+        assertEquals(1, values.size());
+        assertEquals("value1", values.get(0));
+    }
+
+    @Test
+    public void testAddValue_withArgumentOption_autoAddsOption() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Argument argument = new TestArgument("arg");
+
+        cmdLine.addValue(argument, "value1");
+
+        assertTrue(cmdLine.hasOption(argument));
+    }
+
+    @Test
+    public void testAddValue_multipleValues_appendsToList() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("multi");
+
+        cmdLine.addValue(option, "v1");
+        cmdLine.addValue(option, "v2");
+
+        List values = cmdLine.getValues(option, null);
+        assertEquals(2, values.size());
+        assertEquals("v1", values.get(0));
+        assertEquals("v2", values.get(1));
+    }
+
+    @Test
+    public void testGetValues_noValuesAtAll_returnsEmptyList() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("empty");
+
+        List values = cmdLine.getValues(option, null);
+
+        assertNotNull(values);
+        assertTrue(values.isEmpty());
+    }
+
+    @Test
+    public void testGetValues_withDefaultValuesParam_returnsDefaults() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("defParam");
+        List defaults = new ArrayList();
+        defaults.add("defaultVal");
+
+        List values = cmdLine.getValues(option, defaults);
+
+        assertEquals(defaults, values);
+    }
+
+    @Test
+    public void testGetValues_withOptionDefaultValues_returnsOptionDefaults() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("optDefault");
+        List optionDefaults = new ArrayList();
+        optionDefaults.add("optDefaultVal");
+
+        cmdLine.setDefaultValues(option, optionDefaults);
+
+        List values = cmdLine.getValues(option, null);
+
+        assertEquals(optionDefaults, values);
+    }
+
+    @Test
+    public void testGetValues_commandLineValuesTakePriorityOverDefaults() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("priority");
+        cmdLine.addValue(option, "cmdLineVal");
+
+        List paramDefaults = new ArrayList();
+        paramDefaults.add("paramDefault");
+        cmdLine.setDefaultValues(option, paramDefaults);
+
+        List values = cmdLine.getValues(option, paramDefaults);
+
+        assertEquals(1, values.size());
+        assertEquals("cmdLineVal", values.get(0));
+    }
+
+    // --------------------------------------------------------------
+    // addSwitch / getSwitch
+    // --------------------------------------------------------------
+
+    @Test
+    public void testAddSwitch_normal_addsSwitchValue() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("switchOpt");
+
+        cmdLine.addSwitch(option, true);
+
+        assertTrue(cmdLine.hasOption(option));
+        assertEquals(Boolean.TRUE, cmdLine.getSwitch(option, null));
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testAddSwitch_calledTwiceForSameOption_throwsIllegalStateException() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("dupSwitch");
+
+        cmdLine.addSwitch(option, true);
+        cmdLine.addSwitch(option, false);
+    }
+
+    @Test
+    public void testGetSwitch_noSwitchSet_returnsNull() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("noSwitch");
+
+        assertNull(cmdLine.getSwitch(option, null));
+    }
+
+    @Test
+    public void testGetSwitch_withDefaultValueParam_returnsDefault() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("switchDefaultParam");
+
+        Boolean result = cmdLine.getSwitch(option, Boolean.TRUE);
+
+        assertEquals(Boolean.TRUE, result);
+    }
+
+    @Test
+    public void testGetSwitch_withOptionDefaultSwitch_returnsOptionDefault() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("switchOptDefault");
+
+        cmdLine.setDefaultSwitch(option, Boolean.FALSE);
+
+        Boolean result = cmdLine.getSwitch(option, null);
+
+        assertEquals(Boolean.FALSE, result);
+    }
+
+    @Test
+    public void testGetSwitch_commandLineSwitchTakesPriority() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("switchPriority");
+
+        cmdLine.addSwitch(option, false);
+        cmdLine.setDefaultSwitch(option, Boolean.TRUE);
+
+        Boolean result = cmdLine.getSwitch(option, Boolean.TRUE);
+
+        assertEquals(Boolean.FALSE, result);
+    }
+
+    // --------------------------------------------------------------
+    // addProperty / getProperty / getProperties
+    // --------------------------------------------------------------
+
+    @Test
+    public void testAddProperty_getProperty_returnsValue() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+
+        cmdLine.addProperty("key1", "value1");
+
+        assertEquals("value1", cmdLine.getProperty("key1", "defaultVal"));
+    }
+
+    @Test
+    public void testGetProperty_notSet_returnsDefault() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+
+        assertEquals("defaultVal", cmdLine.getProperty("missingKey", "defaultVal"));
+    }
+
+    @Test
+    public void testGetProperties_returnsKeysAfterAdd() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+
+        cmdLine.addProperty("keyA", "valA");
+        cmdLine.addProperty("keyB", "valB");
+
+        Set props = cmdLine.getProperties();
+
+        assertTrue(props.contains("keyA"));
+        assertTrue(props.contains("keyB"));
+        assertEquals(2, props.size());
+    }
+
+    @Test
+    public void testGetProperties_emptyProperties_returnsEmptySet() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+
+        Set props = cmdLine.getProperties();
+
+        assertTrue(props.isEmpty());
+    }
+
+    // --------------------------------------------------------------
+    // looksLikeOption
+    // --------------------------------------------------------------
+
+    @Test
+    public void testLooksLikeOption_matchingPrefix_returnsTrue() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+
+        assertTrue(cmdLine.looksLikeOption("--verbose"));
+    }
+
+    @Test
+    public void testLooksLikeOption_nonMatchingPrefix_returnsFalse() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+
+        assertFalse(cmdLine.looksLikeOption("verbose"));
+    }
+
+    @Test
+    public void testLooksLikeOption_emptyString_returnsFalse() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+
+        assertFalse(cmdLine.looksLikeOption(""));
+    }
+
+    // --------------------------------------------------------------
+    // toString
+    // --------------------------------------------------------------
+
+    @Test
+    public void testToString_withoutSpaceInArgs_noQuotes() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+
+        String result = cmdLine.toString();
+
+        assertEquals("arg1 arg2", result);
+    }
+
+    @Test
+    public void testToString_withSpaceInArg_quotesArg() {
+        List args = new ArrayList();
+        args.add("hello world");
+        args.add("simple");
+        WriteableCommandLineImpl cmdLine = new WriteableCommandLineImpl(rootOption, args);
+
+        String result = cmdLine.toString();
+
+        assertEquals("\"hello world\" simple", result);
+    }
+
+    @Test
+    public void testToString_emptyArguments_returnsEmptyString() {
+        List args = new ArrayList();
+        WriteableCommandLineImpl cmdLine = new WriteableCommandLineImpl(rootOption, args);
+
+        String result = cmdLine.toString();
+
+        assertEquals("", result);
+    }
+
+    // --------------------------------------------------------------
+    // getOptions
+    // --------------------------------------------------------------
+
+    @Test
+    public void testGetOptions_afterAddingOptions_returnsAllOptions() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option1 = new TestOption("opt1");
+        Option option2 = new TestOption("opt2");
+
+        cmdLine.addOption(option1);
+        cmdLine.addOption(option2);
+
+        List result = cmdLine.getOptions();
+        assertEquals(2, result.size());
+        assertTrue(result.contains(option1));
+        assertTrue(result.contains(option2));
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testGetOptions_modifyingReturnedList_throwsUnsupportedOperationException() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        List result = cmdLine.getOptions();
+
+        result.add(new TestOption("shouldFail"));
+    }
+
+    @Test
+    public void testGetOptions_noOptionsAdded_returnsEmptyList() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+
+        List result = cmdLine.getOptions();
+
+        assertTrue(result.isEmpty());
+    }
+
+    // --------------------------------------------------------------
+    // getOptionTriggers
+    // --------------------------------------------------------------
+
+    @Test
+    public void testGetOptionTriggers_returnsTriggersAndPreferredName() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        List triggers = new ArrayList();
+        triggers.add("t");
+        Option option = new TestOption("triggerOpt", triggers);
+
+        cmdLine.addOption(option);
+
+        Set result = cmdLine.getOptionTriggers();
+
+        assertTrue(result.contains("t"));
+        assertTrue(result.contains("triggerOpt"));
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testGetOptionTriggers_modifyingReturnedSet_throwsUnsupportedOperationException() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+
+        Set result = cmdLine.getOptionTriggers();
+        result.add("newTrigger");
+    }
+
+    // --------------------------------------------------------------
+    // setDefaultValues
+    // --------------------------------------------------------------
+
+    @Test
+    public void testSetDefaultValues_withList_setsDefault() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("defaultsSet");
+        List defaults = new ArrayList();
+        defaults.add("d1");
+
+        cmdLine.setDefaultValues(option, defaults);
+
+        List values = cmdLine.getValues(option, null);
+        assertEquals(defaults, values);
+    }
+
+    @Test
+    public void testSetDefaultValues_withNull_removesDefault() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("defaultsRemove");
+        List defaults = new ArrayList();
+        defaults.add("d1");
+
+        cmdLine.setDefaultValues(option, defaults);
+        cmdLine.setDefaultValues(option, null);
+
+        List values = cmdLine.getValues(option, null);
+        assertTrue(values.isEmpty());
+    }
+
+    // --------------------------------------------------------------
+    // setDefaultSwitch
+    // --------------------------------------------------------------
+
+    @Test
+    public void testSetDefaultSwitch_withBoolean_setsDefault() {
+        WriteableCommandLineImpl cmdLine = createCommandLine();
+        Option option = new TestOption("switchSet");
+
+        cmdLine.setDefaultSwitch(option, Boolean.TRUE);
+
+        assertEquals(Boolean.TRUE, cmdLine.getSwitch(option, null));
+    }
+
+    @Test
+    public void testSetDefaultSwitch_withNull_removesDefault() {
+        WriteableCommandLine

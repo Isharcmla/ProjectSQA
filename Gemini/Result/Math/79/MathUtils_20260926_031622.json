@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "79",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.util.MathUtils",
+  "target_classes": [
+    "org.apache.commons.math.util.MathUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 76.44,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\79\\MathUtils_20260926_031622.txt",
+  "test_file": "Gemini\\TestCode\\Math\\79\\MathUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 16671,
+    "completion_tokens": 9001,
+    "total_tokens": 28015
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 86861,
+    "daily_remaining_tokens": 263139
+  },
+  "timestamp": "20260926_031622"
+}

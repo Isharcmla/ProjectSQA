@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "110",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.deser.impl.JavaUtilCollectionsDeserializers",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.impl.JavaUtilCollectionsDeserializers"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 65.36,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\110\\JavaUtilCollectionsDeserializers_20260929_011933.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\110\\JavaUtilCollectionsDeserializersTest.java",
+  "usage": {
+    "prompt_tokens": 3810,
+    "completion_tokens": 8415,
+    "total_tokens": 12225
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 59617,
+    "daily_remaining_tokens": 140383
+  },
+  "timestamp": "20260929_011933"
+}

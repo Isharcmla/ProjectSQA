@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "26",
+  "tool": "claude",
+  "class": "org.joda.time.chrono.ZonedChronology",
+  "target_classes": [
+    "org.joda.time.chrono.ZonedChronology"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 115.84,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Time\\26\\ZonedChronology_20261003_014848.txt",
+  "test_file": "Claude\\TestCode\\Time\\26\\ZonedChronologyTest.java",
+  "usage": {
+    "prompt_tokens": 8979,
+    "completion_tokens": 12956,
+    "total_tokens": 21935
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 74928,
+    "daily_remaining_tokens": 125072
+  },
+  "timestamp": "20261003_014848"
+}

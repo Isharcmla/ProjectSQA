@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "16",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.introspect.AnnotationMap",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.introspect.AnnotationMap"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 32.16,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\16\\AnnotationMap_20260925_124853.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\16\\AnnotationMapTest.java",
+  "usage": {
+    "prompt_tokens": 1100,
+    "completion_tokens": 2327,
+    "total_tokens": 5831
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 142407,
+    "daily_remaining_tokens": 207593
+  },
+  "timestamp": "20260925_124853"
+}

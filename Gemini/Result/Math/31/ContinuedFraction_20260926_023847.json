@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "31",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.util.ContinuedFraction",
+  "target_classes": [
+    "org.apache.commons.math3.util.ContinuedFraction"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 33.04,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\31\\ContinuedFraction_20260926_023847.txt",
+  "test_file": "Gemini\\TestCode\\Math\\31\\ContinuedFractionTest.java",
+  "usage": {
+    "prompt_tokens": 2231,
+    "completion_tokens": 1616,
+    "total_tokens": 7093
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 105365,
+    "daily_remaining_tokens": 244635
+  },
+  "timestamp": "20260926_023847"
+}

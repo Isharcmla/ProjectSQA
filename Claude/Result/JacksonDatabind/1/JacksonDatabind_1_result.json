@@ -1,0 +1,24 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "1",
+  "tool": "claude",
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 157.65,
+  "num_test_files_generated": 0,
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.BeanPropertyWriter"
+  ],
+  "model_name": "Claude",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "class_results": [],
+  "failures": [
+    {
+      "class": "com.fasterxml.jackson.databind.ser.BeanPropertyWriter",
+      "error": "API returned null content"
+    }
+  ],
+  "timestamp": "2026-09-21T07:54:04"
+}

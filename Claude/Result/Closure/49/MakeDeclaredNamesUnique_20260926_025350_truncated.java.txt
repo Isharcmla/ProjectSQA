@@ -1,0 +1,206 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import com.google.common.base.Supplier;
+import com.google.javascript.jscomp.MakeDeclaredNamesUnique.BoilerplateRenamer;
+import com.google.javascript.jscomp.MakeDeclaredNamesUnique.ContextualRenameInverter;
+import com.google.javascript.jscomp.MakeDeclaredNamesUnique.ContextualRenamer;
+import com.google.javascript.jscomp.MakeDeclaredNamesUnique.InlineRenamer;
+import com.google.javascript.jscomp.MakeDeclaredNamesUnique.Renamer;
+
+import org.junit.Test;
+
+/**
+ * Unit tests for {@link MakeDeclaredNamesUnique}.
+ *
+ * หมายเหตุ: บาง public method ของ MakeDeclaredNamesUnique และ ContextualRenameInverter
+ * (enterScope, exitScope, shouldTraverse, visit, process) ต้องพึ่งพา NodeTraversal, Compiler,
+ * Scope และโครงสร้าง AST ที่สร้างขึ้นจากการ parse จริง ซึ่ง API ที่แน่นอนของคลาสเหล่านั้น
+ * ไม่ได้ถูกให้มาอย่างละเอียดเพียงพอใน source_code ที่ให้มา และไม่อนุญาตให้ใช้ mocking framework
+ * จึงไม่สามารถทดสอบโดยตรงได้อย่างปลอดภัยโดยไม่เดา API เพิ่มเติม
+ * การทดสอบด้านล่างจึงเน้นไปที่ constructor, static factory method,
+ * และ Renamer implementations ทั้งหมด ซึ่งสามารถทดสอบผ่าน public API ได้อย่างสมบูรณ์
+ */
+public class MakeDeclaredNamesUniqueTest {
+
+  // ---------- MakeDeclaredNamesUnique constructors ----------
+
+  @Test
+  public void testDefaultConstructor_createsInstance_notNull() {
+    MakeDeclaredNamesUnique pass = new MakeDeclaredNamesUnique();
+    assertNotNull(pass);
+  }
+
+  @Test
+  public void testCustomRenamerConstructor_createsInstance_notNull() {
+    Renamer renamer = new ContextualRenamer();
+    MakeDeclaredNamesUnique pass = new MakeDeclaredNamesUnique(renamer);
+    assertNotNull(pass);
+  }
+
+  @Test
+  public void testGetContextualRenameInverter_returnsContextualRenameInverterInstance() {
+    CompilerPass pass = MakeDeclaredNamesUnique.getContextualRenameInverter(null);
+    assertNotNull(pass);
+    assertTrue(pass instanceof ContextualRenameInverter);
+  }
+
+  // ---------- ContextualRenamer tests ----------
+
+  @Test
+  public void testContextualRenamer_globalAddDeclaredName_noReplacement() {
+    ContextualRenamer renamer = new ContextualRenamer();
+    renamer.addDeclaredName("foo");
+    assertNull(renamer.getReplacementName("foo"));
+  }
+
+  @Test
+  public void testContextualRenamer_addDeclaredNameArguments_ignored() {
+    ContextualRenamer renamer = new ContextualRenamer();
+    renamer.addDeclaredName("arguments");
+    assertNull(renamer.getReplacementName("arguments"));
+  }
+
+  @Test
+  public void testContextualRenamer_forChildScope_returnsContextualRenamer() {
+    ContextualRenamer renamer = new ContextualRenamer();
+    Renamer child = renamer.forChildScope();
+    assertNotNull(child);
+    assertTrue(child instanceof ContextualRenamer);
+  }
+
+  @Test
+  public void testContextualRenamer_childScope_firstDeclarationNoRename() {
+    ContextualRenamer root = new ContextualRenamer();
+    Renamer child = root.forChildScope();
+    child.addDeclaredName("x");
+    assertNull(child.getReplacementName("x"));
+  }
+
+  @Test
+  public void testContextualRenamer_childScopes_secondDeclarationGetsRenamed() {
+    ContextualRenamer root = new ContextualRenamer();
+    Renamer child1 = root.forChildScope();
+    child1.addDeclaredName("x");
+    Renamer child2 = root.forChildScope();
+    child2.addDeclaredName("x");
+    String replacement = child2.getReplacementName("x");
+    assertNotNull(replacement);
+    assertTrue(replacement.startsWith("x$$"));
+  }
+
+  @Test
+  public void testContextualRenamer_childScope_conflictsWithGlobalReservedName_getsRenamed() {
+    ContextualRenamer root = new ContextualRenamer();
+    root.addDeclaredName("x"); // reserved globally
+    Renamer child = root.forChildScope();
+    child.addDeclaredName("x");
+    String replacement = child.getReplacementName("x");
+    assertEquals("x$$1", replacement);
+  }
+
+  @Test
+  public void testContextualRenamer_stripConstIfReplaced_returnsFalse() {
+    ContextualRenamer renamer = new ContextualRenamer();
+    assertFalse(renamer.stripConstIfReplaced());
+  }
+
+  @Test
+  public void testContextualRenamer_getReplacementName_unknownName_returnsNull() {
+    ContextualRenamer renamer = new ContextualRenamer();
+    assertNull(renamer.getReplacementName("unknown"));
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testContextualRenamer_addDeclaredName_nullName_throwsNPE() {
+    ContextualRenamer renamer = new ContextualRenamer();
+    renamer.addDeclaredName(null);
+  }
+
+  @Test
+  public void testContextualRenamer_addDeclaredName_emptyString_reservedGlobally() {
+    ContextualRenamer renamer = new ContextualRenamer();
+    renamer.addDeclaredName("");
+    assertNull(renamer.getReplacementName(""));
+  }
+
+  @Test
+  public void testContextualRenamer_repeatedGlobalAddDeclaredName_stillNoReplacement() {
+    ContextualRenamer renamer = new ContextualRenamer();
+    renamer.addDeclaredName("foo");
+    renamer.addDeclaredName("foo");
+    assertNull(renamer.getReplacementName("foo"));
+  }
+
+  // ---------- InlineRenamer tests ----------
+
+  private Supplier<String> newUniqueIdSupplier() {
+    return new Supplier<String>() {
+      private int counter = 0;
+
+      @Override
+      public String get() {
+        return String.valueOf(counter++);
+      }
+    };
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testInlineRenamer_constructor_emptyIdPrefix_throwsIllegalArgumentException() {
+    new InlineRenamer(newUniqueIdSupplier(), "", false);
+  }
+
+  @Test
+  public void testInlineRenamer_addDeclaredName_argumentsThrowsIllegalStateException() {
+    InlineRenamer renamer = new InlineRenamer(newUniqueIdSupplier(), "prefix", false);
+    try {
+      renamer.addDeclaredName("arguments");
+      fail("Expected IllegalStateException");
+    } catch (IllegalStateException expected) {
+      // expected
+    }
+  }
+
+  @Test
+  public void testInlineRenamer_addDeclaredName_normalName_generatesUniqueName() {
+    InlineRenamer renamer = new InlineRenamer(newUniqueIdSupplier(), "prefix", false);
+    renamer.addDeclaredName("foo");
+    String replacement = renamer.getReplacementName("foo");
+    assertNotNull(replacement);
+    assertTrue(replacement.startsWith("foo$$prefix"));
+  }
+
+  @Test
+  public void testInlineRenamer_addDeclaredName_emptyName_returnsEmptyString() {
+    InlineRenamer renamer = new InlineRenamer(newUniqueIdSupplier(), "prefix", false);
+    renamer.addDeclaredName("");
+    String replacement = renamer.getReplacementName("");
+    assertEquals("", replacement);
+  }
+
+  @Test
+  public void testInlineRenamer_addDeclaredName_nameWithSeparator_stripsOldSuffix() {
+    InlineRenamer renamer = new InlineRenamer(newUniqueIdSupplier(), "prefix", false);
+    renamer.addDeclaredName("foo$$bar$$0");
+    String replacement = renamer.getReplacementName("foo$$bar$$0");
+    assertNotNull(replacement);
+    assertTrue(replacement.startsWith("foo$$bar$$prefix"));
+  }
+
+  @Test
+  public void testInlineRenamer_forChildScope_returnsInlineRenamer() {
+    InlineRenamer renamer = new InlineRenamer(newUniqueIdSupplier(), "prefix", true);
+    Renamer child = renamer.forChildScope();
+    assertNotNull(child);
+    assertTrue(child instanceof InlineRenamer);
+  }
+
+  @Test
+  public void testInlineRenamer_stripConstIfReplaced_returnsConfiguredValueTrue() {
+    InlineRenamer renamer = new InlineRenamer(newUniqueIdSupplier(), "pr

@@ -1,0 +1,118 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.security.Permission;
+import java.util.List;
+
+/**
+ * JUnit4 test suite for {@link CommandLineRunner}.
+ *
+ * This test class lives in the same package as CommandLineRunner so that
+ * we can access its protected constructors and protected methods
+ * (createOptions, createCompiler, createExterns) directly, without
+ * relying on any mocking framework.
+ */
+public class CommandLineRunnerTest {
+
+  // ---------------------------------------------------------------------
+  // Helpers
+  // ---------------------------------------------------------------------
+
+  private CommandLineRunner createRunner(String[] args) {
+    ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+    PrintStream err = new PrintStream(errContent);
+    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    PrintStream out = new PrintStream(outContent);
+    return new CommandLineRunner(args, out, err);
+  }
+
+  private CommandLineRunner createRunnerCapturingErr(
+      String[] args, ByteArrayOutputStream errContent) {
+    PrintStream err = new PrintStream(errContent);
+    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    PrintStream out = new PrintStream(outContent);
+    return new CommandLineRunner(args, out, err);
+  }
+
+  /** Exception thrown by our test SecurityManager instead of exiting the JVM. */
+  private static class ExitException extends SecurityException {
+    private static final long serialVersionUID = 1L;
+    final int status;
+    ExitException(int status) {
+      super("System.exit(" + status + ") called");
+      this.status = status;
+    }
+  }
+
+  /** SecurityManager that turns System.exit() into a catchable exception. */
+  private static class NoExitSecurityManager extends SecurityManager {
+    @Override
+    public void checkPermission(Permission perm) {
+      // allow everything
+    }
+
+    @Override
+    public void checkPermission(Permission perm, Object context) {
+      // allow everything
+    }
+
+    @Override
+    public void checkExit(int status) {
+      throw new ExitException(status);
+    }
+  }
+
+  // ---------------------------------------------------------------------
+  // shouldRunCompiler() tests - normal cases
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testShouldRunCompiler_validJsArg_returnsTrue() {
+    CommandLineRunner runner = createRunner(new String[] {"--js", "test.js"});
+    assertTrue(runner.shouldRunCompiler());
+  }
+
+  @Test
+  public void testShouldRunCompiler_emptyArgs_returnsTrue() {
+    CommandLineRunner runner = createRunner(new String[] {});
+    assertTrue(runner.shouldRunCompiler());
+  }
+
+  @Test
+  public void testShouldRunCompiler_thirdPartyFlag_returnsTrue() {
+    CommandLineRunner runner = createRunner(new String[] {"--third_party"});
+    assertTrue(runner.shouldRunCompiler());
+  }
+
+  @Test
+  public void testShouldRunCompiler_jqueryPrimitivesFlag_returnsTrue() {
+    CommandLineRunner runner =
+        createRunner(new String[] {"--process_jquery_primitives"});
+    assertTrue(runner.shouldRunCompiler());
+  }
+
+  @Test
+  public void testShouldRunCompiler_moduleAndWrapperFlags_returnsTrue() {
+    CommandLineRunner runner = createRunner(new String[] {
+        "--module", "m1:1",
+        "--module_wrapper", "m1:%s",
+        "--js", "a.js"
+    });
+    assertTrue(runner.shouldRunCompiler());
+  }
+
+  @Test
+  public void testShouldRunCompiler_warningGuardFlags_returnsTrue() {
+    CommandLineRunner runner = createRunner(new String[] {
+        "--jscomp_error", "checkTypes",
+        "--jscomp_warning", "deprecated

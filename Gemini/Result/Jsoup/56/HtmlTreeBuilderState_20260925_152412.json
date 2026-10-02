@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "56",
+  "tool": "gemini",
+  "class": "org.jsoup.parser.HtmlTreeBuilderState",
+  "target_classes": [
+    "org.jsoup.parser.HtmlTreeBuilderState"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 79.23,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\56\\HtmlTreeBuilderState_20260925_152412.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\56\\HtmlTreeBuilderStateTest.java",
+  "usage": {
+    "prompt_tokens": 16030,
+    "completion_tokens": 9114,
+    "total_tokens": 27786
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 92331,
+    "daily_remaining_tokens": 257669
+  },
+  "timestamp": "20260925_152412"
+}

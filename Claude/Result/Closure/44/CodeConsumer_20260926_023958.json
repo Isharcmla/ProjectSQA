@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "44",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.CodeConsumer",
+  "target_classes": [
+    "com.google.javascript.jscomp.CodeConsumer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 56.58,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\44\\CodeConsumer_20260926_023958.txt",
+  "test_file": "Claude\\TestCode\\Closure\\44\\CodeConsumerTest.java",
+  "usage": {
+    "prompt_tokens": 3604,
+    "completion_tokens": 7465,
+    "total_tokens": 11069
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 11069,
+    "daily_remaining_tokens": 188931
+  },
+  "timestamp": "20260926_023958"
+}

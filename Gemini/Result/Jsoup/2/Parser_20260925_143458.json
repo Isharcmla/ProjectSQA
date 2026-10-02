@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "2",
+  "tool": "gemini",
+  "class": "org.jsoup.parser.Parser",
+  "target_classes": [
+    "org.jsoup.parser.Parser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 13.74,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\2\\Parser_20260925_143458.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\2\\ParserTest.java",
+  "usage": {
+    "prompt_tokens": 2822,
+    "completion_tokens": 1972,
+    "total_tokens": 4794
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 299353,
+    "daily_remaining_tokens": 50647
+  },
+  "timestamp": "20260925_143458"
+}

@@ -1,0 +1,282 @@
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.entity.StandardEntityCollection;
+import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.statistics.DefaultStatisticalCategoryDataset;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.awt.geom.Rectangle2D;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class StatisticalBarRendererTest {
+
+    private StatisticalBarRenderer renderer;
+
+    @Before
+    public void setUp() {
+        renderer = new StatisticalBarRenderer();
+    }
+
+    private Graphics2D createGraphics() {
+        BufferedImage image = new BufferedImage(500, 300,
+                BufferedImage.TYPE_INT_ARGB);
+        return image.createGraphics();
+    }
+
+    private Rectangle2D createDataArea() {
+        return new Rectangle2D.Double(0, 0, 500, 300);
+    }
+
+    // ---------------------------------------------------------------
+    // Constructor / default field tests
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testDefaultConstructor_setsDefaultErrorIndicatorPaint() {
+        assertEquals(Color.gray, renderer.getErrorIndicatorPaint());
+    }
+
+    @Test
+    public void testDefaultConstructor_setsDefaultErrorIndicatorStroke() {
+        assertEquals(new BasicStroke(0.5f), renderer.getErrorIndicatorStroke());
+    }
+
+    // ---------------------------------------------------------------
+    // getErrorIndicatorPaint / setErrorIndicatorPaint
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testSetErrorIndicatorPaint_normalValue_getterReturnsSameValue() {
+        renderer.setErrorIndicatorPaint(Color.RED);
+        assertEquals(Color.RED, renderer.getErrorIndicatorPaint());
+    }
+
+    @Test
+    public void testSetErrorIndicatorPaint_null_getterReturnsNull() {
+        renderer.setErrorIndicatorPaint(null);
+        assertNull(renderer.getErrorIndicatorPaint());
+    }
+
+    // ---------------------------------------------------------------
+    // getErrorIndicatorStroke / setErrorIndicatorStroke
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testSetErrorIndicatorStroke_normalValue_getterReturnsSameValue() {
+        BasicStroke stroke = new BasicStroke(2.0f);
+        renderer.setErrorIndicatorStroke(stroke);
+        assertEquals(stroke, renderer.getErrorIndicatorStroke());
+    }
+
+    @Test
+    public void testSetErrorIndicatorStroke_null_getterReturnsNull() {
+        renderer.setErrorIndicatorStroke(null);
+        assertNull(renderer.getErrorIndicatorStroke());
+    }
+
+    // ---------------------------------------------------------------
+    // drawItem - defensive check (exception case)
+    // ---------------------------------------------------------------
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDrawItem_nonStatisticalDataset_throwsIllegalArgumentException() {
+        CategoryDataset dataset = new DefaultCategoryDataset();
+
+        DefaultStatisticalCategoryDataset statDataset =
+                new DefaultStatisticalCategoryDataset();
+        statDataset.add(10.0, 2.0, "Series1", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        CategoryPlot plot = new CategoryPlot(statDataset, domainAxis,
+                rangeAxis, renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        Graphics2D g2 = createGraphics();
+        Rectangle2D dataArea = createDataArea();
+        CategoryItemRendererState state = renderer.initialise(g2, dataArea,
+                plot, 0, null);
+
+        renderer.drawItem(g2, state, dataArea, plot, domainAxis, rangeAxis,
+                dataset, 0, 0, 0);
+    }
+
+    // ---------------------------------------------------------------
+    // drawItem - VERTICAL orientation, normal (typical) input
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testDrawItem_verticalOrientation_normalValues_noException() {
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(10.0, 2.0, "Series1", "Category1");
+        dataset.add(20.0, 3.0, "Series2", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        Graphics2D g2 = createGraphics();
+        Rectangle2D dataArea = createDataArea();
+        CategoryItemRendererState state = renderer.initialise(g2, dataArea,
+                plot, 0, null);
+
+        renderer.drawItem(g2, state, dataArea, plot, domainAxis, rangeAxis,
+                dataset, 0, 0, 0);
+        renderer.drawItem(g2, state, dataArea, plot, domainAxis, rangeAxis,
+                dataset, 1, 0, 0);
+
+        assertTrue(true);
+    }
+
+    // ---------------------------------------------------------------
+    // drawItem - HORIZONTAL orientation, normal (typical) input
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testDrawItem_horizontalOrientation_normalValues_noException() {
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(10.0, 2.0, "Series1", "Category1");
+        dataset.add(20.0, 3.0, "Series2", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.HORIZONTAL);
+
+        Graphics2D g2 = createGraphics();
+        Rectangle2D dataArea = createDataArea();
+        CategoryItemRendererState state = renderer.initialise(g2, dataArea,
+                plot, 0, null);
+
+        renderer.drawItem(g2, state, dataArea, plot, domainAxis, rangeAxis,
+                dataset, 0, 0, 0);
+        renderer.drawItem(g2, state, dataArea, plot, domainAxis, rangeAxis,
+                dataset, 1, 0, 0);
+
+        assertTrue(true);
+    }
+
+    // ---------------------------------------------------------------
+    // drawItem - VERTICAL - edge/boundary: uclip <= 0 branch group
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testDrawItem_verticalOrientation_uclipLessEqualZero_returnEarly_noException() {
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(-5.0, 1.0, "Series1", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        rangeAxis.setRange(-100.0, -10.0);
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        Graphics2D g2 = createGraphics();
+        Rectangle2D dataArea = createDataArea();
+        CategoryItemRendererState state = renderer.initialise(g2, dataArea,
+                plot, 0, null);
+
+        // value(-5) >= uclip(-10) => bar not visible, early return
+        renderer.drawItem(g2, state, dataArea, plot, domainAxis, rangeAxis,
+                dataset, 0, 0, 0);
+
+        assertTrue(true);
+    }
+
+    @Test
+    public void testDrawItem_verticalOrientation_uclipLessEqualZero_clipToLclip_noException() {
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(-150.0, 1.0, "Series1", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        rangeAxis.setRange(-100.0, -10.0);
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        Graphics2D g2 = createGraphics();
+        Rectangle2D dataArea = createDataArea();
+        CategoryItemRendererState state = renderer.initialise(g2, dataArea,
+                plot, 0, null);
+
+        // value(-150) <= lclip(-100) => value clipped to lclip
+        renderer.drawItem(g2, state, dataArea, plot, domainAxis, rangeAxis,
+                dataset, 0, 0, 0);
+
+        assertTrue(true);
+    }
+
+    @Test
+    public void testDrawItem_verticalOrientation_uclipLessEqualZero_normalRange_noException() {
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(-50.0, 1.0, "Series1", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        rangeAxis.setRange(-100.0, -10.0);
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        Graphics2D g2 = createGraphics();
+        Rectangle2D dataArea = createDataArea();
+        CategoryItemRendererState state = renderer.initialise(g2, dataArea,
+                plot, 0, null);
+
+        // value(-50) between lclip and uclip => no clip applied
+        renderer.drawItem(g2, state, dataArea, plot, domainAxis, rangeAxis,
+                dataset, 0, 0, 0);
+
+        assertTrue(true);
+    }
+
+    // ---------------------------------------------------------------
+    // drawItem - VERTICAL - edge/boundary: lclip <= 0 < uclip branch group
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testDrawItem_verticalOrientation_lclipLessEqualZero_clipToUclip_noException() {
+        DefaultStatisticalCategoryDataset dataset =
+                new DefaultStatisticalCategoryDataset();
+        dataset.add(60.0, 1.0, "Series1", "Category1");
+
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        rangeAxis.setRange(-50.0, 50.0);
+        CategoryPlot plot = new CategoryPlot(dataset, domainAxis, rangeAxis,
+                renderer);
+        plot.setOrientation(PlotOrientation.VERTICAL);
+
+        Graphics2D g2 = createGraphics();
+        Rectangle2D dataArea = createDataArea();
+        CategoryItemRendererState state = renderer.initialise(g2, dataArea,
+                plot, 0, null);
+
+        // value(60) >= uclip(50) => value clipped to uclip
+        renderer.drawItem(g2, state, dataArea, plot, domainAxis, rangeAxis,
+                dataset, 0, 0, 0);

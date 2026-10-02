@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "30",
+  "tool": "claude",
+  "class": "org.mockito.exceptions.Reporter",
+  "target_classes": [
+    "org.mockito.exceptions.Reporter"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 118.12,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Mockito\\30\\Reporter_20261003_005543.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 9225,
+    "completion_tokens": 16384,
+    "total_tokens": 25609
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 150637,
+    "daily_remaining_tokens": 49363
+  },
+  "timestamp": "20261003_005543"
+}

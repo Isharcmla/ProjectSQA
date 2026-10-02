@@ -1,0 +1,153 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+
+import org.junit.Test;
+
+/**
+ * Unit tests for {@link ControlFlowAnalysis}.
+ *
+ * Note: ControlFlowAnalysis depends heavily on AbstractCompiler and
+ * NodeTraversal internals (process(), shouldTraverse(), visit()) which
+ * cannot be exercised without a full concrete AbstractCompiler
+ * implementation or a mocking framework. Since mocking frameworks are not
+ * allowed and the AbstractCompiler abstract API surface is not provided,
+ * those methods are intentionally not covered here. Testing focuses on the
+ * static/pure utility methods and the constructor / getCfg() which do not
+ * require a functioning AbstractCompiler.
+ */
+public class ControlFlowAnalysisTest {
+
+  // ---------------------------------------------------------------------
+  // Constructor / getCfg()
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testConstructor_validParams_cfgIsNullBeforeProcess() {
+    // The compiler reference is not used inside the constructor, so passing
+    // null is safe here.
+    ControlFlowAnalysis cfa = new ControlFlowAnalysis(null, true, false);
+    assertNull(cfa.getCfg());
+  }
+
+  @Test
+  public void testConstructor_shouldTraverseFunctionsFalse_cfgIsNull() {
+    ControlFlowAnalysis cfa = new ControlFlowAnalysis(null, false, true);
+    assertNull(cfa.getCfg());
+  }
+
+  @Test
+  public void testGetCfg_beforeProcessCalled_returnsNull() {
+    ControlFlowAnalysis cfa = new ControlFlowAnalysis(null, true, true);
+    assertNull(cfa.getCfg());
+  }
+
+  // ---------------------------------------------------------------------
+  // computeFallThrough(Node)
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testComputeFallThrough_defaultNode_returnsSameNode() {
+    Node n = new Node(Token.NAME);
+    assertSame(n, ControlFlowAnalysis.computeFallThrough(n));
+  }
+
+  @Test
+  public void testComputeFallThrough_doNode_returnsFallThroughOfFirstChild() {
+    Node body = new Node(Token.BLOCK);
+    Node doNode = new Node(Token.DO);
+    doNode.addChildToBack(body);
+    Node cond = new Node(Token.NAME);
+    doNode.addChildToBack(cond);
+    assertSame(body, ControlFlowAnalysis.computeFallThrough(doNode));
+  }
+
+  @Test
+  public void testComputeFallThrough_forInNode_returnsSecondChild() {
+    Node item = new Node(Token.NAME);
+    Node collection = new Node(Token.NAME);
+    Node body = new Node(Token.BLOCK);
+    Node forNode = new Node(Token.FOR);
+    forNode.addChildToBack(item);
+    forNode.addChildToBack(collection);
+    forNode.addChildToBack(body);
+    // NodeUtil.isForIn checks structural shape (3 children) - this is a
+    // standard for-in shape used across the real codebase.
+    assertSame(collection, ControlFlowAnalysis.computeFallThrough(forNode));
+  }
+
+  @Test
+  public void testComputeFallThrough_regularForNode_returnsFallThroughOfFirstChild() {
+    Node init = new Node(Token.BLOCK);
+    Node cond = new Node(Token.NAME);
+    Node iter = new Node(Token.NAME);
+    Node body = new Node(Token.BLOCK);
+    Node forNode = new Node(Token.FOR);
+    forNode.addChildToBack(init);
+    forNode.addChildToBack(cond);
+    forNode.addChildToBack(iter);
+    forNode.addChildToBack(body);
+    assertSame(init, ControlFlowAnalysis.computeFallThrough(forNode));
+  }
+
+  @Test
+  public void testComputeFallThrough_labelNode_returnsFallThroughOfLastChild() {
+    Node labelName = Node.newString("myLabel");
+    Node body = new Node(Token.BLOCK);
+    Node labelNode = new Node(Token.LABEL);
+    labelNode.addChildToBack(labelName);
+    labelNode.addChildToBack(body);
+    assertSame(body, ControlFlowAnalysis.computeFallThrough(labelNode));
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testComputeFallThrough_nullNode_throwsNpe() {
+    ControlFlowAnalysis.computeFallThrough(null);
+  }
+
+  // ---------------------------------------------------------------------
+  // computeFollowNode(Node)
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testComputeFollowNode_noParent_returnsNull() {
+    Node n = new Node(Token.NAME);
+    assertNull(ControlFlowAnalysis.computeFollowNode(n));
+  }
+
+  @Test
+  public void testComputeFollowNode_functionParent_returnsNull() {
+    Node fnName = new Node(Token.NAME);
+    Node params = new Node(Token.BLOCK);
+    Node body = new Node(Token.BLOCK);
+    Node fn = new Node(Token.FUNCTION);
+    fn.addChildToBack(fnName);
+    fn.addChildToBack(params);
+    fn.addChildToBack(body);
+    assertNull(ControlFlowAnalysis.computeFollowNode(body));
+  }
+
+  @Test
+  public void testComputeFollowNode_ifParentRecursesToGrandparent() {
+    // IF has no more siblings, sits directly under a SCRIPT (no parent).
+    Node cond = new Node(Token.NAME);
+    Node thenBlock = new Node(Token.BLOCK);
+    Node ifNode = new Node(Token.IF);
+    ifNode.addChildToBack(cond);
+    ifNode.addChildToBack(thenBlock);
+
+    // thenBlock's follow should recurse through IF -> which has no parent
+    // -> returns null.
+    assertNull(ControlFlowAnalysis.computeFollowNode(thenBlock));
+  }
+
+  @Test
+  public void testComputeFollowNode_ifParentWithSiblingAfterIf_returnsSibling() {
+    Node c

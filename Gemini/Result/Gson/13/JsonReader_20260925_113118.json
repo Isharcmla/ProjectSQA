@@ -1,0 +1,33 @@
+{
+  "project": "Gson",
+  "bug_id": "13",
+  "tool": "gemini",
+  "class": "com.google.gson.stream.JsonReader",
+  "target_classes": [
+    "com.google.gson.stream.JsonReader"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 33.61,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Gson\\13\\JsonReader_20260925_113118.txt",
+  "test_file": "Gemini\\TestCode\\Gson\\13\\JsonReaderTest.java",
+  "usage": {
+    "prompt_tokens": 15225,
+    "completion_tokens": 4926,
+    "total_tokens": 20151
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 223994,
+    "daily_remaining_tokens": 126006
+  },
+  "timestamp": "20260925_113118"
+}

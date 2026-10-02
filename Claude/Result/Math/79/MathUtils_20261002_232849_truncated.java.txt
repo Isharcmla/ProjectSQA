@@ -1,0 +1,453 @@
+package org.apache.commons.math.util;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
+public class MathUtilsTest {
+
+    // ---------- addAndCheck ----------
+    @Test
+    public void testAddAndCheckInt_normal_returnsSum() {
+        assertEquals(5, MathUtils.addAndCheck(2, 3));
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testAddAndCheckInt_overflow_throwsException() {
+        MathUtils.addAndCheck(Integer.MAX_VALUE, 1);
+    }
+
+    @Test
+    public void testAddAndCheckLong_normal_returnsSum() {
+        assertEquals(5L, MathUtils.addAndCheck(2L, 3L));
+    }
+
+    @Test
+    public void testAddAndCheckLong_negativePositive_returnsSum() {
+        assertEquals(1L, MathUtils.addAndCheck(-2L, 3L));
+    }
+
+    @Test
+    public void testAddAndCheckLong_bothNegative_returnsSum() {
+        assertEquals(-5L, MathUtils.addAndCheck(-2L, -3L));
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testAddAndCheckLong_positiveOverflow_throwsException() {
+        MathUtils.addAndCheck(Long.MAX_VALUE, 1L);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testAddAndCheckLong_negativeOverflow_throwsException() {
+        MathUtils.addAndCheck(Long.MIN_VALUE, -1L);
+    }
+
+    // ---------- binomialCoefficient ----------
+    @Test
+    public void testBinomialCoefficient_normal_returnsExpected() {
+        assertEquals(10L, MathUtils.binomialCoefficient(5, 2));
+    }
+
+    @Test
+    public void testBinomialCoefficient_kEqualsN_returnsOne() {
+        assertEquals(1L, MathUtils.binomialCoefficient(5, 5));
+    }
+
+    @Test
+    public void testBinomialCoefficient_kEqualsZero_returnsOne() {
+        assertEquals(1L, MathUtils.binomialCoefficient(5, 0));
+    }
+
+    @Test
+    public void testBinomialCoefficient_kEqualsOne_returnsN() {
+        assertEquals(5L, MathUtils.binomialCoefficient(5, 1));
+    }
+
+    @Test
+    public void testBinomialCoefficient_kEqualsNMinusOne_returnsN() {
+        assertEquals(5L, MathUtils.binomialCoefficient(5, 4));
+    }
+
+    @Test
+    public void testBinomialCoefficient_symmetryLargeK_returnsExpected() {
+        assertEquals(MathUtils.binomialCoefficient(10, 3), MathUtils.binomialCoefficient(10, 7));
+    }
+
+    @Test
+    public void testBinomialCoefficient_nBetween62And66_returnsExpected() {
+        long result = MathUtils.binomialCoefficient(64, 10);
+        assertTrue(result > 0);
+    }
+
+    @Test
+    public void testBinomialCoefficient_nGreaterThan66_returnsExpected() {
+        long result = MathUtils.binomialCoefficient(100, 10);
+        assertTrue(result > 0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBinomialCoefficient_nLessThanK_throwsException() {
+        MathUtils.binomialCoefficient(3, 5);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBinomialCoefficient_negativeN_throwsException() {
+        MathUtils.binomialCoefficient(-1, 0);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testBinomialCoefficient_overflow_throwsException() {
+        MathUtils.binomialCoefficient(1000, 500);
+    }
+
+    // ---------- binomialCoefficientDouble ----------
+    @Test
+    public void testBinomialCoefficientDouble_normal_returnsExpected() {
+        assertEquals(10d, MathUtils.binomialCoefficientDouble(5, 2), 0.0001);
+    }
+
+    @Test
+    public void testBinomialCoefficientDouble_kEqualsN_returnsOne() {
+        assertEquals(1d, MathUtils.binomialCoefficientDouble(5, 5), 0.0001);
+    }
+
+    @Test
+    public void testBinomialCoefficientDouble_kEqualsOne_returnsN() {
+        assertEquals(5d, MathUtils.binomialCoefficientDouble(5, 1), 0.0001);
+    }
+
+    @Test
+    public void testBinomialCoefficientDouble_symmetry_returnsSame() {
+        double a = MathUtils.binomialCoefficientDouble(10, 3);
+        double b = MathUtils.binomialCoefficientDouble(10, 7);
+        assertEquals(a, b, 0.0001);
+    }
+
+    @Test
+    public void testBinomialCoefficientDouble_nLessThan67_returnsExpected() {
+        double result = MathUtils.binomialCoefficientDouble(50, 10);
+        assertTrue(result > 0);
+    }
+
+    @Test
+    public void testBinomialCoefficientDouble_nGreaterOrEqual67_returnsExpected() {
+        double result = MathUtils.binomialCoefficientDouble(70, 35);
+        assertTrue(result > 0);
+        assertFalse(Double.isInfinite(result));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBinomialCoefficientDouble_nLessThanK_throwsException() {
+        MathUtils.binomialCoefficientDouble(3, 5);
+    }
+
+    // ---------- binomialCoefficientLog ----------
+    @Test
+    public void testBinomialCoefficientLog_kEqualsN_returnsZero() {
+        assertEquals(0d, MathUtils.binomialCoefficientLog(5, 5), 0.0001);
+    }
+
+    @Test
+    public void testBinomialCoefficientLog_kEqualsOne_returnsLogN() {
+        assertEquals(Math.log(5), MathUtils.binomialCoefficientLog(5, 1), 0.0001);
+    }
+
+    @Test
+    public void testBinomialCoefficientLog_nLessThan67_returnsExpected() {
+        double expected = Math.log(MathUtils.binomialCoefficient(50, 10));
+        assertEquals(expected, MathUtils.binomialCoefficientLog(50, 10), 0.0001);
+    }
+
+    @Test
+    public void testBinomialCoefficientLog_nBetween67And1030_returnsExpected() {
+        double result = MathUtils.binomialCoefficientLog(100, 10);
+        assertTrue(result > 0);
+    }
+
+    @Test
+    public void testBinomialCoefficientLog_nGreaterOrEqual1030_directSum_returnsExpected() {
+        double result = MathUtils.binomialCoefficientLog(2000, 50);
+        assertTrue(result > 0);
+    }
+
+    @Test
+    public void testBinomialCoefficientLog_nGreaterOrEqual1030_recursive_returnsExpected() {
+        double result = MathUtils.binomialCoefficientLog(2000, 1900);
+        assertTrue(result > 0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBinomialCoefficientLog_nLessThanK_throwsException() {
+        MathUtils.binomialCoefficientLog(3, 5);
+    }
+
+    // ---------- compareTo ----------
+    @Test
+    public void testCompareTo_equalWithinEps_returnsZero() {
+        assertEquals(0, MathUtils.compareTo(1.0, 1.0000001, 0.001));
+    }
+
+    @Test
+    public void testCompareTo_lessThan_returnsNegative() {
+        assertEquals(-1, MathUtils.compareTo(1.0, 2.0, 0.0001));
+    }
+
+    @Test
+    public void testCompareTo_greaterThan_returnsPositive() {
+        assertEquals(1, MathUtils.compareTo(2.0, 1.0, 0.0001));
+    }
+
+    // ---------- cosh ----------
+    @Test
+    public void testCosh_zero_returnsOne() {
+        assertEquals(1.0, MathUtils.cosh(0.0), 0.0001);
+    }
+
+    @Test
+    public void testCosh_normal_returnsExpected() {
+        assertEquals(Math.cosh(1.0), MathUtils.cosh(1.0), 0.0001);
+    }
+
+    // ---------- equals(double,double) ----------
+    @Test
+    public void testEqualsDouble_bothNaN_returnsTrue() {
+        assertTrue(MathUtils.equals(Double.NaN, Double.NaN));
+    }
+
+    @Test
+    public void testEqualsDouble_equalValues_returnsTrue() {
+        assertTrue(MathUtils.equals(1.0, 1.0));
+    }
+
+    @Test
+    public void testEqualsDouble_differentValues_returnsFalse() {
+        assertFalse(MathUtils.equals(1.0, 2.0));
+    }
+
+    // ---------- equals(double,double,double) ----------
+    @Test
+    public void testEqualsDoubleEps_withinEps_returnsTrue() {
+        assertTrue(MathUtils.equals(1.0, 1.0005, 0.001));
+    }
+
+    @Test
+    public void testEqualsDoubleEps_outsideEps_returnsFalse() {
+        assertFalse(MathUtils.equals(1.0, 2.0, 0.001));
+    }
+
+    // ---------- equals(double,double,int) ----------
+    @Test
+    public void testEqualsDoubleUlps_withinUlps_returnsTrue() {
+        double x = 1.0;
+        double y = MathUtils.nextAfter(x, Double.POSITIVE_INFINITY);
+        assertTrue(MathUtils.equals(x, y, 1));
+    }
+
+    @Test
+    public void testEqualsDoubleUlps_outsideUlps_returnsFalse() {
+        assertFalse(MathUtils.equals(1.0, 2.0, 1));
+    }
+
+    @Test
+    public void testEqualsDoubleUlps_negativeNumbers_returnsExpected() {
+        assertTrue(MathUtils.equals(-1.0, -1.0, 1));
+    }
+
+    // ---------- equals(double[],double[]) ----------
+    @Test
+    public void testEqualsDoubleArray_bothNull_returnsTrue() {
+        assertTrue(MathUtils.equals(null, null));
+    }
+
+    @Test
+    public void testEqualsDoubleArray_oneNull_returnsFalse() {
+        assertFalse(MathUtils.equals(new double[]{1.0}, null));
+        assertFalse(MathUtils.equals(null, new double[]{1.0}));
+    }
+
+    @Test
+    public void testEqualsDoubleArray_differentLength_returnsFalse() {
+        assertFalse(MathUtils.equals(new double[]{1.0}, new double[]{1.0, 2.0}));
+    }
+
+    @Test
+    public void testEqualsDoubleArray_equalArrays_returnsTrue() {
+        assertTrue(MathUtils.equals(new double[]{1.0, 2.0}, new double[]{1.0, 2.0}));
+    }
+
+    @Test
+    public void testEqualsDoubleArray_differentElements_returnsFalse() {
+        assertFalse(MathUtils.equals(new double[]{1.0, 2.0}, new double[]{1.0, 3.0}));
+    }
+
+    // ---------- factorial ----------
+    @Test
+    public void testFactorial_normal_returnsExpected() {
+        assertEquals(120L, MathUtils.factorial(5));
+    }
+
+    @Test
+    public void testFactorial_zero_returnsOne() {
+        assertEquals(1L, MathUtils.factorial(0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFactorial_negative_throwsException() {
+        MathUtils.factorial(-1);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testFactorial_tooLarge_throwsException() {
+        MathUtils.factorial(21);
+    }
+
+    // ---------- factorialDouble ----------
+    @Test
+    public void testFactorialDouble_normal_returnsExpected() {
+        assertEquals(120d, MathUtils.factorialDouble(5), 0.0001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFactorialDouble_negative_throwsException() {
+        MathUtils.factorialDouble(-1);
+    }
+
+    @Test
+    public void testFactorialDouble_largeN_returnsExpected() {
+        double result = MathUtils.factorialDouble(30);
+        assertTrue(result > 0);
+    }
+
+    // ---------- factorialLog ----------
+    @Test
+    public void testFactorialLog_normal_returnsExpected() {
+        assertEquals(Math.log(120d), MathUtils.factorialLog(5), 0.0001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFactorialLog_negative_throwsException() {
+        MathUtils.factorialLog(-1);
+    }
+
+    @Test
+    public void testFactorialLog_largeN_returnsExpected() {
+        double result = MathUtils.factorialLog(30);
+        assertTrue(result > 0);
+    }
+
+    // ---------- gcd ----------
+    @Test
+    public void testGcd_normal_returnsExpected() {
+        assertEquals(6, MathUtils.gcd(12, 18));
+    }
+
+    @Test
+    public void testGcd_zeroZero_returnsZero() {
+        assertEquals(0, MathUtils.gcd(0, 0));
+    }
+
+    @Test
+    public void testGcd_zeroAndX_returnsAbsX() {
+        assertEquals(5, MathUtils.gcd(0, 5));
+        assertEquals(5, MathUtils.gcd(5, 0));
+    }
+
+    @Test
+    public void testGcd_bothEven_returnsExpected() {
+        assertEquals(4, MathUtils.gcd(8, 12));
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testGcd_minValueMinValue_throwsException() {
+        MathUtils.gcd(Integer.MIN_VALUE, Integer.MIN_VALUE);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testGcd_minValueZero_throwsException() {
+        MathUtils.gcd(Integer.MIN_VALUE, 0);
+    }
+
+    // ---------- hash ----------
+    @Test
+    public void testHashDouble_returnsHashCode() {
+        assertEquals(new Double(1.0).hashCode(), MathUtils.hash(1.0));
+    }
+
+    @Test
+    public void testHashDoubleArray_returnsExpected() {
+        double[] arr = {1.0, 2.0};
+        assertEquals(java.util.Arrays.hashCode(arr), MathUtils.hash(arr));
+    }
+
+    @Test
+    public void testHashDoubleArray_null_returnsZero() {
+        assertEquals(java.util.Arrays.hashCode((double[]) null), MathUtils.hash((double[]) null));
+    }
+
+    // ---------- indicator ----------
+    @Test
+    public void testIndicatorByte_positive_returnsOne() {
+        assertEquals((byte) 1, MathUtils.indicator((byte) 5));
+    }
+
+    @Test
+    public void testIndicatorByte_zero_returnsOne() {
+        assertEquals((byte) 1, MathUtils.indicator((byte) 0));
+    }
+
+    @Test
+    public void testIndicatorByte_negative_returnsNegativeOne() {
+        assertEquals((byte) -1, MathUtils.indicator((byte) -5));
+    }
+
+    @Test
+    public void testIndicatorDouble_positive_returnsOne() {
+        assertEquals(1.0, MathUtils.indicator(5.0), 0.0001);
+    }
+
+    @Test
+    public void testIndicatorDouble_negative_returnsNegativeOne() {
+        assertEquals(-1.0, MathUtils.indicator(-5.0), 0.0001);
+    }
+
+    @Test
+    public void testIndicatorDouble_nan_returnsNaN() {
+        assertTrue(Double.isNaN(MathUtils.indicator(Double.NaN)));
+    }
+
+    @Test
+    public void testIndicatorFloat_positive_returnsOne() {
+        assertEquals(1.0f, MathUtils.indicator(5.0f), 0.0001f);
+    }
+
+    @Test
+    public void testIndicatorFloat_negative_returnsNegativeOne() {
+        assertEquals(-1.0f, MathUtils.indicator(-5.0f), 0.0001f);
+    }
+
+    @Test
+    public void testIndicatorFloat_nan_returnsNaN() {
+        assertTrue(Float.isNaN(MathUtils.indicator(Float.NaN)));
+    }
+
+    @Test
+    public void testIndicatorInt_positive_returnsOne() {
+        assertEquals(1, MathUtils.indicator(5));
+    }
+
+    @Test
+    public void testIndicatorInt_zero_returnsOne() {
+        assertEquals(1, MathUtils.indicator(0));
+    }
+
+    @Test
+    public void testIndicatorInt_negative_returnsNegativeOne() {
+        assertEquals(-1, MathUtils.indicator(-5));
+    }
+
+    @Test
+    public void testIndicatorLong_positive_returnsOne() {
+        assertEquals(1L, MathUtils.indicator(5L));
+    }

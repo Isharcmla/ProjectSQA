@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "44",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.utils.ChecksumCalculatingInputStream",
+  "target_classes": [
+    "org.apache.commons.compress.utils.ChecksumCalculatingInputStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 34.59,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Compress\\44\\ChecksumCalculatingInputStream_20260928_200526.txt",
+  "test_file": "Claude\\TestCode\\Compress\\44\\ChecksumCalculatingInputStreamTest.java",
+  "usage": {
+    "prompt_tokens": 1900,
+    "completion_tokens": 4712,
+    "total_tokens": 6612
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 44438,
+    "daily_remaining_tokens": 155562
+  },
+  "timestamp": "20260928_200526"
+}

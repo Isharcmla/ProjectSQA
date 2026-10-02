@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "60",
+  "tool": "claude",
+  "class": "org.jsoup.select.QueryParser",
+  "target_classes": [
+    "org.jsoup.select.QueryParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 92.4,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\60\\QueryParser_20260930_033907.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\60\\QueryParserTest.java",
+  "usage": {
+    "prompt_tokens": 6300,
+    "completion_tokens": 11959,
+    "total_tokens": 18259
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 67177,
+    "daily_remaining_tokens": 132823
+  },
+  "timestamp": "20260930_033907"
+}

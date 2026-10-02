@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "98",
+  "tool": "claude",
+  "class": "org.apache.commons.math.linear.BigMatrixImpl",
+  "target_classes": [
+    "org.apache.commons.math.linear.BigMatrixImpl"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 157.84,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Math\\98\\BigMatrixImpl_20261003_001928.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 20781,
+    "completion_tokens": 16384,
+    "total_tokens": 37165
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 180368,
+    "daily_remaining_tokens": 19632
+  },
+  "timestamp": "20261003_001928"
+}

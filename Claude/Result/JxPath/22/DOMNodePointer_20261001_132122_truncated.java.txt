@@ -1,0 +1,48 @@
+import org.junit.Test;
+import org.junit.Assert;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Text;
+import org.w3c.dom.Comment;
+import org.w3c.dom.ProcessingInstruction;
+import org.w3c.dom.Node;
+import org.w3c.dom.Attr;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import java.util.Locale;
+
+import org.apache.commons.jxpath.JXPathContext;
+import org.apache.commons.jxpath.JXPathException;
+import org.apache.commons.jxpath.Pointer;
+import org.apache.commons.jxpath.ri.Compiler;
+import org.apache.commons.jxpath.ri.QName;
+import org.apache.commons.jxpath.ri.NamespaceResolver;
+import org.apache.commons.jxpath.ri.compiler.NodeNameTest;
+import org.apache.commons.jxpath.ri.compiler.NodeTypeTest;
+import org.apache.commons.jxpath.ri.compiler.ProcessingInstructionTest;
+import org.apache.commons.jxpath.ri.model.NodeIterator;
+import org.apache.commons.jxpath.ri.model.NodePointer;
+import org.apache.commons.jxpath.ri.model.beans.NullPointer;
+import org.apache.commons.jxpath.ri.model.dom.DOMNodePointer;
+
+public class DOMNodePointerTest {
+
+    private Document newDocument() throws Exception {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        dbf.setNamespaceAware(true);
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        return db.newDocument();
+    }
+
+    // ---------- Constructors / basic getters ----------
+
+    @Test
+    public void testConstructors_andBasicGetters_normalCase() throws Exception {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+
+        DOMNodePointer p1 = new DOMN

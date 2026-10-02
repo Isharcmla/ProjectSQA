@@ -1,0 +1,53 @@
+{
+  "project": "Math",
+  "bug_id": "1",
+  "tool": "claude",
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 41.54,
+  "num_test_files_generated": 1,
+  "target_classes": [
+    "org.apache.commons.math3.fraction.Fraction"
+  ],
+  "model_name": "Claude",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "class_results": [
+    {
+      "project": "Math",
+      "bug_id": "1",
+      "tool": "claude",
+      "class": "org.apache.commons.math3.fraction.Fraction",
+      "target_classes": [
+        "org.apache.commons.math3.fraction.Fraction"
+      ],
+      "status": "success",
+      "generation_status": "success",
+      "compile_result": "not_run",
+      "elapsed_sec": 40.79,
+      "num_test_files_generated": 1,
+      "model_requested": "claude",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Claude",
+      "max_tokens": 16384,
+      "temperature": 0.2,
+      "finish_reason": "stop",
+      "prompt_file": "Claude/Prompt/Math/1/Fraction_20260921_085150.txt",
+      "test_file": "Claude/TestCode/Math/1/FractionTest.java",
+      "usage": {
+        "prompt_tokens": 9653,
+        "completion_tokens": 6307,
+        "total_tokens": 15960
+      },
+      "model_quota": {
+        "daily_quota_tokens": 200000,
+        "daily_usage_tokens": 15960,
+        "daily_remaining_tokens": 184040
+      },
+      "timestamp": "20260921_085150"
+    }
+  ],
+  "failures": [],
+  "timestamp": "2026-09-21T08:52:31"
+}

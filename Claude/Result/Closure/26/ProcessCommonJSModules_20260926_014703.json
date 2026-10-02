@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "26",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.ProcessCommonJSModules",
+  "target_classes": [
+    "com.google.javascript.jscomp.ProcessCommonJSModules"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 46.22,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\26\\ProcessCommonJSModules_20260926_014703.txt",
+  "test_file": "Claude\\TestCode\\Closure\\26\\ProcessCommonJSModulesTest.java",
+  "usage": {
+    "prompt_tokens": 4516,
+    "completion_tokens": 5387,
+    "total_tokens": 9903
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 46564,
+    "daily_remaining_tokens": 153436
+  },
+  "timestamp": "20260926_014703"
+}

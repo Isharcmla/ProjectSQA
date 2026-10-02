@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "80",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.jsontype.impl.StdSubtypeResolver"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 34.34,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\80\\StdSubtypeResolver_20260925_135627.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\80\\StdSubtypeResolverTest.java",
+  "usage": {
+    "prompt_tokens": 3131,
+    "completion_tokens": 2913,
+    "total_tokens": 8166
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 143121,
+    "daily_remaining_tokens": 206879
+  },
+  "timestamp": "20260925_135627"
+}

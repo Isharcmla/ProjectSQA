@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "155",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.Scope",
+  "target_classes": [
+    "com.google.javascript.jscomp.Scope"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 129.29,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\155\\Scope_20260925_210224.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 5792,
+    "completion_tokens": 16384,
+    "total_tokens": 22176
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 46086,
+    "daily_remaining_tokens": 153914
+  },
+  "timestamp": "20260925_210224"
+}

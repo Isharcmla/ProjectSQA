@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "97",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.node.POJONode",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.node.POJONode"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.02,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\97\\POJONode_20260925_141100.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\97\\POJONodeTest.java",
+  "usage": {
+    "prompt_tokens": 1449,
+    "completion_tokens": 3245,
+    "total_tokens": 6898
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 335321,
+    "daily_remaining_tokens": 14679
+  },
+  "timestamp": "20260925_141100"
+}

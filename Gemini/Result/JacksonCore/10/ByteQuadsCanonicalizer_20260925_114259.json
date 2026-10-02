@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "10",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer",
+  "target_classes": [
+    "com.fasterxml.jackson.core.sym.ByteQuadsCanonicalizer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 42.38,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonCore\\10\\ByteQuadsCanonicalizer_20260925_114259.txt",
+  "test_file": "Gemini\\TestCode\\JacksonCore\\10\\ByteQuadsCanonicalizerTest.java",
+  "usage": {
+    "prompt_tokens": 12410,
+    "completion_tokens": 4001,
+    "total_tokens": 18669
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 52504,
+    "daily_remaining_tokens": 297496
+  },
+  "timestamp": "20260925_114259"
+}

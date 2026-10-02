@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "87",
+  "tool": "claude",
+  "class": "org.jsoup.parser.HtmlTreeBuilder",
+  "target_classes": [
+    "org.jsoup.parser.HtmlTreeBuilder"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 148.86,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\87\\HtmlTreeBuilder_20261001_122343.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 10026,
+    "completion_tokens": 16384,
+    "total_tokens": 26410
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 180297,
+    "daily_remaining_tokens": 19703
+  },
+  "timestamp": "20261001_122343"
+}

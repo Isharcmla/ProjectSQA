@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "22",
+  "tool": "claude",
+  "class": "org.apache.commons.jxpath.ri.model.dom.DOMNodePointer",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.model.dom.DOMNodePointer"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 146.67,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JxPath\\22\\DOMNodePointer_20261001_132122.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 10236,
+    "completion_tokens": 16384,
+    "total_tokens": 26620
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 173531,
+    "daily_remaining_tokens": 26469
+  },
+  "timestamp": "20261001_132122"
+}

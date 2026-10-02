@@ -1,0 +1,53 @@
+{
+  "project": "Jsoup",
+  "bug_id": "1",
+  "tool": "claude",
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 22.78,
+  "num_test_files_generated": 1,
+  "target_classes": [
+    "org.jsoup.nodes.Document"
+  ],
+  "model_name": "Claude",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "class_results": [
+    {
+      "project": "Jsoup",
+      "bug_id": "1",
+      "tool": "claude",
+      "class": "org.jsoup.nodes.Document",
+      "target_classes": [
+        "org.jsoup.nodes.Document"
+      ],
+      "status": "success",
+      "generation_status": "success",
+      "compile_result": "not_run",
+      "elapsed_sec": 22.46,
+      "num_test_files_generated": 1,
+      "model_requested": "claude",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Claude",
+      "max_tokens": 16384,
+      "temperature": 0.2,
+      "finish_reason": "stop",
+      "prompt_file": "Claude/Prompt/Jsoup/1/Document_20260921_075632.txt",
+      "test_file": "Claude/TestCode/Jsoup/1/DocumentTest.java",
+      "usage": {
+        "prompt_tokens": 2267,
+        "completion_tokens": 3163,
+        "total_tokens": 5430
+      },
+      "model_quota": {
+        "daily_quota_tokens": 200000,
+        "daily_usage_tokens": 97644,
+        "daily_remaining_tokens": 102356
+      },
+      "timestamp": "20260921_075632"
+    }
+  ],
+  "failures": [],
+  "timestamp": "2026-09-21T07:56:54"
+}

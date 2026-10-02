@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "71",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.ode.nonstiff.RungeKuttaIntegrator",
+  "target_classes": [
+    "org.apache.commons.math.ode.nonstiff.RungeKuttaIntegrator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 26.65,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\71\\RungeKuttaIntegrator_20260926_031030.txt",
+  "test_file": "Gemini\\TestCode\\Math\\71\\RungeKuttaIntegratorTest.java",
+  "usage": {
+    "prompt_tokens": 2387,
+    "completion_tokens": 2762,
+    "total_tokens": 6285
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 333773,
+    "daily_remaining_tokens": 16227
+  },
+  "timestamp": "20260926_031030"
+}

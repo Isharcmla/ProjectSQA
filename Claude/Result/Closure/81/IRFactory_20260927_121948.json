@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "81",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.parsing.IRFactory",
+  "target_classes": [
+    "com.google.javascript.jscomp.parsing.IRFactory"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 164.8,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\81\\IRFactory_20260927_121948.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 21258,
+    "completion_tokens": 16384,
+    "total_tokens": 37642
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 89523,
+    "daily_remaining_tokens": 110477
+  },
+  "timestamp": "20260927_121948"
+}

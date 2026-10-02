@@ -1,0 +1,203 @@
+package com.fasterxml.jackson.databind.ser;
+
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.concurrent.atomic.AtomicReference;
+
+import org.junit.Test;
+
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationConfig;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.impl.WritableObjectId;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
+public class DefaultSerializerProviderTest {
+
+    /* Helper subclass that does NOT override copy(), used to verify
+     * default (throwing) behavior defined in the abstract base class. */
+    static class NoCopyProvider extends DefaultSerializerProvider {
+        NoCopyProvider() { super(); }
+        NoCopyProvider(SerializerProvider src, SerializationConfig config, SerializerFactory f) {
+            super(src, config, f);
+        }
+        @Override
+        public DefaultSerializerProvider createInstance(SerializationConfig config, SerializerFactory jsf) {
+            return new NoCopyProvider(this, config, jsf);
+        }
+    }
+
+    public static class DummyFilter {
+        public DummyFilter() {}
+    }
+
+    public static class ThrowingFilter {
+        @Override
+        public boolean equals(Object o) {
+            throw new RuntimeException("boom");
+        }
+    }
+
+    public static class SimpleBean {
+        public String getName() { return "test"; }
+    }
+
+    private DefaultSerializerProvider.Impl createProvider() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        SerializationConfig config = mapper.getSerializationConfig();
+        SerializerFactory factory = BeanSerializerFactory.instance;
+        DefaultSerializerProvider.Impl blueprint = new DefaultSerializerProvider.Impl();
+        return blueprint.createInstance(config, factory);
+    }
+
+    private JsonGenerator createGenerator(StringWriter sw) throws IOException {
+        return new JsonFactory().createGenerator(sw);
+    }
+
+    /* ===================== Constructors / factory methods ===================== */
+
+    @Test
+    public void testDefaultConstructor_createsBlueprintInstance() {
+        DefaultSerializerProvider.Impl provider = new DefaultSerializerProvider.Impl();
+        assertNotNull(provider);
+        assertNull(provider.getGenerator());
+    }
+
+    @Test
+    public void testCreateInstance_returnsNewInstance() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        SerializationConfig config = mapper.getSerializationConfig();
+        DefaultSerializerProvider.Impl blueprint = new DefaultSerializerProvider.Impl();
+        DefaultSerializerProvider.Impl provider = blueprint.createInstance(config, BeanSerializerFactory.instance);
+        assertNotNull(provider);
+        assertNotSame(blueprint, provider);
+    }
+
+    @Test
+    public void testCopy_implInstance_returnsNewInstance() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        DefaultSerializerProvider copy = provider.copy();
+        assertNotNull(copy);
+        assertNotSame(provider, copy);
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testCopy_notOverridden_throwsIllegalStateException() {
+        new NoCopyProvider().copy();
+    }
+
+    /* ===================== serializerInstance ===================== */
+
+    @Test
+    public void testSerializerInstance_nullSerDef_returnsNull() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        JsonSerializer<Object> result = provider.serializerInstance(null, null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testSerializerInstance_jsonSerializerInstance_returnsInstance() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        JsonSerializer<?> input = ToStringSerializer.instance;
+        JsonSerializer<Object> result = provider.serializerInstance(null, input);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testSerializerInstance_noneClass_returnsNull() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        JsonSerializer<Object> result = provider.serializerInstance(null, JsonSerializer.None.class);
+        assertNull(result);
+    }
+
+    @Test
+    public void testSerializerInstance_validSerializerClass_returnsNewInstance() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        JsonSerializer<Object> result = provider.serializerInstance(null, ToStringSerializer.class);
+        assertNotNull(result);
+        assertTrue(result instanceof ToStringSerializer);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testSerializerInstance_invalidClassType_throwsNullPointerException() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        provider.serializerInstance(null, String.class);
+    }
+
+    /* ===================== includeFilterInstance ===================== */
+
+    @Test
+    public void testIncludeFilterInstance_nullClass_returnsNull() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        Object result = provider.includeFilterInstance(null, null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testIncludeFilterInstance_validClass_returnsInstance() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        Object result = provider.includeFilterInstance(null, DummyFilter.class);
+        assertNotNull(result);
+        assertTrue(result instanceof DummyFilter);
+    }
+
+    /* ===================== includeFilterSuppressNulls ===================== */
+
+    @Test
+    public void testIncludeFilterSuppressNulls_nullFilter_returnsTrue() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        assertTrue(provider.includeFilterSuppressNulls(null));
+    }
+
+    @Test
+    public void testIncludeFilterSuppressNulls_nonNullFilter_returnsFalse() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        Object filter = new Object();
+        assertFalse(provider.includeFilterSuppressNulls(filter));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testIncludeFilterSuppressNulls_filterThrows_reportsBadDefinition() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        provider.includeFilterSuppressNulls(new ThrowingFilter());
+    }
+
+    /* ===================== findObjectId ===================== */
+
+    @Test
+    public void testFindObjectId_firstCall_returnsNewWritableObjectId() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        Object pojo = new Object();
+        ObjectIdGenerator<?> gen = new ObjectIdGenerators.IntSequenceGenerator();
+        WritableObjectId oid = provider.findObjectId(pojo, gen);
+        assertNotNull(oid);
+    }
+
+    @Test
+    public void testFindObjectId_secondCallSameObject_returnsSameInstance() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        Object pojo = new Object();
+        ObjectIdGenerator<?> gen = new ObjectIdGenerators.IntSequenceGenerator();
+        WritableObjectId oid1 = provider.findObjectId(pojo, gen);
+        WritableObjectId oid2 = provider.findObjectId(pojo, gen);
+        assertSame(oid1, oid2);
+    }
+
+    @Test
+    public void testFindObjectId_differentObjects_returnDifferentIds() throws Exception {
+        DefaultSerializerProvider.Impl provider = createProvider();
+        Object pojo1 = new Object();
+        Object pojo2 = new Object();
+        ObjectIdGenerator<?> gen = new ObjectIdGenerators.IntSequenceGenerator();
+        WritableObjectId oid1 = provider.findObjectId(pojo1, gen);
+        WritableObjectId oid2 =

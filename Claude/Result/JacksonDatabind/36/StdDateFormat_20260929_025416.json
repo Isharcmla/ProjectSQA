@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "36",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.util.StdDateFormat",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.util.StdDateFormat"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 81.59,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\36\\StdDateFormat_20260929_025416.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\36\\StdDateFormatTest.java",
+  "usage": {
+    "prompt_tokens": 8404,
+    "completion_tokens": 9804,
+    "total_tokens": 18208
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 179744,
+    "daily_remaining_tokens": 20256
+  },
+  "timestamp": "20260929_025416"
+}

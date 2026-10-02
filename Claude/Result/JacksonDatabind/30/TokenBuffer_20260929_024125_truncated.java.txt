@@ -1,0 +1,511 @@
+package com.fasterxml.jackson.databind.util;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+import java.io.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Iterator;
+
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.core.io.SerializedString;
+import com.fasterxml.jackson.core.type.ResolvedType;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectCodec;
+
+public class TokenBufferTest {
+
+    // Minimal stub ObjectCodec (no mocking framework, just manual implementation)
+    static class StubObjectCodec extends ObjectCodec {
+        @Override
+        public <T> T readValue(JsonParser jp, Class<T> valueType) throws IOException {
+            throw new UnsupportedOperationException();
+        }
+        @Override
+        public <T> T readValue(JsonParser jp, TypeReference<?> valueTypeRef) throws IOException {
+            throw new UnsupportedOperationException();
+        }
+        @Override
+        public <T> T readValue(JsonParser jp, ResolvedType valueType) throws IOException {
+            throw new UnsupportedOperationException();
+        }
+        @Override
+        public <T> Iterator<T> readValues(JsonParser jp, Class<T> valueType) throws IOException {
+            throw new UnsupportedOperationException();
+        }
+        @Override
+        public <T> Iterator<T> readValues(JsonParser jp, TypeReference<?> valueTypeRef) throws IOException {
+            throw new UnsupportedOperationException();
+        }
+        @Override
+        public <T> Iterator<T> readValues(JsonParser jp, ResolvedType valueType) throws IOException {
+            throw new UnsupportedOperationException();
+        }
+        @Override
+        public void writeValue(JsonGenerator jgen, Object value) throws IOException {
+            jgen.writeString(String.valueOf(value));
+        }
+        @Override
+        public <T extends TreeNode> T readTree(JsonParser jp) throws IOException {
+            throw new UnsupportedOperationException();
+        }
+        @Override
+        public void writeTree(JsonGenerator jgen, TreeNode tree) throws IOException {
+            jgen.writeString("tree");
+        }
+        @Override
+        public TreeNode createObjectNode() {
+            throw new UnsupportedOperationException();
+        }
+        @Override
+        public TreeNode createArrayNode() {
+            throw new UnsupportedOperationException();
+        }
+        @Override
+        public JsonParser treeAsTokens(TreeNode n) {
+            throw new UnsupportedOperationException();
+        }
+    }
+
+    private TokenBuffer newBuffer() {
+        return new TokenBuffer((ObjectCodec) null, false);
+    }
+
+    // ---------------- Constructors ----------------
+
+    @Test
+    public void testConstructor_deprecatedCodec_createsBuffer() {
+        @SuppressWarnings("deprecation")
+        TokenBuffer buf = new TokenBuffer((ObjectCodec) null);
+        assertNotNull(buf);
+        assertFalse(buf.canWriteTypeId());
+        assertFalse(buf.canWriteObjectId());
+    }
+
+    @Test
+    public void testConstructor_withHasNativeIds_createsBuffer() {
+        TokenBuffer buf = new TokenBuffer((ObjectCodec) null, true);
+        assertTrue(buf.canWriteTypeId());
+        assertTrue(buf.canWriteObjectId());
+    }
+
+    @Test
+    public void testConstructor_withJsonParser_createsBuffer() throws IOException {
+        JsonFactory f = new JsonFactory();
+        JsonParser p = f.createParser("{}");
+        TokenBuffer buf = new TokenBuffer(p);
+        assertNotNull(buf);
+        p.close();
+    }
+
+    @Test
+    public void testConstructor_withJsonParserAndContext_createsBuffer() throws IOException {
+        JsonFactory f = new JsonFactory();
+        JsonParser p = f.createParser("{}");
+        TokenBuffer buf = new TokenBuffer(p, null);
+        assertNotNull(buf);
+        p.close();
+    }
+
+    @Test
+    public void testVersion_returnsNonNull() {
+        TokenBuffer buf = newBuffer();
+        assertNotNull(buf.version());
+    }
+
+    // ---------------- asParser ----------------
+
+    @Test
+    public void testAsParser_default_returnsParser() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeString("hello");
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_STRING, p.nextToken());
+        assertEquals("hello", p.getText());
+    }
+
+    @Test
+    public void testAsParser_withCodec_returnsParser() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeNumber(5);
+        StubObjectCodec codec = new StubObjectCodec();
+        JsonParser p = buf.asParser(codec);
+        assertSame(codec, p.getCodec());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+    }
+
+    @Test
+    public void testAsParser_withSourceParser_setsLocation() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeNumber(5);
+        JsonFactory f = new JsonFactory();
+        JsonParser src = f.createParser("123");
+        src.nextToken();
+        JsonParser p = buf.asParser(src);
+        assertNotNull(p.getTokenLocation());
+        src.close();
+    }
+
+    // ---------------- firstToken ----------------
+
+    @Test
+    public void testFirstToken_emptyBuffer_returnsNull() {
+        TokenBuffer buf = newBuffer();
+        assertNull(buf.firstToken());
+    }
+
+    @Test
+    public void testFirstToken_afterWrite_returnsStartObject() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeStartObject();
+        assertEquals(JsonToken.START_OBJECT, buf.firstToken());
+    }
+
+    // ---------------- append(TokenBuffer) ----------------
+
+    @Test
+    public void testAppend_otherBuffer_mergesContent() throws IOException {
+        TokenBuffer other = newBuffer();
+        other.writeStartArray();
+        other.writeNumber(1);
+        other.writeEndArray();
+
+        TokenBuffer main = newBuffer();
+        main.writeStartObject();
+        main.writeFieldName("x");
+        main.append(other);
+        main.writeEndObject();
+
+        JsonParser p = main.asParser();
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals(JsonToken.START_ARRAY, p.nextToken());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+    }
+
+    // ---------------- serialize ----------------
+
+    @Test
+    public void testSerialize_simpleObject_writesCorrectly() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeStartObject();
+        buf.writeFieldName("x");
+        buf.writeString("hi");
+        buf.writeFieldName(new SerializedString("y"));
+        buf.writeString(new SerializedString("val"));
+        buf.writeEndObject();
+
+        JsonFactory f = new JsonFactory();
+        StringWriter sw = new StringWriter();
+        JsonGenerator gen = f.createGenerator(sw);
+        buf.serialize(gen);
+        gen.close();
+
+        String output = sw.toString();
+        assertTrue(output.contains("\"x\""));
+        assertTrue(output.contains("\"hi\""));
+        assertTrue(output.contains("\"y\""));
+    }
+
+    @Test
+    public void testSerialize_allValueTypes_writesWithoutError() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeStartArray();
+        buf.writeNumber((short) 1);
+        buf.writeNumber(BigInteger.valueOf(123));
+        buf.writeNumber(42L);
+        buf.writeNumber(new BigDecimal("1.5"));
+        buf.writeNumber("3.14");
+        buf.writeBoolean(true);
+        buf.writeBoolean(false);
+        buf.writeNull();
+        buf.writeRawValue("rawtext");
+        buf.writeEndArray();
+
+        JsonFactory f = new JsonFactory();
+        StringWriter sw = new StringWriter();
+        JsonGenerator gen = f.createGenerator(sw);
+        buf.serialize(gen);
+        gen.close();
+
+        assertNotNull(sw.toString());
+        assertTrue(sw.toString().length() > 0);
+    }
+
+    // ---------------- deserialize ----------------
+
+    @Test
+    public void testDeserialize_normalStartObject_copiesStructure() throws IOException {
+        JsonFactory f = new JsonFactory();
+        JsonParser p = f.createParser("{\"a\":1}");
+        p.nextToken(); // START_OBJECT
+
+        TokenBuffer buf = newBuffer();
+        TokenBuffer result = buf.deserialize(p, null);
+        assertSame(buf, result);
+
+        JsonParser rp = buf.asParser();
+        assertEquals(JsonToken.START_OBJECT, rp.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, rp.nextToken());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, rp.nextToken());
+        assertEquals(JsonToken.END_OBJECT, rp.nextToken());
+        p.close();
+    }
+
+    @Test
+    public void testDeserialize_startingFieldName_wrapsInObject() throws IOException {
+        JsonFactory f = new JsonFactory();
+        JsonParser p = f.createParser("{\"a\":1,\"b\":2}");
+        p.nextToken(); // START_OBJECT
+        p.nextToken(); // FIELD_NAME "a"
+
+        TokenBuffer buf = newBuffer();
+        TokenBuffer result = buf.deserialize(p, null);
+        assertSame(buf, result);
+
+        JsonParser rp = buf.asParser();
+        assertEquals(JsonToken.START_OBJECT, rp.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, rp.nextToken());
+        p.close();
+    }
+
+    // ---------------- toString ----------------
+
+    @Test
+    public void testToString_withTokens_containsTokenNames() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeStartObject();
+        buf.writeFieldName("a");
+        buf.writeNumber(1);
+        buf.writeEndObject();
+
+        String s = buf.toString();
+        assertTrue(s.contains("START_OBJECT"));
+        assertTrue(s.contains("FIELD_NAME"));
+    }
+
+    @Test
+    public void testToString_manyTokens_truncates() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeStartArray();
+        for (int i = 0; i < 150; i++) {
+            buf.writeNumber(i);
+        }
+        buf.writeEndArray();
+        String s = buf.toString();
+        assertTrue(s.contains("truncated"));
+    }
+
+    // ---------------- feature configuration ----------------
+
+    @Test
+    public void testEnableDisableIsEnabled_featureFlag_worksCorrectly() {
+        TokenBuffer buf = newBuffer();
+        buf.disable(JsonGenerator.Feature.QUOTE_FIELD_NAMES);
+        assertFalse(buf.isEnabled(JsonGenerator.Feature.QUOTE_FIELD_NAMES));
+        buf.enable(JsonGenerator.Feature.QUOTE_FIELD_NAMES);
+        assertTrue(buf.isEnabled(JsonGenerator.Feature.QUOTE_FIELD_NAMES));
+    }
+
+    @Test
+    public void testGetSetFeatureMask() {
+        TokenBuffer buf = newBuffer();
+        int mask = buf.getFeatureMask();
+        buf.setFeatureMask(0);
+        assertEquals(0, buf.getFeatureMask());
+        buf.setFeatureMask(mask);
+        assertEquals(mask, buf.getFeatureMask());
+    }
+
+    @Test
+    public void testUseDefaultPrettyPrinter_returnsThis() {
+        TokenBuffer buf = newBuffer();
+        JsonGenerator result = buf.useDefaultPrettyPrinter();
+        assertSame(buf, result);
+    }
+
+    @Test
+    public void testSetCodecGetCodec() {
+        TokenBuffer buf = newBuffer();
+        StubObjectCodec codec = new StubObjectCodec();
+        buf.setCodec(codec);
+        assertSame(codec, buf.getCodec());
+    }
+
+    @Test
+    public void testGetOutputContext_returnsRootContext() {
+        TokenBuffer buf = newBuffer();
+        assertNotNull(buf.getOutputContext());
+    }
+
+    @Test
+    public void testCanWriteBinaryNatively_returnsTrue() {
+        TokenBuffer buf = newBuffer();
+        assertTrue(buf.canWriteBinaryNatively());
+    }
+
+    // ---------------- low level output ----------------
+
+    @Test
+    public void testFlush_doesNothing() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.flush(); // should not throw
+    }
+
+    @Test
+    public void testCloseIsClosed() throws IOException {
+        TokenBuffer buf = newBuffer();
+        assertFalse(buf.isClosed());
+        buf.close();
+        assertTrue(buf.isClosed());
+    }
+
+    // ---------------- structural writes ----------------
+
+    @Test
+    public void testWriteStartEndArrayObject() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeStartObject();
+        buf.writeFieldName("arr");
+        buf.writeStartArray();
+        buf.writeEndArray();
+        buf.writeEndObject();
+
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals(JsonToken.START_ARRAY, p.nextToken());
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+    }
+
+    @Test
+    public void testWriteFieldName_stringAndSerializable() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeStartObject();
+        buf.writeFieldName("a");
+        buf.writeNull();
+        buf.writeFieldName(new SerializedString("b"));
+        buf.writeNull();
+        buf.writeEndObject();
+
+        JsonParser p = buf.asParser();
+        p.nextToken();
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals("a", p.getCurrentName());
+    }
+
+    // ---------------- textual writes ----------------
+
+    @Test
+    public void testWriteString_variants() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeStartArray();
+        buf.writeString("plain");
+        buf.writeString(new SerializedString("serial"));
+        char[] chars = "chararr".toCharArray();
+        buf.writeString(chars, 0, chars.length);
+        buf.writeEndArray();
+
+        JsonParser p = buf.asParser();
+        p.nextToken();
+        assertEquals(JsonToken.VALUE_STRING, p.nextToken());
+        assertEquals("plain", p.getText());
+        assertEquals(JsonToken.VALUE_STRING, p.nextToken());
+        assertEquals("serial", p.getText());
+        assertEquals(JsonToken.VALUE_STRING, p.nextToken());
+        assertEquals("chararr", p.getText());
+    }
+
+    @Test
+    public void testWriteString_null_writesNull() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeString((String) null);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NULL, p.nextToken());
+    }
+
+    @Test
+    public void testWriteString_nullSerializableString_writesNull() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeString((SerializableString) null);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NULL, p.nextToken());
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRawUTF8String_throwsUnsupportedOperationException() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeRawUTF8String(new byte[]{1, 2, 3}, 0, 3);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteUTF8String_throwsUnsupportedOperationException() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeUTF8String(new byte[]{1, 2, 3}, 0, 3);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRaw_string_throwsUnsupportedOperationException() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeRaw("raw");
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRaw_stringOffsetLen_throwsUnsupportedOperationException() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeRaw("raw", 0, 3);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRaw_serializableString_throwsUnsupportedOperationException() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeRaw(new SerializedString("raw"));
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRaw_charArray_throwsUnsupportedOperationException() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeRaw(new char[]{'a', 'b'}, 0, 2);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRaw_char_throwsUnsupportedOperationException() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeRaw('x');
+    }
+
+    @Test
+    public void testWriteRawValue_string() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeRawValue("rawval");
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_EMBEDDED_OBJECT, p.nextToken());
+    }
+
+    @Test
+    public void testWriteRawValue_stringOffsetLen() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeRawValue("0123456789", 2, 4);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_EMBEDDED_OBJECT, p.nextToken());
+    }
+
+    @Test
+    public void testWriteRawValue_stringFullLength_noSubstring() throws IOException {
+        TokenBuffer buf = newBuffer();
+        buf.writeRawValue("full", 0, 4);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_EMBEDDED_OBJECT, p.nextToken());
+    }
+
+    @Test
+    public void testWriteRawValue_charArray() throws IOException {
+        TokenBuffer buf = newBuffer();
+        char[] chars = "charval".toCharArray();
+        buf.writeRawValue(chars, 0, chars.length);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_EMBEDDED_OBJ

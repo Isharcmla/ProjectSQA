@@ -1,0 +1,420 @@
+package com.fasterxml.jackson.core.json;
+
+import com.fasterxml.jackson.core.*;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
+
+import static org.junit.Assert.*;
+
+public class ReaderBasedJsonParserTest {
+
+    private JsonFactory factory;
+
+    @Before
+    public void setUp() {
+        factory = new JsonFactory();
+    }
+
+    private ReaderBasedJsonParser createParser(String json) throws IOException {
+        JsonParser p = factory.createParser(new StringReader(json));
+        assertTrue("Expected ReaderBasedJsonParser instance", p instanceof ReaderBasedJsonParser);
+        return (ReaderBasedJsonParser) p;
+    }
+
+    // -------------------- basic codec tests --------------------
+
+    @Test
+    public void testGetCodec_default_returnsNull() throws IOException {
+        ReaderBasedJsonParser p = createParser("123");
+        assertNull(p.getCodec());
+        p.close();
+    }
+
+    @Test
+    public void testSetCodec_nullValue_getCodecReturnsNull() throws IOException {
+        ReaderBasedJsonParser p = createParser("123");
+        p.setCodec(null);
+        assertNull(p.getCodec());
+        p.close();
+    }
+
+    @Test
+    public void testGetInputSource_returnsUnderlyingReader() throws IOException {
+        StringReader reader = new StringReader("123");
+        JsonParser jp = factory.createParser(reader);
+        ReaderBasedJsonParser p = (ReaderBasedJsonParser) jp;
+        assertSame(reader, p.getInputSource());
+        p.close();
+    }
+
+    // -------------------- simple token traversal --------------------
+
+    @Test
+    public void testNextToken_emptyInput_returnsNullAndCloses() throws IOException {
+        ReaderBasedJsonParser p = createParser("");
+        JsonToken t = p.nextToken();
+        assertNull(t);
+        assertTrue(p.isClosed());
+    }
+
+    @Test
+    public void testNextToken_whitespaceOnly_returnsNull() throws IOException {
+        ReaderBasedJsonParser p = createParser("   \t\n  ");
+        JsonToken t = p.nextToken();
+        assertNull(t);
+    }
+
+    @Test
+    public void testNextToken_simpleObject_parsesFieldAndValue() throws IOException {
+        ReaderBasedJsonParser p = createParser("{\"a\":1}");
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals("a", p.getCurrentName());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(1, p.getIntValue());
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+        assertNull(p.nextToken());
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_simpleArray_parsesElements() throws IOException {
+        ReaderBasedJsonParser p = createParser("[1,2,3]");
+        assertEquals(JsonToken.START_ARRAY, p.nextToken());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(1, p.getIntValue());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(2, p.getIntValue());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(3, p.getIntValue());
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_nestedObjectArray_parsesCorrectly() throws IOException {
+        ReaderBasedJsonParser p = createParser("{\"list\":[true,false,null]}");
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals(JsonToken.START_ARRAY, p.nextToken());
+        assertEquals(JsonToken.VALUE_TRUE, p.nextToken());
+        assertEquals(JsonToken.VALUE_FALSE, p.nextToken());
+        assertEquals(JsonToken.VALUE_NULL, p.nextToken());
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+        p.close();
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_mismatchedEndMarker_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("[1,2}");
+        p.nextToken(); // START_ARRAY
+        p.nextToken(); // 1
+        p.nextToken(); // 2
+        p.nextToken(); // should throw on '}'
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_unexpectedCloseBracket_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("{]");
+        p.nextToken(); // START_OBJECT
+        p.nextToken(); // should throw
+    }
+
+    // -------------------- text access methods --------------------
+
+    @Test
+    public void testGetText_beforeAnyToken_returnsNull() throws IOException {
+        ReaderBasedJsonParser p = createParser("123");
+        assertNull(p.getText());
+        p.close();
+    }
+
+    @Test
+    public void testGetText_stringValue_returnsCorrectText() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"hello\"");
+        p.nextToken();
+        assertEquals("hello", p.getText());
+        p.close();
+    }
+
+    @Test
+    public void testGetTextCharacters_stringValue_returnsCorrectChars() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"abc\"");
+        p.nextToken();
+        char[] chars = p.getTextCharacters();
+        assertNotNull(chars);
+        assertEquals(3, p.getTextLength());
+        p.close();
+    }
+
+    @Test
+    public void testGetTextLength_numberValue_returnsCorrectLength() throws IOException {
+        ReaderBasedJsonParser p = createParser("12345");
+        p.nextToken();
+        assertEquals(5, p.getTextLength());
+        p.close();
+    }
+
+    @Test
+    public void testGetTextOffset_fieldName_returnsZero() throws IOException {
+        ReaderBasedJsonParser p = createParser("{\"field\":1}");
+        p.nextToken();
+        p.nextToken();
+        assertEquals(0, p.getTextOffset());
+        p.close();
+    }
+
+    @Test
+    public void testGetTextCharacters_beforeToken_returnsNull() throws IOException {
+        ReaderBasedJsonParser p = createParser("123");
+        assertNull(p.getTextCharacters());
+        p.close();
+    }
+
+    @Test
+    public void testGetTextLength_beforeToken_returnsZero() throws IOException {
+        ReaderBasedJsonParser p = createParser("123");
+        assertEquals(0, p.getTextLength());
+        p.close();
+    }
+
+    @Test
+    public void testGetTextOffset_beforeToken_returnsZero() throws IOException {
+        ReaderBasedJsonParser p = createParser("123");
+        assertEquals(0, p.getTextOffset());
+        p.close();
+    }
+
+    @Test
+    public void testGetValueAsString_stringToken_returnsText() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"val\"");
+        p.nextToken();
+        assertEquals("val", p.getValueAsString());
+        p.close();
+    }
+
+    @Test
+    public void testGetValueAsStringWithDefault_nonStringToken_returnsDefault() throws IOException {
+        ReaderBasedJsonParser p = createParser("123");
+        p.nextToken();
+        assertEquals("def", p.getValueAsString("def"));
+        p.close();
+    }
+
+    // -------------------- escaped characters --------------------
+
+    @Test
+    public void testGetText_escapedNewline_returnsUnescapedText() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"a\\nb\"");
+        p.nextToken();
+        assertEquals("a\nb", p.getText());
+        p.close();
+    }
+
+    @Test
+    public void testGetText_unicodeEscape_returnsCorrectChar() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"\\u0041\"");
+        p.nextToken();
+        assertEquals("A", p.getText());
+        p.close();
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testGetText_invalidHexEscape_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"\\u00ZZ\"");
+        p.nextToken();
+        p.getText();
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testGetText_unterminatedString_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"abc");
+        p.nextToken();
+        p.getText();
+    }
+
+    // -------------------- skip string (tokenIncomplete) --------------------
+
+    @Test
+    public void testNextToken_skipsIncompleteString_movesToNext() throws IOException {
+        ReaderBasedJsonParser p = createParser("[\"abc\",\"def\"]");
+        p.nextToken(); // START_ARRAY
+        p.nextToken(); // VALUE_STRING "abc" but not read
+        p.nextToken(); // should skip "abc" and give VALUE_STRING "def"
+        assertEquals("def", p.getText());
+        p.close();
+    }
+
+    // -------------------- numbers --------------------
+
+    @Test
+    public void testNextToken_positiveInt_parsesValue() throws IOException {
+        ReaderBasedJsonParser p = createParser("12345");
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(12345, p.getIntValue());
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_negativeInt_parsesValue() throws IOException {
+        ReaderBasedJsonParser p = createParser("-123");
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(-123, p.getIntValue());
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_floatValue_parsesValue() throws IOException {
+        ReaderBasedJsonParser p = createParser("123.45");
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, p.nextToken());
+        assertEquals(123.45, p.getDoubleValue(), 0.0001);
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_negativeFloatValue_parsesValue() throws IOException {
+        ReaderBasedJsonParser p = createParser("-1.5");
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, p.nextToken());
+        assertEquals(-1.5, p.getDoubleValue(), 0.0001);
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_exponentValue_parsesValue() throws IOException {
+        ReaderBasedJsonParser p = createParser("1e10");
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, p.nextToken());
+        assertEquals(1e10, p.getDoubleValue(), 0.0001);
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_exponentWithSign_parsesValue() throws IOException {
+        ReaderBasedJsonParser p = createParser("1.5e+10");
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, p.nextToken());
+        assertEquals(1.5e10, p.getDoubleValue(), 0.0001);
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_zeroValue_parsesValue() throws IOException {
+        ReaderBasedJsonParser p = createParser("0");
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(0, p.getIntValue());
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_negativeZero_parsesValue() throws IOException {
+        ReaderBasedJsonParser p = createParser("-0");
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(0, p.getIntValue());
+        p.close();
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_leadingZero_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("01");
+        p.nextToken();
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_missingRootSpace_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("12\"x\"");
+        p.nextToken();
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_invalidNumberStart_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("-a");
+        p.nextToken();
+    }
+
+    // -------------------- true / false / null --------------------
+
+    @Test
+    public void testNextToken_trueValue_parsesCorrectly() throws IOException {
+        ReaderBasedJsonParser p = createParser("true");
+        assertEquals(JsonToken.VALUE_TRUE, p.nextToken());
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_falseValue_parsesCorrectly() throws IOException {
+        ReaderBasedJsonParser p = createParser("false");
+        assertEquals(JsonToken.VALUE_FALSE, p.nextToken());
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_nullValue_parsesCorrectly() throws IOException {
+        ReaderBasedJsonParser p = createParser("null");
+        assertEquals(JsonToken.VALUE_NULL, p.nextToken());
+        p.close();
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_invalidTrueToken_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("tru5");
+        p.nextToken();
+    }
+
+    // -------------------- special-value NaN / Infinity --------------------
+
+    @Test
+    public void testNextToken_naNEnabled_parsesNaN() throws IOException {
+        ReaderBasedJsonParser p = createParser("NaN");
+        p.enable(JsonParser.Feature.ALLOW_NON_NUMERIC_NUMBERS);
+        JsonToken t = p.nextToken();
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, t);
+        assertTrue(Double.isNaN(p.getDoubleValue()));
+        p.close();
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_naNDisabled_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("NaN");
+        p.nextToken();
+    }
+
+    @Test
+    public void testNextToken_infinityEnabled_parsesPositiveInfinity() throws IOException {
+        ReaderBasedJsonParser p = createParser("Infinity");
+        p.enable(JsonParser.Feature.ALLOW_NON_NUMERIC_NUMBERS);
+        JsonToken t = p.nextToken();
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, t);
+        assertEquals(Double.POSITIVE_INFINITY, p.getDoubleValue(), 0.0);
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_negativeInfinityEnabled_parsesNegativeInfinity() throws IOException {
+        ReaderBasedJsonParser p = createParser("-Infinity");
+        p.enable(JsonParser.Feature.ALLOW_NON_NUMERIC_NUMBERS);
+        JsonToken t = p.nextToken();
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, t);
+        assertEquals(Double.NEGATIVE_INFINITY, p.getDoubleValue(), 0.0);
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_plusInfinityEnabled_parsesPositiveInfinity() throws IOException {
+        ReaderBasedJsonParser p = createParser("+Infinity");
+        p.enable(JsonParser.Feature.ALLOW_NON_NUMERIC_NUMBERS);
+        JsonToken t = p.nextToken();
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, t);
+        assertEquals(Double.POSITIVE_INFINITY, p.getDoubleValue(), 0.0);
+        p.close();
+    }
+
+    // -------------------- single quotes / unquoted names --------------------
+
+    @Test
+    public void testNextToken_singleQuotesEnabled_parsesCorrectly() throws IOException {
+        ReaderBasedJsonParser p = createParser("{'name':'value'}");
+        p.enable

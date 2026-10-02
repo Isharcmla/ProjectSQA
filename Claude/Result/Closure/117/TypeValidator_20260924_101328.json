@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "117",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.TypeValidator",
+  "target_classes": [
+    "com.google.javascript.jscomp.TypeValidator"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 166.54,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\117\\TypeValidator_20260924_101328.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 13128,
+    "completion_tokens": 16384,
+    "total_tokens": 29512
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 163827,
+    "daily_remaining_tokens": 36173
+  },
+  "timestamp": "20260924_101328"
+}

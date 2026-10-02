@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "21",
+  "tool": "gemini",
+  "class": "org.apache.commons.lang3.time.DateUtils",
+  "target_classes": [
+    "org.apache.commons.lang3.time.DateUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 62.73,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Lang\\21\\DateUtils_20260926_013336.txt",
+  "test_file": "Gemini\\TestCode\\Lang\\21\\DateUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 22114,
+    "completion_tokens": 9300,
+    "total_tokens": 31414
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 126751,
+    "daily_remaining_tokens": 223249
+  },
+  "timestamp": "20260926_013336"
+}

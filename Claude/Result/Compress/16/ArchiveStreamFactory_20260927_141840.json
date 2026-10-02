@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "16",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.archivers.ArchiveStreamFactory",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.ArchiveStreamFactory"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 107.5,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Compress\\16\\ArchiveStreamFactory_20260927_141840.txt",
+  "test_file": "Claude\\TestCode\\Compress\\16\\ArchiveStreamFactoryTest.java",
+  "usage": {
+    "prompt_tokens": 4720,
+    "completion_tokens": 12818,
+    "total_tokens": 17538
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 73652,
+    "daily_remaining_tokens": 126348
+  },
+  "timestamp": "20260927_141840"
+}

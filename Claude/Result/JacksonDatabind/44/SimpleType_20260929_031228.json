@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "44",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.type.SimpleType",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.type.SimpleType"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.62,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\44\\SimpleType_20260929_031228.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\44\\SimpleTypeTest.java",
+  "usage": {
+    "prompt_tokens": 4349,
+    "completion_tokens": 5216,
+    "total_tokens": 9565
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 159860,
+    "daily_remaining_tokens": 40140
+  },
+  "timestamp": "20260929_031228"
+}

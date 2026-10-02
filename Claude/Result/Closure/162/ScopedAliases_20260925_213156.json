@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "162",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.ScopedAliases",
+  "target_classes": [
+    "com.google.javascript.jscomp.ScopedAliases"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 168.11,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\162\\ScopedAliases_20260925_213156.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 6314,
+    "completion_tokens": 16384,
+    "total_tokens": 22698
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 184863,
+    "daily_remaining_tokens": 15137
+  },
+  "timestamp": "20260925_213156"
+}

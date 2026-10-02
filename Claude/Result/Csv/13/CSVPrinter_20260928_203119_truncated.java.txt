@@ -1,0 +1,271 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
+import org.apache.commons.csv.QuoteMode;
+import org.junit.Test;
+
+public class CSVPrinterTest {
+
+    // ===================== Constructor tests =====================
+
+    @Test
+    public void testConstructor_normalInput_success() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVPrinter printer = new CSVPrinter(sb, CSVFormat.DEFAULT);
+        assertNotNull(printer);
+        assertSame(sb, printer.getOut());
+    }
+
+    @Test
+    public void testConstructor_nullOut_throwsIllegalArgumentException() throws IOException {
+        try {
+            new CSVPrinter(null, CSVFormat.DEFAULT);
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            // expected
+        }
+    }
+
+    @Test
+    public void testConstructor_nullFormat_throwsIllegalArgumentException() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        try {
+            new CSVPrinter(sb, null);
+            fail("Expected IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            // expected
+        }
+    }
+
+    @Test
+    public void testConstructor_withHeader_printsHeader() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.DEFAULT.withHeader("A", "B", "C");
+        new CSVPrinter(sb, format);
+        assertTrue(sb.toString().contains("A,B,C"));
+    }
+
+    @Test
+    public void testConstructor_withHeaderAndSkipHeaderRecord_doesNotPrintHeader() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.DEFAULT.withHeader("A", "B").withSkipHeaderRecord();
+        new CSVPrinter(sb, format);
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testConstructor_withHeaderComments_printsComments() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.DEFAULT.withCommentMarker('#').withHeaderComments("comment1", "comment2");
+        new CSVPrinter(sb, format);
+        String result = sb.toString();
+        assertTrue(result.contains("# comment1"));
+        assertTrue(result.contains("# comment2"));
+    }
+
+    @Test
+    public void testConstructor_withNullHeaderCommentLine_skipsNull() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.DEFAULT.withCommentMarker('#').withHeaderComments("comment1", null);
+        new CSVPrinter(sb, format);
+        String result = sb.toString();
+        assertTrue(result.contains("# comment1"));
+    }
+
+    // ===================== close() tests =====================
+
+    @Test
+    public void testClose_withNonCloseableAppendable_doesNothing() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVPrinter printer = new CSVPrinter(sb, CSVFormat.DEFAULT);
+        printer.close();
+        // no exception expected
+    }
+
+    @Test
+    public void testClose_withCloseableAppendable_closesUnderlyingStream() throws IOException {
+        StringWriter sw = new StringWriter();
+        CSVPrinter printer = new CSVPrinter(sw, CSVFormat.DEFAULT);
+        printer.close();
+        // StringWriter close does not throw
+    }
+
+    // ===================== flush() tests =====================
+
+    @Test
+    public void testFlush_withFlushableAppendable_flushesUnderlyingStream() throws IOException {
+        StringWriter sw = new StringWriter();
+        CSVPrinter printer = new CSVPrinter(sw, CSVFormat.DEFAULT);
+        printer.flush();
+        // no exception expected
+    }
+
+    @Test
+    public void testFlush_withNonFlushableAppendable_doesNothing() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVPrinter printer = new CSVPrinter(sb, CSVFormat.DEFAULT);
+        printer.flush();
+        // no exception expected
+    }
+
+    // ===================== getOut() tests =====================
+
+    @Test
+    public void testGetOut_returnsSameAppendable() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVPrinter printer = new CSVPrinter(sb, CSVFormat.DEFAULT);
+        assertSame(sb, printer.getOut());
+    }
+
+    // ===================== print(Object) tests =====================
+
+    @Test
+    public void testPrint_normalString_appendsValue() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.newFormat(',');
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.print("abc");
+        assertEquals("abc", sb.toString());
+    }
+
+    @Test
+    public void testPrint_nullValue_defaultEmptyString() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.newFormat(',');
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.print(null);
+        assertEquals("", sb.toString());
+    }
+
+    @Test
+    public void testPrint_nullValueWithNullStringSet_printsNullString() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.newFormat(',').withNullString("NULL");
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.print(null);
+        assertEquals("NULL", sb.toString());
+    }
+
+    @Test
+    public void testPrint_multipleValues_appendsDelimiter() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.newFormat(',');
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.print("a");
+        printer.print("b");
+        assertEquals("a,b", sb.toString());
+    }
+
+    // ===================== print with escape (no quote) =====================
+
+    @Test
+    public void testPrint_withEscapeCharacterSet_escapesSpecialChars() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.newFormat(',').withEscape('\\');
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.print("a,b\nc\rd\\e");
+
+        StringBuilder expected = new StringBuilder();
+        expected.append('a').append('\\').append(',')
+                .append('b').append('\\').append('n')
+                .append('c').append('\\').append('r')
+                .append('d').append('\\').append('\\').append('e');
+
+        assertEquals(expected.toString(), sb.toString());
+    }
+
+    // ===================== print with quote (various modes) =====================
+
+    @Test
+    public void testPrint_quoteModeALL_alwaysQuotes() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.DEFAULT.withQuoteMode(QuoteMode.ALL);
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.print("simple");
+        assertEquals("\"simple\"", sb.toString());
+    }
+
+    @Test
+    public void testPrint_quoteModeNONNUMERIC_numberNotQuoted() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.DEFAULT.withQuoteMode(QuoteMode.NON_NUMERIC);
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.print(Integer.valueOf(5));
+        assertEquals("5", sb.toString());
+    }
+
+    @Test
+    public void testPrint_quoteModeNONNUMERIC_stringQuoted() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.DEFAULT.withQuoteMode(QuoteMode.NON_NUMERIC);
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.print("text");
+        assertEquals("\"text\"", sb.toString());
+    }
+
+    @Test
+    public void testPrint_quoteModeNONE_usesEscaping() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.newFormat(',').withQuote('"').withEscape('\\').withQuoteMode(QuoteMode.NONE);
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.print("a,b");
+
+        StringBuilder expected = new StringBuilder();
+        expected.append('a').append('\\').append(',').append('b');
+        assertEquals(expected.toString(), sb.toString());
+    }
+
+    @Test
+    public void testPrint_quoteModeMINIMAL_emptyStringAsFirstToken_quoted() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.DEFAULT;
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.print("");
+        assertEquals("\"\"", sb.toString());
+    }
+
+    @Test
+    public void testPrint_quoteModeMINIMAL_embeddedQuoteChar_doubledAndQuoted() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.DEFAULT;
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.print("a\"b");
+        assertEquals("\"a\"\"b\"", sb.toString());
+    }
+
+    @Test
+    public void testPrint_quoteModeMINIMAL_leadingNonAlphanumericAsFirstField_quoted() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.DEFAULT;
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.print(" text");
+        assertEquals("\" text\"", sb.toString());
+    }
+
+    @Test
+    public void testPrint_quoteModeMINIMAL_secondFieldStartingWithLowCharCode_quoted() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.DEFAULT;
+        CSVPrinter printer = new CSVPrinter(sb, format);
+        printer.printRecord("A", "!bad");
+        String result = sb.toString();
+        assertTrue(result.contains("\"!bad\""));
+    }
+
+    @Test
+    public void testPrint_quoteModeMINIMAL_trailingSpace_quoted() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        CSVFormat format = CSVFormat.DEFAULT;
+        CSVPr

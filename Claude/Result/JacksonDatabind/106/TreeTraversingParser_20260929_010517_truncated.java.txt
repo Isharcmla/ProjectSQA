@@ -1,0 +1,125 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import com.fasterxml.jackson.core.Base64Variant;
+import com.fasterxml.jackson.core.Base64Variants;
+import com.fasterxml.jackson.core.JsonLocation;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonStreamContext;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.JsonParser.NumberType;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.BinaryNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.POJONode;
+import com.fasterxml.jackson.databind.node.TextNode;
+import com.fasterxml.jackson.databind.node.TreeTraversingParser;
+
+import java.io.ByteArrayOutputStream;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
+public class TreeTraversingParserTest {
+
+    private final JsonNodeFactory factory = JsonNodeFactory.instance;
+
+    // ---------------------------------------------------------
+    // Constructor tests
+    // ---------------------------------------------------------
+
+    @Test
+    public void testConstructor_withArrayNode_firstNextTokenIsStartArray() throws Exception {
+        ArrayNode arr = factory.arrayNode();
+        arr.add(1);
+        arr.add("text");
+        TreeTraversingParser p = new TreeTraversingParser(arr);
+        assertEquals(JsonToken.START_ARRAY, p.nextToken());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(JsonToken.VALUE_STRING, p.nextToken());
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+        assertNull(p.nextToken());
+        assertTrue(p.isClosed());
+    }
+
+    @Test
+    public void testConstructor_withObjectNode_firstNextTokenIsStartObject() throws Exception {
+        ObjectNode obj = factory.objectNode();
+        obj.put("field1", "value1");
+        TreeTraversingParser p = new TreeTraversingParser(obj);
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals("field1", p.getCurrentName());
+        assertEquals(JsonToken.VALUE_STRING, p.nextToken());
+        assertEquals("value1", p.getText());
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+        assertNull(p.nextToken());
+        assertTrue(p.isClosed());
+    }
+
+    @Test
+    public void testConstructor_withValueNode_rootCursorBehavior() throws Exception {
+        TextNode text = factory.textNode("hello");
+        TreeTraversingParser p = new TreeTraversingParser(text);
+        assertEquals(JsonToken.VALUE_STRING, p.nextToken());
+        assertEquals("hello", p.getText());
+        assertNull(p.nextToken());
+        assertNull(p.nextToken());
+        assertTrue(p.isClosed());
+    }
+
+    @Test
+    public void testConstructor_withCodec_getCodecReturnsSameCodec() {
+        TreeTraversingParser p = new TreeTraversingParser(factory.textNode("x"), null);
+        assertNull(p.getCodec());
+    }
+
+    @Test
+    public void testConstructor_nestedContainerWithChildren_traversalWorks() throws Exception {
+        ObjectNode obj = factory.objectNode();
+        ArrayNode nestedArr = factory.arrayNode();
+        nestedArr.add(true);
+        obj.set("arr", nestedArr);
+
+        TreeTraversingParser p = new TreeTraversingParser(obj);
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals(JsonToken.START_ARRAY, p.nextToken());
+        assertEquals(JsonToken.VALUE_TRUE, p.nextToken());
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+        assertNull(p.nextToken());
+    }
+
+    @Test
+    public void testNextToken_emptyNestedContainer_skipsToEndToken() throws Exception {
+        ObjectNode obj = factory.objectNode();
+        obj.set("empty", factory.arrayNode());
+
+        TreeTraversingParser p = new TreeTraversingParser(obj);
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals(JsonToken.START_ARRAY, p.nextToken());
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+        assertNull(p.nextToken());
+    }
+
+    // ---------------------------------------------------------
+    // setCodec / getCodec / version
+    // ---------------------------------------------------------
+
+    @Test
+    public void testSetCodecAndGetCodec_normalUsage() {
+        TreeTraversingParser p = new TreeTraversingParser(factory.textNode("x"));
+        p.setCodec(null);
+        assertNull(p.getCodec());
+    }
+
+    @Test
+    public void testVersion_returnsNonNullVersion() {
+        TreeTraversingParser p = new TreeTraversingParser(factory.textNode("x"));
+        assertNotNull(p

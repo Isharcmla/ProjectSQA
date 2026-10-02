@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "66",
+  "tool": "claude",
+  "class": "org.apache.commons.math.optimization.univariate.BrentOptimizer",
+  "target_classes": [
+    "org.apache.commons.math.optimization.univariate.BrentOptimizer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 47.88,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\66\\BrentOptimizer_20261002_183039.txt",
+  "test_file": "Claude\\TestCode\\Math\\66\\BrentOptimizerTest.java",
+  "usage": {
+    "prompt_tokens": 3855,
+    "completion_tokens": 6305,
+    "total_tokens": 10160
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 134086,
+    "daily_remaining_tokens": 65914
+  },
+  "timestamp": "20261002_183039"
+}

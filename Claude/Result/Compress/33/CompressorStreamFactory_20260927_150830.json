@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "33",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.compressors.CompressorStreamFactory",
+  "target_classes": [
+    "org.apache.commons.compress.compressors.CompressorStreamFactory"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 84.35,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Compress\\33\\CompressorStreamFactory_20260927_150830.txt",
+  "test_file": "Claude\\TestCode\\Compress\\33\\CompressorStreamFactoryTest.java",
+  "usage": {
+    "prompt_tokens": 6052,
+    "completion_tokens": 11278,
+    "total_tokens": 17330
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 206995,
+    "daily_remaining_tokens": -6995
+  },
+  "timestamp": "20260927_150830"
+}

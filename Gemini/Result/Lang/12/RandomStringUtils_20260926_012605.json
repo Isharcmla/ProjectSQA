@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "12",
+  "tool": "gemini",
+  "class": "org.apache.commons.lang3.RandomStringUtils",
+  "target_classes": [
+    "org.apache.commons.lang3.RandomStringUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 16.74,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Lang\\12\\RandomStringUtils_20260926_012605.txt",
+  "test_file": "Gemini\\TestCode\\Lang\\12\\RandomStringUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 3526,
+    "completion_tokens": 2427,
+    "total_tokens": 5953
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 228921,
+    "daily_remaining_tokens": 121079
+  },
+  "timestamp": "20260926_012605"
+}

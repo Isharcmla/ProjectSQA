@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "2",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.archivers.ar.ArArchiveInputStream",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.ar.ArArchiveInputStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 87.52,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Compress\\2\\ArArchiveInputStream_20260927_150103.txt",
+  "test_file": "Claude\\TestCode\\Compress\\2\\ArArchiveInputStreamTest.java",
+  "usage": {
+    "prompt_tokens": 2685,
+    "completion_tokens": 12923,
+    "total_tokens": 15608
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 116473,
+    "daily_remaining_tokens": 83527
+  },
+  "timestamp": "20260927_150103"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "34",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.genetics.ListPopulation",
+  "target_classes": [
+    "org.apache.commons.math3.genetics.ListPopulation"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 27.1,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\34\\ListPopulation_20260926_024034.txt",
+  "test_file": "Gemini\\TestCode\\Math\\34\\ListPopulationTest.java",
+  "usage": {
+    "prompt_tokens": 2222,
+    "completion_tokens": 2780,
+    "total_tokens": 6185
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 126936,
+    "daily_remaining_tokens": 223064
+  },
+  "timestamp": "20260926_024034"
+}

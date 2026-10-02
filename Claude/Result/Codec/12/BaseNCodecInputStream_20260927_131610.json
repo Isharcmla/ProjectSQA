@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "12",
+  "tool": "claude",
+  "class": "org.apache.commons.codec.binary.BaseNCodecInputStream",
+  "target_classes": [
+    "org.apache.commons.codec.binary.BaseNCodecInputStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.23,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Codec\\12\\BaseNCodecInputStream_20260927_131610.txt",
+  "test_file": "Claude\\TestCode\\Codec\\12\\BaseNCodecInputStreamTest.java",
+  "usage": {
+    "prompt_tokens": 2733,
+    "completion_tokens": 5043,
+    "total_tokens": 7776
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 118423,
+    "daily_remaining_tokens": 81577
+  },
+  "timestamp": "20260927_131610"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "17",
+  "tool": "claude",
+  "class": "org.apache.commons.collections.functors.EqualPredicate",
+  "target_classes": [
+    "org.apache.commons.collections.functors.EqualPredicate"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 17.16,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Collections\\17\\EqualPredicate_20260927_134743.txt",
+  "test_file": "Claude\\TestCode\\Collections\\17\\EqualPredicateTest.java",
+  "usage": {
+    "prompt_tokens": 2157,
+    "completion_tokens": 2373,
+    "total_tokens": 4530
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 187076,
+    "daily_remaining_tokens": 12924
+  },
+  "timestamp": "20260927_134743"
+}

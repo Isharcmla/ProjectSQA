@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "11",
+  "tool": "claude",
+  "class": "org.jsoup.select.Selector",
+  "target_classes": [
+    "org.jsoup.select.Selector"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 31.48,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\11\\Selector_20260930_021129.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\11\\SelectorTest.java",
+  "usage": {
+    "prompt_tokens": 7699,
+    "completion_tokens": 4423,
+    "total_tokens": 12122
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 88671,
+    "daily_remaining_tokens": 111329
+  },
+  "timestamp": "20260930_021129"
+}

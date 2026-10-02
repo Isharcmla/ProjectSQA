@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "102",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.ser.std.DateTimeSerializerBase",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.std.DateTimeSerializerBase"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 42.36,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\102\\DateTimeSerializerBase_20260925_121301.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\102\\DateTimeSerializerBaseTest.java",
+  "usage": {
+    "prompt_tokens": 2446,
+    "completion_tokens": 3476,
+    "total_tokens": 8677
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 8677,
+    "daily_remaining_tokens": 341323
+  },
+  "timestamp": "20260925_121301"
+}

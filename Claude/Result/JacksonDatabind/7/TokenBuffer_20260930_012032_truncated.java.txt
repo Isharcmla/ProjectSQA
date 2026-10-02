@@ -1,0 +1,673 @@
+package com.fasterxml.jackson.databind.util;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+import java.io.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.core.io.SerializedString;
+import com.fasterxml.jackson.databind.node.TextNode;
+
+public class TokenBufferTest {
+
+    private JsonFactory factory = new JsonFactory();
+
+    // ---------- Constructors ----------
+
+    @Test
+    @SuppressWarnings("deprecation")
+    public void testConstructor_deprecated_createsBuffer() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null);
+        assertNotNull(buf);
+        assertFalse(buf.canWriteTypeId());
+        assertFalse(buf.canWriteObjectId());
+    }
+
+    @Test
+    public void testConstructor_withHasNativeIds_createsBuffer() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, true);
+        assertTrue(buf.canWriteTypeId());
+        assertTrue(buf.canWriteObjectId());
+    }
+
+    @Test
+    public void testConstructor_withJsonParser_createsBuffer() throws Exception {
+        JsonParser jp = factory.createParser("{}");
+        jp.nextToken();
+        TokenBuffer buf = new TokenBuffer(jp);
+        assertNotNull(buf);
+        jp.close();
+    }
+
+    // ---------- asParser ----------
+
+    @Test
+    public void testAsParser_default_returnsParser() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeString("hello");
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_STRING, p.nextToken());
+        assertEquals("hello", p.getText());
+    }
+
+    @Test
+    public void testAsParser_withCodec_returnsParser() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeNumber(42);
+        JsonParser p = buf.asParser((ObjectCodec) null);
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(42, p.getIntValue());
+    }
+
+    @Test
+    public void testAsParser_withSourceParser_setsLocation() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeBoolean(true);
+        JsonParser src = factory.createParser("true");
+        src.nextToken();
+        JsonParser p = buf.asParser(src);
+        assertEquals(JsonToken.VALUE_TRUE, p.nextToken());
+        src.close();
+    }
+
+    // ---------- firstToken ----------
+
+    @Test
+    public void testFirstToken_emptyBuffer_returnsNull() {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        assertNull(buf.firstToken());
+    }
+
+    @Test
+    public void testFirstToken_afterWrite_returnsStartArray() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeStartArray();
+        buf.writeEndArray();
+        assertEquals(JsonToken.START_ARRAY, buf.firstToken());
+    }
+
+    // ---------- append(TokenBuffer) ----------
+
+    @Test
+    public void testAppend_mergesBuffers() throws Exception {
+        TokenBuffer src = new TokenBuffer(null, false);
+        src.writeStartArray();
+        src.writeNumber(1);
+        src.writeEndArray();
+
+        TokenBuffer dst = new TokenBuffer(null, false);
+        dst.writeStartObject();
+        dst.writeFieldName("field");
+        dst.append(src);
+        dst.writeEndObject();
+
+        JsonParser p = dst.asParser();
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals(JsonToken.START_ARRAY, p.nextToken());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+    }
+
+    // ---------- serialize ----------
+
+    @Test
+    public void testSerialize_writesToGenerator() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeStartObject();
+        buf.writeFieldName("name");
+        buf.writeString("value");
+        buf.writeFieldName("num");
+        buf.writeNumber(123);
+        buf.writeFieldName("big");
+        buf.writeNumber(BigInteger.valueOf(999));
+        buf.writeFieldName("flt");
+        buf.writeNumber(1.5d);
+        buf.writeFieldName("bool");
+        buf.writeBoolean(true);
+        buf.writeFieldName("boolf");
+        buf.writeBoolean(false);
+        buf.writeFieldName("nullv");
+        buf.writeNull();
+        buf.writeFieldName("str-num");
+        buf.writeNumber("123.45");
+        buf.writeEndObject();
+
+        StringWriter sw = new StringWriter();
+        JsonGenerator gen = factory.createGenerator(sw);
+        buf.serialize(gen);
+        gen.flush();
+        gen.close();
+        String result = sw.toString();
+        assertTrue(result.contains("name"));
+        assertTrue(result.contains("value"));
+    }
+
+    @Test
+    public void testSerialize_withSerializableStringFieldAndValue() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeStartObject();
+        buf.writeFieldName(new SerializedString("field"));
+        buf.writeString(new SerializedString("val"));
+        buf.writeEndObject();
+
+        StringWriter sw = new StringWriter();
+        JsonGenerator gen = factory.createGenerator(sw);
+        buf.serialize(gen);
+        gen.flush();
+        gen.close();
+        assertTrue(sw.toString().contains("field"));
+    }
+
+    @Test
+    public void testSerialize_withNativeIds() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, true);
+        buf.writeTypeId("myType");
+        buf.writeObjectId("myObj");
+        buf.writeStartObject();
+        buf.writeEndObject();
+
+        StringWriter sw = new StringWriter();
+        JsonGenerator gen = factory.createGenerator(sw);
+        // Standard JsonGenerator without native id support will throw on writeObjectId/writeTypeId
+        try {
+            buf.serialize(gen);
+            gen.flush();
+        } catch (UnsupportedOperationException e) {
+            // acceptable - underlying generator may not support native ids
+        } catch (JsonGenerationException e) {
+            // acceptable as well
+        } finally {
+            gen.close();
+        }
+    }
+
+    // ---------- deserialize ----------
+
+    @Test
+    public void testDeserialize_copiesStructure() throws Exception {
+        JsonParser jp = factory.createParser("{\"a\":1}");
+        jp.nextToken();
+        TokenBuffer buf = new TokenBuffer(null, false);
+        TokenBuffer result = buf.deserialize(jp, null);
+        assertSame(buf, result);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        jp.close();
+    }
+
+    // ---------- toString ----------
+
+    @Test
+    public void testToString_withTokens_containsTokenNames() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeStartObject();
+        buf.writeFieldName("f");
+        buf.writeString("v");
+        buf.writeEndObject();
+        String s = buf.toString();
+        assertTrue(s.startsWith("[TokenBuffer:"));
+        assertTrue(s.contains("FIELD_NAME"));
+    }
+
+    @Test
+    public void testToString_truncated_after100tokens() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeStartArray();
+        for (int i = 0; i < 110; i++) {
+            buf.writeNumber(i);
+        }
+        buf.writeEndArray();
+        String s = buf.toString();
+        assertTrue(s.contains("truncated"));
+    }
+
+    // ---------- feature flags ----------
+
+    @Test
+    public void testEnableDisableIsEnabled() {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        JsonGenerator.Feature f = JsonGenerator.Feature.AUTO_CLOSE_JSON_CONTENT;
+        buf.disable(f);
+        assertFalse(buf.isEnabled(f));
+        buf.enable(f);
+        assertTrue(buf.isEnabled(f));
+    }
+
+    @Test
+    public void testGetSetFeatureMask() {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        int mask = buf.getFeatureMask();
+        buf.setFeatureMask(0);
+        assertEquals(0, buf.getFeatureMask());
+        buf.setFeatureMask(mask);
+        assertEquals(mask, buf.getFeatureMask());
+    }
+
+    @Test
+    public void testUseDefaultPrettyPrinter_returnsSelf() {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        JsonGenerator ret = buf.useDefaultPrettyPrinter();
+        assertSame(buf, ret);
+    }
+
+    @Test
+    public void testSetCodecGetCodec() {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        assertNull(buf.getCodec());
+        buf.setCodec(null);
+        assertNull(buf.getCodec());
+    }
+
+    @Test
+    public void testGetOutputContext_returnsWriteContext() {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        assertNotNull(buf.getOutputContext());
+    }
+
+    @Test
+    public void testCanWriteBinaryNatively_returnsTrue() {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        assertTrue(buf.canWriteBinaryNatively());
+    }
+
+    @Test
+    public void testFlush_noException() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.flush(); // no-op, should not throw
+    }
+
+    @Test
+    public void testCloseIsClosed() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        assertFalse(buf.isClosed());
+        buf.close();
+        assertTrue(buf.isClosed());
+    }
+
+    // ---------- structural writes ----------
+
+    @Test
+    public void testWriteStartArrayEndArray() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeStartArray();
+        buf.writeEndArray();
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.START_ARRAY, p.nextToken());
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+    }
+
+    @Test
+    public void testWriteStartObjectEndObject() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeStartObject();
+        buf.writeEndObject();
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+    }
+
+    @Test
+    public void testWriteEndArray_unbalanced_doesNotThrow() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeEndArray(); // unbalanced, should be tolerated
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+    }
+
+    @Test
+    public void testWriteEndObject_unbalanced_doesNotThrow() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeEndObject(); // unbalanced, should be tolerated
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+    }
+
+    @Test
+    public void testWriteFieldName_String() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeStartObject();
+        buf.writeFieldName("myfield");
+        buf.writeString("v");
+        buf.writeEndObject();
+        JsonParser p = buf.asParser();
+        p.nextToken();
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals("myfield", p.getCurrentName());
+    }
+
+    @Test
+    public void testWriteFieldName_SerializableString() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeStartObject();
+        buf.writeFieldName(new SerializedString("sfield"));
+        buf.writeString("v");
+        buf.writeEndObject();
+        JsonParser p = buf.asParser();
+        p.nextToken();
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals("sfield", p.getCurrentName());
+    }
+
+    // ---------- textual writes ----------
+
+    @Test
+    public void testWriteString_String() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeString("hi");
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_STRING, p.nextToken());
+        assertEquals("hi", p.getText());
+    }
+
+    @Test
+    public void testWriteString_null_writesNull() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeString((String) null);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NULL, p.nextToken());
+    }
+
+    @Test
+    public void testWriteString_charArray() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        char[] arr = "hello world".toCharArray();
+        buf.writeString(arr, 0, 5);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_STRING, p.nextToken());
+        assertEquals("hello", p.getText());
+    }
+
+    @Test
+    public void testWriteString_SerializableString() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeString(new SerializedString("ss"));
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_STRING, p.nextToken());
+        assertEquals("ss", p.getText());
+    }
+
+    @Test
+    public void testWriteString_SerializableString_null_writesNull() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeString((SerializableString) null);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NULL, p.nextToken());
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRawUTF8String_throwsException() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeRawUTF8String("abc".getBytes(), 0, 3);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteUTF8String_throwsException() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeUTF8String("abc".getBytes(), 0, 3);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRaw_String_throwsException() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeRaw("raw");
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRaw_StringOffsetLen_throwsException() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeRaw("raw", 0, 2);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRaw_SerializableString_throwsException() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeRaw(new SerializedString("raw"));
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRaw_charArray_throwsException() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeRaw("raw".toCharArray(), 0, 2);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRaw_char_throwsException() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeRaw('c');
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRawValue_String_throwsException() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeRawValue("raw");
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRawValue_StringOffsetLen_throwsException() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeRawValue("raw", 0, 2);
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteRawValue_charArray_throwsException() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeRawValue("raw".toCharArray(), 0, 2);
+    }
+
+    // ---------- primitive writes ----------
+
+    @Test
+    public void testWriteNumber_short() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeNumber((short) 5);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(5, p.getIntValue());
+    }
+
+    @Test
+    public void testWriteNumber_int() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeNumber(-7);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(-7, p.getIntValue());
+    }
+
+    @Test
+    public void testWriteNumber_long() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeNumber(123456789012345L);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(123456789012345L, p.getLongValue());
+    }
+
+    @Test
+    public void testWriteNumber_double() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeNumber(3.14d);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, p.nextToken());
+        assertEquals(3.14d, p.getDoubleValue(), 0.0001);
+    }
+
+    @Test
+    public void testWriteNumber_float() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeNumber(2.5f);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, p.nextToken());
+        assertEquals(2.5f, p.getFloatValue(), 0.0001f);
+    }
+
+    @Test
+    public void testWriteNumber_BigDecimal() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        BigDecimal dec = new BigDecimal("123.456");
+        buf.writeNumber(dec);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, p.nextToken());
+        assertEquals(dec, p.getDecimalValue());
+    }
+
+    @Test
+    public void testWriteNumber_BigDecimal_null_writesNull() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeNumber((BigDecimal) null);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NULL, p.nextToken());
+    }
+
+    @Test
+    public void testWriteNumber_BigInteger() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        BigInteger bi = new BigInteger("123456789012345678901234567890");
+        buf.writeNumber(bi);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(bi, p.getBigIntegerValue());
+    }
+
+    @Test
+    public void testWriteNumber_BigInteger_null_writesNull() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeNumber((BigInteger) null);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NULL, p.nextToken());
+    }
+
+    @Test
+    public void testWriteNumber_String() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeNumber("99.99");
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, p.nextToken());
+    }
+
+    @Test
+    public void testWriteBoolean_true() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeBoolean(true);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_TRUE, p.nextToken());
+    }
+
+    @Test
+    public void testWriteBoolean_false() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeBoolean(false);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_FALSE, p.nextToken());
+    }
+
+    @Test
+    public void testWriteNull() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeNull();
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NULL, p.nextToken());
+    }
+
+    // ---------- POJO / tree writes ----------
+
+    @Test
+    public void testWriteObject_null_writesNull() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeObject(null);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NULL, p.nextToken());
+    }
+
+    @Test
+    public void testWriteObject_byteArray() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        byte[] data = "hello".getBytes();
+        buf.writeObject(data);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_EMBEDDED_OBJECT, p.nextToken());
+        assertArrayEquals(data, (byte[]) p.getEmbeddedObject());
+    }
+
+    @Test
+    public void testWriteObject_withoutCodec_embedsObject() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        Object obj = new Object();
+        buf.writeObject(obj);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_EMBEDDED_OBJECT, p.nextToken());
+        assertSame(obj, p.getEmbeddedObject());
+    }
+
+    @Test
+    public void testWriteTree_null_writesNull() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeTree(null);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_NULL, p.nextToken());
+    }
+
+    @Test
+    public void testWriteTree_withoutCodec_embeds() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        TextNode node = TextNode.valueOf("hi");
+        buf.writeTree(node);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_EMBEDDED_OBJECT, p.nextToken());
+        assertSame(node, p.getEmbeddedObject());
+    }
+
+    // ---------- binary ----------
+
+    @Test
+    public void testWriteBinary_byteArray() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        byte[] data = "binarydata".getBytes();
+        buf.writeBinary(Base64Variants.getDefaultVariant(), data, 0, data.length);
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.VALUE_EMBEDDED_OBJECT, p.nextToken());
+        assertArrayEquals(data, (byte[]) p.getEmbeddedObject());
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testWriteBinary_InputStream_throwsUnsupportedOperationException() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, false);
+        buf.writeBinary(Base64Variants.getDefaultVariant(),
+                new ByteArrayInputStream("data".getBytes()), 4);
+    }
+
+    // ---------- native ids ----------
+
+    @Test
+    public void testCanWriteTypeIdCanWriteObjectId() {
+        TokenBuffer buf1 = new TokenBuffer(null, false);
+        assertFalse(buf1.canWriteTypeId());
+        assertFalse(buf1.canWriteObjectId());
+
+        TokenBuffer buf2 = new TokenBuffer(null, true);
+        assertTrue(buf2.canWriteTypeId());
+        assertTrue(buf2.canWriteObjectId());
+    }
+
+    @Test
+    public void testWriteTypeIdWriteObjectId() throws Exception {
+        TokenBuffer buf = new TokenBuffer(null, true);
+        buf.writeTypeId("theType");
+        buf.writeObjectId("theObj");
+        buf.writeStartObject();
+        buf.writeEndObject();
+
+        JsonParser p = buf.asParser();
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals("theType", p.getTypeId());
+        assertEquals("theObj", p.getObjectId());
+    }
+
+    // ---------- copyCurrentEvent / copyCurrentStructure ----------
+
+    @

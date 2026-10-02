@@ -1,0 +1,76 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import com.google.javascript.rhino.jstype.BooleanLiteralSet;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * JUnit4 test suite for {@link TypeInference}.
+ *
+ * NOTE: TypeInference is a package-private class with NO truly public
+ * methods (all methods are either package-private or private). Per the
+ * requirements, we test through whatever is accessible from the same
+ * package (com.google.javascript.jscomp), and we exercise the private
+ * traversal logic indirectly through the full compilation pipeline
+ * (Compiler#compile), which internally constructs and runs TypeInference
+ * during type checking. This gives realistic line/branch coverage of the
+ * class without guessing internal constructor signatures for
+ * ControlFlowGraph, Scope or ReverseAbstractInterpreter, none of which
+ * were provided as dependencies in this task.
+ */
+public class TypeInferenceTest {
+
+  private Compiler compiler;
+  private CompilerOptions options;
+
+  @Before
+  public void setUp() {
+    compiler = new Compiler();
+    options = new CompilerOptions();
+    options.setCheckTypes(true);
+  }
+
+  private Result compileHelper(String js) {
+    SourceFile externs = SourceFile.fromCode("externs.js",
+        "var Array; var Object; var Function; var String; "
+        + "var Number; var Boolean; var Error;"
+        + "/** @constructor */ function Error(){}");
+    SourceFile input = SourceFile.fromCode("input.js", js);
+    return compiler.compile(externs, input, options);
+  }
+
+  // ---------------------------------------------------------------------
+  // Group (ก) Normal / typical inputs -- exercised indirectly through
+  // full compilation, which internally drives TypeInference.flowThrough,
+  // traverse(), traverseAssign, traverseName, etc.
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testCompile_simpleAssignment_noErrors() {
+    Result result = compileHelper("var x; x = 1;");
+    assertNotNull(result);
+    assertEquals(0, compiler.getErrorCount());
+  }
+
+  @Test
+  public void testCompile_varWithInitializer_noErrors() {
+    Result result = compileHelper("var y = 5;");
+    assertNotNull(result);
+    assertEquals(0, compiler.getErrorCount());
+  }
+
+  @Test
+  public void testCompile_getPropOnObjectLiteral_noErrors() {
+    Result result = compileHelper("var obj = {a: 1}; var b = obj.a;");
+    assertNotNull(result);
+    assertEquals(0, compiler.getErrorCount());
+  }
+
+  @Test
+  public

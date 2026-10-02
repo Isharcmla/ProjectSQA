@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "17",
+  "tool": "gemini",
+  "class": "org.apache.commons.lang3.text.translate.CharSequenceTranslator",
+  "target_classes": [
+    "org.apache.commons.lang3.text.translate.CharSequenceTranslator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 22.51,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Lang\\17\\CharSequenceTranslator_20260926_013059.txt",
+  "test_file": "Gemini\\TestCode\\Lang\\17\\CharSequenceTranslatorTest.java",
+  "usage": {
+    "prompt_tokens": 1500,
+    "completion_tokens": 1758,
+    "total_tokens": 4772
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 4772,
+    "daily_remaining_tokens": 345228
+  },
+  "timestamp": "20260926_013059"
+}

@@ -1,0 +1,53 @@
+{
+  "project": "Cli",
+  "bug_id": "1",
+  "tool": "claude",
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 87.65,
+  "num_test_files_generated": 1,
+  "target_classes": [
+    "org.apache.commons.cli.CommandLine"
+  ],
+  "model_name": "Claude",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "class_results": [
+    {
+      "project": "Cli",
+      "bug_id": "1",
+      "tool": "claude",
+      "class": "org.apache.commons.cli.CommandLine",
+      "target_classes": [
+        "org.apache.commons.cli.CommandLine"
+      ],
+      "status": "success",
+      "generation_status": "success",
+      "compile_result": "not_run",
+      "elapsed_sec": 87.39,
+      "num_test_files_generated": 1,
+      "model_requested": "claude",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Claude",
+      "max_tokens": 16384,
+      "temperature": 0.2,
+      "finish_reason": "stop",
+      "prompt_file": "Claude/Prompt/Cli/1/CommandLine_20260920_054618.txt",
+      "test_file": "Claude/TestCode/Cli/1/CommandLineTest.java",
+      "usage": {
+        "prompt_tokens": 3843,
+        "completion_tokens": 10244,
+        "total_tokens": 14087
+      },
+      "model_quota": {
+        "daily_quota_tokens": 200000,
+        "daily_usage_tokens": 46736,
+        "daily_remaining_tokens": 153264
+      },
+      "timestamp": "20260920_054618"
+    }
+  ],
+  "failures": [],
+  "timestamp": "2026-09-20T05:47:46"
+}

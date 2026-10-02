@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "29",
+  "tool": "claude",
+  "class": "org.mockito.internal.matchers.Same",
+  "target_classes": [
+    "org.mockito.internal.matchers.Same"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 14.81,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\29\\Same_20261003_005506.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\29\\SameTest.java",
+  "usage": {
+    "prompt_tokens": 1204,
+    "completion_tokens": 1861,
+    "total_tokens": 3065
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 122043,
+    "daily_remaining_tokens": 77957
+  },
+  "timestamp": "20261003_005506"
+}

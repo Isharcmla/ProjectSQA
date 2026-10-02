@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "22",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.distribution.FDistribution",
+  "target_classes": [
+    "org.apache.commons.math3.distribution.FDistribution"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 20.44,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\22\\FDistribution_20261002_172940.txt",
+  "test_file": "Claude\\TestCode\\Math\\22\\FDistributionTest.java",
+  "usage": {
+    "prompt_tokens": 4910,
+    "completion_tokens": 2989,
+    "total_tokens": 7899
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 166625,
+    "daily_remaining_tokens": 33375
+  },
+  "timestamp": "20261002_172940"
+}

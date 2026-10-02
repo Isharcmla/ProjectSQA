@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "12",
+  "tool": "claude",
+  "class": "org.apache.commons.cli.GnuParser",
+  "target_classes": [
+    "org.apache.commons.cli.GnuParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 97.05,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Cli\\12\\GnuParser_20260924_081341.txt",
+  "test_file": "Claude\\TestCode\\Cli\\12\\GnuParserTest.java",
+  "usage": {
+    "prompt_tokens": 2095,
+    "completion_tokens": 10381,
+    "total_tokens": 12476
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 12476,
+    "daily_remaining_tokens": 187524
+  },
+  "timestamp": "20260924_081341"
+}

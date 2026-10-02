@@ -1,0 +1,507 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import com.google.javascript.rhino.Node;
+
+import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * JUnit4 test suite for {@link CompilerOptions}.
+ *
+ * Note: Some public methods (setWarningLevel, addWarningsGuard) require
+ * instances of DiagnosticGroup / WarningsGuard whose full API is not
+ * provided in the dependency information available for this task. To avoid
+ * guessing unknown APIs (as instructed), those methods are only partially
+ * exercised through indirect paths (e.g. enables()/disables() with a
+ * null WarningsGuard state) rather than direct instantiation of those
+ * unknown types.
+ */
+public class CompilerOptionsTest {
+
+  // ---------------------------------------------------------------------
+  // Constructor / default value tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testConstructor_defaultValues_checksAreOff() {
+    CompilerOptions options = new CompilerOptions();
+    assertFalse(options.ideMode);
+    assertFalse(options.skipAllPasses);
+    assertFalse(options.nameAnonymousFunctionsOnly);
+    assertFalse(options.checkSymbols);
+    assertEquals(CheckLevel.OFF, options.checkShadowVars);
+    assertEquals(CheckLevel.OFF, options.aggressiveVarCheck);
+    assertEquals(CheckLevel.OFF, options.checkFunctions);
+    assertEquals(CheckLevel.OFF, options.checkMethods);
+    assertFalse(options.checkDuplicateMessages);
+    assertFalse(options.allowLegacyJsMessages);
+    assertFalse(options.strictMessageReplacement);
+    assertFalse(options.checkSuspiciousCode);
+    assertFalse(options.checkControlStructures);
+    assertEquals(CheckLevel.OFF, options.checkUndefinedProperties);
+    assertFalse(options.checkUnusedPropertiesEarly);
+    assertFalse(options.checkTypes);
+    assertFalse(options.tightenTypes);
+    assertFalse(options.inferTypesInGlobalScope);
+    assertFalse(options.checkTypedPropertyCalls);
+  }
+
+  @Test
+  public void testConstructor_defaultBrokenClosureRequiresLevel_isError() {
+    CompilerOptions options = new CompilerOptions();
+    assertEquals(CheckLevel.ERROR, options.brokenClosureRequiresLevel);
+  }
+
+  @Test
+  public void testConstructor_defaultRemoveUnusedVarsInGlobalScope_isTrue() {
+    CompilerOptions options = new CompilerOptions();
+    assertTrue(options.removeUnusedVarsInGlobalScope);
+  }
+
+  @Test
+  public void testConstructor_defaultRewriteNewDateGoogNow_isTrue() {
+    CompilerOptions options = new CompilerOptions();
+    assertTrue(options.rewriteNewDateGoogNow);
+  }
+
+  @Test
+  public void testConstructor_defaultRemoveAbstractMethods_isTrue() {
+    CompilerOptions options = new CompilerOptions();
+    assertTrue(options.removeAbstractMethods);
+  }
+
+  @Test
+  public void testConstructor_defaultAppNameStr_isEmptyString() {
+    CompilerOptions options = new CompilerOptions();
+    assertEquals("", options.appNameStr);
+  }
+
+  @Test
+  public void testConstructor_defaultJsOutputFile_isEmptyString() {
+    CompilerOptions options = new CompilerOptions();
+    assertEquals("", options.jsOutputFile);
+  }
+
+  @Test
+  public void testConstructor_defaultReplaceStringsPlaceholderToken_isEmptyString() {
+    CompilerOptions options = new CompilerOptions();
+    assertEquals("", options.replaceStringsPlaceholderToken);
+  }
+
+  @Test
+  public void testConstructor_defaultTracer_isOff() {
+    CompilerOptions options = new CompilerOptions();
+    assertEquals(CompilerOptions.TracerMode.OFF, options.tracer);
+  }
+
+  @Test
+  public void testConstructor_defaultErrorFormat_isSingleLine() {
+    CompilerOptions options = new CompilerOptions();
+    assertEquals(ErrorFormat.SINGLELINE, options.errorFormat);
+  }
+
+  @Test
+  public void testConstructor_defaultInputDelimiter_correctValue() {
+    CompilerOptions options = new CompilerOptions();
+    assertEquals("// Input %num%", options.inputDelimiter);
+  }
+
+  @Test
+  public void testConstructor_defaultDevMode_isOff() {
+    CompilerOptions options = new CompilerOptions();
+    assertEquals(CompilerOptions.DevMode.OFF, options.devMode);
+  }
+
+  @Test
+  public void testConstructor_defaultSourceMapDetailLevel_isSymbols() {
+    CompilerOptions options = new CompilerOptions();
+    assertEquals(SourceMap.DetailLevel.SYMBOLS, options.sourceMapDetailLevel);
+  }
+
+  @Test
+  public void testConstructor_defaultVariableRenaming_isOff() {
+    CompilerOptions options = new CompilerOptions();
+    assertEquals(VariableRenamingPolicy.OFF, options.variableRenaming);
+  }
+
+  @Test
+  public void testConstructor_defaultPropertyRenaming_isOff() {
+    CompilerOptions options = new CompilerOptions();
+    assertEquals(PropertyRenamingPolicy.OFF, options.propertyRenaming);
+  }
+
+  @Test
+  public void testConstructor_defaultAnonymousFunctionNaming_isOff() {
+    CompilerOptions options = new CompilerOptions();
+    assertEquals(AnonymousFunctionNamingPolicy.OFF, options.anonymousFunctionNaming);
+  }
+
+  // ---------------------------------------------------------------------
+  // getDefineReplacements / setDefineTo* tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testGetDefineReplacements_empty_returnsEmptyMap() {
+    CompilerOptions options = new CompilerOptions();
+    Map<String, Node> map = options.getDefineReplacements();
+    assertNotNull(map);
+    assertTrue(map.isEmpty());
+  }
+
+  @Test
+  public void testGetDefineReplacements_booleanTrue_containsKey() {
+    CompilerOptions options = new CompilerOptions();
+    options.setDefineToBooleanLiteral("FOO", true);
+    Map<String, Node> map = options.getDefineReplacements();
+    assertTrue(map.containsKey("FOO"));
+    assertNotNull(map.get("FOO"));
+  }
+
+  @Test
+  public void testGetDefineReplacements_booleanFalse_containsKey() {
+    CompilerOptions options = new CompilerOptions();
+    options.setDefineToBooleanLiteral("BAR", false);
+    Map<String, Node> map = options.getDefineReplacements();
+    assertTrue(map.containsKey("BAR"));
+    assertNotNull(map.get("BAR"));
+  }
+
+  @Test
+  public void testSetDefineToStringLiteral_normal_containsKey() {
+    CompilerOptions options = new CompilerOptions();
+    options.setDefineToStringLiteral("STR", "hello");
+    Map<String, Node> map = options.getDefineReplacements();
+    assertTrue(map.containsKey("STR"));
+    assertNotNull(map.get("STR"));
+  }
+
+  @Test
+  public void testSetDefineToStringLiteral_emptyString_containsKey() {
+    CompilerOptions options = new CompilerOptions();
+    options.setDefineToStringLiteral("EMPTY", "");
+    Map<String, Node> map = options.getDefineReplacements();
+    assertTrue(map.containsKey("EMPTY"));
+  }
+
+  @Test
+  public void testSetDefineToNumberLiteral_normal_containsKey() {
+    CompilerOptions options = new CompilerOptions();
+    options.setDefineToNumberLiteral("NUM", 42);
+    Map<String, Node> map = options.getDefineReplacements();
+    assertTrue(map.containsKey("NUM"));
+    assertNotNull(map.get("NUM"));
+  }
+
+  @Test
+  public void testSetDefineToNumberLiteral_negative_containsKey() {
+    CompilerOptions options = new CompilerOptions();
+    options.setDefineToNumberLiteral("NEG", -1);
+    Map<String, Node> map = options.getDefineReplacements();
+    assertTrue(map.containsKey("NEG"));
+  }
+
+  @Test
+  public void testSetDefineToNumberLiteral_zero_containsKey() {
+    CompilerOptions options = new CompilerOptions();
+    options.setDefineToNumberLiteral("ZERO", 0);
+    Map<String, Node> map = options.getDefineReplacements();
+    assertTrue(map.containsKey("ZERO"));
+  }
+
+  @Test
+  public void testSetDefineToDoubleLiteral_normal_containsKey() {
+    CompilerOptions options = new CompilerOptions();
+    options.setDefineToDoubleLiteral("DBL", 3.14);
+    Map<String, Node> map = options.getDefineReplacements();
+    assertTrue(map.containsKey("DBL"));
+    assertNotNull(map.get("DBL"));
+  }
+
+  @Test
+  public void testSetDefineToDoubleLiteral_zero_containsKey() {
+    CompilerOptions options = new CompilerOptions();
+    options.setDefineToDoubleLiteral("DBLZERO", 0.0);
+    Map<String, Node> map = options.getDefineReplacements();
+    assertTrue(map.containsKey("DBLZERO"));
+  }
+
+  @Test
+  public void testSetDefineToDoubleLiteral_negative_containsKey() {
+    CompilerOptions options = new CompilerOptions();
+    options.setDefineToDoubleLiteral("DBLNEG", -2.5);
+    Map<String, Node> map = options.getDefineReplacements();
+    assertTrue(map.containsKey("DBLNEG"));
+  }
+
+  @Test
+  public void testGetDefineReplacements_multipleTypes_allPresent() {
+    CompilerOptions options = new CompilerOptions();
+    options.setDefineToBooleanLiteral("B", true);
+    options.setDefineToStringLiteral("S", "s");
+    options.setDefineToNumberLiteral("I", 5);
+    options.setDefineToDoubleLiteral("D", 1.5);
+    Map<String, Node> map = options.getDefineReplacements();
+    assertEquals(4, map.size());
+    assertTrue(map.containsKey("B"));
+    assertTrue(map.containsKey("S"));
+    assertTrue(map.containsKey("I"));
+    assertTrue(map.containsKey("D"));
+  }
+
+  // ---------------------------------------------------------------------
+  // skipAllCompilerPasses
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSkipAllCompilerPasses_setsSkipAllPassesTrue() {
+    CompilerOptions options = new CompilerOptions();
+    assertFalse(options.skipAllPasses);
+    options.skipAllCompilerPasses();
+    assertTrue(options.skipAllPasses);
+  }
+
+  // ---------------------------------------------------------------------
+  // setRenamingPolicy
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetRenamingPolicy_setsFields() {
+    CompilerOptions options = new CompilerOptions();
+    options.setRenamingPolicy(VariableRenamingPolicy.OFF, PropertyRenamingPolicy.OFF);
+    assertEquals(VariableRenamingPolicy.OFF, options.variableRenaming);
+    assertEquals(PropertyRenamingPolicy.OFF, options.propertyRenaming);
+  }
+
+  // ---------------------------------------------------------------------
+  // setCollapsePropertiesOnExternTypes
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetCollapsePropertiesOnExternTypes_true_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    options.setCollapsePropertiesOnExternTypes(true);
+    assertTrue(options.collapsePropertiesOnExternTypes);
+  }
+
+  @Test
+  public void testSetCollapsePropertiesOnExternTypes_false_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    options.setCollapsePropertiesOnExternTypes(false);
+    assertFalse(options.collapsePropertiesOnExternTypes);
+  }
+
+  // ---------------------------------------------------------------------
+  // setProcessObjectPropertyString
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetProcessObjectPropertyString_true_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    options.setProcessObjectPropertyString(true);
+    assertTrue(options.processObjectPropertyString);
+  }
+
+  // ---------------------------------------------------------------------
+  // setIdGenerators
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetIdGenerators_normalSet_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    Set<String> generators = new HashSet<String>(Arrays.asList("id1", "id2"));
+    options.setIdGenerators(generators);
+    assertEquals(2, options.idGenerators.size());
+    assertTrue(options.idGenerators.contains("id1"));
+    assertTrue(options.idGenerators.contains("id2"));
+  }
+
+  @Test
+  public void testSetIdGenerators_emptySet_setsEmptyField() {
+    CompilerOptions options = new CompilerOptions();
+    Set<String> generators = new HashSet<String>();
+    options.setIdGenerators(generators);
+    assertTrue(options.idGenerators.isEmpty());
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testSetIdGenerators_null_throwsNPE() {
+    CompilerOptions options = new CompilerOptions();
+    options.setIdGenerators(null);
+  }
+
+  // ---------------------------------------------------------------------
+  // setReplaceStringsConfiguration
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetReplaceStringsConfiguration_normal_setsFields() {
+    CompilerOptions options = new CompilerOptions();
+    List<String> descriptors = Arrays.asList("foo.bar", "baz.qux");
+    options.setReplaceStringsConfiguration("TOKEN", descriptors);
+    assertEquals("TOKEN", options.replaceStringsPlaceholderToken);
+    assertEquals(2, options.replaceStringsFunctionDescriptions.size());
+    assertTrue(options.replaceStringsFunctionDescriptions.contains("foo.bar"));
+  }
+
+  @Test
+  public void testSetReplaceStringsConfiguration_emptyList_setsEmptyField() {
+    CompilerOptions options = new CompilerOptions();
+    options.setReplaceStringsConfiguration("TOK", Arrays.<String>asList());
+    assertTrue(options.replaceStringsFunctionDescriptions.isEmpty());
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testSetReplaceStringsConfiguration_nullDescriptors_throwsNPE() {
+    CompilerOptions options = new CompilerOptions();
+    options.setReplaceStringsConfiguration("TOKEN", null);
+  }
+
+  // ---------------------------------------------------------------------
+  // setRewriteNewDateGoogNow
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetRewriteNewDateGoogNow_false_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    options.setRewriteNewDateGoogNow(false);
+    assertFalse(options.rewriteNewDateGoogNow);
+  }
+
+  @Test
+  public void testSetRewriteNewDateGoogNow_true_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    options.setRewriteNewDateGoogNow(false);
+    options.setRewriteNewDateGoogNow(true);
+    assertTrue(options.rewriteNewDateGoogNow);
+  }
+
+  // ---------------------------------------------------------------------
+  // setRemoveAbstractMethods
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetRemoveAbstractMethods_false_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    options.setRemoveAbstractMethods(false);
+    assertFalse(options.removeAbstractMethods);
+  }
+
+  // ---------------------------------------------------------------------
+  // setNameAnonymousFunctionsOnly
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetNameAnonymousFunctionsOnly_true_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    options.setNameAnonymousFunctionsOnly(true);
+    assertTrue(options.nameAnonymousFunctionsOnly);
+  }
+
+  // ---------------------------------------------------------------------
+  // setColorizeErrorOutput / shouldColorizeErrorOutput
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetColorizeErrorOutput_true_shouldColorizeReturnsTrue() {
+    CompilerOptions options = new CompilerOptions();
+    assertFalse(options.shouldColorizeErrorOutput());
+    options.setColorizeErrorOutput(true);
+    assertTrue(options.shouldColorizeErrorOutput());
+  }
+
+  @Test
+  public void testSetColorizeErrorOutput_false_shouldColorizeReturnsFalse() {
+    CompilerOptions options = new CompilerOptions();
+    options.setColorizeErrorOutput(true);
+    options.setColorizeErrorOutput(false);
+    assertFalse(options.shouldColorizeErrorOutput());
+  }
+
+  // ---------------------------------------------------------------------
+  // setChainCalls
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetChainCalls_true_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    options.setChainCalls(true);
+    assertTrue(options.chainCalls);
+  }
+
+  // ---------------------------------------------------------------------
+  // enableRuntimeTypeCheck / disableRuntimeTypeCheck
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testEnableRuntimeTypeCheck_setsFieldsCorrectly() {
+    CompilerOptions options = new CompilerOptions();
+    options.enableRuntimeTypeCheck("myLogFunction");
+    assertTrue(options.runtimeTypeCheck);
+    assertEquals("myLogFunction", options.runtimeTypeCheckLogFunction);
+  }
+
+  @Test
+  public void testEnableRuntimeTypeCheck_nullLogFunction_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    options.enableRuntimeTypeCheck(null);
+    assertTrue(options.runtimeTypeCheck);
+    assertNull(options.runtimeTypeCheckLogFunction);
+  }
+
+  @Test
+  public void testDisableRuntimeTypeCheck_setsFalse() {
+    CompilerOptions options = new CompilerOptions();
+    options.enableRuntimeTypeCheck("log");
+    options.disableRuntimeTypeCheck();
+    assertFalse(options.runtimeTypeCheck);
+  }
+
+  // ---------------------------------------------------------------------
+  // setCodingConvention / getCodingConvention
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetCodingConvention_null_getCodingConventionReturnsNull() {
+    CompilerOptions options = new CompilerOptions();
+    options.setCodingConvention(null);
+    assertNull(options.getCodingConvention());
+  }
+
+  // ---------------------------------------------------------------------
+  // setManageClosureDependencies
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetManageClosureDependencies_true_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    options.setManageClosureDependencies(true);
+    assertTrue(options.manageClosureDependencies);
+  }
+
+  @Test
+  public void testSetManageClosureDependencies_false_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    options.setManageClosureDependencies(true);
+    options.setManageClosureDependencies(false);
+    assertFalse(options.manageClosureDependencies);
+  }
+
+  // ---------------------------------------------------------------------
+  // setSummaryDetailLevel
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testSetSummaryDetailLevel_normalValue_setsField() {
+    CompilerOptions options = new CompilerOptions();
+    options.setSummaryDetailLevel(3

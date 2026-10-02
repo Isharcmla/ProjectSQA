@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "17",
+  "tool": "claude",
+  "class": "org.mockito.internal.creation.MockSettingsImpl",
+  "target_classes": [
+    "org.mockito.internal.creation.MockSettingsImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 62.47,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\17\\MockSettingsImpl_20261003_003858.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\17\\MockSettingsImplTest.java",
+  "usage": {
+    "prompt_tokens": 1733,
+    "completion_tokens": 7440,
+    "total_tokens": 9173
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 173567,
+    "daily_remaining_tokens": 26433
+  },
+  "timestamp": "20261003_003858"
+}

@@ -1,0 +1,1120 @@
+import org.joda.time.Chronology;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeFieldType;
+import org.joda.time.DateTimeZone;
+import org.joda.time.DurationFieldType;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
+import org.joda.time.LocalTime;
+import org.joda.time.Period;
+import org.joda.time.ReadablePartial;
+import org.joda.time.chrono.ISOChronology;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.ISODateTimeFormat;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+import java.util.TimeZone;
+
+import static org.junit.Assert.*;
+
+public class LocalDateTimeTest {
+
+    private LocalDateTime TEST_DATE_TIME;
+
+    @Before
+    public void setUp() {
+        TEST_DATE_TIME = new LocalDateTime(2004, 6, 9, 10, 20, 30, 40);
+    }
+
+    //-----------------------------------------------------------------------
+    // Factory methods
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testNow_returnsNotNull() {
+        LocalDateTime test = LocalDateTime.now();
+        assertNotNull(test);
+    }
+
+    @Test
+    public void testNowWithZone_returnsNotNull() {
+        LocalDateTime test = LocalDateTime.now(DateTimeZone.UTC);
+        assertNotNull(test);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testNowWithZone_nullZone_throwsException() {
+        LocalDateTime.now((DateTimeZone) null);
+    }
+
+    @Test
+    public void testNowWithChronology_returnsNotNull() {
+        LocalDateTime test = LocalDateTime.now(ISOChronology.getInstance());
+        assertNotNull(test);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testNowWithChronology_nullChronology_throwsException() {
+        LocalDateTime.now((Chronology) null);
+    }
+
+    @Test
+    public void testParse_validString_returnsCorrectDateTime() {
+        LocalDateTime test = LocalDateTime.parse("2004-06-09T10:20:30.040");
+        assertEquals(TEST_DATE_TIME, test);
+    }
+
+    @Test
+    public void testParseWithFormatter_validString_returnsCorrectDateTime() {
+        DateTimeFormatter f = ISODateTimeFormat.localDateOptionalTimeParser();
+        LocalDateTime test = LocalDateTime.parse("2004-06-09T10:20:30.040", f);
+        assertEquals(TEST_DATE_TIME, test);
+    }
+
+    @Test
+    public void testFromCalendarFields_validCalendar_returnsCorrectDateTime() {
+        GregorianCalendar cal = new GregorianCalendar(2004, Calendar.JUNE, 9, 10, 20, 30);
+        cal.set(Calendar.MILLISECOND, 40);
+        LocalDateTime test = LocalDateTime.fromCalendarFields(cal);
+        assertEquals(TEST_DATE_TIME, test);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFromCalendarFields_nullCalendar_throwsException() {
+        LocalDateTime.fromCalendarFields(null);
+    }
+
+    @Test
+    public void testFromDateFields_validDate_returnsCorrectDateTime() {
+        Date date = new Date(2004 - 1900, 5, 9, 10, 20, 30);
+        LocalDateTime test = LocalDateTime.fromDateFields(date);
+        assertEquals(2004, test.getYear());
+        assertEquals(6, test.getMonthOfYear());
+        assertEquals(9, test.getDayOfMonth());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFromDateFields_nullDate_throwsException() {
+        LocalDateTime.fromDateFields(null);
+    }
+
+    //-----------------------------------------------------------------------
+    // Constructors
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testConstructor_noArgs_returnsNotNull() {
+        LocalDateTime test = new LocalDateTime();
+        assertNotNull(test);
+    }
+
+    @Test
+    public void testConstructor_zone_returnsNotNull() {
+        LocalDateTime test = new LocalDateTime(DateTimeZone.UTC);
+        assertNotNull(test);
+    }
+
+    @Test
+    public void testConstructor_zoneNull_usesDefaultZone() {
+        LocalDateTime test = new LocalDateTime((DateTimeZone) null);
+        assertNotNull(test);
+    }
+
+    @Test
+    public void testConstructor_chronology_returnsNotNull() {
+        LocalDateTime test = new LocalDateTime(ISOChronology.getInstance());
+        assertNotNull(test);
+    }
+
+    @Test
+    public void testConstructor_chronologyNull_usesISO() {
+        LocalDateTime test = new LocalDateTime((Chronology) null);
+        assertNotNull(test);
+    }
+
+    @Test
+    public void testConstructor_instant_returnsCorrectDateTime() {
+        LocalDateTime test = new LocalDateTime(0L);
+        assertEquals(1970, test.getYear());
+    }
+
+    @Test
+    public void testConstructor_instantZone_returnsCorrectDateTime() {
+        LocalDateTime test = new LocalDateTime(0L, DateTimeZone.UTC);
+        assertEquals(1970, test.getYear());
+    }
+
+    @Test
+    public void testConstructor_instantChronology_returnsCorrectDateTime() {
+        LocalDateTime test = new LocalDateTime(0L, ISOChronology.getInstanceUTC());
+        assertEquals(1970, test.getYear());
+    }
+
+    @Test
+    public void testConstructor_instantChronologyNull_usesISO() {
+        LocalDateTime test = new LocalDateTime(0L, (Chronology) null);
+        assertEquals(1970, test.getYear());
+    }
+
+    @Test
+    public void testConstructor_objectInstant_returnsCorrectDateTime() {
+        LocalDateTime test = new LocalDateTime((Object) "2004-06-09T10:20:30.040");
+        assertEquals(TEST_DATE_TIME, test);
+    }
+
+    @Test
+    public void testConstructor_objectInstantNull_returnsCurrentTime() {
+        LocalDateTime test = new LocalDateTime((Object) null);
+        assertNotNull(test);
+    }
+
+    @Test
+    public void testConstructor_objectZone_returnsCorrectDateTime() {
+        LocalDateTime test = new LocalDateTime((Object) "2004-06-09T10:20:30.040", DateTimeZone.UTC);
+        assertEquals(TEST_DATE_TIME, test);
+    }
+
+    @Test
+    public void testConstructor_objectChronology_returnsCorrectDateTime() {
+        LocalDateTime test = new LocalDateTime((Object) "2004-06-09T10:20:30.040", ISOChronology.getInstanceUTC());
+        assertEquals(TEST_DATE_TIME, test);
+    }
+
+    @Test
+    public void testConstructor_ymdhm_returnsCorrectDateTime() {
+        LocalDateTime test = new LocalDateTime(2004, 6, 9, 10, 20);
+        assertEquals(2004, test.getYear());
+        assertEquals(6, test.getMonthOfYear());
+        assertEquals(9, test.getDayOfMonth());
+        assertEquals(10, test.getHourOfDay());
+        assertEquals(20, test.getMinuteOfHour());
+        assertEquals(0, test.getSecondOfMinute());
+        assertEquals(0, test.getMillisOfSecond());
+    }
+
+    @Test
+    public void testConstructor_ymdhms_returnsCorrectDateTime() {
+        LocalDateTime test = new LocalDateTime(2004, 6, 9, 10, 20, 30);
+        assertEquals(30, test.getSecondOfMinute());
+        assertEquals(0, test.getMillisOfSecond());
+    }
+
+    @Test
+    public void testConstructor_ymdhmsm_returnsCorrectDateTime() {
+        LocalDateTime test = new LocalDateTime(2004, 6, 9, 10, 20, 30, 40);
+        assertEquals(TEST_DATE_TIME, test);
+    }
+
+    @Test
+    public void testConstructor_ymdhmsmChronology_returnsCorrectDateTime() {
+        LocalDateTime test = new LocalDateTime(2004, 6, 9, 10, 20, 30, 40, ISOChronology.getInstanceUTC());
+        assertEquals(TEST_DATE_TIME, test);
+    }
+
+    @Test
+    public void testConstructor_ymdhmsmChronologyNull_usesISO() {
+        LocalDateTime test = new LocalDateTime(2004, 6, 9, 10, 20, 30, 40, null);
+        assertEquals(TEST_DATE_TIME, test);
+    }
+
+    //-----------------------------------------------------------------------
+    // size / getField / getValue
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testSize_returnsFour() {
+        assertEquals(4, TEST_DATE_TIME.size());
+    }
+
+    @Test
+    public void testGetValue_year_returnsCorrectValue() {
+        assertEquals(2004, TEST_DATE_TIME.getValue(0));
+    }
+
+    @Test
+    public void testGetValue_monthOfYear_returnsCorrectValue() {
+        assertEquals(6, TEST_DATE_TIME.getValue(1));
+    }
+
+    @Test
+    public void testGetValue_dayOfMonth_returnsCorrectValue() {
+        assertEquals(9, TEST_DATE_TIME.getValue(2));
+    }
+
+    @Test
+    public void testGetValue_millisOfDay_returnsCorrectValue() {
+        assertTrue(TEST_DATE_TIME.getValue(3) > 0);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetValue_invalidIndex_throwsException() {
+        TEST_DATE_TIME.getValue(4);
+    }
+
+    //-----------------------------------------------------------------------
+    // get / isSupported
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testGet_fieldType_returnsCorrectValue() {
+        assertEquals(2004, TEST_DATE_TIME.get(DateTimeFieldType.year()));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGet_nullFieldType_throwsException() {
+        TEST_DATE_TIME.get((DateTimeFieldType) null);
+    }
+
+    @Test
+    public void testIsSupported_fieldType_returnsTrue() {
+        assertTrue(TEST_DATE_TIME.isSupported(DateTimeFieldType.year()));
+    }
+
+    @Test
+    public void testIsSupported_nullFieldType_returnsFalse() {
+        assertFalse(TEST_DATE_TIME.isSupported((DateTimeFieldType) null));
+    }
+
+    @Test
+    public void testIsSupported_durationType_returnsTrue() {
+        assertTrue(TEST_DATE_TIME.isSupported(DurationFieldType.years()));
+    }
+
+    @Test
+    public void testIsSupported_nullDurationType_returnsFalse() {
+        assertFalse(TEST_DATE_TIME.isSupported((DurationFieldType) null));
+    }
+
+    //-----------------------------------------------------------------------
+    // getChronology
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testGetChronology_returnsISOUTC() {
+        assertEquals(ISOChronology.getInstanceUTC(), TEST_DATE_TIME.getChronology());
+    }
+
+    //-----------------------------------------------------------------------
+    // equals / compareTo
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testEquals_sameInstance_returnsTrue() {
+        assertTrue(TEST_DATE_TIME.equals(TEST_DATE_TIME));
+    }
+
+    @Test
+    public void testEquals_equalValues_returnsTrue() {
+        LocalDateTime other = new LocalDateTime(2004, 6, 9, 10, 20, 30, 40);
+        assertTrue(TEST_DATE_TIME.equals(other));
+    }
+
+    @Test
+    public void testEquals_differentValues_returnsFalse() {
+        LocalDateTime other = new LocalDateTime(2005, 6, 9, 10, 20, 30, 40);
+        assertFalse(TEST_DATE_TIME.equals(other));
+    }
+
+    @Test
+    public void testEquals_null_returnsFalse() {
+        assertFalse(TEST_DATE_TIME.equals(null));
+    }
+
+    @Test
+    public void testEquals_differentType_returnsFalse() {
+        assertFalse(TEST_DATE_TIME.equals("not a LocalDateTime"));
+    }
+
+    @Test
+    public void testCompareTo_sameInstance_returnsZero() {
+        assertEquals(0, TEST_DATE_TIME.compareTo(TEST_DATE_TIME));
+    }
+
+    @Test
+    public void testCompareTo_earlier_returnsNegative() {
+        LocalDateTime earlier = new LocalDateTime(2003, 6, 9, 10, 20, 30, 40);
+        assertTrue(TEST_DATE_TIME.compareTo(earlier) > 0);
+    }
+
+    @Test
+    public void testCompareTo_later_returnsPositive() {
+        LocalDateTime later = new LocalDateTime(2005, 6, 9, 10, 20, 30, 40);
+        assertTrue(TEST_DATE_TIME.compareTo(later) < 0);
+    }
+
+    @Test
+    public void testCompareTo_equal_returnsZero() {
+        LocalDateTime other = new LocalDateTime(2004, 6, 9, 10, 20, 30, 40);
+        assertEquals(0, TEST_DATE_TIME.compareTo(other));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testCompareTo_null_throwsException() {
+        TEST_DATE_TIME.compareTo((ReadablePartial) null);
+    }
+
+    //-----------------------------------------------------------------------
+    // toDateTime / toLocalDate / toLocalTime / toDate
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testToDateTime_returnsCorrectDateTime() {
+        DateTime dt = TEST_DATE_TIME.toDateTime();
+        assertEquals(2004, dt.getYear());
+    }
+
+    @Test
+    public void testToDateTimeWithZone_returnsCorrectDateTime() {
+        DateTime dt = TEST_DATE_TIME.toDateTime(DateTimeZone.UTC);
+        assertEquals(2004, dt.getYear());
+    }
+
+    @Test
+    public void testToDateTimeWithNullZone_usesDefaultZone() {
+        DateTime dt = TEST_DATE_TIME.toDateTime((DateTimeZone) null);
+        assertNotNull(dt);
+    }
+
+    @Test
+    public void testToLocalDate_returnsCorrectLocalDate() {
+        LocalDate ld = TEST_DATE_TIME.toLocalDate();
+        assertEquals(2004, ld.getYear());
+        assertEquals(6, ld.getMonthOfYear());
+        assertEquals(9, ld.getDayOfMonth());
+    }
+
+    @Test
+    public void testToLocalTime_returnsCorrectLocalTime() {
+        LocalTime lt = TEST_DATE_TIME.toLocalTime();
+        assertEquals(10, lt.getHourOfDay());
+        assertEquals(20, lt.getMinuteOfHour());
+    }
+
+    @Test
+    public void testToDate_returnsCorrectDate() {
+        Date date = TEST_DATE_TIME.toDate();
+        assertNotNull(date);
+    }
+
+    //-----------------------------------------------------------------------
+    // withDate / withTime / withFields / withField / withFieldAdded
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testWithDate_returnsUpdatedDate() {
+        LocalDateTime test = TEST_DATE_TIME.withDate(2005, 7, 10);
+        assertEquals(2005, test.getYear());
+        assertEquals(7, test.getMonthOfYear());
+        assertEquals(10, test.getDayOfMonth());
+        assertEquals(10, test.getHourOfDay());
+    }
+
+    @Test
+    public void testWithTime_returnsUpdatedTime() {
+        LocalDateTime test = TEST_DATE_TIME.withTime(1, 2, 3, 4);
+        assertEquals(1, test.getHourOfDay());
+        assertEquals(2, test.getMinuteOfHour());
+        assertEquals(3, test.getSecondOfMinute());
+        assertEquals(4, test.getMillisOfSecond());
+    }
+
+    @Test
+    public void testWithFields_nullPartial_returnsSameInstance() {
+        LocalDateTime test = TEST_DATE_TIME.withFields(null);
+        assertSame(TEST_DATE_TIME, test);
+    }
+
+    @Test
+    public void testWithFields_validPartial_returnsUpdatedDateTime() {
+        LocalDate ld = new LocalDate(1999, 1, 1);
+        LocalDateTime test = TEST_DATE_TIME.withFields(ld);
+        assertEquals(1999, test.getYear());
+        assertEquals(1, test.getMonthOfYear());
+        assertEquals(1, test.getDayOfMonth());
+        assertEquals(10, test.getHourOfDay());
+    }
+
+    @Test
+    public void testWithField_validField_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withField(DateTimeFieldType.year(), 2010);
+        assertEquals(2010, test.getYear());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithField_nullFieldType_throwsException() {
+        TEST_DATE_TIME.withField(null, 2010);
+    }
+
+    @Test
+    public void testWithFieldAdded_validField_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withFieldAdded(DurationFieldType.years(), 1);
+        assertEquals(2005, test.getYear());
+    }
+
+    @Test
+    public void testWithFieldAdded_zeroAmount_returnsSameInstance() {
+        LocalDateTime test = TEST_DATE_TIME.withFieldAdded(DurationFieldType.years(), 0);
+        assertSame(TEST_DATE_TIME, test);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithFieldAdded_nullFieldType_throwsException() {
+        TEST_DATE_TIME.withFieldAdded(null, 1);
+    }
+
+    //-----------------------------------------------------------------------
+    // withDurationAdded / withPeriodAdded
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testWithDurationAdded_nullDuration_returnsSameInstance() {
+        LocalDateTime test = TEST_DATE_TIME.withDurationAdded(null, 1);
+        assertSame(TEST_DATE_TIME, test);
+    }
+
+    @Test
+    public void testWithDurationAdded_zeroScalar_returnsSameInstance() {
+        LocalDateTime test = TEST_DATE_TIME.withDurationAdded(org.joda.time.Duration.millis(1000), 0);
+        assertSame(TEST_DATE_TIME, test);
+    }
+
+    @Test
+    public void testWithDurationAdded_validDuration_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withDurationAdded(org.joda.time.Duration.standardDays(1), 1);
+        assertEquals(10, test.getDayOfMonth());
+    }
+
+    @Test
+    public void testWithPeriodAdded_nullPeriod_returnsSameInstance() {
+        LocalDateTime test = TEST_DATE_TIME.withPeriodAdded(null, 1);
+        assertSame(TEST_DATE_TIME, test);
+    }
+
+    @Test
+    public void testWithPeriodAdded_zeroScalar_returnsSameInstance() {
+        LocalDateTime test = TEST_DATE_TIME.withPeriodAdded(Period.days(1), 0);
+        assertSame(TEST_DATE_TIME, test);
+    }
+
+    @Test
+    public void testWithPeriodAdded_validPeriod_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withPeriodAdded(Period.years(1), 1);
+        assertEquals(2005, test.getYear());
+    }
+
+    //-----------------------------------------------------------------------
+    // plus / minus (duration & period)
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testPlusDuration_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.plus(org.joda.time.Duration.standardDays(1));
+        assertEquals(10, test.getDayOfMonth());
+    }
+
+    @Test
+    public void testPlusPeriod_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.plus(Period.years(1));
+        assertEquals(2005, test.getYear());
+    }
+
+    @Test
+    public void testMinusDuration_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.minus(org.joda.time.Duration.standardDays(1));
+        assertEquals(8, test.getDayOfMonth());
+    }
+
+    @Test
+    public void testMinusPeriod_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.minus(Period.years(1));
+        assertEquals(2003, test.getYear());
+    }
+
+    //-----------------------------------------------------------------------
+    // plusXxx methods
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testPlusYears_nonZero_returnsUpdatedDateTime() {
+        assertEquals(2005, TEST_DATE_TIME.plusYears(1).getYear());
+    }
+
+    @Test
+    public void testPlusYears_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.plusYears(0));
+    }
+
+    @Test
+    public void testPlusMonths_nonZero_returnsUpdatedDateTime() {
+        assertEquals(7, TEST_DATE_TIME.plusMonths(1).getMonthOfYear());
+    }
+
+    @Test
+    public void testPlusMonths_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.plusMonths(0));
+    }
+
+    @Test
+    public void testPlusWeeks_nonZero_returnsUpdatedDateTime() {
+        assertEquals(16, TEST_DATE_TIME.plusWeeks(1).getDayOfMonth());
+    }
+
+    @Test
+    public void testPlusWeeks_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.plusWeeks(0));
+    }
+
+    @Test
+    public void testPlusDays_nonZero_returnsUpdatedDateTime() {
+        assertEquals(10, TEST_DATE_TIME.plusDays(1).getDayOfMonth());
+    }
+
+    @Test
+    public void testPlusDays_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.plusDays(0));
+    }
+
+    @Test
+    public void testPlusHours_nonZero_returnsUpdatedDateTime() {
+        assertEquals(11, TEST_DATE_TIME.plusHours(1).getHourOfDay());
+    }
+
+    @Test
+    public void testPlusHours_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.plusHours(0));
+    }
+
+    @Test
+    public void testPlusMinutes_nonZero_returnsUpdatedDateTime() {
+        assertEquals(21, TEST_DATE_TIME.plusMinutes(1).getMinuteOfHour());
+    }
+
+    @Test
+    public void testPlusMinutes_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.plusMinutes(0));
+    }
+
+    @Test
+    public void testPlusSeconds_nonZero_returnsUpdatedDateTime() {
+        assertEquals(31, TEST_DATE_TIME.plusSeconds(1).getSecondOfMinute());
+    }
+
+    @Test
+    public void testPlusSeconds_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.plusSeconds(0));
+    }
+
+    @Test
+    public void testPlusMillis_nonZero_returnsUpdatedDateTime() {
+        assertEquals(41, TEST_DATE_TIME.plusMillis(1).getMillisOfSecond());
+    }
+
+    @Test
+    public void testPlusMillis_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.plusMillis(0));
+    }
+
+    //-----------------------------------------------------------------------
+    // minusXxx methods
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testMinusYears_nonZero_returnsUpdatedDateTime() {
+        assertEquals(2003, TEST_DATE_TIME.minusYears(1).getYear());
+    }
+
+    @Test
+    public void testMinusYears_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.minusYears(0));
+    }
+
+    @Test
+    public void testMinusMonths_nonZero_returnsUpdatedDateTime() {
+        assertEquals(5, TEST_DATE_TIME.minusMonths(1).getMonthOfYear());
+    }
+
+    @Test
+    public void testMinusMonths_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.minusMonths(0));
+    }
+
+    @Test
+    public void testMinusWeeks_nonZero_returnsUpdatedDateTime() {
+        assertEquals(2, TEST_DATE_TIME.minusWeeks(1).getDayOfMonth());
+    }
+
+    @Test
+    public void testMinusWeeks_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.minusWeeks(0));
+    }
+
+    @Test
+    public void testMinusDays_nonZero_returnsUpdatedDateTime() {
+        assertEquals(8, TEST_DATE_TIME.minusDays(1).getDayOfMonth());
+    }
+
+    @Test
+    public void testMinusDays_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.minusDays(0));
+    }
+
+    @Test
+    public void testMinusHours_nonZero_returnsUpdatedDateTime() {
+        assertEquals(9, TEST_DATE_TIME.minusHours(1).getHourOfDay());
+    }
+
+    @Test
+    public void testMinusHours_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.minusHours(0));
+    }
+
+    @Test
+    public void testMinusMinutes_nonZero_returnsUpdatedDateTime() {
+        assertEquals(19, TEST_DATE_TIME.minusMinutes(1).getMinuteOfHour());
+    }
+
+    @Test
+    public void testMinusMinutes_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.minusMinutes(0));
+    }
+
+    @Test
+    public void testMinusSeconds_nonZero_returnsUpdatedDateTime() {
+        assertEquals(29, TEST_DATE_TIME.minusSeconds(1).getSecondOfMinute());
+    }
+
+    @Test
+    public void testMinusSeconds_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.minusSeconds(0));
+    }
+
+    @Test
+    public void testMinusMillis_nonZero_returnsUpdatedDateTime() {
+        assertEquals(39, TEST_DATE_TIME.minusMillis(1).getMillisOfSecond());
+    }
+
+    @Test
+    public void testMinusMillis_zero_returnsSameInstance() {
+        assertSame(TEST_DATE_TIME, TEST_DATE_TIME.minusMillis(0));
+    }
+
+    //-----------------------------------------------------------------------
+    // property
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testProperty_validFieldType_returnsProperty() {
+        LocalDateTime.Property prop = TEST_DATE_TIME.property(DateTimeFieldType.year());
+        assertEquals(2004, prop.get());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testProperty_nullFieldType_throwsException() {
+        TEST_DATE_TIME.property(null);
+    }
+
+    //-----------------------------------------------------------------------
+    // getters
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testGetEra_returnsCorrectValue() {
+        assertEquals(1, TEST_DATE_TIME.getEra());
+    }
+
+    @Test
+    public void testGetCenturyOfEra_returnsCorrectValue() {
+        assertEquals(20, TEST_DATE_TIME.getCenturyOfEra());
+    }
+
+    @Test
+    public void testGetYearOfEra_returnsCorrectValue() {
+        assertEquals(2004, TEST_DATE_TIME.getYearOfEra());
+    }
+
+    @Test
+    public void testGetYearOfCentury_returnsCorrectValue() {
+        assertEquals(4, TEST_DATE_TIME.getYearOfCentury());
+    }
+
+    @Test
+    public void testGetYear_returnsCorrectValue() {
+        assertEquals(2004, TEST_DATE_TIME.getYear());
+    }
+
+    @Test
+    public void testGetWeekyear_returnsCorrectValue() {
+        assertEquals(2004, TEST_DATE_TIME.getWeekyear());
+    }
+
+    @Test
+    public void testGetMonthOfYear_returnsCorrectValue() {
+        assertEquals(6, TEST_DATE_TIME.getMonthOfYear());
+    }
+
+    @Test
+    public void testGetWeekOfWeekyear_returnsCorrectValue() {
+        assertTrue(TEST_DATE_TIME.getWeekOfWeekyear() > 0);
+    }
+
+    @Test
+    public void testGetDayOfYear_returnsCorrectValue() {
+        assertTrue(TEST_DATE_TIME.getDayOfYear() > 0);
+    }
+
+    @Test
+    public void testGetDayOfMonth_returnsCorrectValue() {
+        assertEquals(9, TEST_DATE_TIME.getDayOfMonth());
+    }
+
+    @Test
+    public void testGetDayOfWeek_returnsCorrectValue() {
+        assertTrue(TEST_DATE_TIME.getDayOfWeek() >= 1 && TEST_DATE_TIME.getDayOfWeek() <= 7);
+    }
+
+    @Test
+    public void testGetHourOfDay_returnsCorrectValue() {
+        assertEquals(10, TEST_DATE_TIME.getHourOfDay());
+    }
+
+    @Test
+    public void testGetMinuteOfHour_returnsCorrectValue() {
+        assertEquals(20, TEST_DATE_TIME.getMinuteOfHour());
+    }
+
+    @Test
+    public void testGetSecondOfMinute_returnsCorrectValue() {
+        assertEquals(30, TEST_DATE_TIME.getSecondOfMinute());
+    }
+
+    @Test
+    public void testGetMillisOfSecond_returnsCorrectValue() {
+        assertEquals(40, TEST_DATE_TIME.getMillisOfSecond());
+    }
+
+    @Test
+    public void testGetMillisOfDay_returnsCorrectValue() {
+        assertTrue(TEST_DATE_TIME.getMillisOfDay() > 0);
+    }
+
+    //-----------------------------------------------------------------------
+    // withXxx setter methods
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testWithEra_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withEra(1);
+        assertEquals(1, test.getEra());
+    }
+
+    @Test
+    public void testWithCenturyOfEra_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withCenturyOfEra(21);
+        assertEquals(21, test.getCenturyOfEra());
+    }
+
+    @Test
+    public void testWithYearOfEra_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withYearOfEra(2010);
+        assertEquals(2010, test.getYearOfEra());
+    }
+
+    @Test
+    public void testWithYearOfCentury_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withYearOfCentury(50);
+        assertEquals(50, test.getYearOfCentury());
+    }
+
+    @Test
+    public void testWithYear_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withYear(1999);
+        assertEquals(1999, test.getYear());
+    }
+
+    @Test
+    public void testWithWeekyear_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withWeekyear(2010);
+        assertEquals(2010, test.getWeekyear());
+    }
+
+    @Test
+    public void testWithMonthOfYear_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withMonthOfYear(1);
+        assertEquals(1, test.getMonthOfYear());
+    }
+
+    @Test
+    public void testWithWeekOfWeekyear_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withWeekOfWeekyear(10);
+        assertEquals(10, test.getWeekOfWeekyear());
+    }
+
+    @Test
+    public void testWithDayOfYear_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withDayOfYear(100);
+        assertEquals(100, test.getDayOfYear());
+    }
+
+    @Test
+    public void testWithDayOfMonth_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withDayOfMonth(15);
+        assertEquals(15, test.getDayOfMonth());
+    }
+
+    @Test
+    public void testWithDayOfWeek_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withDayOfWeek(1);
+        assertEquals(1, test.getDayOfWeek());
+    }
+
+    @Test
+    public void testWithHourOfDay_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withHourOfDay(5);
+        assertEquals(5, test.getHourOfDay());
+    }
+
+    @Test
+    public void testWithMinuteOfHour_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withMinuteOfHour(5);
+        assertEquals(5, test.getMinuteOfHour());
+    }
+
+    @Test
+    public void testWithSecondOfMinute_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withSecondOfMinute(5);
+        assertEquals(5, test.getSecondOfMinute());
+    }
+
+    @Test
+    public void testWithMillisOfSecond_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withMillisOfSecond(5);
+        assertEquals(5, test.getMillisOfSecond());
+    }
+
+    @Test
+    public void testWithMillisOfDay_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.withMillisOfDay(5000);
+        assertEquals(5000, test.getMillisOfDay());
+    }
+
+    //-----------------------------------------------------------------------
+    // property accessor methods
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testEraProperty_returnsCorrectProperty() {
+        assertEquals(1, TEST_DATE_TIME.era().get());
+    }
+
+    @Test
+    public void testCenturyOfEraProperty_returnsCorrectProperty() {
+        assertEquals(20, TEST_DATE_TIME.centuryOfEra().get());
+    }
+
+    @Test
+    public void testYearOfCenturyProperty_returnsCorrectProperty() {
+        assertEquals(4, TEST_DATE_TIME.yearOfCentury().get());
+    }
+
+    @Test
+    public void testYearOfEraProperty_returnsCorrectProperty() {
+        assertEquals(2004, TEST_DATE_TIME.yearOfEra().get());
+    }
+
+    @Test
+    public void testYearProperty_returnsCorrectProperty() {
+        assertEquals(2004, TEST_DATE_TIME.year().get());
+    }
+
+    @Test
+    public void testWeekyearProperty_returnsCorrectProperty() {
+        assertEquals(2004, TEST_DATE_TIME.weekyear().get());
+    }
+
+    @Test
+    public void testMonthOfYearProperty_returnsCorrectProperty() {
+        assertEquals(6, TEST_DATE_TIME.monthOfYear().get());
+    }
+
+    @Test
+    public void testWeekOfWeekyearProperty_returnsCorrectProperty() {
+        assertTrue(TEST_DATE_TIME.weekOfWeekyear().get() > 0);
+    }
+
+    @Test
+    public void testDayOfYearProperty_returnsCorrectProperty() {
+        assertTrue(TEST_DATE_TIME.dayOfYear().get() > 0);
+    }
+
+    @Test
+    public void testDayOfMonthProperty_returnsCorrectProperty() {
+        assertEquals(9, TEST_DATE_TIME.dayOfMonth().get());
+    }
+
+    @Test
+    public void testDayOfWeekProperty_returnsCorrectProperty() {
+        assertTrue(TEST_DATE_TIME.dayOfWeek().get() >= 1);
+    }
+
+    @Test
+    public void testHourOfDayProperty_returnsCorrectProperty() {
+        assertEquals(10, TEST_DATE_TIME.hourOfDay().get());
+    }
+
+    @Test
+    public void testMinuteOfHourProperty_returnsCorrectProperty() {
+        assertEquals(20, TEST_DATE_TIME.minuteOfHour().get());
+    }
+
+    @Test
+    public void testSecondOfMinuteProperty_returnsCorrectProperty() {
+        assertEquals(30, TEST_DATE_TIME.secondOfMinute().get());
+    }
+
+    @Test
+    public void testMillisOfSecondProperty_returnsCorrectProperty() {
+        assertEquals(40, TEST_DATE_TIME.millisOfSecond().get());
+    }
+
+    @Test
+    public void testMillisOfDayProperty_returnsCorrectProperty() {
+        assertTrue(TEST_DATE_TIME.millisOfDay().get() > 0);
+    }
+
+    //-----------------------------------------------------------------------
+    // Property class methods
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testProperty_getField_returnsCorrectField() {
+        LocalDateTime.Property prop = TEST_DATE_TIME.year();
+        assertNotNull(prop.getField());
+    }
+
+    @Test
+    public void testProperty_getLocalDateTime_returnsCorrectInstance() {
+        LocalDateTime.Property prop = TEST_DATE_TIME.year();
+        assertSame(TEST_DATE_TIME, prop.getLocalDateTime());
+    }
+
+    @Test
+    public void testProperty_addToCopyInt_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.year().addToCopy(1);
+        assertEquals(2005, test.getYear());
+    }
+
+    @Test
+    public void testProperty_addToCopyLong_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.year().addToCopy(1L);
+        assertEquals(2005, test.getYear());
+    }
+
+    @Test
+    public void testProperty_addWrapFieldToCopy_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.monthOfYear().addWrapFieldToCopy(7);
+        assertNotNull(test);
+    }
+
+    @Test
+    public void testProperty_setCopyInt_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.year().setCopy(2010);
+        assertEquals(2010, test.getYear());
+    }
+
+    @Test
+    public void testProperty_setCopyStringWithLocale_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.monthOfYear().setCopy("December", Locale.ENGLISH);
+        assertEquals(12, test.getMonthOfYear());
+    }
+
+    @Test
+    public void testProperty_setCopyString_returnsUpdatedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.monthOfYear().setCopy("December");
+        assertEquals(12, test.getMonthOfYear());
+    }
+
+    @Test
+    public void testProperty_withMaximumValue_returnsMaxFieldValue() {
+        LocalDateTime test = TEST_DATE_TIME.dayOfMonth().withMaximumValue();
+        assertEquals(30, test.getDayOfMonth());
+    }
+
+    @Test
+    public void testProperty_withMinimumValue_returnsMinFieldValue() {
+        LocalDateTime test = TEST_DATE_TIME.dayOfMonth().withMinimumValue();
+        assertEquals(1, test.getDayOfMonth());
+    }
+
+    @Test
+    public void testProperty_roundFloorCopy_returnsFlooredDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.hourOfDay().roundFloorCopy();
+        assertEquals(0, test.getMinuteOfHour());
+    }
+
+    @Test
+    public void testProperty_roundCeilingCopy_returnsCeiledDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.hourOfDay().roundCeilingCopy();
+        assertEquals(0, test.getMinuteOfHour());
+    }
+
+    @Test
+    public void testProperty_roundHalfFloorCopy_returnsRoundedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.hourOfDay().roundHalfFloorCopy();
+        assertNotNull(test);
+    }
+
+    @Test
+    public void testProperty_roundHalfCeilingCopy_returnsRoundedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.hourOfDay().roundHalfCeilingCopy();
+        assertNotNull(test);
+    }
+
+    @Test
+    public void testProperty_roundHalfEvenCopy_returnsRoundedDateTime() {
+        LocalDateTime test = TEST_DATE_TIME.hourOfDay().roundHalfEvenCopy();
+        assertNotNull(test);
+    }
+
+    //-----------------------------------------------------------------------
+    // toString methods
+    //-----------------------------------------------------------------------
+
+    @Test
+    public void testToString_returnsISOFormat() {
+        String str = TEST_DATE_TIME.toString();
+        assertEquals("2004-06-09T10:20:30.040", str);
+    }
+
+    @Test
+    public void testToStringWithPattern_returnsCustomFormat() {
+        String str = TEST_DATE_TIME.toString("yyyy-MM-dd");
+        assertEquals("2004-06-09", str);
+    }
+
+    @Test
+    public void testToStringWithNullPattern_returnsDefaultFormat() {
+        String str = TEST_DATE_TIME.toString((String) null);
+        assertEquals(TEST_DATE_TIME.toString(), str);
+    }
+
+    @Test
+    public void testToStringWithPatternAndLocale_returnsCustomFormat() {
+        String str = TEST_DATE_TIME.toString("yyyy-MM-dd", Locale.ENGLISH);
+        assertEquals("2004-06-09", str);
+    }
+
+    @Test
+    public void testToStringWithNullPatternAndLocale_returnsDefaultFormat() {
+        String str = TEST_DATE_TIME.toString(null, Locale.ENGLISH);
+        assertEquals(TEST_DATE_TIME.toString(), str);
+    }
+
+    //-----------------------------------------------------------------------
+    // withLocalMillis (package-

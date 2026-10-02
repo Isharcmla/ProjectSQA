@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "81",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+  "target_classes": [
+    "org.apache.commons.math.linear.EigenDecompositionImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.92,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\81\\EigenDecompositionImpl_20260926_031915.txt",
+  "test_file": "Gemini\\TestCode\\Math\\81\\EigenDecompositionImplTest.java",
+  "usage": {
+    "prompt_tokens": 19530,
+    "completion_tokens": 4138,
+    "total_tokens": 25099
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 142785,
+    "daily_remaining_tokens": 207215
+  },
+  "timestamp": "20260926_031915"
+}

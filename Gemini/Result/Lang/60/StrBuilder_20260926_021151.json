@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "60",
+  "tool": "gemini",
+  "class": "org.apache.commons.lang.text.StrBuilder",
+  "target_classes": [
+    "org.apache.commons.lang.text.StrBuilder"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 63.72,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Lang\\60\\StrBuilder_20260926_021151.txt",
+  "test_file": "Gemini\\TestCode\\Lang\\60\\StrBuilderTest.java",
+  "usage": {
+    "prompt_tokens": 20619,
+    "completion_tokens": 9441,
+    "total_tokens": 30060
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 316266,
+    "daily_remaining_tokens": 33734
+  },
+  "timestamp": "20260926_021151"
+}

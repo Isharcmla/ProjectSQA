@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "7",
+  "tool": "gemini",
+  "class": "org.apache.commons.lang3.math.NumberUtils",
+  "target_classes": [
+    "org.apache.commons.lang3.math.NumberUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 87.62,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Lang\\7\\NumberUtils_20260926_021707.txt",
+  "test_file": "Gemini\\TestCode\\Lang\\7\\NumberUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 13520,
+    "completion_tokens": 10027,
+    "total_tokens": 26544
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 63813,
+    "daily_remaining_tokens": 286187
+  },
+  "timestamp": "20260926_021707"
+}

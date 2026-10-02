@@ -1,0 +1,33 @@
+{
+  "project": "Gson",
+  "bug_id": "5",
+  "tool": "claude",
+  "class": "com.google.gson.internal.bind.util.ISO8601Utils",
+  "target_classes": [
+    "com.google.gson.internal.bind.util.ISO8601Utils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 69.99,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Gson\\5\\ISO8601Utils_20260928_210615.txt",
+  "test_file": "Claude\\TestCode\\Gson\\5\\ISO8601UtilsTest.java",
+  "usage": {
+    "prompt_tokens": 5977,
+    "completion_tokens": 9177,
+    "total_tokens": 15154
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 31887,
+    "daily_remaining_tokens": 168113
+  },
+  "timestamp": "20260928_210615"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "69",
+  "tool": "claude",
+  "class": "org.apache.commons.math.stat.correlation.PearsonsCorrelation",
+  "target_classes": [
+    "org.apache.commons.math.stat.correlation.PearsonsCorrelation"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 30.48,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\69\\PearsonsCorrelation_20261002_183511.txt",
+  "test_file": "Claude\\TestCode\\Math\\69\\PearsonsCorrelationTest.java",
+  "usage": {
+    "prompt_tokens": 5161,
+    "completion_tokens": 4643,
+    "total_tokens": 9804
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 193393,
+    "daily_remaining_tokens": 6607
+  },
+  "timestamp": "20261002_183511"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "12",
+  "tool": "gemini",
+  "class": "org.apache.commons.jxpath.ri.model.dom.DOMNodePointer",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.model.dom.DOMNodePointer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 53.24,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JxPath\\12\\DOMNodePointer_20260926_010425.txt",
+  "test_file": "Gemini\\TestCode\\JxPath\\12\\DOMNodePointerTest.java",
+  "usage": {
+    "prompt_tokens": 6275,
+    "completion_tokens": 6256,
+    "total_tokens": 14127
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 16876,
+    "daily_remaining_tokens": 333124
+  },
+  "timestamp": "20260926_010425"
+}

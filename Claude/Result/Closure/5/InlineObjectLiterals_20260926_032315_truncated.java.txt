@@ -1,0 +1,85 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import com.google.common.base.Supplier;
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * Unit tests for {@link InlineObjectLiterals}.
+ *
+ * Since InlineObjectLiterals is a package-private class whose only
+ * meaningful public surface is the constructor and the process() method
+ * (inherited from CompilerPass), these tests exercise the pass through
+ * that public API using the real Compiler infrastructure (no mocking
+ * framework is used, per requirements).
+ */
+public class InlineObjectLiteralsTest {
+
+  private Compiler compiler;
+  private Supplier<String> safeNameIdSupplier;
+  private int idCounter;
+
+  @Before
+  public void setUp() {
+    compiler = new Compiler();
+    CompilerOptions options = new CompilerOptions();
+    compiler.initOptions(options);
+    idCounter = 0;
+    safeNameIdSupplier = new Supplier<String>() {
+      @Override
+      public String get() {
+        return String.valueOf(idCounter++);
+      }
+    };
+  }
+
+  private Node parseScript(String js) {
+    Node script = compiler.parseTestCode(js);
+    assertNotNull("Parsing should not fail for: " + js, script);
+    return script;
+  }
+
+  private Node emptyExterns() {
+    return new Node(Token.SCRIPT);
+  }
+
+  // -------------------- Constructor tests --------------------
+
+  @Test
+  public void testConstructor_validArguments_createsInstanceSuccessfully() {
+    InlineObjectLiterals pass = new InlineObjectLiterals(compiler, safeNameIdSupplier);
+    assertNotNull(pass);
+  }
+
+  @Test
+  public void testVarPrefixConstant_hasExpectedValue() {
+    assertEquals("JSCompiler_object_inline_", InlineObjectLiterals.VAR_PREFIX);
+  }
+
+  // -------------------- process() normal cases --------------------
+
+  @Test
+  public void testProcess_localVarObjectLiteralWithPropertyAccess_inlinesVariables() {
+    String js = "function f() { var x = {a: 1, b: 2}; return x.a + x.b; }";
+    Node root = parseScript(js);
+    Node externs = emptyExterns();
+
+    InlineObjectLiterals pass = new InlineObjectLiterals(compiler, safeNameIdSupplier);
+    pass.process(externs, root);
+
+    String result = compiler.toSource(root);
+    assertNotNull(result);
+    assertTrue(result.contains(InlineObjectLiterals.VAR_PREFIX));
+  }
+
+  @Test
+  public void testProcess_assignmentOutsideD

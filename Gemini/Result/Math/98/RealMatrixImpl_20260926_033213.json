@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "98",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.linear.RealMatrixImpl",
+  "target_classes": [
+    "org.apache.commons.math.linear.RealMatrixImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 70.02,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\98\\RealMatrixImpl_20260926_033213.txt",
+  "test_file": "Gemini\\TestCode\\Math\\98\\RealMatrixImplTest.java",
+  "usage": {
+    "prompt_tokens": 11559,
+    "completion_tokens": 10376,
+    "total_tokens": 21935
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 344109,
+    "daily_remaining_tokens": 5891
+  },
+  "timestamp": "20260926_033213"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "147",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.CheckGlobalThis",
+  "target_classes": [
+    "com.google.javascript.jscomp.CheckGlobalThis"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 174.36,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\147\\CheckGlobalThis_20260925_202022.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 3232,
+    "completion_tokens": 16384,
+    "total_tokens": 19616
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 206770,
+    "daily_remaining_tokens": -6770
+  },
+  "timestamp": "20260925_202022"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "19",
+  "tool": "claude",
+  "class": "org.mockito.internal.configuration.injection.filter.FinalMockCandidateFilter",
+  "target_classes": [
+    "org.mockito.internal.configuration.injection.filter.FinalMockCandidateFilter"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 27.79,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\19\\FinalMockCandidateFilter_20261003_004210.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\19\\FinalMockCandidateFilterTest.java",
+  "usage": {
+    "prompt_tokens": 1462,
+    "completion_tokens": 3720,
+    "total_tokens": 5182
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 200246,
+    "daily_remaining_tokens": -246
+  },
+  "timestamp": "20261003_004210"
+}

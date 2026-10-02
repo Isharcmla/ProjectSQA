@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "103",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.distribution.NormalDistributionImpl",
+  "target_classes": [
+    "org.apache.commons.math.distribution.NormalDistributionImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 21.46,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\103\\NormalDistributionImpl_20260926_022137.txt",
+  "test_file": "Gemini\\TestCode\\Math\\103\\NormalDistributionImplTest.java",
+  "usage": {
+    "prompt_tokens": 1959,
+    "completion_tokens": 1894,
+    "total_tokens": 5074
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 113666,
+    "daily_remaining_tokens": 236334
+  },
+  "timestamp": "20260926_022137"
+}

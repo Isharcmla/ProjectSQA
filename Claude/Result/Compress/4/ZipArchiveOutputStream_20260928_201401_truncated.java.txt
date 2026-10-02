@@ -1,0 +1,592 @@
+package org.apache.commons.compress.archivers.zip;
+
+import static org.junit.Assert.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.zip.CRC32;
+import java.util.zip.Deflater;
+import java.util.zip.ZipException;
+
+import org.apache.commons.compress.archivers.ArchiveEntry;
+import org.junit.Test;
+
+public class ZipArchiveOutputStreamTest {
+
+    // ---------- Constructor tests ----------
+
+    @Test
+    public void testConstructor_withOutputStream_notSeekable() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+        assertFalse(zos.isSeekable());
+        zos.close();
+    }
+
+    @Test
+    public void testConstructor_withFile_seekable() throws IOException {
+        File tempFile = File.createTempFile("zaos-test", ".zip");
+        tempFile.deleteOnExit();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(tempFile);
+        assertTrue(zos.isSeekable());
+        zos.close();
+        tempFile.delete();
+    }
+
+    // ---------- isSeekable ----------
+
+    @Test
+    public void testIsSeekable_withOutputStream_returnsFalse() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        assertFalse(zos.isSeekable());
+        zos.close();
+    }
+
+    @Test
+    public void testIsSeekable_withFile_returnsTrue() throws IOException {
+        File tempFile = File.createTempFile("zaos-test2", ".zip");
+        tempFile.deleteOnExit();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(tempFile);
+        assertTrue(zos.isSeekable());
+        zos.close();
+        tempFile.delete();
+    }
+
+    // ---------- setEncoding / getEncoding ----------
+
+    @Test
+    public void testSetEncoding_getEncoding_returnsSetValue() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setEncoding("UTF-8");
+        assertEquals("UTF-8", zos.getEncoding());
+        zos.close();
+    }
+
+    @Test
+    public void testSetEncoding_null_returnsNull() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setEncoding(null);
+        assertNull(zos.getEncoding());
+        zos.close();
+    }
+
+    @Test
+    public void testSetEncoding_iso8859_1_returnsSetValue() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setEncoding("ISO-8859-1");
+        assertEquals("ISO-8859-1", zos.getEncoding());
+        zos.close();
+    }
+
+    // ---------- setUseLanguageEncodingFlag ----------
+
+    @Test
+    public void testSetUseLanguageEncodingFlag_true_noException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setUseLanguageEncodingFlag(true);
+        zos.close();
+    }
+
+    @Test
+    public void testSetUseLanguageEncodingFlag_false_noException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setUseLanguageEncodingFlag(false);
+        zos.close();
+    }
+
+    // ---------- setCreateUnicodeExtraFields ----------
+
+    @Test
+    public void testSetCreateUnicodeExtraFields_always_noException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setCreateUnicodeExtraFields(ZipArchiveOutputStream.UnicodeExtraFieldPolicy.ALWAYS);
+        zos.close();
+    }
+
+    @Test
+    public void testSetCreateUnicodeExtraFields_notEncodeable_noException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setCreateUnicodeExtraFields(ZipArchiveOutputStream.UnicodeExtraFieldPolicy.NOT_ENCODEABLE);
+        zos.close();
+    }
+
+    @Test
+    public void testSetCreateUnicodeExtraFields_never_noException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setCreateUnicodeExtraFields(ZipArchiveOutputStream.UnicodeExtraFieldPolicy.NEVER);
+        zos.close();
+    }
+
+    // ---------- setFallbackToUTF8 ----------
+
+    @Test
+    public void testSetFallbackToUTF8_true_noException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setFallbackToUTF8(true);
+        zos.close();
+    }
+
+    @Test
+    public void testSetFallbackToUTF8_false_noException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setFallbackToUTF8(false);
+        zos.close();
+    }
+
+    // ---------- setComment ----------
+
+    @Test
+    public void testSetComment_normalValue_noException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setComment("This is a comment");
+        zos.close();
+    }
+
+    @Test
+    public void testSetComment_emptyString_noException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setComment("");
+        zos.close();
+    }
+
+    // ---------- setLevel ----------
+
+    @Test
+    public void testSetLevel_defaultCompression_noException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setLevel(Deflater.DEFAULT_COMPRESSION);
+        zos.close();
+    }
+
+    @Test
+    public void testSetLevel_bestCompression_noException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        zos.setLevel(Deflater.BEST_COMPRESSION);
+        zos.close();
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetLevel_tooLow_throwsIllegalArgumentException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        try {
+            zos.setLevel(Deflater.DEFAULT_COMPRESSION - 1);
+        } finally {
+            zos.close();
+        }
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetLevel_tooHigh_throwsIllegalArgumentException() throws IOException {
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        try {
+            zos.setLevel(Deflater.BEST_COMPRESSION + 1);
+        } finally {
+            zos.close();
+        }
+    }
+
+    // ---------- setMethod ----------
+
+    @Test
+    public void testSetMethod_stored_appliedToEntryWithUnspecifiedMethod() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+        zos.setMethod(ZipArchiveOutputStream.STORED);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("methodtest.txt");
+        byte[] data = "hello".getBytes();
+        CRC32 crc32 = new CRC32();
+        crc32.update(data);
+        entry.setSize(data.length);
+        entry.setCrc(crc32.getValue());
+
+        zos.putArchiveEntry(entry);
+        zos.write(data, 0, data.length);
+        zos.closeArchiveEntry();
+        assertEquals(ZipArchiveOutputStream.STORED, entry.getMethod());
+        zos.finish();
+        zos.close();
+    }
+
+    @Test
+    public void testSetMethod_deflated_appliedToEntryWithUnspecifiedMethod() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+        zos.setMethod(ZipArchiveOutputStream.DEFLATED);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("methodtest2.txt");
+        zos.putArchiveEntry(entry);
+        byte[] data = "hello world".getBytes();
+        zos.write(data, 0, data.length);
+        zos.closeArchiveEntry();
+        assertEquals(ZipArchiveOutputStream.DEFLATED, entry.getMethod());
+        zos.finish();
+        zos.close();
+    }
+
+    // ---------- putArchiveEntry / write / closeArchiveEntry / finish / close (normal flows) ----------
+
+    @Test
+    public void testPutArchiveEntry_write_closeArchiveEntry_deflated_success() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("test.txt");
+        zos.putArchiveEntry(entry);
+        byte[] data = "Hello World".getBytes();
+        zos.write(data, 0, data.length);
+        zos.closeArchiveEntry();
+        zos.finish();
+        zos.close();
+
+        assertTrue(baos.toByteArray().length > 0);
+    }
+
+    @Test
+    public void testPutArchiveEntry_STOREDwithRAF_success() throws IOException {
+        File tempFile = File.createTempFile("zaos-stored", ".zip");
+        tempFile.deleteOnExit();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(tempFile);
+        assertTrue(zos.isSeekable());
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("stored.txt");
+        entry.setMethod(ZipArchiveOutputStream.STORED);
+        zos.putArchiveEntry(entry);
+        byte[] data = "test data".getBytes();
+        zos.write(data, 0, data.length);
+        zos.closeArchiveEntry();
+        zos.finish();
+        zos.close();
+
+        assertTrue(tempFile.length() > 0);
+        tempFile.delete();
+    }
+
+    @Test
+    public void testPutArchiveEntry_STOREDwithoutRAF_missingSize_throwsZipException() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("nosize.txt");
+        entry.setMethod(ZipArchiveOutputStream.STORED);
+        // size not set (-1 default)
+
+        try {
+            zos.putArchiveEntry(entry);
+            fail("Expected ZipException");
+        } catch (ZipException e) {
+            // expected
+        } finally {
+            zos.close();
+        }
+    }
+
+    @Test
+    public void testPutArchiveEntry_STOREDwithoutRAF_missingCrc_throwsZipException() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("nocrc.txt");
+        entry.setMethod(ZipArchiveOutputStream.STORED);
+        entry.setSize(5);
+        // crc not set (-1 default)
+
+        try {
+            zos.putArchiveEntry(entry);
+            fail("Expected ZipException");
+        } catch (ZipException e) {
+            // expected
+        } finally {
+            zos.close();
+        }
+    }
+
+    @Test
+    public void testPutArchiveEntry_STOREDwithoutRAF_success() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+
+        byte[] data = "test".getBytes();
+        CRC32 crc32 = new CRC32();
+        crc32.update(data);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("stored_ok.txt");
+        entry.setMethod(ZipArchiveOutputStream.STORED);
+        entry.setSize(data.length);
+        entry.setCrc(crc32.getValue());
+
+        zos.putArchiveEntry(entry);
+        zos.write(data, 0, data.length);
+        zos.closeArchiveEntry();
+        zos.finish();
+        zos.close();
+
+        assertTrue(baos.toByteArray().length > 0);
+    }
+
+    @Test
+    public void testCloseArchiveEntry_STOREDwithWrongCrc_throwsZipException() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("badcrc.txt");
+        entry.setMethod(ZipArchiveOutputStream.STORED);
+        entry.setSize(4);
+        entry.setCrc(12345L); // wrong crc
+
+        zos.putArchiveEntry(entry);
+        byte[] data = "test".getBytes();
+        zos.write(data, 0, data.length);
+
+        try {
+            zos.closeArchiveEntry();
+            fail("Expected ZipException");
+        } catch (ZipException e) {
+            // expected
+        } finally {
+            zos.close();
+        }
+    }
+
+    @Test
+    public void testCloseArchiveEntry_STOREDwithWrongSize_throwsZipException() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+
+        byte[] data = "test".getBytes();
+        CRC32 crc32 = new CRC32();
+        crc32.update(data);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("badsize.txt");
+        entry.setMethod(ZipArchiveOutputStream.STORED);
+        entry.setSize(999); // wrong size
+        entry.setCrc(crc32.getValue());
+
+        zos.putArchiveEntry(entry);
+        zos.write(data, 0, data.length);
+
+        try {
+            zos.closeArchiveEntry();
+            fail("Expected ZipException");
+        } catch (ZipException e) {
+            // expected
+        } finally {
+            zos.close();
+        }
+    }
+
+    @Test
+    public void testCloseArchiveEntry_whenNoEntryOpen_doesNothing() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+        zos.closeArchiveEntry(); // entry is null, should just return
+        zos.close();
+    }
+
+    // ---------- finish ----------
+
+    @Test
+    public void testFinish_withUnclosedEntry_throwsIOException() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("unclosed.txt");
+        zos.putArchiveEntry(entry);
+
+        try {
+            zos.finish();
+            fail("Expected IOException");
+        } catch (IOException e) {
+            // expected
+        } finally {
+            entry = null;
+            zos.closeArchiveEntry();
+            zos.close();
+        }
+    }
+
+    @Test
+    public void testFinish_normalFlow_success() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("finishtest.txt");
+        zos.putArchiveEntry(entry);
+        byte[] data = "content".getBytes();
+        zos.write(data, 0, data.length);
+        zos.closeArchiveEntry();
+        zos.finish();
+        zos.close();
+
+        assertTrue(baos.toByteArray().length > 0);
+    }
+
+    // ---------- write ----------
+
+    @Test
+    public void testWrite_zeroLength_noException() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("zerolen.txt");
+        zos.putArchiveEntry(entry);
+        zos.write(new byte[0], 0, 0);
+        zos.closeArchiveEntry();
+        zos.finish();
+        zos.close();
+    }
+
+    @Test
+    public void testWrite_largeDataDeflated_exceedsBlockSize() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("large.txt");
+        zos.putArchiveEntry(entry);
+        byte[] data = new byte[9000];
+        Arrays.fill(data, (byte) 'A');
+        zos.write(data, 0, data.length);
+        zos.closeArchiveEntry();
+        zos.finish();
+        zos.close();
+
+        assertTrue(baos.toByteArray().length > 0);
+    }
+
+    @Test
+    public void testWrite_dataExactMultipleOfBlockSize() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("exactmultiple.txt");
+        zos.putArchiveEntry(entry);
+        byte[] data = new byte[16384]; // exactly 2 * 8192
+        Arrays.fill(data, (byte) 'B');
+        zos.write(data, 0, data.length);
+        zos.closeArchiveEntry();
+        zos.finish();
+        zos.close();
+
+        assertTrue(baos.toByteArray().length > 0);
+    }
+
+    @Test
+    public void testWrite_storedMethod_withRAF() throws IOException {
+        File tempFile = File.createTempFile("zaos-write-stored", ".zip");
+        tempFile.deleteOnExit();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(tempFile);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("storedwrite.txt");
+        entry.setMethod(ZipArchiveOutputStream.STORED);
+        zos.putArchiveEntry(entry);
+        byte[] data = "raf stored data".getBytes();
+        zos.write(data, 0, data.length);
+        zos.closeArchiveEntry();
+        zos.finish();
+        zos.close();
+
+        assertTrue(tempFile.length() > 0);
+        tempFile.delete();
+    }
+
+    // ---------- close ----------
+
+    @Test
+    public void testClose_normal_success() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+        zos.close();
+        assertTrue(baos.toByteArray().length > 0); // EOCD written
+    }
+
+    @Test
+    public void testClose_withFile_closesRAF() throws IOException {
+        File tempFile = File.createTempFile("zaos-close", ".zip");
+        tempFile.deleteOnExit();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(tempFile);
+        zos.close();
+        assertTrue(tempFile.length() > 0);
+        tempFile.delete();
+    }
+
+    // ---------- flush ----------
+
+    @Test
+    public void testFlush_doesNotThrow() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+        zos.flush();
+        zos.close();
+    }
+
+    // ---------- createArchiveEntry ----------
+
+    @Test
+    public void testCreateArchiveEntry_returnsZipArchiveEntry() throws IOException {
+        File tempFile = File.createTempFile("createentry", ".txt");
+        tempFile.deleteOnExit();
+
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(new ByteArrayOutputStream());
+        ArchiveEntry entry = zos.createArchiveEntry(tempFile, "entryName.txt");
+
+        assertNotNull(entry);
+        assertTrue(entry instanceof ZipArchiveEntry);
+        assertEquals("entryName.txt", entry.getName());
+
+        zos.close();
+        tempFile.delete();
+    }
+
+    // ---------- Unicode extra fields / fallback encoding ----------
+
+    @Test
+    public void testPutArchiveEntry_withUnicodeExtraFields_ALWAYS() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+        zos.setCreateUnicodeExtraFields(ZipArchiveOutputStream.UnicodeExtraFieldPolicy.ALWAYS);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("unicodetest.txt");
+        entry.setComment("a comment");
+        zos.putArchiveEntry(entry);
+        byte[] data = "data".getBytes();
+        zos.write(data, 0, data.length);
+        zos.closeArchiveEntry();
+        zos.finish();
+        zos.close();
+
+        assertTrue(baos.toByteArray().length > 0);
+    }
+
+    @Test
+    public void testPutArchiveEntry_withNonEncodableNameAndFallbackUTF8() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+        zos.setEncoding("ISO-8859-1");
+        zos.setFallbackToUTF8(true);
+        zos.setCreateUnicodeExtraFields(ZipArchiveOutputStream.UnicodeExtraFieldPolicy.NOT_ENCODEABLE);
+
+        ZipArchiveEntry entry = new ZipArchiveEntry("\u65e5\u672c\u8a9e.txt");
+        zos.putArchiveEntry(entry);
+        byte[] data = "data".getBytes();
+        zos.write(data, 0, data.length);
+        zos.closeArchiveEntry();
+        zos.finish();
+        zos.close();
+
+        assertTrue(baos.toByteArray().length > 0);
+    }
+
+    @Test
+    public void testPutArchiveEntry_multipleEntries_success() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ZipArchiveOutputStream zos = new ZipArchiveOutputStream(baos);
+
+        ZipArchiveEntry entry1 = new ZipArchiveEntry("entry1.txt");
+        zos.putArchiveEntry(entry1);
+        byte[] data1 = "first entry".getBytes();
+        zos.write(data1, 0, data1.length);
+        zos.closeArchiveEntry();
+
+        ZipArchiveEntry entry2 = new ZipArch

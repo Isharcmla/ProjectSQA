@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "4",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.geometry.euclidean.threed.SubLine",
+  "target_classes": [
+    "org.apache.commons.math3.geometry.euclidean.threed.SubLine"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 44.33,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\4\\SubLine_20261002_180407.txt",
+  "test_file": "Claude\\TestCode\\Math\\4\\SubLineTest.java",
+  "usage": {
+    "prompt_tokens": 2998,
+    "completion_tokens": 5430,
+    "total_tokens": 8428
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 117032,
+    "daily_remaining_tokens": 82968
+  },
+  "timestamp": "20261002_180407"
+}

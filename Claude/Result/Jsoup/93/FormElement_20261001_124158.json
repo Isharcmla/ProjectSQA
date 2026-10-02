@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "93",
+  "tool": "claude",
+  "class": "org.jsoup.nodes.FormElement",
+  "target_classes": [
+    "org.jsoup.nodes.FormElement"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 54.46,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\93\\FormElement_20261001_124158.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\93\\FormElementTest.java",
+  "usage": {
+    "prompt_tokens": 2236,
+    "completion_tokens": 8196,
+    "total_tokens": 10432
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 178640,
+    "daily_remaining_tokens": 21360
+  },
+  "timestamp": "20261001_124158"
+}

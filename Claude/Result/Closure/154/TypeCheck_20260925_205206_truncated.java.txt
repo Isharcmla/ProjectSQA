@@ -1,0 +1,55 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * Unit tests for {@link TypeCheck}.
+ *
+ * NOTE (design rationale):
+ * TypeCheck's public constructors require internal collaborator objects
+ * (ReverseAbstractInterpreter, JSTypeRegistry, Scope, ScopeCreator) whose
+ * concrete construction APIs are not documented/exposed in the provided
+ * source code, and no mocking framework is allowed per the task
+ * constraints. To avoid guessing undocumented internal APIs, these tests
+ * exercise TypeCheck exclusively through the public {@link Compiler}
+ * pipeline (a real, concrete, public class in the same package), which
+ * internally constructs TypeCheck and invokes its public methods
+ * (process, check, shouldTraverse, visit) whenever type checking is
+ * enabled via CompilerOptions#setCheckTypes(true). This approach uses
+ * only real public APIs of the actual classes, without mocking.
+ */
+public class TypeCheckTest {
+
+  private Compiler compiler;
+  private CompilerOptions options;
+
+  private static final String EXTERNS =
+      "/** @constructor \n * @param {...*} var_args \n */\n"
+      + "function Object(var_args) {}\n"
+      + "/** @constructor \n * @param {...*} var_args \n */\n"
+      + "function Function(var_args) {}\n"
+      + "/** @constructor \n * @param {...*} var_args \n * @return {!Array} */\n"
+      + "function Array(var_args) {}\n"
+      + "/** @constructor \n * @param {*=} opt_value \n * @return {string} */\n"
+      + "function String(opt_value) {}\n"
+      + "/** @constructor \n * @param {*=} opt_value \n * @return {number} */\n"
+      + "function Number(opt_value) {}\n"
+      + "/** @constructor \n * @param {*=} opt_value \n * @return {boolean} */\n"
+      + "function Boolean(opt_value) {}\n"
+      + "/** @constructor */\n"
+      + "function RegExp() {}\n";
+
+  @Before
+  public void setUp() {
+    compiler = new Compiler();
+    options = new CompilerOptions();
+    options.setCheckTypes(true);
+    options.setWarningLevel(DiagnosticGroups.CHECK_TYPES, CheckLevel.WARNING);
+  }
+
+  private Result compileCode(String js) {
+    SourceFile extern

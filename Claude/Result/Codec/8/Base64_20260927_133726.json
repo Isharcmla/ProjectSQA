@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "8",
+  "tool": "claude",
+  "class": "org.apache.commons.codec.binary.Base64",
+  "target_classes": [
+    "org.apache.commons.codec.binary.Base64"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 83.99,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Codec\\8\\Base64_20260927_133726.txt",
+  "test_file": "Claude\\TestCode\\Codec\\8\\Base64Test.java",
+  "usage": {
+    "prompt_tokens": 15880,
+    "completion_tokens": 11911,
+    "total_tokens": 27791
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 27791,
+    "daily_remaining_tokens": 172209
+  },
+  "timestamp": "20260927_133726"
+}

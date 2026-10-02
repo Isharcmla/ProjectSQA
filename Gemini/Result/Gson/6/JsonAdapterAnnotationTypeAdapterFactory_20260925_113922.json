@@ -1,0 +1,33 @@
+{
+  "project": "Gson",
+  "bug_id": "6",
+  "tool": "gemini",
+  "class": "com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory",
+  "target_classes": [
+    "com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 31.75,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Gson\\6\\JsonAdapterAnnotationTypeAdapterFactory_20260925_113922.txt",
+  "test_file": "Gemini\\TestCode\\Gson\\6\\JsonAdapterAnnotationTypeAdapterFactoryTest.java",
+  "usage": {
+    "prompt_tokens": 967,
+    "completion_tokens": 1740,
+    "total_tokens": 5639
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 335552,
+    "daily_remaining_tokens": 14448
+  },
+  "timestamp": "20260925_113922"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "19",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser",
+  "target_classes": [
+    "com.fasterxml.jackson.core.json.UTF8StreamJsonParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 95.27,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonCore\\19\\UTF8StreamJsonParser_20260928_213825.txt",
+  "test_file": "Claude\\TestCode\\JacksonCore\\19\\UTF8StreamJsonParserTest.java",
+  "usage": {
+    "prompt_tokens": 47422,
+    "completion_tokens": 13428,
+    "total_tokens": 60850
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 218582,
+    "daily_remaining_tokens": -18582
+  },
+  "timestamp": "20260928_213825"
+}

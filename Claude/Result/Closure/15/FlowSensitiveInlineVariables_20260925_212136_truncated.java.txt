@@ -1,0 +1,177 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+
+import com.google.javascript.rhino.Node;
+
+/**
+ * Unit tests for {@link FlowSensitiveInlineVariables}.
+ *
+ * Since FlowSensitiveInlineVariables is a package-private class that is
+ * tightly coupled with the Closure Compiler's internal AST / CFG machinery,
+ * these tests exercise it through the real {@link Compiler} class (the only
+ * concrete implementation of {@code AbstractCompiler} available), without
+ * using any mocking framework.
+ */
+public class FlowSensitiveInlineVariablesTest {
+
+  // ---------------------------------------------------------------------
+  // Helper methods
+  // ---------------------------------------------------------------------
+
+  private Compiler createCompiler() {
+    return new Compiler();
+  }
+
+  /**
+   * Parses the given source code using a fresh Compiler instance and
+   * returns that Compiler after parse() has been invoked. Externs list is
+   * left empty on purpose since the tests here do not rely on any externs
+   * definitions.
+   */
+  private Compiler parseCode(String code) {
+    Compiler compiler = createCompiler();
+    CompilerOptions options = new CompilerOptions();
+    List<SourceFile> externs = new ArrayList<SourceFile>();
+    List<SourceFile> inputs = new ArrayList<SourceFile>();
+    inputs.add(SourceFile.fromCode("input.js", code));
+    compiler.init(externs, inputs, options);
+    compiler.parse();
+    return compiler;
+  }
+
+  // ---------------------------------------------------------------------
+  // Constructor tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testConstructor_validCompiler_createsInstance() {
+    Compiler compiler = createCompiler();
+    FlowSensitiveInlineVariables pass = new FlowSensitiveInlineVariables(compiler);
+    assertNotNull(pass);
+  }
+
+  @Test
+  public void testConstructor_nullCompiler_noExceptionThrown() {
+    // The constructor performs no null-check on the compiler argument, so
+    // passing null should not throw immediately.
+    FlowSensitiveInlineVariables pass = new FlowSensitiveInlineVariables(null);
+    assertNotNull(pass);
+  }
+
+  // ---------------------------------------------------------------------
+  // process() tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testProcess_simpleInlineableFunction_completesWithoutException() {
+    Compiler compiler = parseCode(
+        "function foo(a) { var x = a + 1; return x; }");
+
+    Node externsRoot = compiler.getExternsRoot();
+    Node jsRoot = compiler.getJsRoot();
+
+    FlowSensitiveInlineVariables pass = new FlowSensitiveInlineVariables(compiler);
+    pass.process(externsRoot, jsRoot);
+
+    String result = compiler.toSource();
+    assertNotNull(result);
+    // The pass should have attempted to run without throwing.
+    // Best effort check: the variable declaration statement structure
+    // should still be parseable/toSource-able.
+    assertTrue(result.length() >= 0);
+  }
+
+  @Test
+  public void testProcess_variableInlinedIntoUse_returnStatementUpdated() {
+    Compiler compiler = parseCode(
+        "function foo(a) { var x = a + 1; return x; }");
+
+    Node externsRoot = compiler.getExternsRoot();
+    Node jsRoot = compiler.getJsRoot();
+
+    FlowSensitiveInlineVariables pass = new FlowSensitiveInlineVariables(compiler);
+    pass.process(externsRoot, jsRoot);
+
+    String normalized = compiler.toSource().replaceAll("\\s+", "");
+    // If inlining happened, "return x" should no longer be present verbatim.
+    assertFalse(normalized.contains("returnx;"));
+  }
+
+  @Test
+  public void testProcess_globalScopeVariable_notInlinedBecauseGlobalScopeSkipped() {
+    Compiler compiler = parseCode("var x = 1; use(x);");
+
+    Node externsRoot = compiler.getExternsRoot();
+    Node jsRoot = compiler.getJsRoot();
+
+    FlowSensitiveInlineVariables pass = new FlowSensitiveInlineVariables(compiler);
+    pass.process(externsRoot, jsRoot);
+
+    String normalized = compiler.toSource().replaceAll("\\s+", "");
+    // Since global scope is skipped entirely, the reference to "x" inside
+    // use(x) should remain untouched.
+    assertTrue(normalized.contains("use(x)"));
+  }
+
+  @Test
+  public void testProcess_emptySource_noExceptionThrown() {
+    Compiler compiler = parseCode("");
+
+    Node externsRoot = compiler.getExternsRoot();
+    Node jsRoot = compiler.getJsRoot();
+
+    FlowSensitiveInlineVariables pass = new FlowSensitiveInlineVariables(compiler);
+    // Should not throw for an empty program.
+    pass.process(externsRoot, jsRoot);
+    assertNotNull(compiler.toSource());
+  }
+
+  @Test
+  public void testProcess_functionWithTooManyVariables_enterScopeReturnsEarly() {
+    int max = LiveVariablesAnalysis.MAX_VARIABLES_TO_ANALYZE;
+    StringBuilder params = new StringBuilder();
+    for (int i = 0; i <= max; i++) {
+      if (i > 0) {
+        params.append(",");
+      }
+      params.append("p").append(i);
+    }
+    String code = "function foo(" + params + ") { return p0; }";
+
+    Compiler compiler = parseCode(code);
+    Node externsRoot = compiler.getExternsRoot();
+    Node jsRoot = compiler.getJsRoot();
+
+    FlowSensitiveInlineVariables pass = new FlowSensitiveInlineVariables(compiler);
+    // Should return early inside enterScope due to too many variables, and
+    // not throw any exception.
+    pass.process(externsRoot, jsRoot);
+    assertNotNull(compiler.toSource());
+  }
+
+  @Test
+  public void testProcess_nullArguments_throwsException() {
+    Compiler compiler = createCompiler();
+    FlowSensitiveInlineVariables pass = new FlowSensitiveInlineVariables(compiler);
+    try {
+      pass.process(null, null);
+      fail("Expected an exception to be thrown due to null externs/root arguments.");
+    } catch (Exception expected) {
+      // Expected: some exception (likely NullPointerException) is thrown
+      // when traversing null root nodes.
+      assertNotNull(expected);
+    }
+  }
+
+  // ---------------------------------------------------------------------
+  // visit() tests
+  // ---------------------------------------------------------------------

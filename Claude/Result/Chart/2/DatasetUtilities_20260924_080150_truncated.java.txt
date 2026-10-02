@@ -1,0 +1,437 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import org.jfree.data.DefaultKeyedValues;
+import org.jfree.data.KeyedValues;
+import org.jfree.data.KeyToGroupMap;
+import org.jfree.data.Range;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.category.DefaultIntervalCategoryDataset;
+import org.jfree.data.function.Function2D;
+import org.jfree.data.general.DatasetUtilities;
+import org.jfree.data.pie.DefaultPieDataset;
+import org.jfree.data.pie.PieDataset;
+import org.jfree.data.xy.DefaultTableXYDataset;
+import org.jfree.data.xy.TableXYDataset;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DatasetUtilitiesTest {
+
+    private DefaultPieDataset pieDataset;
+    private DefaultCategoryDataset categoryDataset;
+
+    @Before
+    public void setUp() {
+        pieDataset = new DefaultPieDataset();
+        pieDataset.setValue("A", 10.0);
+        pieDataset.setValue("B", 20.0);
+        pieDataset.setValue("C", null);
+        pieDataset.setValue("D", -5.0);
+
+        categoryDataset = new DefaultCategoryDataset();
+        categoryDataset.addValue(1.0, "R1", "C1");
+        categoryDataset.addValue(2.0, "R1", "C2");
+        categoryDataset.addValue(3.0, "R2", "C1");
+        categoryDataset.addValue(4.0, "R2", "C2");
+    }
+
+    // ---------- calculatePieDatasetTotal ----------
+
+    @Test
+    public void testCalculatePieDatasetTotal_normalData_returnsSumOfPositives() {
+        double total = DatasetUtilities.calculatePieDatasetTotal(pieDataset);
+        assertEquals(30.0, total, 0.0001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCalculatePieDatasetTotal_nullDataset_throwsException() {
+        DatasetUtilities.calculatePieDatasetTotal(null);
+    }
+
+    // ---------- createPieDatasetForRow ----------
+
+    @Test
+    public void testCreatePieDatasetForRow_byRowKey_returnsCorrectDataset() {
+        PieDataset result = DatasetUtilities.createPieDatasetForRow(
+                categoryDataset, "R1");
+        assertEquals(1.0, result.getValue("C1").doubleValue(), 0.0001);
+        assertEquals(2.0, result.getValue("C2").doubleValue(), 0.0001);
+    }
+
+    @Test
+    public void testCreatePieDatasetForRow_byRowIndex_returnsCorrectDataset() {
+        PieDataset result = DatasetUtilities.createPieDatasetForRow(
+                categoryDataset, 1);
+        assertEquals(3.0, result.getValue("C1").doubleValue(), 0.0001);
+        assertEquals(4.0, result.getValue("C2").doubleValue(), 0.0001);
+    }
+
+    // ---------- createPieDatasetForColumn ----------
+
+    @Test
+    public void testCreatePieDatasetForColumn_byColumnKey_returnsCorrectDataset() {
+        PieDataset result = DatasetUtilities.createPieDatasetForColumn(
+                categoryDataset, "C1");
+        assertEquals(1.0, result.getValue("R1").doubleValue(), 0.0001);
+        assertEquals(3.0, result.getValue("R2").doubleValue(), 0.0001);
+    }
+
+    @Test
+    public void testCreatePieDatasetForColumn_byColumnIndex_returnsCorrectDataset() {
+        PieDataset result = DatasetUtilities.createPieDatasetForColumn(
+                categoryDataset, 0);
+        assertEquals(1.0, result.getValue("R1").doubleValue(), 0.0001);
+        assertEquals(3.0, result.getValue("R2").doubleValue(), 0.0001);
+    }
+
+    // ---------- createConsolidatedPieDataset ----------
+
+    @Test
+    public void testCreateConsolidatedPieDataset_defaultMinItems_aggregatesLowValues() {
+        DefaultPieDataset source = new DefaultPieDataset();
+        source.setValue("A", 1.0);
+        source.setValue("B", 2.0);
+        source.setValue("C", 97.0);
+        PieDataset result = DatasetUtilities.createConsolidatedPieDataset(
+                source, "Other", 0.10);
+        assertNotNull(result);
+        assertTrue(result.getKeys().contains("Other"));
+    }
+
+    @Test
+    public void testCreateConsolidatedPieDataset_withMinItems_aggregatesCorrectly() {
+        DefaultPieDataset source = new DefaultPieDataset();
+        source.setValue("A", 1.0);
+        source.setValue("B", 2.0);
+        source.setValue("C", 97.0);
+        PieDataset result = DatasetUtilities.createConsolidatedPieDataset(
+                source, "Other", 0.10, 2);
+        assertNotNull(result);
+        assertTrue(result.getKeys().contains("Other"));
+    }
+
+    @Test
+    public void testCreateConsolidatedPieDataset_minItemsNotMet_noAggregation() {
+        DefaultPieDataset source = new DefaultPieDataset();
+        source.setValue("A", 1.0);
+        source.setValue("B", 99.0);
+        PieDataset result = DatasetUtilities.createConsolidatedPieDataset(
+                source, "Other", 0.10, 5);
+        assertFalse(result.getKeys().contains("Other"));
+    }
+
+    // ---------- createCategoryDataset(String,String,double[][]) ----------
+
+    @Test
+    public void testCreateCategoryDatasetDoubleArray_normalData_createsCorrectDataset() {
+        double[][] data = {{1.0, 2.0}, {3.0, 4.0}};
+        CategoryDataset result = DatasetUtilities.createCategoryDataset(
+                "Row", "Col", data);
+        assertEquals(2, result.getRowCount());
+        assertEquals(2, result.getColumnCount());
+        assertEquals(1.0, result.getValue(0, 0).doubleValue(), 0.0001);
+    }
+
+    // ---------- createCategoryDataset(String,String,Number[][]) ----------
+
+    @Test
+    public void testCreateCategoryDatasetNumberArray_normalData_createsCorrectDataset() {
+        Number[][] data = {{1, 2}, {3, 4}};
+        CategoryDataset result = DatasetUtilities.createCategoryDataset(
+                "Row", "Col", data);
+        assertEquals(2, result.getRowCount());
+        assertEquals(2, result.getColumnCount());
+        assertEquals(1, result.getValue(0, 0).intValue());
+    }
+
+    // ---------- createCategoryDataset(Comparable[],Comparable[],double[][]) ----------
+
+    @Test
+    public void testCreateCategoryDatasetWithKeys_normalData_createsCorrectDataset() {
+        Comparable[] rowKeys = {"R1", "R2"};
+        Comparable[] colKeys = {"C1", "C2"};
+        double[][] data = {{1.0, 2.0}, {3.0, 4.0}};
+        CategoryDataset result = DatasetUtilities.createCategoryDataset(
+                rowKeys, colKeys, data);
+        assertEquals(1.0, result.getValue("R1", "C1").doubleValue(), 0.0001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateCategoryDatasetWithKeys_nullRowKeys_throwsException() {
+        double[][] data = {{1.0}};
+        DatasetUtilities.createCategoryDataset(null, new Comparable[]{"C1"},
+                data);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateCategoryDatasetWithKeys_nullColumnKeys_throwsException() {
+        double[][] data = {{1.0}};
+        DatasetUtilities.createCategoryDataset(new Comparable[]{"R1"}, null,
+                data);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateCategoryDatasetWithKeys_duplicateRowKeys_throwsException() {
+        Comparable[] rowKeys = {"R1", "R1"};
+        Comparable[] colKeys = {"C1"};
+        double[][] data = {{1.0}, {2.0}};
+        DatasetUtilities.createCategoryDataset(rowKeys, colKeys, data);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateCategoryDatasetWithKeys_duplicateColumnKeys_throwsException() {
+        Comparable[] rowKeys = {"R1"};
+        Comparable[] colKeys = {"C1", "C1"};
+        double[][] data = {{1.0, 2.0}};
+        DatasetUtilities.createCategoryDataset(rowKeys, colKeys, data);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateCategoryDatasetWithKeys_rowCountMismatch_throwsException() {
+        Comparable[] rowKeys = {"R1"};
+        Comparable[] colKeys = {"C1"};
+        double[][] data = {{1.0}, {2.0}};
+        DatasetUtilities.createCategoryDataset(rowKeys, colKeys, data);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateCategoryDatasetWithKeys_columnCountMismatch_throwsException() {
+        Comparable[] rowKeys = {"R1"};
+        Comparable[] colKeys = {"C1"};
+        double[][] data = {{1.0, 2.0}};
+        DatasetUtilities.createCategoryDataset(rowKeys, colKeys, data);
+    }
+
+    // ---------- createCategoryDataset(Comparable,KeyedValues) ----------
+
+    @Test
+    public void testCreateCategoryDatasetFromKeyedValues_normalData_createsCorrectDataset() {
+        DefaultKeyedValues kv = new DefaultKeyedValues();
+        kv.addValue("K1", 1.0);
+        kv.addValue("K2", 2.0);
+        CategoryDataset result = DatasetUtilities.createCategoryDataset(
+                "Row1", (KeyedValues) kv);
+        assertEquals(1.0, result.getValue("Row1", "K1").doubleValue(), 0.0001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateCategoryDatasetFromKeyedValues_nullRowKey_throwsException() {
+        DefaultKeyedValues kv = new DefaultKeyedValues();
+        DatasetUtilities.createCategoryDataset(null, (KeyedValues) kv);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCreateCategoryDatasetFromKeyedValues_nullRowData_throwsException() {
+        DatasetUtilities.createCategoryDataset("Row1", (KeyedValues) null);
+    }
+
+    // ---------- sampleFunction2D / sampleFunction2DToSeries ----------
+
+    private Function2D squareFunction() {
+        return new Function2D() {
+            public double getValue(double x) {
+                return x * x;
+            }
+        };
+    }
+
+    @Test
+    public void testSampleFunction2D_normalRange_createsDataset() {
+        XYDataset result = DatasetUtilities.sampleFunction2D(squareFunction(),
+                0.0, 10.0, 5, "series1");
+        assertEquals(1, result.getSeriesCount());
+        assertEquals(5, result.getItemCount(0));
+    }
+
+    @Test
+    public void testSampleFunction2DToSeries_normalRange_createsSeries() {
+        XYSeries series = DatasetUtilities.sampleFunction2DToSeries(
+                squareFunction(), 0.0, 10.0, 5, "series1");
+        assertEquals(5, series.getItemCount());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSampleFunction2DToSeries_nullFunction_throwsException() {
+        DatasetUtilities.sampleFunction2DToSeries(null, 0.0, 10.0, 5, "s");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSampleFunction2DToSeries_nullSeriesKey_throwsException() {
+        DatasetUtilities.sampleFunction2DToSeries(squareFunction(), 0.0, 10.0,
+                5, null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSampleFunction2DToSeries_startGreaterThanEnd_throwsException() {
+        DatasetUtilities.sampleFunction2DToSeries(squareFunction(), 10.0, 0.0,
+                5, "s");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSampleFunction2DToSeries_samplesLessThanTwo_throwsException() {
+        DatasetUtilities.sampleFunction2DToSeries(squareFunction(), 0.0, 10.0,
+                1, "s");
+    }
+
+    // ---------- isEmptyOrNull(PieDataset) ----------
+
+    @Test
+    public void testIsEmptyOrNullPieDataset_nullDataset_returnsTrue() {
+        assertTrue(DatasetUtilities.isEmptyOrNull((PieDataset) null));
+    }
+
+    @Test
+    public void testIsEmptyOrNullPieDataset_emptyDataset_returnsTrue() {
+        assertTrue(DatasetUtilities.isEmptyOrNull(new DefaultPieDataset()));
+    }
+
+    @Test
+    public void testIsEmptyOrNullPieDataset_allZeroOrNegative_returnsTrue() {
+        DefaultPieDataset ds = new DefaultPieDataset();
+        ds.setValue("A", 0.0);
+        ds.setValue("B", -5.0);
+        assertTrue(DatasetUtilities.isEmptyOrNull(ds));
+    }
+
+    @Test
+    public void testIsEmptyOrNullPieDataset_hasPositiveValue_returnsFalse() {
+        assertFalse(DatasetUtilities.isEmptyOrNull(pieDataset));
+    }
+
+    // ---------- isEmptyOrNull(CategoryDataset) ----------
+
+    @Test
+    public void testIsEmptyOrNullCategoryDataset_nullDataset_returnsTrue() {
+        assertTrue(DatasetUtilities.isEmptyOrNull((CategoryDataset) null));
+    }
+
+    @Test
+    public void testIsEmptyOrNullCategoryDataset_emptyDataset_returnsTrue() {
+        assertTrue(DatasetUtilities.isEmptyOrNull(new DefaultCategoryDataset()));
+    }
+
+    @Test
+    public void testIsEmptyOrNullCategoryDataset_allNullValues_returnsTrue() {
+        DefaultCategoryDataset ds = new DefaultCategoryDataset();
+        ds.addValue((Number) null, "R1", "C1");
+        assertTrue(DatasetUtilities.isEmptyOrNull(ds));
+    }
+
+    @Test
+    public void testIsEmptyOrNullCategoryDataset_hasValue_returnsFalse() {
+        assertFalse(DatasetUtilities.isEmptyOrNull(categoryDataset));
+    }
+
+    // ---------- isEmptyOrNull(XYDataset) ----------
+
+    @Test
+    public void testIsEmptyOrNullXYDataset_nullDataset_returnsTrue() {
+        assertTrue(DatasetUtilities.isEmptyOrNull((XYDataset) null));
+    }
+
+    @Test
+    public void testIsEmptyOrNullXYDataset_emptyDataset_returnsTrue() {
+        assertTrue(DatasetUtilities.isEmptyOrNull(new XYSeriesCollection()));
+    }
+
+    @Test
+    public void testIsEmptyOrNullXYDataset_hasData_returnsFalse() {
+        XYSeries series = new XYSeries("S1");
+        series.add(1.0, 2.0);
+        XYSeriesCollection collection = new XYSeriesCollection(series);
+        assertFalse(DatasetUtilities.isEmptyOrNull(collection));
+    }
+
+    // ---------- findDomainBounds / iterateDomainBounds ----------
+
+    private XYSeriesCollection createSimpleXYDataset() {
+        XYSeries series = new XYSeries("Series1");
+        series.add(1.0, 10.0);
+        series.add(2.0, 20.0);
+        series.add(3.0, 5.0);
+        return new XYSeriesCollection(series);
+    }
+
+    @Test
+    public void testFindDomainBounds_normalDataset_returnsCorrectRange() {
+        Range range = DatasetUtilities.findDomainBounds(createSimpleXYDataset());
+        assertEquals(1.0, range.getLowerBound(), 0.0001);
+        assertEquals(3.0, range.getUpperBound(), 0.0001);
+    }
+
+    @Test
+    public void testFindDomainBoundsWithInterval_normalDataset_returnsCorrectRange() {
+        Range range = DatasetUtilities.findDomainBounds(
+                createSimpleXYDataset(), false);
+        assertNotNull(range);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindDomainBounds_nullDataset_throwsException() {
+        DatasetUtilities.findDomainBounds((XYDataset) null);
+    }
+
+    @Test
+    public void testFindDomainBoundsWithVisibleSeries_normalDataset_returnsCorrectRange() {
+        XYSeriesCollection collection = createSimpleXYDataset();
+        List keys = new ArrayList();
+        keys.add("Series1");
+        Range range = DatasetUtilities.findDomainBounds(collection, keys, true);
+        assertNotNull(range);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindDomainBoundsWithVisibleSeries_nullDataset_throwsException() {
+        DatasetUtilities.findDomainBounds((XYDataset) null, new ArrayList(),
+                true);
+    }
+
+    @Test
+    public void testIterateDomainBounds_normalDataset_returnsCorrectRange() {
+        Range range = DatasetUtilities.iterateDomainBounds(
+                createSimpleXYDataset());
+        assertEquals(1.0, range.getLowerBound(), 0.0001);
+        assertEquals(3.0, range.getUpperBound(), 0.0001);
+    }
+
+    @Test
+    public void testIterateDomainBoundsWithInterval_emptyDataset_returnsNull() {
+        Range range = DatasetUtilities.iterateDomainBounds(
+                new XYSeriesCollection(), true);
+        assertNull(range);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testIterateDomainBounds_nullDataset_throwsException() {
+        DatasetUtilities.iterateDomainBounds((XYDataset) null, true);
+    }
+
+    // ---------- findRangeBounds(CategoryDataset) ----------
+
+    @Test
+    public void testFindRangeBoundsCategoryDataset_normalDataset_returnsCorrectRange() {
+        Range range = DatasetUtilities.findRangeBounds(categoryDataset);
+        assertEquals(1.0, range.getLowerBound(), 0.0001);
+        assertEquals(4.0, range.getUpperBound(), 0.0001);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindRangeBoundsCategoryDataset_nullDataset_throwsException() {
+        DatasetUtilities.findRangeBounds((CategoryDataset) null);
+    }
+
+    @Test
+    public void testFindRangeBoundsCategoryDatasetWithVisibleSeries_normalDataset_returnsCorrectRange() {
+        List keys = new ArrayList();
+        keys.add("R1");
+        keys.add("R2");
+        Range range = DatasetUtilities.findRangeBounds(categoryDataset, keys,
+                true);
+        assertN

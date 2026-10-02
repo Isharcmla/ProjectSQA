@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "119",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.GlobalNamespace",
+  "target_classes": [
+    "com.google.javascript.jscomp.GlobalNamespace"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 127.0,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\119\\GlobalNamespace_20260924_101859.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 16334,
+    "completion_tokens": 16384,
+    "total_tokens": 32718
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 228674,
+    "daily_remaining_tokens": -28674
+  },
+  "timestamp": "20260924_101859"
+}

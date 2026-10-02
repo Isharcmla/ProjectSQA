@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "111",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.deser.impl.SetterlessProperty",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.impl.SetterlessProperty"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 154.14,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\111\\SetterlessProperty_20260929_013341.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 2916,
+    "completion_tokens": 16384,
+    "total_tokens": 19300
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 176933,
+    "daily_remaining_tokens": 23067
+  },
+  "timestamp": "20260929_013341"
+}

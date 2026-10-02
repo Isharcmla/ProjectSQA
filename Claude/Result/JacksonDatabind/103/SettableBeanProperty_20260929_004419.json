@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "103",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.deser.SettableBeanProperty",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.SettableBeanProperty"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 149.52,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\103\\SettableBeanProperty_20260929_004419.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 10261,
+    "completion_tokens": 16384,
+    "total_tokens": 26645
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 98404,
+    "daily_remaining_tokens": 101596
+  },
+  "timestamp": "20260929_004419"
+}

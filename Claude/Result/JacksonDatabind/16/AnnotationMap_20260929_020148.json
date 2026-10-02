@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "16",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.introspect.AnnotationMap",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.introspect.AnnotationMap"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 33.34,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\16\\AnnotationMap_20260929_020148.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\16\\AnnotationMapTest.java",
+  "usage": {
+    "prompt_tokens": 2055,
+    "completion_tokens": 4522,
+    "total_tokens": 6577
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 48117,
+    "daily_remaining_tokens": 151883
+  },
+  "timestamp": "20260929_020148"
+}

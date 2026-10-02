@@ -1,0 +1,38 @@
+package com.fasterxml.jackson.databind.introspect;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.util.*;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.cfg.MapperConfig;
+import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.fasterxml.jackson.databind.util.Converter;
+
+public class BasicBeanDescriptionTest
+{
+    private ObjectMapper mapper;
+
+    @Before
+    public void setUp() {
+        mapper = new ObjectMapper();
+    }
+
+    /* ==================================================
+     * Test fixture classes
+     * ================================================== */
+
+    public static class SimpleBean {
+        private String name;
+        private int age;
+        public SimpleBean() {}
+        public String getName() { return name; }
+        public void setName(String name) { this.name = name; }

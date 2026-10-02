@@ -1,0 +1,62 @@
+package com.google.javascript.rhino.jstype;
+
+import com.google.javascript.rhino.ErrorReporter;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+/**
+ * JUnit 4 test suite for {@link JSType}.
+ *
+ * หมายเหตุ: การทดสอบนี้ใช้ instance จริงของชนิดข้อมูล native (ผ่าน JSTypeRegistry)
+ * เพราะ JSType เป็น abstract class และไม่อนุญาตให้ใช้ mocking framework
+ *
+ * บาง method (เช่น visit(Visitor), การสร้าง EnumType/RecordType/NamedType ผ่าน
+ * registry) ไม่ได้ถูกทดสอบโดยตรง เนื่องจากไม่มีข้อมูล API ที่แน่ชัดเพียงพอ
+ * (StaticScope, Visitor interface เป็นต้น) จึงหลีกเลี่ยงการเดา API
+ */
+public class JSTypeTest {
+
+  private JSTypeRegistry registry;
+  private ErrorReporter reporter;
+
+  @Before
+  public void setUp() {
+    reporter = new ErrorReporter() {
+      @Override
+      public void warning(String message, String sourceName, int line, int lineOffset) {
+      }
+
+      @Override
+      public void error(String message, String sourceName, int line, int lineOffset) {
+      }
+    };
+    registry = new JSTypeRegistry(reporter);
+  }
+
+  private JSType t(JSTypeNative nativeType) {
+    return registry.getNativeType(nativeType);
+  }
+
+  // ---------------------------------------------------------------------
+  // isNoType / isNoObjectType / isEmptyType
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testIsNoType_forNoType_returnsTrue() {
+    assertTrue(t(JSTypeNative.NO_TYPE).isNoType());
+  }
+
+  @Test
+  public void testIsNoType_forNumberType_returnsFalse() {
+    assertFalse(t(JSTypeNative.NUMBER_TYPE).isNoType());
+  }
+
+  @Test
+  public void testIsNoObjectType_forNoObjectType_returnsTrue() {
+    assertTrue(t(JSTypeNative.NO_OBJECT_TYPE).isNoObjectType());
+  }
+
+  @Test
+  public void testIsNo

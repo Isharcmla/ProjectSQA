@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "101",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.deser.BeanDeserializer",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.BeanDeserializer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 43.07,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\101\\BeanDeserializer_20260925_121216.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\101\\BeanDeserializerTest.java",
+  "usage": {
+    "prompt_tokens": 10246,
+    "completion_tokens": 5282,
+    "total_tokens": 16603
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 355679,
+    "daily_remaining_tokens": -5679
+  },
+  "timestamp": "20260925_121216"
+}

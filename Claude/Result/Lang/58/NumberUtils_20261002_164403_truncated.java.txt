@@ -1,0 +1,1175 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
+import org.apache.commons.lang.math.NumberUtils;
+
+public class NumberUtilsTest {
+
+    // ---------- Constants ----------
+    @Test
+    public void testConstants_values_correct() {
+        assertEquals(Long.valueOf(0L), NumberUtils.LONG_ZERO);
+        assertEquals(Long.valueOf(1L), NumberUtils.LONG_ONE);
+        assertEquals(Long.valueOf(-1L), NumberUtils.LONG_MINUS_ONE);
+        assertEquals(Integer.valueOf(0), NumberUtils.INTEGER_ZERO);
+        assertEquals(Integer.valueOf(1), NumberUtils.INTEGER_ONE);
+        assertEquals(Integer.valueOf(-1), NumberUtils.INTEGER_MINUS_ONE);
+        assertEquals(Short.valueOf((short) 0), NumberUtils.SHORT_ZERO);
+        assertEquals(Short.valueOf((short) 1), NumberUtils.SHORT_ONE);
+        assertEquals(Short.valueOf((short) -1), NumberUtils.SHORT_MINUS_ONE);
+        assertEquals(Byte.valueOf((byte) 0), NumberUtils.BYTE_ZERO);
+        assertEquals(Byte.valueOf((byte) 1), NumberUtils.BYTE_ONE);
+        assertEquals(Byte.valueOf((byte) -1), NumberUtils.BYTE_MINUS_ONE);
+        assertEquals(Double.valueOf(0.0d), NumberUtils.DOUBLE_ZERO);
+        assertEquals(Double.valueOf(1.0d), NumberUtils.DOUBLE_ONE);
+        assertEquals(Double.valueOf(-1.0d), NumberUtils.DOUBLE_MINUS_ONE);
+        assertEquals(Float.valueOf(0.0f), NumberUtils.FLOAT_ZERO);
+        assertEquals(Float.valueOf(1.0f), NumberUtils.FLOAT_ONE);
+        assertEquals(Float.valueOf(-1.0f), NumberUtils.FLOAT_MINUS_ONE);
+    }
+
+    @Test
+    public void testConstructor_default_noException() {
+        NumberUtils nu = new NumberUtils();
+        assertNotNull(nu);
+    }
+
+    // ---------- stringToInt(String) ----------
+    @Test
+    public void testStringToInt_validNumber_returnsInt() {
+        assertEquals(1, NumberUtils.stringToInt("1"));
+    }
+
+    @Test
+    public void testStringToInt_null_returnsZero() {
+        assertEquals(0, NumberUtils.stringToInt(null));
+    }
+
+    @Test
+    public void testStringToInt_empty_returnsZero() {
+        assertEquals(0, NumberUtils.stringToInt(""));
+    }
+
+    @Test
+    public void testStringToInt_invalid_returnsZero() {
+        assertEquals(0, NumberUtils.stringToInt("abc"));
+    }
+
+    // ---------- toInt(String) ----------
+    @Test
+    public void testToInt_validNumber_returnsInt() {
+        assertEquals(1, NumberUtils.toInt("1"));
+    }
+
+    @Test
+    public void testToInt_null_returnsZero() {
+        assertEquals(0, NumberUtils.toInt(null));
+    }
+
+    @Test
+    public void testToInt_empty_returnsZero() {
+        assertEquals(0, NumberUtils.toInt(""));
+    }
+
+    @Test
+    public void testToInt_invalid_returnsZero() {
+        assertEquals(0, NumberUtils.toInt("abc"));
+    }
+
+    // ---------- stringToInt(String, int) ----------
+    @Test
+    public void testStringToIntWithDefault_null_returnsDefault() {
+        assertEquals(1, NumberUtils.stringToInt(null, 1));
+    }
+
+    @Test
+    public void testStringToIntWithDefault_valid_returnsParsed() {
+        assertEquals(1, NumberUtils.stringToInt("1", 0));
+    }
+
+    @Test
+    public void testStringToIntWithDefault_invalid_returnsDefault() {
+        assertEquals(5, NumberUtils.stringToInt("abc", 5));
+    }
+
+    // ---------- toInt(String, int) ----------
+    @Test
+    public void testToIntWithDefault_null_returnsDefault() {
+        assertEquals(1, NumberUtils.toInt(null, 1));
+    }
+
+    @Test
+    public void testToIntWithDefault_valid_returnsParsed() {
+        assertEquals(1, NumberUtils.toInt("1", 0));
+    }
+
+    @Test
+    public void testToIntWithDefault_invalid_returnsDefault() {
+        assertEquals(5, NumberUtils.toInt("abc", 5));
+    }
+
+    // ---------- toLong(String) ----------
+    @Test
+    public void testToLong_valid_returnsLong() {
+        assertEquals(1L, NumberUtils.toLong("1"));
+    }
+
+    @Test
+    public void testToLong_null_returnsZero() {
+        assertEquals(0L, NumberUtils.toLong(null));
+    }
+
+    @Test
+    public void testToLong_empty_returnsZero() {
+        assertEquals(0L, NumberUtils.toLong(""));
+    }
+
+    @Test
+    public void testToLong_invalid_returnsZero() {
+        assertEquals(0L, NumberUtils.toLong("abc"));
+    }
+
+    // ---------- toLong(String, long) ----------
+    @Test
+    public void testToLongWithDefault_null_returnsDefault() {
+        assertEquals(1L, NumberUtils.toLong(null, 1L));
+    }
+
+    @Test
+    public void testToLongWithDefault_valid_returnsParsed() {
+        assertEquals(1L, NumberUtils.toLong("1", 0L));
+    }
+
+    @Test
+    public void testToLongWithDefault_invalid_returnsDefault() {
+        assertEquals(5L, NumberUtils.toLong("abc", 5L));
+    }
+
+    // ---------- toFloat(String) ----------
+    @Test
+    public void testToFloat_valid_returnsFloat() {
+        assertEquals(1.5f, NumberUtils.toFloat("1.5"), 0.0f);
+    }
+
+    @Test
+    public void testToFloat_null_returnsZero() {
+        assertEquals(0.0f, NumberUtils.toFloat(null), 0.0f);
+    }
+
+    @Test
+    public void testToFloat_empty_returnsZero() {
+        assertEquals(0.0f, NumberUtils.toFloat(""), 0.0f);
+    }
+
+    @Test
+    public void testToFloat_invalid_returnsZero() {
+        assertEquals(0.0f, NumberUtils.toFloat("abc"), 0.0f);
+    }
+
+    // ---------- toFloat(String, float) ----------
+    @Test
+    public void testToFloatWithDefault_null_returnsDefault() {
+        assertEquals(1.1f, NumberUtils.toFloat(null, 1.1f), 0.0f);
+    }
+
+    @Test
+    public void testToFloatWithDefault_valid_returnsParsed() {
+        assertEquals(1.5f, NumberUtils.toFloat("1.5", 0.0f), 0.0f);
+    }
+
+    @Test
+    public void testToFloatWithDefault_invalid_returnsDefault() {
+        assertEquals(2.2f, NumberUtils.toFloat("abc", 2.2f), 0.0f);
+    }
+
+    // ---------- toDouble(String) ----------
+    @Test
+    public void testToDouble_valid_returnsDouble() {
+        assertEquals(1.5d, NumberUtils.toDouble("1.5"), 0.0d);
+    }
+
+    @Test
+    public void testToDouble_null_returnsZero() {
+        assertEquals(0.0d, NumberUtils.toDouble(null), 0.0d);
+    }
+
+    @Test
+    public void testToDouble_empty_returnsZero() {
+        assertEquals(0.0d, NumberUtils.toDouble(""), 0.0d);
+    }
+
+    @Test
+    public void testToDouble_invalid_returnsZero() {
+        assertEquals(0.0d, NumberUtils.toDouble("abc"), 0.0d);
+    }
+
+    // ---------- toDouble(String, double) ----------
+    @Test
+    public void testToDoubleWithDefault_null_returnsDefault() {
+        assertEquals(1.1d, NumberUtils.toDouble(null, 1.1d), 0.0d);
+    }
+
+    @Test
+    public void testToDoubleWithDefault_valid_returnsParsed() {
+        assertEquals(1.5d, NumberUtils.toDouble("1.5", 0.0d), 0.0d);
+    }
+
+    @Test
+    public void testToDoubleWithDefault_invalid_returnsDefault() {
+        assertEquals(2.2d, NumberUtils.toDouble("abc", 2.2d), 0.0d);
+    }
+
+    // ---------- createNumber(String) ----------
+    @Test
+    public void testCreateNumber_null_returnsNull() throws Exception {
+        assertNull(NumberUtils.createNumber(null));
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testCreateNumber_blank_throwsException() {
+        NumberUtils.createNumber("   ");
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testCreateNumber_emptyString_throwsException() {
+        NumberUtils.createNumber("");
+    }
+
+    @Test
+    public void testCreateNumber_doubleDash_returnsNull() {
+        assertNull(NumberUtils.createNumber("--1"));
+    }
+
+    @Test
+    public void testCreateNumber_hex_returnsInteger() {
+        Number n = NumberUtils.createNumber("0x1A");
+        assertEquals(26, n.intValue());
+    }
+
+    @Test
+    public void testCreateNumber_negativeHex_returnsInteger() {
+        Number n = NumberUtils.createNumber("-0x1A");
+        assertEquals(-26, n.intValue());
+    }
+
+    @Test
+    public void testCreateNumber_plainInteger_returnsInteger() {
+        Number n = NumberUtils.createNumber("123");
+        assertTrue(n instanceof Integer);
+        assertEquals(123, n.intValue());
+    }
+
+    @Test
+    public void testCreateNumber_negativeInteger_returnsInteger() {
+        Number n = NumberUtils.createNumber("-123");
+        assertTrue(n instanceof Integer);
+        assertEquals(-123, n.intValue());
+    }
+
+    @Test
+    public void testCreateNumber_bigIntegerValue_returnsBigInteger() {
+        String big = "123456789012345678901234567890";
+        Number n = NumberUtils.createNumber(big);
+        assertTrue(n instanceof BigInteger);
+    }
+
+    @Test
+    public void testCreateNumber_longSuffix_returnsLong() {
+        Number n = NumberUtils.createNumber("123L");
+        assertTrue(n instanceof Long);
+        assertEquals(123L, n.longValue());
+    }
+
+    @Test
+    public void testCreateNumber_longSuffixLowercase_returnsLong() {
+        Number n = NumberUtils.createNumber("123l");
+        assertTrue(n instanceof Long);
+    }
+
+    @Test
+    public void testCreateNumber_bigIntegerWithLSuffix_returnsBigInteger() {
+        String bigL = "123456789012345678901234567890L";
+        Number n = NumberUtils.createNumber(bigL);
+        assertTrue(n instanceof BigInteger);
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testCreateNumber_invalidLSuffix_throwsException() {
+        NumberUtils.createNumber("1.5L");
+    }
+
+    @Test
+    public void testCreateNumber_floatSuffix_returnsFloat() {
+        Number n = NumberUtils.createNumber("1.5f");
+        assertTrue(n instanceof Float);
+    }
+
+    @Test
+    public void testCreateNumber_floatSuffixUppercase_returnsFloat() {
+        Number n = NumberUtils.createNumber("1.5F");
+        assertTrue(n instanceof Float);
+    }
+
+    @Test
+    public void testCreateNumber_doubleSuffix_returnsDouble() {
+        Number n = NumberUtils.createNumber("1.5d");
+        assertTrue(n instanceof Double);
+    }
+
+    @Test
+    public void testCreateNumber_doubleSuffixUppercase_returnsDouble() {
+        Number n = NumberUtils.createNumber("1.5D");
+        assertTrue(n instanceof Double);
+    }
+
+    @Test
+    public void testCreateNumber_decimal_returnsFloat() {
+        Number n = NumberUtils.createNumber("1.5");
+        assertTrue(n instanceof Float);
+    }
+
+    @Test
+    public void testCreateNumber_decimalLargeExceedsFloat_returnsDouble() {
+        Number n = NumberUtils.createNumber("1.23456789012345E300");
+        assertNotNull(n);
+    }
+
+    @Test
+    public void testCreateNumber_exponent_returnsFloatOrDouble() {
+        Number n = NumberUtils.createNumber("1.5e10");
+        assertNotNull(n);
+    }
+
+    @Test
+    public void testCreateNumber_veryLargeDecimal_returnsBigDecimal() {
+        StringBuilder sb = new StringBuilder("1.");
+        for (int i = 0; i < 50; i++) {
+            sb.append("123456789");
+        }
+        Number n = NumberUtils.createNumber(sb.toString());
+        assertTrue(n instanceof BigDecimal || n instanceof Double || n instanceof Float);
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testCreateNumber_decPosAfterExpPos_throwsException() {
+        NumberUtils.createNumber("1e10.5");
+    }
+
+    @Test
+    public void testCreateNumber_zeroWithFloatSuffix_returnsFloat() {
+        Number n = NumberUtils.createNumber("0.0f");
+        assertTrue(n instanceof Float);
+        assertEquals(0.0f, n.floatValue(), 0.0f);
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testCreateNumber_invalidSuffix_throwsException() {
+        NumberUtils.createNumber("123X");
+    }
+
+    @Test
+    public void testCreateNumber_zero_returnsInteger() {
+        Number n = NumberUtils.createNumber("0");
+        assertTrue(n instanceof Integer);
+        assertEquals(0, n.intValue());
+    }
+
+    // ---------- createFloat(String) ----------
+    @Test
+    public void testCreateFloat_valid_returnsFloat() {
+        assertEquals(Float.valueOf(1.5f), NumberUtils.createFloat("1.5"));
+    }
+
+    @Test
+    public void testCreateFloat_null_returnsNull() {
+        assertNull(NumberUtils.createFloat(null));
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testCreateFloat_invalid_throwsException() {
+        NumberUtils.createFloat("abc");
+    }
+
+    // ---------- createDouble(String) ----------
+    @Test
+    public void testCreateDouble_valid_returnsDouble() {
+        assertEquals(Double.valueOf(1.5d), NumberUtils.createDouble("1.5"));
+    }
+
+    @Test
+    public void testCreateDouble_null_returnsNull() {
+        assertNull(NumberUtils.createDouble(null));
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testCreateDouble_invalid_throwsException() {
+        NumberUtils.createDouble("abc");
+    }
+
+    // ---------- createInteger(String) ----------
+    @Test
+    public void testCreateInteger_valid_returnsInteger() {
+        assertEquals(Integer.valueOf(123), NumberUtils.createInteger("123"));
+    }
+
+    @Test
+    public void testCreateInteger_null_returnsNull() {
+        assertNull(NumberUtils.createInteger(null));
+    }
+
+    @Test
+    public void testCreateInteger_hex_returnsInteger() {
+        assertEquals(Integer.valueOf(26), NumberUtils.createInteger("0x1A"));
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testCreateInteger_invalid_throwsException() {
+        NumberUtils.createInteger("abc");
+    }
+
+    // ---------- createLong(String) ----------
+    @Test
+    public void testCreateLong_valid_returnsLong() {
+        assertEquals(Long.valueOf(123L), NumberUtils.createLong("123"));
+    }
+
+    @Test
+    public void testCreateLong_null_returnsNull() {
+        assertNull(NumberUtils.createLong(null));
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testCreateLong_invalid_throwsException() {
+        NumberUtils.createLong("abc");
+    }
+
+    // ---------- createBigInteger(String) ----------
+    @Test
+    public void testCreateBigInteger_valid_returnsBigInteger() {
+        assertEquals(BigInteger.valueOf(123L), NumberUtils.createBigInteger("123"));
+    }
+
+    @Test
+    public void testCreateBigInteger_null_returnsNull() {
+        assertNull(NumberUtils.createBigInteger(null));
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testCreateBigInteger_invalid_throwsException() {
+        NumberUtils.createBigInteger("abc");
+    }
+
+    // ---------- createBigDecimal(String) ----------
+    @Test
+    public void testCreateBigDecimal_valid_returnsBigDecimal() {
+        assertEquals(new BigDecimal("1.5"), NumberUtils.createBigDecimal("1.5"));
+    }
+
+    @Test
+    public void testCreateBigDecimal_null_returnsNull() {
+        assertNull(NumberUtils.createBigDecimal(null));
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testCreateBigDecimal_blank_throwsException() {
+        NumberUtils.createBigDecimal("   ");
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testCreateBigDecimal_invalid_throwsException() {
+        NumberUtils.createBigDecimal("abc");
+    }
+
+    // ---------- equals(byte[], byte[]) ----------
+    @Test
+    public void testEqualsByteArray_sameReference_returnsTrue() {
+        byte[] arr = {1, 2, 3};
+        assertTrue(NumberUtils.equals(arr, arr));
+    }
+
+    @Test
+    public void testEqualsByteArray_oneNull_returnsFalse() {
+        byte[] arr = {1, 2, 3};
+        assertFalse(NumberUtils.equals(arr, null));
+        assertFalse(NumberUtils.equals(null, arr));
+    }
+
+    @Test
+    public void testEqualsByteArray_differentLength_returnsFalse() {
+        byte[] a = {1, 2};
+        byte[] b = {1, 2, 3};
+        assertFalse(NumberUtils.equals(a, b));
+    }
+
+    @Test
+    public void testEqualsByteArray_equalContents_returnsTrue() {
+        byte[] a = {1, 2, 3};
+        byte[] b = {1, 2, 3};
+        assertTrue(NumberUtils.equals(a, b));
+    }
+
+    @Test
+    public void testEqualsByteArray_differentContents_returnsFalse() {
+        byte[] a = {1, 2, 3};
+        byte[] b = {1, 2, 4};
+        assertFalse(NumberUtils.equals(a, b));
+    }
+
+    // ---------- equals(short[], short[]) ----------
+    @Test
+    public void testEqualsShortArray_sameReference_returnsTrue() {
+        short[] arr = {1, 2, 3};
+        assertTrue(NumberUtils.equals(arr, arr));
+    }
+
+    @Test
+    public void testEqualsShortArray_oneNull_returnsFalse() {
+        short[] arr = {1, 2, 3};
+        assertFalse(NumberUtils.equals(arr, null));
+    }
+
+    @Test
+    public void testEqualsShortArray_differentLength_returnsFalse() {
+        short[] a = {1, 2};
+        short[] b = {1, 2, 3};
+        assertFalse(NumberUtils.equals(a, b));
+    }
+
+    @Test
+    public void testEqualsShortArray_equalContents_returnsTrue() {
+        short[] a = {1, 2, 3};
+        short[] b = {1, 2, 3};
+        assertTrue(NumberUtils.equals(a, b));
+    }
+
+    @Test
+    public void testEqualsShortArray_differentContents_returnsFalse() {
+        short[] a = {1, 2, 3};
+        short[] b = {1, 2, 4};
+        assertFalse(NumberUtils.equals(a, b));
+    }
+
+    // ---------- equals(int[], int[]) ----------
+    @Test
+    public void testEqualsIntArray_sameReference_returnsTrue() {
+        int[] arr = {1, 2, 3};
+        assertTrue(NumberUtils.equals(arr, arr));
+    }
+
+    @Test
+    public void testEqualsIntArray_oneNull_returnsFalse() {
+        int[] arr = {1, 2, 3};
+        assertFalse(NumberUtils.equals(arr, null));
+    }
+
+    @Test
+    public void testEqualsIntArray_differentLength_returnsFalse() {
+        int[] a = {1, 2};
+        int[] b = {1, 2, 3};
+        assertFalse(NumberUtils.equals(a, b));
+    }
+
+    @Test
+    public void testEqualsIntArray_equalContents_returnsTrue() {
+        int[] a = {1, 2, 3};
+        int[] b = {1, 2, 3};
+        assertTrue(NumberUtils.equals(a, b));
+    }
+
+    @Test
+    public void testEqualsIntArray_differentContents_returnsFalse() {
+        int[] a = {1, 2, 3};
+        int[] b = {1, 2, 4};
+        assertFalse(NumberUtils.equals(a, b));
+    }
+
+    // ---------- equals(long[], long[]) ----------
+    @Test
+    public void testEqualsLongArray_sameReference_returnsTrue() {
+        long[] arr = {1L, 2L, 3L};
+        assertTrue(NumberUtils.equals(arr, arr));
+    }
+
+    @Test
+    public void testEqualsLongArray_oneNull_returnsFalse() {
+        long[] arr = {1L, 2L, 3L};
+        assertFalse(NumberUtils.equals(arr, null));
+    }
+
+    @Test
+    public void testEqualsLongArray_differentLength_returnsFalse() {
+        long[] a = {1L, 2L};
+        long[] b = {1L, 2L, 3L};
+        assertFalse(NumberUtils.equals(a, b));
+    }
+
+    @Test
+    public void testEqualsLongArray_equalContents_returnsTrue() {
+        long[] a = {1L, 2L, 3L};
+        long[] b = {1L, 2L, 3L};
+        assertTrue(NumberUtils.equals(a, b));
+    }
+
+    @Test
+    public void testEqualsLongArray_differentContents_returnsFalse() {
+        long[] a = {1L, 2L, 3L};
+        long[] b = {1L, 2L, 4L};
+        assertFalse(NumberUtils.equals(a, b));
+    }
+
+    // ---------- equals(float[], float[]) ----------
+    @Test
+    public void testEqualsFloatArray_sameReference_returnsTrue() {
+        float[] arr = {1.0f, 2.0f};
+        assertTrue(NumberUtils.equals(arr, arr));
+    }
+
+    @Test
+    public void testEqualsFloatArray_oneNull_returnsFalse() {
+        float[] arr = {1.0f, 2.0f};
+        assertFalse(NumberUtils.equals(arr, null));
+    }
+
+    @Test
+    public void testEqualsFloatArray_differentLength_returnsFalse() {
+        float[] a = {1.0f};
+        float[] b = {1.0f, 2.0f};
+        assertFalse(NumberUtils.equals(a, b));
+    }
+
+    @Test
+    public void testEqualsFloatArray_equalContents_returnsTrue() {
+        float[] a = {1.0f, 2.0f};
+        float[] b = {1.0f, 2.0f};
+        assertTrue(NumberUtils.equals(a, b));
+    }
+
+    @Test
+    public void testEqualsFloatArray_differentContents_returnsFalse() {
+        float[] a = {1.0f, 2.0f};
+        float[] b = {1.0f, 3.0f};
+        assertFalse(NumberUtils.equals(a, b));
+    }
+
+    // ---------- equals(double[], double[]) ----------
+    @Test
+    public void testEqualsDoubleArray_sameReference_returnsTrue() {
+        double[] arr = {1.0d, 2.0d};
+        assertTrue(NumberUtils.equals(arr, arr));
+    }
+
+    @Test
+    public void testEqualsDoubleArray_oneNull_returnsFalse() {
+        double[] arr = {1.0d, 2.0d};
+        assertFalse(NumberUtils.equals(arr, null));
+    }
+
+    @Test
+    public void testEqualsDoubleArray_differentLength_returnsFalse() {
+        double[] a = {1.0d};
+        double[] b = {1.0d, 2.0d};
+        assertFalse(NumberUtils.equals(a, b));
+    }
+
+    @Test
+    public void testEqualsDoubleArray_equalContents_returnsTrue() {
+        double[] a = {1.0d, 2.0d};
+        double[] b = {1.0d, 2.0d};
+        assertTrue(NumberUtils.equals(a, b));
+    }
+
+    @Test
+    public void testEqualsDoubleArray_differentContents_returnsFalse() {
+        double[] a = {1.0d, 2.0d};
+        double[] b = {1.0d, 3.0d};
+        assertFalse(NumberUtils.equals(a, b));
+    }
+
+    // ---------- min(long[]) ----------
+    @Test
+    public void testMinLongArray_typical_returnsMin() {
+        assertEquals(1L, NumberUtils.min(new long[]{3L, 1L, 2L}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinLongArray_null_throwsException() {
+        NumberUtils.min((long[]) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinLongArray_empty_throwsException() {
+        NumberUtils.min(new long[]{});
+    }
+
+    // ---------- min(int[]) ----------
+    @Test
+    public void testMinIntArray_typical_returnsMin() {
+        assertEquals(1, NumberUtils.min(new int[]{3, 1, 2}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinIntArray_null_throwsException() {
+        NumberUtils.min((int[]) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinIntArray_empty_throwsException() {
+        NumberUtils.min(new int[]{});
+    }
+
+    // ---------- min(short[]) ----------
+    @Test
+    public void testMinShortArray_typical_returnsMin() {
+        assertEquals((short) 1, NumberUtils.min(new short[]{3, 1, 2}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinShortArray_null_throwsException() {
+        NumberUtils.min((short[]) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinShortArray_empty_throwsException() {
+        NumberUtils.min(new short[]{});
+    }
+
+    // ---------- min(byte[]) ----------
+    @Test
+    public void testMinByteArray_typical_returnsMin() {
+        assertEquals((byte) 1, NumberUtils.min(new byte[]{3, 1, 2}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinByteArray_null_throwsException() {
+        NumberUtils.min((byte[]) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinByteArray_empty_throwsException() {
+        NumberUtils.min(new byte[]{});
+    }
+
+    // ---------- min(double[]) ----------
+    @Test
+    public void testMinDoubleArray_typical_returnsMin() {
+        assertEquals(1.0d, NumberUtils.min(new double[]{3.0d, 1.0d, 2.0d}), 0.0d);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinDoubleArray_null_throwsException() {
+        NumberUtils.min((double[]) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinDoubleArray_empty_throwsException() {
+        NumberUtils.min(new double[]{});
+    }
+
+    // ---------- min(float[]) ----------
+    @Test
+    public void testMinFloatArray_typical_returnsMin() {
+        assertEquals(1.0f, NumberUtils.min(new float[]{3.0f, 1.0f, 2.0f}), 0.0f);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinFloatArray_null_throwsException() {
+        NumberUtils.min((float[]) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinFloatArray_empty_throwsException() {
+        NumberUtils.min(new float[]{});
+    }
+
+    // ---------- max(long[]) ----------
+    @Test
+    public void testMaxLongArray_typical_returnsMax() {
+        assertEquals(3L, NumberUtils.max(new long[]{3L, 1L, 2L}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxLongArray_null_throwsException() {
+        NumberUtils.max((long[]) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxLongArray_empty_throwsException() {
+        NumberUtils.max(new long[]{});
+    }
+
+    // ---------- max(int[]) ----------
+    @Test
+    public void testMaxIntArray_typical_returnsMax() {
+        assertEquals(3, NumberUtils.max(new int[]{3, 1, 2}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxIntArray_null_throwsException() {
+        NumberUtils.max((int[]) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxIntArray_empty_throwsException() {
+        NumberUtils.max(new int[]{});
+    }
+
+    // ---------- max(short[]) ----------
+    @Test
+    public void testMaxShortArray_typical_returnsMax() {
+        assertEquals((short) 3, NumberUtils.max(new short[]{3, 1, 2}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxShortArray_null_throwsException() {
+        NumberUtils.max((short[]) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxShortArray_empty_throwsException() {
+        NumberUtils.max(new short[]{});
+    }
+
+    // ---------- max(byte[]) ----------
+    @Test
+    public void testMaxByteArray_typical_returnsMax() {
+        assertEquals((byte) 3, NumberUtils.max(new byte[]{3, 1, 2}));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxByteArray_null_throwsException() {
+        NumberUtils.max((byte[]) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxByteArray_empty_throwsException() {
+        NumberUtils.max(new byte[]{});
+    }
+
+    // ---------- max(double[]) ----------
+    @Test
+    public void testMaxDoubleArray_typical_returnsMax() {
+        assertEquals(3.0d, NumberUtils.max(new double[]{3.0d, 1.0d, 2.0d}), 0.0d);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxDoubleArray_null_throwsException() {
+        NumberUtils.max((double[]) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxDoubleArray_empty_throwsException() {
+        NumberUtils.max(new double[]{});
+    }
+
+    // ---------- max(float[]) ----------
+    @Test
+    public void testMaxFloatArray_typical_returnsMax() {
+        assertEquals(3.0f, NumberUtils.max(new float[]{3.0f, 1.0f, 2.0f}), 0.0f);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxFloatArray_null_throwsException() {
+        NumberUtils.max((float[]) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxFloatArray_empty_throwsException() {
+        NumberUtils.max(new float[]{});
+    }
+
+    // ---------- min(long,long,long) ----------
+    @Test
+    public void testMinLong3_typical_returnsMin() {
+        assertEquals(1L, NumberUtils.min(3L, 1L, 2L));
+        assertEquals(1L, NumberUtils.min(1L, 3L, 2L));
+        assertEquals(1L, NumberUtils.min(3L, 2L, 1L));
+    }
+
+    // ---------- min(int,int,int) ----------
+    @Test
+    public void testMinInt3_typical_returnsMin() {
+        assertEquals(1, NumberUtils.min(3, 1, 2));
+        assertEquals(1, NumberUtils.min(1, 3, 2));
+        assertEquals(1, NumberUtils.min(3, 2, 1));
+    }
+
+    // ---------- min(short,short,short) ----------
+    @Test
+    public void testMinShort3_typical_returnsMin() {
+        short a = 3, b = 1, c = 2;
+        assertEquals((short) 1, NumberUtils.min(a, b, c));
+    }
+
+    // ---------- min(byte,byte,byte) ----------
+    @Test
+    public void testMinByte3_typical_returnsMin() {
+        byte a = 3, b = 1, c = 2;
+        assertEquals((byte) 1, NumberUtils.min(a, b, c));
+    }
+
+    // ---------- min(double,double,double) ----------
+    @Test
+    public void testMinDouble3_typical_returnsMin() {
+        assertEquals(1.0d, NumberUtils.min(3.0d, 1.0d, 2.0d), 0.0d);
+    }
+
+    // ---------- min(float,float,float) ----------
+    @Test
+    public void testMinFloat3_typical_returnsMin() {
+        assertEquals(1.0f, NumberUtils.min(3.0f, 1.0f, 2.0f), 0.0f);
+    }
+
+    // ---------- max(long,long,long) ----------
+    @Test
+    public void testMaxLong3_typical_returnsMax() {
+        assertEquals(3L, NumberUtils.max(3L, 1L, 2L));
+        assertEquals(3L, NumberUtils.max(1L, 3L, 2L));
+        assertEquals(3L, NumberUtils.max(1L, 2L, 3L));
+    }
+
+    // ---------- max(int,int,int) ----------
+    @Test
+    public void testMaxInt3_typical_returnsMax() {
+        assertEquals(3, NumberUtils.max(3, 1, 2));
+        assertEquals(3, NumberUtils.max(1, 3, 2));
+        assertEquals(3, NumberUtils.max(1, 2, 3));
+    }
+
+    // ---------- max(short,short,short) ----------
+    @Test
+    public void testMaxShort3_typical_returnsMax() {
+        short a = 1, b = 3, c = 2;
+        assertEquals((short) 3, NumberUtils.max(a, b, c));
+    }
+
+    // ---------- max(byte,byte,byte) ----------
+    @Test
+    public void testMaxByte3_typical_returnsMax() {
+        byte a = 1, b = 3, c = 2;
+        assertEquals((byte) 3, NumberUtils.max(a, b, c));
+    }
+
+    // ---------- max(double,double,double) ----------
+    @Test
+    public void testMaxDouble3_typical_returnsMax() {
+        assertEquals(3.0d, NumberUtils.max(1.0d, 3.0d, 2.0d), 0.0d);
+    }
+
+    // ---------- max(float,float,float) ----------
+    @Test
+    public void testMaxFloat3_typical_returnsMax() {
+        assertEquals(3.0f, NumberUtils.max(1.0f, 3.0f, 2.0f), 0.0f);
+    }
+
+    // ---------- compare(double,double) ----------
+    @Test
+    public void testCompareDouble_lessThan_returnsNegative() {
+        assertEquals(-1, NumberUtils.compare(1.0d, 2.0d));
+    }
+
+    @Test
+    public void testCompareDouble_greaterThan_returnsPositive() {
+        assertEquals(1, NumberUtils.compare(2.0d, 1.0d));
+    }
+
+    @Test
+    public void testCompareDouble_equal_returnsZero() {
+        assertEquals(0, NumberUtils.compare(1.0d, 1.0d));
+    }
+
+    @Test
+    public void testCompareDouble_nanVsNan_returnsZero() {
+        assertEquals(0, NumberUtils.compare(Double.NaN, Double.NaN));
+    }
+
+    @Test
+    public void testCompareDouble_zeroVsNegZero_returnsPositive() {
+        assertEquals(1, NumberUtils.compare(0.0d, -0.0d));
+    }
+
+    @Test
+    public void testCompareDouble_negZeroVsZero_returnsNegative() {
+        assertEquals(-1, NumberUtils.compare(-0.0d, 0.0d));
+    }
+
+    @Test
+    public void testCompareDouble_nanVsMax_returnsPositive() {
+        assertEquals(1, NumberUtils.compare(Double.NaN, Double.MAX_VALUE));
+    }
+
+    // ---------- compare(float,float) ----------
+    @Test
+    public void testCompareFloat_lessThan_returnsNegative() {
+        assertEquals(-1, NumberUtils.compare(1.0f, 2.0f));
+    }
+
+    @Test
+    public void testCompareFloat_greaterThan_returnsPositive() {
+        assertEquals(1, NumberUtils.compare(2.0f, 1.0f));
+    }
+
+    @Test
+    public void testCompareFloat_equal_returnsZero() {
+        assertEquals(0, NumberUtils.compare(1.0f, 1.0f));
+    }
+
+    @Test
+    public void testCompareFloat_nanVsNan_returnsZero() {
+        assertEquals(0, NumberUtils.compare(Float.NaN, Float.NaN));
+    }
+
+    @Test
+    public void testCompareFloat_zeroVsNegZero_returnsPositive() {
+        assertEquals(1, NumberUtils.compare(0.0f, -0.0f));
+    }
+
+    @Test
+    public void testCompareFloat_negZeroVsZero_returnsNegative() {
+        assertEquals(-1, NumberUtils.compare(-0.0f, 0.0f));
+    }
+
+    @Test
+    public void testCompareFloat_nanVsMax_returnsPositive() {
+        assertEquals(1, NumberUtils.compare(Float.NaN, Float.MAX_VALUE));
+    }
+
+    // ---------- isDigits(String) ----------
+    @Test
+    public void testIsDigits_allDigits_returnsTrue() {
+        assertTrue(NumberUtils.isDigits("12345"));
+    }
+
+    @Test
+    public void testIsDigits_null_returnsFalse() {
+        assertFalse(NumberUtils.isDigits(null));
+    }
+
+    @Test
+    public void testIsDigits_empty_returnsFalse() {
+        assertFalse(NumberUtils.isDigits(""));
+    }
+
+    @Test
+    public void testIsDigits_withLetters_returnsFalse() {
+        assertFalse(NumberUtils.isDigits("123a"));
+    }
+
+    @Test
+    public void testIsDigits_withDecimalPoint_returnsFalse() {
+        assertFalse(NumberUtils.isDigits("12.3"));
+    }
+
+    // ---------- isNumber(String) ----------
+    @Test
+    public void testIsNumber_null_returnsFalse() {
+        assertFalse(NumberUtils.isNumber(null));
+    }
+
+    @Test
+    public void testIsNumber_empty_returnsFalse() {
+        assertFalse(NumberUtils.isNumber(""));
+    }
+
+    @Test
+    public void testIsNumber_plainInteger_returnsTrue() {
+        assertTrue(NumberUtils.isNumber("12345"));
+    }
+
+    @Test
+    public void testIsNumber_negativeInteger_returnsTrue() {
+        assertTrue(NumberUtils.isNumber("-12345"));
+    }
+
+    @Test
+    public void testIsNumber_decimal_returnsTrue() {
+        assertTrue(NumberUtils.isNumber("12.345"));
+    }
+
+    @Test
+    public void testIsNumber_hex_returnsTrue() {
+        assertTrue(NumberUtils.isNumber("0x1A"));
+    }
+
+    @Test
+    public void testIsNumber_hexOnlyPrefix_returnsFalse() {
+        assertFalse(NumberUtils.isNumber("0x"));
+    }
+
+    @Test
+    public void testIsNumber_hexInvalidChar_returnsFalse() {
+        assertFalse(NumberUtils.isNumber("0xZZ"));
+    }
+
+    @Test
+    public void testIsNumber_scientificNotation_returnsTrue() {
+        assertTrue(NumberUtils.isNumber("1.5e10"));
+    }
+
+    @Test
+    public void testIsNumber_scientificNotationWithSign_returnsTrue() {
+        assertTrue(NumberUtils.isNumber("1.5e-10"));
+    }
+
+    @Test
+    public void testIsNumber_doubleDecimalPoints_returnsFalse() {
+        assertFalse(NumberUtils.isNumber("1.2.3"));
+    }
+
+    @Test
+    public void testIsNumber_doubleE_returnsFalse() {
+        assertFalse(NumberUtils.isNumber("1e2e3"));
+    }
+
+    @Test
+    public void testIsNumber_eWithoutDigitBefore_returnsFalse() {
+        assertFalse(NumberUtils.isNumber("e10"));
+    }
+
+    @Test
+    public void testIsNumber_signWithoutAllow_returnsFalse() {
+        assertFalse(NumberUtils.isNumber("1+2"));
+    }
+
+    @Test
+    public void testIsNumber_endsWithE_returnsFalse() {
+        assertFalse(NumberUtils.isNumber("1.5e"));
+    }
+
+    @Test
+    public void testIsNumber_floatSuffix_returnsTrue() {
+        assertTrue(NumberUtils.isNumber("1.5f"));
+    }
+
+    @Test
+    public void testIsNumber_doubleSuffix_returnsTrue() {
+        assertTrue(NumberUtils.isNumber("1.5d"));
+    }
+
+    @Test
+    public void testIsNumber_floatSuffixWithoutDigit_returnsFalse() {
+        assertFalse(NumberUtils.isNumber(".f"));
+    }
+
+    @Test
+    public void testIsNumber_longSuffix_returnsTrue() {
+        assertTrue(NumberUtils.isNumber("123L"));
+    }
+
+    @Test
+    public void testIsNumber_longSuffixWithExp_returnsFalse() {
+        assertFalse(NumberUtils.isNumber("1e2L"));
+    }
+
+    @Test
+    public void testIsNumber_illegalLastChar_returnsFalse() {
+        assertFalse(NumberUtils.isNumber("123X"));
+    }
+
+    @Test
+    public void testIsNumber_illegalCharacter_returnsFalse() {
+        assertFalse(NumberUtils.isNumber("12#34"));
+    }

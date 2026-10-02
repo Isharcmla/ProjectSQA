@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "93",
+  "tool": "gemini",
+  "class": "org.jsoup.nodes.FormElement",
+  "target_classes": [
+    "org.jsoup.nodes.FormElement"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 24.77,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\93\\FormElement_20260926_010133.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\93\\FormElementTest.java",
+  "usage": {
+    "prompt_tokens": 1311,
+    "completion_tokens": 2771,
+    "total_tokens": 4918
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 308646,
+    "daily_remaining_tokens": 41354
+  },
+  "timestamp": "20260926_010133"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "103",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.JsonMappingException",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.JsonMappingException"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 81.0,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\103\\JsonMappingException_20260928_223242.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\103\\JsonMappingExceptionTest.java",
+  "usage": {
+    "prompt_tokens": 6688,
+    "completion_tokens": 11356,
+    "total_tokens": 18044
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 145725,
+    "daily_remaining_tokens": 54275
+  },
+  "timestamp": "20260928_223242"
+}

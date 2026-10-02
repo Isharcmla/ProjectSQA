@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "36",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.InlineVariables",
+  "target_classes": [
+    "com.google.javascript.jscomp.InlineVariables"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 146.64,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\36\\InlineVariables_20260926_021626.txt",
+  "test_file": "Claude\\TestCode\\Closure\\36\\InlineVariablesTest.java",
+  "usage": {
+    "prompt_tokens": 10095,
+    "completion_tokens": 15089,
+    "total_tokens": 25184
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 185296,
+    "daily_remaining_tokens": 14704
+  },
+  "timestamp": "20260926_021626"
+}

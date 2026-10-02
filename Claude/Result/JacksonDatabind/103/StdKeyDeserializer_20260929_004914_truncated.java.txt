@@ -1,0 +1,464 @@
+package com.fasterxml.jackson.databind.deser.std;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.math.BigInteger;
+import java.net.URI;
+import java.net.URL;
+import java.util.*;
+
+public class StdKeyDeserializerTest
+{
+    enum SampleEnum { FOO, BAR }
+
+    static class DummyUnsupportedType { }
+
+    // -------------------------------------------------------------
+    // forType() tests
+    // -------------------------------------------------------------
+
+    @Test
+    public void testForType_stringClass_returnsStringKD() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(String.class);
+        assertNotNull(kd);
+        assertEquals(String.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_objectClass_returnsStringKD() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Object.class);
+        assertNotNull(kd);
+        assertEquals(Object.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_charSequenceClass_returnsStringKD() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(CharSequence.class);
+        assertNotNull(kd);
+        assertEquals(CharSequence.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_uuidClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(UUID.class);
+        assertNotNull(kd);
+        assertEquals(UUID.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_integerClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Integer.class);
+        assertNotNull(kd);
+        assertEquals(Integer.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_longClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Long.class);
+        assertNotNull(kd);
+        assertEquals(Long.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_dateClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Date.class);
+        assertNotNull(kd);
+        assertEquals(Date.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_calendarClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Calendar.class);
+        assertNotNull(kd);
+        assertEquals(Calendar.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_booleanClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Boolean.class);
+        assertNotNull(kd);
+        assertEquals(Boolean.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_byteClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Byte.class);
+        assertNotNull(kd);
+        assertEquals(Byte.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_characterClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Character.class);
+        assertNotNull(kd);
+        assertEquals(Character.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_shortClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Short.class);
+        assertNotNull(kd);
+        assertEquals(Short.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_floatClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Float.class);
+        assertNotNull(kd);
+        assertEquals(Float.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_doubleClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Double.class);
+        assertNotNull(kd);
+        assertEquals(Double.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_uriClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(URI.class);
+        assertNotNull(kd);
+        assertEquals(URI.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_urlClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(URL.class);
+        assertNotNull(kd);
+        assertEquals(URL.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_classClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Class.class);
+        assertNotNull(kd);
+        assertEquals(Class.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_localeClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Locale.class);
+        assertNotNull(kd);
+        assertEquals(Locale.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_currencyClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Currency.class);
+        assertNotNull(kd);
+        assertEquals(Currency.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_byteArrayClass_returnsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(byte[].class);
+        assertNotNull(kd);
+        assertEquals(byte[].class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_unsupportedType_returnsNull() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(DummyUnsupportedType.class);
+        assertNull(kd);
+    }
+
+    // -------------------------------------------------------------
+    // deserializeKey() direct edge cases
+    // -------------------------------------------------------------
+
+    @Test
+    public void testDeserializeKey_nullKey_returnsNull() throws IOException {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Integer.class);
+        assertNull(kd.deserializeKey(null, null));
+    }
+
+    // -------------------------------------------------------------
+    // _parse() direct tests (no ctxt needed on success paths)
+    // -------------------------------------------------------------
+
+    @Test
+    public void testParse_booleanTrue_returnsTrue() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Boolean.class);
+        assertEquals(Boolean.TRUE, kd._parse("true", null));
+    }
+
+    @Test
+    public void testParse_booleanFalse_returnsFalse() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Boolean.class);
+        assertEquals(Boolean.FALSE, kd._parse("false", null));
+    }
+
+    @Test
+    public void testParse_byteNormal_returnsByte() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Byte.class);
+        assertEquals(Byte.valueOf((byte) 100), kd._parse("100", null));
+    }
+
+    @Test
+    public void testParse_shortNormal_returnsShort() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Short.class);
+        assertEquals(Short.valueOf((short) 1000), kd._parse("1000", null));
+    }
+
+    @Test
+    public void testParse_charSingleChar_returnsCharacter() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Character.class);
+        assertEquals(Character.valueOf('a'), kd._parse("a", null));
+    }
+
+    @Test
+    public void testParse_intNormal_returnsInteger() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Integer.class);
+        assertEquals(Integer.valueOf(123), kd._parse("123", null));
+    }
+
+    @Test
+    public void testParse_longNormal_returnsLong() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Long.class);
+        assertEquals(Long.valueOf(123456789012L), kd._parse("123456789012", null));
+    }
+
+    @Test
+    public void testParse_floatNormal_returnsFloat() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Float.class);
+        assertEquals(Float.valueOf(1.5f), kd._parse("1.5", null));
+    }
+
+    @Test
+    public void testParse_doubleNormal_returnsDouble() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Double.class);
+        assertEquals(Double.valueOf(1.5d), kd._parse("1.5", null));
+    }
+
+    @Test
+    public void testParse_uriValid_returnsURI() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(URI.class);
+        assertEquals(URI.create("http://example.com"), kd._parse("http://example.com", null));
+    }
+
+    @Test
+    public void testParse_urlValid_returnsURL() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(URL.class);
+        assertEquals(new URL("http://example.com"), kd._parse("http://example.com", null));
+    }
+
+    @Test
+    public void testParse_uuidValid_returnsUUID() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(UUID.class);
+        UUID expected = UUID.fromString("550e8400-e29b-41d4-a716-446655440000");
+        assertEquals(expected, kd._parse("550e8400-e29b-41d4-a716-446655440000", null));
+    }
+
+    // -------------------------------------------------------------
+    // Helper protected methods
+    // -------------------------------------------------------------
+
+    @Test
+    public void testParseInt_validString_returnsInt() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Integer.class);
+        assertEquals(123, kd._parseInt("123"));
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testParseInt_invalidString_throwsException() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Integer.class);
+        kd._parseInt("abc");
+    }
+
+    @Test
+    public void testParseLong_validString_returnsLong() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Long.class);
+        assertEquals(123456789012L, kd._parseLong("123456789012"));
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testParseLong_invalidString_throwsException() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Long.class);
+        kd._parseLong("abc");
+    }
+
+    @Test
+    public void testParseDouble_validString_returnsDouble() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Double.class);
+        assertEquals(1.5d, kd._parseDouble("1.5"), 0.0001);
+    }
+
+    @Test(expected = NumberFormatException.class)
+    public void testParseDouble_invalidString_throwsException() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Double.class);
+        kd._parseDouble("not-a-number");
+    }
+
+    // -------------------------------------------------------------
+    // Full round-trip tests via ObjectMapper (need real ctxt)
+    // -------------------------------------------------------------
+
+    @Test
+    public void testDeserializeKey_booleanKey_viaObjectMapper_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Boolean, Integer> map = mapper.readValue("{\"true\":1,\"false\":2}",
+                new TypeReference<Map<Boolean, Integer>>() { });
+        assertEquals(Integer.valueOf(1), map.get(Boolean.TRUE));
+        assertEquals(Integer.valueOf(2), map.get(Boolean.FALSE));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_booleanKey_invalidValue_throwsException() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.readValue("{\"notbool\":1}", new TypeReference<Map<Boolean, Integer>>() { });
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_byteKey_overflow_throwsException() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.readValue("{\"999\":1}", new TypeReference<Map<Byte, Integer>>() { });
+    }
+
+    @Test
+    public void testDeserializeKey_byteKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Byte, Integer> map = mapper.readValue("{\"100\":1}",
+                new TypeReference<Map<Byte, Integer>>() { });
+        assertEquals(Integer.valueOf(1), map.get((byte) 100));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_shortKey_overflow_throwsException() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.readValue("{\"99999\":1}", new TypeReference<Map<Short, Integer>>() { });
+    }
+
+    @Test
+    public void testDeserializeKey_charKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Character, Integer> map = mapper.readValue("{\"a\":1}",
+                new TypeReference<Map<Character, Integer>>() { });
+        assertEquals(Integer.valueOf(1), map.get('a'));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_charKey_multipleChars_throwsException() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.readValue("{\"ab\":1}", new TypeReference<Map<Character, Integer>>() { });
+    }
+
+    @Test
+    public void testDeserializeKey_intKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Integer, String> map = mapper.readValue("{\"123\":\"x\"}",
+                new TypeReference<Map<Integer, String>>() { });
+        assertEquals("x", map.get(123));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_intKey_invalid_throwsException() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.readValue("{\"abc\":\"x\"}", new TypeReference<Map<Integer, String>>() { });
+    }
+
+    @Test
+    public void testDeserializeKey_longKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Long, String> map = mapper.readValue("{\"123456789012\":\"x\"}",
+                new TypeReference<Map<Long, String>>() { });
+        assertEquals("x", map.get(123456789012L));
+    }
+
+    @Test
+    public void testDeserializeKey_floatKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Float, String> map = mapper.readValue("{\"1.5\":\"x\"}",
+                new TypeReference<Map<Float, String>>() { });
+        assertEquals("x", map.get(1.5f));
+    }
+
+    @Test
+    public void testDeserializeKey_doubleKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Double, String> map = mapper.readValue("{\"1.5\":\"x\"}",
+                new TypeReference<Map<Double, String>>() { });
+        assertEquals("x", map.get(1.5d));
+    }
+
+    @Test
+    public void testDeserializeKey_localeKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Locale, String> map = mapper.readValue("{\"en_US\":\"x\"}",
+                new TypeReference<Map<Locale, String>>() { });
+        assertEquals("x", map.get(new Locale("en", "US")));
+    }
+
+    @Test
+    public void testDeserializeKey_currencyKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Currency, String> map = mapper.readValue("{\"USD\":\"x\"}",
+                new TypeReference<Map<Currency, String>>() { });
+        assertEquals("x", map.get(Currency.getInstance("USD")));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_currencyKey_invalid_throwsException() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.readValue("{\"NOTACURRENCY\":\"x\"}", new TypeReference<Map<Currency, String>>() { });
+    }
+
+    @Test
+    public void testDeserializeKey_dateKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Date, String> map = mapper.readValue("{\"2020-01-01T00:00:00.000+0000\":\"x\"}",
+                new TypeReference<Map<Date, String>>() { });
+        assertEquals(1, map.size());
+    }
+
+    @Test
+    public void testDeserializeKey_calendarKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<Calendar, String> map = mapper.readValue("{\"2020-01-01T00:00:00.000+0000\":\"x\"}",
+                new TypeReference<Map<Calendar, String>>() { });
+        assertEquals(1, map.size());
+    }
+
+    @Test
+    public void testDeserializeKey_uuidKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<UUID, String> map = mapper.readValue(
+                "{\"550e8400-e29b-41d4-a716-446655440000\":\"x\"}",
+                new TypeReference<Map<UUID, String>>() { });
+        assertEquals("x", map.get(UUID.fromString("550e8400-e29b-41d4-a716-446655440000")));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_uuidKey_invalid_throwsException() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.readValue("{\"not-a-uuid\":\"x\"}", new TypeReference<Map<UUID, String>>() { });
+    }
+
+    @Test
+    public void testDeserializeKey_uriKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<URI, String> map = mapper.readValue("{\"http://example.com\":\"x\"}",
+                new TypeReference<Map<URI, String>>() { });
+        assertEquals("x", map.get(URI.create("http://example.com")));
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testDeserializeKey_uriKey_invalid_throwsException() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.readValue("{\" \":\"x\"}", new TypeReference<Map<URI, String>>() { });
+    }
+
+    @Test
+    public void testDeserializeKey_urlKey_normal() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        Map<URL, String> map = mapper.readValue("{\"http://example.com\":\"x\"}",
+                new TypeReference<Map<URL

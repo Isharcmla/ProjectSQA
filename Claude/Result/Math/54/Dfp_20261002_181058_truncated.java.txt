@@ -1,0 +1,923 @@
+package org.apache.commons.math.dfp;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class DfpTest {
+
+    private DfpField field;
+    private DfpField field5; // different precision field for mismatch tests
+
+    @Before
+    public void setUp() {
+        field = new DfpField(20);
+        field5 = new DfpField(5);
+    }
+
+    // ---------- newInstance tests ----------
+
+    @Test
+    public void testNewInstance_zero_returnsZeroValue() {
+        Dfp d = field.newDfp();
+        assertEquals(0, d.intValue());
+        assertEquals(Dfp.FINITE, d.classify());
+    }
+
+    @Test
+    public void testNewInstance_byte_createsCorrectValue() {
+        Dfp d = field.newDfp((byte) 5);
+        assertEquals(5, d.intValue());
+    }
+
+    @Test
+    public void testNewInstance_int_createsCorrectValue() {
+        Dfp d = field.newDfp(12345);
+        assertEquals(12345, d.intValue());
+    }
+
+    @Test
+    public void testNewInstance_long_createsCorrectValue() {
+        Dfp d = field.newDfp(123456789L);
+        assertEquals(123456789, d.intValue());
+    }
+
+    @Test
+    public void testNewInstance_longMinValue_handledCorrectly() {
+        Dfp d = field.newDfp(Long.MIN_VALUE);
+        assertEquals(Long.MIN_VALUE, (long)d.intValue() == Long.MIN_VALUE ? Long.MIN_VALUE : d.intValue());
+        assertTrue(d.lessThan(field.getZero()));
+    }
+
+    @Test
+    public void testNewInstance_double_createsCorrectValue() {
+        Dfp d = field.newDfp(3.5);
+        assertEquals(3.5, d.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testNewInstance_negativeDouble_createsCorrectValue() {
+        Dfp d = field.newDfp(-7.25);
+        assertEquals(-7.25, d.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testNewInstance_zeroDouble_createsZero() {
+        Dfp d = field.newDfp(0.0);
+        assertEquals(0.0, d.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testNewInstance_NaN_double_createsNaN() {
+        Dfp d = field.newDfp(Double.NaN);
+        assertTrue(d.isNaN());
+    }
+
+    @Test
+    public void testNewInstance_PositiveInfinity_double_createsInfinite() {
+        Dfp d = field.newDfp(Double.POSITIVE_INFINITY);
+        assertTrue(d.isInfinite());
+        assertTrue(d.greaterThan(field.getZero()));
+    }
+
+    @Test
+    public void testNewInstance_NegativeInfinity_double_createsInfinite() {
+        Dfp d = field.newDfp(Double.NEGATIVE_INFINITY);
+        assertTrue(d.isInfinite());
+        assertTrue(d.lessThan(field.getZero()));
+    }
+
+    @Test
+    public void testNewInstance_subnormalDouble_handledCorrectly() {
+        Dfp d = field.newDfp(Double.MIN_VALUE);
+        assertFalse(d.isNaN());
+        assertFalse(d.isInfinite());
+    }
+
+    @Test
+    public void testNewInstance_Dfp_copiesValue() {
+        Dfp orig = field.newDfp(42);
+        Dfp copy = orig.newInstance(orig);
+        assertTrue(copy.equals(orig));
+    }
+
+    @Test
+    public void testNewInstance_DfpMismatchedPrecision_returnsNaN() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field5.newDfp(3);
+        Dfp result = a.newInstance(b);
+        assertTrue(result.isNaN());
+    }
+
+    @Test
+    public void testNewInstance_String_parsesNormalNumber() {
+        Dfp d = field.newDfp("123.456");
+        assertEquals(123.456, d.toDouble(), 1e-6);
+    }
+
+    @Test
+    public void testNewInstance_String_parsesNegativeNumber() {
+        Dfp d = field.newDfp("-123.456");
+        assertEquals(-123.456, d.toDouble(), 1e-6);
+    }
+
+    @Test
+    public void testNewInstance_String_parsesScientificNotation() {
+        Dfp d = field.newDfp("1.5e3");
+        assertEquals(1500.0, d.toDouble(), 1e-6);
+    }
+
+    @Test
+    public void testNewInstance_String_parsesNegativeExponent() {
+        Dfp d = field.newDfp("1.5e-3");
+        assertEquals(0.0015, d.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testNewInstance_String_parsesUpperCaseExponent() {
+        Dfp d = field.newDfp("2E2");
+        assertEquals(200.0, d.toDouble(), 1e-6);
+    }
+
+    @Test
+    public void testNewInstance_String_allZeros() {
+        Dfp d = field.newDfp("0.00000");
+        assertEquals(0.0, d.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testNewInstance_String_NaN() {
+        Dfp d = field.newDfp("NaN");
+        assertTrue(d.isNaN());
+    }
+
+    @Test
+    public void testNewInstance_String_PositiveInfinity() {
+        Dfp d = field.newDfp("Infinity");
+        assertTrue(d.isInfinite());
+        assertTrue(d.greaterThan(field.getZero()));
+    }
+
+    @Test
+    public void testNewInstance_String_NegativeInfinity() {
+        Dfp d = field.newDfp("-Infinity");
+        assertTrue(d.isInfinite());
+        assertTrue(d.lessThan(field.getZero()));
+    }
+
+    @Test
+    public void testNewInstance_SignAndCode_createsNonFiniteValue() {
+        Dfp d = field.newDfp((byte) 1, Dfp.INFINITE);
+        assertTrue(d.isInfinite());
+    }
+
+    // ---------- Field related getters ----------
+
+    @Test
+    public void testGetField_returnsCorrectField() {
+        Dfp d = field.newDfp(1);
+        assertSame(field, d.getField());
+    }
+
+    @Test
+    public void testGetRadixDigits_returnsCorrectDigits() {
+        Dfp d = field.newDfp(1);
+        assertEquals(field.getRadixDigits(), d.getRadixDigits());
+    }
+
+    @Test
+    public void testGetZero_returnsZero() {
+        Dfp d = field.newDfp(1);
+        Dfp zero = d.getZero();
+        assertEquals(0, zero.intValue());
+    }
+
+    @Test
+    public void testGetOne_returnsOne() {
+        Dfp d = field.newDfp(1);
+        Dfp one = d.getOne();
+        assertEquals(1, one.intValue());
+    }
+
+    @Test
+    public void testGetTwo_returnsTwo() {
+        Dfp d = field.newDfp(1);
+        Dfp two = d.getTwo();
+        assertEquals(2, two.intValue());
+    }
+
+    // ---------- lessThan / greaterThan ----------
+
+    @Test
+    public void testLessThan_normalCase_true() {
+        Dfp a = field.newDfp(1);
+        Dfp b = field.newDfp(2);
+        assertTrue(a.lessThan(b));
+    }
+
+    @Test
+    public void testLessThan_normalCase_false() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field.newDfp(2);
+        assertFalse(a.lessThan(b));
+    }
+
+    @Test
+    public void testLessThan_withNaN_returnsFalse() {
+        Dfp a = field.newDfp(Double.NaN);
+        Dfp b = field.newDfp(2);
+        assertFalse(a.lessThan(b));
+    }
+
+    @Test
+    public void testLessThan_mismatchedPrecision_returnsFalse() {
+        Dfp a = field.newDfp(1);
+        Dfp b = field5.newDfp(2);
+        assertFalse(a.lessThan(b));
+    }
+
+    @Test
+    public void testGreaterThan_normalCase_true() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field.newDfp(2);
+        assertTrue(a.greaterThan(b));
+    }
+
+    @Test
+    public void testGreaterThan_normalCase_false() {
+        Dfp a = field.newDfp(1);
+        Dfp b = field.newDfp(2);
+        assertFalse(a.greaterThan(b));
+    }
+
+    @Test
+    public void testGreaterThan_withNaN_returnsFalse() {
+        Dfp a = field.newDfp(Double.NaN);
+        Dfp b = field.newDfp(2);
+        assertFalse(a.greaterThan(b));
+    }
+
+    @Test
+    public void testGreaterThan_mismatchedPrecision_returnsFalse() {
+        Dfp a = field.newDfp(1);
+        Dfp b = field5.newDfp(2);
+        assertFalse(a.greaterThan(b));
+    }
+
+    // ---------- isInfinite / isNaN ----------
+
+    @Test
+    public void testIsInfinite_trueCase() {
+        Dfp d = field.newDfp(Double.POSITIVE_INFINITY);
+        assertTrue(d.isInfinite());
+    }
+
+    @Test
+    public void testIsInfinite_falseCase() {
+        Dfp d = field.newDfp(5);
+        assertFalse(d.isInfinite());
+    }
+
+    @Test
+    public void testIsNaN_trueCase() {
+        Dfp d = field.newDfp(Double.NaN);
+        assertTrue(d.isNaN());
+    }
+
+    @Test
+    public void testIsNaN_falseCase() {
+        Dfp d = field.newDfp(5);
+        assertFalse(d.isNaN());
+    }
+
+    // ---------- equals / hashCode ----------
+
+    @Test
+    public void testEquals_sameValue_true() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field.newDfp(5);
+        assertTrue(a.equals(b));
+    }
+
+    @Test
+    public void testEquals_differentValue_false() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field.newDfp(6);
+        assertFalse(a.equals(b));
+    }
+
+    @Test
+    public void testEquals_notDfpInstance_false() {
+        Dfp a = field.newDfp(5);
+        assertFalse(a.equals("not a dfp"));
+    }
+
+    @Test
+    public void testEquals_withNaN_false() {
+        Dfp a = field.newDfp(Double.NaN);
+        Dfp b = field.newDfp(5);
+        assertFalse(a.equals(b));
+    }
+
+    @Test
+    public void testEquals_mismatchedPrecision_false() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field5.newDfp(5);
+        assertFalse(a.equals(b));
+    }
+
+    @Test
+    public void testHashCode_consistentForEqualObjects() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field.newDfp(5);
+        assertEquals(a.hashCode(), b.hashCode());
+    }
+
+    // ---------- unequal ----------
+
+    @Test
+    public void testUnequal_trueCase() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field.newDfp(6);
+        assertTrue(a.unequal(b));
+    }
+
+    @Test
+    public void testUnequal_falseCase() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field.newDfp(5);
+        assertFalse(a.unequal(b));
+    }
+
+    @Test
+    public void testUnequal_withNaN_false() {
+        Dfp a = field.newDfp(Double.NaN);
+        Dfp b = field.newDfp(5);
+        assertFalse(a.unequal(b));
+    }
+
+    // ---------- rint / floor / ceil ----------
+
+    @Test
+    public void testRint_roundsToNearestEven() {
+        Dfp d = field.newDfp("2.5");
+        Dfp r = d.rint();
+        assertEquals(2.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testFloor_roundsDown() {
+        Dfp d = field.newDfp("2.7");
+        Dfp r = d.floor();
+        assertEquals(2.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testFloor_negativeValue_roundsDown() {
+        Dfp d = field.newDfp("-2.3");
+        Dfp r = d.floor();
+        assertEquals(-3.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testCeil_roundsUp() {
+        Dfp d = field.newDfp("2.3");
+        Dfp r = d.ceil();
+        assertEquals(3.0, r.toDouble(), 1e-9);
+    }
+
+    // ---------- remainder ----------
+
+    @Test
+    public void testRemainder_normalCase() {
+        Dfp a = field.newDfp(10);
+        Dfp b = field.newDfp(3);
+        Dfp r = a.remainder(b);
+        assertEquals(1.0, r.toDouble(), 1e-9);
+    }
+
+    // ---------- intValue ----------
+
+    @Test
+    public void testIntValue_normalCase() {
+        Dfp d = field.newDfp(12345);
+        assertEquals(12345, d.intValue());
+    }
+
+    @Test
+    public void testIntValue_overflow_returnsMaxInt() {
+        Dfp d = field.newDfp(9999999999L);
+        assertEquals(2147483647, d.intValue());
+    }
+
+    @Test
+    public void testIntValue_underflow_returnsMinInt() {
+        Dfp d = field.newDfp(-9999999999L);
+        assertEquals(-2147483648, d.intValue());
+    }
+
+    @Test
+    public void testIntValue_negativeNormalCase() {
+        Dfp d = field.newDfp(-500);
+        assertEquals(-500, d.intValue());
+    }
+
+    // ---------- log10K / power10K ----------
+
+    @Test
+    public void testLog10K_returnsCorrectValue() {
+        Dfp d = field.newDfp(1);
+        int v = d.log10K();
+        assertEquals(d.log10K(), v);
+    }
+
+    @Test
+    public void testPower10K_returnsCorrectValue() {
+        Dfp d = field.newDfp(1);
+        Dfp result = d.power10K(2);
+        assertNotNull(result);
+    }
+
+    // ---------- log10 / power10 ----------
+
+    @Test
+    public void testLog10_returnsCorrectValue() {
+        Dfp d = field.newDfp(1000);
+        int log = d.log10();
+        assertEquals(3, log);
+    }
+
+    @Test
+    public void testPower10_positiveExponent() {
+        Dfp d = field.newDfp(1);
+        Dfp result = d.power10(3);
+        assertEquals(1000.0, result.toDouble(), 1e-6);
+    }
+
+    @Test
+    public void testPower10_negativeExponent() {
+        Dfp d = field.newDfp(1);
+        Dfp result = d.power10(-3);
+        assertEquals(0.001, result.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testPower10_remainderOne() {
+        Dfp d = field.newDfp(1);
+        Dfp result = d.power10(1);
+        assertEquals(10.0, result.toDouble(), 1e-6);
+    }
+
+    @Test
+    public void testPower10_remainderTwo() {
+        Dfp d = field.newDfp(1);
+        Dfp result = d.power10(2);
+        assertEquals(100.0, result.toDouble(), 1e-6);
+    }
+
+    // ---------- add ----------
+
+    @Test
+    public void testAdd_normalCase() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field.newDfp(3);
+        Dfp r = a.add(b);
+        assertEquals(8.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testAdd_negativeNumbers() {
+        Dfp a = field.newDfp(-5);
+        Dfp b = field.newDfp(-3);
+        Dfp r = a.add(b);
+        assertEquals(-8.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testAdd_withInfinity() {
+        Dfp a = field.newDfp(Double.POSITIVE_INFINITY);
+        Dfp b = field.newDfp(5);
+        Dfp r = a.add(b);
+        assertTrue(r.isInfinite());
+    }
+
+    @Test
+    public void testAdd_oppositeInfinities_returnsNaN() {
+        Dfp a = field.newDfp(Double.POSITIVE_INFINITY);
+        Dfp b = field.newDfp(Double.NEGATIVE_INFINITY);
+        Dfp r = a.add(b);
+        assertTrue(r.isNaN());
+    }
+
+    @Test
+    public void testAdd_mismatchedPrecision_returnsNaN() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field5.newDfp(3);
+        Dfp r = a.add(b);
+        assertTrue(r.isNaN());
+    }
+
+    @Test
+    public void testAdd_NaNOperand_returnsNaN() {
+        Dfp a = field.newDfp(Double.NaN);
+        Dfp b = field.newDfp(3);
+        Dfp r = a.add(b);
+        assertTrue(r.isNaN());
+    }
+
+    // ---------- negate ----------
+
+    @Test
+    public void testNegate_positiveValue() {
+        Dfp a = field.newDfp(5);
+        Dfp r = a.negate();
+        assertEquals(-5.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testNegate_negativeValue() {
+        Dfp a = field.newDfp(-5);
+        Dfp r = a.negate();
+        assertEquals(5.0, r.toDouble(), 1e-9);
+    }
+
+    // ---------- subtract ----------
+
+    @Test
+    public void testSubtract_normalCase() {
+        Dfp a = field.newDfp(10);
+        Dfp b = field.newDfp(3);
+        Dfp r = a.subtract(b);
+        assertEquals(7.0, r.toDouble(), 1e-9);
+    }
+
+    // ---------- multiply(Dfp) ----------
+
+    @Test
+    public void testMultiplyDfp_normalCase() {
+        Dfp a = field.newDfp(4);
+        Dfp b = field.newDfp(5);
+        Dfp r = a.multiply(b);
+        assertEquals(20.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testMultiplyDfp_mismatchedPrecision_returnsNaN() {
+        Dfp a = field.newDfp(4);
+        Dfp b = field5.newDfp(5);
+        Dfp r = a.multiply(b);
+        assertTrue(r.isNaN());
+    }
+
+    @Test
+    public void testMultiplyDfp_byInfinity() {
+        Dfp a = field.newDfp(Double.POSITIVE_INFINITY);
+        Dfp b = field.newDfp(5);
+        Dfp r = a.multiply(b);
+        assertTrue(r.isInfinite());
+    }
+
+    @Test
+    public void testMultiplyDfp_infinityTimesZero_returnsNaN() {
+        Dfp a = field.newDfp(Double.POSITIVE_INFINITY);
+        Dfp b = field.newDfp(0);
+        Dfp r = a.multiply(b);
+        assertTrue(r.isNaN());
+    }
+
+    // ---------- multiply(int) ----------
+
+    @Test
+    public void testMultiplyInt_normalCase() {
+        Dfp a = field.newDfp(4);
+        Dfp r = a.multiply(5);
+        assertEquals(20.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testMultiplyInt_negativeX_returnsNaN() {
+        Dfp a = field.newDfp(4);
+        Dfp r = a.multiply(-1);
+        assertTrue(r.isNaN());
+    }
+
+    @Test
+    public void testMultiplyInt_tooLargeX_returnsNaN() {
+        Dfp a = field.newDfp(4);
+        Dfp r = a.multiply(Dfp.RADIX);
+        assertTrue(r.isNaN());
+    }
+
+    @Test
+    public void testMultiplyInt_infiniteValue() {
+        Dfp a = field.newDfp(Double.POSITIVE_INFINITY);
+        Dfp r = a.multiply(5);
+        assertTrue(r.isInfinite());
+    }
+
+    // ---------- divide(Dfp) ----------
+
+    @Test
+    public void testDivideDfp_normalCase() {
+        Dfp a = field.newDfp(10);
+        Dfp b = field.newDfp(2);
+        Dfp r = a.divide(b);
+        assertEquals(5.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testDivideDfp_byZero_returnsInfinite() {
+        Dfp a = field.newDfp(10);
+        Dfp b = field.newDfp(0);
+        Dfp r = a.divide(b);
+        assertTrue(r.isInfinite());
+    }
+
+    @Test
+    public void testDivideDfp_mismatchedPrecision_returnsNaN() {
+        Dfp a = field.newDfp(10);
+        Dfp b = field5.newDfp(2);
+        Dfp r = a.divide(b);
+        assertTrue(r.isNaN());
+    }
+
+    @Test
+    public void testDivideDfp_infiniteByFinite() {
+        Dfp a = field.newDfp(Double.POSITIVE_INFINITY);
+        Dfp b = field.newDfp(2);
+        Dfp r = a.divide(b);
+        assertTrue(r.isInfinite());
+    }
+
+    // ---------- divide(int) ----------
+
+    @Test
+    public void testDivideInt_normalCase() {
+        Dfp a = field.newDfp(10);
+        Dfp r = a.divide(2);
+        assertEquals(5.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testDivideInt_byZero_returnsInfinite() {
+        Dfp a = field.newDfp(10);
+        Dfp r = a.divide(0);
+        assertTrue(r.isInfinite());
+    }
+
+    @Test
+    public void testDivideInt_negativeDivisor_returnsNaN() {
+        Dfp a = field.newDfp(10);
+        Dfp r = a.divide(-1);
+        assertTrue(r.isNaN());
+    }
+
+    @Test
+    public void testDivideInt_tooLargeDivisor_returnsNaN() {
+        Dfp a = field.newDfp(10);
+        Dfp r = a.divide(Dfp.RADIX);
+        assertTrue(r.isNaN());
+    }
+
+    @Test
+    public void testDivideInt_infiniteValue() {
+        Dfp a = field.newDfp(Double.POSITIVE_INFINITY);
+        Dfp r = a.divide(5);
+        assertTrue(r.isInfinite());
+    }
+
+    // ---------- sqrt ----------
+
+    @Test
+    public void testSqrt_positiveValue() {
+        Dfp a = field.newDfp(4);
+        Dfp r = a.sqrt();
+        assertEquals(2.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testSqrt_zero_returnsZero() {
+        Dfp a = field.newDfp(0);
+        Dfp r = a.sqrt();
+        assertEquals(0.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testSqrt_negativeValue_returnsNaN() {
+        Dfp a = field.newDfp(-4);
+        Dfp r = a.sqrt();
+        assertTrue(r.isNaN());
+    }
+
+    @Test
+    public void testSqrt_positiveInfinity_returnsInfinity() {
+        Dfp a = field.newDfp(Double.POSITIVE_INFINITY);
+        Dfp r = a.sqrt();
+        assertTrue(r.isInfinite());
+    }
+
+    // ---------- toString ----------
+
+    @Test
+    public void testToString_normalNotation() {
+        Dfp d = field.newDfp(123);
+        String s = d.toString();
+        assertTrue(s.contains("123"));
+    }
+
+    @Test
+    public void testToString_scientificNotation() {
+        Dfp d = field.newDfp("1.23e100");
+        String s = d.toString();
+        assertTrue(s.contains("e"));
+    }
+
+    @Test
+    public void testToString_NaN() {
+        Dfp d = field.newDfp(Double.NaN);
+        assertEquals("NaN", d.toString());
+    }
+
+    @Test
+    public void testToString_Infinity() {
+        Dfp d = field.newDfp(Double.POSITIVE_INFINITY);
+        assertEquals("Infinity", d.toString());
+    }
+
+    @Test
+    public void testToString_NegativeInfinity() {
+        Dfp d = field.newDfp(Double.NEGATIVE_INFINITY);
+        assertEquals("-Infinity", d.toString());
+    }
+
+    @Test
+    public void testToString_zero() {
+        Dfp d = field.newDfp(0);
+        String s = d.toString();
+        assertNotNull(s);
+    }
+
+    // ---------- dotrap ----------
+
+    @Test
+    public void testDotrap_invalidFlag_returnsQNaN() {
+        Dfp a = field.newDfp(5);
+        Dfp result = field.newDfp(0);
+        Dfp r = a.dotrap(DfpField.FLAG_INVALID, "test", a, result);
+        assertTrue(r.isNaN());
+    }
+
+    @Test
+    public void testDotrap_divZeroFlag_finiteNonZero() {
+        Dfp a = field.newDfp(5);
+        Dfp oper = field.newDfp(2);
+        Dfp result = field.newDfp(0);
+        Dfp r = a.dotrap(DfpField.FLAG_DIV_ZERO, "test", oper, result);
+        assertTrue(r.isInfinite());
+    }
+
+    @Test
+    public void testDotrap_divZeroFlag_zeroDividend() {
+        Dfp a = field.newDfp(0);
+        Dfp oper = field.newDfp(2);
+        Dfp result = field.newDfp(0);
+        Dfp r = a.dotrap(DfpField.FLAG_DIV_ZERO, "test", oper, result);
+        assertTrue(r.isNaN());
+    }
+
+    @Test
+    public void testDotrap_underflowFlag() {
+        Dfp a = field.newDfp(5);
+        Dfp result = field.newDfp(1);
+        Dfp r = a.dotrap(DfpField.FLAG_UNDERFLOW, "test", a, result);
+        assertNotNull(r);
+    }
+
+    @Test
+    public void testDotrap_overflowFlag() {
+        Dfp a = field.newDfp(5);
+        Dfp result = field.newDfp(1);
+        Dfp r = a.dotrap(DfpField.FLAG_OVERFLOW, "test", a, result);
+        assertTrue(r.isInfinite());
+    }
+
+    @Test
+    public void testDotrap_defaultFlag() {
+        Dfp a = field.newDfp(5);
+        Dfp result = field.newDfp(1);
+        Dfp r = a.dotrap(999999, "test", a, result);
+        assertSame(result, r);
+    }
+
+    // ---------- classify ----------
+
+    @Test
+    public void testClassify_returnsFinite() {
+        Dfp d = field.newDfp(5);
+        assertEquals(Dfp.FINITE, d.classify());
+    }
+
+    @Test
+    public void testClassify_returnsInfinite() {
+        Dfp d = field.newDfp(Double.POSITIVE_INFINITY);
+        assertEquals(Dfp.INFINITE, d.classify());
+    }
+
+    @Test
+    public void testClassify_returnsQNaN() {
+        Dfp d = field.newDfp(Double.NaN);
+        assertEquals(Dfp.QNAN, d.classify());
+    }
+
+    // ---------- copysign ----------
+
+    @Test
+    public void testCopysign_appliesSign() {
+        Dfp x = field.newDfp(5);
+        Dfp y = field.newDfp(-1);
+        Dfp r = Dfp.copysign(x, y);
+        assertEquals(-5.0, r.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testCopysign_positiveSign() {
+        Dfp x = field.newDfp(-5);
+        Dfp y = field.newDfp(1);
+        Dfp r = Dfp.copysign(x, y);
+        assertEquals(5.0, r.toDouble(), 1e-9);
+    }
+
+    // ---------- nextAfter ----------
+
+    @Test
+    public void testNextAfter_increasing() {
+        Dfp a = field.newDfp(1);
+        Dfp b = field.newDfp(2);
+        Dfp r = a.nextAfter(b);
+        assertTrue(r.greaterThan(a));
+    }
+
+    @Test
+    public void testNextAfter_decreasing() {
+        Dfp a = field.newDfp(2);
+        Dfp b = field.newDfp(1);
+        Dfp r = a.nextAfter(b);
+        assertTrue(r.lessThan(a));
+    }
+
+    @Test
+    public void testNextAfter_equalValues_returnsSame() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field.newDfp(5);
+        Dfp r = a.nextAfter(b);
+        assertTrue(r.equals(b));
+    }
+
+    @Test
+    public void testNextAfter_mismatchedPrecision_returnsNaN() {
+        Dfp a = field.newDfp(5);
+        Dfp b = field5.newDfp(2);
+        Dfp r = a.nextAfter(b);
+        assertTrue(r.isNaN());
+    }
+
+    @Test
+    public void testNextAfter_fromZero() {
+        Dfp a = field.newDfp(0);
+        Dfp b = field.newDfp(1);
+        Dfp r = a.nextAfter(b);
+        assertTrue(r.greaterThan(a));
+    }
+
+    @Test
+    public void testNextAfter_negativeValueDecreasing() {
+        Dfp a = field.newDfp(-1);
+        Dfp b = field.newDfp(-2);
+        Dfp r = a.nextAfter(b);
+        assertTrue(r.lessThan(a));
+    }
+
+    // ---------- toDouble ----------
+
+    @Test
+    public void testToDouble_normalValue() {
+        Dfp d = field.newDfp(3.14);
+        assertEquals(3.14, d.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testToDouble_negativeValue() {
+        Dfp d = field.newDfp(-3.14);
+        assertEquals(-3.14, d.toDouble(), 1e-9);
+    }
+
+    @Test
+    public void testToDouble_infinitePositive() {
+        Dfp d = field.newDfp(Double.POSITIVE_INFINITY);
+        assertEquals(Double.POSITIVE_INFINITY, d.toDouble(), 0);
+    }
+
+    @Test
+    public void testToDouble_infiniteNegative() {
+        Dfp d = field.newDfp(Double.NEGATIVE_INFINITY);
+        assertEquals(Double.NEGATIVE_

@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "83",
+  "tool": "claude",
+  "class": "org.jsoup.parser.CharacterReader",
+  "target_classes": [
+    "org.jsoup.parser.CharacterReader"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 77.53,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\83\\CharacterReader_20261001_121657.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\83\\CharacterReaderTest.java",
+  "usage": {
+    "prompt_tokens": 6089,
+    "completion_tokens": 11076,
+    "total_tokens": 17165
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 64405,
+    "daily_remaining_tokens": 135595
+  },
+  "timestamp": "20261001_121657"
+}

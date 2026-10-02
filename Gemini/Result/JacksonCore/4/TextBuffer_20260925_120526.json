@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "4",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.core.util.TextBuffer",
+  "target_classes": [
+    "com.fasterxml.jackson.core.util.TextBuffer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 41.7,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonCore\\4\\TextBuffer_20260925_120526.txt",
+  "test_file": "Gemini\\TestCode\\JacksonCore\\4\\TextBufferTest.java",
+  "usage": {
+    "prompt_tokens": 5955,
+    "completion_tokens": 4118,
+    "total_tokens": 12080
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 231057,
+    "daily_remaining_tokens": 118943
+  },
+  "timestamp": "20260925_120526"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "111",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.deser.std.AtomicReferenceDeserializer",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.std.AtomicReferenceDeserializer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 30.3,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\111\\AtomicReferenceDeserializer_20260929_013618.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\111\\AtomicReferenceDeserializerTest.java",
+  "usage": {
+    "prompt_tokens": 1689,
+    "completion_tokens": 3902,
+    "total_tokens": 5591
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 182524,
+    "daily_remaining_tokens": 17476
+  },
+  "timestamp": "20260929_013618"
+}

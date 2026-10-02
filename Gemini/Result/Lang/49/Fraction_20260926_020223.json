@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "49",
+  "tool": "gemini",
+  "class": "org.apache.commons.lang.math.Fraction",
+  "target_classes": [
+    "org.apache.commons.lang.math.Fraction"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 32.42,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Lang\\49\\Fraction_20260926_020223.txt",
+  "test_file": "Gemini\\TestCode\\Lang\\49\\FractionTest.java",
+  "usage": {
+    "prompt_tokens": 9441,
+    "completion_tokens": 4766,
+    "total_tokens": 14207
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 121221,
+    "daily_remaining_tokens": 228779
+  },
+  "timestamp": "20260926_020223"
+}

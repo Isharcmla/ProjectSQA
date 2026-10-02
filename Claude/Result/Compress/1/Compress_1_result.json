@@ -1,0 +1,53 @@
+{
+  "project": "Compress",
+  "bug_id": "1",
+  "tool": "claude",
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 119.86,
+  "num_test_files_generated": 1,
+  "target_classes": [
+    "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream"
+  ],
+  "model_name": "Claude",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "class_results": [
+    {
+      "project": "Compress",
+      "bug_id": "1",
+      "tool": "claude",
+      "class": "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream",
+      "target_classes": [
+        "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream"
+      ],
+      "status": "success",
+      "generation_status": "success",
+      "compile_result": "not_run",
+      "elapsed_sec": 119.45,
+      "num_test_files_generated": 1,
+      "model_requested": "claude",
+      "model_id": "claude-sonnet-5",
+      "model_name": "Claude",
+      "max_tokens": 16384,
+      "temperature": 0.2,
+      "finish_reason": "stop",
+      "prompt_file": "Claude/Prompt/Compress/1/CpioArchiveOutputStream_20260920_055602.txt",
+      "test_file": "Claude/TestCode/Compress/1/CpioArchiveOutputStreamTest.java",
+      "usage": {
+        "prompt_tokens": 6426,
+        "completion_tokens": 14944,
+        "total_tokens": 21370
+      },
+      "model_quota": {
+        "daily_quota_tokens": 200000,
+        "daily_usage_tokens": 219066,
+        "daily_remaining_tokens": -19066
+      },
+      "timestamp": "20260920_055602"
+    }
+  ],
+  "failures": [],
+  "timestamp": "2026-09-20T05:58:02"
+}

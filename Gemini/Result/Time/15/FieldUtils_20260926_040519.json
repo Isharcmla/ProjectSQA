@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "15",
+  "tool": "gemini",
+  "class": "org.joda.time.field.FieldUtils",
+  "target_classes": [
+    "org.joda.time.field.FieldUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 46.4,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Time\\15\\FieldUtils_20260926_040519.txt",
+  "test_file": "Gemini\\TestCode\\Time\\15\\FieldUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 3240,
+    "completion_tokens": 5048,
+    "total_tokens": 10099
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 329808,
+    "daily_remaining_tokens": 20192
+  },
+  "timestamp": "20260926_040519"
+}

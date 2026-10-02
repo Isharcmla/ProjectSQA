@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "18",
+  "tool": "gemini",
+  "class": "org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues",
+  "target_classes": [
+    "org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 45.08,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Mockito\\18\\ReturnsEmptyValues_20260926_034041.txt",
+  "test_file": "Gemini\\TestCode\\Mockito\\18\\ReturnsEmptyValuesTest.java",
+  "usage": {
+    "prompt_tokens": 1482,
+    "completion_tokens": 2560,
+    "total_tokens": 8120
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 65284,
+    "daily_remaining_tokens": 284716
+  },
+  "timestamp": "20260926_034041"
+}

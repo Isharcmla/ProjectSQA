@@ -1,0 +1,899 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.awt.Graphics2D;
+import java.awt.Color;
+import java.awt.BasicStroke;
+import java.awt.Stroke;
+import java.awt.Paint;
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.util.List;
+import java.util.Collection;
+
+import org.jfree.chart.ChartRenderingInfo;
+import org.jfree.chart.LegendItemCollection;
+import org.jfree.chart.axis.AxisLocation;
+import org.jfree.chart.axis.AxisSpace;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.chart.renderer.xy.XYItemRenderer;
+import org.jfree.chart.util.Layer;
+import org.jfree.chart.util.RectangleInsets;
+import org.jfree.data.Range;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
+public class XYPlotTest {
+
+    private XYPlot plot;
+    private NumberAxis domainAxis;
+    private NumberAxis rangeAxis;
+    private XYSeriesCollection dataset;
+    private XYLineAndShapeRenderer renderer;
+
+    @Before
+    public void setUp() {
+        domainAxis = new NumberAxis("Domain");
+        rangeAxis = new NumberAxis("Range");
+        XYSeries series = new XYSeries("S1");
+        series.add(1.0, 2.0);
+        series.add(2.0, 3.0);
+        series.add(3.0, 1.0);
+        dataset = new XYSeriesCollection();
+        dataset.addSeries(series);
+        renderer = new XYLineAndShapeRenderer();
+        plot = new XYPlot(dataset, domainAxis, rangeAxis, renderer);
+    }
+
+    // ---------- Constructors ----------
+
+    @Test
+    public void testDefaultConstructor_createsPlotWithNoDatasetAxesRenderer() {
+        XYPlot p = new XYPlot();
+        assertNull(p.getDataset());
+        assertNull(p.getDomainAxis());
+        assertNull(p.getRangeAxis());
+        assertNull(p.getRenderer());
+    }
+
+    @Test
+    public void testParamConstructor_setsFieldsCorrectly() {
+        assertSame(dataset, plot.getDataset());
+        assertSame(domainAxis, plot.getDomainAxis());
+        assertSame(rangeAxis, plot.getRangeAxis());
+        assertSame(renderer, plot.getRenderer());
+    }
+
+    @Test
+    public void testParamConstructor_withNullArguments_doesNotThrow() {
+        XYPlot p = new XYPlot(null, null, null, null);
+        assertNull(p.getDataset());
+        assertNull(p.getDomainAxis());
+        assertNull(p.getRangeAxis());
+        assertNull(p.getRenderer());
+    }
+
+    // ---------- getPlotType ----------
+
+    @Test
+    public void testGetPlotType_returnsNonNullString() {
+        assertNotNull(plot.getPlotType());
+    }
+
+    // ---------- Orientation ----------
+
+    @Test
+    public void testGetOrientation_defaultIsVertical() {
+        assertEquals(PlotOrientation.VERTICAL, plot.getOrientation());
+    }
+
+    @Test
+    public void testSetOrientation_changesOrientation() {
+        plot.setOrientation(PlotOrientation.HORIZONTAL);
+        assertEquals(PlotOrientation.HORIZONTAL, plot.getOrientation());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetOrientation_null_throwsException() {
+        plot.setOrientation(null);
+    }
+
+    // ---------- AxisOffset ----------
+
+    @Test
+    public void testGetAxisOffset_defaultNotNull() {
+        assertNotNull(plot.getAxisOffset());
+    }
+
+    @Test
+    public void testSetAxisOffset_updatesOffset() {
+        RectangleInsets insets = new RectangleInsets(1.0, 1.0, 1.0, 1.0);
+        plot.setAxisOffset(insets);
+        assertEquals(insets, plot.getAxisOffset());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetAxisOffset_null_throwsException() {
+        plot.setAxisOffset(null);
+    }
+
+    // ---------- Domain Axis ----------
+
+    @Test
+    public void testGetDomainAxis_returnsSetAxis() {
+        assertSame(domainAxis, plot.getDomainAxis());
+    }
+
+    @Test
+    public void testGetDomainAxis_indexOutOfBounds_returnsNull() {
+        assertNull(plot.getDomainAxis(5));
+    }
+
+    @Test
+    public void testSetDomainAxis_updatesAxis() {
+        NumberAxis newAxis = new NumberAxis("NewDomain");
+        plot.setDomainAxis(newAxis);
+        assertSame(newAxis, plot.getDomainAxis());
+    }
+
+    @Test
+    public void testSetDomainAxis_withIndexAndNotifyFalse_doesNotThrow() {
+        NumberAxis newAxis = new NumberAxis("NewDomain2");
+        plot.setDomainAxis(0, newAxis, false);
+        assertSame(newAxis, plot.getDomainAxis(0));
+    }
+
+    @Test
+    public void testSetDomainAxes_setsMultipleAxes() {
+        ValueAxis[] axes = new ValueAxis[] {new NumberAxis("A0"), new NumberAxis("A1")};
+        plot.setDomainAxes(axes);
+        assertSame(axes[0], plot.getDomainAxis(0));
+        assertSame(axes[1], plot.getDomainAxis(1));
+    }
+
+    @Test
+    public void testGetDomainAxisLocation_defaultIsBottomOrLeft() {
+        assertEquals(AxisLocation.BOTTOM_OR_LEFT, plot.getDomainAxisLocation());
+    }
+
+    @Test
+    public void testSetDomainAxisLocation_updatesLocation() {
+        plot.setDomainAxisLocation(AxisLocation.TOP_OR_RIGHT);
+        assertEquals(AxisLocation.TOP_OR_RIGHT, plot.getDomainAxisLocation());
+    }
+
+    @Test
+    public void testSetDomainAxisLocation_withNotifyFalse_updatesLocation() {
+        plot.setDomainAxisLocation(AxisLocation.TOP_OR_LEFT, false);
+        assertEquals(AxisLocation.TOP_OR_LEFT, plot.getDomainAxisLocation());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetDomainAxisLocation_indexZeroNull_throwsException() {
+        plot.setDomainAxisLocation(0, null, true);
+    }
+
+    @Test
+    public void testGetDomainAxisEdge_returnsExpectedEdge() {
+        assertNotNull(plot.getDomainAxisEdge());
+    }
+
+    @Test
+    public void testGetDomainAxisCount_returnsCorrectCount() {
+        assertTrue(plot.getDomainAxisCount() >= 1);
+    }
+
+    @Test
+    public void testClearDomainAxes_removesAllAxes() {
+        plot.clearDomainAxes();
+        assertEquals(0, plot.getDomainAxisCount());
+    }
+
+    @Test
+    public void testConfigureDomainAxes_doesNotThrow() {
+        plot.configureDomainAxes();
+    }
+
+    @Test
+    public void testGetDomainAxisLocation_indexOutOfBounds_returnsOpposite() {
+        AxisLocation loc = plot.getDomainAxisLocation(99);
+        assertNotNull(loc);
+    }
+
+    @Test
+    public void testSetDomainAxisLocation_withIndex_updatesLocation() {
+        plot.setDomainAxisLocation(0, AxisLocation.BOTTOM_OR_RIGHT);
+        assertEquals(AxisLocation.BOTTOM_OR_RIGHT, plot.getDomainAxisLocation(0));
+    }
+
+    @Test
+    public void testGetDomainAxisEdge_withIndex_returnsEdge() {
+        assertNotNull(plot.getDomainAxisEdge(0));
+    }
+
+    // ---------- Range Axis ----------
+
+    @Test
+    public void testGetRangeAxis_returnsSetAxis() {
+        assertSame(rangeAxis, plot.getRangeAxis());
+    }
+
+    @Test
+    public void testSetRangeAxis_updatesAxis() {
+        NumberAxis newAxis = new NumberAxis("NewRange");
+        plot.setRangeAxis(newAxis);
+        assertSame(newAxis, plot.getRangeAxis());
+    }
+
+    @Test
+    public void testGetRangeAxisLocation_defaultIsBottomOrLeft() {
+        assertEquals(AxisLocation.BOTTOM_OR_LEFT, plot.getRangeAxisLocation());
+    }
+
+    @Test
+    public void testSetRangeAxisLocation_updatesLocation() {
+        plot.setRangeAxisLocation(AxisLocation.TOP_OR_RIGHT);
+        assertEquals(AxisLocation.TOP_OR_RIGHT, plot.getRangeAxisLocation());
+    }
+
+    @Test
+    public void testSetRangeAxisLocation_withNotifyFalse_updatesLocation() {
+        plot.setRangeAxisLocation(AxisLocation.TOP_OR_LEFT, false);
+        assertEquals(AxisLocation.TOP_OR_LEFT, plot.getRangeAxisLocation());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetRangeAxisLocation_indexZeroNull_throwsException() {
+        plot.setRangeAxisLocation(0, null, true);
+    }
+
+    @Test
+    public void testGetRangeAxisEdge_returnsExpectedEdge() {
+        assertNotNull(plot.getRangeAxisEdge());
+    }
+
+    @Test
+    public void testGetRangeAxis_indexOutOfBounds_returnsNull() {
+        assertNull(plot.getRangeAxis(10));
+    }
+
+    @Test
+    public void testSetRangeAxis_withIndexAndNotify_updatesAxis() {
+        NumberAxis newAxis = new NumberAxis("R2");
+        plot.setRangeAxis(0, newAxis, false);
+        assertSame(newAxis, plot.getRangeAxis(0));
+    }
+
+    @Test
+    public void testSetRangeAxes_setsMultipleAxes() {
+        ValueAxis[] axes = new ValueAxis[] {new NumberAxis("RA0"), new NumberAxis("RA1")};
+        plot.setRangeAxes(axes);
+        assertSame(axes[0], plot.getRangeAxis(0));
+        assertSame(axes[1], plot.getRangeAxis(1));
+    }
+
+    @Test
+    public void testGetRangeAxisCount_returnsCorrectCount() {
+        assertTrue(plot.getRangeAxisCount() >= 1);
+    }
+
+    @Test
+    public void testClearRangeAxes_removesAllAxes() {
+        plot.clearRangeAxes();
+        assertEquals(0, plot.getRangeAxisCount());
+    }
+
+    @Test
+    public void testConfigureRangeAxes_doesNotThrow() {
+        plot.configureRangeAxes();
+    }
+
+    @Test
+    public void testGetRangeAxisLocation_indexOutOfBounds_returnsOpposite() {
+        AxisLocation loc = plot.getRangeAxisLocation(99);
+        assertNotNull(loc);
+    }
+
+    @Test
+    public void testSetRangeAxisLocation_withIndex_updatesLocation() {
+        plot.setRangeAxisLocation(0, AxisLocation.BOTTOM_OR_RIGHT);
+        assertEquals(AxisLocation.BOTTOM_OR_RIGHT, plot.getRangeAxisLocation(0));
+    }
+
+    @Test
+    public void testGetRangeAxisEdge_withIndex_returnsEdge() {
+        assertNotNull(plot.getRangeAxisEdge(0));
+    }
+
+    // ---------- Dataset ----------
+
+    @Test
+    public void testGetDataset_returnsSetDataset() {
+        assertSame(dataset, plot.getDataset());
+    }
+
+    @Test
+    public void testGetDataset_indexOutOfBounds_returnsNull() {
+        assertNull(plot.getDataset(50));
+    }
+
+    @Test
+    public void testSetDataset_updatesDataset() {
+        XYSeriesCollection newDs = new XYSeriesCollection();
+        plot.setDataset(newDs);
+        assertSame(newDs, plot.getDataset());
+    }
+
+    @Test
+    public void testSetDataset_null_doesNotThrow() {
+        plot.setDataset(null);
+        assertNull(plot.getDataset());
+    }
+
+    @Test
+    public void testGetDatasetCount_returnsCorrectCount() {
+        assertTrue(plot.getDatasetCount() >= 1);
+    }
+
+    @Test
+    public void testIndexOf_existingDataset_returnsZero() {
+        assertEquals(0, plot.indexOf(dataset));
+    }
+
+    @Test
+    public void testIndexOf_nonExistingDataset_returnsNegativeOne() {
+        XYSeriesCollection other = new XYSeriesCollection();
+        assertEquals(-1, plot.indexOf(other));
+    }
+
+    @Test
+    public void testMapDatasetToDomainAxis_doesNotThrow() {
+        plot.mapDatasetToDomainAxis(0, 0);
+    }
+
+    @Test
+    public void testMapDatasetToRangeAxis_doesNotThrow() {
+        plot.mapDatasetToRangeAxis(0, 0);
+    }
+
+    // ---------- Renderer ----------
+
+    @Test
+    public void testGetRenderer_returnsSetRenderer() {
+        assertSame(renderer, plot.getRenderer());
+    }
+
+    @Test
+    public void testGetRenderer_indexOutOfBounds_returnsNull() {
+        assertNull(plot.getRenderer(50));
+    }
+
+    @Test
+    public void testSetRenderer_updatesRenderer() {
+        XYLineAndShapeRenderer newRenderer = new XYLineAndShapeRenderer();
+        plot.setRenderer(newRenderer);
+        assertSame(newRenderer, plot.getRenderer());
+    }
+
+    @Test
+    public void testSetRenderer_withIndexAndNotify_updatesRenderer() {
+        XYLineAndShapeRenderer newRenderer = new XYLineAndShapeRenderer();
+        plot.setRenderer(0, newRenderer, false);
+        assertSame(newRenderer, plot.getRenderer(0));
+    }
+
+    @Test
+    public void testSetRenderers_setsMultipleRenderers() {
+        XYItemRenderer[] renderers = new XYItemRenderer[] {
+                new XYLineAndShapeRenderer(), new XYLineAndShapeRenderer() };
+        plot.setRenderers(renderers);
+        assertSame(renderers[0], plot.getRenderer(0));
+        assertSame(renderers[1], plot.getRenderer(1));
+    }
+
+    @Test
+    public void testGetDatasetRenderingOrder_defaultIsReverse() {
+        assertEquals(DatasetRenderingOrder.REVERSE, plot.getDatasetRenderingOrder());
+    }
+
+    @Test
+    public void testSetDatasetRenderingOrder_updatesOrder() {
+        plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
+        assertEquals(DatasetRenderingOrder.FORWARD, plot.getDatasetRenderingOrder());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetDatasetRenderingOrder_null_throwsException() {
+        plot.setDatasetRenderingOrder(null);
+    }
+
+    @Test
+    public void testGetSeriesRenderingOrder_defaultIsReverse() {
+        assertEquals(SeriesRenderingOrder.REVERSE, plot.getSeriesRenderingOrder());
+    }
+
+    @Test
+    public void testSetSeriesRenderingOrder_updatesOrder() {
+        plot.setSeriesRenderingOrder(SeriesRenderingOrder.FORWARD);
+        assertEquals(SeriesRenderingOrder.FORWARD, plot.getSeriesRenderingOrder());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetSeriesRenderingOrder_null_throwsException() {
+        plot.setSeriesRenderingOrder(null);
+    }
+
+    @Test
+    public void testGetIndexOf_existingRenderer_returnsZero() {
+        assertEquals(0, plot.getIndexOf(renderer));
+    }
+
+    @Test
+    public void testGetIndexOf_nonExistingRenderer_returnsNegativeOne() {
+        XYLineAndShapeRenderer other = new XYLineAndShapeRenderer();
+        assertEquals(-1, plot.getIndexOf(other));
+    }
+
+    @Test
+    public void testGetRendererForDataset_existingDataset_returnsRenderer() {
+        assertSame(renderer, plot.getRendererForDataset(dataset));
+    }
+
+    @Test
+    public void testGetRendererForDataset_nonExistingDataset_returnsNull() {
+        XYSeriesCollection other = new XYSeriesCollection();
+        assertNull(plot.getRendererForDataset(other));
+    }
+
+    // ---------- Weight ----------
+
+    @Test
+    public void testGetWeight_defaultIsOne() {
+        assertEquals(1, plot.getWeight());
+    }
+
+    @Test
+    public void testSetWeight_updatesWeight() {
+        plot.setWeight(5);
+        assertEquals(5, plot.getWeight());
+    }
+
+    @Test
+    public void testSetWeight_negativeValue_updatesWeight() {
+        plot.setWeight(-3);
+        assertEquals(-3, plot.getWeight());
+    }
+
+    // ---------- Domain Gridlines ----------
+
+    @Test
+    public void testIsDomainGridlinesVisible_defaultTrue() {
+        assertTrue(plot.isDomainGridlinesVisible());
+    }
+
+    @Test
+    public void testSetDomainGridlinesVisible_updatesFlag() {
+        plot.setDomainGridlinesVisible(false);
+        assertFalse(plot.isDomainGridlinesVisible());
+    }
+
+    @Test
+    public void testGetDomainGridlineStroke_defaultNotNull() {
+        assertNotNull(plot.getDomainGridlineStroke());
+    }
+
+    @Test
+    public void testSetDomainGridlineStroke_updatesStroke() {
+        Stroke s = new BasicStroke(2.0f);
+        plot.setDomainGridlineStroke(s);
+        assertSame(s, plot.getDomainGridlineStroke());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetDomainGridlineStroke_null_throwsException() {
+        plot.setDomainGridlineStroke(null);
+    }
+
+    @Test
+    public void testGetDomainGridlinePaint_defaultNotNull() {
+        assertNotNull(plot.getDomainGridlinePaint());
+    }
+
+    @Test
+    public void testSetDomainGridlinePaint_updatesPaint() {
+        plot.setDomainGridlinePaint(Color.RED);
+        assertEquals(Color.RED, plot.getDomainGridlinePaint());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetDomainGridlinePaint_null_throwsException() {
+        plot.setDomainGridlinePaint(null);
+    }
+
+    // ---------- Range Gridlines ----------
+
+    @Test
+    public void testIsRangeGridlinesVisible_defaultTrue() {
+        assertTrue(plot.isRangeGridlinesVisible());
+    }
+
+    @Test
+    public void testSetRangeGridlinesVisible_updatesFlag() {
+        plot.setRangeGridlinesVisible(false);
+        assertFalse(plot.isRangeGridlinesVisible());
+    }
+
+    @Test
+    public void testGetRangeGridlineStroke_defaultNotNull() {
+        assertNotNull(plot.getRangeGridlineStroke());
+    }
+
+    @Test
+    public void testSetRangeGridlineStroke_updatesStroke() {
+        Stroke s = new BasicStroke(3.0f);
+        plot.setRangeGridlineStroke(s);
+        assertSame(s, plot.getRangeGridlineStroke());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetRangeGridlineStroke_null_throwsException() {
+        plot.setRangeGridlineStroke(null);
+    }
+
+    @Test
+    public void testGetRangeGridlinePaint_defaultNotNull() {
+        assertNotNull(plot.getRangeGridlinePaint());
+    }
+
+    @Test
+    public void testSetRangeGridlinePaint_updatesPaint() {
+        plot.setRangeGridlinePaint(Color.BLUE);
+        assertEquals(Color.BLUE, plot.getRangeGridlinePaint());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetRangeGridlinePaint_null_throwsException() {
+        plot.setRangeGridlinePaint(null);
+    }
+
+    // ---------- Zero Baseline Domain ----------
+
+    @Test
+    public void testIsDomainZeroBaselineVisible_defaultFalse() {
+        assertFalse(plot.isDomainZeroBaselineVisible());
+    }
+
+    @Test
+    public void testSetDomainZeroBaselineVisible_updatesFlag() {
+        plot.setDomainZeroBaselineVisible(true);
+        assertTrue(plot.isDomainZeroBaselineVisible());
+    }
+
+    @Test
+    public void testGetDomainZeroBaselineStroke_defaultNotNull() {
+        assertNotNull(plot.getDomainZeroBaselineStroke());
+    }
+
+    @Test
+    public void testSetDomainZeroBaselineStroke_updatesStroke() {
+        Stroke s = new BasicStroke(1.5f);
+        plot.setDomainZeroBaselineStroke(s);
+        assertSame(s, plot.getDomainZeroBaselineStroke());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetDomainZeroBaselineStroke_null_throwsException() {
+        plot.setDomainZeroBaselineStroke(null);
+    }
+
+    @Test
+    public void testGetDomainZeroBaselinePaint_defaultNotNull() {
+        assertNotNull(plot.getDomainZeroBaselinePaint());
+    }
+
+    @Test
+    public void testSetDomainZeroBaselinePaint_updatesPaint() {
+        plot.setDomainZeroBaselinePaint(Color.GREEN);
+        assertEquals(Color.GREEN, plot.getDomainZeroBaselinePaint());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetDomainZeroBaselinePaint_null_throwsException() {
+        plot.setDomainZeroBaselinePaint(null);
+    }
+
+    // ---------- Zero Baseline Range ----------
+
+    @Test
+    public void testIsRangeZeroBaselineVisible_defaultFalse() {
+        assertFalse(plot.isRangeZeroBaselineVisible());
+    }
+
+    @Test
+    public void testSetRangeZeroBaselineVisible_updatesFlag() {
+        plot.setRangeZeroBaselineVisible(true);
+        assertTrue(plot.isRangeZeroBaselineVisible());
+    }
+
+    @Test
+    public void testGetRangeZeroBaselineStroke_defaultNotNull() {
+        assertNotNull(plot.getRangeZeroBaselineStroke());
+    }
+
+    @Test
+    public void testSetRangeZeroBaselineStroke_updatesStroke() {
+        Stroke s = new BasicStroke(1.2f);
+        plot.setRangeZeroBaselineStroke(s);
+        assertSame(s, plot.getRangeZeroBaselineStroke());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetRangeZeroBaselineStroke_null_throwsException() {
+        plot.setRangeZeroBaselineStroke(null);
+    }
+
+    @Test
+    public void testGetRangeZeroBaselinePaint_defaultNotNull() {
+        assertNotNull(plot.getRangeZeroBaselinePaint());
+    }
+
+    @Test
+    public void testSetRangeZeroBaselinePaint_updatesPaint() {
+        plot.setRangeZeroBaselinePaint(Color.YELLOW);
+        assertEquals(Color.YELLOW, plot.getRangeZeroBaselinePaint());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetRangeZeroBaselinePaint_null_throwsException() {
+        plot.setRangeZeroBaselinePaint(null);
+    }
+
+    // ---------- Tick Band Paint ----------
+
+    @Test
+    public void testGetDomainTickBandPaint_defaultNull() {
+        assertNull(plot.getDomainTickBandPaint());
+    }
+
+    @Test
+    public void testSetDomainTickBandPaint_updatesPaint() {
+        plot.setDomainTickBandPaint(Color.CYAN);
+        assertEquals(Color.CYAN, plot.getDomainTickBandPaint());
+    }
+
+    @Test
+    public void testSetDomainTickBandPaint_null_doesNotThrow() {
+        plot.setDomainTickBandPaint(null);
+        assertNull(plot.getDomainTickBandPaint());
+    }
+
+    @Test
+    public void testGetRangeTickBandPaint_defaultNull() {
+        assertNull(plot.getRangeTickBandPaint());
+    }
+
+    @Test
+    public void testSetRangeTickBandPaint_updatesPaint() {
+        plot.setRangeTickBandPaint(Color.MAGENTA);
+        assertEquals(Color.MAGENTA, plot.getRangeTickBandPaint());
+    }
+
+    // ---------- Quadrant ----------
+
+    @Test
+    public void testGetQuadrantOrigin_defaultNotNull() {
+        assertNotNull(plot.getQuadrantOrigin());
+    }
+
+    @Test
+    public void testSetQuadrantOrigin_updatesOrigin() {
+        Point2D p = new Point2D.Double(1.0, 1.0);
+        plot.setQuadrantOrigin(p);
+        assertEquals(p, plot.getQuadrantOrigin());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetQuadrantOrigin_null_throwsException() {
+        plot.setQuadrantOrigin(null);
+    }
+
+    @Test
+    public void testGetQuadrantPaint_validIndex_returnsNullByDefault() {
+        assertNull(plot.getQuadrantPaint(0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetQuadrantPaint_indexTooLow_throwsException() {
+        plot.getQuadrantPaint(-1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetQuadrantPaint_indexTooHigh_throwsException() {
+        plot.getQuadrantPaint(4);
+    }
+
+    @Test
+    public void testSetQuadrantPaint_updatesPaint() {
+        plot.setQuadrantPaint(1, Color.PINK);
+        assertEquals(Color.PINK, plot.getQuadrantPaint(1));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetQuadrantPaint_indexTooLow_throwsException() {
+        plot.setQuadrantPaint(-1, Color.PINK);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetQuadrantPaint_indexTooHigh_throwsException() {
+        plot.setQuadrantPaint(4, Color.PINK);
+    }
+
+    // ---------- Domain Markers ----------
+
+    @Test
+    public void testAddDomainMarker_addsMarkerToForeground() {
+        ValueMarker marker = new ValueMarker(1.5);
+        plot.addDomainMarker(marker);
+        Collection markers = plot.getDomainMarkers(Layer.FOREGROUND);
+        assertNotNull(markers);
+        assertTrue(markers.contains(marker));
+    }
+
+    @Test
+    public void testAddDomainMarker_withLayerBackground_addsMarker() {
+        ValueMarker marker = new ValueMarker(2.5);
+        plot.addDomainMarker(marker, Layer.BACKGROUND);
+        Collection markers = plot.getDomainMarkers(Layer.BACKGROUND);
+        assertNotNull(markers);
+        assertTrue(markers.contains(marker));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddDomainMarker_nullMarker_throwsException() {
+        plot.addDomainMarker(0, null, Layer.FOREGROUND, true);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddDomainMarker_nullLayer_throwsException() {
+        ValueMarker marker = new ValueMarker(1.0);
+        plot.addDomainMarker(0, marker, null, true);
+    }
+
+    @Test
+    public void testRemoveDomainMarker_existingMarker_returnsTrue() {
+        ValueMarker marker = new ValueMarker(1.5);
+        plot.addDomainMarker(marker);
+        assertTrue(plot.removeDomainMarker(marker));
+    }
+
+    @Test
+    public void testRemoveDomainMarker_nonExistingMarker_returnsFalse() {
+        ValueMarker marker = new ValueMarker(9.9);
+        assertFalse(plot.removeDomainMarker(marker));
+    }
+
+    @Test
+    public void testRemoveDomainMarker_withLayer_returnsTrue() {
+        ValueMarker marker = new ValueMarker(3.0);
+        plot.addDomainMarker(marker, Layer.BACKGROUND);
+        assertTrue(plot.removeDomainMarker(marker, Layer.BACKGROUND));
+    }
+
+    @Test
+    public void testClearDomainMarkers_removesAllMarkers() {
+        ValueMarker marker = new ValueMarker(1.0);
+        plot.addDomainMarker(marker);
+        plot.clearDomainMarkers();
+        Collection markers = plot.getDomainMarkers(Layer.FOREGROUND);
+        assertTrue(markers == null || markers.isEmpty());
+    }
+
+    @Test
+    public void testClearDomainMarkers_withIndex_doesNotThrow() {
+        ValueMarker marker = new ValueMarker(1.0);
+        plot.addDomainMarker(0, marker, Layer.FOREGROUND);
+        plot.clearDomainMarkers(0);
+    }
+
+    @Test
+    public void testGetDomainMarkers_noMarkers_returnsNull() {
+        assertNull(plot.getDomainMarkers(Layer.FOREGROUND));
+    }
+
+    // ---------- Range Markers ----------
+
+    @Test
+    public void testAddRangeMarker_addsMarkerToForeground() {
+        ValueMarker marker = new ValueMarker(1.5);
+        plot.addRangeMarker(marker);
+        Collection markers = plot.getRangeMarkers(Layer.FOREGROUND);
+        assertNotNull(markers);
+        assertTrue(markers.contains(marker));
+    }
+
+    @Test
+    public void testAddRangeMarker_withLayerBackground_addsMarker() {
+        ValueMarker marker = new ValueMarker(2.5);
+        plot.addRangeMarker(marker, Layer.BACKGROUND);
+        Collection markers = plot.getRangeMarkers(Layer.BACKGROUND);
+        assertNotNull(markers);
+        assertTrue(markers.contains(marker));
+    }
+
+    @Test
+    public void testRemoveRangeMarker_existingMarker_returnsTrue() {
+        ValueMarker marker = new ValueMarker(1.5);
+        plot.addRangeMarker(marker);
+        assertTrue(plot.removeRangeMarker(marker));
+    }
+
+    @Test
+    public void testRemoveRangeMarker_nonExistingMarker_returnsFalse() {
+        ValueMarker marker = new ValueMarker(9.9);
+        assertFalse(plot.removeRangeMarker(marker));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testRemoveRangeMarker_nullMarker_throwsException() {
+        plot.removeRangeMarker(0, null, Layer.FOREGROUND, true);
+    }
+
+    @Test
+    public void testClearRangeMarkers_removesAllMarkers() {
+        ValueMarker marker = new ValueMarker(1.0);
+        plot.addRangeMarker(marker);
+        plot.clearRangeMarkers();
+        Collection markers = plot.getRangeMarkers(Layer.FOREGROUND);
+        assertTrue(markers == null || markers.isEmpty());
+    }
+
+    @Test
+    public void testClearRangeMarkers_withIndex_doesNotThrow() {
+        ValueMarker marker = new ValueMarker(1.0);
+        plot.addRangeMarker(0, marker, Layer.FOREGROUND);
+        plot.clearRangeMarkers(0);
+    }
+
+    @Test
+    public void testGetRangeMarkers_noMarkers_returnsNull() {
+        assertNull(plot.getRangeMarkers(Layer.FOREGROUND));
+    }
+
+    // ---------- Annotations ----------
+
+    @Test
+    public void testAddAnnotation_addsAnnotation() {
+        org.jfree.chart.annotations.XYTextAnnotation ann =
+                new org.jfree.chart.annotations.XYTextAnnotation("test", 1.0, 1.0);
+        plot.addAnnotation(ann);
+        assertTrue(plot.getAnnotations().contains(ann));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddAnnotation_null_throwsException() {
+        plot.addAnnotation(null);
+    }
+
+    @Test
+    public void testRemoveAnnotation_existingAnnotation_returnsTrue() {
+        org.jfree.chart.annotations.XYTextAnnotation ann =
+                new org.jfree.chart.annotations.XYTextAnnotation("test", 1.0, 1.0);
+        plot.addAnnotation(ann);
+        assertTrue(plot.removeAnnotation(ann));
+    }
+
+    @Test
+    public void testRemoveAnnotation_nonExistingAnnotation_returnsFalse() {
+        org.jfree.chart.annotations.XYTextAnnotation ann =
+                new org.jfree.chart.annotations.XYTextAnnotation("test2", 2.0, 2.0);
+        assertFalse(plot.removeAnnotation(ann));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testRemoveAnnotation_null_throwsException() {
+        plot.removeAnnotation(null);

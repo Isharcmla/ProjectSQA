@@ -1,0 +1,524 @@
+package org.jfree.chart.plot;
+
+import static org.junit.Assert.*;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Stroke;
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.util.List;
+import java.util.Collection;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import org.jfree.chart.LegendItemCollection;
+import org.jfree.chart.annotations.CategoryAnnotation;
+import org.jfree.chart.annotations.CategoryTextAnnotation;
+import org.jfree.chart.axis.AxisLocation;
+import org.jfree.chart.axis.AxisSpace;
+import org.jfree.chart.axis.CategoryAnchor;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.event.RendererChangeEvent;
+import org.jfree.chart.renderer.category.CategoryItemRenderer;
+import org.jfree.chart.renderer.category.LineAndShapeRenderer;
+import org.jfree.chart.util.Layer;
+import org.jfree.chart.util.RectangleInsets;
+import org.jfree.chart.util.SortOrder;
+import org.jfree.data.Range;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DatasetChangeEvent;
+
+public class CategoryPlotTest {
+
+    private DefaultCategoryDataset createDataset() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        dataset.addValue(1.0, "Row1", "Col1");
+        dataset.addValue(2.0, "Row1", "Col2");
+        dataset.addValue(3.0, "Row2", "Col1");
+        dataset.addValue(4.0, "Row2", "Col2");
+        return dataset;
+    }
+
+    private CategoryPlot createPlot() {
+        DefaultCategoryDataset dataset = createDataset();
+        CategoryAxis domainAxis = new CategoryAxis("Category");
+        NumberAxis rangeAxis = new NumberAxis("Value");
+        LineAndShapeRenderer renderer = new LineAndShapeRenderer();
+        return new CategoryPlot(dataset, domainAxis, rangeAxis, renderer);
+    }
+
+    // ------------------- Constructors -------------------
+
+    @Test
+    public void testDefaultConstructor_createsPlotWithDefaults() {
+        CategoryPlot plot = new CategoryPlot();
+        assertNotNull(plot.getOrientation());
+        assertEquals(PlotOrientation.VERTICAL, plot.getOrientation());
+        assertNull(plot.getDataset());
+        assertNull(plot.getDomainAxis());
+        assertNull(plot.getRangeAxis());
+        assertNull(plot.getRenderer());
+    }
+
+    @Test
+    public void testFullConstructor_setsFieldsCorrectly() {
+        CategoryPlot plot = createPlot();
+        assertNotNull(plot.getDataset());
+        assertNotNull(plot.getDomainAxis());
+        assertNotNull(plot.getRangeAxis());
+        assertNotNull(plot.getRenderer());
+    }
+
+    // ------------------- Plot type -------------------
+
+    @Test
+    public void testGetPlotType_returnsNonNullString() {
+        CategoryPlot plot = createPlot();
+        assertNotNull(plot.getPlotType());
+    }
+
+    // ------------------- Orientation -------------------
+
+    @Test
+    public void testGetSetOrientation_normal_updatesOrientation() {
+        CategoryPlot plot = createPlot();
+        plot.setOrientation(PlotOrientation.HORIZONTAL);
+        assertEquals(PlotOrientation.HORIZONTAL, plot.getOrientation());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetOrientation_null_throwsException() {
+        CategoryPlot plot = createPlot();
+        plot.setOrientation(null);
+    }
+
+    // ------------------- Axis offset -------------------
+
+    @Test
+    public void testGetSetAxisOffset_normal_updatesOffset() {
+        CategoryPlot plot = createPlot();
+        RectangleInsets insets = new RectangleInsets(1.0, 1.0, 1.0, 1.0);
+        plot.setAxisOffset(insets);
+        assertEquals(insets, plot.getAxisOffset());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetAxisOffset_null_throwsException() {
+        CategoryPlot plot = createPlot();
+        plot.setAxisOffset(null);
+    }
+
+    // ------------------- Domain axis -------------------
+
+    @Test
+    public void testGetSetDomainAxis_normal_returnsSetAxis() {
+        CategoryPlot plot = createPlot();
+        CategoryAxis axis = new CategoryAxis("New Domain");
+        plot.setDomainAxis(axis);
+        assertEquals(axis, plot.getDomainAxis());
+    }
+
+    @Test
+    public void testGetDomainAxis_indexOutOfRange_returnsNull() {
+        CategoryPlot plot = createPlot();
+        assertNull(plot.getDomainAxis(5));
+    }
+
+    @Test
+    public void testSetDomainAxis_indexNotify_doesNotThrow() {
+        CategoryPlot plot = createPlot();
+        CategoryAxis axis = new CategoryAxis("Axis2");
+        plot.setDomainAxis(1, axis, false);
+        assertEquals(axis, plot.getDomainAxis(1));
+    }
+
+    @Test
+    public void testSetDomainAxes_arrayOfAxes_setsAllAxes() {
+        CategoryPlot plot = createPlot();
+        CategoryAxis[] axes = new CategoryAxis[] {
+            new CategoryAxis("A0"), new CategoryAxis("A1") };
+        plot.setDomainAxes(axes);
+        assertEquals(axes[0], plot.getDomainAxis(0));
+        assertEquals(axes[1], plot.getDomainAxis(1));
+    }
+
+    @Test
+    public void testGetDomainAxisIndex_validAxis_returnsIndex() {
+        CategoryPlot plot = createPlot();
+        CategoryAxis axis = plot.getDomainAxis();
+        assertEquals(0, plot.getDomainAxisIndex(axis));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetDomainAxisIndex_null_throwsException() {
+        CategoryPlot plot = createPlot();
+        plot.getDomainAxisIndex(null);
+    }
+
+    // ------------------- Domain axis location -------------------
+
+    @Test
+    public void testGetSetDomainAxisLocation_normal_updatesLocation() {
+        CategoryPlot plot = createPlot();
+        plot.setDomainAxisLocation(AxisLocation.TOP_OR_RIGHT);
+        assertEquals(AxisLocation.TOP_OR_RIGHT, plot.getDomainAxisLocation());
+    }
+
+    @Test
+    public void testSetDomainAxisLocation_withNotifyFalse_updatesLocation() {
+        CategoryPlot plot = createPlot();
+        plot.setDomainAxisLocation(AxisLocation.BOTTOM_OR_RIGHT, false);
+        assertEquals(AxisLocation.BOTTOM_OR_RIGHT,
+                plot.getDomainAxisLocation());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetDomainAxisLocation_indexZeroNull_throwsException() {
+        CategoryPlot plot = createPlot();
+        plot.setDomainAxisLocation(0, null, true);
+    }
+
+    @Test
+    public void testGetDomainAxisLocation_indexWithoutExplicitLocation_returnsOpposite() {
+        CategoryPlot plot = createPlot();
+        AxisLocation loc = plot.getDomainAxisLocation(1);
+        assertNotNull(loc);
+    }
+
+    // ------------------- Domain axis edge -------------------
+
+    @Test
+    public void testGetDomainAxisEdge_default_returnsNotNull() {
+        CategoryPlot plot = createPlot();
+        assertNotNull(plot.getDomainAxisEdge());
+    }
+
+    @Test
+    public void testGetDomainAxisEdge_indexWithoutLocation_returnsOpposite() {
+        CategoryPlot plot = createPlot();
+        assertNotNull(plot.getDomainAxisEdge(1));
+    }
+
+    // ------------------- Domain axis count/clear/configure -------------------
+
+    @Test
+    public void testGetDomainAxisCount_returnsCorrectCount() {
+        CategoryPlot plot = createPlot();
+        assertTrue(plot.getDomainAxisCount() >= 1);
+    }
+
+    @Test
+    public void testClearDomainAxes_removesAllAxes() {
+        CategoryPlot plot = createPlot();
+        plot.clearDomainAxes();
+        assertEquals(0, plot.getDomainAxisCount());
+    }
+
+    @Test
+    public void testConfigureDomainAxes_doesNotThrow() {
+        CategoryPlot plot = createPlot();
+        plot.configureDomainAxes();
+    }
+
+    // ------------------- Range axis -------------------
+
+    @Test
+    public void testGetSetRangeAxis_normal_returnsSetAxis() {
+        CategoryPlot plot = createPlot();
+        NumberAxis axis = new NumberAxis("New Range");
+        plot.setRangeAxis(axis);
+        assertEquals(axis, plot.getRangeAxis());
+    }
+
+    @Test
+    public void testGetRangeAxis_indexOutOfRange_returnsNull() {
+        CategoryPlot plot = createPlot();
+        assertNull(plot.getRangeAxis(5));
+    }
+
+    @Test
+    public void testSetRangeAxis_indexNotify_doesNotThrow() {
+        CategoryPlot plot = createPlot();
+        NumberAxis axis = new NumberAxis("Range2");
+        plot.setRangeAxis(1, axis, false);
+        assertEquals(axis, plot.getRangeAxis(1));
+    }
+
+    @Test
+    public void testSetRangeAxes_arrayOfAxes_setsAllAxes() {
+        CategoryPlot plot = createPlot();
+        ValueAxis[] axes = new ValueAxis[] {
+            new NumberAxis("R0"), new NumberAxis("R1") };
+        plot.setRangeAxes(axes);
+        assertEquals(axes[0], plot.getRangeAxis(0));
+        assertEquals(axes[1], plot.getRangeAxis(1));
+    }
+
+    @Test
+    public void testGetRangeAxisIndex_validAxis_returnsIndex() {
+        CategoryPlot plot = createPlot();
+        ValueAxis axis = plot.getRangeAxis();
+        assertEquals(0, plot.getRangeAxisIndex(axis));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetRangeAxisIndex_null_throwsException() {
+        CategoryPlot plot = createPlot();
+        plot.getRangeAxisIndex(null);
+    }
+
+    @Test
+    public void testGetRangeAxisIndex_axisNotInPlot_returnsNegative() {
+        CategoryPlot plot = createPlot();
+        NumberAxis other = new NumberAxis("Other");
+        assertEquals(-1, plot.getRangeAxisIndex(other));
+    }
+
+    // ------------------- Range axis location -------------------
+
+    @Test
+    public void testGetSetRangeAxisLocation_normal_updatesLocation() {
+        CategoryPlot plot = createPlot();
+        plot.setRangeAxisLocation(AxisLocation.BOTTOM_OR_LEFT);
+        assertEquals(AxisLocation.BOTTOM_OR_LEFT, plot.getRangeAxisLocation());
+    }
+
+    @Test
+    public void testSetRangeAxisLocation_withNotifyFalse_updatesLocation() {
+        CategoryPlot plot = createPlot();
+        plot.setRangeAxisLocation(AxisLocation.TOP_OR_LEFT, false);
+        assertEquals(AxisLocation.TOP_OR_LEFT, plot.getRangeAxisLocation());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetRangeAxisLocation_indexZeroNull_throwsException() {
+        CategoryPlot plot = createPlot();
+        plot.setRangeAxisLocation(0, null, true);
+    }
+
+    @Test
+    public void testGetRangeAxisLocation_indexWithoutExplicit_returnsOpposite() {
+        CategoryPlot plot = createPlot();
+        assertNotNull(plot.getRangeAxisLocation(1));
+    }
+
+    // ------------------- Range axis edge -------------------
+
+    @Test
+    public void testGetRangeAxisEdge_default_returnsNotNull() {
+        CategoryPlot plot = createPlot();
+        assertNotNull(plot.getRangeAxisEdge());
+    }
+
+    @Test
+    public void testGetRangeAxisEdge_indexWithoutExplicit_returnsOpposite() {
+        CategoryPlot plot = createPlot();
+        assertNotNull(plot.getRangeAxisEdge(1));
+    }
+
+    // ------------------- Range axis count/clear/configure -------------------
+
+    @Test
+    public void testGetRangeAxisCount_returnsCorrectCount() {
+        CategoryPlot plot = createPlot();
+        assertTrue(plot.getRangeAxisCount() >= 1);
+    }
+
+    @Test
+    public void testClearRangeAxes_removesAllAxes() {
+        CategoryPlot plot = createPlot();
+        plot.clearRangeAxes();
+        assertEquals(0, plot.getRangeAxisCount());
+    }
+
+    @Test
+    public void testConfigureRangeAxes_doesNotThrow() {
+        CategoryPlot plot = createPlot();
+        plot.configureRangeAxes();
+    }
+
+    // ------------------- Dataset -------------------
+
+    @Test
+    public void testGetSetDataset_normal_returnsSetDataset() {
+        CategoryPlot plot = createPlot();
+        DefaultCategoryDataset newDataset = createDataset();
+        plot.setDataset(newDataset);
+        assertEquals(newDataset, plot.getDataset());
+    }
+
+    @Test
+    public void testGetDataset_indexOutOfRange_returnsNull() {
+        CategoryPlot plot = createPlot();
+        assertNull(plot.getDataset(5));
+    }
+
+    @Test
+    public void testSetDataset_null_setsNullDataset() {
+        CategoryPlot plot = createPlot();
+        plot.setDataset(null);
+        assertNull(plot.getDataset());
+    }
+
+    @Test
+    public void testGetDatasetCount_returnsCorrectCount() {
+        CategoryPlot plot = createPlot();
+        assertTrue(plot.getDatasetCount() >= 1);
+    }
+
+    // ------------------- Dataset to axis mapping -------------------
+
+    @Test
+    public void testMapDatasetToDomainAxis_normal_updatesMapping() {
+        CategoryPlot plot = createPlot();
+        CategoryAxis axis2 = new CategoryAxis("Second");
+        plot.setDomainAxis(1, axis2, false);
+        plot.mapDatasetToDomainAxis(0, 1);
+        assertEquals(axis2, plot.getDomainAxisForDataset(0));
+    }
+
+    @Test
+    public void testGetDomainAxisForDataset_defaultMapping_returnsPrimaryAxis() {
+        CategoryPlot plot = createPlot();
+        assertEquals(plot.getDomainAxis(), plot.getDomainAxisForDataset(0));
+    }
+
+    @Test
+    public void testMapDatasetToRangeAxis_normal_updatesMapping() {
+        CategoryPlot plot = createPlot();
+        NumberAxis axis2 = new NumberAxis("Second Range");
+        plot.setRangeAxis(1, axis2, false);
+        plot.mapDatasetToRangeAxis(0, 1);
+        assertEquals(axis2, plot.getRangeAxisForDataset(0));
+    }
+
+    @Test
+    public void testGetRangeAxisForDataset_defaultMapping_returnsPrimaryAxis() {
+        CategoryPlot plot = createPlot();
+        assertEquals(plot.getRangeAxis(), plot.getRangeAxisForDataset(0));
+    }
+
+    // ------------------- Renderer -------------------
+
+    @Test
+    public void testGetSetRenderer_normal_returnsSetRenderer() {
+        CategoryPlot plot = createPlot();
+        LineAndShapeRenderer renderer = new LineAndShapeRenderer();
+        plot.setRenderer(renderer);
+        assertEquals(renderer, plot.getRenderer());
+    }
+
+    @Test
+    public void testGetRenderer_indexOutOfRange_returnsNull() {
+        CategoryPlot plot = createPlot();
+        assertNull(plot.getRenderer(5));
+    }
+
+    @Test
+    public void testSetRenderer_withNotifyFalse_doesNotThrow() {
+        CategoryPlot plot = createPlot();
+        LineAndShapeRenderer renderer = new LineAndShapeRenderer();
+        plot.setRenderer(renderer, false);
+        assertEquals(renderer, plot.getRenderer());
+    }
+
+    @Test
+    public void testSetRenderer_indexed_normal_setsRenderer() {
+        CategoryPlot plot = createPlot();
+        LineAndShapeRenderer renderer = new LineAndShapeRenderer();
+        plot.setRenderer(1, renderer);
+        assertEquals(renderer, plot.getRenderer(1));
+    }
+
+    @Test
+    public void testSetRenderers_arrayOfRenderers_setsAllRenderers() {
+        CategoryPlot plot = createPlot();
+        CategoryItemRenderer[] renderers = new CategoryItemRenderer[] {
+            new LineAndShapeRenderer(), new LineAndShapeRenderer() };
+        plot.setRenderers(renderers);
+        assertEquals(renderers[0], plot.getRenderer(0));
+        assertEquals(renderers[1], plot.getRenderer(1));
+    }
+
+    @Test
+    public void testGetRendererForDataset_normal_returnsCorrectRenderer() {
+        CategoryPlot plot = createPlot();
+        CategoryDataset dataset = plot.getDataset();
+        assertEquals(plot.getRenderer(), plot.getRendererForDataset(dataset));
+    }
+
+    @Test
+    public void testGetRendererForDataset_datasetNotInPlot_returnsNull() {
+        CategoryPlot plot = createPlot();
+        CategoryDataset other = createDataset();
+        assertNull(plot.getRendererForDataset(other));
+    }
+
+    @Test
+    public void testGetIndexOf_normal_returnsCorrectIndex() {
+        CategoryPlot plot = createPlot();
+        assertEquals(0, plot.getIndexOf(plot.getRenderer()));
+    }
+
+    @Test
+    public void testGetIndexOf_rendererNotInPlot_returnsNegativeOne() {
+        CategoryPlot plot = createPlot();
+        assertEquals(-1, plot.getIndexOf(new LineAndShapeRenderer()));
+    }
+
+    // ------------------- Rendering orders -------------------
+
+    @Test
+    public void testGetSetDatasetRenderingOrder_normal_updatesOrder() {
+        CategoryPlot plot = createPlot();
+        plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
+        assertEquals(DatasetRenderingOrder.FORWARD,
+                plot.getDatasetRenderingOrder());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetDatasetRenderingOrder_null_throwsException() {
+        CategoryPlot plot = createPlot();
+        plot.setDatasetRenderingOrder(null);
+    }
+
+    @Test
+    public void testGetSetColumnRenderingOrder_normal_updatesOrder() {
+        CategoryPlot plot = createPlot();
+        plot.setColumnRenderingOrder(SortOrder.DESCENDING);
+        assertEquals(SortOrder.DESCENDING, plot.getColumnRenderingOrder());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetColumnRenderingOrder_null_throwsException() {
+        CategoryPlot plot = createPlot();
+        plot.setColumnRenderingOrder(null);
+    }
+
+    @Test
+    public void testGetSetRowRenderingOrder_normal_updatesOrder() {
+        CategoryPlot plot = createPlot();
+        plot.setRowRenderingOrder(SortOrder.DESCENDING);
+        assertEquals(SortOrder.DESCENDING, plot.getRowRenderingOrder());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetRowRenderingOrder_null_throwsException() {
+        CategoryPlot plot = createPlot();
+        plot.setRowRenderingOrder(null);
+    }
+
+    // ------------------- Domain gridlines -------------------
+
+    @Test
+    public void testIsSetDomainGridlinesVisible_normal_updatesFlag() {
+        CategoryPlot plot = createPlot();
+        assertFalse(plot.isDomainGridlinesVisible());
+        plot.setDomainGridlinesVisible(true);

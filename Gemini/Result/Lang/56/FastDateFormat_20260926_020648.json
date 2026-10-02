@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "56",
+  "tool": "gemini",
+  "class": "org.apache.commons.lang.time.FastDateFormat",
+  "target_classes": [
+    "org.apache.commons.lang.time.FastDateFormat"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 64.05,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Lang\\56\\FastDateFormat_20260926_020648.txt",
+  "test_file": "Gemini\\TestCode\\Lang\\56\\FastDateFormatTest.java",
+  "usage": {
+    "prompt_tokens": 14171,
+    "completion_tokens": 5609,
+    "total_tokens": 23648
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 220314,
+    "daily_remaining_tokens": 129686
+  },
+  "timestamp": "20260926_020648"
+}

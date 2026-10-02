@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "6",
+  "tool": "claude",
+  "class": "org.joda.time.chrono.GJChronology",
+  "target_classes": [
+    "org.joda.time.chrono.GJChronology"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 169.13,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Time\\6\\GJChronology_20261003_020605.txt",
+  "test_file": "Claude\\TestCode\\Time\\6\\GJChronologyTest.java",
+  "usage": {
+    "prompt_tokens": 16303,
+    "completion_tokens": 14066,
+    "total_tokens": 30369
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 91251,
+    "daily_remaining_tokens": 108749
+  },
+  "timestamp": "20261003_020605"
+}

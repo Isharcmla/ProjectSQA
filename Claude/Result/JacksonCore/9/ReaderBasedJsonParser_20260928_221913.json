@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "9",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser",
+  "target_classes": [
+    "com.fasterxml.jackson.core.json.ReaderBasedJsonParser"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 140.27,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonCore\\9\\ReaderBasedJsonParser_20260928_221913.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 29962,
+    "completion_tokens": 16384,
+    "total_tokens": 46346
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 168272,
+    "daily_remaining_tokens": 31728
+  },
+  "timestamp": "20260928_221913"
+}

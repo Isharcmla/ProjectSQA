@@ -1,0 +1,391 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Arrays;
+
+import org.apache.commons.compress.archivers.ArchiveEntry;
+
+public class TarArchiveInputStreamTest {
+
+    private static final int RECORD_SIZE = 512;
+    private static final int BLOCK_SIZE = 10240;
+
+    // ---------- Helper methods to build valid TAR headers ----------
+
+    private void writeString(byte[] buf, int offset, String value, int length) {
+        byte[] bytes = value.getBytes();
+        int len = Math.min(bytes.length, length);
+        System.arraycopy(bytes, 0, buf, offset, len);
+    }
+
+    private void writeOctal(byte[] buf, int offset, long value, int length) {
+        String s = Long.toOctalString(value);
+        int padLen = length - 1 - s.length();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < padLen; i++) {
+            sb.append('0');
+        }
+        sb.append(s);
+        byte[] bytes = sb.toString().getBytes();
+        System.arraycopy(bytes, 0, buf, offset, bytes.length);
+        buf[offset + length - 1] = 0;
+    }
+
+    private void writeCheckSumOctal(byte[] buf, int offset, long value) {
+        String s = Long.toOctalString(value);
+        int padLen = 6 - s.length();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < padLen; i++) {
+            sb.append('0');
+        }
+        sb.append(s);
+        byte[] bytes = sb.toString().getBytes();
+        System.arraycopy(bytes, 0, buf, offset, 6);
+        buf[offset + 6] = 0;
+        buf[offset + 7] = ' ';
+    }
+
+    private byte[] createHeader(String name, char typeFlag, long size, String linkName) {
+        byte[] buf = new byte[RECORD_SIZE];
+        Arrays.fill(buf, (byte) 0);
+        writeString(buf, 0, name, 100);
+        writeOctal(buf, 100, 0644, 8); // mode
+        writeOctal(buf, 108, 0, 8);    // uid
+        writeOctal(buf, 116, 0, 8);    // gid
+        writeOctal(buf, 124, size, 12); // size
+        writeOctal(buf, 136, 0, 12);   // mtime
+        for (int i = 148; i < 156; i++) {
+            buf[i] = ' ';
+        }
+        buf[156] = (byte) typeFlag;
+        writeString(buf, 157, linkName == null ? "" : linkName, 100);
+        writeString(buf, 257, "ustar", 6);
+        buf[263] = '0';
+        buf[264] = '0';
+        writeString(buf, 265, "user", 32);
+        writeString(buf, 297, "group", 32);
+        writeOctal(buf, 329, 0, 8);
+        writeOctal(buf, 337, 0, 8);
+
+        long chksum = 0;
+        for (byte b : buf) {
+            chksum += (b & 0xff);
+        }
+        writeCheckSumOctal(buf, 148, chksum);
+        return buf;
+    }
+
+    private byte[] padToRecord(byte[] data) {
+        int rem = data.length % RECORD_SIZE;
+        if (rem == 0) {
+            return data;
+        }
+        byte[] padded = new byte[data.length + (RECORD_SIZE - rem)];
+        System.arraycopy(data, 0, padded, 0, data.length);
+        return padded;
+    }
+
+    private byte[] concat(byte[]... arrays) {
+        int total = 0;
+        for (byte[] a : arrays) {
+            total += a.length;
+        }
+        byte[] result = new byte[total];
+        int pos = 0;
+        for (byte[] a : arrays) {
+            System.arraycopy(a, 0, result, pos, a.length);
+            pos += a.length;
+        }
+        return result;
+    }
+
+    private byte[] eofMarker() {
+        return new byte[RECORD_SIZE * 2];
+    }
+
+    private byte[] buildSimpleArchive(String name, byte[] content) {
+        byte[] header = createHeader(name, '0', content.length, null);
+        byte[] contentPadded = padToRecord(content);
+        byte[] eof = eofMarker();
+        return concat(header, contentPadded, eof);
+    }
+
+    private TarArchiveInputStream newStream(byte[] data) {
+        return new TarArchiveInputStream(new ByteArrayInputStream(data));
+    }
+
+    // ---------------- Constructor tests ----------------
+
+    @Test
+    public void testConstructor_defaultBlockSize_getsDefaults() {
+        TarArchiveInputStream tin = new TarArchiveInputStream(new ByteArrayInputStream(new byte[0]));
+        assertEquals(RECORD_SIZE, tin.getRecordSize());
+    }
+
+    @Test
+    public void testConstructor_withEncoding_created() {
+        TarArchiveInputStream tin = new TarArchiveInputStream(new ByteArrayInputStream(new byte[0]), "UTF-8");
+        assertEquals(RECORD_SIZE, tin.getRecordSize());
+        assertEquals("UTF-8", tin.encoding);
+    }
+
+    @Test
+    public void testConstructor_withBlockSize_created() {
+        TarArchiveInputStream tin = new TarArchiveInputStream(new ByteArrayInputStream(new byte[0]), 1024);
+        assertEquals(RECORD_SIZE, tin.getRecordSize());
+    }
+
+    @Test
+    public void testConstructor_withBlockSizeAndEncoding_created() {
+        TarArchiveInputStream tin = new TarArchiveInputStream(new ByteArrayInputStream(new byte[0]), 1024, "UTF-8");
+        assertEquals(RECORD_SIZE, tin.getRecordSize());
+    }
+
+    @Test
+    public void testConstructor_withBlockSizeAndRecordSize_created() {
+        TarArchiveInputStream tin = new TarArchiveInputStream(new ByteArrayInputStream(new byte[0]), 1024, 256);
+        assertEquals(256, tin.getRecordSize());
+    }
+
+    @Test
+    public void testConstructor_withBlockSizeRecordSizeAndEncoding_created() {
+        TarArchiveInputStream tin = new TarArchiveInputStream(new ByteArrayInputStream(new byte[0]), 1024, 256, "UTF-8");
+        assertEquals(256, tin.getRecordSize());
+        assertEquals("UTF-8", tin.encoding);
+    }
+
+    // ---------------- getRecordSize ----------------
+
+    @Test
+    public void testGetRecordSize_defaultValue_returns512() {
+        TarArchiveInputStream tin = newStream(new byte[0]);
+        assertEquals(512, tin.getRecordSize());
+    }
+
+    // ---------------- getNextTarEntry ----------------
+
+    @Test
+    public void testGetNextTarEntry_normalFile_returnsEntry() throws IOException {
+        byte[] archive = buildSimpleArchive("test.txt", "hello".getBytes());
+        TarArchiveInputStream tin = newStream(archive);
+        TarArchiveEntry entry = tin.getNextTarEntry();
+        assertNotNull(entry);
+        assertEquals("test.txt", entry.getName());
+        assertEquals(5, entry.getSize());
+        tin.close();
+    }
+
+    @Test
+    public void testGetNextTarEntry_emptyStream_returnsNull() throws IOException {
+        TarArchiveInputStream tin = newStream(new byte[0]);
+        TarArchiveEntry entry = tin.getNextTarEntry();
+        assertNull(entry);
+    }
+
+    @Test
+    public void testGetNextTarEntry_eofRecords_returnsNull() throws IOException {
+        byte[] archive = eofMarker();
+        TarArchiveInputStream tin = newStream(archive);
+        TarArchiveEntry entry = tin.getNextTarEntry();
+        assertNull(entry);
+    }
+
+    @Test
+    public void testGetNextTarEntry_multipleEntries_returnsBothThenNull() throws IOException {
+        byte[] header1 = createHeader("file1.txt", '0', 5, null);
+        byte[] content1 = padToRecord("hello".getBytes());
+        byte[] header2 = createHeader("file2.txt", '0', 6, null);
+        byte[] content2 = padToRecord("world!".getBytes());
+        byte[] eof = eofMarker();
+        byte[] archive = concat(header1, content1, header2, content2, eof);
+
+        TarArchiveInputStream tin = newStream(archive);
+
+        TarArchiveEntry e1 = tin.getNextTarEntry();
+        assertNotNull(e1);
+        assertEquals("file1.txt", e1.getName());
+        byte[] buf1 = new byte[5];
+        int read1 = tin.read(buf1, 0, 5);
+        assertEquals(5, read1);
+        assertEquals("hello", new String(buf1));
+
+        TarArchiveEntry e2 = tin.getNextTarEntry();
+        assertNotNull(e2);
+        assertEquals("file2.txt", e2.getName());
+        byte[] buf2 = new byte[6];
+        int read2 = tin.read(buf2, 0, 6);
+        assertEquals(6, read2);
+        assertEquals("world!", new String(buf2));
+
+        TarArchiveEntry e3 = tin.getNextTarEntry();
+        assertNull(e3);
+    }
+
+    @Test(expected = IOException.class)
+    public void testGetNextTarEntry_malformedHeader_throwsIOException() throws IOException {
+        byte[] header = createHeader("bad.txt", '0', 5, null);
+        // Corrupt checksum to force a parsing failure
+        header[148] = 'Z';
+        header[149] = 'Z';
+        header[150] = 'Z';
+        header[151] = 'Z';
+        header[152] = 'Z';
+        header[153] = 'Z';
+        byte[] archive = concat(header, eofMarker());
+        TarArchiveInputStream tin = newStream(archive);
+        tin.getNextTarEntry();
+    }
+
+    @Test
+    public void testGetNextTarEntry_largeSize_availableReturnsIntMax() throws IOException {
+        long bigSize = 3000000000L; // > Integer.MAX_VALUE
+        byte[] header = createHeader("big.bin", '0', bigSize, null);
+        byte[] archive = concat(header, eofMarker());
+        TarArchiveInputStream tin = newStream(archive);
+        TarArchiveEntry entry = tin.getNextTarEntry();
+        assertNotNull(entry);
+        assertEquals(Integer.MAX_VALUE, tin.available());
+    }
+
+    // ---------------- getNextEntry (ArchiveEntry) ----------------
+
+    @Test
+    public void testGetNextEntry_delegatesToGetNextTarEntry() throws IOException {
+        byte[] archive = buildSimpleArchive("test.txt", "hello".getBytes());
+        TarArchiveInputStream tin = newStream(archive);
+        ArchiveEntry entry = tin.getNextEntry();
+        assertNotNull(entry);
+        assertTrue(entry instanceof TarArchiveEntry);
+        assertEquals("test.txt", entry.getName());
+    }
+
+    // ---------------- read ----------------
+
+    @Test
+    public void testRead_normalRead_returnsData() throws IOException {
+        byte[] archive = buildSimpleArchive("test.txt", "hello".getBytes());
+        TarArchiveInputStream tin = newStream(archive);
+        tin.getNextTarEntry();
+        byte[] buf = new byte[5];
+        int read = tin.read(buf, 0, 5);
+        assertEquals(5, read);
+        assertEquals("hello", new String(buf));
+    }
+
+    @Test
+    public void testRead_beyondEntrySize_returnsMinusOne() throws IOException {
+        byte[] archive = buildSimpleArchive("test.txt", "hello".getBytes());
+        TarArchiveInputStream tin = newStream(archive);
+        tin.getNextTarEntry();
+        byte[] buf = new byte[5];
+        tin.read(buf, 0, 5);
+        int secondRead = tin.read(buf, 0, 5);
+        assertEquals(-1, secondRead);
+    }
+
+    @Test(expected = IOException.class)
+    public void testRead_truncatedArchive_throwsIOException() throws IOException {
+        byte[] header = createHeader("trunc.txt", '0', 20, null);
+        // No data bytes at all after header -> stream ends immediately
+        TarArchiveInputStream tin = newStream(header);
+        tin.getNextTarEntry();
+        byte[] buf = new byte[20];
+        tin.read(buf, 0, 20);
+    }
+
+    // ---------------- available ----------------
+
+    @Test
+    public void testAvailable_beforeAnyEntry_returnsZero() throws IOException {
+        TarArchiveInputStream tin = newStream(new byte[0]);
+        assertEquals(0, tin.available());
+    }
+
+    @Test
+    public void testAvailable_afterReadingEntry_returnsCorrectValue() throws IOException {
+        byte[] archive = buildSimpleArchive("test.txt", "hello".getBytes());
+        TarArchiveInputStream tin = newStream(archive);
+        tin.getNextTarEntry();
+        assertEquals(5, tin.available());
+    }
+
+    // ---------------- skip ----------------
+
+    @Test
+    public void testSkip_negativeN_returnsZero() throws IOException {
+        TarArchiveInputStream tin = newStream(new byte[0]);
+        long skipped = tin.skip(-5);
+        assertEquals(0, skipped);
+    }
+
+    @Test
+    public void testSkip_zeroN_returnsZero() throws IOException {
+        TarArchiveInputStream tin = newStream(new byte[0]);
+        long skipped = tin.skip(0);
+        assertEquals(0, skipped);
+    }
+
+    @Test
+    public void testSkip_positiveN_skipsBytes() throws IOException {
+        byte[] archive = buildSimpleArchive("test.txt", "hello".getBytes());
+        TarArchiveInputStream tin = newStream(archive);
+        tin.getNextTarEntry();
+        long skipped = tin.skip(3);
+        assertEquals(3, skipped);
+        byte[] buf = new byte[2];
+        int read = tin.read(buf, 0, 2);
+        assertEquals(2, read);
+        assertEquals("lo", new String(buf));
+    }
+
+    // ---------------- markSupported / mark / reset ----------------
+
+    @Test
+    public void testMarkSupported_returnsFalse() {
+        TarArchiveInputStream tin = newStream(new byte[0]);
+        assertFalse(tin.markSupported());
+    }
+
+    @Test
+    public void testMark_doesNothing_noException() {
+        TarArchiveInputStream tin = newStream(new byte[0]);
+        tin.mark(100);
+        // no assertion required, just should not throw
+    }
+
+    @Test
+    public void testReset_doesNothing_noException() {
+        TarArchiveInputStream tin = newStream(new byte[0]);
+        tin.reset();
+        // no assertion required, just should not throw
+    }
+
+    // ---------------- close ----------------
+
+    @Test
+    public void testClose_closesUnderlyingStream() throws IOException {
+        final boolean[] closedFlag = {false};
+        InputStream is = new ByteArrayInputStream(new byte[0]) {
+            @Override
+            public void close() throws IOException {
+                closedFlag[0] = true;
+                super.close();
+            }
+        };
+        TarArchiveInputStream tin = new TarArchiveInputStream(is);
+        tin.close();
+        assertTrue(closedFlag[0]);
+    }
+
+    // ---------------- canReadEntryData ----------------
+
+    @Test
+    public void testCanReadEntryData_tarArchiveEntryNonSparse_returnsTrue() throws IOException {
+        byte[] archive = buildSimpleArchive("test.txt", "hello".getBytes());
+        TarArchiveInputStream tin = newStream(archive);
+        TarArchiveEntry entry = tin.getNextTarEntry();
+        assertTrue(tin.canReadEntryData

@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "6",
+  "tool": "claude",
+  "class": "org.mockito.Matchers",
+  "target_classes": [
+    "org.mockito.Matchers"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 66.13,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Mockito\\6\\Matchers_20261003_011732.txt",
+  "test_file": "Claude\\TestCode\\Mockito\\6\\MatchersTest.java",
+  "usage": {
+    "prompt_tokens": 11887,
+    "completion_tokens": 8313,
+    "total_tokens": 20200
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 146984,
+    "daily_remaining_tokens": 53016
+  },
+  "timestamp": "20261003_011732"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "136",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.MethodCompilerPass",
+  "target_classes": [
+    "com.google.javascript.jscomp.MethodCompilerPass"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 108.29,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\136\\MethodCompilerPass_20260925_192652.txt",
+  "test_file": "Claude\\TestCode\\Closure\\136\\MethodCompilerPassTest.java",
+  "usage": {
+    "prompt_tokens": 4113,
+    "completion_tokens": 12947,
+    "total_tokens": 17060
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 17060,
+    "daily_remaining_tokens": 182940
+  },
+  "timestamp": "20260925_192652"
+}

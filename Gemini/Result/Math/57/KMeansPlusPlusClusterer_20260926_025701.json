@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "57",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer",
+  "target_classes": [
+    "org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 15.5,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\57\\KMeansPlusPlusClusterer_20260926_025701.txt",
+  "test_file": "Gemini\\TestCode\\Math\\57\\KMeansPlusPlusClustererTest.java",
+  "usage": {
+    "prompt_tokens": 3255,
+    "completion_tokens": 2223,
+    "total_tokens": 5478
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 85049,
+    "daily_remaining_tokens": 264951
+  },
+  "timestamp": "20260926_025701"
+}

@@ -1,0 +1,435 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.util.Locale;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Attr;
+import org.w3c.dom.Comment;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.ProcessingInstruction;
+import org.w3c.dom.Text;
+
+import org.apache.commons.jxpath.AbstractFactory;
+import org.apache.commons.jxpath.JXPathAbstractFactoryException;
+import org.apache.commons.jxpath.JXPathContext;
+import org.apache.commons.jxpath.JXPathException;
+import org.apache.commons.jxpath.Pointer;
+import org.apache.commons.jxpath.ri.Compiler;
+import org.apache.commons.jxpath.ri.QName;
+import org.apache.commons.jxpath.ri.compiler.NodeNameTest;
+import org.apache.commons.jxpath.ri.compiler.NodeTypeTest;
+import org.apache.commons.jxpath.ri.compiler.ProcessingInstructionTest;
+import org.apache.commons.jxpath.ri.model.NodeIterator;
+import org.apache.commons.jxpath.ri.model.NodePointer;
+import org.apache.commons.jxpath.ri.model.beans.NullPointer;
+import org.apache.commons.jxpath.ri.model.dom.DOMNodePointer;
+
+public class DOMNodePointerTest {
+
+    private DocumentBuilder nonNsBuilder;
+    private DocumentBuilder nsBuilder;
+
+    @Before
+    public void setUp() throws Exception {
+        DocumentBuilderFactory f1 = DocumentBuilderFactory.newInstance();
+        f1.setNamespaceAware(false);
+        nonNsBuilder = f1.newDocumentBuilder();
+
+        DocumentBuilderFactory f2 = DocumentBuilderFactory.newInstance();
+        f2.setNamespaceAware(true);
+        nsBuilder = f2.newDocumentBuilder();
+    }
+
+    private Document newDocument() {
+        return nonNsBuilder.newDocument();
+    }
+
+    private Document newNSDocument() {
+        return nsBuilder.newDocument();
+    }
+
+    // ---------- Constructors ----------
+
+    @Test
+    public void testConstructor_NodeLocale_createsPointer() {
+        Document doc = newDocument();
+        Element e = doc.createElement("root");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        assertSame(e, ptr.getBaseValue());
+    }
+
+    @Test
+    public void testConstructor_NodeLocaleId_createsPointerWithId() {
+        Document doc = newDocument();
+        Element e = doc.createElement("root");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault(), "myid");
+        assertEquals("id('myid')", ptr.asPath());
+    }
+
+    @Test
+    public void testConstructor_ParentNode_createsChildPointer() {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+        DOMNodePointer parentPtr = new DOMNodePointer(root, Locale.getDefault());
+        Element child = doc.createElement("child");
+        root.appendChild(child);
+        DOMNodePointer childPtr = new DOMNodePointer(parentPtr, child);
+        assertSame(child, childPtr.getBaseValue());
+    }
+
+    // ---------- testNode ----------
+
+    @Test
+    public void testTestNode_nullTest_returnsTrue() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        assertTrue(ptr.testNode(null));
+    }
+
+    @Test
+    public void testTestNode_nodeNameTestWildcardNoPrefix_returnsTrue() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        QName wildcard = new QName(null, "*");
+        NodeNameTest test = new NodeNameTest(wildcard, null);
+        assertTrue(ptr.testNode(test));
+    }
+
+    @Test
+    public void testTestNode_nodeNameTestMatching_returnsTrue() {
+        Document doc = newDocument();
+        Element e = doc.createElement("child");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        QName name = new QName(null, "child");
+        NodeNameTest test = new NodeNameTest(name, null);
+        assertTrue(ptr.testNode(test));
+    }
+
+    @Test
+    public void testTestNode_nodeNameTestNonMatching_returnsFalse() {
+        Document doc = newDocument();
+        Element e = doc.createElement("child");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        QName name = new QName(null, "other");
+        NodeNameTest test = new NodeNameTest(name, null);
+        assertFalse(ptr.testNode(test));
+    }
+
+    @Test
+    public void testTestNode_nodeNameTestNonElementNode_returnsFalse() {
+        Document doc = newDocument();
+        Text t = doc.createTextNode("hello");
+        DOMNodePointer ptr = new DOMNodePointer(t, Locale.getDefault());
+        QName name = new QName(null, "child");
+        NodeNameTest test = new NodeNameTest(name, null);
+        assertFalse(ptr.testNode(test));
+    }
+
+    @Test
+    public void testTestNode_nodeTypeTestNode_elementAndDocument() {
+        Document doc = newDocument();
+        Element e = doc.createElement("child");
+        DOMNodePointer elemPtr = new DOMNodePointer(e, Locale.getDefault());
+        NodeTypeTest test = new NodeTypeTest(Compiler.NODE_TYPE_NODE);
+        assertTrue(elemPtr.testNode(test));
+
+        DOMNodePointer docPtr = new DOMNodePointer(doc, Locale.getDefault());
+        assertTrue(docPtr.testNode(test));
+    }
+
+    @Test
+    public void testTestNode_nodeTypeTestText() {
+        Document doc = newDocument();
+        Text t = doc.createTextNode("hello");
+        DOMNodePointer ptr = new DOMNodePointer(t, Locale.getDefault());
+        NodeTypeTest test = new NodeTypeTest(Compiler.NODE_TYPE_TEXT);
+        assertTrue(ptr.testNode(test));
+    }
+
+    @Test
+    public void testTestNode_nodeTypeTestComment() {
+        Document doc = newDocument();
+        Comment c = doc.createComment("comment");
+        DOMNodePointer ptr = new DOMNodePointer(c, Locale.getDefault());
+        NodeTypeTest test = new NodeTypeTest(Compiler.NODE_TYPE_COMMENT);
+        assertTrue(ptr.testNode(test));
+    }
+
+    @Test
+    public void testTestNode_nodeTypeTestPI() {
+        Document doc = newDocument();
+        ProcessingInstruction pi = doc.createProcessingInstruction("target", "data");
+        DOMNodePointer ptr = new DOMNodePointer(pi, Locale.getDefault());
+        NodeTypeTest test = new NodeTypeTest(Compiler.NODE_TYPE_PI);
+        assertTrue(ptr.testNode(test));
+    }
+
+    @Test
+    public void testTestNode_processingInstructionTest_matching() {
+        Document doc = newDocument();
+        ProcessingInstruction pi = doc.createProcessingInstruction("target", "data");
+        DOMNodePointer ptr = new DOMNodePointer(pi, Locale.getDefault());
+        ProcessingInstructionTest test = new ProcessingInstructionTest("target");
+        assertTrue(ptr.testNode(test));
+    }
+
+    @Test
+    public void testTestNode_processingInstructionTest_nonMatching() {
+        Document doc = newDocument();
+        ProcessingInstruction pi = doc.createProcessingInstruction("target", "data");
+        DOMNodePointer ptr = new DOMNodePointer(pi, Locale.getDefault());
+        ProcessingInstructionTest test = new ProcessingInstructionTest("other");
+        assertFalse(ptr.testNode(test));
+    }
+
+    @Test
+    public void testTestNode_processingInstructionTest_wrongNodeType_returnsFalse() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        ProcessingInstructionTest test = new ProcessingInstructionTest("target");
+        assertFalse(ptr.testNode(test));
+    }
+
+    @Test
+    public void testTestNodeStatic_matchesInstanceMethod() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        assertTrue(DOMNodePointer.testNode(e, null));
+    }
+
+    // ---------- getName ----------
+
+    @Test
+    public void testGetName_elementNode_returnsQName() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        QName name = ptr.getName();
+        assertEquals("foo", name.getName());
+    }
+
+    @Test
+    public void testGetName_processingInstruction_returnsTargetAsName() {
+        Document doc = newDocument();
+        ProcessingInstruction pi = doc.createProcessingInstruction("target", "data");
+        DOMNodePointer ptr = new DOMNodePointer(pi, Locale.getDefault());
+        QName name = ptr.getName();
+        assertEquals("target", name.getName());
+    }
+
+    @Test
+    public void testGetName_textNode_returnsNullLocalName() {
+        Document doc = newDocument();
+        Text t = doc.createTextNode("hello");
+        DOMNodePointer ptr = new DOMNodePointer(t, Locale.getDefault());
+        QName name = ptr.getName();
+        assertNull(name.getName());
+    }
+
+    // ---------- getNamespaceURI ----------
+
+    @Test
+    public void testGetNamespaceURI_noArgs_elementWithoutNamespace_returnsNull() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        doc.appendChild(e);
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        assertNull(ptr.getNamespaceURI());
+    }
+
+    @Test
+    public void testGetNamespaceURI_prefixXml_returnsXmlNamespace() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        assertEquals(DOMNodePointer.XML_NAMESPACE_URI, ptr.getNamespaceURI("xml"));
+    }
+
+    @Test
+    public void testGetNamespaceURI_prefixXmlns_returnsXmlnsNamespace() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        assertEquals(DOMNodePointer.XMLNS_NAMESPACE_URI, ptr.getNamespaceURI("xmlns"));
+    }
+
+    @Test
+    public void testGetNamespaceURI_emptyPrefix_returnsDefaultNamespace() {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+        root.setAttribute("xmlns", "http://default.ns");
+        DOMNodePointer ptr = new DOMNodePointer(root, Locale.getDefault());
+        assertEquals("http://default.ns", ptr.getNamespaceURI(""));
+    }
+
+    @Test
+    public void testGetNamespaceURI_knownPrefix_returnsNamespace() {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+        root.setAttribute("xmlns:ns1", "http://example.com/ns1");
+        DOMNodePointer ptr = new DOMNodePointer(root, Locale.getDefault());
+        assertEquals("http://example.com/ns1", ptr.getNamespaceURI("ns1"));
+        // call again to exercise cache branch
+        assertEquals("http://example.com/ns1", ptr.getNamespaceURI("ns1"));
+    }
+
+    @Test
+    public void testGetNamespaceURI_unknownPrefix_returnsNull() {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+        DOMNodePointer ptr = new DOMNodePointer(root, Locale.getDefault());
+        assertNull(ptr.getNamespaceURI("unknown"));
+    }
+
+    @Test
+    public void testGetNamespaceURI_onDocumentNode_resolvesViaDocumentElement() {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+        root.setAttribute("xmlns:ns1", "http://example.com/ns1");
+        DOMNodePointer ptr = new DOMNodePointer(doc, Locale.getDefault());
+        assertEquals("http://example.com/ns1", ptr.getNamespaceURI("ns1"));
+    }
+
+    // ---------- getDefaultNamespaceURI ----------
+
+    @Test
+    public void testGetDefaultNamespaceURI_noNamespace_returnsNull() {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+        DOMNodePointer ptr = new DOMNodePointer(root, Locale.getDefault());
+        assertNull(ptr.getDefaultNamespaceURI());
+    }
+
+    @Test
+    public void testGetDefaultNamespaceURI_withNamespace_returnsValue() {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+        root.setAttribute("xmlns", "http://default.ns");
+        DOMNodePointer ptr = new DOMNodePointer(root, Locale.getDefault());
+        assertEquals("http://default.ns", ptr.getDefaultNamespaceURI());
+        // call again to hit cached branch
+        assertEquals("http://default.ns", ptr.getDefaultNamespaceURI());
+    }
+
+    @Test
+    public void testGetDefaultNamespaceURI_documentNode() {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+        root.setAttribute("xmlns", "http://default.ns");
+        DOMNodePointer ptr = new DOMNodePointer(doc, Locale.getDefault());
+        assertEquals("http://default.ns", ptr.getDefaultNamespaceURI());
+    }
+
+    // ---------- childIterator / attributeIterator / namespacePointer / namespaceIterator ----------
+
+    @Test
+    public void testChildIterator_returnsNonNullIterator() {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        Element child = doc.createElement("child");
+        root.appendChild(child);
+        doc.appendChild(root);
+        DOMNodePointer ptr = new DOMNodePointer(root, Locale.getDefault());
+        NodeIterator it = ptr.childIterator(null, false, null);
+        assertNotNull(it);
+        assertTrue(it.setPosition(1));
+        assertNotNull(it.getNodePointer());
+    }
+
+    @Test
+    public void testAttributeIterator_returnsNonNullIterator() {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        root.setAttribute("attr1", "value1");
+        doc.appendChild(root);
+        DOMNodePointer ptr = new DOMNodePointer(root, Locale.getDefault());
+        QName name = new QName(null, "attr1");
+        NodeIterator it = ptr.attributeIterator(name);
+        assertNotNull(it);
+        assertTrue(it.setPosition(1));
+        assertNotNull(it.getNodePointer());
+    }
+
+    @Test
+    public void testNamespacePointer_returnsNonNullPointer() {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+        DOMNodePointer ptr = new DOMNodePointer(root, Locale.getDefault());
+        NodePointer nsPtr = ptr.namespacePointer("ns1");
+        assertNotNull(nsPtr);
+    }
+
+    @Test
+    public void testNamespaceIterator_returnsNonNullIterator() {
+        Document doc = newDocument();
+        Element root = doc.createElement("root");
+        doc.appendChild(root);
+        DOMNodePointer ptr = new DOMNodePointer(root, Locale.getDefault());
+        NodeIterator it = ptr.namespaceIterator();
+        assertNotNull(it);
+    }
+
+    // ---------- simple value getters ----------
+
+    @Test
+    public void testGetBaseValue_returnsNode() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        assertSame(e, ptr.getBaseValue());
+    }
+
+    @Test
+    public void testGetImmediateNode_returnsNode() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        assertSame(e, ptr.getImmediateNode());
+    }
+
+    @Test
+    public void testIsActual_alwaysTrue() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        assertTrue(ptr.isActual());
+    }
+
+    @Test
+    public void testIsCollection_alwaysFalse() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        assertFalse(ptr.isCollection());
+    }
+
+    @Test
+    public void testGetLength_alwaysOne() {
+        Document doc = newDocument();
+        Element e = doc.createElement("foo");
+        DOMNodePointer ptr = new DOMNodePointer(e, Locale.getDefault());
+        assertEquals(1, ptr.getLength());
+    }
+
+    @Test
+    public void testIsLeaf_noChildren_returnsTrue() {
+        Document doc = newDocument();
+        Element e = doc.create

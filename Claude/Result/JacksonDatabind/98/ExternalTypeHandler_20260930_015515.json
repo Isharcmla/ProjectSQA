@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "98",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 167.23,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\98\\ExternalTypeHandler_20260930_015515.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 7526,
+    "completion_tokens": 16384,
+    "total_tokens": 23910
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 132596,
+    "daily_remaining_tokens": 67404
+  },
+  "timestamp": "20260930_015515"
+}

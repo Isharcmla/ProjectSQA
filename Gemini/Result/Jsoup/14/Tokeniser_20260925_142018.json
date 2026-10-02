@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "14",
+  "tool": "gemini",
+  "class": "org.jsoup.parser.Tokeniser",
+  "target_classes": [
+    "org.jsoup.parser.Tokeniser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 35.44,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\14\\Tokeniser_20260925_142018.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\14\\TokeniserTest.java",
+  "usage": {
+    "prompt_tokens": 2159,
+    "completion_tokens": 3085,
+    "total_tokens": 7360
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 98089,
+    "daily_remaining_tokens": 251911
+  },
+  "timestamp": "20260925_142018"
+}

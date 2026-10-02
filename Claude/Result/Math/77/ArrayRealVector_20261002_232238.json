@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "77",
+  "tool": "claude",
+  "class": "org.apache.commons.math.linear.ArrayRealVector",
+  "target_classes": [
+    "org.apache.commons.math.linear.ArrayRealVector"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 109.41,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Math\\77\\ArrayRealVector_20261002_232238.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 14484,
+    "completion_tokens": 16384,
+    "total_tokens": 30868
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 60473,
+    "daily_remaining_tokens": 139527
+  },
+  "timestamp": "20261002_232238"
+}

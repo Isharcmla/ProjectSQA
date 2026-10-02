@@ -1,0 +1,154 @@
+package com.google.javascript.jscomp;
+
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+import com.google.javascript.rhino.jstype.ObjectType;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.util.Iterator;
+
+public class ScopeTest {
+
+    private Scope globalScope;
+    private Node globalRoot;
+
+    @Before
+    public void setUp() {
+        globalRoot = new Node(Token.BLOCK);
+        // Using bottom-scope constructor (package-private) to avoid needing AbstractCompiler
+        globalScope = new Scope(globalRoot, (ObjectType) null);
+    }
+
+    // ---------- Basic Scope property tests ----------
+
+    @Test
+    public void testIsGlobal_globalScope_true() {
+        assertTrue(globalScope.isGlobal());
+    }
+
+    @Test
+    public void testIsLocal_globalScope_false() {
+        assertFalse(globalScope.isLocal());
+    }
+
+    @Test
+    public void testIsBottom_bottomScope_true() {
+        assertTrue(globalScope.isBottom());
+    }
+
+    @Test
+    public void testGetDepth_globalScope_zero() {
+        assertEquals(0, globalScope.getDepth());
+    }
+
+    @Test
+    public void testGetRootNode_returnsRootNode() {
+        assertSame(globalRoot, globalScope.getRootNode());
+    }
+
+    @Test
+    public void testGetParent_globalScope_null() {
+        assertNull(globalScope.getParent());
+    }
+
+    @Test
+    public void testGetParentScope_globalScope_null() {
+        assertNull(globalScope.getParentScope());
+    }
+
+    @Test
+    public void testGetGlobalScope_fromGlobal_returnsSelf() {
+        assertSame(globalScope, globalScope.getGlobalScope());
+    }
+
+    @Test
+    public void testGetTypeOfThis_bottomScope_null() {
+        assertNull(globalScope.getTypeOfThis());
+    }
+
+    // ---------- Child scope creation tests ----------
+
+    @Test
+    public void testChildScope_creation_incrementsDepth() {
+        Node childRoot = new Node(Token.FUNCTION);
+        Scope childScope = new Scope(globalScope, childRoot);
+        assertEquals(1, childScope.getDepth());
+        assertSame(globalScope, childScope.getParent());
+        assertFalse(childScope.isGlobal());
+        assertTrue(childScope.isLocal());
+    }
+
+    @Test
+    public void testChildScope_getGlobalScope_returnsRootAncestor() {
+        Node childRoot = new Node(Token.FUNCTION);
+        Scope childScope = new Scope(globalScope, childRoot);
+        assertSame(globalScope, childScope.getGlobalScope());
+    }
+
+    @Test
+    public void testGetGlobalScope_fromNestedChild_returnsGlobal() {
+        Node childRoot1 = new Node(Token.FUNCTION);
+        Scope childScope1 = new Scope(globalScope, childRoot1);
+        Node childRoot2 = new Node(Token.FUNCTION);
+        Scope childScope2 = new Scope(childScope1, childRoot2);
+        assertSame(globalScope, childScope2.getGlobalScope());
+        assertEquals(2, childScope2.getDepth());
+    }
+
+    @Test
+    public void testIsBottom_childScope_false() {
+        Node childRoot = new Node(Token.FUNCTION);
+        Scope childScope = new Scope(globalScope, childRoot);
+        assertFalse(childScope.isBottom());
+    }
+
+    @Test
+    public void testGetTypeOfThis_childScope_inheritsFromParent() {
+        Node childRoot = new Node(Token.FUNCTION);
+        Scope childScope = new Scope(globalScope, childRoot);
+        assertSame(globalScope.getTypeOfThis(), childScope.getTypeOfThis());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testChildScope_sameRootNodeAsParent_throwsException() {
+        new Scope(globalScope, globalRoot);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testChildScope_nullParent_throwsException() {
+        Node childRoot = new Node(Token.FUNCTION);
+        new Scope((Scope) null, childRoot);
+    }
+
+    // ---------- declare() tests ----------
+
+    @Test
+    public void testDeclare_normalVariable_addsToScope() {
+        Node nameNode = new Node(Token.NAME);
+        Scope.Var var = globalScope.declare("x", nameNode, null, null);
+        assertNotNull(var);
+        assertEquals("x", var.getName());
+        assertTrue(var.isTypeInferred());
+    }
+
+    @Test
+    public void testDeclare_withInferredFalse_declaredType() {
+        Node nameNode = new Node(Token.NAME);
+        Scope.Var var = globalScope.declare("y", nameNode, null, null, false);
+        assertFalse(var.isTypeInferred());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testDeclare_duplicateName_throwsException() {
+        Node nameNode1 = new Node(Token.NAME);
+        Node nameNode2 = new Node(Token.NAME);
+        globalScope.declare("dup", nameNode1, null, null);
+        globalScope.declare("dup", nameNode2, null, null);
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testDeclare_emptyName_throwsException() {
+        Node nameNode =

@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "22",
+  "tool": "claude",
+  "class": "org.jfree.data.KeyedObjects2D",
+  "target_classes": [
+    "org.jfree.data.KeyedObjects2D"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 38.6,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Chart\\22\\KeyedObjects2D_20260924_075454.txt",
+  "test_file": "Claude\\TestCode\\Chart\\22\\KeyedObjects2DTest.java",
+  "usage": {
+    "prompt_tokens": 6022,
+    "completion_tokens": 5886,
+    "total_tokens": 11908
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 42857,
+    "daily_remaining_tokens": 157143
+  },
+  "timestamp": "20260924_075454"
+}

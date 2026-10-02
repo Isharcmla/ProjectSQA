@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "8",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.distribution.DiscreteDistribution",
+  "target_classes": [
+    "org.apache.commons.math3.distribution.DiscreteDistribution"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 29.95,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\8\\DiscreteDistribution_20261002_234538.txt",
+  "test_file": "Claude\\TestCode\\Math\\8\\DiscreteDistributionTest.java",
+  "usage": {
+    "prompt_tokens": 3384,
+    "completion_tokens": 4335,
+    "total_tokens": 7719
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 171462,
+    "daily_remaining_tokens": 28538
+  },
+  "timestamp": "20261002_234538"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "39",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.deser.std.NullifyingDeserializer",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.std.NullifyingDeserializer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 30.09,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\39\\NullifyingDeserializer_20260925_131343.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\39\\NullifyingDeserializerTest.java",
+  "usage": {
+    "prompt_tokens": 694,
+    "completion_tokens": 2773,
+    "total_tokens": 5092
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 195036,
+    "daily_remaining_tokens": 154964
+  },
+  "timestamp": "20260925_131343"
+}

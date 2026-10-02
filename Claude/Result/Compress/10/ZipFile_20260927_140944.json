@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "10",
+  "tool": "claude",
+  "class": "org.apache.commons.compress.archivers.zip.ZipFile",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.zip.ZipFile"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 55.33,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Compress\\10\\ZipFile_20260927_140944.txt",
+  "test_file": "Claude\\TestCode\\Compress\\10\\ZipFileTest.java",
+  "usage": {
+    "prompt_tokens": 13647,
+    "completion_tokens": 7620,
+    "total_tokens": 21267
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 180854,
+    "daily_remaining_tokens": 19146
+  },
+  "timestamp": "20260927_140944"
+}

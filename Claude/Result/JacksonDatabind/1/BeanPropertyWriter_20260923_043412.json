@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "1",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.ser.BeanPropertyWriter",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.BeanPropertyWriter"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 39.62,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 4096,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\1\\BeanPropertyWriter_20260923_043412.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 9242,
+    "completion_tokens": 4096,
+    "total_tokens": 13338
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 170432,
+    "daily_remaining_tokens": 29568
+  },
+  "timestamp": "20260923_043412"
+}

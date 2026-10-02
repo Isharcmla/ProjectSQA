@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "6",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.optim.nonlinear.vector.jacobian.LevenbergMarquardtOptimizer",
+  "target_classes": [
+    "org.apache.commons.math3.optim.nonlinear.vector.jacobian.LevenbergMarquardtOptimizer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 34.84,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\6\\LevenbergMarquardtOptimizer_20260926_030844.txt",
+  "test_file": "Gemini\\TestCode\\Math\\6\\LevenbergMarquardtOptimizerTest.java",
+  "usage": {
+    "prompt_tokens": 10730,
+    "completion_tokens": 5114,
+    "total_tokens": 15844
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 316571,
+    "daily_remaining_tokens": 33429
+  },
+  "timestamp": "20260926_030844"
+}

@@ -1,0 +1,348 @@
+package com.fasterxml.jackson.databind.type;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.GenericArrayType;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
+import java.lang.reflect.WildcardType;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
+
+public class TypeFactoryTest {
+
+    private final TypeFactory factory = TypeFactory.defaultInstance();
+
+    // ---------------------------------------------------------
+    // Helper classes used across tests
+    // ---------------------------------------------------------
+
+    static class StringList extends ArrayList<String> {
+        private static final long serialVersionUID = 1L;
+    }
+
+    static class StringIntMap extends HashMap<String, Integer> {
+        private static final long serialVersionUID = 1L;
+    }
+
+    interface NoGenerics {}
+
+    static class NoGenericsImpl implements NoGenerics {}
+
+    static enum MyEnum { A, B }
+
+    static class MyAtomicRef extends AtomicReference<String> {
+        private static final long serialVersionUID = 1L;
+    }
+
+    static class MyEntry implements Map.Entry<String, Integer> {
+        private String key = "k";
+        private Integer value = 1;
+
+        public String getKey() { return key; }
+        public Integer getValue() { return value; }
+        public Integer setValue(Integer v) {
+            Integer old = value;
+            value = v;
+            return old;
+        }
+    }
+
+    static class Holder {
+        public List<String> listField;
+        public Map<String, Integer> mapField;
+    }
+
+    static class ArrayHolder {
+        public List<String>[] arrField;
+    }
+
+    static class NumHolder<T extends Number> {
+        public T value;
+    }
+
+    static class WildcardHolder {
+        public List<? extends Number> wildcardList;
+    }
+
+    static class FakeType implements Type {}
+
+    // ---------------------------------------------------------
+    // defaultInstance / clearCache / withModifier
+    // ---------------------------------------------------------
+
+    @Test
+    public void testDefaultInstance_returnsSameSingleton() {
+        TypeFactory a = TypeFactory.defaultInstance();
+        TypeFactory b = TypeFactory.defaultInstance();
+        assertNotNull(a);
+        assertSame(a, b);
+    }
+
+    @Test
+    public void testClearCache_doesNotThrow() {
+        factory.constructType(StringList.class);
+        factory.clearCache();
+        JavaType t = factory.constructType(StringList.class);
+        assertNotNull(t);
+    }
+
+    @Test
+    public void testWithModifier_null_returnsNewFactoryInstance() {
+        // NOTE: TypeModifier API details are not provided in source_code,
+        // so only the null-branch (which does not require instantiating TypeModifier) is tested.
+        TypeFactory newFactory = factory.withModifier(null);
+        assertNotNull(newFactory);
+        assertNotSame(factory, newFactory);
+    }
+
+    // ---------------------------------------------------------
+    // unknownType / rawClass (static)
+    // ---------------------------------------------------------
+
+    @Test
+    public void testUnknownType_returnsObjectType() {
+        JavaType t = TypeFactory.unknownType();
+        assertNotNull(t);
+        assertEquals(Object.class, t.getRawClass());
+    }
+
+    @Test
+    public void testRawClass_classInput_returnsSameClass() {
+        Class<?> c = TypeFactory.rawClass(String.class);
+        assertEquals(String.class, c);
+    }
+
+    @Test
+    public void testRawClass_parameterizedType_returnsRawClass() throws Exception {
+        Field f = Holder.class.getDeclaredField("listField");
+        Type genType = f.getGenericType();
+        Class<?> c = TypeFactory.rawClass(genType);
+        assertEquals(List.class, c);
+    }
+
+    // ---------------------------------------------------------
+    // constructSpecializedType
+    // ---------------------------------------------------------
+
+    @Test
+    public void testConstructSpecializedType_sameRawClass_returnsSameInstance() {
+        JavaType base = factory.constructType(String.class);
+        JavaType result = factory.constructSpecializedType(base, String.class);
+        assertSame(base, result);
+    }
+
+    @Test
+    public void testConstructSpecializedType_simpleTypeCollectionSubclass_specializes() {
+        JavaType base = factory.uncheckedSimpleType(Collection.class);
+        JavaType result = factory.constructSpecializedType(base, ArrayList.class);
+        assertNotNull(result);
+        assertEquals(ArrayList.class, result.getRawClass());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructSpecializedType_incompatibleSubclass_throwsException() {
+        JavaType base = factory.uncheckedSimpleType(String.class);
+        factory.constructSpecializedType(base, ArrayList.class);
+    }
+
+    @Test
+    public void testConstructSpecializedType_narrowByRegularClass_works() {
+        JavaType base = factory.constructType(Number.class);
+        JavaType result = factory.constructSpecializedType(base, Integer.class);
+        assertNotNull(result);
+        assertEquals(Integer.class, result.getRawClass());
+    }
+
+    // ---------------------------------------------------------
+    // constructFromCanonical
+    // ---------------------------------------------------------
+
+    @Test
+    public void testConstructFromCanonical_validString_returnsType() {
+        JavaType t = factory.constructFromCanonical("java.lang.String");
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructFromCanonical_invalidClass_throwsException() {
+        factory.constructFromCanonical("no.such.ClassXYZ123");
+    }
+
+    // ---------------------------------------------------------
+    // findTypeParameters
+    // ---------------------------------------------------------
+
+    @Test
+    public void testFindTypeParameters_javaType_returnsCorrectParams() {
+        JavaType type = factory.constructType(StringList.class);
+        JavaType[] params = factory.findTypeParameters(type, Collection.class);
+        assertNotNull(params);
+        assertEquals(1, params.length);
+        assertEquals(String.class, params[0].getRawClass());
+    }
+
+    @Test
+    public void testFindTypeParameters_classOverload_returnsCorrectParams() {
+        JavaType[] params = factory.findTypeParameters(StringList.class, Collection.class);
+        assertNotNull(params);
+        assertEquals(1, params.length);
+        assertEquals(String.class, params[0].getRawClass());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFindTypeParameters_notSubtype_throwsException() {
+        factory.findTypeParameters(String.class, Collection.class);
+    }
+
+    @Test
+    public void testFindTypeParameters_nonGenericSuperType_returnsNull() {
+        JavaType[] params = factory.findTypeParameters(NoGenericsImpl.class, NoGenerics.class);
+        assertNull(params);
+    }
+
+    @Test
+    public void testFindTypeParameters_mapSubtype_returnsTwoParams() {
+        JavaType[] params = factory.findTypeParameters(StringIntMap.class, Map.class);
+        assertNotNull(params);
+        assertEquals(2, params.length);
+        assertEquals(String.class, params[0].getRawClass());
+        assertEquals(Integer.class, params[1].getRawClass());
+    }
+
+    // ---------------------------------------------------------
+    // moreSpecificType
+    // ---------------------------------------------------------
+
+    @Test
+    public void testMoreSpecificType_firstNull_returnsSecond() {
+        JavaType t2 = factory.constructType(String.class);
+        JavaType result = factory.moreSpecificType(null, t2);
+        assertSame(t2, result);
+    }
+
+    @Test
+    public void testMoreSpecificType_secondNull_returnsFirst() {
+        JavaType t1 = factory.constructType(String.class);
+        JavaType result = factory.moreSpecificType(t1, null);
+        assertSame(t1, result);
+    }
+
+    @Test
+    public void testMoreSpecificType_sameRawClass_returnsFirst() {
+        JavaType t1 = factory.constructType(String.class);
+        JavaType t2 = factory.constructType(String.class);
+        JavaType result = factory.moreSpecificType(t1, t2);
+        assertSame(t1, result);
+    }
+
+    @Test
+    public void testMoreSpecificType_secondMoreSpecific_returnsSecond() {
+        JavaType t1 = factory.constructType(Number.class);
+        JavaType t2 = factory.constructType(Integer.class);
+        JavaType result = factory.moreSpecificType(t1, t2);
+        assertSame(t2, result);
+    }
+
+    @Test
+    public void testMoreSpecificType_unrelatedTypes_returnsFirst() {
+        JavaType t1 = factory.constructType(String.class);
+        JavaType t2 = factory.constructType(Integer.class);
+        JavaType result = factory.moreSpecificType(t1, t2);
+        assertSame(t1, result);
+    }
+
+    // ---------------------------------------------------------
+    // constructType overloads
+    // ---------------------------------------------------------
+
+    @Test
+    public void testConstructType_classType_returnsCorrectType() {
+        JavaType t = factory.constructType((Type) String.class);
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructType_nullType_throwsException() {
+        factory.constructType((Type) null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructType_unrecognizedType_throwsException() {
+        factory.constructType(new FakeType());
+    }
+
+    @Test
+    public void testConstructType_javaTypeInput_returnsSameInstance() {
+        JavaType jt = factory.constructType(String.class);
+        JavaType result = factory.constructType((Type) jt);
+        assertSame(jt, result);
+    }
+
+    @Test
+    public void testConstructType_withTypeBindingsNull_returnsCorrectType() {
+        JavaType t = factory.constructType((Type) String.class, (TypeBindings) null);
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @Test
+    public void testConstructType_typeReference_returnsCorrectType() {
+        JavaType t = factory.constructType(new TypeReference<List<String>>() {});
+        assertEquals(List.class, t.getRawClass());
+    }
+
+    @Test
+    public void testConstructType_typeAndClassContext_nullContext() {
+        JavaType t = factory.constructType(String.class, (Class<?>) null);
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @Test
+    public void testConstructType_typeAndClassContext_nonNullContext() {
+        JavaType t = factory.constructType(String.class, Object.class);
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @Test
+    public void testConstructType_typeAndJavaTypeContext_nullContext() {
+        JavaType t = factory.constructType(String.class, (JavaType) null);
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @Test
+    public void testConstructType_typeAndJavaTypeContext_nonNullContext() {
+        JavaType ctx = factory.constructType(Object.class);
+        JavaType t = factory.constructType(String.class, ctx);
+        assertEquals(String.class, t.getRawClass());
+    }
+
+    @Test
+    public void testConstructType_genericArrayType_returnsArrayType() throws Exception {
+        Field f = ArrayHolder.class.getDeclaredField("arrField");
+        Type genType = f.getGenericType();
+        assertTrue(genType instanceof GenericArrayType);
+        JavaType t = factory.constructType(genType);
+        assertTrue(t.isArrayType());
+    }
+
+    @Test
+    public void testConstructType_typeVariable_resolvedViaBounds() throws Exception {
+        Field f = NumHolder.class.getDeclaredField("value");
+        Type genType = f.getGenericType();
+        assertTrue(genType instanceof TypeVariable<?>);
+        JavaType t = factory.constructType(genType);
+        assertEquals(Number.class, t.getRawClass());
+    }
+
+    @Test
+    public void testConstructType_wildcardType_resolvedViaUpperBound() throws Exception {
+        Field f = WildcardHolder.class.getDe

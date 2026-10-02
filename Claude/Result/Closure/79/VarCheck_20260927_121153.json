@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "79",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.VarCheck",
+  "target_classes": [
+    "com.google.javascript.jscomp.VarCheck"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 167.71,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\79\\VarCheck_20260927_121153.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 4831,
+    "completion_tokens": 16384,
+    "total_tokens": 21215
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 191364,
+    "daily_remaining_tokens": 8636
+  },
+  "timestamp": "20260927_121153"
+}

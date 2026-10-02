@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "7",
+  "tool": "claude",
+  "class": "org.jfree.data.time.TimePeriodValues",
+  "target_classes": [
+    "org.jfree.data.time.TimePeriodValues"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 45.76,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Chart\\7\\TimePeriodValues_20260924_080823.txt",
+  "test_file": "Claude\\TestCode\\Chart\\7\\TimePeriodValuesTest.java",
+  "usage": {
+    "prompt_tokens": 7344,
+    "completion_tokens": 6851,
+    "total_tokens": 14195
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 133359,
+    "daily_remaining_tokens": 66641
+  },
+  "timestamp": "20260924_080823"
+}

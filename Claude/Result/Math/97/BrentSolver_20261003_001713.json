@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "97",
+  "tool": "claude",
+  "class": "org.apache.commons.math.analysis.BrentSolver",
+  "target_classes": [
+    "org.apache.commons.math.analysis.BrentSolver"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 129.08,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\97\\BrentSolver_20261003_001713.txt",
+  "test_file": "Claude\\TestCode\\Math\\97\\BrentSolverTest.java",
+  "usage": {
+    "prompt_tokens": 4411,
+    "completion_tokens": 14683,
+    "total_tokens": 19094
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 143203,
+    "daily_remaining_tokens": 56797
+  },
+  "timestamp": "20261003_001713"
+}

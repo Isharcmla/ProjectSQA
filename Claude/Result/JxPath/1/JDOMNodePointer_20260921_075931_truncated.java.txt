@@ -1,0 +1,102 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.util.List;
+import java.util.Locale;
+
+import org.apache.commons.jxpath.AbstractFactory;
+import org.apache.commons.jxpath.JXPathAbstractFactoryException;
+import org.apache.commons.jxpath.JXPathContext;
+import org.apache.commons.jxpath.JXPathException;
+import org.apache.commons.jxpath.Pointer;
+import org.apache.commons.jxpath.ri.QName;
+import org.apache.commons.jxpath.ri.compiler.NodeNameTest;
+import org.apache.commons.jxpath.ri.model.NodeIterator;
+import org.apache.commons.jxpath.ri.model.NodePointer;
+
+import org.jdom.Attribute;
+import org.jdom.CDATA;
+import org.jdom.Comment;
+import org.jdom.Document;
+import org.jdom.Element;
+import org.jdom.Namespace;
+import org.jdom.ProcessingInstruction;
+import org.jdom.Text;
+
+/**
+ * JUnit4 test suite for JDOMNodePointer.
+ *
+ * Note: This test class is placed in the same package as JDOMNodePointer
+ * so that package-visible/protected members (e.g. getLanguage()) can be
+ * exercised directly through the real public/protected API - no mocking
+ * framework is used anywhere in this suite.
+ *
+ * Some NodeTest implementations referenced by JDOMNodePointer.testNode()
+ * (NodeTypeTest, ProcessingInstructionTest) do not have their constructor
+ * signatures shown in the provided source code. Per the task
+ * instructions we avoid guessing undocumented constructors for those
+ * classes; only NodeNameTest (whose two-argument constructor is directly
+ * demonstrated in the provided source) is exercised for that method.
+ */
+public class JDOMNodePointerTest {
+
+    private static class TrueFactory extends AbstractFactory {
+        public boolean createObject(JXPathContext context, Pointer pointer,
+                Object parent, String name, int index) {
+            if (parent instanceof Element) {
+                Element newChild = new Element(name);
+                ((Element) parent).addContent(newChild);
+                return true;
+            }
+            return false;
+        }
+    }
+
+    private static class FalseFactory extends AbstractFactory {
+        public boolean createObject(JXPathContext context, Pointer pointer,
+                Object parent, String name, int index) {
+            return false;
+        }
+    }
+
+    // ---------- Constructors ----------
+
+    @Test
+    public void testConstructor_nodeLocale_setsNode() {
+        Element el = new Element("root");
+        JDOMNodePointer ptr = new JDOMNodePointer(el, Locale.US);
+        assertSame(el, ptr.getBaseValue());
+    }
+
+    @Test
+    public void testConstructor_nodeLocaleId_setsIdAndAsPath() {
+        Element el = new Element("root");
+        JDOMNodePointer ptr = new JDOMNodePointer(el, Locale.US, "myId");
+        assertEquals("id('myId')", ptr.asPath());
+    }
+
+    @Test
+    public void testConstructor_parentNode_setsNode() {
+        Element root = new Element("root");
+        Element child = new Element("child");
+        root.addContent(child);
+        JDOMNodePointer parentPtr = new JDOMNodePointer(root, Locale.US);
+        JDOMNodePointer childPtr = new JDOMNodePointer(parentPtr, child);
+        assertSame(child, childPtr.getBaseValue());
+    }
+
+    // ---------- Iterators / namespace pointer ----------
+
+    @Test
+    public void testChildIterator_returnsNonNullIterator() {
+        Element root = new Element("root");
+        root.addContent(new Element("child"));
+        JDOMNodePointer ptr = new JDOMNodePointer(root, Locale.US);
+        NodeIterator it = ptr.childIterator(null, false, null);
+        assertNotNull(it);
+    }
+
+    @Test
+    public void testAttributeIterator_returnsNonNullIterator() {
+        Element root = new Element("root

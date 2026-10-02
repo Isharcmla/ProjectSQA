@@ -1,0 +1,33 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "7",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.core.json.JsonWriteContext",
+  "target_classes": [
+    "com.fasterxml.jackson.core.json.JsonWriteContext"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 120.09,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonCore\\7\\JsonWriteContext_20260928_221202.txt",
+  "test_file": "Claude\\TestCode\\JacksonCore\\7\\JsonWriteContextTest.java",
+  "usage": {
+    "prompt_tokens": 3183,
+    "completion_tokens": 15176,
+    "total_tokens": 18359
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 72744,
+    "daily_remaining_tokens": 127256
+  },
+  "timestamp": "20260928_221202"
+}

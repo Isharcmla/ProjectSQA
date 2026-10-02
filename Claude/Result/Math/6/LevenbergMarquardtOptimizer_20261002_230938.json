@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "6",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.optim.nonlinear.vector.jacobian.LevenbergMarquardtOptimizer",
+  "target_classes": [
+    "org.apache.commons.math3.optim.nonlinear.vector.jacobian.LevenbergMarquardtOptimizer"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 127.49,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Math\\6\\LevenbergMarquardtOptimizer_20261002_230938.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 16270,
+    "completion_tokens": 16384,
+    "total_tokens": 32654
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 122280,
+    "daily_remaining_tokens": 77720
+  },
+  "timestamp": "20261002_230938"
+}

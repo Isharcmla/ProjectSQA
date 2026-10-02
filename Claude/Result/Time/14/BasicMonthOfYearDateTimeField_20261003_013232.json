@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "14",
+  "tool": "claude",
+  "class": "org.joda.time.chrono.BasicMonthOfYearDateTimeField",
+  "target_classes": [
+    "org.joda.time.chrono.BasicMonthOfYearDateTimeField"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 115.91,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Time\\14\\BasicMonthOfYearDateTimeField_20261003_013232.txt",
+  "test_file": "Claude\\TestCode\\Time\\14\\BasicMonthOfYearDateTimeFieldTest.java",
+  "usage": {
+    "prompt_tokens": 5806,
+    "completion_tokens": 14053,
+    "total_tokens": 19859
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 193441,
+    "daily_remaining_tokens": 6559
+  },
+  "timestamp": "20261003_013232"
+}

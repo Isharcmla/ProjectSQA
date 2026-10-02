@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "40",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver",
+  "target_classes": [
+    "org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 25.25,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\40\\BracketingNthOrderBrentSolver_20260926_024522.txt",
+  "test_file": "Gemini\\TestCode\\Math\\40\\BracketingNthOrderBrentSolverTest.java",
+  "usage": {
+    "prompt_tokens": 3987,
+    "completion_tokens": 3683,
+    "total_tokens": 7670
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 233039,
+    "daily_remaining_tokens": 116961
+  },
+  "timestamp": "20260926_024522"
+}

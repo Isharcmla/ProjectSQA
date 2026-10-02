@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "98",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.impl.ExternalTypeHandler"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 40.59,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\98\\ExternalTypeHandler_20260925_141138.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\98\\ExternalTypeHandlerTest.java",
+  "usage": {
+    "prompt_tokens": 4907,
+    "completion_tokens": 4195,
+    "total_tokens": 10894
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 344011,
+    "daily_remaining_tokens": 5989
+  },
+  "timestamp": "20260925_141138"
+}

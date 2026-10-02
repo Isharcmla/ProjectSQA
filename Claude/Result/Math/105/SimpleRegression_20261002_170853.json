@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "105",
+  "tool": "claude",
+  "class": "org.apache.commons.math.stat.regression.SimpleRegression",
+  "target_classes": [
+    "org.apache.commons.math.stat.regression.SimpleRegression"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 80.15,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\105\\SimpleRegression_20261002_170853.txt",
+  "test_file": "Claude\\TestCode\\Math\\105\\SimpleRegressionTest.java",
+  "usage": {
+    "prompt_tokens": 7657,
+    "completion_tokens": 6345,
+    "total_tokens": 14002
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 198637,
+    "daily_remaining_tokens": 1363
+  },
+  "timestamp": "20261002_170853"
+}

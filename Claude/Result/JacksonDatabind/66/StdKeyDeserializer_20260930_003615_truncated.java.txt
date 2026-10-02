@@ -1,0 +1,285 @@
+package com.fasterxml.jackson.databind.deser.std;
+
+import static org.junit.Assert.*;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.math.BigInteger;
+import java.net.URI;
+import java.net.URL;
+import java.util.Calendar;
+import java.util.Currency;
+import java.util.Date;
+import java.util.Locale;
+import java.util.UUID;
+
+import org.junit.Test;
+
+public class StdKeyDeserializerTest {
+
+    // ---------------------------------------------------------------
+    // forType() tests
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testForType_stringClass_returnsStringKDSingleton() {
+        StdKeyDeserializer kd1 = StdKeyDeserializer.forType(String.class);
+        StdKeyDeserializer kd2 = StdKeyDeserializer.forType(String.class);
+        assertNotNull(kd1);
+        assertSame(kd1, kd2);
+        assertEquals(String.class, kd1.getKeyClass());
+    }
+
+    @Test
+    public void testForType_objectClass_returnsStringKDSingleton() {
+        StdKeyDeserializer kd1 = StdKeyDeserializer.forType(Object.class);
+        StdKeyDeserializer kd2 = StdKeyDeserializer.forType(Object.class);
+        assertNotNull(kd1);
+        assertSame(kd1, kd2);
+        assertEquals(Object.class, kd1.getKeyClass());
+    }
+
+    @Test
+    public void testForType_uuidClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(UUID.class);
+        assertNotNull(kd);
+        assertEquals(UUID.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_integerClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Integer.class);
+        assertNotNull(kd);
+        assertEquals(Integer.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_longClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Long.class);
+        assertNotNull(kd);
+        assertEquals(Long.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_dateClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Date.class);
+        assertNotNull(kd);
+        assertEquals(Date.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_calendarClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Calendar.class);
+        assertNotNull(kd);
+        assertEquals(Calendar.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_booleanClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Boolean.class);
+        assertNotNull(kd);
+        assertEquals(Boolean.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_byteClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Byte.class);
+        assertNotNull(kd);
+        assertEquals(Byte.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_characterClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Character.class);
+        assertNotNull(kd);
+        assertEquals(Character.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_shortClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Short.class);
+        assertNotNull(kd);
+        assertEquals(Short.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_floatClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Float.class);
+        assertNotNull(kd);
+        assertEquals(Float.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_doubleClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Double.class);
+        assertNotNull(kd);
+        assertEquals(Double.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_uriClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(URI.class);
+        assertNotNull(kd);
+        assertEquals(URI.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_urlClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(URL.class);
+        assertNotNull(kd);
+        assertEquals(URL.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_classClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Class.class);
+        assertNotNull(kd);
+        assertEquals(Class.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_localeClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Locale.class);
+        assertNotNull(kd);
+        assertEquals(Locale.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_currencyClass_createsKeyDeserializer() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Currency.class);
+        assertNotNull(kd);
+        assertEquals(Currency.class, kd.getKeyClass());
+    }
+
+    @Test
+    public void testForType_unsupportedClass_returnsNull() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Number.class);
+        assertNull(kd);
+    }
+
+    @Test
+    public void testForType_nullInput_returnsNull() {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(null);
+        assertNull(kd);
+    }
+
+    // ---------------------------------------------------------------
+    // deserializeKey() - null key edge case (ctxt untouched)
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testDeserializeKey_nullKey_returnsNull() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Integer.class);
+        Object result = kd.deserializeKey(null, null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testDeserializeKey_nullKey_forStringKD_returnsNull() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(String.class);
+        // StringKD overrides deserializeKey and does not check for null explicitly,
+        // it simply returns the key as-is.
+        Object result = kd.deserializeKey(null, null);
+        assertNull(result);
+    }
+
+    // ---------------------------------------------------------------
+    // deserializeKey() - StringKD
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testDeserializeKey_stringKD_returnsKeyAsIs() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(String.class);
+        Object result = kd.deserializeKey("hello", null);
+        assertEquals("hello", result);
+    }
+
+    @Test
+    public void testDeserializeKey_stringKD_emptyString_returnsEmptyString() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Object.class);
+        Object result = kd.deserializeKey("", null);
+        assertEquals("", result);
+    }
+
+    // ---------------------------------------------------------------
+    // deserializeKey() - typical successful parses (ctxt not needed)
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testDeserializeKey_integer_validValue_returnsInteger() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Integer.class);
+        Object result = kd.deserializeKey("123", null);
+        assertEquals(Integer.valueOf(123), result);
+    }
+
+    @Test
+    public void testDeserializeKey_integer_negativeValue_returnsInteger() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Integer.class);
+        Object result = kd.deserializeKey("-123", null);
+        assertEquals(Integer.valueOf(-123), result);
+    }
+
+    @Test
+    public void testDeserializeKey_long_validValue_returnsLong() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Long.class);
+        Object result = kd.deserializeKey("123456789012", null);
+        assertEquals(Long.valueOf(123456789012L), result);
+    }
+
+    @Test
+    public void testDeserializeKey_boolean_true_returnsTrue() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Boolean.class);
+        Object result = kd.deserializeKey("true", null);
+        assertEquals(Boolean.TRUE, result);
+    }
+
+    @Test
+    public void testDeserializeKey_boolean_false_returnsFalse() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Boolean.class);
+        Object result = kd.deserializeKey("false", null);
+        assertEquals(Boolean.FALSE, result);
+    }
+
+    @Test
+    public void testDeserializeKey_byte_validValue_returnsByte() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Byte.class);
+        Object result = kd.deserializeKey("10", null);
+        assertEquals(Byte.valueOf((byte) 10), result);
+    }
+
+    @Test
+    public void testDeserializeKey_byte_upperBoundary255_returnsByte() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Byte.class);
+        Object result = kd.deserializeKey("255", null);
+        assertEquals(Byte.valueOf((byte) 255), result);
+    }
+
+    @Test
+    public void testDeserializeKey_byte_lowerBoundaryMin_returnsByte() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Byte.class);
+        Object result = kd.deserializeKey("-128", null);
+        assertEquals(Byte.valueOf(Byte.MIN_VALUE), result);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testDeserializeKey_byte_overflow_throwsNPEBecauseNullContext() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Byte.class);
+        kd.deserializeKey("256", null);
+    }
+
+    @Test
+    public void testDeserializeKey_short_validValue_returnsShort() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Short.class);
+        Object result = kd.deserializeKey("32767", null);
+        assertEquals(Short.valueOf(Short.MAX_VALUE), result);
+    }
+
+    @Test
+    public void testDeserializeKey_short_lowerBoundary_returnsShort() throws Exception {
+        StdKeyDeserializer kd = StdKeyDeserializer.forType(Short.class);
+        Object result = kd.deserializeKey("-32768", null);
+        assertEquals(Short.valueOf(Short.MIN_VALUE), result);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testDeserializeKey_short_overflow_throw

@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "41",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.type.TypeFactory",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.type.TypeFactory"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 47.13,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\41\\TypeFactory_20260925_131527.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\41\\TypeFactoryTest.java",
+  "usage": {
+    "prompt_tokens": 13463,
+    "completion_tokens": 5507,
+    "total_tokens": 20420
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 229660,
+    "daily_remaining_tokens": 120340
+  },
+  "timestamp": "20260925_131527"
+}

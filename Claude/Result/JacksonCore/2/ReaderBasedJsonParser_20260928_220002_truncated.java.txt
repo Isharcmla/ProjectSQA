@@ -1,0 +1,363 @@
+package com.fasterxml.jackson.core.json;
+
+import com.fasterxml.jackson.core.*;
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.io.*;
+
+public class ReaderBasedJsonParserTest {
+
+    private JsonFactory factory;
+
+    @Before
+    public void setUp() {
+        factory = new JsonFactory();
+    }
+
+    private ReaderBasedJsonParser createParser(String json) throws IOException {
+        return (ReaderBasedJsonParser) factory.createParser(new StringReader(json));
+    }
+
+    // ---------- Basic token parsing ----------
+
+    @Test
+    public void testNextToken_simpleObject_returnsExpectedTokens() throws IOException {
+        ReaderBasedJsonParser p = createParser("{\"a\":1}");
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals("a", p.getCurrentName());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(1, p.getIntValue());
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+        assertNull(p.nextToken());
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_simpleArray_returnsExpectedTokens() throws IOException {
+        ReaderBasedJsonParser p = createParser("[1,2,3]");
+        assertEquals(JsonToken.START_ARRAY, p.nextToken());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(1, p.getIntValue());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+        assertNull(p.nextToken());
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_nestedStructure_returnsExpectedTokens() throws IOException {
+        ReaderBasedJsonParser p = createParser("{\"a\":[1,{\"b\":true}]}");
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals(JsonToken.START_ARRAY, p.nextToken());
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(JsonToken.START_OBJECT, p.nextToken());
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals(JsonToken.VALUE_TRUE, p.nextToken());
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+        assertEquals(JsonToken.END_OBJECT, p.nextToken());
+        p.close();
+    }
+
+    @Test
+    public void testNextToken_endOfInputAtRoot_returnsNull() throws IOException {
+        ReaderBasedJsonParser p = createParser("   ");
+        assertNull(p.nextToken());
+    }
+
+    // ---------- getText / getTextCharacters / getTextLength / getTextOffset ----------
+
+    @Test
+    public void testGetText_stringValue_returnsCorrectText() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"hello\"");
+        p.nextToken();
+        assertEquals("hello", p.getText());
+    }
+
+    @Test
+    public void testGetTextCharacters_stringValue_returnsCorrectChars() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"abc\"");
+        p.nextToken();
+        char[] chars = p.getTextCharacters();
+        assertEquals('a', chars[0]);
+    }
+
+    @Test
+    public void testGetTextLength_stringValue_returnsCorrectLength() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"abcdef\"");
+        p.nextToken();
+        assertEquals(6, p.getTextLength());
+    }
+
+    @Test
+    public void testGetTextOffset_stringValue_returnsZero() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"abc\"");
+        p.nextToken();
+        assertEquals(0, p.getTextOffset());
+    }
+
+    @Test
+    public void testGetText_fieldName_returnsFieldName() throws IOException {
+        ReaderBasedJsonParser p = createParser("{\"myField\":1}");
+        p.nextToken();
+        p.nextToken();
+        assertEquals("myField", p.getText());
+    }
+
+    @Test
+    public void testGetTextCharacters_fieldName_returnsFieldNameChars() throws IOException {
+        ReaderBasedJsonParser p = createParser("{\"fn\":1}");
+        p.nextToken();
+        p.nextToken();
+        char[] chars = p.getTextCharacters();
+        assertEquals('f', chars[0]);
+    }
+
+    @Test
+    public void testGetTextLength_fieldName_returnsLength() throws IOException {
+        ReaderBasedJsonParser p = createParser("{\"fieldname\":1}");
+        p.nextToken();
+        p.nextToken();
+        assertEquals(9, p.getTextLength());
+    }
+
+    @Test
+    public void testGetTextOffset_defaultToken_returnsZero() throws IOException {
+        ReaderBasedJsonParser p = createParser("[1]");
+        p.nextToken();
+        assertEquals(0, p.getTextOffset());
+    }
+
+    @Test
+    public void testGetTextCharacters_defaultToken_returnsCharArray() throws IOException {
+        ReaderBasedJsonParser p = createParser("[1]");
+        p.nextToken();
+        char[] chars = p.getTextCharacters();
+        assertNotNull(chars);
+    }
+
+    @Test
+    public void testGetTextLength_defaultToken_returnsLength() throws IOException {
+        ReaderBasedJsonParser p = createParser("[1]");
+        p.nextToken();
+        assertTrue(p.getTextLength() > 0);
+    }
+
+    @Test
+    public void testGetText_nullToken_returnsNull() throws IOException {
+        ReaderBasedJsonParser p = createParser("   ");
+        assertNull(p.nextToken());
+        assertNull(p.getText());
+    }
+
+    @Test
+    public void testGetTextCharacters_nullToken_returnsNull() throws IOException {
+        ReaderBasedJsonParser p = createParser("   ");
+        p.nextToken();
+        assertNull(p.getTextCharacters());
+    }
+
+    @Test
+    public void testGetTextLength_nullToken_returnsZero() throws IOException {
+        ReaderBasedJsonParser p = createParser("   ");
+        p.nextToken();
+        assertEquals(0, p.getTextLength());
+    }
+
+    @Test
+    public void testGetTextOffset_nullToken_returnsZero() throws IOException {
+        ReaderBasedJsonParser p = createParser("   ");
+        p.nextToken();
+        assertEquals(0, p.getTextOffset());
+    }
+
+    // ---------- getValueAsString ----------
+
+    @Test
+    public void testGetValueAsString_stringToken_returnsValue() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"someValue\"");
+        p.nextToken();
+        assertEquals("someValue", p.getValueAsString());
+    }
+
+    @Test
+    public void testGetValueAsString_nonStringToken_returnsSuperResult() throws IOException {
+        ReaderBasedJsonParser p = createParser("123");
+        p.nextToken();
+        assertEquals("123", p.getValueAsString());
+    }
+
+    @Test
+    public void testGetValueAsStringWithDefault_stringToken_returnsValue() throws IOException {
+        ReaderBasedJsonParser p = createParser("\"someValue\"");
+        p.nextToken();
+        assertEquals("someValue", p.getValueAsString("default"));
+    }
+
+    @Test
+    public void testGetValueAsStringWithDefault_nonStringNonNumeric_returnsDefault() throws IOException {
+        ReaderBasedJsonParser p = createParser("[1]");
+        p.nextToken();
+        assertEquals("default", p.getValueAsString("default"));
+    }
+
+    // ---------- Numbers ----------
+
+    @Test
+    public void testNextToken_negativeNumber_parsesCorrectly() throws IOException {
+        ReaderBasedJsonParser p = createParser("-42");
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(-42, p.getIntValue());
+    }
+
+    @Test
+    public void testNextToken_floatNumber_parsesCorrectly() throws IOException {
+        ReaderBasedJsonParser p = createParser("3.14");
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, p.nextToken());
+        assertEquals(3.14, p.getDoubleValue(), 0.0001);
+    }
+
+    @Test
+    public void testNextToken_exponentNumber_parsesCorrectly() throws IOException {
+        ReaderBasedJsonParser p = createParser("1.5e2");
+        assertEquals(JsonToken.VALUE_NUMBER_FLOAT, p.nextToken());
+        assertEquals(150.0, p.getDoubleValue(), 0.0001);
+    }
+
+    @Test
+    public void testNextToken_zeroNumber_parsesCorrectly() throws IOException {
+        ReaderBasedJsonParser p = createParser("0");
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(0, p.getIntValue());
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_leadingZeroDisallowed_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("01");
+        p.nextToken();
+    }
+
+    @Test
+    public void testNextToken_leadingZeroAllowed_parsesCorrectly() throws IOException {
+        factory.configure(JsonParser.Feature.ALLOW_NUMERIC_LEADING_ZEROS, true);
+        ReaderBasedJsonParser p = createParser("01");
+        JsonToken t = p.nextToken();
+        assertEquals(JsonToken.VALUE_NUMBER_INT, t);
+    }
+
+    @Test
+    public void testNextToken_longNumberCrossingBuffer_parsesCorrectly() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 20000; i++) {
+            sb.append('1');
+        }
+        String num = sb.toString();
+        ReaderBasedJsonParser p = createParser(num);
+        assertEquals(JsonToken.VALUE_NUMBER_INT, p.nextToken());
+        assertEquals(num, p.getText());
+    }
+
+    // ---------- true/false/null ----------
+
+    @Test
+    public void testNextToken_trueFalseNull_parsesCorrectly() throws IOException {
+        ReaderBasedJsonParser p = createParser("[true,false,null]");
+        p.nextToken();
+        assertEquals(JsonToken.VALUE_TRUE, p.nextToken());
+        assertEquals(JsonToken.VALUE_FALSE, p.nextToken());
+        assertEquals(JsonToken.VALUE_NULL, p.nextToken());
+        assertEquals(JsonToken.END_ARRAY, p.nextToken());
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_incompleteTrueToken_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("tru");
+        p.nextToken();
+    }
+
+    // ---------- Structural errors ----------
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_mismatchedEndArray_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("{]");
+        p.nextToken();
+        p.nextToken();
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_mismatchedEndObject_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("[}");
+        p.nextToken();
+        p.nextToken();
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_missingComma_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("[1 2]");
+        p.nextToken();
+        p.nextToken();
+        p.nextToken();
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_missingColon_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("{\"a\" 1}");
+        p.nextToken();
+        p.nextToken();
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testNextToken_unquotedFieldNameDisabled_throwsException() throws IOException {
+        ReaderBasedJsonParser p = createParser("{a:1}");
+        p.nextToken();
+        p.nextToken();
+    }
+
+    @Test
+    public void testNextToken_unquotedFieldNameEnabled_parsesCorrectly() throws IOException {
+        factory.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+        ReaderBasedJsonParser p = createParser("{a:1}");
+        p.nextToken();
+        assertEquals(JsonToken.FIELD_NAME, p.nextToken());
+        assertEquals("a", p.getCurrentName());
+    }
+
+    // ---------- Single quotes ----------
+
+    @Test
+    public void testNextToken_singleQuoteStringEnabled_parsesCorrectly() throws IOException {
+        factory.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
+        ReaderBasedJsonParser p = createParser("{'a':'b'}");
+        p.nextToken();
+        p.nextToken();
+        assertEquals("a", p.getCurrentName());
+        assertEquals(JsonToken.VALUE_STRING, p.nextToken());
+        assertEquals("b", p.getText());
+    }
+
+    // ---------- Comments ----------
+
+    @Test
+    public void testNextToken_lineCommentEnabled_skipsComment() throws IOException {
+        factory.configure(JsonParser.Feature.ALLOW_COMMENTS, true);
+        ReaderBasedJsonParser p = createParser("{//comment\n\"a\":1}");
+        p.nextToken();
+        p.nextToken();
+        assertEquals("a", p.getCurrentName());
+    }
+
+    @Test
+    public void testNextToken_blockCommentEnabled_skipsComment() throws IOException {
+        factory.configure(JsonParser.Feature.ALLOW_COMMENTS, true);
+        ReaderBasedJsonParser p = createParser("{/*comment*/\"a\":1}");
+        p.nextToken();
+        p.nextToken();
+        assertEquals("a", p.getCurrentName());
+    }
+
+    @Test(

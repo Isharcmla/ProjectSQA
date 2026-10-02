@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "120",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.ReferenceCollectingCallback",
+  "target_classes": [
+    "com.google.javascript.jscomp.ReferenceCollectingCallback"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 150.9,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\120\\ReferenceCollectingCallback_20260924_102353.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 8713,
+    "completion_tokens": 16384,
+    "total_tokens": 25097
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 69395,
+    "daily_remaining_tokens": 130605
+  },
+  "timestamp": "20260924_102353"
+}

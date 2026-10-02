@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "2",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.distribution.HypergeometricDistribution",
+  "target_classes": [
+    "org.apache.commons.math3.distribution.HypergeometricDistribution"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 31.77,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\2\\HypergeometricDistribution_20261002_173637.txt",
+  "test_file": "Claude\\TestCode\\Math\\2\\HypergeometricDistributionTest.java",
+  "usage": {
+    "prompt_tokens": 5280,
+    "completion_tokens": 4765,
+    "total_tokens": 10045
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 73166,
+    "daily_remaining_tokens": 126834
+  },
+  "timestamp": "20261002_173637"
+}

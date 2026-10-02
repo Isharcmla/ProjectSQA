@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "12",
+  "tool": "claude",
+  "class": "org.apache.commons.lang3.RandomStringUtils",
+  "target_classes": [
+    "org.apache.commons.lang3.RandomStringUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 35.89,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Lang\\12\\RandomStringUtils_20261001_135212.txt",
+  "test_file": "Claude\\TestCode\\Lang\\12\\RandomStringUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 4937,
+    "completion_tokens": 5478,
+    "total_tokens": 10415
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 27702,
+    "daily_remaining_tokens": 172298
+  },
+  "timestamp": "20261001_135212"
+}

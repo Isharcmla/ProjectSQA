@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "9",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.geometry.euclidean.threed.Line",
+  "target_classes": [
+    "org.apache.commons.math3.geometry.euclidean.threed.Line"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 38.25,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\9\\Line_20260926_033442.txt",
+  "test_file": "Gemini\\TestCode\\Math\\9\\LineTest.java",
+  "usage": {
+    "prompt_tokens": 2508,
+    "completion_tokens": 4153,
+    "total_tokens": 8133
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 8133,
+    "daily_remaining_tokens": 341867
+  },
+  "timestamp": "20260926_033442"
+}

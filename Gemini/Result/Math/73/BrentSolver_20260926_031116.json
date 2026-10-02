@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "73",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.analysis.solvers.BrentSolver",
+  "target_classes": [
+    "org.apache.commons.math.analysis.solvers.BrentSolver"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 32.38,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\73\\BrentSolver_20260926_031116.txt",
+  "test_file": "Gemini\\TestCode\\Math\\73\\BrentSolverTest.java",
+  "usage": {
+    "prompt_tokens": 3338,
+    "completion_tokens": 2761,
+    "total_tokens": 8097
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 346216,
+    "daily_remaining_tokens": 3784
+  },
+  "timestamp": "20260926_031116"
+}

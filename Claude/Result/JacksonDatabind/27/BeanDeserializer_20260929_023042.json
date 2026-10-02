@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "27",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.deser.BeanDeserializer",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.deser.BeanDeserializer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 89.89,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\27\\BeanDeserializer_20260929_023042.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\27\\BeanDeserializerTest.java",
+  "usage": {
+    "prompt_tokens": 12872,
+    "completion_tokens": 12667,
+    "total_tokens": 25539
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 54304,
+    "daily_remaining_tokens": 145696
+  },
+  "timestamp": "20260929_023042"
+}

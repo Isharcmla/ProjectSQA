@@ -1,0 +1,854 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.math.BigDecimal;
+
+public class BigMatrixImplTest {
+
+    private BigDecimal[][] toBigDecimal(double[][] d) {
+        BigDecimal[][] result = new BigDecimal[d.length][d[0].length];
+        for (int i = 0; i < d.length; i++) {
+            for (int j = 0; j < d[0].length; j++) {
+                result[i][j] = new BigDecimal(d[i][j]);
+            }
+        }
+        return result;
+    }
+
+    private BigMatrixImpl createMatrix(double[][] d) {
+        return new BigMatrixImpl(toBigDecimal(d));
+    }
+
+    @Test
+    public void testDefaultConstructor_noArgs_createsEmptyMatrix() {
+        BigMatrixImpl m = new BigMatrixImpl();
+        assertNotNull(m);
+    }
+
+    @Test
+    public void testDimensionConstructor_validDimensions_createsMatrix() {
+        BigMatrixImpl m = new BigMatrixImpl(3, 4);
+        assertEquals(3, m.getRowDimension());
+        assertEquals(4, m.getColumnDimension());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDimensionConstructor_zeroRow_throwsException() {
+        new BigMatrixImpl(0, 4);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDimensionConstructor_negativeColumn_throwsException() {
+        new BigMatrixImpl(3, -1);
+    }
+
+    @Test
+    public void testBigDecimalArrayConstructor_validInput_createsMatrix() {
+        BigDecimal[][] d = toBigDecimal(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl m = new BigMatrixImpl(d);
+        assertEquals(2, m.getRowDimension());
+        assertEquals(2, m.getColumnDimension());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testBigDecimalArrayConstructor_nullInput_throwsException() {
+        BigDecimal[][] d = null;
+        new BigMatrixImpl(d);
+    }
+
+    @Test
+    public void testBigDecimalArrayConstructorWithCopyFlag_copyTrue_createsMatrix() {
+        BigDecimal[][] d = toBigDecimal(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl m = new BigMatrixImpl(d, true);
+        assertEquals(2, m.getRowDimension());
+    }
+
+    @Test
+    public void testBigDecimalArrayConstructorWithCopyFlag_copyFalse_referencesArray() {
+        BigDecimal[][] d = toBigDecimal(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl m = new BigMatrixImpl(d, false);
+        assertSame(d, m.getDataRef());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testBigDecimalArrayConstructorWithCopyFlag_nullArrayNoCopy_throwsException() {
+        new BigMatrixImpl((BigDecimal[][]) null, false);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBigDecimalArrayConstructorWithCopyFlag_emptyRowsNoCopy_throwsException() {
+        BigDecimal[][] d = new BigDecimal[0][0];
+        new BigMatrixImpl(d, false);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBigDecimalArrayConstructorWithCopyFlag_emptyColumnsNoCopy_throwsException() {
+        BigDecimal[][] d = new BigDecimal[1][0];
+        new BigMatrixImpl(d, false);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testBigDecimalArrayConstructorWithCopyFlag_raggedRowsNoCopy_throwsException() {
+        BigDecimal[][] d = new BigDecimal[2][];
+        d[0] = new BigDecimal[]{BigDecimal.ONE, BigDecimal.ONE};
+        d[1] = new BigDecimal[]{BigDecimal.ONE};
+        new BigMatrixImpl(d, false);
+    }
+
+    @Test
+    public void testDoubleArrayConstructor_validInput_createsMatrix() {
+        double[][] d = {{1.0, 2.0}, {3.0, 4.0}};
+        BigMatrixImpl m = new BigMatrixImpl(d);
+        assertEquals(2, m.getRowDimension());
+        assertEquals(2, m.getColumnDimension());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDoubleArrayConstructor_emptyRows_throwsException() {
+        double[][] d = new double[0][0];
+        new BigMatrixImpl(d);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDoubleArrayConstructor_emptyColumns_throwsException() {
+        double[][] d = new double[1][0];
+        new BigMatrixImpl(d);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDoubleArrayConstructor_raggedRows_throwsException() {
+        double[][] d = new double[2][];
+        d[0] = new double[]{1.0, 2.0};
+        d[1] = new double[]{1.0};
+        new BigMatrixImpl(d);
+    }
+
+    @Test
+    public void testStringArrayConstructor_validInput_createsMatrix() {
+        String[][] d = {{"1", "2"}, {"3", "4"}};
+        BigMatrixImpl m = new BigMatrixImpl(d);
+        assertEquals(2, m.getRowDimension());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testStringArrayConstructor_emptyRows_throwsException() {
+        String[][] d = new String[0][0];
+        new BigMatrixImpl(d);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testStringArrayConstructor_emptyColumns_throwsException() {
+        String[][] d = new String[1][0];
+        new BigMatrixImpl(d);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testStringArrayConstructor_raggedRows_throwsException() {
+        String[][] d = new String[2][];
+        d[0] = new String[]{"1", "2"};
+        d[1] = new String[]{"1"};
+        new BigMatrixImpl(d);
+    }
+
+    @Test
+    public void testBigDecimalVectorConstructor_validInput_createsColumnMatrix() {
+        BigDecimal[] v = {BigDecimal.ONE, BigDecimal.valueOf(2), BigDecimal.valueOf(3)};
+        BigMatrixImpl m = new BigMatrixImpl(v);
+        assertEquals(3, m.getRowDimension());
+        assertEquals(1, m.getColumnDimension());
+    }
+
+    @Test
+    public void testCopy_normalMatrix_returnsEqualCopy() {
+        BigMatrixImpl m = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrix copy = m.copy();
+        assertTrue(copy.equals(m));
+    }
+
+    @Test
+    public void testAddBigMatrix_sameSize_returnsSum() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{5, 6}, {7, 8}});
+        BigMatrix result = a.add((BigMatrix) b);
+        assertEquals(new BigDecimal(6), result.getEntry(0, 0));
+        assertEquals(new BigDecimal(12), result.getEntry(1, 1));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddBigMatrix_differentSize_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{5, 6, 7}, {8, 9, 10}});
+        a.add((BigMatrix) b);
+    }
+
+    @Test
+    public void testAddBigMatrixImpl_sameSize_returnsSum() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{5, 6}, {7, 8}});
+        BigMatrixImpl result = a.add(b);
+        assertEquals(new BigDecimal(6), result.getEntry(0, 0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddBigMatrixImpl_differentSize_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{5, 6, 7}, {8, 9, 10}});
+        a.add(b);
+    }
+
+    @Test
+    public void testSubtractBigMatrix_sameSize_returnsDifference() {
+        BigMatrixImpl a = createMatrix(new double[][]{{5, 6}, {7, 8}});
+        BigMatrixImpl b = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrix result = a.subtract((BigMatrix) b);
+        assertEquals(new BigDecimal(4), result.getEntry(0, 0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSubtractBigMatrix_differentSize_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{5, 6, 7}, {8, 9, 10}});
+        a.subtract((BigMatrix) b);
+    }
+
+    @Test
+    public void testSubtractBigMatrixImpl_sameSize_returnsDifference() {
+        BigMatrixImpl a = createMatrix(new double[][]{{5, 6}, {7, 8}});
+        BigMatrixImpl b = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl result = a.subtract(b);
+        assertEquals(new BigDecimal(4), result.getEntry(0, 0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSubtractBigMatrixImpl_differentSize_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{5, 6, 7}, {8, 9, 10}});
+        a.subtract(b);
+    }
+
+    @Test
+    public void testScalarAdd_normalInput_returnsAddedMatrix() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrix result = a.scalarAdd(new BigDecimal(10));
+        assertEquals(new BigDecimal(11), result.getEntry(0, 0));
+    }
+
+    @Test
+    public void testScalarMultiply_normalInput_returnsMultipliedMatrix() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrix result = a.scalarMultiply(new BigDecimal(2));
+        assertEquals(new BigDecimal(2), result.getEntry(0, 0));
+    }
+
+    @Test
+    public void testMultiplyBigMatrix_compatibleDimensions_returnsProduct() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{5, 6}, {7, 8}});
+        BigMatrix result = a.multiply((BigMatrix) b);
+        assertEquals(new BigDecimal(19), result.getEntry(0, 0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMultiplyBigMatrix_incompatibleDimensions_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{5, 6, 7}, {8, 9, 10}, {1, 1, 1}});
+        a.multiply((BigMatrix) b);
+    }
+
+    @Test
+    public void testMultiplyBigMatrixImpl_compatibleDimensions_returnsProduct() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{5, 6}, {7, 8}});
+        BigMatrixImpl result = a.multiply(b);
+        assertEquals(new BigDecimal(19), result.getEntry(0, 0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMultiplyBigMatrixImpl_incompatibleDimensions_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{5, 6, 7}, {8, 9, 10}, {1, 1, 1}});
+        a.multiply(b);
+    }
+
+    @Test
+    public void testPreMultiply_normalInput_returnsCorrectResult() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{5, 6}, {7, 8}});
+        BigMatrix result = a.preMultiply((BigMatrix) b);
+        assertNotNull(result);
+        assertEquals(2, result.getRowDimension());
+    }
+
+    @Test
+    public void testGetData_normalMatrix_returnsCopyOfData() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigDecimal[][] data = a.getData();
+        assertEquals(new BigDecimal(1), data[0][0]);
+        data[0][0] = new BigDecimal(999);
+        assertEquals(new BigDecimal(1), a.getEntry(0, 0));
+    }
+
+    @Test
+    public void testGetDataAsDoubleArray_normalMatrix_returnsDoubleArray() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1.5, 2.5}, {3.5, 4.5}});
+        double[][] data = a.getDataAsDoubleArray();
+        assertEquals(1.5, data[0][0], 0.0001);
+    }
+
+    @Test
+    public void testGetDataRef_normalMatrix_returnsReference() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigDecimal[][] ref = a.getDataRef();
+        assertSame(a.getDataRef(), ref);
+    }
+
+    @Test
+    public void testGetRoundingMode_default_returnsHalfUp() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}});
+        assertEquals(BigDecimal.ROUND_HALF_UP, a.getRoundingMode());
+    }
+
+    @Test
+    public void testSetRoundingMode_customValue_updatesRoundingMode() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}});
+        a.setRoundingMode(BigDecimal.ROUND_DOWN);
+        assertEquals(BigDecimal.ROUND_DOWN, a.getRoundingMode());
+    }
+
+    @Test
+    public void testGetScale_default_returns64() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}});
+        assertEquals(64, a.getScale());
+    }
+
+    @Test
+    public void testSetScale_customValue_updatesScale() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}});
+        a.setScale(10);
+        assertEquals(10, a.getScale());
+    }
+
+    @Test
+    public void testGetNorm_normalMatrix_returnsCorrectNorm() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, -2}, {-3, 4}});
+        BigDecimal norm = a.getNorm();
+        assertEquals(new BigDecimal(6), norm);
+    }
+
+    @Test
+    public void testGetSubMatrixByIndices_validRange_returnsSubMatrix() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        BigMatrix sub = a.getSubMatrix(0, 1, 0, 1);
+        assertEquals(2, sub.getRowDimension());
+        assertEquals(2, sub.getColumnDimension());
+        assertEquals(new BigDecimal(1), sub.getEntry(0, 0));
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetSubMatrixByIndices_invalidRange_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        a.getSubMatrix(1, 0, 0, 1);
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetSubMatrixByIndices_outOfBounds_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        a.getSubMatrix(0, 5, 0, 1);
+    }
+
+    @Test
+    public void testGetSubMatrixByArrays_validIndices_returnsSubMatrix() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}});
+        BigMatrix sub = a.getSubMatrix(new int[]{0, 2}, new int[]{0, 2});
+        assertEquals(2, sub.getRowDimension());
+        assertEquals(new BigDecimal(1), sub.getEntry(0, 0));
+        assertEquals(new BigDecimal(9), sub.getEntry(1, 1));
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetSubMatrixByArrays_emptyArrays_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        a.getSubMatrix(new int[]{}, new int[]{0});
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetSubMatrixByArrays_outOfBoundsIndices_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        a.getSubMatrix(new int[]{0, 5}, new int[]{0, 1});
+    }
+
+    @Test
+    public void testSetSubMatrix_validInput_updatesMatrix() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 0, 1, 2}});
+        BigDecimal[][] sub = toBigDecimal(new double[][]{{3, 4}, {5, 6}});
+        a.setSubMatrix(sub, 1, 1);
+        assertEquals(new BigDecimal(3), a.getEntry(1, 1));
+        assertEquals(new BigDecimal(6), a.getEntry(2, 2));
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testSetSubMatrix_negativeRow_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigDecimal[][] sub = toBigDecimal(new double[][]{{1}});
+        a.setSubMatrix(sub, -1, 0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetSubMatrix_emptySubMatrix_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigDecimal[][] sub = new BigDecimal[0][0];
+        a.setSubMatrix(sub, 0, 0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetSubMatrix_emptyColumns_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigDecimal[][] sub = new BigDecimal[1][0];
+        a.setSubMatrix(sub, 0, 0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSetSubMatrix_raggedRows_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigDecimal[][] sub = new BigDecimal[2][];
+        sub[0] = new BigDecimal[]{BigDecimal.ONE, BigDecimal.ONE};
+        sub[1] = new BigDecimal[]{BigDecimal.ONE};
+        a.setSubMatrix(sub, 0, 0);
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testSetSubMatrix_exceedsBounds_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigDecimal[][] sub = toBigDecimal(new double[][]{{1, 2, 3}});
+        a.setSubMatrix(sub, 0, 0);
+    }
+
+    @Test
+    public void testGetRowMatrix_validRow_returnsRowMatrix() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        BigMatrix row = a.getRowMatrix(1);
+        assertEquals(1, row.getRowDimension());
+        assertEquals(3, row.getColumnDimension());
+        assertEquals(new BigDecimal(4), row.getEntry(0, 0));
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetRowMatrix_invalidRow_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        a.getRowMatrix(5);
+    }
+
+    @Test
+    public void testGetColumnMatrix_validColumn_returnsColumnMatrix() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        BigMatrix col = a.getColumnMatrix(1);
+        assertEquals(2, col.getRowDimension());
+        assertEquals(1, col.getColumnDimension());
+        assertEquals(new BigDecimal(2), col.getEntry(0, 0));
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetColumnMatrix_invalidColumn_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        a.getColumnMatrix(5);
+    }
+
+    @Test
+    public void testGetRow_validRow_returnsArray() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        BigDecimal[] row = a.getRow(0);
+        assertEquals(3, row.length);
+        assertEquals(new BigDecimal(1), row[0]);
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetRow_invalidRow_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        a.getRow(-1);
+    }
+
+    @Test
+    public void testGetRowAsDoubleArray_validRow_returnsDoubleArray() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1.5, 2.5}, {3.5, 4.5}});
+        double[] row = a.getRowAsDoubleArray(0);
+        assertEquals(1.5, row[0], 0.0001);
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetRowAsDoubleArray_invalidRow_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        a.getRowAsDoubleArray(10);
+    }
+
+    @Test
+    public void testGetColumn_validColumn_returnsArray() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        BigDecimal[] col = a.getColumn(0);
+        assertEquals(2, col.length);
+        assertEquals(new BigDecimal(1), col[0]);
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetColumn_invalidColumn_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        a.getColumn(-1);
+    }
+
+    @Test
+    public void testGetColumnAsDoubleArray_validColumn_returnsDoubleArray() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1.5, 2.5}, {3.5, 4.5}});
+        double[] col = a.getColumnAsDoubleArray(0);
+        assertEquals(1.5, col[0], 0.0001);
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetColumnAsDoubleArray_invalidColumn_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        a.getColumnAsDoubleArray(10);
+    }
+
+    @Test
+    public void testGetEntry_validIndices_returnsEntry() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        assertEquals(new BigDecimal(4), a.getEntry(1, 1));
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetEntry_invalidIndices_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        a.getEntry(10, 10);
+    }
+
+    @Test
+    public void testGetEntryAsDouble_validIndices_returnsDouble() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1.5, 2.5}, {3.5, 4.5}});
+        assertEquals(1.5, a.getEntryAsDouble(0, 0), 0.0001);
+    }
+
+    @Test(expected = MatrixIndexException.class)
+    public void testGetEntryAsDouble_invalidIndices_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        a.getEntryAsDouble(10, 10);
+    }
+
+    @Test
+    public void testTranspose_normalMatrix_returnsTransposedMatrix() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        BigMatrix t = a.transpose();
+        assertEquals(3, t.getRowDimension());
+        assertEquals(2, t.getColumnDimension());
+        assertEquals(new BigDecimal(4), t.getEntry(0, 1));
+    }
+
+    @Test
+    public void testInverse_nonSingularMatrix_returnsInverse() {
+        BigMatrixImpl a = createMatrix(new double[][]{{2, 0}, {0, 2}});
+        BigMatrix inv = a.inverse();
+        assertNotNull(inv);
+        assertEquals(2, inv.getRowDimension());
+    }
+
+    @Test(expected = InvalidMatrixException.class)
+    public void testInverse_singularMatrix_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {2, 4}});
+        a.inverse();
+    }
+
+    @Test
+    public void testGetDeterminant_nonSingularMatrix_returnsCorrectValue() {
+        BigMatrixImpl a = createMatrix(new double[][]{{2, 0}, {0, 3}});
+        BigDecimal det = a.getDeterminant();
+        assertEquals(new BigDecimal(6), det);
+    }
+
+    @Test
+    public void testGetDeterminant_singularMatrix_returnsZero() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {2, 4}});
+        BigDecimal det = a.getDeterminant();
+        assertEquals(BigMatrixImpl.ZERO, det);
+    }
+
+    @Test(expected = InvalidMatrixException.class)
+    public void testGetDeterminant_nonSquareMatrix_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        a.getDeterminant();
+    }
+
+    @Test
+    public void testIsSquare_squareMatrix_returnsTrue() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        assertTrue(a.isSquare());
+    }
+
+    @Test
+    public void testIsSquare_nonSquareMatrix_returnsFalse() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        assertFalse(a.isSquare());
+    }
+
+    @Test
+    public void testIsSingular_nonSingularMatrix_returnsFalse() {
+        BigMatrixImpl a = createMatrix(new double[][]{{2, 0}, {0, 2}});
+        assertFalse(a.isSingular());
+    }
+
+    @Test
+    public void testIsSingular_singularMatrix_returnsTrue() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {2, 4}});
+        assertTrue(a.isSingular());
+    }
+
+    @Test
+    public void testIsSingular_alreadyDecomposed_returnsFalse() {
+        BigMatrixImpl a = createMatrix(new double[][]{{2, 0}, {0, 2}});
+        a.luDecompose();
+        assertFalse(a.isSingular());
+    }
+
+    @Test
+    public void testGetRowDimension_normalMatrix_returnsCorrectValue() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}, {5, 6}});
+        assertEquals(3, a.getRowDimension());
+    }
+
+    @Test
+    public void testGetColumnDimension_normalMatrix_returnsCorrectValue() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        assertEquals(3, a.getColumnDimension());
+    }
+
+    @Test
+    public void testGetTrace_squareMatrix_returnsCorrectValue() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        assertEquals(new BigDecimal(5), a.getTrace());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetTrace_nonSquareMatrix_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        a.getTrace();
+    }
+
+    @Test
+    public void testOperateBigDecimalArray_validVector_returnsCorrectResult() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigDecimal[] v = {new BigDecimal(1), new BigDecimal(1)};
+        BigDecimal[] result = a.operate(v);
+        assertEquals(new BigDecimal(3), result[0]);
+        assertEquals(new BigDecimal(7), result[1]);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testOperateBigDecimalArray_wrongLength_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigDecimal[] v = {new BigDecimal(1)};
+        a.operate(v);
+    }
+
+    @Test
+    public void testOperateDoubleArray_validVector_returnsCorrectResult() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        double[] v = {1.0, 1.0};
+        BigDecimal[] result = a.operate(v);
+        assertEquals(0, result[0].compareTo(new BigDecimal(3)));
+    }
+
+    @Test
+    public void testPreMultiplyBigDecimalArray_validVector_returnsCorrectResult() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigDecimal[] v = {new BigDecimal(1), new BigDecimal(1)};
+        BigDecimal[] result = a.preMultiply(v);
+        assertEquals(new BigDecimal(4), result[0]);
+        assertEquals(new BigDecimal(6), result[1]);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testPreMultiplyBigDecimalArray_wrongLength_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigDecimal[] v = {new BigDecimal(1)};
+        a.preMultiply(v);
+    }
+
+    @Test
+    public void testSolveBigDecimalArray_nonSingularMatrix_returnsSolution() {
+        BigMatrixImpl a = createMatrix(new double[][]{{2, 0}, {0, 2}});
+        BigDecimal[] b = {new BigDecimal(4), new BigDecimal(6)};
+        BigDecimal[] solution = a.solve(b);
+        assertEquals(0, solution[0].compareTo(new BigDecimal(2)));
+        assertEquals(0, solution[1].compareTo(new BigDecimal(3)));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSolveBigDecimalArray_wrongLength_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigDecimal[] b = {new BigDecimal(1)};
+        a.solve(b);
+    }
+
+    @Test
+    public void testSolveDoubleArray_nonSingularMatrix_returnsSolution() {
+        BigMatrixImpl a = createMatrix(new double[][]{{2, 0}, {0, 2}});
+        double[] b = {4.0, 6.0};
+        BigDecimal[] solution = a.solve(b);
+        assertEquals(0, solution[0].compareTo(new BigDecimal(2)));
+    }
+
+    @Test
+    public void testSolveBigMatrix_nonSingularMatrix_returnsSolutionMatrix() {
+        BigMatrixImpl a = createMatrix(new double[][]{{2, 0}, {0, 2}});
+        BigMatrixImpl b = createMatrix(new double[][]{{4}, {6}});
+        BigMatrix solution = a.solve((BigMatrix) b);
+        assertEquals(0, solution.getEntry(0, 0).compareTo(new BigDecimal(2)));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSolveBigMatrix_wrongRowDimension_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{1}, {2}, {3}});
+        a.solve((BigMatrix) b);
+    }
+
+    @Test(expected = InvalidMatrixException.class)
+    public void testSolveBigMatrix_nonSquareCoefficient_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        BigMatrixImpl b = createMatrix(new double[][]{{1}, {2}});
+        a.solve((BigMatrix) b);
+    }
+
+    @Test(expected = InvalidMatrixException.class)
+    public void testSolveBigMatrix_singularCoefficient_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {2, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{1}, {2}});
+        a.solve((BigMatrix) b);
+    }
+
+    @Test
+    public void testLuDecompose_squareNonSingularMatrix_decomposesSuccessfully() {
+        BigMatrixImpl a = createMatrix(new double[][]{{4, 3}, {6, 3}});
+        a.luDecompose();
+        assertFalse(a.isSingular());
+    }
+
+    @Test(expected = InvalidMatrixException.class)
+    public void testLuDecompose_nonSquareMatrix_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        a.luDecompose();
+    }
+
+    @Test(expected = InvalidMatrixException.class)
+    public void testLuDecompose_singularMatrix_throwsException() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {2, 4}});
+        a.luDecompose();
+    }
+
+    @Test
+    public void testToString_normalMatrix_returnsNonEmptyString() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        String s = a.toString();
+        assertNotNull(s);
+        assertTrue(s.contains("BigMatrixImpl"));
+    }
+
+    @Test
+    public void testToString_emptyMatrix_returnsBasicString() {
+        BigMatrixImpl a = new BigMatrixImpl();
+        String s = a.toString();
+        assertEquals("BigMatrixImpl{}", s);
+    }
+
+    @Test
+    public void testEquals_sameInstance_returnsTrue() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        assertTrue(a.equals(a));
+    }
+
+    @Test
+    public void testEquals_differentClass_returnsFalse() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        assertFalse(a.equals("not a matrix"));
+    }
+
+    @Test
+    public void testEquals_differentDimensions_returnsFalse() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{1, 2, 3}, {4, 5, 6}});
+        assertFalse(a.equals(b));
+    }
+
+    @Test
+    public void testEquals_sameValues_returnsTrue() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        assertTrue(a.equals(b));
+    }
+
+    @Test
+    public void testEquals_differentValues_returnsFalse() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{1, 2}, {3, 5}});
+        assertFalse(a.equals(b));
+    }
+
+    @Test
+    public void testEquals_null_returnsFalse() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        assertFalse(a.equals(null));
+    }
+
+    @Test
+    public void testHashCode_sameValues_returnsSameHashCode() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        assertEquals(a.hashCode(), b.hashCode());
+    }
+
+    @Test
+    public void testHashCode_differentValues_returnsDifferentHashCode() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrixImpl b = createMatrix(new double[][]{{5, 6}, {7, 8}});
+        assertNotEquals(a.hashCode(), b.hashCode());
+    }
+
+    @Test
+    public void testGetColumnDimension_singleColumnMatrix_returnsOne() {
+        BigDecimal[] v = {new BigDecimal(1), new BigDecimal(2)};
+        BigMatrixImpl m = new BigMatrixImpl(v);
+        assertEquals(1, m.getColumnDimension());
+    }
+
+    @Test
+    public void testAddBigMatrix_differentClassImplementation_computesViaInterface() {
+        BigMatrixImpl a = createMatrix(new double[][]{{1, 2}, {3, 4}});
+        BigMatrix b = new BigMatrix() {
+            public BigMatrix add(BigMatrix m) { return null; }
+            public BigMatrix subtract(BigMatrix m) { return null; }
+            public BigMatrix scalarAdd(BigDecimal d) { return null; }
+            public BigMatrix scalarMultiply(BigDecimal d) { return null; }
+            public BigMatrix multiply(BigMatrix m) { return null; }
+            public BigMatrix preMultiply(BigMatrix m) { return null; }
+            public BigDecimal[][] getData() { return null; }
+            public BigDecimal getNorm() { return null; }
+            public BigMatrix getSubMatrix(int startRow, int endRow, int startColumn, int endColumn) { return null; }
+            public BigMatrix getSubMatrix(int[] selectedRows, int[] selectedColumns) { return null; }
+            public void setSubMatrix(BigDecimal[][] subMatrix, int row, int column) {}
+            public BigMatrix getRowMatrix(int row) { return null; }
+            public BigMatrix getColumnMatrix(int column) { return null; }
+            public BigDecimal[] getRow(int row) { return null; }
+            public BigDecimal[] getColumn(int col) { return null; }
+            public BigDecimal getEntry(int row, int column) {
+                return new BigDecimal(row + col);
+            }
+            public BigMatrix transpose() { return null; }
+            public BigMatrix inverse() { return null; }
+            public BigDecimal getDeterminant() { return null; }
+            public boolean isSquare() { return true; }
+            public int getRowDimension() { return 2; }
+            public int getColumnDimension() { return 2; }
+            public BigDecimal getTrace() { return null; }
+            public BigDecimal[] operate(BigDecimal[] v) { return null; }
+            public BigDecimal[] preMultiply(BigDecimal[] v) { return null; }
+            public BigMatrix solve(BigMatrix b) { return null; }
+            public BigDecimal[] solve(BigDecimal[] b) { return null; }
+        };
+        BigMatrix result =

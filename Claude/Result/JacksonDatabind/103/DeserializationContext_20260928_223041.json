@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "103",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.DeserializationContext",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.DeserializationContext"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 119.09,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\103\\DeserializationContext_20260928_223041.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 24864,
+    "completion_tokens": 16384,
+    "total_tokens": 41248
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 127681,
+    "daily_remaining_tokens": 72319
+  },
+  "timestamp": "20260928_223041"
+}

@@ -1,0 +1,159 @@
+package org.jfree.chart.block;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+import org.junit.Before;
+
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+
+import org.jfree.chart.util.RectangleEdge;
+import org.jfree.data.Range;
+
+public class BorderArrangementTest {
+
+    private Graphics2D g2;
+
+    @Before
+    public void setUp() {
+        BufferedImage image = new BufferedImage(200, 200,
+                BufferedImage.TYPE_INT_ARGB);
+        this.g2 = image.createGraphics();
+    }
+
+    @Test
+    public void testAdd_CenterBlock_SetsCenterBlock() {
+        BorderArrangement arrangement = new BorderArrangement();
+        Block block = new EmptyBlock(10, 10);
+        arrangement.add(block, null);
+        BorderArrangement arrangement2 = new BorderArrangement();
+        arrangement2.add(block, null);
+        assertTrue(arrangement.equals(arrangement2));
+    }
+
+    @Test
+    public void testAdd_TopBlock_SetsTopBlock() {
+        BorderArrangement arrangement = new BorderArrangement();
+        Block block = new EmptyBlock(10, 10);
+        arrangement.add(block, RectangleEdge.TOP);
+        BorderArrangement arrangement2 = new BorderArrangement();
+        arrangement2.add(block, RectangleEdge.TOP);
+        assertTrue(arrangement.equals(arrangement2));
+    }
+
+    @Test
+    public void testAdd_BottomBlock_SetsBottomBlock() {
+        BorderArrangement arrangement = new BorderArrangement();
+        Block block = new EmptyBlock(10, 10);
+        arrangement.add(block, RectangleEdge.BOTTOM);
+        BorderArrangement arrangement2 = new BorderArrangement();
+        arrangement2.add(block, RectangleEdge.BOTTOM);
+        assertTrue(arrangement.equals(arrangement2));
+    }
+
+    @Test
+    public void testAdd_LeftBlock_SetsLeftBlock() {
+        BorderArrangement arrangement = new BorderArrangement();
+        Block block = new EmptyBlock(10, 10);
+        arrangement.add(block, RectangleEdge.LEFT);
+        BorderArrangement arrangement2 = new BorderArrangement();
+        arrangement2.add(block, RectangleEdge.LEFT);
+        assertTrue(arrangement.equals(arrangement2));
+    }
+
+    @Test
+    public void testAdd_RightBlock_SetsRightBlock() {
+        BorderArrangement arrangement = new BorderArrangement();
+        Block block = new EmptyBlock(10, 10);
+        arrangement.add(block, RectangleEdge.RIGHT);
+        BorderArrangement arrangement2 = new BorderArrangement();
+        arrangement2.add(block, RectangleEdge.RIGHT);
+        assertTrue(arrangement.equals(arrangement2));
+    }
+
+    @Test
+    public void testAdd_NullBlockAndNullKey_NoException() {
+        BorderArrangement arrangement = new BorderArrangement();
+        arrangement.add(null, RectangleEdge.TOP);
+        arrangement.add(null, null);
+        assertNotNull(arrangement);
+    }
+
+    @Test
+    public void testArrange_NoBlocks_ReturnsZeroSize() {
+        BlockContainer container = new BlockContainer(new BorderArrangement());
+        Size2D size = container.arrange(g2, RectangleConstraint.NONE);
+        assertEquals(0.0, size.getWidth(), 0.001);
+        assertEquals(0.0, size.getHeight(), 0.001);
+    }
+
+    @Test
+    public void testArrange_NN_WithAllBlocks_ReturnsPositiveSize() {
+        BorderArrangement arrangement = new BorderArrangement();
+        arrangement.add(new EmptyBlock(50, 20), RectangleEdge.TOP);
+        arrangement.add(new EmptyBlock(50, 20), RectangleEdge.BOTTOM);
+        arrangement.add(new EmptyBlock(10, 30), RectangleEdge.LEFT);
+        arrangement.add(new EmptyBlock(10, 30), RectangleEdge.RIGHT);
+        arrangement.add(new EmptyBlock(30, 30), null);
+        BlockContainer container = new BlockContainer(arrangement);
+        Size2D size = container.arrange(g2, RectangleConstraint.NONE);
+        assertTrue(size.getWidth() > 0);
+        assertTrue(size.getHeight() > 0);
+    }
+
+    @Test
+    public void testArrange_FN_WithAllBlocks_ReturnsFixedWidth() {
+        BorderArrangement arrangement = new BorderArrangement();
+        arrangement.add(new EmptyBlock(50, 20), RectangleEdge.TOP);
+        arrangement.add(new EmptyBlock(50, 20), RectangleEdge.BOTTOM);
+        arrangement.add(new EmptyBlock(10, 30), RectangleEdge.LEFT);
+        arrangement.add(new EmptyBlock(10, 30), RectangleEdge.RIGHT);
+        arrangement.add(new EmptyBlock(30, 30), null);
+        BlockContainer container = new BlockContainer(arrangement);
+        RectangleConstraint constraint = new RectangleConstraint(100.0, null,
+                LengthConstraintType.FIXED, 0.0, null,
+                LengthConstraintType.NONE);
+        Size2D size = container.arrange(g2, constraint);
+        assertEquals(100.0, size.getWidth(), 0.001);
+    }
+
+    @Test
+    public void testArrange_FF_WithAllBlocks_ReturnsExactFixedSize() {
+        BorderArrangement arrangement = new BorderArrangement();
+        arrangement.add(new EmptyBlock(50, 20), RectangleEdge.TOP);
+        arrangement.add(new EmptyBlock(50, 20), RectangleEdge.BOTTOM);
+        arrangement.add(new EmptyBlock(10, 30), RectangleEdge.LEFT);
+        arrangement.add(new EmptyBlock(10, 30), RectangleEdge.RIGHT);
+        arrangement.add(new EmptyBlock(30, 30), null);
+        BlockContainer container = new BlockContainer(arrangement);
+        RectangleConstraint constraint = new RectangleConstraint(200.0, 150.0);
+        Size2D size = container.arrange(g2, constraint);
+        assertEquals(200.0, size.getWidth(), 0.001);
+        assertEquals(150.0, size.getHeight(), 0.001);
+    }
+
+    @Test
+    public void testArrange_FF_NoBlocks_ReturnsFixedSize() {
+        BorderArrangement arrangement = new BorderArrangement();
+        BlockContainer container = new BlockContainer(arrangement);
+        RectangleConstraint constraint = new RectangleConstraint(120.0, 80.0);
+        Size2D size = container.arrange(g2, constraint);
+        assertEquals(120.0, size.getWidth(), 0.001);
+        assertEquals(80.0, size.getHeight(), 0.001);
+    }
+
+    @Test
+    public void testArrange_FR_HeightWithinRange_ReturnsSize() {
+        BorderArrangement arrangement = new BorderArrangement();
+        arrangement.add(new EmptyBlock(50, 20), null);
+        BlockContainer container = new BlockContainer(arrangement);
+        RectangleConstraint constraint = new RectangleConstraint(100.0,
+                null, LengthConstraintType.FIXED, 0.0,
+                new Range(0.0, 100.0), LengthConstraintType.RANGE);
+        Size2D size = container.arrange(g2, constraint);
+        assertEquals(100.0, size.getWidth(), 0.001);
+        assertTrue(size.getHeight() <= 100.0 + 0.001);
+    }
+
+    @Test
+    public void testArrange_FR_HeightOut

@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "18",
+  "tool": "claude",
+  "class": "org.apache.commons.codec.binary.StringUtils",
+  "target_classes": [
+    "org.apache.commons.codec.binary.StringUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.69,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Codec\\18\\StringUtils_20260927_132747.txt",
+  "test_file": "Claude\\TestCode\\Codec\\18\\StringUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 7648,
+    "completion_tokens": 4366,
+    "total_tokens": 12014
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 65506,
+    "daily_remaining_tokens": 134494
+  },
+  "timestamp": "20260927_132747"
+}

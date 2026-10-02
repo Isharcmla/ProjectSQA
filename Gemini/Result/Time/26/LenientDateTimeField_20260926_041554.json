@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "26",
+  "tool": "gemini",
+  "class": "org.joda.time.field.LenientDateTimeField",
+  "target_classes": [
+    "org.joda.time.field.LenientDateTimeField"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 19.64,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Time\\26\\LenientDateTimeField_20260926_041554.txt",
+  "test_file": "Gemini\\TestCode\\Time\\26\\LenientDateTimeFieldTest.java",
+  "usage": {
+    "prompt_tokens": 970,
+    "completion_tokens": 1789,
+    "total_tokens": 3814
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 161355,
+    "daily_remaining_tokens": 188645
+  },
+  "timestamp": "20260926_041554"
+}

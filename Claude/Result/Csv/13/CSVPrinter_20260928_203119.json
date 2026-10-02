@@ -1,0 +1,33 @@
+{
+  "project": "Csv",
+  "bug_id": "13",
+  "tool": "claude",
+  "class": "org.apache.commons.csv.CSVPrinter",
+  "target_classes": [
+    "org.apache.commons.csv.CSVPrinter"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 126.38,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Csv\\13\\CSVPrinter_20260928_203119.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 6364,
+    "completion_tokens": 16384,
+    "total_tokens": 22748
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 164420,
+    "daily_remaining_tokens": 35580
+  },
+  "timestamp": "20260928_203119"
+}

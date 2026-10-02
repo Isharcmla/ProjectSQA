@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "91",
+  "tool": "claude",
+  "class": "org.jsoup.UncheckedIOException",
+  "target_classes": [
+    "org.jsoup.UncheckedIOException"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 12.61,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\91\\UncheckedIOException_20261001_123455.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\91\\UncheckedIOExceptionTest.java",
+  "usage": {
+    "prompt_tokens": 938,
+    "completion_tokens": 1451,
+    "total_tokens": 2389
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 85542,
+    "daily_remaining_tokens": 114458
+  },
+  "timestamp": "20261001_123455"
+}

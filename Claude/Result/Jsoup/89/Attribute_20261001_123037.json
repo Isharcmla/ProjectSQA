@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "89",
+  "tool": "claude",
+  "class": "org.jsoup.nodes.Attribute",
+  "target_classes": [
+    "org.jsoup.nodes.Attribute"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 77.65,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\89\\Attribute_20261001_123037.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\89\\AttributeTest.java",
+  "usage": {
+    "prompt_tokens": 3312,
+    "completion_tokens": 10191,
+    "total_tokens": 13503
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 37518,
+    "daily_remaining_tokens": 162482
+  },
+  "timestamp": "20261001_123037"
+}

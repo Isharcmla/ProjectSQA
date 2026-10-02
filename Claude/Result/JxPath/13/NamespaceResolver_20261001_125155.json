@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "13",
+  "tool": "claude",
+  "class": "org.apache.commons.jxpath.ri.NamespaceResolver",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.NamespaceResolver"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 49.03,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JxPath\\13\\NamespaceResolver_20261001_125155.txt",
+  "test_file": "Claude\\TestCode\\JxPath\\13\\NamespaceResolverTest.java",
+  "usage": {
+    "prompt_tokens": 3134,
+    "completion_tokens": 6158,
+    "total_tokens": 9292
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 82357,
+    "daily_remaining_tokens": 117643
+  },
+  "timestamp": "20261001_125155"
+}

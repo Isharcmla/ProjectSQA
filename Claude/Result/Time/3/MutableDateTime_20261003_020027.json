@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "3",
+  "tool": "claude",
+  "class": "org.joda.time.MutableDateTime",
+  "target_classes": [
+    "org.joda.time.MutableDateTime"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 124.7,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Time\\3\\MutableDateTime_20261003_020027.txt",
+  "test_file": "Claude\\TestCode\\Time\\3\\MutableDateTimeTest.java",
+  "usage": {
+    "prompt_tokens": 18551,
+    "completion_tokens": 13612,
+    "total_tokens": 32163
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 218165,
+    "daily_remaining_tokens": -18165
+  },
+  "timestamp": "20261003_020027"
+}

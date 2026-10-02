@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "38",
+  "tool": "claude",
+  "class": "org.apache.commons.lang3.time.FastDateFormat",
+  "target_classes": [
+    "org.apache.commons.lang3.time.FastDateFormat"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 98.49,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Lang\\38\\FastDateFormat_20261001_142704.txt",
+  "test_file": "Claude\\TestCode\\Lang\\38\\FastDateFormatTest.java",
+  "usage": {
+    "prompt_tokens": 21388,
+    "completion_tokens": 15575,
+    "total_tokens": 36963
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 229698,
+    "daily_remaining_tokens": -29698
+  },
+  "timestamp": "20261001_142704"
+}

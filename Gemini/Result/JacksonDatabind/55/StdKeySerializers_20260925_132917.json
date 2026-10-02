@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "55",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.ser.std.StdKeySerializers",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.std.StdKeySerializers"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 29.37,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\55\\StdKeySerializers_20260925_132917.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\55\\StdKeySerializersTest.java",
+  "usage": {
+    "prompt_tokens": 2229,
+    "completion_tokens": 3499,
+    "total_tokens": 6481
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 49869,
+    "daily_remaining_tokens": 300131
+  },
+  "timestamp": "20260925_132917"
+}

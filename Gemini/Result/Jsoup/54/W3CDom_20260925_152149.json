@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "54",
+  "tool": "gemini",
+  "class": "org.jsoup.helper.W3CDom",
+  "target_classes": [
+    "org.jsoup.helper.W3CDom"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 21.92,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\54\\W3CDom_20260925_152149.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\54\\W3CDomTest.java",
+  "usage": {
+    "prompt_tokens": 1973,
+    "completion_tokens": 2381,
+    "total_tokens": 5150
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 38085,
+    "daily_remaining_tokens": 311915
+  },
+  "timestamp": "20260925_152149"
+}

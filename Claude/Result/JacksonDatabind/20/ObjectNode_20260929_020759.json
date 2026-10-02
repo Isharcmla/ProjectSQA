@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "20",
+  "tool": "claude",
+  "class": "com.fasterxml.jackson.databind.node.ObjectNode",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.node.ObjectNode"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 101.02,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\JacksonDatabind\\20\\ObjectNode_20260929_020759.txt",
+  "test_file": "Claude\\TestCode\\JacksonDatabind\\20\\ObjectNodeTest.java",
+  "usage": {
+    "prompt_tokens": 9541,
+    "completion_tokens": 14123,
+    "total_tokens": 23664
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 181177,
+    "daily_remaining_tokens": 18823
+  },
+  "timestamp": "20260929_020759"
+}

@@ -1,0 +1,72 @@
+```java
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * JUnit4 test suite for {@link PeepholeOptimizationsPass}.
+ *
+ * NOTE: PeepholeOptimizationsPass, AbstractPeepholeOptimization, AbstractCompiler,
+ * CodeChangeHandler are package-private classes of com.google.javascript.jscomp,
+ * so this test class must live in the same package to exercise the real (non-mocked)
+ * public/package-visible API. We use the real, concrete Compiler class (which extends
+ * AbstractCompiler) and real Node objects built with Token constants.
+ */
+public class PeepholeOptimizationsPassTest {
+
+  private Compiler compiler;
+
+  @Before
+  public void setUp() {
+    compiler = new Compiler();
+  }
+
+  /** A no-op optimization that never reports any changes and never returns null. */
+  static class NoOpOptimization extends AbstractPeepholeOptimization {
+    int callCount = 0;
+
+    @Override
+    Node optimizeSubtree(Node subtree) {
+      callCount++;
+      return subtree;
+    }
+
+    @Override
+    void beginTraversal(AbstractCompiler compiler) {
+      // no-op
+    }
+
+    @Override
+    void endTraversal(AbstractCompiler compiler) {
+      // no-op
+    }
+  }
+
+  /** An optimization that always returns null, to exercise the early-return path in visit(). */
+  static class NullReturningOptimization extends AbstractPeepholeOptimization {
+    @Override
+    Node optimizeSubtree(Node subtree) {
+      return null;
+    }
+
+    @Override
+    void beginTraversal(AbstractCompiler compiler) {
+      // no-op
+    }
+
+    @Override
+    void endTraversal(AbstractCompiler compiler) {
+      // no-op
+    }
+  }
+
+  /** An optimization used to verify beginTraversal/endTraversal are invoked. */
+  static class TrackingOptimization ext

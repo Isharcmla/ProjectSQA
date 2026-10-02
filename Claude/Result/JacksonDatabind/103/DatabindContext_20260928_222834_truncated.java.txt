@@ -1,0 +1,400 @@
+package com.fasterxml.jackson.databind;
+
+import java.util.Locale;
+import java.util.TimeZone;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.ObjectIdResolver;
+import com.fasterxml.jackson.annotation.SimpleObjectIdResolver;
+import com.fasterxml.jackson.databind.cfg.MapperConfig;
+import com.fasterxml.jackson.databind.introspect.Annotated;
+import com.fasterxml.jackson.databind.introspect.ObjectIdInfo;
+import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.fasterxml.jackson.databind.util.Converter;
+
+public class DatabindContextTest {
+
+    // Minimal concrete implementation of the abstract DatabindContext,
+    // relying on a real MapperConfig obtained from ObjectMapper (no mocking used).
+    static class TestContext extends DatabindContext {
+        private final MapperConfig<?> config;
+        private final TypeFactory typeFactory;
+
+        TestContext(MapperConfig<?> config, TypeFactory typeFactory) {
+            this.config = config;
+            this.typeFactory = typeFactory;
+        }
+
+        @Override
+        public MapperConfig<?> getConfig() {
+            return config;
+        }
+
+        @Override
+        public AnnotationIntrospector getAnnotationIntrospector() {
+            return config.getAnnotationIntrospector();
+        }
+
+        @Override
+        public boolean isEnabled(MapperFeature feature) {
+            return config.isEnabled(feature);
+        }
+
+        @Override
+        public boolean canOverrideAccessModifiers() {
+            return config.canOverrideAccessModifiers();
+        }
+
+        @Override
+        public Class<?> getActiveView() {
+            return null;
+        }
+
+        @Override
+        public Locale getLocale() {
+            return Locale.getDefault();
+        }
+
+        @Override
+        public TimeZone getTimeZone() {
+            return TimeZone.getDefault();
+        }
+
+        @Override
+        public JsonFormat.Value getDefaultPropertyFormat(Class<?> baseType) {
+            return JsonFormat.Value.empty();
+        }
+
+        @Override
+        public Object getAttribute(Object key) {
+            return null;
+        }
+
+        @Override
+        public DatabindContext setAttribute(Object key, Object value) {
+            return this;
+        }
+
+        @Override
+        protected JsonMappingException invalidTypeIdException(JavaType baseType, String typeId,
+                String extraDesc) {
+            return new JsonMappingException("Invalid type id '" + typeId + "': " + extraDesc);
+        }
+
+        @Override
+        public TypeFactory getTypeFactory() {
+            return typeFactory;
+        }
+
+        @Override
+        public <T> T reportBadDefinition(JavaType type, String msg) throws JsonMappingException {
+            throw new JsonMappingException(msg);
+        }
+    }
+
+    static class MyConverter implements Converter<Object, Object> {
+        @Override
+        public Object convert(Object value) {
+            return value;
+        }
+
+        @Override
+        public JavaType getInputType(TypeFactory typeFactory) {
+            return typeFactory.constructType(Object.class);
+        }
+
+        @Override
+        public JavaType getOutputType(TypeFactory typeFactory) {
+            return typeFactory.constructType(Object.class);
+        }
+    }
+
+    private TestContext context;
+    private MapperConfig<?> config;
+
+    @Before
+    public void setUp() {
+        ObjectMapper mapper = new ObjectMapper();
+        config = mapper.getSerializationConfig();
+        context = new TestContext(config, TypeFactory.defaultInstance());
+    }
+
+    // ---------- getConfig / getAnnotationIntrospector ----------
+
+    @Test
+    public void testGetConfig_returnsSameConfig() {
+        assertSame(config, context.getConfig());
+    }
+
+    @Test
+    public void testGetAnnotationIntrospector_returnsIntrospector() {
+        assertEquals(config.getAnnotationIntrospector(), context.getAnnotationIntrospector());
+    }
+
+    // ---------- isEnabled / canOverrideAccessModifiers ----------
+
+    @Test
+    public void testIsEnabled_delegatesToConfig() {
+        boolean expected = config.isEnabled(MapperFeature.AUTO_DETECT_GETTERS);
+        assertEquals(expected, context.isEnabled(MapperFeature.AUTO_DETECT_GETTERS));
+    }
+
+    @Test
+    public void testCanOverrideAccessModifiers_delegatesToConfig() {
+        assertEquals(config.canOverrideAccessModifiers(), context.canOverrideAccessModifiers());
+    }
+
+    // ---------- getActiveView / getLocale / getTimeZone / getDefaultPropertyFormat ----------
+
+    @Test
+    public void testGetActiveView_defaultNull() {
+        assertNull(context.getActiveView());
+    }
+
+    @Test
+    public void testGetLocale_notNull() {
+        assertNotNull(context.getLocale());
+    }
+
+    @Test
+    public void testGetTimeZone_notNull() {
+        assertNotNull(context.getTimeZone());
+    }
+
+    @Test
+    public void testGetDefaultPropertyFormat_returnsEmptyValue() {
+        JsonFormat.Value value = context.getDefaultPropertyFormat(String.class);
+        assertNotNull(value);
+    }
+
+    // ---------- getAttribute / setAttribute ----------
+
+    @Test
+    public void testGetAttribute_defaultNull() {
+        assertNull(context.getAttribute("someKey"));
+    }
+
+    @Test
+    public void testSetAttribute_returnsThis() {
+        DatabindContext result = context.setAttribute("key", "value");
+        assertSame(context, result);
+    }
+
+    // ---------- constructType ----------
+
+    @Test
+    public void testConstructType_null_returnsNull() {
+        assertNull(context.constructType(null));
+    }
+
+    @Test
+    public void testConstructType_validType_returnsJavaType() {
+        JavaType type = context.constructType(String.class);
+        assertNotNull(type);
+        assertEquals(String.class, type.getRawClass());
+    }
+
+    // ---------- constructSpecializedType ----------
+
+    @Test
+    public void testConstructSpecializedType_sameRawClass_returnsSameInstance() {
+        JavaType baseType = context.constructType(Number.class);
+        JavaType result = context.constructSpecializedType(baseType, Number.class);
+        assertSame(baseType, result);
+    }
+
+    @Test
+    public void testConstructSpecializedType_differentSubclass_returnsSpecializedType() {
+        JavaType baseType = context.constructType(Number.class);
+        JavaType result = context.constructSpecializedType(baseType, Integer.class);
+        assertEquals(Integer.class, result.getRawClass());
+    }
+
+    // ---------- resolveSubType ----------
+
+    @Test
+    public void testResolveSubType_simpleClassName_returnsSpecializedType() throws JsonMappingException {
+        JavaType baseType = context.constructType(Number.class);
+        JavaType result = context.resolveSubType(baseType, "java.lang.Integer");
+        assertNotNull(result);
+        assertEquals(Integer.class, result.getRawClass());
+    }
+
+    @Test
+    public void testResolveSubType_genericClassName_returnsType() throws JsonMappingException {
+        JavaType baseType = context.constructType(java.util.List.class);
+        JavaType result = context.resolveSubType(baseType, "java.util.ArrayList<java.lang.String>");
+        assertNotNull(result);
+        assertEquals(java.util.ArrayList.class, result.getRawClass());
+    }
+
+    @Test
+    public void testResolveSubType_classNotFound_returnsNull() throws JsonMappingException {
+        JavaType baseType = context.constructType(Object.class);
+        JavaType result = context.resolveSubType(baseType, "no.such.package.NoSuchClass123");
+        assertNull(result);
+    }
+
+    @Test(expected = JsonMappingException.class)
+    public void testResolveSubType_notSubtype_throwsException() throws JsonMappingException {
+        JavaType baseType = context.constructType(java.util.List.class);
+        context.resolveSubType(baseType, "java.lang.String");
+    }
+
+    // ---------- reportBadDefinition ----------
+
+    @Test
+    public void testReportBadDefinition_throwsJsonMappingException() {
+        try {
+            context.reportBadDefinition(String.class, "bad definition message");
+            fail("Expected JsonMappingException to be thrown");
+        } catch (JsonMappingException e) {
+            assertEquals("bad definition message", e.getMessage());
+        }
+    }
+
+    // ---------- objectIdGeneratorInstance ----------
+
+    @Test
+    public void testObjectIdGeneratorInstance_returnsGenerator() throws JsonMappingException {
+        ObjectIdInfo info = new ObjectIdInfo(PropertyName.NO_NAME, Object.class,
+                ObjectIdGenerators.IntSequenceGenerator.class, false, SimpleObjectIdResolver.class);
+        Annotated annotated = null;
+        ObjectIdGenerator<?> gen = context.objectIdGeneratorInstance(annotated, info);
+        assertNotNull(gen);
+    }
+
+    // ---------- objectIdResolverInstance ----------
+
+    @Test
+    public void testObjectIdResolverInstance_returnsResolver() {
+        ObjectIdInfo info = new ObjectIdInfo(PropertyName.NO_NAME, Object.class,
+                ObjectIdGenerators.IntSequenceGenerator.class, false, SimpleObjectIdResolver.class);
+        Annotated annotated = null;
+        ObjectIdResolver resolver = context.objectIdResolverInstance(annotated, info);
+        assertNotNull(resolver);
+        assertTrue(resolver instanceof SimpleObjectIdResolver);
+    }
+
+    // ---------- converterInstance ----------
+
+    @Test
+    public void testConverterInstance_nullDefinition_returnsNull() throws JsonMappingException {
+        assertNull(context.converterInstance(null, null));
+    }
+
+    @Test
+    public void testConverterInstance_instanceOfConverter_returnsSameInstance() throws JsonMappingException {
+        MyConverter converter = new MyConverter();
+        Converter<Object, Object> result = context.converterInstance(null, converter);
+        assertSame(converter, result);
+    }
+
+    @Test
+    public void testConverterInstance_converterNoneClass_returnsNull() throws JsonMappingException {
+        assertNull(context.converterInstance(null, Converter.None.class));
+    }
+
+    @Test
+    public void testConverterInstance_validConverterClass_returnsNewInstance() throws JsonMappingException {
+        Converter<Object, Object> result = context.converterInstance(null, MyConverter.class);
+        assertNotNull(result);
+        assertTrue(result instanceof MyConverter);
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testConverterInstance_nonClassNonConverterDefinition_throwsException() throws JsonMappingException {
+        context.converterInstance(null, "not a converter or class");
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testConverterInstance_classNotImplementingConverter_throwsException() throws JsonMappingException {
+        context.converterInstance(null, String.class);
+    }
+
+    // ---------- helper methods (_format, _truncate, _quotedString, _colonConcat, _desc) ----------
+
+    @Test
+    public void testFormat_noArgs_returnsSameMessage() {
+        assertEquals("hello", context._format("hello"));
+    }
+
+    @Test
+    public void testFormat_withArgs_returnsFormattedMessage() {
+        assertEquals("hello world", context._format("hello %s", "world"));
+    }
+
+    @Test
+    public void testTruncate_null_returnsEmptyString() {
+        assertEquals("", context._truncate(null));
+    }
+
+    @Test
+    public void testTruncate_shortString_returnsSameString() {
+        String desc = "short description";
+        assertEquals(desc, context._truncate(desc));
+    }
+
+    @Test
+    public void testTruncate_boundaryLength_returnsSameString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 500; i++) {
+            sb.append('a');
+        }
+        String desc = sb.toString();
+        assertEquals(desc, context._truncate(desc));
+    }
+
+    @Test
+    public void testTruncate_longString_truncatesWithMarker() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 1000; i++) {
+            sb.append('a');
+        }
+        String desc = sb.toString();
+        String result = context._truncate(desc);
+        String expected = desc.substring(0, 500) + "]...[" + desc.substring(desc.length() - 500);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testQuotedString_null_returnsNA() {
+        assertEquals("[N/A]", context._quotedString(null));
+    }
+
+    @Test
+    public void testQuotedString_nonNull_returnsQuotedString() {
+        assertEquals("\"abc\"", context._quotedString("abc"));
+    }
+
+    @Test
+    public void testColonConcat_extraNull_returnsBaseOnly() {
+        assertEquals("base", context._colonConcat("base", null));
+    }
+
+    @Test
+    public void testColonConcat_extraNonNull_returnsConcatenated() {
+        assertEquals("base: extra", context._colonConcat("base", "extra"));
+    }
+
+    @Test
+    public void testDesc_null_returnsNA() {
+        assertEquals("[N/A]", context._desc(null));
+    }
+
+    @Test
+    public void testDesc_nonNull_returnsTruncatedString() {
+        assertEquals("abc", context._desc("abc"));
+    }
+
+    // ---------- getTypeFactory ----------
+
+    @Test
+    public void testGetTypeFactory_returnsSameFactory() {
+        assertSame(Type

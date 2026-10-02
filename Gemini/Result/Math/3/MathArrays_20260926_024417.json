@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "3",
+  "tool": "gemini",
+  "class": "org.apache.commons.math3.util.MathArrays",
+  "target_classes": [
+    "org.apache.commons.math3.util.MathArrays"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 62.65,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\3\\MathArrays_20260926_024417.txt",
+  "test_file": "Gemini\\TestCode\\Math\\3\\MathArraysTest.java",
+  "usage": {
+    "prompt_tokens": 15612,
+    "completion_tokens": 7199,
+    "total_tokens": 24893
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 227451,
+    "daily_remaining_tokens": 122549
+  },
+  "timestamp": "20260926_024417"
+}

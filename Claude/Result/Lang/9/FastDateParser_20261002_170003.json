@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "9",
+  "tool": "claude",
+  "class": "org.apache.commons.lang3.time.FastDateParser",
+  "target_classes": [
+    "org.apache.commons.lang3.time.FastDateParser"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 163.47,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Lang\\9\\FastDateParser_20261002_170003.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 12028,
+    "completion_tokens": 16384,
+    "total_tokens": 28412
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 119041,
+    "daily_remaining_tokens": 80959
+  },
+  "timestamp": "20261002_170003"
+}

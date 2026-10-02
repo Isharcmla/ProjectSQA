@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "1",
+  "tool": "claude",
+  "class": "org.apache.commons.codec.language.Caverphone",
+  "target_classes": [
+    "org.apache.commons.codec.language.Caverphone"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 93.8,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "Claude",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude/Prompt/Codec/1/Caverphone_20260920_112749.txt",
+  "test_file": "Claude/TestCode/Codec/1/CaverphoneTest.java",
+  "usage": {
+    "prompt_tokens": 3838,
+    "completion_tokens": 11163,
+    "total_tokens": 15001
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 162868,
+    "daily_remaining_tokens": 37132
+  },
+  "timestamp": "20260920_112749"
+}

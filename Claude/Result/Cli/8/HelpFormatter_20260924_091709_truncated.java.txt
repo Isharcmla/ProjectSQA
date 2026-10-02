@@ -1,0 +1,523 @@
+package org.apache.commons.cli;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
+public class HelpFormatterTest {
+
+    private HelpFormatter helpFormatter;
+    private PrintStream originalOut;
+
+    @Before
+    public void setUp() {
+        helpFormatter = new HelpFormatter();
+        originalOut = System.out;
+    }
+
+    @After
+    public void tearDown() {
+        System.setOut(originalOut);
+    }
+
+    // ---------- Getter/Setter Tests ----------
+
+    @Test
+    public void testSetWidthAndGetWidth_normalValue_returnsSameValue() {
+        helpFormatter.setWidth(100);
+        assertEquals(100, helpFormatter.getWidth());
+    }
+
+    @Test
+    public void testGetWidth_default_returnsDefaultWidth() {
+        assertEquals(HelpFormatter.DEFAULT_WIDTH, helpFormatter.getWidth());
+    }
+
+    @Test
+    public void testSetLeftPaddingAndGetLeftPadding_normalValue_returnsSameValue() {
+        helpFormatter.setLeftPadding(5);
+        assertEquals(5, helpFormatter.getLeftPadding());
+    }
+
+    @Test
+    public void testSetDescPaddingAndGetDescPadding_normalValue_returnsSameValue() {
+        helpFormatter.setDescPadding(4);
+        assertEquals(4, helpFormatter.getDescPadding());
+    }
+
+    @Test
+    public void testSetSyntaxPrefixAndGetSyntaxPrefix_normalValue_returnsSameValue() {
+        helpFormatter.setSyntaxPrefix("Usage: ");
+        assertEquals("Usage: ", helpFormatter.getSyntaxPrefix());
+    }
+
+    @Test
+    public void testSetNewLineAndGetNewLine_normalValue_returnsSameValue() {
+        helpFormatter.setNewLine("\n");
+        assertEquals("\n", helpFormatter.getNewLine());
+    }
+
+    @Test
+    public void testSetOptPrefixAndGetOptPrefix_normalValue_returnsSameValue() {
+        helpFormatter.setOptPrefix("+");
+        assertEquals("+", helpFormatter.getOptPrefix());
+    }
+
+    @Test
+    public void testSetLongOptPrefixAndGetLongOptPrefix_normalValue_returnsSameValue() {
+        helpFormatter.setLongOptPrefix("==");
+        assertEquals("==", helpFormatter.getLongOptPrefix());
+    }
+
+    @Test
+    public void testSetArgNameAndGetArgName_normalValue_returnsSameValue() {
+        helpFormatter.setArgName("param");
+        assertEquals("param", helpFormatter.getArgName());
+    }
+
+    @Test
+    public void testSetWidth_negativeValue_storesNegativeValue() {
+        helpFormatter.setWidth(-10);
+        assertEquals(-10, helpFormatter.getWidth());
+    }
+
+    @Test
+    public void testSetLeftPadding_zeroValue_storesZero() {
+        helpFormatter.setLeftPadding(0);
+        assertEquals(0, helpFormatter.getLeftPadding());
+    }
+
+    // ---------- printHelp tests (System.out based) ----------
+
+    @Test
+    public void testPrintHelp_cmdLineSyntaxAndOptions_printsWithoutException() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(baos));
+
+        Options options = new Options();
+        options.addOption("a", "all", false, "does something");
+
+        helpFormatter.printHelp("myapp", options);
+
+        String output = baos.toString();
+        assertTrue(output.length() > 0);
+    }
+
+    @Test
+    public void testPrintHelp_withAutoUsageTrue_printsWithoutException() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(baos));
+
+        Options options = new Options();
+        options.addOption("a", "all", false, "does something");
+
+        helpFormatter.printHelp("myapp", options, true);
+
+        String output = baos.toString();
+        assertTrue(output.length() > 0);
+    }
+
+    @Test
+    public void testPrintHelp_withHeaderAndFooter_printsWithoutException() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(baos));
+
+        Options options = new Options();
+        options.addOption("a", "all", false, "does something");
+
+        helpFormatter.printHelp("myapp", "header text", options, "footer text");
+
+        String output = baos.toString();
+        assertTrue(output.contains("header text"));
+        assertTrue(output.contains("footer text"));
+    }
+
+    @Test
+    public void testPrintHelp_withHeaderFooterAndAutoUsage_printsWithoutException() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(baos));
+
+        Options options = new Options();
+        options.addOption("a", "all", false, "does something");
+
+        helpFormatter.printHelp("myapp", "header text", options, "footer text", true);
+
+        String output = baos.toString();
+        assertTrue(output.contains("header text"));
+    }
+
+    @Test
+    public void testPrintHelp_withWidthHeaderFooter_printsWithoutException() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(baos));
+
+        Options options = new Options();
+        options.addOption("a", "all", false, "does something");
+
+        helpFormatter.printHelp(80, "myapp", "header text", options, "footer text");
+
+        String output = baos.toString();
+        assertTrue(output.contains("header text"));
+    }
+
+    @Test
+    public void testPrintHelp_withWidthHeaderFooterAutoUsage_printsWithoutException() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(baos));
+
+        Options options = new Options();
+        options.addOption("a", "all", false, "does something");
+
+        helpFormatter.printHelp(80, "myapp", "header text", options, "footer text", true);
+
+        String output = baos.toString();
+        assertTrue(output.contains("header text"));
+    }
+
+    // ---------- printHelp with PrintWriter ----------
+
+    @Test
+    public void testPrintHelp_withPrintWriter_writesExpectedContent() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+        options.addOption("a", "all", false, "does something");
+
+        helpFormatter.printHelp(pw, 80, "myapp", "header", options, 1, 3, "footer");
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("header"));
+        assertTrue(output.contains("footer"));
+        assertTrue(output.contains("usage:"));
+    }
+
+    @Test
+    public void testPrintHelp_withPrintWriterAndAutoUsage_writesExpectedContent() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+        options.addOption("a", "all", false, "does something");
+
+        helpFormatter.printHelp(pw, 80, "myapp", "header", options, 1, 3, "footer", true);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("header"));
+        assertTrue(output.contains("footer"));
+    }
+
+    @Test
+    public void testPrintHelp_withNullHeaderAndFooter_doesNotPrintThem() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+        options.addOption("a", "all", false, "does something");
+
+        helpFormatter.printHelp(pw, 80, "myapp", null, options, 1, 3, null, false);
+        pw.flush();
+
+        String output = sw.toString();
+        assertNotNull(output);
+    }
+
+    @Test
+    public void testPrintHelp_withEmptyHeaderAndFooter_doesNotPrintThem() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+        options.addOption("a", "all", false, "does something");
+
+        helpFormatter.printHelp(pw, 80, "myapp", "   ", options, 1, 3, "   ", false);
+        pw.flush();
+
+        String output = sw.toString();
+        assertNotNull(output);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testPrintHelp_withNullCmdLineSyntax_throwsIllegalArgumentException() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+
+        helpFormatter.printHelp(pw, 80, null, "header", options, 1, 3, "footer", false);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testPrintHelp_withEmptyCmdLineSyntax_throwsIllegalArgumentException() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+
+        helpFormatter.printHelp(pw, 80, "", "header", options, 1, 3, "footer", false);
+    }
+
+    // ---------- printUsage tests ----------
+
+    @Test
+    public void testPrintUsage_simpleCmdLineSyntax_writesExpectedContent() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        helpFormatter.printUsage(pw, 80, "myapp -a -b");
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("usage:"));
+        assertTrue(output.contains("myapp"));
+    }
+
+    @Test
+    public void testPrintUsage_withOptionsNoGroup_writesExpectedContent() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+        options.addOption("a", false, "opt a");
+        Option optB = new Option("b", "bbb", true, "opt b");
+        optB.setArgName("value");
+        options.addOption(optB);
+
+        helpFormatter.printUsage(pw, 80, "myapp", options);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("usage:"));
+        assertTrue(output.contains("-a"));
+        assertTrue(output.contains("-b"));
+    }
+
+    @Test
+    public void testPrintUsage_withRequiredOption_writesWithoutBrackets() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+        Option optA = new Option("a", "opt a");
+        optA.setRequired(true);
+        options.addOption(optA);
+
+        helpFormatter.printUsage(pw, 80, "myapp", options);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("-a"));
+    }
+
+    @Test
+    public void testPrintUsage_withOptionGroupRequired_writesGroupWithoutBrackets() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+        OptionGroup group = new OptionGroup();
+        Option optA = new Option("a", "opt a");
+        Option optB = new Option("b", "opt b");
+        group.addOption(optA);
+        group.addOption(optB);
+        group.setRequired(true);
+        options.addOptionGroup(group);
+
+        helpFormatter.printUsage(pw, 80, "myapp", options);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("-a"));
+        assertTrue(output.contains("-b"));
+        assertTrue(output.contains("|"));
+    }
+
+    @Test
+    public void testPrintUsage_withOptionGroupNotRequired_writesGroupWithBrackets() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+        OptionGroup group = new OptionGroup();
+        Option optA = new Option("a", "opt a");
+        Option optB = new Option("b", "opt b");
+        group.addOption(optA);
+        group.addOption(optB);
+        group.setRequired(false);
+        options.addOptionGroup(group);
+
+        helpFormatter.printUsage(pw, 80, "myapp", options);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("["));
+        assertTrue(output.contains("]"));
+    }
+
+    @Test
+    public void testPrintUsage_withOptionWithLongOptOnly_writesDoubleDashPrefix() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+        Option opt = new Option(null, "longonly", false, "long opt only");
+        options.addOption(opt);
+
+        helpFormatter.printUsage(pw, 80, "myapp", options);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("--longonly"));
+    }
+
+    @Test
+    public void testPrintUsage_withNoOptions_writesOnlyAppName() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+
+        helpFormatter.printUsage(pw, 80, "myapp", options);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("myapp"));
+    }
+
+    // ---------- printOptions tests ----------
+
+    @Test
+    public void testPrintOptions_withOptions_writesExpectedContent() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+        options.addOption("a", "all", false, "does something");
+        Option optB = new Option("b", "bbb", true, "opt b desc");
+        optB.setArgName("value");
+        options.addOption(optB);
+
+        helpFormatter.printOptions(pw, 80, options, 1, 3);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("-a"));
+        assertTrue(output.contains("does something"));
+    }
+
+    @Test
+    public void testPrintOptions_withLongOptOnlyNoShortOpt_writesLongOptPrefix() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+        Option opt = new Option(null, "longonly", false, "long opt desc");
+        options.addOption(opt);
+
+        helpFormatter.printOptions(pw, 80, options, 1, 3);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("--longonly"));
+    }
+
+    @Test
+    public void testPrintOptions_withOptionHavingArgAndNoArgName_writesSpace() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+        Option opt = new Option("a", true, "has arg");
+        opt.setArgName(null);
+        options.addOption(opt);
+
+        helpFormatter.printOptions(pw, 80, options, 1, 3);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("-a"));
+    }
+
+    @Test
+    public void testPrintOptions_withEmptyOptions_writesEmptyContent() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        Options options = new Options();
+
+        helpFormatter.printOptions(pw, 80, options, 1, 3);
+        pw.flush();
+
+        String output = sw.toString();
+        assertNotNull(output);
+    }
+
+    // ---------- printWrapped tests ----------
+
+    @Test
+    public void testPrintWrapped_shortText_writesTextAsIs() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        helpFormatter.printWrapped(pw, 80, "short text");
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.contains("short text"));
+    }
+
+    @Test
+    public void testPrintWrapped_longTextWithNextLineTabStop_wrapsCorrectly() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        String longText = "This is a very long piece of text that should be wrapped "
+                + "across multiple lines when displayed within a limited width "
+                + "console output for testing purposes only here";
+
+        helpFormatter.printWrapped(pw, 20, 5, longText);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.length() > 0);
+        assertTrue(output.contains("\n") || output.length() > 0);
+    }
+
+    @Test
+    public void testPrintWrapped_textWithNewLineCharacter_wrapsAtNewLine() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        String text = "short\nline here that continues afterwards for a while more";
+
+        helpFormatter.printWrapped(pw, 80, text);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.length() > 0);
+    }
+
+    @Test
+    public void testPrintWrapped_textWithTabCharacter_wrapsAtTab() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        String text = "short\ttabbed text that continues afterwards for a while more content";
+
+        helpFormatter.printWrapped(pw, 80, text);
+        pw.flush();
+
+        String output = sw.toString();
+        assertTrue(output.length() > 0);
+    }
+
+    @Test
+    public void testPrintWrapped_emptyText_writes

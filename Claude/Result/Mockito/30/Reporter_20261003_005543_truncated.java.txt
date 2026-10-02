@@ -1,0 +1,136 @@
+package org.mockito.exceptions;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+import org.mockito.exceptions.base.MockitoAssertionError;
+import org.mockito.exceptions.base.MockitoException;
+import org.mockito.exceptions.misusing.InvalidUseOfMatchersException;
+import org.mockito.exceptions.misusing.MissingMethodInvocationException;
+import org.mockito.exceptions.misusing.NotAMockException;
+import org.mockito.exceptions.misusing.NullInsteadOfMockException;
+import org.mockito.exceptions.misusing.UnfinishedStubbingException;
+import org.mockito.exceptions.misusing.UnfinishedVerificationException;
+import org.mockito.exceptions.misusing.WrongTypeOfReturnValue;
+import org.mockito.exceptions.verification.ArgumentsAreDifferent;
+import org.mockito.exceptions.verification.NeverWantedButInvoked;
+import org.mockito.exceptions.verification.SmartNullPointerException;
+import org.mockito.exceptions.verification.TooLittleActualInvocations;
+import org.mockito.exceptions.verification.TooManyActualInvocations;
+import org.mockito.exceptions.verification.VerificationInOrderFailure;
+import org.mockito.exceptions.verification.WantedButNotInvoked;
+import org.mockito.internal.debugging.Location;
+
+/**
+ * Test suite for Reporter class.
+ *
+ * NOTE: Some methods of Reporter require dependencies whose exact API
+ * (constructors / fields) is not provided in the given source code, namely:
+ *  - org.mockito.internal.invocation.Invocation
+ *  - org.mockito.internal.exceptions.VerificationAwareInvocation
+ * Per task instructions we avoid guessing their API. Therefore methods
+ * noMoreInteractionsWanted(Invocation, List) and
+ * noMoreInteractionsWantedInOrder(Invocation) are not covered by direct tests.
+ *
+ * PrintableInvocation (used as parameter type) and Discrepancy are both
+ * declared in the same package (org.mockito.exceptions) as Reporter and
+ * their required contract (methods used inside Reporter's source: 
+ * toString(), getLocation(), getPluralizedWantedCount(),
+ * getPluralizedActualCount(), constructor Discrepancy(int, int)) is directly
+ * inferable from Reporter's own source code, so they are used here.
+ */
+public class ReporterTest {
+
+    private Reporter reporter = new Reporter();
+
+    private static class TestInvocation implements PrintableInvocation {
+        private final String description;
+        private final Location location;
+
+        TestInvocation(String description) {
+            this.description = description;
+            this.location = new Location();
+        }
+
+        @Override
+        public String toString() {
+            return description;
+        }
+
+        @Override
+        public Location getLocation() {
+            return location;
+        }
+    }
+
+    @Test(expected = MockitoException.class)
+    public void testCheckedExceptionInvalid_normalInput_throwsMockitoException() {
+        reporter.checkedExceptionInvalid(new Throwable("custom error"));
+    }
+
+    @Test
+    public void testCheckedExceptionInvalid_nullThrowable_messageContainsNull() {
+        try {
+            reporter.checkedExceptionInvalid(null);
+            fail("Expected MockitoException");
+        } catch (MockitoException e) {
+            assertTrue(e.getMessage().contains("Invalid: null"));
+        }
+    }
+
+    @Test(expected = MockitoException.class)
+    public void testCannotStubWithNullThrowable_throwsMockitoException() {
+        reporter.cannotStubWithNullThrowable();
+    }
+
+    @Test(expected = UnfinishedStubbingException.class)
+    public void testUnfinishedStubbing_normalLocation_throwsUnfinishedStubbingException() {
+        reporter.unfinishedStubbing(new Location());
+    }
+
+    @Test
+    public void testUnfinishedStubbing_nullLocation_stillThrows() {
+        try {
+            reporter.unfinishedStubbing(null);
+            fail("Expected UnfinishedStubbingException");
+        } catch (UnfinishedStubbingException e) {
+            assertNotNull(e.getMessage());
+        }
+    }
+
+    @Test(expected = MissingMethodInvocationException.class)
+    public void testMissingMethodInvocation_throwsMissingMethodInvocationException() {
+        reporter.missingMethodInvocation();
+    }
+
+    @Test(expected = UnfinishedVerificationException.class)
+    public void testUnfinishedVerificationException_throwsUnfinishedVerificationException() {
+        reporter.unfinishedVerificationException(new Location());
+    }
+
+    @Test(expected = NotAMockException.class)
+    public void testNotAMockPassedToVerify_throwsNotAMockException() {
+        reporter.notAMockPassedToVerify(String.class);
+    }
+
+    @Test
+    public void testNotAMockPassedToVerify_messageContainsClassName() {
+        try {
+            reporter.notAMockPassedToVerify(Integer.class);
+            fail("Expected NotAMockException");
+        } catch (NotAMockException e) {
+            assertTrue(e.getMessage().contains("Integer"));
+        }
+    }
+
+    @Test(expected = NullInsteadOfMockException.class)
+    public void testNullPassedToVerify_throwsNullInsteadOfMockException() {
+        reporter.nullPassedToVerify();
+    }
+
+    @Test(expected = NotAMockException.class)
+    public void testNotAMockPassedToWhenMethod_throwsNotAMockException() {
+        reporter.notAMockPass

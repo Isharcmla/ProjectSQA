@@ -1,0 +1,93 @@
+package org.apache.commons.jxpath.ri.model.dom;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.util.Locale;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.apache.commons.jxpath.AbstractFactory;
+import org.apache.commons.jxpath.JXPathContext;
+import org.apache.commons.jxpath.JXPathException;
+import org.apache.commons.jxpath.Pointer;
+import org.apache.commons.jxpath.ri.Compiler;
+import org.apache.commons.jxpath.ri.QName;
+import org.apache.commons.jxpath.ri.compiler.NodeNameTest;
+import org.apache.commons.jxpath.ri.compiler.NodeTypeTest;
+import org.apache.commons.jxpath.ri.compiler.ProcessingInstructionTest;
+import org.apache.commons.jxpath.ri.model.NodeIterator;
+import org.apache.commons.jxpath.ri.model.NodePointer;
+import org.apache.commons.jxpath.ri.model.beans.NullPointer;
+import org.junit.Before;
+import org.junit.Test;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Comment;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.ProcessingInstruction;
+import org.w3c.dom.Text;
+
+public class DOMNodePointerTest {
+
+    private Document doc;
+    private Document nsDoc;
+    private final Locale locale = Locale.US;
+
+    @Before
+    public void setUp() throws Exception {
+        DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+        doc = builder.newDocument();
+
+        DocumentBuilderFactory nsFactory = DocumentBuilderFactory.newInstance();
+        nsFactory.setNamespaceAware(true);
+        DocumentBuilder nsBuilder = nsFactory.newDocumentBuilder();
+        nsDoc = nsBuilder.newDocument();
+    }
+
+    // ---------- Constructors ----------
+
+    @Test
+    public void testConstructor_NodeLocale_setsNode() {
+        Element el = doc.createElement("root");
+        DOMNodePointer ptr = new DOMNodePointer(el, locale);
+        assertSame(el, ptr.getImmediateNode());
+    }
+
+    @Test
+    public void testConstructor_NodeLocaleId_setsId() {
+        Element el = doc.createElement("root");
+        DOMNodePointer ptr = new DOMNodePointer(el, locale, "myid");
+        assertEquals("id('myid')", ptr.asPath());
+    }
+
+    @Test
+    public void testConstructor_ParentNode_setsParentAndNode() {
+        Element parentEl = doc.createElement("parent");
+        Element childEl = doc.createElement("child");
+        parentEl.appendChild(childEl);
+        DOMNodePointer parentPtr = new DOMNodePointer(parentEl, locale);
+        DOMNodePointer childPtr = new DOMNodePointer(parentPtr, childEl);
+        assertSame(childEl, childPtr.getImmediateNode());
+    }
+
+    // ---------- testNode (static) ----------
+
+    @Test
+    public void testTestNode_nullTest_returnsTrue() {
+        Element el = doc.createElement("foo");
+        assertTrue(DOMNodePointer.testNode(el, null));
+    }
+
+    @Test
+    public void testTestNode_nodeNameTest_matchingElement_returnsTrue() {
+        Element el = doc.createElement("foo");
+        QName qn = new QName(null, "foo");
+        NodeNameTest

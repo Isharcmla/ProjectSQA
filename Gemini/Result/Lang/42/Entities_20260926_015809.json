@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "42",
+  "tool": "gemini",
+  "class": "org.apache.commons.lang.Entities",
+  "target_classes": [
+    "org.apache.commons.lang.Entities"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 40.48,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Lang\\42\\Entities_20260926_015809.txt",
+  "test_file": "Gemini\\TestCode\\Lang\\42\\EntitiesTest.java",
+  "usage": {
+    "prompt_tokens": 12309,
+    "completion_tokens": 3233,
+    "total_tokens": 18264
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 34201,
+    "daily_remaining_tokens": 315799
+  },
+  "timestamp": "20260926_015809"
+}

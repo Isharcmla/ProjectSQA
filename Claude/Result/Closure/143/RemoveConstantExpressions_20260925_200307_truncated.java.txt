@@ -1,0 +1,175 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+
+public class RemoveConstantExpressionsTest {
+
+  private Compiler compiler;
+
+  @Before
+  public void setUp() {
+    compiler = new Compiler();
+  }
+
+  private Node createCallExpr(String funcName) {
+    Node name = Node.newString(Token.NAME, funcName);
+    return new Node(Token.CALL, name);
+  }
+
+  @Test
+  public void testConstructor_withValidCompiler_createsInstance() {
+    RemoveConstantExpressions pass = new RemoveConstantExpressions(compiler);
+    assertNotNull(pass);
+  }
+
+  @Test
+  public void testProcess_emptyRoot_noExceptionThrown() {
+    RemoveConstantExpressions pass = new RemoveConstantExpressions(compiler);
+    Node root = new Node(Token.BLOCK);
+
+    pass.process(null, root);
+
+    assertFalse(root.hasChildren());
+  }
+
+  @Test
+  public void testProcess_exprWithSideEffectCall_notRemoved() {
+    RemoveConstantExpressions pass = new RemoveConstantExpressions(compiler);
+    Node root = new Node(Token.BLOCK);
+    Node callExpr = createCallExpr("foo");
+    Node exprResult = new Node(Token.EXPR_RESULT, callExpr);
+    root.addChildToBack(exprResult);
+
+    pass.process(null, root);
+
+    assertTrue(root.hasChildren());
+    Node firstChild = root.getFirstChild();
+    assertEquals(Token.EXPR_RESULT, firstChild.getType());
+    assertEquals(Token.CALL, firstChild.getFirstChild().getType());
+  }
+
+  @Test
+  public void testProcess_pureNumberLiteralExpr_removed() {
+    RemoveConstantExpressions pass = new RemoveConstantExpressions(compiler);
+    Node root = new Node(Token.BLOCK);
+    Node numberLiteral = Node.newNumber(1);
+    Node exprResult = new Node(Token.EXPR_RESULT, numberLiteral);
+    root.addChildToBack(exprResult);
+
+    pass.process(null, root);
+
+    assertFalse(root.hasChildren());
+  }
+
+  @Test
+  public void testProcess_zeroNumberLiteralExpr_removed() {
+    RemoveConstantExpressions pass = new RemoveConstantExpressions(compiler);
+    Node root = new Node(Token.BLOCK);
+    Node numberLiteral = Node.newNumber(0);
+    Node exprResult = new Node(Token.EXPR_RESULT, numberLiteral);
+    root.addChildToBack(exprResult);
+
+    pass.process(null, root);
+
+    assertFalse(root.hasChildren());
+  }
+
+  @Test
+  public void testProcess_mixedAddExpressionWithCall_keepsCallOnly() {
+    RemoveConstantExpressions pass = new RemoveConstantExpressions(compiler);
+    Node root = new Node(Token.BLOCK);
+    Node numberLiteral = Node.newNumber(1);
+    Node callExpr = createCallExpr("foo");
+    Node addNode = new Node(Token.ADD, numberLiteral, callExpr);
+    Node exprResult = new Node(Token.EXPR_RESULT, addNode);
+    root.addChildToBack(exprResult);
+
+    pass.process(null, root);
+
+    assertTrue(root.hasChildren());
+    Node firstChild = root.getFirstChild();
+    assertEquals(Token.EXPR_RESULT, firstChild.getType());
+    assertEquals(Token.CALL, firstChild.getFirstChild().getType());
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testProcess_nullRoot_throwsNullPointerException() {
+    RemoveConstantExpressions pass = new RemoveConstantExpressions(compiler);
+    pass.process(null, null);
+  }
+
+  @Test
+  public void testProcess_nullCompilerWithNoChange_doesNotThrow() {
+    RemoveConstantExpressions pass = new RemoveConstantExpressions(null);
+    Node root = new Node(Token.BLOCK);
+    Node callExpr = createCallExpr("foo");
+    Node exprResult = new Node(Token.EXPR_RESULT, callExpr);
+    root.addChildToBack(exprResult);
+
+    pass.process(null, root);
+
+    assertTrue(root.hasChildren());
+  }
+
+  @Test
+  public void testRemoveConstantRValuesCallback_defaultConstructor_resultNotNull() {
+    RemoveConstantExpressions.RemoveConstantRValuesCallback cb =
+        new RemoveConstantExpressions.RemoveConstantRValuesCallback();
+
+    assertNotNull(cb.getResult());
+  }
+
+  @Test
+  public void testVisit_nonExprResultNode_doesNothing() {
+    RemoveConstantExpressions.RemoveConstantRValuesCallback cb =
+        new RemoveConstantExpressions.RemoveConstantRValuesCallback();
+    Node root = new Node(Token.BLOCK);
+    Node name = Node.newString(Token.NAME, "x");
+    root.addChildToBack(name);
+
+    cb.visit(null, name, root);
+
+    assertTrue(root.hasChildren());
+    assertEquals(name, root.getFirstChild());
+  }
+
+  @Test
+  public void testVisit_exprResultWithCall_notRemoved() {
+    RemoveConstantExpressions.RemoveConstantRValuesCallback cb =
+        new RemoveConstantExpressions.RemoveConstantRValuesCallback();
+    Node root = new Node(Token.BLOCK);
+    Node callExpr = createCallExpr("bar");
+    Node exprResult = new Node(Token.EXPR_RESULT, callExpr);
+    root.addChildToBack(exprResult);
+
+    cb.visit(null, exprResult, root);
+
+    assertTrue(root.hasChildren());
+    assertEquals(exprResult, root.getFirstChild());
+  }
+
+  @Test
+  public void testVisit_exprResultWithPureNumber_removedFromParent() {
+    RemoveConstantExpressions.RemoveConstantRValuesCallback cb =
+        new RemoveConstantExpressions.RemoveConstantRValuesCallback();
+    Node root = new Node(Token.BLOCK);
+    Node numberLiteral = Node.newNumber(42);
+    Node exprResult = new Node(Token.EXPR_RESULT, numberLiteral);
+    root.addChildToBack(exprResult);
+
+    cb.visit(null, exprResult, root);
+
+    assertFalse(root.hasChildren());
+  }
+
+  @Test
+  public void testVisit_exprResultWithNegativeNumber_removedFromParent() {
+    RemoveConstantExpressions.RemoveConstantRValuesCallback cb =
+        new RemoveConstantExpressions.RemoveConstantRValuesCallback();
+    Node root

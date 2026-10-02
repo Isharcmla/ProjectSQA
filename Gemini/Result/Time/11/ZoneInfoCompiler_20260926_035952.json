@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "11",
+  "tool": "gemini",
+  "class": "org.joda.time.tz.ZoneInfoCompiler",
+  "target_classes": [
+    "org.joda.time.tz.ZoneInfoCompiler"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 47.82,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Time\\11\\ZoneInfoCompiler_20260926_035952.txt",
+  "test_file": "Gemini\\TestCode\\Time\\11\\ZoneInfoCompilerTest.java",
+  "usage": {
+    "prompt_tokens": 7428,
+    "completion_tokens": 4475,
+    "total_tokens": 14490
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 228111,
+    "daily_remaining_tokens": 121889
+  },
+  "timestamp": "20260926_035952"
+}

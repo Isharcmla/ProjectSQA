@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "51",
+  "tool": "claude",
+  "class": "org.apache.commons.lang.BooleanUtils",
+  "target_classes": [
+    "org.apache.commons.lang.BooleanUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 69.95,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Lang\\51\\BooleanUtils_20261002_163635.txt",
+  "test_file": "Claude\\TestCode\\Lang\\51\\BooleanUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 15316,
+    "completion_tokens": 11656,
+    "total_tokens": 26972
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 70223,
+    "daily_remaining_tokens": 129777
+  },
+  "timestamp": "20261002_163635"
+}

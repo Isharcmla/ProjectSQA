@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "6",
+  "tool": "gemini",
+  "class": "org.joda.time.chrono.GJChronology",
+  "target_classes": [
+    "org.joda.time.chrono.GJChronology"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 42.06,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Time\\6\\GJChronology_20260926_042649.txt",
+  "test_file": "Gemini\\TestCode\\Time\\6\\GJChronologyTest.java",
+  "usage": {
+    "prompt_tokens": 11034,
+    "completion_tokens": 6191,
+    "total_tokens": 17225
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 310205,
+    "daily_remaining_tokens": 39795
+  },
+  "timestamp": "20260926_042649"
+}

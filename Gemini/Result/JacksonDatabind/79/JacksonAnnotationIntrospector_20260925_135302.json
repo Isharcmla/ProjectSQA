@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "79",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 83.6,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\79\\JacksonAnnotationIntrospector_20260925_135302.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\79\\JacksonAnnotationIntrospectorTest.java",
+  "usage": {
+    "prompt_tokens": 11655,
+    "completion_tokens": 12414,
+    "total_tokens": 24069
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 98271,
+    "daily_remaining_tokens": 251729
+  },
+  "timestamp": "20260925_135302"
+}

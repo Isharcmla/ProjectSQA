@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "11",
+  "tool": "gemini",
+  "class": "org.apache.commons.jxpath.ri.model.jdom.JDOMAttributeIterator",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.model.jdom.JDOMAttributeIterator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 34.79,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JxPath\\11\\JDOMAttributeIterator_20260926_010348.txt",
+  "test_file": "Gemini\\TestCode\\JxPath\\11\\JDOMAttributeIteratorTest.java",
+  "usage": {
+    "prompt_tokens": 1176,
+    "completion_tokens": 1573,
+    "total_tokens": 6290
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 6290,
+    "daily_remaining_tokens": 343710
+  },
+  "timestamp": "20260926_010348"
+}

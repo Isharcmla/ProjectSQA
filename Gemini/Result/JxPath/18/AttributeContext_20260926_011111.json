@@ -1,0 +1,33 @@
+{
+  "project": "JxPath",
+  "bug_id": "18",
+  "tool": "gemini",
+  "class": "org.apache.commons.jxpath.ri.axes.AttributeContext",
+  "target_classes": [
+    "org.apache.commons.jxpath.ri.axes.AttributeContext"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 46.3,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JxPath\\18\\AttributeContext_20260926_011111.txt",
+  "test_file": "Gemini\\TestCode\\JxPath\\18\\AttributeContextTest.java",
+  "usage": {
+    "prompt_tokens": 1008,
+    "completion_tokens": 2132,
+    "total_tokens": 7848
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 88978,
+    "daily_remaining_tokens": 261022
+  },
+  "timestamp": "20260926_011111"
+}

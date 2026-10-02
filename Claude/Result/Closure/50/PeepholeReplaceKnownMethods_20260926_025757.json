@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "50",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.PeepholeReplaceKnownMethods",
+  "target_classes": [
+    "com.google.javascript.jscomp.PeepholeReplaceKnownMethods"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 162.07,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\50\\PeepholeReplaceKnownMethods_20260926_025757.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 8833,
+    "completion_tokens": 16384,
+    "total_tokens": 25217
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 218960,
+    "daily_remaining_tokens": -18960
+  },
+  "timestamp": "20260926_025757"
+}

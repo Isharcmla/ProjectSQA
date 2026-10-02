@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "30",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.util.TokenBuffer",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.util.TokenBuffer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 48.25,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\30\\TokenBuffer_20260925_130617.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\30\\TokenBufferTest.java",
+  "usage": {
+    "prompt_tokens": 13916,
+    "completion_tokens": 7111,
+    "total_tokens": 21027
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 101526,
+    "daily_remaining_tokens": 248474
+  },
+  "timestamp": "20260925_130617"
+}

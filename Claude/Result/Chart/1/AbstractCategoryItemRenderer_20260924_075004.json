@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "1",
+  "tool": "claude",
+  "class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+  "target_classes": [
+    "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 154.78,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Chart\\1\\AbstractCategoryItemRenderer_20260924_075004.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 28595,
+    "completion_tokens": 16384,
+    "total_tokens": 44979
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 241137,
+    "daily_remaining_tokens": -41137
+  },
+  "timestamp": "20260924_075004"
+}

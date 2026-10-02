@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "88",
+  "tool": "claude",
+  "class": "org.apache.commons.math.optimization.linear.SimplexTableau",
+  "target_classes": [
+    "org.apache.commons.math.optimization.linear.SimplexTableau"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 97.2,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\88\\SimplexTableau_20261002_234247.txt",
+  "test_file": "Claude\\TestCode\\Math\\88\\SimplexTableauTest.java",
+  "usage": {
+    "prompt_tokens": 8018,
+    "completion_tokens": 15616,
+    "total_tokens": 23634
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 148315,
+    "daily_remaining_tokens": 51685
+  },
+  "timestamp": "20261002_234247"
+}

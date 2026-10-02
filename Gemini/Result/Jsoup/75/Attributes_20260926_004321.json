@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "75",
+  "tool": "gemini",
+  "class": "org.jsoup.nodes.Attributes",
+  "target_classes": [
+    "org.jsoup.nodes.Attributes"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 21.56,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\75\\Attributes_20260926_004321.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\75\\AttributesTest.java",
+  "usage": {
+    "prompt_tokens": 3718,
+    "completion_tokens": 3125,
+    "total_tokens": 6843
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 61945,
+    "daily_remaining_tokens": 288055
+  },
+  "timestamp": "20260926_004321"
+}

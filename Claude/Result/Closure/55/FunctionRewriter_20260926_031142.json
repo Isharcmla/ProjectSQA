@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "55",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.FunctionRewriter",
+  "target_classes": [
+    "com.google.javascript.jscomp.FunctionRewriter"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 155.67,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Closure\\55\\FunctionRewriter_20260926_031142.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 7013,
+    "completion_tokens": 16384,
+    "total_tokens": 23397
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 164056,
+    "daily_remaining_tokens": 35944
+  },
+  "timestamp": "20260926_031142"
+}

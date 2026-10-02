@@ -1,0 +1,236 @@
+package org.apache.commons.codec.language.bm;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.commons.codec.language.bm.Languages.LanguageSet;
+import org.apache.commons.codec.language.bm.Rule.Phoneme;
+import org.apache.commons.codec.language.bm.Rule.PhonemeExpr;
+import org.apache.commons.codec.language.bm.Rule.PhonemeList;
+import org.junit.Test;
+
+public class RuleTest {
+
+    // ---------------------------------------------------------------------
+    // Constructor / basic getters
+    // ---------------------------------------------------------------------
+
+    @Test
+    public void testConstructor_normalInput_gettersReturnCorrectValues() {
+        final Phoneme ph = new Phoneme("ab", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("x", "", "", ph);
+
+        assertEquals("x", rule.getPattern());
+        assertNotNull(rule.getLContext());
+        assertNotNull(rule.getRContext());
+        assertEquals(ph, rule.getPhoneme());
+    }
+
+    @Test
+    public void testGetPattern_emptyPattern_returnsEmptyString() {
+        final Phoneme ph = new Phoneme("z", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("", "", "", ph);
+        assertEquals("", rule.getPattern());
+    }
+
+    // ---------------------------------------------------------------------
+    // patternAndContextMatches - normal
+    // ---------------------------------------------------------------------
+
+    @Test
+    public void testPatternAndContextMatches_simpleMatch_returnsTrue() {
+        final Phoneme ph = new Phoneme("Y", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("y", "", "", ph);
+        assertTrue(rule.patternAndContextMatches("xyz", 1));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_patternDoesNotMatch_returnsFalse() {
+        final Phoneme ph = new Phoneme("Y", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("y", "", "", ph);
+        assertFalse(rule.patternAndContextMatches("xaz", 1));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_patternTooLongForInput_returnsFalse() {
+        final Phoneme ph = new Phoneme("Y", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("yz", "", "", ph);
+        assertFalse(rule.patternAndContextMatches("xy", 1));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_exactBoundaryMatch_returnsTrue() {
+        final Phoneme ph = new Phoneme("Y", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("yz", "", "", ph);
+        assertTrue(rule.patternAndContextMatches("xyz", 1));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_emptyPattern_matchesAtAnyPosition() {
+        final Phoneme ph = new Phoneme("", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("", "", "", ph);
+        assertTrue(rule.patternAndContextMatches("abc", 0));
+        assertTrue(rule.patternAndContextMatches("abc", 3));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testPatternAndContextMatches_negativeIndex_throwsException() {
+        final Phoneme ph = new Phoneme("Y", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("y", "", "", ph);
+        rule.patternAndContextMatches("xyz", -1);
+    }
+
+    // ---------------------------------------------------------------------
+    // patternAndContextMatches - left/right context: exact match branches
+    // ---------------------------------------------------------------------
+
+    @Test
+    public void testPatternAndContextMatches_lContextExactMatch_nonEmptyContent_matches() {
+        // lContext = "^ab" -> full regex "^ab$" (exact match branch, no box)
+        final Phoneme ph = new Phoneme("C", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("c", "^ab", "", ph);
+        assertTrue(rule.patternAndContextMatches("abc", 2));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_lContextExactMatch_nonEmptyContent_noMatch() {
+        final Phoneme ph = new Phoneme("C", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("c", "^ab", "", ph);
+        assertFalse(rule.patternAndContextMatches("xxc", 2));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_lContextExactMatch_emptyContent_matches() {
+        // lContext = "^" -> full regex "^$" (exact, empty content branch)
+        final Phoneme ph = new Phoneme("A", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("a", "^", "", ph);
+        assertTrue(rule.patternAndContextMatches("a", 0));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_lContextExactMatch_emptyContent_noMatch() {
+        final Phoneme ph = new Phoneme("A", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("a", "^", "", ph);
+        assertFalse(rule.patternAndContextMatches("xa", 1));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_lContextStartsWithOnly_matches() {
+        // rContext original "abc" -> full regex "^abc" (startsWith branch, no box)
+        final Phoneme ph = new Phoneme("X", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("x", "", "abc", ph);
+        assertTrue(rule.patternAndContextMatches("xabcd", 0));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_rContextStartsWithOnly_noMatch() {
+        final Phoneme ph = new Phoneme("X", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("x", "", "abc", ph);
+        assertFalse(rule.patternAndContextMatches("xzzzz", 0));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_lContextEndsWithOnly_matches() {
+        // lContext original "abc" -> full regex "abc$" (endsWith branch, no box)
+        final Phoneme ph = new Phoneme("X", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("x", "abc", "", ph);
+        assertTrue(rule.patternAndContextMatches("abcx", 3));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_lContextEndsWithOnly_noMatch() {
+        final Phoneme ph = new Phoneme("X", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("x", "abc", "", ph);
+        assertFalse(rule.patternAndContextMatches("zzzx", 3));
+    }
+
+    // ---------------------------------------------------------------------
+    // patternAndContextMatches - box context branches
+    // ---------------------------------------------------------------------
+
+    @Test
+    public void testPatternAndContextMatches_lContextBoxExactMatch_matches() {
+        // lContext = "^[ab]" -> full regex "^[ab]$" (exact box match)
+        final Phoneme ph = new Phoneme("C", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("c", "^[ab]", "", ph);
+        assertTrue(rule.patternAndContextMatches("ac", 1));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_lContextBoxExactMatch_noMatch() {
+        final Phoneme ph = new Phoneme("C", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("c", "^[ab]", "", ph);
+        assertFalse(rule.patternAndContextMatches("zc", 1));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_lContextBoxLastChar_matches() {
+        // lContext = "[aeiou]" -> full regex "[aeiou]$" (last-char box branch)
+        final Phoneme ph = new Phoneme("X", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("x", "[aeiou]", "", ph);
+        assertTrue(rule.patternAndContextMatches("bax", 2));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_lContextBoxLastChar_noMatch() {
+        final Phoneme ph = new Phoneme("X", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("x", "[aeiou]", "", ph);
+        assertFalse(rule.patternAndContextMatches("bzx", 2));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_rContextBoxNegatedFirstChar_matches() {
+        // rContext = "[^xyz]" -> full regex "^[^xyz]" (negated, first-char box branch)
+        final Phoneme ph = new Phoneme("A", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("a", "", "[^xyz]", ph);
+        assertTrue(rule.patternAndContextMatches("ab", 0));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_rContextBoxNegatedFirstChar_noMatch() {
+        final Phoneme ph = new Phoneme("A", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("a", "", "[^xyz]", ph);
+        assertFalse(rule.patternAndContextMatches("ax", 0));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_rContextEmptyAlwaysMatches() {
+        final Phoneme ph = new Phoneme("A", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("a", "", "", ph);
+        assertTrue(rule.patternAndContextMatches("a", 0));
+        assertTrue(rule.patternAndContextMatches("abcdef", 0));
+    }
+
+    // ---------------------------------------------------------------------
+    // patternAndContextMatches - regex fallback branches (box not at edges,
+    // or nested box)
+    // ---------------------------------------------------------------------
+
+    @Test
+    public void testPatternAndContextMatches_lContextRegexFallback_matches() {
+        // lContext = "ab[cd]" -> full regex "ab[cd]$" : box is not at the very
+        // start of content, so falls back to generic Pattern/Matcher.
+        final Phoneme ph = new Phoneme("Y", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("y", "ab[cd]", "", ph);
+        assertTrue(rule.patternAndContextMatches("abcy", 3));
+    }
+
+    @Test
+    public void testPatternAndContextMatches_lContextRegexFallback_noMatch() {
+        final Phoneme ph = new Phoneme("Y", Languages.ANY_LANGUAGE);
+        final Rule rule = new Rule("y", "ab[cd]", "", ph);
+        assertFalse(rule.patternAndContextMatches("xxxy", 3));
+    }
+
+    @Test
+    public void testPatternAndContext

@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "90",
+  "tool": "claude",
+  "class": "org.jsoup.helper.HttpConnection",
+  "target_classes": [
+    "org.jsoup.helper.HttpConnection"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 90.78,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\90\\HttpConnection_20261001_123322.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\90\\HttpConnectionTest.java",
+  "usage": {
+    "prompt_tokens": 15370,
+    "completion_tokens": 13181,
+    "total_tokens": 28551
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 83153,
+    "daily_remaining_tokens": 116847
+  },
+  "timestamp": "20261001_123322"
+}

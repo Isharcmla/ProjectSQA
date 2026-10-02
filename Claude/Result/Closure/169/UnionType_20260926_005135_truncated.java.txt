@@ -1,0 +1,178 @@
+package com.google.javascript.rhino.jstype;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import com.google.common.base.Predicate;
+import com.google.javascript.rhino.ErrorReporter;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class UnionTypeTest {
+
+  private JSTypeRegistry registry;
+
+  @Before
+  public void setUp() {
+    ErrorReporter errorReporter = new ErrorReporter() {
+      @Override
+      public void warning(String message, String sourceName, int line, int lineOffset) {
+        // no-op
+      }
+
+      @Override
+      public void error(String message, String sourceName, int line, int lineOffset) {
+        // no-op
+      }
+    };
+    registry = new JSTypeRegistry(errorReporter);
+  }
+
+  private JSType numberType() {
+    return registry.getNativeType(JSTypeNative.NUMBER_TYPE);
+  }
+
+  private JSType stringType() {
+    return registry.getNativeType(JSTypeNative.STRING_TYPE);
+  }
+
+  private JSType booleanType() {
+    return registry.getNativeType(JSTypeNative.BOOLEAN_TYPE);
+  }
+
+  private JSType nullType() {
+    return registry.getNativeType(JSTypeNative.NULL_TYPE);
+  }
+
+  private JSType voidType() {
+    return registry.getNativeType(JSTypeNative.VOID_TYPE);
+  }
+
+  private JSType unknownType() {
+    return registry.getNativeType(JSTypeNative.UNKNOWN_TYPE);
+  }
+
+  private JSType allType() {
+    return registry.getNativeType(JSTypeNative.ALL_TYPE);
+  }
+
+  private JSType objectType() {
+    return registry.getNativeType(JSTypeNative.OBJECT_TYPE);
+  }
+
+  private JSType arrayType() {
+    return registry.getNativeType(JSTypeNative.ARRAY_TYPE);
+  }
+
+  private JSType dateType() {
+    return registry.getNativeType(JSTypeNative.DATE_TYPE);
+  }
+
+  private UnionType createUnion(JSType... types) {
+    JSType result = registry.createUnionType(types);
+    UnionType union = result.toMaybeUnionType();
+    if (union == null) {
+      fail("Expected a real UnionType to be created, but types collapsed into: " + result);
+    }
+    return union;
+  }
+
+  // ---------------------------------------------------------------
+  // getAlternates
+  // ---------------------------------------------------------------
+
+  @Test
+  public void testGetAlternates_normalUnion_returnsAllAlternates() {
+    UnionType union = createUnion(numberType(), stringType());
+    int count = 0;
+    for (JSType t : union.getAlternates()) {
+      count++;
+    }
+    assertEquals(2, count);
+  }
+
+  // ---------------------------------------------------------------
+  // matchesNumberContext / matchesStringContext / matchesObjectContext
+  // ---------------------------------------------------------------
+
+  @Test
+  public void testMatchesNumberContext_unionOfNumberAndString_matchesExpectedOr() {
+    JSType number = numberType();
+    JSType string = stringType();
+    UnionType union = createUnion(number, string);
+    boolean expected = number.matchesNumberContext() || string.matchesNumberContext();
+    assertEquals(expected, union.matchesNumberContext());
+  }
+
+  @Test
+  public void testMatchesNumberContext_unionOfNullAndVoid_matchesExpectedOr() {
+    JSType n = nullType();
+    JSType v = voidType();
+    UnionType union = createUnion(n, v);
+    boolean expected = n.matchesNumberContext() || v.matchesNumberContext();
+    assertEquals(expected, union.matchesNumberContext());
+  }
+
+  @Test
+  public void testMatchesStringContext_unionOfNumberAndString_matchesExpectedOr() {
+    JSType number = numberType();
+    JSType string = stringType();
+    UnionType union = createUnion(number, string);
+    boolean expected = number.matchesStringContext() || string.matchesStringContext();
+    assertEquals(expected, union.matchesStringContext());
+  }
+
+  @Test
+  public void testMatchesObjectContext_unionOfNumberAndString_matchesExpectedOr() {
+    JSType number = numberType();
+    JSType string = stringType();
+    UnionType union = createUnion(number, string);
+    boolean expected = number.matchesObjectContext() || string.matchesObjectContext();
+    assertEquals(expected, union.matchesObjectContext());
+  }
+
+  // ---------------------------------------------------------------
+  // findPropertyType
+  // ---------------------------------------------------------------
+
+  @Test
+  public void testFindPropertyType_nonExistentProperty_returnsNull() {
+    UnionType union = createUnion(numberType(), stringType());
+    JSType propType = union.findPropertyType("thisPropertyDoesNotExistAnywhere");
+    assertNull(propType);
+  }
+
+  @Test
+  public void testFindPropertyType_withNullAndVoidAlternates_skipsThem() {
+    UnionType union = createUnion(nullType(), voidType());
+    JSType propType = union.findPropertyType("anyProperty");
+    assertNull(propType);
+  }
+
+  // ---------------------------------------------------------------
+  // canAssignTo
+  // ---------------------------------------------------------------
+
+  @Test
+  public void testCanAssignTo_unionToAllType_returnsTrue() {
+    UnionType union = createUnion(numberType(), stringType());
+    assertTrue(union.canAssignTo(allType()));
+  }
+
+  // ---------------------------------------------------------------
+  // canBeCalled
+  // ---------------------------------------------------------------
+
+  @Test
+  public void testCanBeCalled_unionOfNumberAndString_matchesExpectedAnd() {
+    JSType number = numberType();
+    JSType string = stringType();
+    UnionType union = createUnion(number, string);
+    boolean expected = number.canBeCalled() && string.canBeCalled();
+    assertEquals(expected, union.canBeCalled());
+  }

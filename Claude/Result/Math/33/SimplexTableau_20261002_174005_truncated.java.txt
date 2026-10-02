@@ -1,0 +1,184 @@
+package org.apache.commons.math3.optimization.linear;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.math3.optimization.GoalType;
+import org.apache.commons.math3.optimization.PointValuePair;
+import org.junit.Test;
+
+public class SimplexTableauTest {
+
+    private LinearObjectiveFunction createFunction() {
+        return new LinearObjectiveFunction(new double[]{1, 1}, 0);
+    }
+
+    private List<LinearConstraint> createLeqConstraints() {
+        List<LinearConstraint> constraints = new ArrayList<LinearConstraint>();
+        constraints.add(new LinearConstraint(new double[]{1, 0}, Relationship.LEQ, 2));
+        constraints.add(new LinearConstraint(new double[]{0, 1}, Relationship.LEQ, 3));
+        return constraints;
+    }
+
+    @Test
+    public void testConstructor_normalInput_createsTableau() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = createLeqConstraints();
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+        assertNotNull(tableau);
+        assertEquals(2, tableau.getNumDecisionVariables());
+        assertEquals(2, tableau.getNumSlackVariables());
+        assertEquals(0, tableau.getNumArtificialVariables());
+    }
+
+    @Test
+    public void testConstructor_withMaxUlps_createsTableau() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = createLeqConstraints();
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MINIMIZE, true, 1.0e-6, 5);
+        assertNotNull(tableau);
+    }
+
+    @Test
+    public void testConstructor_withEqConstraint_createsArtificialVariables() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = new ArrayList<LinearConstraint>();
+        constraints.add(new LinearConstraint(new double[]{1, 1}, Relationship.EQ, 4));
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+        assertEquals(1, tableau.getNumArtificialVariables());
+        assertEquals(2, tableau.getNumObjectiveFunctions());
+    }
+
+    @Test
+    public void testConstructor_withGeqConstraint_createsArtificialAndSlack() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = new ArrayList<LinearConstraint>();
+        constraints.add(new LinearConstraint(new double[]{1, 1}, Relationship.GEQ, 1));
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+        assertEquals(1, tableau.getNumArtificialVariables());
+        assertEquals(1, tableau.getNumSlackVariables());
+    }
+
+    @Test
+    public void testConstructor_negativeConstraintValue_normalizesConstraint() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = new ArrayList<LinearConstraint>();
+        constraints.add(new LinearConstraint(new double[]{1, 1}, Relationship.LEQ, -2));
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+        // after normalization, relationship flips from LEQ to GEQ -> artificial variable required
+        assertEquals(1, tableau.getNumArtificialVariables());
+    }
+
+    @Test
+    public void testConstructor_restrictToNonNegativeFalse_addsExtraVariable() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = createLeqConstraints();
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, false, 1.0e-6);
+        assertEquals(3, tableau.getNumDecisionVariables());
+        assertEquals(2, tableau.getOriginalNumDecisionVariables());
+    }
+
+    @Test
+    public void testConstructor_emptyConstraints_createsValidTableau() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = new ArrayList<LinearConstraint>();
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+        assertEquals(0, tableau.getNumArtificialVariables());
+        assertEquals(0, tableau.getNumSlackVariables());
+        assertEquals(1, tableau.getHeight());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testConstructor_nullObjectiveFunction_throwsException() {
+        List<LinearConstraint> constraints = createLeqConstraints();
+        new SimplexTableau(null, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testConstructor_nullConstraints_throwsException() {
+        LinearObjectiveFunction f = createFunction();
+        new SimplexTableau(f, null, GoalType.MAXIMIZE, true, 1.0e-6);
+    }
+
+    @Test
+    public void testGetWidth_typicalTableau_correctWidth() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = createLeqConstraints();
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+        assertEquals(6, tableau.getWidth());
+    }
+
+    @Test
+    public void testGetHeight_typicalTableau_correctHeight() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = createLeqConstraints();
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+        assertEquals(3, tableau.getHeight());
+    }
+
+    @Test
+    public void testGetEntryAndSetEntry_modifyValue_reflectsChange() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = createLeqConstraints();
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+        tableau.setEntry(0, 0, 99);
+        assertEquals(99, tableau.getEntry(0, 0), 1e-9);
+    }
+
+    @Test
+    public void testGetSlackVariableOffset_typicalTableau_correctOffset() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = createLeqConstraints();
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+        assertEquals(3, tableau.getSlackVariableOffset());
+    }
+
+    @Test
+    public void testGetArtificialVariableOffset_typicalTableau_correctOffset() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = createLeqConstraints();
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+        assertEquals(5, tableau.getArtificialVariableOffset());
+    }
+
+    @Test
+    public void testGetRhsOffset_typicalTableau_correctOffset() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = createLeqConstraints();
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+        assertEquals(tableau.getWidth() - 1, tableau.getRhsOffset());
+    }
+
+    @Test
+    public void testGetData_typicalTableau_returnsData() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = createLeqConstraints();
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MAXIMIZE, true, 1.0e-6);
+        double[][] data = tableau.getData();
+        assertNotNull(data);
+        assertEquals(tableau.getHeight(), data.length);
+        assertEquals(tableau.getWidth(), data[0].length);
+    }
+
+    @Test
+    public void testIsOptimal_optimalTableau_returnsTrue() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = createLeqConstraints();
+        SimplexTableau tableau = new SimplexTableau(f, constraints, GoalType.MINIMIZE, true, 1.0e-6);
+        assertTrue(tableau.isOptimal());
+    }
+
+    @Test
+    public void testIsOptimal_nonOptimalTableau_returnsFalse() {
+        LinearObjectiveFunction f = createFunction();
+        List<LinearConstraint> constraints = create

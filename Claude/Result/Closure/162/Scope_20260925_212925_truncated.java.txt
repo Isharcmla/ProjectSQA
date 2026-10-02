@@ -1,0 +1,255 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+import com.google.javascript.rhino.jstype.ObjectType;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.Iterator;
+
+public class ScopeTest {
+
+  private Node globalRootNode;
+  private Node childRootNode;
+  private Scope globalScope;
+  private Scope childScope;
+
+  @Before
+  public void setUp() {
+    globalRootNode = new Node(Token.FUNCTION);
+    globalScope = new Scope(globalRootNode, (ObjectType) null);
+    childRootNode = new Node(Token.FUNCTION);
+    childScope = new Scope(globalScope, childRootNode);
+  }
+
+  // ---------- Constructor tests ----------
+
+  @Test
+  public void testConstructor_nullParent_throwsNullPointerException() {
+    try {
+      new Scope((Scope) null, new Node(Token.FUNCTION));
+      fail("Expected NullPointerException");
+    } catch (NullPointerException e) {
+      // expected
+    }
+  }
+
+  @Test
+  public void testConstructor_sameRootNodeAsParent_throwsIllegalArgumentException() {
+    try {
+      new Scope(globalScope, globalRootNode);
+      fail("Expected IllegalArgumentException");
+    } catch (IllegalArgumentException e) {
+      // expected
+    }
+  }
+
+  @Test
+  public void testConstructor_bottomScope_isBottomTrue() {
+    Node rootNode = new Node(Token.FUNCTION);
+    Scope bottomScope = new Scope(rootNode, (ObjectType) null);
+    assertTrue(bottomScope.isBottom());
+    assertNull(bottomScope.getParent());
+  }
+
+  @Test
+  public void testConstructor_childScope_isBottomFalse() {
+    assertFalse(childScope.isBottom());
+  }
+
+  // ---------- getDepth ----------
+
+  @Test
+  public void testGetDepth_globalScope_returnsZero() {
+    assertEquals(0, globalScope.getDepth());
+  }
+
+  @Test
+  public void testGetDepth_childScope_returnsParentPlusOne() {
+    assertEquals(1, childScope.getDepth());
+  }
+
+  // ---------- isBottom ----------
+
+  @Test
+  public void testIsBottom_globalScope_returnsTrue() {
+    assertTrue(globalScope.isBottom());
+  }
+
+  @Test
+  public void testIsBottom_childScope_returnsFalse() {
+    assertFalse(childScope.isBottom());
+  }
+
+  // ---------- getRootNode ----------
+
+  @Test
+  public void testGetRootNode_returnsSameNode() {
+    assertSame(globalRootNode, globalScope.getRootNode());
+    assertSame(childRootNode, childScope.getRootNode());
+  }
+
+  // ---------- getParent ----------
+
+  @Test
+  public void testGetParent_globalScope_returnsNull() {
+    assertNull(globalScope.getParent());
+  }
+
+  @Test
+  public void testGetParent_childScope_returnsParentScope() {
+    assertSame(globalScope, childScope.getParent());
+  }
+
+  // ---------- getGlobalScope ----------
+
+  @Test
+  public void testGetGlobalScope_fromChild_returnsRoot() {
+    assertSame(globalScope, childScope.getGlobalScope());
+  }
+
+  @Test
+  public void testGetGlobalScope_fromGlobal_returnsSelf() {
+    assertSame(globalScope, globalScope.getGlobalScope());
+  }
+
+  // ---------- getParentScope ----------
+
+  @Test
+  public void testGetParentScope_child_returnsParent() {
+    assertSame(globalScope, childScope.getParentScope());
+  }
+
+  @Test
+  public void testGetParentScope_global_returnsNull() {
+    assertNull(globalScope.getParentScope());
+  }
+
+  // ---------- getTypeOfThis ----------
+
+  @Test
+  public void testGetTypeOfThis_bottomScope_returnsNull() {
+    assertNull(globalScope.getTypeOfThis());
+  }
+
+  @Test
+  public void testGetTypeOfThis_childScope_returnsParentThisType() {
+    assertNull(childScope.getTypeOfThis());
+  }
+
+  // ---------- declare ----------
+
+  @Test
+  public void testDeclare_validVariable_addsToScope() {
+    Node nameNode = new Node(Token.FUNCTION);
+    Scope.Var var = childScope.declare("x", nameNode, null, null);
+    assertNotNull(var);
+    assertEquals("x", var.getName());
+    assertSame(nameNode, var.getNode());
+    assertNull(var.getType());
+    assertTrue(var.isTypeInferred());
+    assertSame(childScope, var.getScope());
+    assertEquals(1, childScope.getVarCount());
+  }
+
+  @Test
+  public void testDeclare_duplicateVariable_throwsIllegalStateException() {
+    Node nameNode1 = new Node(Token.FUNCTION);
+    Node nameNode2 = new Node(Token.FUNCTION);
+    childScope.declare("dup", nameNode1, null, null);
+    try {
+      childScope.declare("dup", nameNode2, null, null);
+      fail("Expected IllegalStateException");
+    } catch (IllegalStateException e) {
+      // expected
+    }
+  }
+
+  @Test
+  public void testDeclare_emptyName_throwsIllegalStateException() {
+    Node nameNode = new Node(Token.FUNCTION);
+    try {
+      childScope.declare("", nameNode, null, null);
+      fail("Expected IllegalStateException");
+    } catch (IllegalStateException e) {
+      // expected
+    }
+  }
+
+  @Test
+  public void testDeclare_nullName_throwsIllegalStateException() {
+    Node nameNode = new Node(Token.FUNCTION);
+    try {
+      childScope.declare(null, nameNode, null, null);
+      fail("Expected IllegalStateException");
+    } catch (IllegalStateException e) {
+      // expected
+    }
+  }
+
+  @Test
+  public void testDeclare_notInferred_setsTypeInferredFalse() {
+    Node nameNode = new Node(Token.FUNCTION);
+    Scope.Var var = childScope.declare("y", nameNode, null, null, false);
+    assertFalse(var.isTypeInferred());
+  }
+
+  // ---------- undeclare ----------
+
+  @Test
+  public void testUndeclare_validVar_removesFromScope() {
+    Node nameNode = new Node(Token.FUNCTION);
+    Scope.Var var = childScope.declare("z", nameNode, null, null);
+    childScope.undeclare(var);
+    assertNull(childScope.getOwnSlot("z"));
+    assertEquals(0, childScope.getVarCount());
+  }
+
+  @Test
+  public void testUndeclare_varFromDifferentScope_throwsIllegalStateException() {
+    Node nameNode = new Node(Token.FUNCTION);
+    Scope.Var var = globalScope.declare("g", nameNode, null, null);
+    try {
+      childScope.undeclare(var);
+      fail("Expected IllegalStateException");
+    } catch (IllegalStateException e) {
+      // expected
+    }
+  }
+
+  // ---------- getSlot / getOwnSlot ----------
+
+  @Test
+  public void testGetSlot_existingVar_returnsVar() {
+    Node nameNode = new Node(Token.FUNCTION);
+    Scope.Var var = childScope.declare("a", nameNode, null, null);
+    assertSame(var, childScope.getSlot("a"));
+  }
+
+  @Test
+  public void testGetSlot_nonExistingVar_returnsNull() {
+    assertNull(childScope.getSlot("notThere"));
+  }
+
+  @Test
+  public void testGetOwnSlot_existingVar_returnsVar() {
+    Node nameNode = new Node(Token.FUNCTION);
+    Scope.Var var = childScope.declare("b", nameNode, null, null);
+    assertSame(var, childScope.getOwnSlot("b"));
+  }
+
+  @Test
+  public void testGetOwnSlot_parentVar_returnsNull() {
+    Node nameNode = new Node(Token.FUNCTION);
+    globalScope.declare("parentVar", nameNode, null, null);
+    assertN

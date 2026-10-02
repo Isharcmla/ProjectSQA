@@ -1,0 +1,33 @@
+{
+  "project": "Lang",
+  "bug_id": "63",
+  "tool": "claude",
+  "class": "org.apache.commons.lang.time.DurationFormatUtils",
+  "target_classes": [
+    "org.apache.commons.lang.time.DurationFormatUtils"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 143.29,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Lang\\63\\DurationFormatUtils_20261002_165248.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 9535,
+    "completion_tokens": 16384,
+    "total_tokens": 25919
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 194408,
+    "daily_remaining_tokens": 5592
+  },
+  "timestamp": "20261002_165248"
+}

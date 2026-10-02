@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "147",
+  "tool": "claude",
+  "class": "com.google.javascript.jscomp.RuntimeTypeCheck",
+  "target_classes": [
+    "com.google.javascript.jscomp.RuntimeTypeCheck"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 114.78,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Closure\\147\\RuntimeTypeCheck_20260925_202318.txt",
+  "test_file": "Claude\\TestCode\\Closure\\147\\RuntimeTypeCheckTest.java",
+  "usage": {
+    "prompt_tokens": 5828,
+    "completion_tokens": 12747,
+    "total_tokens": 18575
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 18575,
+    "daily_remaining_tokens": 181425
+  },
+  "timestamp": "20260925_202318"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "11",
+  "tool": "claude",
+  "class": "org.joda.time.tz.ZoneInfoCompiler",
+  "target_classes": [
+    "org.joda.time.tz.ZoneInfoCompiler"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 102.44,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Time\\11\\ZoneInfoCompiler_20261003_012448.txt",
+  "test_file": "Claude\\TestCode\\Time\\11\\ZoneInfoCompilerTest.java",
+  "usage": {
+    "prompt_tokens": 11206,
+    "completion_tokens": 13543,
+    "total_tokens": 24749
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 41082,
+    "daily_remaining_tokens": 158918
+  },
+  "timestamp": "20261003_012448"
+}

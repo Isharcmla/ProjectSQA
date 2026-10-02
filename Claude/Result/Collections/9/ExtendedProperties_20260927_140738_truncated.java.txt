@@ -1,0 +1,665 @@
+import org.junit.Test;
+import org.junit.Before;
+import org.junit.After;
+import org.junit.Assume;
+import static org.junit.Assert.*;
+
+import org.apache.commons.collections.ExtendedProperties;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Properties;
+import java.util.Vector;
+
+public class ExtendedPropertiesTest {
+
+    private File tempDir;
+
+    @Before
+    public void setUp() throws IOException {
+        File tmp = File.createTempFile("edp", "");
+        tmp.delete();
+        tmp.mkdir();
+        tempDir = tmp;
+    }
+
+    @After
+    public void tearDown() {
+        if (tempDir != null && tempDir.exists()) {
+            File[] files = tempDir.listFiles();
+            if (files != null) {
+                for (File f : files) {
+                    f.delete();
+                }
+            }
+            tempDir.delete();
+        }
+    }
+
+    private File writeFile(String name, String content) throws IOException {
+        File f = new File(tempDir, name);
+        FileWriter fw = new FileWriter(f);
+        try {
+            fw.write(content);
+        } finally {
+            fw.close();
+        }
+        return f;
+    }
+
+    // ---------- Constructors ----------
+
+    @Test
+    public void testDefaultConstructor_createsEmptyProperties() {
+        ExtendedProperties props = new ExtendedProperties();
+        assertFalse(props.isInitialized());
+        assertFalse(props.getKeys().hasNext());
+    }
+
+    @Test
+    public void testConstructorWithFile_loadsProperties() throws IOException {
+        File f = writeFile("main.properties", "key1=value1\n");
+        ExtendedProperties props = new ExtendedProperties(f.getAbsolutePath());
+        assertEquals("value1", props.getString("key1"));
+        assertTrue(props.isInitialized());
+    }
+
+    @Test
+    public void testConstructorWithFileAndDefaultFile_loadsBothFiles() throws IOException {
+        File defFile = writeFile("defaults.properties", "defKey=defValue\n");
+        File mainFile = writeFile("main2.properties", "mainKey=mainValue\n");
+        ExtendedProperties props = new ExtendedProperties(mainFile.getAbsolutePath(), defFile.getAbsolutePath());
+        assertEquals("mainValue", props.getString("mainKey"));
+        assertEquals("defValue", props.getString("defKey"));
+    }
+
+    @Test(expected = IOException.class)
+    public void testConstructorWithFile_fileNotFound_throwsIOException() throws IOException {
+        new ExtendedProperties(new File(tempDir, "doesNotExist.properties").getAbsolutePath());
+    }
+
+    // ---------- isInitialized ----------
+
+    @Test
+    public void testIsInitialized_beforeLoad_returnsFalse() {
+        ExtendedProperties props = new ExtendedProperties();
+        assertFalse(props.isInitialized());
+    }
+
+    @Test
+    public void testIsInitialized_afterAddProperty_returnsTrue() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v");
+        assertTrue(props.isInitialized());
+    }
+
+    // ---------- getInclude / setInclude ----------
+
+    @Test
+    public void testGetInclude_default_returnsInclude() {
+        ExtendedProperties props = new ExtendedProperties();
+        assertEquals("include", props.getInclude());
+    }
+
+    @Test
+    public void testSetInclude_withValue_returnsValue() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.setInclude("myInclude");
+        assertEquals("myInclude", props.getInclude());
+    }
+
+    @Test
+    public void testSetInclude_withEmptyString_getIncludeReturnsNull() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.setInclude("");
+        assertNull(props.getInclude());
+    }
+
+    @Test
+    public void testSetInclude_withNull_setsEmptyBehavesAsNull() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.setInclude(null);
+        assertNull(props.getInclude());
+    }
+
+    // ---------- load ----------
+
+    @Test
+    public void testLoad_withInputStream_parsesProperties() throws IOException {
+        ExtendedProperties props = new ExtendedProperties();
+        String content = "# comment\n\nkey1=value1\nkey2=value2\n";
+        InputStream is = new ByteArrayInputStream(content.getBytes());
+        props.load(is);
+        assertEquals("value1", props.getString("key1"));
+        assertEquals("value2", props.getString("key2"));
+    }
+
+    @Test
+    public void testLoad_withEncoding_parsesProperties() throws IOException {
+        ExtendedProperties props = new ExtendedProperties();
+        String content = "keyEnc=valueEnc\n";
+        InputStream is = new ByteArrayInputStream(content.getBytes());
+        props.load(is, "UTF-8");
+        assertEquals("valueEnc", props.getString("keyEnc"));
+    }
+
+    @Test
+    public void testLoad_withInvalidEncoding_fallsBackToDefault() throws IOException {
+        ExtendedProperties props = new ExtendedProperties();
+        String content = "keyBad=valueBad\n";
+        InputStream is = new ByteArrayInputStream(content.getBytes());
+        props.load(is, "NOT_A_REAL_ENCODING");
+        assertEquals("valueBad", props.getString("keyBad"));
+    }
+
+    @Test
+    public void testLoad_lineWithoutEquals_isIgnored() throws IOException {
+        ExtendedProperties props = new ExtendedProperties();
+        String content = "novalueline\nrealKey=realValue\n";
+        InputStream is = new ByteArrayInputStream(content.getBytes());
+        props.load(is);
+        assertEquals("realValue", props.getString("realKey"));
+        assertNull(props.getString("novalueline"));
+    }
+
+    @Test
+    public void testLoad_lineWithEmptyValue_isSkipped() throws IOException {
+        ExtendedProperties props = new ExtendedProperties();
+        String content = "emptyKey=\nrealKey=realValue\n";
+        InputStream is = new ByteArrayInputStream(content.getBytes());
+        props.load(is);
+        assertNull(props.getString("emptyKey"));
+        assertEquals("realValue", props.getString("realKey"));
+    }
+
+    @Test
+    public void testLoad_multiLineContinuation_concatenatesValue() throws IOException {
+        ExtendedProperties props = new ExtendedProperties();
+        String content = "longvalue = aaa\\\nbbb\n";
+        InputStream is = new ByteArrayInputStream(content.getBytes());
+        props.load(is);
+        String val = props.getString("longvalue");
+        assertEquals("aaabbb", val);
+    }
+
+    @Test
+    public void testLoad_tokensOnALine_createsMultipleValues() throws IOException {
+        ExtendedProperties props = new ExtendedProperties();
+        String content = "tokens = first token, second token\n";
+        InputStream is = new ByteArrayInputStream(content.getBytes());
+        props.load(is);
+        String[] arr = props.getStringArray("tokens");
+        assertEquals(2, arr.length);
+        assertEquals("first token", arr[0]);
+        assertEquals("second token", arr[1]);
+    }
+
+    @Test
+    public void testLoad_escapedComma_isUnescaped() throws IOException {
+        ExtendedProperties props = new ExtendedProperties();
+        String content = "commas.escaped = Hi\\, what'up?\n";
+        InputStream is = new ByteArrayInputStream(content.getBytes());
+        props.load(is);
+        assertEquals("Hi, what'up?", props.getString("commas.escaped"));
+    }
+
+    @Test
+    public void testLoad_duplicateKey_createsVector() throws IOException {
+        ExtendedProperties props = new ExtendedProperties();
+        String content = "dup=one\ndup=two\n";
+        InputStream is = new ByteArrayInputStream(content.getBytes());
+        props.load(is);
+        String[] arr = props.getStringArray("dup");
+        assertEquals(2, arr.length);
+        assertEquals("one", arr[0]);
+        assertEquals("two", arr[1]);
+    }
+
+    @Test
+    public void testLoad_includeRelative_loadsIncludedFile() throws IOException {
+        writeFile("included.properties", "key2=value2\n");
+        File main = writeFile("main.properties", "key1=value1\ninclude=included.properties\n");
+        ExtendedProperties props = new ExtendedProperties(main.getAbsolutePath());
+        assertEquals("value1", props.getString("key1"));
+        assertEquals("value2", props.getString("key2"));
+    }
+
+    @Test
+    public void testLoad_includeWithDotSlash_loadsIncludedFile() throws IOException {
+        writeFile("included2.properties", "key3=value3\n");
+        String sep = System.getProperty("file.separator");
+        File main = writeFile("main3.properties", "key1=value1\ninclude=." + sep + "included2.properties\n");
+        ExtendedProperties props = new ExtendedProperties(main.getAbsolutePath());
+        assertEquals("value1", props.getString("key1"));
+        assertEquals("value3", props.getString("key3"));
+    }
+
+    @Test
+    public void testLoad_includeAbsolutePath_loadsIncludedFile() throws IOException {
+        Assume.assumeTrue(File.separatorChar == '/');
+        File included = writeFile("included3.properties", "key4=value4\n");
+        File main = writeFile("main4.properties", "key1=value1\ninclude=" + included.getAbsolutePath() + "\n");
+        ExtendedProperties props = new ExtendedProperties(main.getAbsolutePath());
+        assertEquals("value1", props.getString("key1"));
+        assertEquals("value4", props.getString("key4"));
+    }
+
+    // ---------- getProperty ----------
+
+    @Test
+    public void testGetProperty_existingKey_returnsValue() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v");
+        assertEquals("v", props.getProperty("k"));
+    }
+
+    @Test
+    public void testGetProperty_nonExistingKeyNoDefaults_returnsNull() {
+        ExtendedProperties props = new ExtendedProperties();
+        assertNull(props.getProperty("missing"));
+    }
+
+    @Test
+    public void testGetProperty_nonExistingKeyWithDefaults_returnsDefaultValue() throws IOException {
+        File defFile = writeFile("defs.properties", "defKey=defValue\n");
+        File mainFile = writeFile("mainx.properties", "mainKey=mainValue\n");
+        ExtendedProperties props = new ExtendedProperties(mainFile.getAbsolutePath(), defFile.getAbsolutePath());
+        assertEquals("defValue", props.getProperty("defKey"));
+    }
+
+    // ---------- addProperty ----------
+
+    @Test
+    public void testAddProperty_singleValue_addsAsString() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v");
+        assertEquals("v", props.getString("k"));
+    }
+
+    @Test
+    public void testAddProperty_duplicateKey_createsVector() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v1");
+        props.addProperty("k", "v2");
+        String[] arr = props.getStringArray("k");
+        assertEquals(2, arr.length);
+    }
+
+    @Test
+    public void testAddProperty_commaSeparatedValue_splitsIntoTokens() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "a,b,c");
+        String[] arr = props.getStringArray("k");
+        assertEquals(3, arr.length);
+        assertEquals("a", arr[0]);
+        assertEquals("b", arr[1]);
+        assertEquals("c", arr[2]);
+    }
+
+    @Test
+    public void testAddProperty_nonStringValue_addsDirectly() {
+        ExtendedProperties props = new ExtendedProperties();
+        Integer value = new Integer(5);
+        props.addProperty("k", value);
+        assertEquals(value, props.getProperty("k"));
+    }
+
+    // ---------- setProperty ----------
+
+    @Test
+    public void testSetProperty_overwritesExisting() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "old1");
+        props.addProperty("k", "old2");
+        props.setProperty("k", "new");
+        assertEquals("new", props.getString("k"));
+        String[] arr = props.getStringArray("k");
+        assertEquals(1, arr.length);
+    }
+
+    // ---------- save ----------
+
+    @Test
+    public void testSave_withOutputStream_writesProperties() throws IOException {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k1", "v1");
+        props.addProperty("k2", "v2a");
+        props.addProperty("k2", "v2b");
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        props.save(baos, "header comment");
+        String output = baos.toString();
+        assertTrue(output.contains("header comment"));
+        assertTrue(output.contains("k1=v1"));
+        assertTrue(output.contains("k2=v2a"));
+        assertTrue(output.contains("k2=v2b"));
+    }
+
+    @Test
+    public void testSave_withNullOutputStream_doesNothing() throws IOException {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v");
+        props.save(null, "header");
+        // no exception thrown -> success
+        assertTrue(true);
+    }
+
+    @Test
+    public void testSave_withNullHeader_writesWithoutHeader() throws IOException {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v");
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        props.save(baos, null);
+        String output = baos.toString();
+        assertTrue(output.contains("k=v"));
+    }
+
+    // ---------- combine ----------
+
+    @Test
+    public void testCombine_mergesProperties() {
+        ExtendedProperties props1 = new ExtendedProperties();
+        props1.addProperty("k1", "v1");
+        ExtendedProperties props2 = new ExtendedProperties();
+        props2.addProperty("k2", "v2");
+        props1.combine(props2);
+        assertEquals("v1", props1.getString("k1"));
+        assertEquals("v2", props1.getString("k2"));
+    }
+
+    // ---------- clearProperty ----------
+
+    @Test
+    public void testClearProperty_existingKey_removesIt() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v");
+        props.clearProperty("k");
+        assertNull(props.getString("k"));
+        assertFalse(props.getKeys().hasNext());
+    }
+
+    @Test
+    public void testClearProperty_nonExistingKey_noEffect() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v");
+        props.clearProperty("nonexistent");
+        assertEquals("v", props.getString("k"));
+    }
+
+    // ---------- getKeys ----------
+
+    @Test
+    public void testGetKeys_returnsAllKeys() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k1", "v1");
+        props.addProperty("k2", "v2");
+        Iterator it = props.getKeys();
+        int count = 0;
+        while (it.hasNext()) {
+            it.next();
+            count++;
+        }
+        assertEquals(2, count);
+    }
+
+    @Test
+    public void testGetKeysWithPrefix_returnsMatchingKeys() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("prefix.a", "v1");
+        props.addProperty("prefix.b", "v2");
+        props.addProperty("other.c", "v3");
+        Iterator it = props.getKeys("prefix");
+        int count = 0;
+        while (it.hasNext()) {
+            String key = (String) it.next();
+            assertTrue(key.startsWith("prefix"));
+            count++;
+        }
+        assertEquals(2, count);
+    }
+
+    // ---------- subset ----------
+
+    @Test
+    public void testSubset_withMatchingPrefix_returnsSubset() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("prefix.a", "v1");
+        props.addProperty("prefix.b", "v2");
+        ExtendedProperties sub = props.subset("prefix");
+        assertNotNull(sub);
+        assertEquals("v1", sub.getString("a"));
+        assertEquals("v2", sub.getString("b"));
+    }
+
+    @Test
+    public void testSubset_withNoMatchingPrefix_returnsNull() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k1", "v1");
+        ExtendedProperties sub = props.subset("noMatch");
+        assertNull(sub);
+    }
+
+    @Test
+    public void testSubset_exactPrefixMatch_usesPrefixAsKey() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("prefix", "v1");
+        ExtendedProperties sub = props.subset("prefix");
+        assertNotNull(sub);
+        assertEquals("v1", sub.getString("prefix"));
+    }
+
+    // ---------- display ----------
+
+    @Test
+    public void testDisplay_doesNotThrow() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v");
+        props.display();
+        assertTrue(true);
+    }
+
+    // ---------- getString ----------
+
+    @Test
+    public void testGetString_existingKey_returnsValue() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v");
+        assertEquals("v", props.getString("k"));
+    }
+
+    @Test
+    public void testGetString_withDefaultValue_returnsDefault() {
+        ExtendedProperties props = new ExtendedProperties();
+        assertEquals("defaultVal", props.getString("missing", "defaultVal"));
+    }
+
+    @Test
+    public void testGetString_withInterpolation_resolvesVariable() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("base", "hello");
+        props.addProperty("full", "${base} world");
+        assertEquals("hello world", props.getString("full"));
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testGetString_infiniteLoop_throwsIllegalStateException() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("a", "${b}");
+        props.addProperty("b", "${a}");
+        props.getString("a");
+    }
+
+    @Test
+    public void testGetString_listValue_returnsFirstElement() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v1");
+        props.addProperty("k", "v2");
+        assertEquals("v1", props.getString("k"));
+    }
+
+    @Test(expected = ClassCastException.class)
+    public void testGetString_nonStringNonList_throwsClassCastException() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.put("k", new Integer(5));
+        props.getString("k");
+    }
+
+    // ---------- getProperties ----------
+
+    @Test
+    public void testGetProperties_validTokens_returnsProperties() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("propKey", "a=1,b=2");
+        Properties result = props.getProperties("propKey");
+        assertEquals("1", result.getProperty("a"));
+        assertEquals("2", result.getProperty("b"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetProperties_invalidToken_throwsIllegalArgumentException() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("propKey2", "a=1,b2");
+        props.getProperties("propKey2");
+    }
+
+    @Test
+    public void testGetProperties_withDefaults_usesDefaults() {
+        ExtendedProperties props = new ExtendedProperties();
+        Properties defaults = new Properties();
+        defaults.setProperty("defKey", "defVal");
+        Properties result = props.getProperties("missingKey", defaults);
+        assertEquals("defVal", result.getProperty("defKey"));
+    }
+
+    // ---------- getStringArray ----------
+
+    @Test
+    public void testGetStringArray_stringValue_returnsArrayOfOne() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v");
+        String[] arr = props.getStringArray("k");
+        assertEquals(1, arr.length);
+        assertEquals("v", arr[0]);
+    }
+
+    @Test
+    public void testGetStringArray_listValue_returnsArray() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v1");
+        props.addProperty("k", "v2");
+        String[] arr = props.getStringArray("k");
+        assertEquals(2, arr.length);
+    }
+
+    @Test
+    public void testGetStringArray_nonExistingKeyNoDefaults_returnsEmptyArray() {
+        ExtendedProperties props = new ExtendedProperties();
+        String[] arr = props.getStringArray("missing");
+        assertEquals(0, arr.length);
+    }
+
+    @Test(expected = ClassCastException.class)
+    public void testGetStringArray_wrongType_throwsClassCastException() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.put("k", new Integer(5));
+        props.getStringArray("k");
+    }
+
+    // ---------- getVector ----------
+
+    @Test
+    public void testGetVector_listValue_returnsVector() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v1");
+        props.addProperty("k", "v2");
+        Vector v = props.getVector("k");
+        assertEquals(2, v.size());
+    }
+
+    @Test
+    public void testGetVector_stringValue_returnsVectorOfOne() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v");
+        Vector v = props.getVector("k");
+        assertEquals(1, v.size());
+        assertEquals("v", v.get(0));
+    }
+
+    @Test
+    public void testGetVector_nonExisting_returnsEmptyVector() {
+        ExtendedProperties props = new ExtendedProperties();
+        Vector v = props.getVector("missing");
+        assertTrue(v.isEmpty());
+    }
+
+    @Test
+    public void testGetVector_withDefaultValue_returnsDefault() {
+        ExtendedProperties props = new ExtendedProperties();
+        Vector defaultVec = new Vector();
+        defaultVec.add("defItem");
+        Vector v = props.getVector("missing", defaultVec);
+        assertEquals(defaultVec, v);
+    }
+
+    @Test(expected = ClassCastException.class)
+    public void testGetVector_wrongType_throwsClassCastException() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.put("k", new Integer(5));
+        props.getVector("k");
+    }
+
+    // ---------- getList ----------
+
+    @Test
+    public void testGetList_listValue_returnsList() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v1");
+        props.addProperty("k", "v2");
+        List l = props.getList("k");
+        assertEquals(2, l.size());
+    }
+
+    @Test
+    public void testGetList_stringValue_returnsListOfOne() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.addProperty("k", "v");
+        List l = props.getList("k");
+        assertEquals(1, l.size());
+    }
+
+    @Test
+    public void testGetList_nonExisting_returnsEmptyList() {
+        ExtendedProperties props = new ExtendedProperties();
+        List l = props.getList("missing");
+        assertTrue(l.isEmpty());
+    }
+
+    @Test
+    public void testGetList_withDefaultValue_returnsDefault() {
+        ExtendedProperties props = new ExtendedProperties();
+        List defaultList = new ArrayList();
+        defaultList.add("defItem");
+        List l = props.getList("missing", defaultList);
+        assertEquals(defaultList, l);
+    }
+
+    @Test(expected = ClassCastException.class)
+    public void testGetList_wrongType_throwsClassCastException() {
+        ExtendedProperties props = new ExtendedProperties();
+        props.put("k", new Integer(5));
+        props.getList("k");
+    }
+
+    // ---------- getBoolean ----------
+
+    @Test
+    public void testGetBoolean_trueValue_return

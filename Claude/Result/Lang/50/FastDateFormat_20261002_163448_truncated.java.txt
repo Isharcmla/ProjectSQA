@@ -1,0 +1,756 @@
+import org.junit.Test;
+import org.junit.Before;
+import static org.junit.Assert.*;
+
+import java.text.FieldPosition;
+import java.text.ParsePosition;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+import java.util.TimeZone;
+
+import org.apache.commons.lang.time.FastDateFormat;
+
+public class FastDateFormatTest {
+
+    private TimeZone defaultTZ;
+
+    @Before
+    public void setUp() {
+        defaultTZ = TimeZone.getDefault();
+    }
+
+    // ---------------------------------------------------------------
+    // getInstance() variants
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testGetInstance_default_returnsFormatter() {
+        FastDateFormat fdf = FastDateFormat.getInstance();
+        assertNotNull(fdf);
+        assertNotNull(fdf.getPattern());
+    }
+
+    @Test
+    public void testGetInstance_withPattern_returnsFormatter() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy-MM-dd");
+        assertNotNull(fdf);
+        assertEquals("yyyy-MM-dd", fdf.getPattern());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetInstance_withPatternNull_throwsException() {
+        FastDateFormat.getInstance((String) null);
+    }
+
+    @Test
+    public void testGetInstance_withPatternAndTimeZone() {
+        TimeZone tz = TimeZone.getTimeZone("GMT");
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy-MM-dd", tz);
+        assertNotNull(fdf);
+        assertEquals(tz, fdf.getTimeZone());
+        assertTrue(fdf.getTimeZoneOverridesCalendar());
+    }
+
+    @Test
+    public void testGetInstance_withPatternAndLocale() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy-MM-dd", Locale.US);
+        assertNotNull(fdf);
+        assertEquals(Locale.US, fdf.getLocale());
+    }
+
+    @Test
+    public void testGetInstance_withPatternTimeZoneLocale() {
+        TimeZone tz = TimeZone.getTimeZone("UTC");
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy-MM-dd HH:mm:ss", tz, Locale.US);
+        assertNotNull(fdf);
+        assertEquals(tz, fdf.getTimeZone());
+        assertEquals(Locale.US, fdf.getLocale());
+    }
+
+    @Test
+    public void testGetInstance_sameParams_returnsCachedInstance() {
+        FastDateFormat fdf1 = FastDateFormat.getInstance("yyyy", TimeZone.getTimeZone("GMT"), Locale.US);
+        FastDateFormat fdf2 = FastDateFormat.getInstance("yyyy", TimeZone.getTimeZone("GMT"), Locale.US);
+        assertSame(fdf1, fdf2);
+    }
+
+    // ---------------------------------------------------------------
+    // getDateInstance() variants
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testGetDateInstance_style() {
+        FastDateFormat fdf = FastDateFormat.getDateInstance(FastDateFormat.SHORT);
+        assertNotNull(fdf);
+    }
+
+    @Test
+    public void testGetDateInstance_styleLocale() {
+        FastDateFormat fdf = FastDateFormat.getDateInstance(FastDateFormat.MEDIUM, Locale.US);
+        assertNotNull(fdf);
+        assertEquals(Locale.US, fdf.getLocale());
+    }
+
+    @Test
+    public void testGetDateInstance_styleTimeZone() {
+        TimeZone tz = TimeZone.getTimeZone("GMT");
+        FastDateFormat fdf = FastDateFormat.getDateInstance(FastDateFormat.LONG, tz);
+        assertNotNull(fdf);
+        assertEquals(tz, fdf.getTimeZone());
+    }
+
+    @Test
+    public void testGetDateInstance_styleTimeZoneLocale() {
+        TimeZone tz = TimeZone.getTimeZone("GMT");
+        FastDateFormat fdf = FastDateFormat.getDateInstance(FastDateFormat.FULL, tz, Locale.US);
+        assertNotNull(fdf);
+        assertEquals(tz, fdf.getTimeZone());
+        assertEquals(Locale.US, fdf.getLocale());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetDateInstance_invalidStyle_throwsException() {
+        FastDateFormat.getDateInstance(999, Locale.US);
+    }
+
+    // ---------------------------------------------------------------
+    // getTimeInstance() variants
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testGetTimeInstance_style() {
+        FastDateFormat fdf = FastDateFormat.getTimeInstance(FastDateFormat.SHORT);
+        assertNotNull(fdf);
+    }
+
+    @Test
+    public void testGetTimeInstance_styleLocale() {
+        FastDateFormat fdf = FastDateFormat.getTimeInstance(FastDateFormat.MEDIUM, Locale.US);
+        assertNotNull(fdf);
+        assertEquals(Locale.US, fdf.getLocale());
+    }
+
+    @Test
+    public void testGetTimeInstance_styleTimeZone() {
+        TimeZone tz = TimeZone.getTimeZone("GMT");
+        FastDateFormat fdf = FastDateFormat.getTimeInstance(FastDateFormat.LONG, tz);
+        assertNotNull(fdf);
+        assertEquals(tz, fdf.getTimeZone());
+    }
+
+    @Test
+    public void testGetTimeInstance_styleTimeZoneLocale() {
+        TimeZone tz = TimeZone.getTimeZone("GMT");
+        FastDateFormat fdf = FastDateFormat.getTimeInstance(FastDateFormat.FULL, tz, Locale.US);
+        assertNotNull(fdf);
+        assertEquals(tz, fdf.getTimeZone());
+        assertEquals(Locale.US, fdf.getLocale());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetTimeInstance_invalidStyle_throwsException() {
+        FastDateFormat.getTimeInstance(999, Locale.US);
+    }
+
+    // ---------------------------------------------------------------
+    // getDateTimeInstance() variants
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testGetDateTimeInstance_styles() {
+        FastDateFormat fdf = FastDateFormat.getDateTimeInstance(FastDateFormat.SHORT, FastDateFormat.SHORT);
+        assertNotNull(fdf);
+    }
+
+    @Test
+    public void testGetDateTimeInstance_stylesLocale() {
+        FastDateFormat fdf = FastDateFormat.getDateTimeInstance(FastDateFormat.MEDIUM, FastDateFormat.MEDIUM, Locale.US);
+        assertNotNull(fdf);
+        assertEquals(Locale.US, fdf.getLocale());
+    }
+
+    @Test
+    public void testGetDateTimeInstance_stylesTimeZone() {
+        TimeZone tz = TimeZone.getTimeZone("GMT");
+        FastDateFormat fdf = FastDateFormat.getDateTimeInstance(FastDateFormat.LONG, FastDateFormat.LONG, tz);
+        assertNotNull(fdf);
+        assertEquals(tz, fdf.getTimeZone());
+    }
+
+    @Test
+    public void testGetDateTimeInstance_stylesTimeZoneLocale() {
+        TimeZone tz = TimeZone.getTimeZone("GMT");
+        FastDateFormat fdf = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL, tz, Locale.US);
+        assertNotNull(fdf);
+        assertEquals(tz, fdf.getTimeZone());
+        assertEquals(Locale.US, fdf.getLocale());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetDateTimeInstance_invalidStyle_throwsException() {
+        FastDateFormat.getDateTimeInstance(999, 999, Locale.US);
+    }
+
+    // ---------------------------------------------------------------
+    // format() variants
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testFormat_date_normal() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 15, 10, 30, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        Date date = cal.getTime();
+        String result = fdf.format(date);
+        assertEquals("2020-01-15", result);
+    }
+
+    @Test
+    public void testFormat_calendar_normal() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2021, Calendar.JUNE, 5, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("2021-06-05", result);
+    }
+
+    @Test
+    public void testFormat_long_normal() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.MARCH, 10, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        long millis = cal.getTime().getTime();
+        String result = fdf.format(millis);
+        assertEquals("2020-03-10", result);
+    }
+
+    @Test
+    public void testFormat_dateWithBuffer() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2019, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        StringBuffer buf = new StringBuffer();
+        StringBuffer result = fdf.format(cal.getTime(), buf);
+        assertEquals("2019", result.toString());
+        assertSame(buf, result);
+    }
+
+    @Test
+    public void testFormat_calendarWithBuffer_notForced() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy", null, Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2018, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        StringBuffer buf = new StringBuffer();
+        StringBuffer result = fdf.format(cal, buf);
+        assertEquals("2018", result.toString());
+    }
+
+    @Test
+    public void testFormat_calendarWithBuffer_forcedTimeZone() {
+        TimeZone forcedTz = TimeZone.getTimeZone("GMT");
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy-MM-dd", forcedTz, Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("America/New_York"));
+        cal.set(2020, Calendar.JULY, 4, 12, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        StringBuffer buf = new StringBuffer();
+        StringBuffer result = fdf.format(cal, buf);
+        assertNotNull(result);
+        // The original calendar's time zone must not be mutated.
+        assertEquals("America/New_York", cal.getTimeZone().getID());
+    }
+
+    @Test
+    public void testFormat_longWithBuffer() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2022, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        long millis = cal.getTime().getTime();
+        StringBuffer buf = new StringBuffer();
+        StringBuffer result = fdf.format(millis, buf);
+        assertEquals("2022", result.toString());
+    }
+
+    // ---------------------------------------------------------------
+    // format(Object, StringBuffer, FieldPosition)
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testFormat_objectDate_normal() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        Date date = cal.getTime();
+        StringBuffer buf = new StringBuffer();
+        StringBuffer result = fdf.format((Object) date, buf, new FieldPosition(0));
+        assertEquals("2020", result.toString());
+    }
+
+    @Test
+    public void testFormat_objectCalendar_normal() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2021, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        StringBuffer buf = new StringBuffer();
+        StringBuffer result = fdf.format((Object) cal, buf, new FieldPosition(0));
+        assertEquals("2021", result.toString());
+    }
+
+    @Test
+    public void testFormat_objectLong_normal() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2022, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        Long millis = new Long(cal.getTime().getTime());
+        StringBuffer buf = new StringBuffer();
+        StringBuffer result = fdf.format((Object) millis, buf, new FieldPosition(0));
+        assertEquals("2022", result.toString());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFormat_objectInvalidType_throwsException() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy");
+        fdf.format((Object) "not a date", new StringBuffer(), new FieldPosition(0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFormat_objectNull_throwsException() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy");
+        fdf.format((Object) null, new StringBuffer(), new FieldPosition(0));
+    }
+
+    // ---------------------------------------------------------------
+    // parseObject
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testParseObject_returnsNullAndSetsPosition() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy-MM-dd");
+        ParsePosition pos = new ParsePosition(5);
+        Object result = fdf.parseObject("2020-01-01", pos);
+        assertNull(result);
+        assertEquals(0, pos.getIndex());
+        assertEquals(0, pos.getErrorIndex());
+    }
+
+    // ---------------------------------------------------------------
+    // Accessors
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testGetPattern_returnsSamePattern() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy-MM-dd'T'HH:mm:ss");
+        assertEquals("yyyy-MM-dd'T'HH:mm:ss", fdf.getPattern());
+    }
+
+    @Test
+    public void testGetTimeZone_default() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy");
+        assertEquals(TimeZone.getDefault(), fdf.getTimeZone());
+    }
+
+    @Test
+    public void testGetTimeZone_forced() {
+        TimeZone tz = TimeZone.getTimeZone("GMT");
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy", tz);
+        assertEquals(tz, fdf.getTimeZone());
+    }
+
+    @Test
+    public void testGetTimeZoneOverridesCalendar_true() {
+        TimeZone tz = TimeZone.getTimeZone("GMT");
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy", tz);
+        assertTrue(fdf.getTimeZoneOverridesCalendar());
+    }
+
+    @Test
+    public void testGetTimeZoneOverridesCalendar_false() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy");
+        assertFalse(fdf.getTimeZoneOverridesCalendar());
+    }
+
+    @Test
+    public void testGetLocale_default() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy");
+        assertEquals(Locale.getDefault(), fdf.getLocale());
+    }
+
+    @Test
+    public void testGetLocale_specified() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy", Locale.FRANCE);
+        assertEquals(Locale.FRANCE, fdf.getLocale());
+    }
+
+    @Test
+    public void testGetMaxLengthEstimate_positive() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy-MM-dd");
+        assertTrue(fdf.getMaxLengthEstimate() > 0);
+    }
+
+    // ---------------------------------------------------------------
+    // equals() / hashCode() / toString()
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testEquals_sameObject_returnsTrue() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy");
+        assertTrue(fdf.equals(fdf));
+    }
+
+    @Test
+    public void testEquals_differentClass_returnsFalse() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy");
+        assertFalse(fdf.equals("not a FastDateFormat"));
+    }
+
+    @Test
+    public void testEquals_equalFormats_returnsTrue() {
+        FastDateFormat fdf1 = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("GMT"), Locale.US);
+        FastDateFormat fdf2 = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("GMT"), Locale.US);
+        assertTrue(fdf1.equals(fdf2));
+    }
+
+    @Test
+    public void testEquals_differentPattern_returnsFalse() {
+        FastDateFormat fdf1 = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("GMT"), Locale.US);
+        FastDateFormat fdf2 = FastDateFormat.getInstance("yyyy/MM/dd", TimeZone.getTimeZone("GMT"), Locale.US);
+        assertFalse(fdf1.equals(fdf2));
+    }
+
+    @Test
+    public void testEquals_differentTimeZone_returnsFalse() {
+        FastDateFormat fdf1 = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("GMT"), Locale.US);
+        FastDateFormat fdf2 = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("UTC"), Locale.US);
+        assertFalse(fdf1.equals(fdf2));
+    }
+
+    @Test
+    public void testEquals_differentLocale_returnsFalse() {
+        FastDateFormat fdf1 = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("GMT"), Locale.US);
+        FastDateFormat fdf2 = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("GMT"), Locale.FRANCE);
+        assertFalse(fdf1.equals(fdf2));
+    }
+
+    @Test
+    public void testHashCode_consistentWithEquals() {
+        FastDateFormat fdf1 = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("GMT"), Locale.US);
+        FastDateFormat fdf2 = FastDateFormat.getInstance("yyyy-MM-dd", TimeZone.getTimeZone("GMT"), Locale.US);
+        assertEquals(fdf1.hashCode(), fdf2.hashCode());
+    }
+
+    @Test
+    public void testToString_containsPattern() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy-MM-dd");
+        String str = fdf.toString();
+        assertTrue(str.contains("yyyy-MM-dd"));
+        assertTrue(str.startsWith("FastDateFormat["));
+    }
+
+    // ---------------------------------------------------------------
+    // Pattern parsing coverage - various letters
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testPattern_era() {
+        FastDateFormat fdf = FastDateFormat.getInstance("GGG yyyy", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertTrue(result.contains("2020"));
+    }
+
+    @Test
+    public void testPattern_yearLessThan4Digits_twoDigitYear() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yy", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("20", result);
+    }
+
+    @Test
+    public void testPattern_yearFourDigits() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("2020", result);
+    }
+
+    @Test
+    public void testPattern_monthFull() {
+        FastDateFormat fdf = FastDateFormat.getInstance("MMMM", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("January", result);
+    }
+
+    @Test
+    public void testPattern_monthShort() {
+        FastDateFormat fdf = FastDateFormat.getInstance("MMM", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("Jan", result);
+    }
+
+    @Test
+    public void testPattern_monthTwoDigit() {
+        FastDateFormat fdf = FastDateFormat.getInstance("MM", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("01", result);
+    }
+
+    @Test
+    public void testPattern_monthUnpadded() {
+        FastDateFormat fdf = FastDateFormat.getInstance("M", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("1", result);
+    }
+
+    @Test
+    public void testPattern_dayOfMonth() {
+        FastDateFormat fdf = FastDateFormat.getInstance("d", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 5, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("5", result);
+    }
+
+    @Test
+    public void testPattern_hourAmPm_twelveHour() {
+        FastDateFormat fdf = FastDateFormat.getInstance("h", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("12", result);
+    }
+
+    @Test
+    public void testPattern_hourOfDay() {
+        FastDateFormat fdf = FastDateFormat.getInstance("H", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 15, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("15", result);
+    }
+
+    @Test
+    public void testPattern_minute() {
+        FastDateFormat fdf = FastDateFormat.getInstance("m", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 5, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("5", result);
+    }
+
+    @Test
+    public void testPattern_second() {
+        FastDateFormat fdf = FastDateFormat.getInstance("s", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 7);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("7", result);
+    }
+
+    @Test
+    public void testPattern_millisecond() {
+        FastDateFormat fdf = FastDateFormat.getInstance("SSS", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 123);
+        String result = fdf.format(cal);
+        assertEquals("123", result);
+    }
+
+    @Test
+    public void testPattern_dayOfWeek_short() {
+        FastDateFormat fdf = FastDateFormat.getInstance("EEE", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("Wed", result);
+    }
+
+    @Test
+    public void testPattern_dayOfWeek_full() {
+        FastDateFormat fdf = FastDateFormat.getInstance("EEEE", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("Wednesday", result);
+    }
+
+    @Test
+    public void testPattern_dayOfYear() {
+        FastDateFormat fdf = FastDateFormat.getInstance("D", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("1", result);
+    }
+
+    @Test
+    public void testPattern_dayOfWeekInMonth() {
+        FastDateFormat fdf = FastDateFormat.getInstance("F", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testPattern_weekOfYear() {
+        FastDateFormat fdf = FastDateFormat.getInstance("w", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testPattern_weekOfMonth() {
+        FastDateFormat fdf = FastDateFormat.getInstance("W", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testPattern_amPm() {
+        FastDateFormat fdf = FastDateFormat.getInstance("a", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 10, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("AM", result);
+    }
+
+    @Test
+    public void testPattern_hourInDay_1to24() {
+        FastDateFormat fdf = FastDateFormat.getInstance("k", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("24", result);
+    }
+
+    @Test
+    public void testPattern_hourInAmPm_0to11() {
+        FastDateFormat fdf = FastDateFormat.getInstance("K", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("0", result);
+    }
+
+    @Test
+    public void testPattern_timeZoneNameShort() {
+        FastDateFormat fdf = FastDateFormat.getInstance("z", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testPattern_timeZoneNameLong() {
+        FastDateFormat fdf = FastDateFormat.getInstance("zzzz", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testPattern_timeZoneName_notForced_daylight() {
+        FastDateFormat fdf = FastDateFormat.getInstance("zzzz", null, Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("America/New_York"));
+        cal.set(2020, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testPattern_timeZoneNumberNoColon() {
+        FastDateFormat fdf = FastDateFormat.getInstance("Z", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("+0000", result);
+    }
+
+    @Test
+    public void testPattern_timeZoneNumberColon() {
+        FastDateFormat fdf = FastDateFormat.getInstance("ZZ", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("+00:00", result);
+    }
+
+    @Test
+    public void testPattern_timeZoneNumberNegativeOffset() {
+        FastDateFormat fdf = FastDateFormat.getInstance("Z", TimeZone.getTimeZone("America/Los_Angeles"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("America/Los_Angeles"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertTrue(result.startsWith("-"));
+    }
+
+    @Test
+    public void testPattern_literalSingleCharQuote() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy'Q'", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
+        cal.set(2020, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        String result = fdf.format(cal);
+        assertEquals("2020Q", result);
+    }
+
+    @Test
+    public void testPattern_literalMultiCharQuote() {
+        FastDateFormat fdf = FastDateFormat.getInstance("yyyy'at year'", TimeZone.getTimeZone("GMT"), Locale.US);
+        Calendar cal = new GregorianCal

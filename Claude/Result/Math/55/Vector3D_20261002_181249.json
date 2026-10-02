@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "55",
+  "tool": "claude",
+  "class": "org.apache.commons.math.geometry.Vector3D",
+  "target_classes": [
+    "org.apache.commons.math.geometry.Vector3D"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 55.3,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\55\\Vector3D_20261002_181249.txt",
+  "test_file": "Claude\\TestCode\\Math\\55\\Vector3DTest.java",
+  "usage": {
+    "prompt_tokens": 8715,
+    "completion_tokens": 8729,
+    "total_tokens": 17444
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 61704,
+    "daily_remaining_tokens": 138296
+  },
+  "timestamp": "20261002_181249"
+}

@@ -1,0 +1,147 @@
+package com.google.javascript.jscomp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import com.google.common.base.Supplier;
+import com.google.javascript.jscomp.CompilerOptions.LanguageMode;
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+
+import org.junit.Test;
+
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
+import java.util.logging.Level;
+
+public class CompilerTest {
+
+  //--------------------------------------------------------------------
+  // Constructors
+  //--------------------------------------------------------------------
+
+  @Test
+  public void testDefaultConstructor_createsCompilerInstance() {
+    Compiler compiler = new Compiler();
+    assertNotNull(compiler);
+  }
+
+  @Test
+  public void testConstructorWithPrintStream_createsCompilerInstance() {
+    Compiler compiler = new Compiler((java.io.PrintStream) null);
+    assertNotNull(compiler);
+  }
+
+  @Test
+  public void testConstructorWithErrorManager_setsErrorManager() {
+    Compiler base = new Compiler();
+    ErrorManager em = base.getErrorManager();
+    Compiler compiler = new Compiler(em);
+    assertEquals(em, compiler.getErrorManager());
+  }
+
+  //--------------------------------------------------------------------
+  // setErrorManager
+  //--------------------------------------------------------------------
+
+  @Test(expected = NullPointerException.class)
+  public void testSetErrorManager_null_throwsNPE() {
+    Compiler compiler = new Compiler();
+    compiler.setErrorManager(null);
+  }
+
+  @Test
+  public void testSetErrorManager_valid_setsSuccessfully() {
+    Compiler base = new Compiler();
+    ErrorManager em = base.getErrorManager();
+    Compiler compiler = new Compiler();
+    compiler.setErrorManager(em);
+    assertEquals(em, compiler.getErrorManager());
+  }
+
+  //--------------------------------------------------------------------
+  // initOptions
+  //--------------------------------------------------------------------
+
+  @Test
+  public void testInitOptions_validOptions_noException() {
+    Compiler compiler = new Compiler();
+    CompilerOptions options = new CompilerOptions();
+    compiler.initOptions(options);
+    assertNotNull(compiler.getOptions());
+  }
+
+  @Test(expected = NullPointerException.class)
+  public void testInitOptions_nullOptions_throwsNPE() {
+    Compiler compiler = new Compiler();
+    compiler.initOptions(null);
+  }
+
+  @Test
+  public void testInitOptions_es5StrictLanguage_noException() {
+    Compiler compiler = new Compiler();
+    CompilerOptions options = new CompilerOptions();
+    options.setLanguageIn(LanguageMode.ECMASCRIPT5_STRICT);
+    compiler.initOptions(options);
+    assertTrue(compiler.acceptEcmaScript5());
+  }
+
+  //--------------------------------------------------------------------
+  // init / initModules
+  //--------------------------------------------------------------------
+
+  @Test
+  public void testInit_arrayVersion_noErrors() {
+    Compiler compiler = new Compiler();
+    CompilerOptions options = new CompilerOptions();
+    JSSourceFile extern = JSSourceFile.fromCode("externs.js", "");
+    JSSourceFile input = JSSourceFile.fromCode("input.js", "var x = 1;");
+    compiler.init(new JSSourceFile[] { extern }, new JSSourceFile[] { input },
+        options);
+    assertFalse(compiler.hasErrors());
+  }
+
+  @Test
+  public void testInit_listVersion_noErrors() {
+    Compiler compiler = new Compiler();
+    CompilerOptions options = new CompilerOptions();
+    JSSourceFile extern = JSSourceFile.fromCode("externs.js", "");
+    JSSourceFile input = JSSourceFile.fromCode("input.js", "var y = 2;");
+    compiler.init(Collections.singletonList(extern),
+        Collections.singletonList(input), options);
+    assertFalse(compiler.hasErrors());
+  }
+
+  @Test
+  public void testInit_moduleArrayVersion_noErrors() {
+    Compiler compiler = new Compiler();
+    CompilerOptions options = new CompilerOptions();
+    JSSourceFile extern = JSSourceFile.fromCode("externs.js", "");
+    JSModule module = new JSModule("m1");
+    module.add(JSSourceFile.fromCode("in1.js", "var z = 3;"));
+    compiler.init(new JSSourceFile[] { extern },
+        new JSModule[] { module }, options);
+    assertFalse(compiler.hasErrors());
+  }
+
+  @Test
+  public void testInitModules_emptyModuleList_reportsError() {
+    Compiler compiler = new Compiler();
+    CompilerOptions options = new CompilerOptions();
+    compiler.initModules(Collections.<JSSourceFile>emptyList(),
+        Collections.<JSModule>emptyList(), options);
+    assertTrue(compiler.hasErrors());
+  }
+
+  @Test
+  public void testInitModules_multipleModules_buildsGraph() {
+    Compiler compiler = new Compiler();
+    CompilerOptions options = new CompilerOptions();
+    JSModule m1 = new JSModule("m1");
+    m1.add(JSSourceFile.fromCode("a

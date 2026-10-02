@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "32",
+  "tool": "gemini",
+  "class": "org.mockito.internal.configuration.SpyAnnotationEngine",
+  "target_classes": [
+    "org.mockito.internal.configuration.SpyAnnotationEngine"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 20.61,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Mockito\\32\\SpyAnnotationEngine_20260926_034932.txt",
+  "test_file": "Gemini\\TestCode\\Mockito\\32\\SpyAnnotationEngineTest.java",
+  "usage": {
+    "prompt_tokens": 917,
+    "completion_tokens": 1445,
+    "total_tokens": 3895
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 121279,
+    "daily_remaining_tokens": 228721
+  },
+  "timestamp": "20260926_034932"
+}

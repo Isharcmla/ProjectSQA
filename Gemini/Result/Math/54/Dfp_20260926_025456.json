@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "54",
+  "tool": "gemini",
+  "class": "org.apache.commons.math.dfp.Dfp",
+  "target_classes": [
+    "org.apache.commons.math.dfp.Dfp"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 42.15,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Math\\54\\Dfp_20260926_025456.txt",
+  "test_file": "Gemini\\TestCode\\Math\\54\\DfpTest.java",
+  "usage": {
+    "prompt_tokens": 21342,
+    "completion_tokens": 6204,
+    "total_tokens": 27546
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 63288,
+    "daily_remaining_tokens": 286712
+  },
+  "timestamp": "20260926_025456"
+}

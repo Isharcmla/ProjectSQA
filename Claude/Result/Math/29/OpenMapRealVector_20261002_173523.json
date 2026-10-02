@@ -1,0 +1,33 @@
+{
+  "project": "Math",
+  "bug_id": "29",
+  "tool": "claude",
+  "class": "org.apache.commons.math3.linear.OpenMapRealVector",
+  "target_classes": [
+    "org.apache.commons.math3.linear.OpenMapRealVector"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 71.66,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Math\\29\\OpenMapRealVector_20261002_173523.txt",
+  "test_file": "Claude\\TestCode\\Math\\29\\OpenMapRealVectorTest.java",
+  "usage": {
+    "prompt_tokens": 10527,
+    "completion_tokens": 11249,
+    "total_tokens": 21776
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 63121,
+    "daily_remaining_tokens": 136879
+  },
+  "timestamp": "20261002_173523"
+}

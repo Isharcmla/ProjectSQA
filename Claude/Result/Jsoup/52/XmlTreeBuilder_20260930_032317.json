@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "52",
+  "tool": "claude",
+  "class": "org.jsoup.parser.XmlTreeBuilder",
+  "target_classes": [
+    "org.jsoup.parser.XmlTreeBuilder"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 51.08,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Jsoup\\52\\XmlTreeBuilder_20260930_032317.txt",
+  "test_file": "Claude\\TestCode\\Jsoup\\52\\XmlTreeBuilderTest.java",
+  "usage": {
+    "prompt_tokens": 2430,
+    "completion_tokens": 6508,
+    "total_tokens": 8938
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 25107,
+    "daily_remaining_tokens": 174893
+  },
+  "timestamp": "20260930_032317"
+}

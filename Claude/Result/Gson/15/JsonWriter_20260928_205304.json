@@ -1,0 +1,33 @@
+{
+  "project": "Gson",
+  "bug_id": "15",
+  "tool": "claude",
+  "class": "com.google.gson.stream.JsonWriter",
+  "target_classes": [
+    "com.google.gson.stream.JsonWriter"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 59.44,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Gson\\15\\JsonWriter_20260928_205304.txt",
+  "test_file": "Claude\\TestCode\\Gson\\15\\JsonWriterTest.java",
+  "usage": {
+    "prompt_tokens": 8511,
+    "completion_tokens": 8761,
+    "total_tokens": 17272
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 82889,
+    "daily_remaining_tokens": 117111
+  },
+  "timestamp": "20260928_205304"
+}

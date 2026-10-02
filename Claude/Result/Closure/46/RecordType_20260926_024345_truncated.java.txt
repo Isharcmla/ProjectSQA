@@ -1,0 +1,128 @@
+package com.google.javascript.rhino.jstype;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
+import com.google.javascript.rhino.ErrorReporter;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+/**
+ * Unit tests for {@link RecordType}.
+ *
+ * Note: RecordType is a package-private class, so this test class lives in
+ * the same package to access it and its package-private members.
+ *
+ * Some methods (e.g. resolveInternal(ErrorReporter, StaticScope&lt;JSType&gt;))
+ * depend on the StaticScope interface whose exact public API was not
+ * provided in the source dependencies. Per instructions, we avoid guessing
+ * that API and do not test that method directly.
+ */
+public class RecordTypeTest {
+
+  private JSTypeRegistry registry;
+
+  @Before
+  public void setUp() {
+    registry = new JSTypeRegistry(new ErrorReporter() {
+      @Override
+      public void warning(String message, String sourceName, int line, int lineOffset) {
+        // no-op
+      }
+
+      @Override
+      public void error(String message, String sourceName, int line, int lineOffset) {
+        // no-op
+      }
+    });
+  }
+
+  /** Helper to build a RecordType via the public RecordTypeBuilder API. */
+  private RecordType buildRecordType(Map<String, JSType> props) {
+    RecordTypeBuilder builder = new RecordTypeBuilder(registry);
+    for (Map.Entry<String, JSType> entry : props.entrySet()) {
+      builder.addProperty(entry.getKey(), entry.getValue(), null);
+    }
+    JSType result = builder.build();
+    RecordType record = result.toMaybeRecordType();
+    assertNotNull("Expected a RecordType instance to be created", record);
+    return record;
+  }
+
+  // ---------------------------------------------------------------------
+  // Constructor tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testConstructor_withProperties_createsRecordType() {
+    Map<String, JSType> props = new LinkedHashMap<>();
+    props.put("a", registry.getNativeType(JSTypeNative.STRING_TYPE));
+    props.put("b", registry.getNativeType(JSTypeNative.NUMBER_TYPE));
+
+    RecordType record = buildRecordType(props);
+
+    assertTrue(record.hasProperty("a"));
+    assertTrue(record.hasProperty("b"));
+    assertTrue(record.isRecordType());
+  }
+
+  @Test(expected = IllegalStateException.class)
+  public void testConstructor_nullRecordProperty_throwsIllegalStateException() {
+    Map<String, RecordTypeBuilder.RecordProperty> propsMap = new LinkedHashMap<>();
+    propsMap.put("a", null);
+    new RecordType(registry, propsMap);
+  }
+
+  @Test
+  public void testEmptyProperties_buildsObjectType_notRecordType() {
+    RecordTypeBuilder builder = new RecordTypeBuilder(registry);
+    JSType result = builder.build();
+    // With no properties, RecordTypeBuilder falls back to native OBJECT_TYPE.
+    assertNull(result.toMaybeRecordType());
+  }
+
+  // ---------------------------------------------------------------------
+  // isEquivalentTo tests
+  // ---------------------------------------------------------------------
+
+  @Test
+  public void testIsEquivalentTo_sameInstance_returnsTrue() {
+    Map<String, JSType> props = new LinkedHashMap<>();
+    props.put("a", registry.getNativeType(JSTypeNative.STRING_TYPE));
+    RecordType record = buildRecordType(props);
+
+    assertTrue(record.isEquivalentTo(record));
+  }
+
+  @Test
+  public void testIsEquivalentTo_equalProperties_returnsTrue() {
+    Map<String, JSType> props1 = new LinkedHashMap<>();
+    props1.put("a", registry.getNativeType(JSTypeNative.STRING_TYPE));
+    RecordType record1 = buildRecordType(props1);
+
+    Map<String, JSType> props2 = new LinkedHashMap<>();
+    props2.put("a", registry.getNativeType(JSTypeNative.STRING_TYPE));
+    RecordType record2 = buildRecordType(props2);
+
+    assertTrue(record1.isEquivalentTo(record2));
+  }
+
+  @Test
+  public void testIsEquivalentTo_differentPropertyKeys_returnsFalse() {
+    Map<String, JSType> props1 = new LinkedHashMap<>();
+    props1.put("a", registry.getNativeType(JSTypeNative.STRING_TYPE));
+    RecordType record1 = buildRecordType(props1);
+
+    Map<String, JSType> props2 = new LinkedHashMap<>();
+    props2.put("b", registry.getNativeType(JSTypeNative.NUMBER_TYPE));
+    RecordType record2 = buildRecordType(props2);
+
+    assertFalse(record1.is

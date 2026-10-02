@@ -1,0 +1,33 @@
+{
+  "project": "Gson",
+  "bug_id": "9",
+  "tool": "claude",
+  "class": "com.google.gson.internal.bind.TypeAdapters",
+  "target_classes": [
+    "com.google.gson.internal.bind.TypeAdapters"
+  ],
+  "status": "failed",
+  "generation_status": "failed",
+  "compile_result": "not_run",
+  "elapsed_sec": 121.18,
+  "num_test_files_generated": 0,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "length",
+  "prompt_file": "Claude\\Prompt\\Gson\\9\\TypeAdapters_20260928_211223.txt",
+  "test_file": null,
+  "usage": {
+    "prompt_tokens": 13425,
+    "completion_tokens": 16384,
+    "total_tokens": 29809
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 127457,
+    "daily_remaining_tokens": 72543
+  },
+  "timestamp": "20260928_211223"
+}

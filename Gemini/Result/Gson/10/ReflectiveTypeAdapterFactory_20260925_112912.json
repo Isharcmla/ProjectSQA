@@ -1,0 +1,33 @@
+{
+  "project": "Gson",
+  "bug_id": "10",
+  "tool": "gemini",
+  "class": "com.google.gson.internal.bind.ReflectiveTypeAdapterFactory",
+  "target_classes": [
+    "com.google.gson.internal.bind.ReflectiveTypeAdapterFactory"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 34.77,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Gson\\10\\ReflectiveTypeAdapterFactory_20260925_112912.txt",
+  "test_file": "Gemini\\TestCode\\Gson\\10\\ReflectiveTypeAdapterFactoryTest.java",
+  "usage": {
+    "prompt_tokens": 2627,
+    "completion_tokens": 3412,
+    "total_tokens": 7742
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 183727,
+    "daily_remaining_tokens": 166273
+  },
+  "timestamp": "20260925_112912"
+}

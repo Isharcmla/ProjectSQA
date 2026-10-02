@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "11",
+  "tool": "claude",
+  "class": "org.jfree.chart.util.ShapeUtilities",
+  "target_classes": [
+    "org.jfree.chart.util.ShapeUtilities"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 72.62,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Chart\\11\\ShapeUtilities_20260924_073449.txt",
+  "test_file": "Claude\\TestCode\\Chart\\11\\ShapeUtilitiesTest.java",
+  "usage": {
+    "prompt_tokens": 8702,
+    "completion_tokens": 11029,
+    "total_tokens": 19731
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 22611,
+    "daily_remaining_tokens": 177389
+  },
+  "timestamp": "20260924_073449"
+}

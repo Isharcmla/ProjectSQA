@@ -1,0 +1,176 @@
+package org.jsoup.parser;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+/**
+ * Test suite for TokeniserState.
+ *
+ * TokeniserState is a package-private enum whose abstract read() method has no
+ * publicly exposed entry point other than through the Tokeniser used internally
+ * by the Jsoup parsing pipeline. Therefore the state machine is exercised
+ * indirectly through org.jsoup.Jsoup's public parsing API (which is the real,
+ * documented public API available for this functionality), while the enum's
+ * own public members (values(), valueOf(), name(), ordinal(), toString()) are
+ * tested directly.
+ */
+public class TokeniserStateTest {
+
+    // ---------------------------------------------------------------
+    // Direct tests of the enum's own public API
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testValues_returnsAllStates_notEmpty() {
+        TokeniserState[] states = TokeniserState.values();
+        assertNotNull(states);
+        assertTrue(states.length > 0);
+    }
+
+    @Test
+    public void testValueOf_validName_returnsCorrectState() {
+        TokeniserState state = TokeniserState.valueOf("Data");
+        assertEquals(TokeniserState.Data, state);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testValueOf_invalidName_throwsException() {
+        TokeniserState.valueOf("NotARealState");
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testValueOf_nullName_throwsException() {
+        TokeniserState.valueOf(null);
+    }
+
+    @Test
+    public void testName_returnsCorrectName() {
+        assertEquals("Data", TokeniserState.Data.name());
+        assertEquals("PLAINTEXT", TokeniserState.PLAINTEXT.name());
+    }
+
+    @Test
+    public void testOrdinal_dataIsFirst() {
+        assertEquals(0, TokeniserState.Data.ordinal());
+    }
+
+    @Test
+    public void testToString_returnsName() {
+        assertEquals("Data", TokeniserState.Data.toString());
+    }
+
+    @Test
+    public void testEquals_sameInstance_true() {
+        assertTrue(TokeniserState.Data == TokeniserState.valueOf("Data"));
+    }
+
+    // ---------------------------------------------------------------
+    // (ก) Normal / typical input - indirect exercising via Jsoup.parse
+    // ---------------------------------------------------------------
+
+    @Test
+    public void testData_normalText_parsesCorrectly() {
+        Document doc = Jsoup.parse("<p>Hello World</p>");
+        assertEquals("Hello World", doc.select("p").text());
+    }
+
+    @Test
+    public void testCharacterReferenceInData_namedEntity_decodesAmpersand() {
+        Document doc = Jsoup.parse("<p>A &amp; B</p>");
+        assertEquals("A & B", doc.select("p").text());
+    }
+
+    @Test
+    public void testCharacterReferenceInData_invalidReference_emitsAmpersand() {
+        Document doc = Jsoup.parse("<p>A & B</p>");
+        assertTrue(doc.select("p").text().contains("A & B"));
+    }
+
+    @Test
+    public void testRcdata_title_decodesEntities() {
+        Document doc = Jsoup.parse("<title>Hello &amp; World</title>");
+        assertEquals("Hello & World", doc.title());
+    }
+
+    @Test
+    public void testRcdataLessThanSign_titleWithLtEntity_decodesLiteralLt() {
+        Document doc = Jsoup.parse("<title>1 &lt; 2</title>");
+        assertEquals("1 < 2", doc.title());
+    }
+
+    @Test
+    public void testCharacterReferenceInRcdata_textarea_decodesEntities() {
+        Document doc = Jsoup.parse("<textarea>&lt;b&gt;</textarea>");
+        assertEquals("<b>", doc.select("textarea").text());
+    }
+
+    @Test
+    public void testRawtext_styleContent_keepsRawContent() {
+        Document doc = Jsoup.parse("<style>body { color: red; } /* comment */</style>");
+        String styleContent = doc.select("style").html();
+        assertTrue(styleContent.contains("color: red"));
+    }
+
+    @Test
+    public void testScriptData_scriptContent_keepsRawContent() {
+        Document doc = Jsoup.parse("<script>var a = 1 < 2;</script>");
+        assertTrue(doc.select("script").html().contains("var a = 1"));
+    }
+
+    @Test
+    public void testPlaintext_everythingAfterIsLiteral() {
+        Document doc = Jsoup.parse("<plaintext>Hello <b>World</b></plaintext>");
+        assertTrue(doc.select("plaintext").text().contains("Hello"));
+        assertTrue(doc.select("plaintext").text().contains("World"));
+    }
+
+    @Test
+    public void testTagOpen_malformedLessThan_treatedAsTextCharacter() {
+        Document doc = Jsoup.parse("<p>a < b</p>");
+        assertTrue(doc.select("p").text().contains("a < b"));
+    }
+
+    @Test
+    public void testEndTagOpen_normalEndTag_closesElement() {
+        Document doc = Jsoup.parse("<div><span>x</span></div>");
+        assertEquals(1, doc.select("div > span").size());
+    }
+
+    @Test
+    public void testEndTagOpen_bogusEndTag_doesNotThrow() {
+        Document doc = Jsoup.parse("<div></1></div>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testEndTagOpen_emptyCloseTag_doesNotThrow() {
+        Document doc = Jsoup.parse("<div></></div>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testTagName_withAttributesAndSelfClosing() {
+        Document doc = Jsoup.parse("<img src='test.png'/>");
+        Element img = doc.select("img").first();
+        assertNotNull(img);
+        assertEquals("test.png", img.attr("src"));
+    }
+
+    @Test
+    public void testBeforeAttributeName_withWhitespaceAndSlash() {
+        Document doc = Jsoup.parse("<input type=\"text\" / >");
+        assertNotNull(doc.select("input").first());
+    }
+
+    @Test
+    public void testAttributeName_withNullChar_doesNotThrow() {
+        Document doc = Jsoup.parse("<div \u0000attr=\"1\">text</div>");
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void testAttributeName_withQuoteInName_errorRecoversWithoutTh

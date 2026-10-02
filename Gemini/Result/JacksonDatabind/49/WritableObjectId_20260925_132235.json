@@ -1,0 +1,33 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "49",
+  "tool": "gemini",
+  "class": "com.fasterxml.jackson.databind.ser.impl.WritableObjectId",
+  "target_classes": [
+    "com.fasterxml.jackson.databind.ser.impl.WritableObjectId"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 42.52,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\JacksonDatabind\\49\\WritableObjectId_20260925_132235.txt",
+  "test_file": "Gemini\\TestCode\\JacksonDatabind\\49\\WritableObjectIdTest.java",
+  "usage": {
+    "prompt_tokens": 899,
+    "completion_tokens": 3016,
+    "total_tokens": 7189
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 310476,
+    "daily_remaining_tokens": 39524
+  },
+  "timestamp": "20260925_132235"
+}

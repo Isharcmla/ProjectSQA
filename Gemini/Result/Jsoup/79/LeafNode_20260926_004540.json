@@ -1,0 +1,33 @@
+{
+  "project": "Jsoup",
+  "bug_id": "79",
+  "tool": "gemini",
+  "class": "org.jsoup.nodes.LeafNode",
+  "target_classes": [
+    "org.jsoup.nodes.LeafNode"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 24.4,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Jsoup\\79\\LeafNode_20260926_004540.txt",
+  "test_file": "Gemini\\TestCode\\Jsoup\\79\\LeafNodeTest.java",
+  "usage": {
+    "prompt_tokens": 844,
+    "completion_tokens": 1926,
+    "total_tokens": 4394
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 100167,
+    "daily_remaining_tokens": 249833
+  },
+  "timestamp": "20260926_004540"
+}

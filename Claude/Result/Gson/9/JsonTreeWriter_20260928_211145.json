@@ -1,0 +1,33 @@
+{
+  "project": "Gson",
+  "bug_id": "9",
+  "tool": "claude",
+  "class": "com.google.gson.internal.bind.JsonTreeWriter",
+  "target_classes": [
+    "com.google.gson.internal.bind.JsonTreeWriter"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 36.05,
+  "num_test_files_generated": 1,
+  "model_requested": "claude",
+  "model_id": "claude-sonnet-5",
+  "model_name": "claude-sonnet-5",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Claude\\Prompt\\Gson\\9\\JsonTreeWriter_20260928_211145.txt",
+  "test_file": "Claude\\TestCode\\Gson\\9\\JsonTreeWriterTest.java",
+  "usage": {
+    "prompt_tokens": 3073,
+    "completion_tokens": 5062,
+    "total_tokens": 8135
+  },
+  "model_quota": {
+    "daily_quota_tokens": 200000,
+    "daily_usage_tokens": 97648,
+    "daily_remaining_tokens": 102352
+  },
+  "timestamp": "20260928_211145"
+}
