@@ -1,0 +1,26 @@
+/tmp/evaluate_gemini_Jsoup_15_elcq0snw/src/TreeBuilderStateTest.java:21: error: cannot find symbol
+        Parser parser = Parser.htmlParser().setTrackErrors(500);
+                              ^
+  symbol:   method htmlParser()
+  location: class Parser
+/tmp/evaluate_gemini_Jsoup_15_elcq0snw/src/TreeBuilderStateTest.java:22: error: cannot find symbol
+        return parser.parseInput(html, "http://example.com/");
+                     ^
+  symbol:   method parseInput(String,String)
+  location: variable parser of type Parser
+/tmp/evaluate_gemini_Jsoup_15_elcq0snw/src/TreeBuilderStateTest.java:48: error: cannot find symbol
+        assertNotNull(doc3.doctype());
+                          ^
+  symbol:   method doctype()
+  location: variable doc3 of type Document
+/tmp/evaluate_gemini_Jsoup_15_elcq0snw/src/TreeBuilderStateTest.java:551: error: cannot find symbol
+        TreeBuilder tb = new HtmlTreeBuilder();
+                             ^
+  symbol:   class HtmlTreeBuilder
+  location: class TreeBuilderStateTest
+/tmp/evaluate_gemini_Jsoup_15_elcq0snw/src/TreeBuilderStateTest.java:552: error: cannot find symbol
+        tb.initialiseParse("<div></div>", "http://example.com/", new ParseErrorList(0, 0));
+                                                                     ^
+  symbol:   class ParseErrorList
+  location: class TreeBuilderStateTest
+5 errors

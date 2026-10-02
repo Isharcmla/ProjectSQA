@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Lang_60_o5pb59m3/src/StrBuilderTest.java:450: error: cannot find symbol
+        sb.appendWithSeparators((Collection) null, ",");
+                                 ^
+  symbol:   class Collection
+  location: class StrBuilderTest
+1 error

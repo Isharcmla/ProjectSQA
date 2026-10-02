@@ -1,0 +1,101 @@
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:65: error: cannot find symbol
+        Elements parents = span.parents();
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:70: error: cannot find symbol
+        Elements standaloneParents = root.parents();
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:83: error: cannot find symbol
+        Elements children = div.children();
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:101: error: cannot find symbol
+        Elements result = div.select("p.one");
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:260: error: cannot find symbol
+        Elements siblings = c2.siblingElements();
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:292: error: cannot find symbol
+        Elements ps = div.getElementsByTag("P ");
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:328: error: cannot find symbol
+        Elements found = div.getElementsByClass("bar");
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:344: error: cannot find symbol
+        Elements found = div.getElementsByAttribute("href ");
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:373: error: cannot find symbol
+        Elements notMatch = div.getElementsByAttributeValueNot("href", "http://other.org/page.html");
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:386: error: cannot find symbol
+        Elements lessThan = div.getElementsByIndexLessThan(1);
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:390: error: cannot find symbol
+        Elements greaterThan = div.getElementsByIndexGreaterThan(1);
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:394: error: cannot find symbol
+        Elements equals = div.getElementsByIndexEquals(1);
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ElementTest.java:398: error: cannot find symbol
+        Elements all = div.getAllElements();
+        ^
+  symbol:   class Elements
+  location: class ElementTest
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ParserTest.java:69: error: cannot find symbol
+        assertEquals(1, doc.body().childNodeSize());
+                                  ^
+  symbol:   method childNodeSize()
+  location: class Element
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ParserTest.java:80: error: cannot find symbol
+        assertEquals(1, doc.body().childNodeSize());
+                                  ^
+  symbol:   method childNodeSize()
+  location: class Element
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ParserTest.java:91: error: cannot find symbol
+        assertEquals(1, doc.body().childNodeSize());
+                                  ^
+  symbol:   method childNodeSize()
+  location: class Element
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ParserTest.java:104: error: cannot find symbol
+        for (int i = 0; i < doc.childNodeSize(); i++) {
+                               ^
+  symbol:   method childNodeSize()
+  location: variable doc of type Document
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ParserTest.java:198: error: cannot find symbol
+        assertEquals(1, script.childNodeSize());
+                              ^
+  symbol:   method childNodeSize()
+  location: variable script of type Element
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/ParserTest.java:203: error: cannot find symbol
+        assertEquals(1, style.childNodeSize());
+                             ^
+  symbol:   method childNodeSize()
+  location: variable style of type Element
+/tmp/evaluate_gemini_Jsoup_3_v4a76q5j/src/TagTest.java:15: error: cannot find symbol
+        assertTrue(p.canContainInline());
+                    ^
+  symbol:   method canContainInline()
+  location: variable p of type Tag
+20 errors

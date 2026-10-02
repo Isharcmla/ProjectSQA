@@ -1,0 +1,5 @@
+/tmp/evaluate_gemini_JxPath_13_37by7dlm/src/DOMNodePointerTest.java:163: error: reference to getNamespaceURI is ambiguous
+        Assert.assertEquals("http://default.com", rootPtr.getNamespaceURI(null));
+                                                         ^
+  both method getNamespaceURI(String) in DOMNodePointer and method getNamespaceURI(Node) in DOMNodePointer match
+1 error

@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_JacksonDatabind_99_j_wcl8n9/src/ReferenceTypeTest.java:36: error: <anonymous com.fasterxml.jackson.databind.type.ReferenceTypeTest$1> is not abstract and does not override abstract method findTypeParameters(Class<?>) in JavaType
+        JavaType nonTypeBase = new JavaType(Object.class, 0, null, null, false) {
+                                                                                ^
+1 error

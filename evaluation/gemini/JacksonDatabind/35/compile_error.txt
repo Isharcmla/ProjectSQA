@@ -1,0 +1,41 @@
+/tmp/evaluate_gemini_JacksonDatabind_35_ye6r48a6/src/AsWrapperTypeDeserializerTest.java:62: error: cannot find symbol
+                mapper.getDeserializationConfig().getPolymorphicTypeValidator()
+                                                 ^
+  symbol:   method getPolymorphicTypeValidator()
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_35_ye6r48a6/src/AsWrapperTypeDeserializerTest.java:80: error: cannot find symbol
+        BeanProperty prop = new BeanProperty.Bogus();
+                                            ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_35_ye6r48a6/src/AsWrapperTypeDeserializerTest.java:106: error: method createDeserializationContext in class ObjectMapper cannot be applied to given types;
+        ctxt = mapper.createDeserializationContext(parser);
+                     ^
+  required: JsonParser,DeserializationConfig
+  found: JsonParser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_35_ye6r48a6/src/AsWrapperTypeDeserializerTest.java:120: error: method createDeserializationContext in class ObjectMapper cannot be applied to given types;
+        DeserializationContext ctxt = mapper.createDeserializationContext(parser);
+                                            ^
+  required: JsonParser,DeserializationConfig
+  found: JsonParser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_35_ye6r48a6/src/AsWrapperTypeDeserializerTest.java:134: error: method createDeserializationContext in class ObjectMapper cannot be applied to given types;
+        DeserializationContext ctxt = mapper.createDeserializationContext(parser);
+                                            ^
+  required: JsonParser,DeserializationConfig
+  found: JsonParser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_35_ye6r48a6/src/AsWrapperTypeDeserializerTest.java:172: error: method createDeserializationContext in class ObjectMapper cannot be applied to given types;
+        DeserializationContext ctxt = mapper.createDeserializationContext(nativeIdParser);
+                                            ^
+  required: JsonParser,DeserializationConfig
+  found: JsonParser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_35_ye6r48a6/src/AsWrapperTypeDeserializerTest.java:196: error: method createDeserializationContext in class ObjectMapper cannot be applied to given types;
+        DeserializationContext ctxt = mapper.createDeserializationContext(parser);
+                                            ^
+  required: JsonParser,DeserializationConfig
+  found: JsonParser
+  reason: actual and formal argument lists differ in length
+7 errors

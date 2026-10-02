@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Jsoup_68_9yeo_o97/src/HtmlTreeBuilderTest.java:103: error: cannot find symbol
+        commentToken.setData("test comment");
+                    ^
+  symbol:   method setData(String)
+  location: variable commentToken of type Comment
+/tmp/evaluate_gemini_Jsoup_68_9yeo_o97/src/HtmlTreeBuilderTest.java:214: error: cannot find symbol
+        comment.setData("hello comment");
+               ^
+  symbol:   method setData(String)
+  location: variable comment of type Comment
+2 errors

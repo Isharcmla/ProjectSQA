@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Jsoup_10_47bs3p58/src/NodeTest.java:494: error: an enclosing instance that contains Document.OutputSettings is required
+        Document.OutputSettings out = new Document.OutputSettings();
+                                      ^
+1 error

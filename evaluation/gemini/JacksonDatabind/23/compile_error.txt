@@ -1,0 +1,96 @@
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:106: error: cannot find symbol
+        SerializerProvider prov = mapper.getSerializerProviderInstance();
+                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:123: error: cannot find symbol
+        SerializerProvider prov = mapper.getSerializerProviderInstance();
+                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:140: error: cannot find symbol
+        SerializerProvider prov = mapper.getSerializerProviderInstance();
+                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:158: error: cannot find symbol
+        SerializerProvider prov = mapper.getSerializerProviderInstance();
+                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:175: error: cannot find symbol
+        SerializerProvider prov = mapper.getSerializerProviderInstance();
+                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:192: error: cannot find symbol
+        SerializerProvider prov = mapper.getSerializerProviderInstance();
+                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:210: error: cannot find symbol
+        SerializerProvider prov = mapper.getSerializerProviderInstance();
+                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:227: error: cannot find symbol
+        SerializerProvider prov = mapper.getSerializerProviderInstance();
+                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:241: error: cannot find symbol
+        SerializerProvider prov = mapper.getSerializerProviderInstance();
+                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:369: error: cannot find symbol
+        SerializerProvider prov = mapper.getSerializerProviderInstance();
+                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:378: error: cannot find symbol
+        SerializerProvider prov = mapper.getSerializerProviderInstance();
+                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:380: error: cannot find symbol
+        BeanProperty.Bogus bogus = new BeanProperty.Bogus();
+                    ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:380: error: cannot find symbol
+        BeanProperty.Bogus bogus = new BeanProperty.Bogus();
+                                                   ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:421: error: cannot find symbol
+        serializer.serialize(null, jsonFactory.createGenerator(new StringWriter()), mapper.getSerializerProviderInstance());
+                                                                                          ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:427: error: cannot find symbol
+        serializer.serialize(null, jsonFactory.createGenerator(new StringWriter()), mapper.getSerializerProviderInstance());
+                                                                                          ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:433: error: cannot find symbol
+        serializer.serialize(null, jsonFactory.createGenerator(new StringWriter()), mapper.getSerializerProviderInstance());
+                                                                                          ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:439: error: cannot find symbol
+        serializer.serialize(null, jsonFactory.createGenerator(new StringWriter()), mapper.getSerializerProviderInstance());
+                                                                                          ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:445: error: cannot find symbol
+        serializer.serialize(null, jsonFactory.createGenerator(new StringWriter()), mapper.getSerializerProviderInstance());
+                                                                                          ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_23_m09en5vf/src/NumberSerializersTest.java:451: error: cannot find symbol
+        serializer.serialize(null, jsonFactory.createGenerator(new StringWriter()), mapper.getSerializerProviderInstance());
+                                                                                          ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+19 errors

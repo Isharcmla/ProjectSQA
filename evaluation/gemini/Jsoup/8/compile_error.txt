@@ -1,0 +1,8 @@
+/tmp/evaluate_gemini_Jsoup_8_3iychmm2/src/NodeTest.java:84: error: reference to ConcreteNode is ambiguous
+        new ConcreteNode("http://example.com/", null);
+        ^
+  both constructor ConcreteNode(String,Attributes) in ConcreteNode and constructor ConcreteNode(String,String) in ConcreteNode match
+/tmp/evaluate_gemini_Jsoup_8_3iychmm2/src/NodeTest.java:420: error: an enclosing instance that contains Document.OutputSettings is required
+        Document.OutputSettings settings = new Document.OutputSettings();
+                                           ^
+2 errors

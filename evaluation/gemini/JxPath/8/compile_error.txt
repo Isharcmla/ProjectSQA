@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_JxPath_8_8fz3v0xu/src/CoreOperationRelationalExpressionTest.java:23: error: ValueExpr is not abstract and does not override abstract method computeContextDependent() in Expression
+    private static class ValueExpr extends Expression {
+                   ^
+1 error

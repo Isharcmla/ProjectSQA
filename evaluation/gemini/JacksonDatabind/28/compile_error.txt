@@ -1,0 +1,31 @@
+/tmp/evaluate_gemini_JacksonDatabind_28_hco8mbuo/src/JsonNodeDeserializerTest.java:216: error: cannot find symbol
+        tb.writeEmbeddedObject(rawBytes);
+          ^
+  symbol:   method writeEmbeddedObject(byte[])
+  location: variable tb of type TokenBuffer
+/tmp/evaluate_gemini_JacksonDatabind_28_hco8mbuo/src/JsonNodeDeserializerTest.java:218: error: cannot find symbol
+        tb.writeEmbeddedObject(rawValue);
+          ^
+  symbol:   method writeEmbeddedObject(RawValue)
+  location: variable tb of type TokenBuffer
+/tmp/evaluate_gemini_JacksonDatabind_28_hco8mbuo/src/JsonNodeDeserializerTest.java:220: error: cannot find symbol
+        tb.writeEmbeddedObject(childNode);
+          ^
+  symbol:   method writeEmbeddedObject(JsonNode)
+  location: variable tb of type TokenBuffer
+/tmp/evaluate_gemini_JacksonDatabind_28_hco8mbuo/src/JsonNodeDeserializerTest.java:222: error: cannot find symbol
+        tb.writeEmbeddedObject(customPojo);
+          ^
+  symbol:   method writeEmbeddedObject(Object)
+  location: variable tb of type TokenBuffer
+/tmp/evaluate_gemini_JacksonDatabind_28_hco8mbuo/src/JsonNodeDeserializerTest.java:224: error: cannot find symbol
+        tb.writeEmbeddedObject(null);
+          ^
+  symbol:   method writeEmbeddedObject(<null>)
+  location: variable tb of type TokenBuffer
+/tmp/evaluate_gemini_JacksonDatabind_28_hco8mbuo/src/JsonNodeDeserializerTest.java:250: error: cannot find symbol
+        tb.writeEmbeddedObject(rawBytes);
+          ^
+  symbol:   method writeEmbeddedObject(byte[])
+  location: variable tb of type TokenBuffer
+6 errors

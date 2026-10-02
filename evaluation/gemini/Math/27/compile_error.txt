@@ -1,0 +1,14 @@
+/tmp/evaluate_gemini_Math_27_rkq9jumh/src/FractionTest.java:112: error: no suitable constructor found for Fraction(double,double,int,int)
+        new Fraction(1.0e-20, 1.0e-30, Integer.MAX_VALUE, 100);
+        ^
+    constructor Fraction.Fraction(double) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Fraction.Fraction(double,double,int) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Fraction.Fraction(double,int) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Fraction.Fraction(int) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Fraction.Fraction(int,int) is not applicable
+      (actual and formal argument lists differ in length)
+1 error

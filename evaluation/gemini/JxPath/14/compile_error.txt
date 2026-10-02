@@ -1,0 +1,27 @@
+/tmp/evaluate_gemini_JxPath_14_nyqmsbel/src/CoreFunctionTest.java:61: error: for-each not applicable to expression type
+        for (Pointer p : jxpathContext.iteratePointers("*")) {
+                                                      ^
+  required: array or java.lang.Iterable
+  found:    Iterator
+/tmp/evaluate_gemini_JxPath_14_nyqmsbel/src/CoreFunctionTest.java:160: error: no suitable constructor found for Constant(boolean)
+        CoreFunction cf1 = new CoreFunction(Compiler.FUNCTION_NOT, new Expression[]{new Constant(true)});
+                                                                                    ^
+    constructor Constant.Constant(Number) is not applicable
+      (argument mismatch; boolean cannot be converted to Number)
+    constructor Constant.Constant(String) is not applicable
+      (argument mismatch; boolean cannot be converted to String)
+/tmp/evaluate_gemini_JxPath_14_nyqmsbel/src/CoreFunctionTest.java:203: error: no suitable constructor found for Constant(List<String>)
+        CoreFunction countColl = new CoreFunction(Compiler.FUNCTION_COUNT, new Expression[]{new Constant(Arrays.asList("x", "y"))});
+                                                                                            ^
+    constructor Constant.Constant(Number) is not applicable
+      (argument mismatch; no instance(s) of type variable(s) T exist so that List<T> conforms to Number)
+    constructor Constant.Constant(String) is not applicable
+      (argument mismatch; no instance(s) of type variable(s) T exist so that List<T> conforms to String)
+  where T is a type-variable:
+    T extends Object declared in method <T>asList(T...)
+/tmp/evaluate_gemini_JxPath_14_nyqmsbel/src/CoreFunctionTest.java:245: error: cannot find symbol
+        contextReference.registerKeyManager((context, keyName, keyValue) -> {
+                        ^
+  symbol:   method registerKeyManager((context,k[...]ns; })
+  location: variable contextReference of type JXPathContextReferenceImpl
+4 errors

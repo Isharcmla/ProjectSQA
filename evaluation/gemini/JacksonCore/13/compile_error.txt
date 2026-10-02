@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_JacksonCore_13_dafup07s/src/JsonGeneratorImplTest.java:17: error: cannot find symbol
+import com.fasterxml.jackson.core.io.ContentReference;
+                                    ^
+  symbol:   class ContentReference
+  location: package com.fasterxml.jackson.core.io
+/tmp/evaluate_gemini_JacksonCore_13_dafup07s/src/JsonGeneratorImplTest.java:151: error: cannot find symbol
+        return new IOContext(new BufferRecycler(), ContentReference.rawReference("test"), false);
+                                                   ^
+  symbol:   variable ContentReference
+  location: class JsonGeneratorImplTest
+2 errors

@@ -1,0 +1,8 @@
+/tmp/evaluate_gemini_JacksonDatabind_60_n15fbazg/src/JsonValueSerializerTest.java:134: error: CustomSchemaAwareSerializer is not abstract and does not override abstract method getSchema(SerializerProvider,Type,boolean) in SchemaAware
+    static class CustomSchemaAwareSerializer extends JsonSerializer<Object> implements SchemaAware {
+           ^
+Note: /tmp/evaluate_gemini_JacksonDatabind_60_n15fbazg/src/JsonValueSerializerTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_gemini_JacksonDatabind_60_n15fbazg/src/JsonValueSerializerTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error

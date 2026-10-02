@@ -1,0 +1,21 @@
+/tmp/evaluate_gemini_JacksonDatabind_98_kavtlljf/src/ExternalTypeHandlerTest.java:423: error: cannot find symbol
+        BasicBeanDescription beanDesc = BasicBeanDescription.forDeserialization(
+        ^
+  symbol:   class BasicBeanDescription
+  location: class ExternalTypeHandlerTest
+/tmp/evaluate_gemini_JacksonDatabind_98_kavtlljf/src/ExternalTypeHandlerTest.java:423: error: cannot find symbol
+        BasicBeanDescription beanDesc = BasicBeanDescription.forDeserialization(
+                                        ^
+  symbol:   variable BasicBeanDescription
+  location: class ExternalTypeHandlerTest
+/tmp/evaluate_gemini_JacksonDatabind_98_kavtlljf/src/ExternalTypeHandlerTest.java:425: error: cannot find symbol
+        SettableBeanProperty prop1 = null;
+        ^
+  symbol:   class SettableBeanProperty
+  location: class ExternalTypeHandlerTest
+/tmp/evaluate_gemini_JacksonDatabind_98_kavtlljf/src/ExternalTypeHandlerTest.java:426: error: cannot find symbol
+        SettableBeanProperty prop2 = null;
+        ^
+  symbol:   class SettableBeanProperty
+  location: class ExternalTypeHandlerTest
+4 errors

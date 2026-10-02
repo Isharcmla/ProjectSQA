@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Math_77_ew0lzvhy/src/ArrayRealVectorTest.java:307: error: Entry is abstract; cannot be instantiated
+                private final Entry entry = new Entry();
+                                            ^
+1 error

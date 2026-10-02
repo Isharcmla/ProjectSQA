@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Mockito_38_axk5it7t/src/ArgumentMatchingToolTest.java:146: error: ExtraInfoMatcher is not abstract and does not override abstract method withExtraTypeInfo() in ContainsExtraTypeInformation
+    private static class ExtraInfoMatcher extends BaseMatcher<Object> implements ContainsExtraTypeInformation {
+                   ^
+1 error

@@ -1,0 +1,35 @@
+/tmp/evaluate_gemini_JacksonDatabind_79_sfyigb3w/src/JacksonAnnotationIntrospectorTest.java:237: error: cannot find symbol
+        public DummyVirtualWriter(BeanPropertyDefinition propDef, Annotations contextAnnotations, JavaType declaredType) {
+                                                                  ^
+  symbol:   class Annotations
+  location: class DummyVirtualWriter
+/tmp/evaluate_gemini_JacksonDatabind_79_sfyigb3w/src/JacksonAnnotationIntrospectorTest.java:307: error: incompatible types: Class<Object> cannot be converted to Class<? extends ValueInstantiator>
+    @JsonValueInstantiator(Object.class)
+                                 ^
+/tmp/evaluate_gemini_JacksonDatabind_79_sfyigb3w/src/JacksonAnnotationIntrospectorTest.java:331: error: annotation type not applicable to this kind of declaration
+        @Transient(true)
+        ^
+/tmp/evaluate_gemini_JacksonDatabind_79_sfyigb3w/src/JacksonAnnotationIntrospectorTest.java:334: error: annotation type not applicable to this kind of declaration
+        @Transient(false)
+        ^
+/tmp/evaluate_gemini_JacksonDatabind_79_sfyigb3w/src/JacksonAnnotationIntrospectorTest.java:341: error: incompatible types: JacksonAnnotationIntrospector cannot be converted to MapperConfig<?>
+        return AnnotatedClass.constructWithoutSuperTypes(cls, introspector, null);
+                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_79_sfyigb3w/src/JacksonAnnotationIntrospectorTest.java:494: error: incompatible types: Class<Integer> cannot be converted to JavaType
+        AnnotatedParameter param0 = new AnnotatedParameter(ac, int.class, null, 0);
+                                                                  ^
+/tmp/evaluate_gemini_JacksonDatabind_79_sfyigb3w/src/JacksonAnnotationIntrospectorTest.java:495: error: incompatible types: Class<Integer> cannot be converted to JavaType
+        AnnotatedParameter param1 = new AnnotatedParameter(ac, int.class, null, 1);
+                                                                  ^
+/tmp/evaluate_gemini_JacksonDatabind_79_sfyigb3w/src/JacksonAnnotationIntrospectorTest.java:496: error: incompatible types: Class<Integer> cannot be converted to JavaType
+        AnnotatedParameter paramOut = new AnnotatedParameter(ac, int.class, null, 2);
+                                                                    ^
+/tmp/evaluate_gemini_JacksonDatabind_79_sfyigb3w/src/JacksonAnnotationIntrospectorTest.java:504: error: incompatible types: Class<Object> cannot be converted to JavaType
+        AnnotatedParameter paramNoAnn = new AnnotatedParameter(acNoAnn, Object.class, null, 0);
+                                                                              ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_gemini_JacksonDatabind_79_sfyigb3w/src/JacksonAnnotationIntrospectorTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+9 errors

@@ -1,0 +1,13 @@
+/tmp/evaluate_gemini_JxPath_6_z9z2by1y/src/CoreOperationCompareTest.java:73: error: ValueExpression is not abstract and does not override abstract method computeContextDependent() in Expression
+    private static class ValueExpression extends Expression {
+                   ^
+/tmp/evaluate_gemini_JxPath_6_z9z2by1y/src/CoreOperationCompareTest.java:383: warning: [removal] Compiler in java.lang has been deprecated and marked for removal
+        SelfContext selfCtx = new SelfContext(initCtx, new NodeTypeTest(Compiler.NODE_TYPE_NODE));
+                                                                        ^
+/tmp/evaluate_gemini_JxPath_6_z9z2by1y/src/CoreOperationCompareTest.java:383: error: cannot find symbol
+        SelfContext selfCtx = new SelfContext(initCtx, new NodeTypeTest(Compiler.NODE_TYPE_NODE));
+                                                                                ^
+  symbol:   variable NODE_TYPE_NODE
+  location: class Compiler
+2 errors
+1 warning

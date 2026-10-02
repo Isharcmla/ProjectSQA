@@ -1,0 +1,31 @@
+/tmp/evaluate_gemini_Math_13_e5ssupbk/src/AbstractLeastSquaresOptimizerTest.java:198: error: reference to optimize is ambiguous
+        optimizer.optimize(100, problem, target, weights, startPoint);
+                 ^
+  both method optimize(int,DifferentiableMultivariateVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer and method optimize(int,MultivariateDifferentiableVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer match
+/tmp/evaluate_gemini_Math_13_e5ssupbk/src/AbstractLeastSquaresOptimizerTest.java:233: error: reference to optimize is ambiguous
+        optimizer.optimize(100, problem, target, weights, startPoint);
+                 ^
+  both method optimize(int,DifferentiableMultivariateVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer and method optimize(int,MultivariateDifferentiableVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer match
+/tmp/evaluate_gemini_Math_13_e5ssupbk/src/AbstractLeastSquaresOptimizerTest.java:259: error: reference to optimize is ambiguous
+        optimizer.optimize(100, problem, target, weights, startPoint);
+                 ^
+  both method optimize(int,DifferentiableMultivariateVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer and method optimize(int,MultivariateDifferentiableVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer match
+/tmp/evaluate_gemini_Math_13_e5ssupbk/src/AbstractLeastSquaresOptimizerTest.java:271: error: reference to optimize is ambiguous
+        optimizer.optimize(100, problem, target, weights, startPoint);
+                 ^
+  both method optimize(int,DifferentiableMultivariateVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer and method optimize(int,MultivariateDifferentiableVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer match
+/tmp/evaluate_gemini_Math_13_e5ssupbk/src/AbstractLeastSquaresOptimizerTest.java:287: error: reference to optimize is ambiguous
+        optimizer.optimize(100, problem, target, weights, startPoint);
+                 ^
+  both method optimize(int,DifferentiableMultivariateVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer and method optimize(int,MultivariateDifferentiableVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer match
+/tmp/evaluate_gemini_Math_13_e5ssupbk/src/AbstractLeastSquaresOptimizerTest.java:334: error: reference to optimize is ambiguous
+        optimizer.optimize(100, problem, target, weights, startPoint);
+                 ^
+  both method optimize(int,DifferentiableMultivariateVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer and method optimize(int,MultivariateDifferentiableVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer match
+/tmp/evaluate_gemini_Math_13_e5ssupbk/src/AbstractLeastSquaresOptimizerTest.java:351: error: reference to optimize is ambiguous
+        optimizer.optimize(100, problem, target, weights, startPoint);
+                 ^
+  both method optimize(int,DifferentiableMultivariateVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer and method optimize(int,MultivariateDifferentiableVectorFunction,double[],double[],double[]) in AbstractLeastSquaresOptimizer match
+Note: /tmp/evaluate_gemini_Math_13_e5ssupbk/src/AbstractLeastSquaresOptimizerTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+7 errors

@@ -1,0 +1,19 @@
+/tmp/evaluate_gemini_Lang_8_d75ku553/src/FastDatePrinterTest.java:29: error: Rule has private access in FastDatePrinter
+        public List<Rule> parsePattern() {
+                    ^
+/tmp/evaluate_gemini_Lang_8_d75ku553/src/FastDatePrinterTest.java:39: error: NumberRule has private access in FastDatePrinter
+        public NumberRule selectNumberRule(int field, int padding) {
+               ^
+/tmp/evaluate_gemini_Lang_8_d75ku553/src/FastDatePrinterTest.java:263: error: NumberRule has private access in FastDatePrinter
+        FastDatePrinter.NumberRule rule1 = printer.selectNumberRule(Calendar.YEAR, 1);
+                       ^
+/tmp/evaluate_gemini_Lang_8_d75ku553/src/FastDatePrinterTest.java:264: error: NumberRule has private access in FastDatePrinter
+        FastDatePrinter.NumberRule rule2 = printer.selectNumberRule(Calendar.YEAR, 2);
+                       ^
+/tmp/evaluate_gemini_Lang_8_d75ku553/src/FastDatePrinterTest.java:265: error: NumberRule has private access in FastDatePrinter
+        FastDatePrinter.NumberRule rule3 = printer.selectNumberRule(Calendar.YEAR, 3);
+                       ^
+/tmp/evaluate_gemini_Lang_8_d75ku553/src/FastDatePrinterTest.java:266: error: NumberRule has private access in FastDatePrinter
+        FastDatePrinter.NumberRule rule5 = printer.selectNumberRule(Calendar.YEAR, 5);
+                       ^
+6 errors

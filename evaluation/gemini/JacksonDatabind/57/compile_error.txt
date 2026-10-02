@@ -1,0 +1,53 @@
+/tmp/evaluate_gemini_JacksonDatabind_57_72gtf623/src/ObjectReaderTest.java:132: error: cannot find symbol
+        Assert.assertTrue(r2.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_COMMENTS.getMask()));
+                                        ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_57_72gtf623/src/ObjectReaderTest.java:135: error: cannot find symbol
+        Assert.assertFalse(r3.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_COMMENTS.getMask()));
+                                         ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_57_72gtf623/src/ObjectReaderTest.java:138: error: cannot find symbol
+        Assert.assertTrue(r4.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_COMMENTS.getMask()));
+                                        ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_57_72gtf623/src/ObjectReaderTest.java:139: error: cannot find symbol
+        Assert.assertTrue(r4.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_SINGLE_QUOTES.getMask()));
+                                        ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_57_72gtf623/src/ObjectReaderTest.java:142: error: cannot find symbol
+        Assert.assertFalse(r5.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_COMMENTS.getMask()));
+                                         ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_57_72gtf623/src/ObjectReaderTest.java:143: error: cannot find symbol
+        Assert.assertFalse(r5.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_SINGLE_QUOTES.getMask()));
+                                         ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_57_72gtf623/src/ObjectReaderTest.java:167: error: cannot find symbol
+        Assert.assertTrue(r1.getConfig().hasFormatFeatureConfiguration(DummyFormatFeature.FEAT));
+                                        ^
+  symbol:   method hasFormatFeatureConfiguration(DummyFormatFeature)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_57_72gtf623/src/ObjectReaderTest.java:170: error: cannot find symbol
+        Assert.assertFalse(r2.getConfig().hasFormatFeatureConfiguration(DummyFormatFeature.FEAT));
+                                         ^
+  symbol:   method hasFormatFeatureConfiguration(DummyFormatFeature)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_57_72gtf623/src/ObjectReaderTest.java:173: error: cannot find symbol
+        Assert.assertTrue(r3.getConfig().hasFormatFeatureConfiguration(DummyFormatFeature.FEAT));
+                                        ^
+  symbol:   method hasFormatFeatureConfiguration(DummyFormatFeature)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_57_72gtf623/src/ObjectReaderTest.java:176: error: cannot find symbol
+        Assert.assertFalse(r4.getConfig().hasFormatFeatureConfiguration(DummyFormatFeature.FEAT));
+                                         ^
+  symbol:   method hasFormatFeatureConfiguration(DummyFormatFeature)
+  location: class DeserializationConfig
+Note: /tmp/evaluate_gemini_JacksonDatabind_57_72gtf623/src/ObjectReaderTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+10 errors

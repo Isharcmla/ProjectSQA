@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Time_15_trnzzhnt/src/FieldUtilsTest.java:253: error: StubDateTimeField is not abstract and does not override abstract method isLenient() in DateTimeField
+    private static class StubDateTimeField extends BaseDateTimeField {
+                   ^
+Note: /tmp/evaluate_gemini_Time_15_trnzzhnt/src/FieldUtilsTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error

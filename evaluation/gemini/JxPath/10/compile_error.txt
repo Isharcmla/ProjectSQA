@@ -1,0 +1,9 @@
+/tmp/evaluate_gemini_JxPath_10_zs1kwejc/src/CoreOperationRelationalExpressionTest.java:44: error: ValueExpression is not abstract and does not override abstract method computeContextDependent() in Expression
+    private static class ValueExpression extends Expression {
+                   ^
+/tmp/evaluate_gemini_JxPath_10_zs1kwejc/src/CoreOperationRelationalExpressionTest.java:202: error: cannot find symbol
+        EvalContext evalCtx = (EvalContext) context.getAbsoluteRootContext();
+                                                   ^
+  symbol:   method getAbsoluteRootContext()
+  location: variable context of type JXPathContext
+2 errors

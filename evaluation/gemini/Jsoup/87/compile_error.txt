@@ -1,0 +1,20 @@
+/tmp/evaluate_gemini_Jsoup_87_p1sc2t02/src/HtmlTreeBuilderStateTest.java:418: error: incompatible types: List<Node> cannot be converted to List<Element>
+        List<Element> nodes1 = Parser.parseFragment("<div><p>Paragraph</p></div>", new Element(Tag.valueOf("body"), ""), "");
+                                                   ^
+/tmp/evaluate_gemini_Jsoup_87_p1sc2t02/src/HtmlTreeBuilderStateTest.java:421: error: incompatible types: List<Node> cannot be converted to List<Element>
+        List<Element> nodes2 = Parser.parseFragment("<tr><td>Cell</td></tr>", new Element(Tag.valueOf("table"), ""), "");
+                                                   ^
+/tmp/evaluate_gemini_Jsoup_87_p1sc2t02/src/HtmlTreeBuilderStateTest.java:424: error: incompatible types: List<Node> cannot be converted to List<Element>
+        List<Element> nodes3 = Parser.parseFragment("<option>Option 1</option>", new Element(Tag.valueOf("select"), ""), "");
+                                                   ^
+/tmp/evaluate_gemini_Jsoup_87_p1sc2t02/src/HtmlTreeBuilderStateTest.java:427: error: incompatible types: List<Node> cannot be converted to List<Element>
+        List<Element> nodes4 = Parser.parseFragment("<col width='10'>", new Element(Tag.valueOf("colgroup"), ""), "");
+                                                   ^
+/tmp/evaluate_gemini_Jsoup_87_p1sc2t02/src/HtmlTreeBuilderTest.java:203: error: cannot find symbol
+        commentToken.getData().append("test comment");
+                              ^
+  symbol:   method append(String)
+  location: class String
+Note: /tmp/evaluate_gemini_Jsoup_87_p1sc2t02/src/TagTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+5 errors

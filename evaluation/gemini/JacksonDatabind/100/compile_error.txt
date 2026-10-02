@@ -1,0 +1,13 @@
+/tmp/evaluate_gemini_JacksonDatabind_100_tflmad3w/src/TreeTraversingParserTest.java:248: error: incompatible types: NumericNode cannot be converted to IntNode
+        IntNode intNode = nodeFactory.numberNode(42);
+                                                ^
+/tmp/evaluate_gemini_JacksonDatabind_100_tflmad3w/src/TreeTraversingParserTest.java:312: error: incompatible types: ValueNode cannot be converted to POJONode
+        POJONode pojoNode = nodeFactory.pojoNode(customPojo);
+                                                ^
+/tmp/evaluate_gemini_JacksonDatabind_100_tflmad3w/src/TreeTraversingParserTest.java:343: error: incompatible types: ValueNode cannot be converted to POJONode
+        POJONode pojoWithBytes = nodeFactory.pojoNode(new byte[]{8, 9});
+                                                     ^
+/tmp/evaluate_gemini_JacksonDatabind_100_tflmad3w/src/TreeTraversingParserTest.java:348: error: incompatible types: ValueNode cannot be converted to POJONode
+        POJONode pojoWithOther = nodeFactory.pojoNode(Integer.valueOf(123));
+                                                     ^
+4 errors

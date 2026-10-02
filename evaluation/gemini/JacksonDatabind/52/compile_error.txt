@@ -1,0 +1,38 @@
+/tmp/evaluate_gemini_JacksonDatabind_52_vmfov3ki/src/BeanDeserializerBaseTest.java:14: error: cannot find symbol
+import com.fasterxml.jackson.databind.exc.UnresolvedForwardReference;
+                                         ^
+  symbol:   class UnresolvedForwardReference
+  location: package com.fasterxml.jackson.databind.exc
+/tmp/evaluate_gemini_JacksonDatabind_52_vmfov3ki/src/BeanDeserializerBaseTest.java:377: error: incompatible types: BeanDeserializer cannot be converted to ConcreteBeanDeserializer
+        ConcreteBeanDeserializer custom = new ConcreteBeanDeserializer((BeanDeserializer) base);
+                                                                       ^
+/tmp/evaluate_gemini_JacksonDatabind_52_vmfov3ki/src/BeanDeserializerBaseTest.java:416: error: incompatible types: BeanDeserializer cannot be converted to ConcreteBeanDeserializer
+        ConcreteBeanDeserializer custom = new ConcreteBeanDeserializer((BeanDeserializer) base);
+                                                                       ^
+/tmp/evaluate_gemini_JacksonDatabind_52_vmfov3ki/src/BeanDeserializerBaseTest.java:697: error: cannot find symbol
+        TokenBuffer buf = new TokenBuffer(mapper, false);
+        ^
+  symbol:   class TokenBuffer
+  location: class BeanDeserializerBaseTest
+/tmp/evaluate_gemini_JacksonDatabind_52_vmfov3ki/src/BeanDeserializerBaseTest.java:697: error: cannot find symbol
+        TokenBuffer buf = new TokenBuffer(mapper, false);
+                              ^
+  symbol:   class TokenBuffer
+  location: class BeanDeserializerBaseTest
+/tmp/evaluate_gemini_JacksonDatabind_52_vmfov3ki/src/BeanDeserializerBaseTest.java:775: error: cannot find symbol
+        TokenBuffer buf = new TokenBuffer(mapper, false);
+        ^
+  symbol:   class TokenBuffer
+  location: class BeanDeserializerBaseTest
+/tmp/evaluate_gemini_JacksonDatabind_52_vmfov3ki/src/BeanDeserializerBaseTest.java:775: error: cannot find symbol
+        TokenBuffer buf = new TokenBuffer(mapper, false);
+                              ^
+  symbol:   class TokenBuffer
+  location: class BeanDeserializerBaseTest
+/tmp/evaluate_gemini_JacksonDatabind_52_vmfov3ki/src/ExternalTypeHandlerTest.java:365: error: incompatible types: AnnotatedParameter cannot be converted to SettableBeanProperty
+                .getConstructorParameter();
+                                        ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+8 errors

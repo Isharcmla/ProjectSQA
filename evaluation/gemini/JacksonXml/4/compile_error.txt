@@ -1,0 +1,136 @@
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:128: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, null);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,<null>)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:141: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, bean);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,SimpleBean)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:157: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, items);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,String[])
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:171: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, items);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,String[])
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:184: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, list);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,List<String>)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:198: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, list);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,List<String>)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:210: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(tb, bean);
+                                                  ^
+  symbol:   method serializeValue(TokenBuffer,SimpleBean)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:225: error: cannot find symbol
+            _xmlMapper.getSerializerProviderInstance().serializeValue(jgen, new SimpleBean("a", 1));
+                                                      ^
+  symbol:   method serializeValue(JsonGenerator,SimpleBean)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:239: error: cannot find symbol
+                .createInstance(config, _xmlMapper.getSerializerFactory());
+                ^
+  symbol:   method createInstance(SerializationConfig,SerializerFactory)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:256: error: cannot find symbol
+                .createInstance(config, _xmlMapper.getSerializerFactory());
+                ^
+  symbol:   method createInstance(SerializationConfig,SerializerFactory)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:274: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, bean);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,NamespacedBean)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:335: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, null, type);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,<null>,JavaType)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:349: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, bean, type);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,SimpleBean,JavaType)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:365: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, items, type);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,String[],JavaType)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:379: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(tb, bean, type);
+                                                  ^
+  symbol:   method serializeValue(TokenBuffer,SimpleBean,JavaType)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:392: error: cannot find symbol
+            _xmlMapper.getSerializerProviderInstance().serializeValue(jgen, new SimpleBean("a", 1), type);
+                                                      ^
+  symbol:   method serializeValue(JsonGenerator,SimpleBean,JavaType)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:411: error: cannot find symbol
+            mapper.getSerializerProviderInstance().serializeValue(xgen, new ThrowingIOExceptionBean(), ioType);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,ThrowingIOExceptionBean,JavaType)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:424: error: cannot find symbol
+            mapper.getSerializerProviderInstance().serializeValue(xgen, new ThrowingRuntimeExceptionBean(), rtType);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,ThrowingRuntimeExceptionBean,JavaType)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:439: error: cannot find symbol
+            mapper.getSerializerProviderInstance().serializeValue(xgen, new ThrowingNullMsgRuntimeExceptionBean(), rtNullMsgType);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,ThrowingNullMsgRuntimeExceptionBean,JavaType)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:454: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, null, type, null);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,<null>,JavaType,<null>)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:471: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, bean, type, ser);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,SimpleBean,JavaType,JsonSerializer<Object>)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:486: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, bean, type, null);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,SimpleBean,JavaType,<null>)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:500: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(tb, bean, type, null);
+                                                  ^
+  symbol:   method serializeValue(TokenBuffer,SimpleBean,JavaType,<null>)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:514: error: cannot find symbol
+        _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, items, type, null);
+                                                  ^
+  symbol:   method serializeValue(ToXmlGenerator,String[],JavaType,<null>)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:528: error: cannot find symbol
+            _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, new ThrowingIOExceptionBean(), ioType, new ThrowingIOExceptionSerializer());
+                                                      ^
+  symbol:   method serializeValue(ToXmlGenerator,ThrowingIOExceptionBean,JavaType,ThrowingIOExceptionSerializer)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:538: error: cannot find symbol
+            _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, new ThrowingRuntimeExceptionBean(), rtType, new ThrowingRuntimeExceptionSerializer());
+                                                      ^
+  symbol:   method serializeValue(ToXmlGenerator,ThrowingRuntimeExceptionBean,JavaType,ThrowingRuntimeExceptionSerializer)
+  location: class SerializerProvider
+/tmp/evaluate_gemini_JacksonXml_4_oc87vsqg/src/XmlSerializerProviderTest.java:550: error: cannot find symbol
+            _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, new ThrowingNullMsgRuntimeExceptionBean(), rtNullMsgType, new ThrowingNullMsgRuntimeExceptionSerializer());
+                                                      ^
+  symbol:   method serializeValue(ToXmlGenerator,ThrowingNullMsgRuntimeExceptionBean,JavaType,ThrowingNullMsgRuntimeExceptionSerializer)
+  location: class SerializerProvider
+27 errors

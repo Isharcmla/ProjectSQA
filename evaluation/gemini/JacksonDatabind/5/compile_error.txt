@@ -1,0 +1,19 @@
+/tmp/evaluate_gemini_JacksonDatabind_5_pbaiessl/src/AnnotatedClassTest.java:51: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_gemini_JacksonDatabind_5_pbaiessl/src/AnnotatedClassTest.java:254: error: cannot find symbol
+        Assert.assertNotNull(singleArgCtor.getParamAnnotation(0, MarkerB.class));
+                                          ^
+  symbol:   method getParamAnnotation(int,Class<MarkerB>)
+  location: variable singleArgCtor of type AnnotatedConstructor
+/tmp/evaluate_gemini_JacksonDatabind_5_pbaiessl/src/AnnotatedClassTest.java:276: error: cannot find symbol
+        Assert.assertNotNull(factoryMethod.getParamAnnotation(0, MarkerB.class));
+                                          ^
+  symbol:   method getParamAnnotation(int,Class<MarkerB>)
+  location: variable factoryMethod of type AnnotatedMethod
+/tmp/evaluate_gemini_JacksonDatabind_5_pbaiessl/src/AnnotatedClassTest.java:391: error: cannot find symbol
+        Assert.assertNotNull(ctor.getParamAnnotation(1, MarkerA.class));
+                                 ^
+  symbol:   method getParamAnnotation(int,Class<MarkerA>)
+  location: variable ctor of type AnnotatedConstructor
+4 errors

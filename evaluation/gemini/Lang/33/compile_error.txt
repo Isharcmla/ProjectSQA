@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Lang_33_1au2x30q/src/ClassUtilsTest.java:307: error: bad operand types for binary operator '&&'
+        assertFalse(ClassUtils.isAssignable(float.class, float.class && false, false));
+                                                                     ^
+  first type:  Class<Float>
+  second type: boolean
+/tmp/evaluate_gemini_Lang_33_1au2x30q/src/ClassUtilsTest.java:484: error: cannot find symbol
+        assertEquals(3, classes.size() == 0 ? 0 : classes.length);
+                               ^
+  symbol:   method size()
+  location: variable classes of type Class<?>[]
+2 errors

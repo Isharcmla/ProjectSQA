@@ -1,0 +1,60 @@
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ParserMinimalBaseTest.java:18: error: MinimalParserImpl is not abstract and does not override abstract method version() in JsonParser
+    static class MinimalParserImpl extends ParserMinimalBase {
+           ^
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ParserMinimalBaseTest.java:201: error: package Feature does not exist
+        MinimalParserImpl p2 = new MinimalParserImpl(Feature.ALLOW_SINGLE_QUOTES.getMask());
+                                                            ^
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ParserMinimalBaseTest.java:202: error: cannot find symbol
+        Assert.assertTrue(p2.isEnabled(Feature.ALLOW_SINGLE_QUOTES));
+                                       ^
+  symbol:   variable Feature
+  location: class ParserMinimalBaseTest
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ParserMinimalBaseTest.java:203: error: cannot find symbol
+        Assert.assertFalse(p2.isEnabled(Feature.ALLOW_UNQUOTED_CONTROL_CHARS));
+                                        ^
+  symbol:   variable Feature
+  location: class ParserMinimalBaseTest
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ParserMinimalBaseTest.java:646: error: package Feature does not exist
+        MinimalParserImpl pEnabled = new MinimalParserImpl(Feature.ALLOW_UNQUOTED_CONTROL_CHARS.getMask());
+                                                                  ^
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ParserMinimalBaseTest.java:667: error: package Feature does not exist
+        MinimalParserImpl pBackslashAny = new MinimalParserImpl(Feature.ALLOW_BACKSLASH_ESCAPING_ANY_CHARACTER.getMask());
+                                                                       ^
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ParserMinimalBaseTest.java:671: error: package Feature does not exist
+        MinimalParserImpl pSingleQuote = new MinimalParserImpl(Feature.ALLOW_SINGLE_QUOTES.getMask());
+                                                                      ^
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ReaderBasedJsonParserTest.java:57: error: cannot find symbol
+            @Override public <T> T readValue(JsonParser p, TypeReference<?> valueTypeRef) { return null; }
+                                                           ^
+  symbol: class TypeReference
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ReaderBasedJsonParserTest.java:61: error: cannot find symbol
+            @Override public <T> java.util.Iterator<T> readValues(JsonParser p, TypeReference<?> valueTypeRef) { return null; }
+                                                                                ^
+  symbol: class TypeReference
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ReaderBasedJsonParserTest.java:56: error: name clash: class  has two methods with the same erasure, yet neither overrides the other
+            @Override public <T> T readValue(JsonParser p, Class<T> valueType) { return null; }
+                                   ^
+  first method:  readValue(JsonParser,<any>) in <anonymous com.fasterxml.jackson.core.json.ReaderBasedJsonParserTest$1>
+  second method: readValue(JsonParser,ResolvedType) in ObjectCodec
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ReaderBasedJsonParserTest.java:58: error: name clash: class  has two methods with the same erasure, yet neither overrides the other
+            @Override public <T> T readValue(JsonParser p, com.fasterxml.jackson.core.type.ResolvedType valueType) { return null; }
+                                   ^
+  first method:  readValue(JsonParser,<any>) in <anonymous com.fasterxml.jackson.core.json.ReaderBasedJsonParserTest$1>
+  second method: readValue(JsonParser,TypeReference<?>) in ObjectCodec
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ReaderBasedJsonParserTest.java:60: error: name clash: class  has two methods with the same erasure, yet neither overrides the other
+            @Override public <T> java.util.Iterator<T> readValues(JsonParser p, Class<T> valueType) { return null; }
+                                                       ^
+  first method:  readValues(JsonParser,<any>) in <anonymous com.fasterxml.jackson.core.json.ReaderBasedJsonParserTest$1>
+  second method: readValues(JsonParser,ResolvedType) in ObjectCodec
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/ReaderBasedJsonParserTest.java:62: error: name clash: class  has two methods with the same erasure, yet neither overrides the other
+            @Override public <T> java.util.Iterator<T> readValues(JsonParser p, com.fasterxml.jackson.core.type.ResolvedType valueType) { return null; }
+                                                       ^
+  first method:  readValues(JsonParser,<any>) in <anonymous com.fasterxml.jackson.core.json.ReaderBasedJsonParserTest$1>
+  second method: readValues(JsonParser,TypeReference<?>) in ObjectCodec
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/UTF8StreamJsonParserTest.java:28: error: createRoot(int) has protected access in ByteQuadsCanonicalizer
+        ByteQuadsCanonicalizer sym = ByteQuadsCanonicalizer.createRoot(0).makeChild(JsonFactory.Feature.collectDefaults());
+                                                           ^
+/tmp/evaluate_gemini_JacksonCore_9_vr2m24h0/src/UTF8StreamJsonParserTest.java:36: error: createRoot(int) has protected access in ByteQuadsCanonicalizer
+        ByteQuadsCanonicalizer sym = ByteQuadsCanonicalizer.createRoot(0).makeChild(JsonFactory.Feature.collectDefaults());
+                                                           ^
+15 errors

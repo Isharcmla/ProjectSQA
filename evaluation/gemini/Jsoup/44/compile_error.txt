@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Jsoup_44_is06b2nu/src/TreeBuilderTest.java:6: error: cannot find symbol
+import org.jsoup.nodes.Tag;
+                      ^
+  symbol:   class Tag
+  location: package org.jsoup.nodes
+1 error

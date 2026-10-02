@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_JacksonCore_20_sjfxurpd/src/JsonGeneratorTest.java:571: error: TestStreamContext is not abstract and does not override abstract method getParent() in JsonStreamContext
+    private static class TestStreamContext extends JsonStreamContext {
+                   ^
+Note: /tmp/evaluate_gemini_JacksonCore_20_sjfxurpd/src/JsonGeneratorTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error

@@ -1,0 +1,214 @@
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerFactoryTest.java:11: error: cannot find symbol
+import com.fasterxml.jackson.databind.ser.std.StdConverter;
+                                             ^
+  symbol:   class StdConverter
+  location: package com.fasterxml.jackson.databind.ser.std
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerFactoryTest.java:58: error: cannot find symbol
+    @JsonSerialize(using = CustomSerializedBeanSerializer.class)
+     ^
+  symbol:   class JsonSerialize
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerFactoryTest.java:63: error: cannot find symbol
+    public static class StringWrapperConverter extends StdConverter<StringWrapper, String> {
+                                                       ^
+  symbol:   class StdConverter
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerFactoryTest.java:70: error: cannot find symbol
+    @JsonSerialize(converter = StringWrapperConverter.class)
+     ^
+  symbol:   class JsonSerialize
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerFactoryTest.java:76: error: cannot find symbol
+    @JsonSerialize(as = BaseType.class)
+     ^
+  symbol:   class JsonSerialize
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:292: error: cannot find symbol
+        DefaultSerializerProvider.Impl provider = (DefaultSerializerProvider.Impl) mapper.getSerializerProviderInstance();
+                                                                                         ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:294: error: incompatible types: List<BeanPropertyDefinition> cannot be converted to List<BeanPropertyWriter>
+        List<BeanPropertyWriter> props = mapper.getSerializationConfig().introspect(type).findProperties();
+                                                                                                        ^
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:419: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:434: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:449: error: method serializeAll in class SimpleBeanPropertyFilter cannot be applied to given types;
+                SimpleBeanPropertyFilter.serializeAll());
+                                        ^
+  required: Set<String>
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:450: error: cannot find symbol
+        ObjectMapper filterMapper = new ObjectMapper().setFilterProvider(filters);
+                                                      ^
+  symbol:   method setFilterProvider(FilterProvider)
+  location: class ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:452: error: cannot find symbol
+        SerializerProvider provider = filterMapper.getSerializerProviderInstance();
+                                                  ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable filterMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:467: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:488: error: cannot find symbol
+                    public void property(String name, JsonFormatVisitable handler, JavaType propertyTypeHint) {
+                                                      ^
+  symbol: class JsonFormatVisitable
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:478: error: cannot find symbol
+        JsonFormatVisitorWrapper visitor = new JsonFormatVisitorWrapper.Base(mapper.getSerializerProviderInstance()) {
+                                                                                   ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:503: error: method serializeAll in class SimpleBeanPropertyFilter cannot be applied to given types;
+                SimpleBeanPropertyFilter.serializeAll());
+                                        ^
+  required: Set<String>
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:504: error: cannot find symbol
+        ObjectMapper filterMapper = new ObjectMapper().setFilterProvider(filters);
+                                                      ^
+  symbol:   method setFilterProvider(FilterProvider)
+  location: class ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:517: error: cannot find symbol
+                    public void property(String name, JsonFormatVisitable handler, JavaType propertyTypeHint) {
+                                                      ^
+  symbol: class JsonFormatVisitable
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:521: error: method does not override or implement a method from a supertype
+                    @Override
+                    ^
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerBaseTest.java:507: error: cannot find symbol
+        JsonFormatVisitorWrapper visitor = new JsonFormatVisitorWrapper.Base(filterMapper.getSerializerProviderInstance()) {
+                                                                                         ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable filterMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerFactoryTest.java:64: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/BeanSerializerFactoryTest.java:244: error: incompatible types: JsonSerializer<Object> cannot be converted to CustomSerializedBeanSerializer
+        Assert.assertTrue(ser instanceof CustomSerializedBeanSerializer);
+                          ^
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/JavaTypeTest.java:15: error: ConcreteJavaType is not abstract and does not override abstract method toCanonical() in ResolvedType
+    private static class ConcreteJavaType extends JavaType {
+                   ^
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/JavaTypeTest.java:132: error: MinimalJavaType is not abstract and does not override abstract method toCanonical() in ResolvedType
+    private static class MinimalJavaType extends JavaType {
+                   ^
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdDelegatingSerializerTest.java:133: error: cannot find symbol
+        return mapper.getSerializerProviderInstance();
+                     ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdDelegatingSerializerTest.java:272: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdDelegatingSerializerTest.java:293: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdDelegatingSerializerTest.java:315: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:155: error: cannot find symbol
+        defaultProvider = mapper.getSerializerProviderInstance();
+                                ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:281: error: cannot find symbol
+        SerializerProvider provider = noWrapMapper.getSerializerProviderInstance();
+                                                  ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable noWrapMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:324: error: cannot find symbol
+        SerializerProvider provider = noWrapMapper.getSerializerProviderInstance();
+                                                  ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable noWrapMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:369: error: cannot find symbol
+        SerializerProvider provider = noWrapMapper.getSerializerProviderInstance();
+                                                  ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable noWrapMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:412: error: cannot find symbol
+        SerializerProvider provider = noWrapMapper.getSerializerProviderInstance();
+                                                  ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable noWrapMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:450: error: cannot find symbol
+        SerializerProvider providerNoIntr = noIntrospectorMapper.getSerializerProviderInstance();
+                                                                ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable noIntrospectorMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:453: error: method construct in class PropertyName cannot be applied to given types;
+        BeanProperty.Std prop = new BeanProperty.Std(PropertyName.construct("test"),
+                                                                 ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:463: error: cannot find symbol
+        SerializerProvider provider = customMapper.getSerializerProviderInstance();
+                                                  ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable customMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:466: error: method constructWithoutSuperTypes in class AnnotatedClass cannot be applied to given types;
+        AnnotatedClass ac = AnnotatedClass.constructWithoutSuperTypes(DummyBean.class, customMapper.getDeserializationConfig());
+                                          ^
+  required: Class<?>,AnnotationIntrospector,MixInResolver
+  found: Class<DummyBean>,DeserializationConfig
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:481: error: method construct in class PropertyName cannot be applied to given types;
+        BeanProperty.Std propWithConv = new BeanProperty.Std(PropertyName.construct("convertedField"),
+                                                                         ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:484: error: method construct in class PropertyName cannot be applied to given types;
+        BeanProperty.Std propWithoutConv = new BeanProperty.Std(PropertyName.construct("normalField"),
+                                                                            ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:496: error: no suitable constructor found for ConcreteStdSerializer(Class<Integer>)
+        JsonSerializer<Object> existing = new ConcreteStdSerializer<Object>(Integer.class);
+                                          ^
+    constructor ConcreteStdSerializer.ConcreteStdSerializer(Class<Object>) is not applicable
+      (argument mismatch; Class<Integer> cannot be converted to Class<Object>)
+    constructor ConcreteStdSerializer.ConcreteStdSerializer(JavaType) is not applicable
+      (argument mismatch; Class<Integer> cannot be converted to JavaType)
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:517: error: method serializeAll in class SimpleBeanPropertyFilter cannot be applied to given types;
+        PropertyFilter mockFilter = SimpleBeanPropertyFilter.serializeAll();
+                                                            ^
+  required: Set<String>
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:523: error: cannot find symbol
+        filterMapper.setFilterProvider(filterProvider);
+                    ^
+  symbol:   method setFilterProvider(SimpleFilterProvider)
+  location: variable filterMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_15_54hn648e/src/StdSerializerTest.java:524: error: cannot find symbol
+        SerializerProvider provider = filterMapper.getSerializerProviderInstance();
+                                                  ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable filterMapper of type ObjectMapper
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+43 errors

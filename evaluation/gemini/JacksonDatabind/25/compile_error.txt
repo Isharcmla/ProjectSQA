@@ -1,0 +1,112 @@
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:17: error: cannot find symbol
+import com.fasterxml.jackson.annotation.JsonValueInstantiator;
+                                       ^
+  symbol:   class JsonValueInstantiator
+  location: package com.fasterxml.jackson.annotation
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:114: error: cannot find symbol
+    @JsonValueInstantiator(CustomValueInstantiator.class)
+     ^
+  symbol:   class JsonValueInstantiator
+  location: class BasicDeserializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:46: error: TestBasicDeserializerFactory is not abstract and does not override abstract method createBuilderBasedDeserializer(DeserializationContext,JavaType,BeanDescription,Class<?>) in DeserializerFactory
+    static class TestBasicDeserializerFactory extends BasicDeserializerFactory {
+           ^
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:276: error: cannot find symbol
+        Assert.assertTrue(f1.getFactoryConfig().hasDeserializers());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable f1 of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:277: error: cannot find symbol
+        Assert.assertTrue(f2.getFactoryConfig().hasKeyDeserializers());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable f2 of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:278: error: cannot find symbol
+        Assert.assertTrue(f3.getFactoryConfig().hasDeserializerModifiers());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable f3 of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:279: error: cannot find symbol
+        Assert.assertTrue(f4.getFactoryConfig().hasAbstractTypeResolvers());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable f4 of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:280: error: cannot find symbol
+        Assert.assertTrue(f5.getFactoryConfig().hasValueInstantiators());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable f5 of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:304: error: method addMapping in class SimpleAbstractTypeResolver cannot be applied to given types;
+        resolver.addMapping(AbstractParent.class, String.class);
+                ^
+  required: Class<T>,Class<? extends T>
+  found: Class<AbstractParent>,Class<String>
+  reason: inference variable T has incompatible bounds
+    equality constraints: AbstractParent
+    lower bounds: String
+  where T is a type-variable:
+    T extends Object declared in method <T>addMapping(Class<T>,Class<? extends T>)
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:477: error: method addDeserializer in class SimpleDeserializers cannot be applied to given types;
+        customDesers.addDeserializer(SimpleBean[].class, customArrayDeser);
+                    ^
+  required: Class<T>,JsonDeserializer<? extends T>
+  found: Class<SimpleBean[]>,JsonDeserializer<CAP#1>
+  reason: inference variable T has incompatible bounds
+    equality constraints: SimpleBean[]
+    lower bounds: CAP#1
+  where T is a type-variable:
+    T extends Object declared in method <T>addDeserializer(Class<T>,JsonDeserializer<? extends T>)
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Object from capture of ?
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:534: error: method addDeserializer in class SimpleDeserializers cannot be applied to given types;
+        customDesers.addDeserializer(SimpleBean.class, custom);
+                    ^
+  required: Class<T>,JsonDeserializer<? extends T>
+  found: Class<SimpleBean>,JsonDeserializer<CAP#1>
+  reason: inference variable T has incompatible bounds
+    equality constraints: SimpleBean
+    lower bounds: CAP#1
+  where T is a type-variable:
+    T extends Object declared in method <T>addDeserializer(Class<T>,JsonDeserializer<? extends T>)
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Object from capture of ?
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:593: error: method addDeserializer in class SimpleDeserializers cannot be applied to given types;
+        customDesers.addDeserializer(SimpleBean.class, custom);
+                    ^
+  required: Class<T>,JsonDeserializer<? extends T>
+  found: Class<SimpleBean>,JsonDeserializer<CAP#1>
+  reason: inference variable T has incompatible bounds
+    equality constraints: SimpleBean
+    lower bounds: CAP#1
+  where T is a type-variable:
+    T extends Object declared in method <T>addDeserializer(Class<T>,JsonDeserializer<? extends T>)
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Object from capture of ?
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java:726: error: cannot find symbol
+        JsonDeserializer<?> untypedDeser = f.findDefaultDeserializer(context, objType, objDesc);
+                                            ^
+  symbol:   method findDefaultDeserializer(DeserializationContext,JavaType,BeanDescription)
+  location: variable f of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/DeserializerCacheTest.java:218: error: cannot find symbol
+                .withContentType(baseType.withValueHandler(new CustomDeserializer()));
+                ^
+  symbol:   method withContentType(JavaType)
+  location: class CollectionType
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/TypeDeserializerBaseTest.java:103: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/TypeDeserializerBaseTest.java:211: error: cannot find symbol
+        BeanProperty.Bogus bogusProp = new BeanProperty.Bogus();
+                    ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/TypeDeserializerBaseTest.java:211: error: cannot find symbol
+        BeanProperty.Bogus bogusProp = new BeanProperty.Bogus();
+                                                       ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+Note: /tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/TypeDeserializerBaseTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_gemini_JacksonDatabind_25_n9z4yu23/src/BasicDeserializerFactoryTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+17 errors

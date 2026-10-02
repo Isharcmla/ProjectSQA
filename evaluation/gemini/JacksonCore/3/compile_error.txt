@@ -1,0 +1,48 @@
+/tmp/evaluate_gemini_JacksonCore_3_rofhk5gr/src/UTF8StreamJsonParserTest.java:29: error: method makeChild in class BytesToNameCanonicalizer cannot be applied to given types;
+        BytesToNameCanonicalizer sym = BytesToNameCanonicalizer.createRoot().makeChild(JsonFactory.Feature.collectDefaults());
+                                                                            ^
+  required: boolean,boolean
+  found: int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonCore_3_rofhk5gr/src/UTF8StreamJsonParserTest.java:38: error: method makeChild in class BytesToNameCanonicalizer cannot be applied to given types;
+        BytesToNameCanonicalizer sym = BytesToNameCanonicalizer.createRoot().makeChild(JsonFactory.Feature.collectDefaults());
+                                                                            ^
+  required: boolean,boolean
+  found: int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonCore_3_rofhk5gr/src/UTF8StreamJsonParserTest.java:66: error: cannot find symbol
+            public <T> T readValue(JsonParser p, TypeReference<?> valueTypeRef) { return null; }
+                                                 ^
+  symbol: class TypeReference
+/tmp/evaluate_gemini_JacksonCore_3_rofhk5gr/src/UTF8StreamJsonParserTest.java:68: error: cannot find symbol
+            public <T> T readValue(JsonParser p, ResolvedType valueType) { return null; }
+                                                 ^
+  symbol: class ResolvedType
+/tmp/evaluate_gemini_JacksonCore_3_rofhk5gr/src/UTF8StreamJsonParserTest.java:74: error: cannot find symbol
+            public <T> java.util.Iterator<T> readValues(JsonParser p, TypeReference<?> valueTypeRef) { return null; }
+                                                                      ^
+  symbol: class TypeReference
+/tmp/evaluate_gemini_JacksonCore_3_rofhk5gr/src/UTF8StreamJsonParserTest.java:76: error: cannot find symbol
+            public <T> java.util.Iterator<T> readValues(JsonParser p, ResolvedType valueType) { return null; }
+                                                                      ^
+  symbol: class ResolvedType
+/tmp/evaluate_gemini_JacksonCore_3_rofhk5gr/src/UTF8StreamJsonParserTest.java:60: error: <anonymous com.fasterxml.jackson.core.json.UTF8StreamJsonParserTest$1> is not abstract and does not override abstract method getJsonFactory() in ObjectCodec
+        ObjectCodec dummyCodec = new ObjectCodec() {
+                                                   ^
+/tmp/evaluate_gemini_JacksonCore_3_rofhk5gr/src/UTF8StreamJsonParserTest.java:64: error: name clash: class  has two methods with the same erasure, yet neither overrides the other
+            public <T> T readValue(JsonParser p, Class<T> valueType) { return null; }
+                         ^
+  first method:  readValue(JsonParser,ResolvedType) in <anonymous com.fasterxml.jackson.core.json.UTF8StreamJsonParserTest$1>
+  second method: readValue(JsonParser,ResolvedType) in ObjectCodec
+/tmp/evaluate_gemini_JacksonCore_3_rofhk5gr/src/UTF8StreamJsonParserTest.java:72: error: name clash: class  has two methods with the same erasure, yet neither overrides the other
+            public <T> java.util.Iterator<T> readValues(JsonParser p, Class<T> valueType) { return null; }
+                                             ^
+  first method:  readValues(JsonParser,ResolvedType) in <anonymous com.fasterxml.jackson.core.json.UTF8StreamJsonParserTest$1>
+  second method: readValues(JsonParser,ResolvedType) in ObjectCodec
+/tmp/evaluate_gemini_JacksonCore_3_rofhk5gr/src/UTF8StreamJsonParserTest.java:105: error: method makeChild in class BytesToNameCanonicalizer cannot be applied to given types;
+        BytesToNameCanonicalizer sym = BytesToNameCanonicalizer.createRoot().makeChild(JsonFactory.Feature.collectDefaults());
+                                                                            ^
+  required: boolean,boolean
+  found: int
+  reason: actual and formal argument lists differ in length
+10 errors

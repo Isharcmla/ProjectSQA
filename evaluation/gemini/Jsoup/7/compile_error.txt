@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Jsoup_7_2zki8m9v/src/DocumentTest.java:16: error: cannot find symbol
+        Assert.assertEquals(0, doc.childNodeSize());
+                                  ^
+  symbol:   method childNodeSize()
+  location: variable doc of type Document
+1 error

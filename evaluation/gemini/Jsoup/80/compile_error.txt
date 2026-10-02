@@ -1,0 +1,44 @@
+/tmp/evaluate_gemini_Jsoup_80_ppdccv72/src/XmlTreeBuilderTest.java:132: error: cannot find symbol
+        assertFalse(decl.isProcessingInstruction());
+                        ^
+  symbol:   method isProcessingInstruction()
+  location: variable decl of type XmlDeclaration
+/tmp/evaluate_gemini_Jsoup_80_ppdccv72/src/XmlTreeBuilderTest.java:144: error: cannot find symbol
+        assertTrue(decl.isProcessingInstruction());
+                       ^
+  symbol:   method isProcessingInstruction()
+  location: variable decl of type XmlDeclaration
+/tmp/evaluate_gemini_Jsoup_80_ppdccv72/src/XmlTreeBuilderTest.java:182: error: cannot find symbol
+        assertEquals("html", dt.name());
+                               ^
+  symbol:   method name()
+  location: variable dt of type DocumentType
+/tmp/evaluate_gemini_Jsoup_80_ppdccv72/src/XmlTreeBuilderTest.java:183: error: cannot find symbol
+        assertEquals("-//W3C//DTD XHTML 1.0 Strict//EN", dt.publicId());
+                                                           ^
+  symbol:   method publicId()
+  location: variable dt of type DocumentType
+/tmp/evaluate_gemini_Jsoup_80_ppdccv72/src/XmlTreeBuilderTest.java:184: error: cannot find symbol
+        assertEquals("http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd", dt.systemId());
+                                                                            ^
+  symbol:   method systemId()
+  location: variable dt of type DocumentType
+/tmp/evaluate_gemini_Jsoup_80_ppdccv72/src/XmlTreeBuilderTest.java:246: error: Token() has private access in Token
+        Token invalidToken = new Token() {
+                             ^
+/tmp/evaluate_gemini_Jsoup_80_ppdccv72/src/XmlTreeBuilderTest.java:286: error: cannot find symbol
+        assertEquals("root", dt.name());
+                               ^
+  symbol:   method name()
+  location: variable dt of type DocumentType
+/tmp/evaluate_gemini_Jsoup_80_ppdccv72/src/XmlTreeBuilderTest.java:287: error: cannot find symbol
+        assertEquals("pubId", dt.publicId());
+                                ^
+  symbol:   method publicId()
+  location: variable dt of type DocumentType
+/tmp/evaluate_gemini_Jsoup_80_ppdccv72/src/XmlTreeBuilderTest.java:288: error: cannot find symbol
+        assertEquals("sysId", dt.systemId());
+                                ^
+  symbol:   method systemId()
+  location: variable dt of type DocumentType
+9 errors

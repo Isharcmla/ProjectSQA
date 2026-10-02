@@ -1,0 +1,61 @@
+/tmp/evaluate_gemini_Jsoup_55_c3vnw2rc/src/TokeniserStateTest.java:151: error: cannot find symbol
+        t2.appropriateEndTagName = "title";
+          ^
+  symbol:   variable appropriateEndTagName
+  location: variable t2 of type Tokeniser
+/tmp/evaluate_gemini_Jsoup_55_c3vnw2rc/src/TokeniserStateTest.java:174: error: cannot find symbol
+        t2.appropriateEndTagName = "title";
+          ^
+  symbol:   variable appropriateEndTagName
+  location: variable t2 of type Tokeniser
+/tmp/evaluate_gemini_Jsoup_55_c3vnw2rc/src/TokeniserStateTest.java:181: error: cannot find symbol
+        t2b.appropriateEndTagName = "title";
+           ^
+  symbol:   variable appropriateEndTagName
+  location: variable t2b of type Tokeniser
+/tmp/evaluate_gemini_Jsoup_55_c3vnw2rc/src/TokeniserStateTest.java:188: error: cannot find symbol
+        t3.appropriateEndTagName = "title";
+          ^
+  symbol:   variable appropriateEndTagName
+  location: variable t3 of type Tokeniser
+/tmp/evaluate_gemini_Jsoup_55_c3vnw2rc/src/TokeniserStateTest.java:195: error: cannot find symbol
+        t3b.appropriateEndTagName = "title";
+           ^
+  symbol:   variable appropriateEndTagName
+  location: variable t3b of type Tokeniser
+/tmp/evaluate_gemini_Jsoup_55_c3vnw2rc/src/TokeniserStateTest.java:202: error: cannot find symbol
+        t4.appropriateEndTagName = "title";
+          ^
+  symbol:   variable appropriateEndTagName
+  location: variable t4 of type Tokeniser
+/tmp/evaluate_gemini_Jsoup_55_c3vnw2rc/src/TokeniserStateTest.java:209: error: cannot find symbol
+        t4b.appropriateEndTagName = "title";
+           ^
+  symbol:   variable appropriateEndTagName
+  location: variable t4b of type Tokeniser
+/tmp/evaluate_gemini_Jsoup_55_c3vnw2rc/src/TokeniserStateTest.java:241: error: cannot find symbol
+        t2.appropriateEndTagName = "style";
+          ^
+  symbol:   variable appropriateEndTagName
+  location: variable t2 of type Tokeniser
+/tmp/evaluate_gemini_Jsoup_55_c3vnw2rc/src/TokeniserStateTest.java:248: error: cannot find symbol
+        t3.appropriateEndTagName = "style";
+          ^
+  symbol:   variable appropriateEndTagName
+  location: variable t3 of type Tokeniser
+/tmp/evaluate_gemini_Jsoup_55_c3vnw2rc/src/TokeniserStateTest.java:255: error: cannot find symbol
+        t4.appropriateEndTagName = "style";
+          ^
+  symbol:   variable appropriateEndTagName
+  location: variable t4 of type Tokeniser
+/tmp/evaluate_gemini_Jsoup_55_c3vnw2rc/src/TokeniserStateTest.java:262: error: cannot find symbol
+        t5.appropriateEndTagName = "style";
+          ^
+  symbol:   variable appropriateEndTagName
+  location: variable t5 of type Tokeniser
+/tmp/evaluate_gemini_Jsoup_55_c3vnw2rc/src/TokeniserStateTest.java:269: error: cannot find symbol
+        t6.appropriateEndTagName = "style";
+          ^
+  symbol:   variable appropriateEndTagName
+  location: variable t6 of type Tokeniser
+12 errors

@@ -1,0 +1,10 @@
+/tmp/evaluate_gemini_JacksonDatabind_75_ucg5ddxg/src/EnumSerializerTest.java:64: error: incompatible types: Class<SampleEnum> cannot be converted to Class<Enum<?>>
+        return EnumValues.constructFromName(mapper.getSerializationConfig(), enumClass);
+                                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_75_ucg5ddxg/src/EnumSerializerTest.java:80: error: cannot find symbol
+                        def.getPrimaryType(),
+                           ^
+  symbol:   method getPrimaryType()
+  location: variable def of type BeanPropertyDefinition
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+2 errors

@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_JacksonCore_12_oy7abbso/src/ReaderBasedJsonParserTest.java:43: error: <anonymous com.fasterxml.jackson.core.json.ReaderBasedJsonParserTest$1> is not abstract and does not override abstract method <T>readValues(JsonParser,ResolvedType) in ObjectCodec
+        ObjectCodec mockCodec = new ObjectCodec() {
+                                                  ^
+  where T is a type-variable:
+    T extends Object declared in method <T>readValues(JsonParser,ResolvedType)
+1 error

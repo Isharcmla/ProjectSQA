@@ -1,0 +1,58 @@
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:23: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecomposition cholesky = new CholeskyDecompositionImpl(matrix);
+                                         ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:45: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        new CholeskyDecompositionImpl(matrix);
+        ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:55: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        new CholeskyDecompositionImpl(matrix);
+        ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:65: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        new CholeskyDecompositionImpl(matrix);
+        ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:75: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        new CholeskyDecompositionImpl(matrix);
+        ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:85: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecomposition cholesky = new CholeskyDecompositionImpl(matrix, 1.0e-3, 1.0e-5);
+                                         ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:93: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecomposition cholesky = new CholeskyDecompositionImpl(matrix);
+                                         ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:103: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecomposition cholesky = new CholeskyDecompositionImpl(matrix);
+                                         ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:117: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecomposition cholesky = new CholeskyDecompositionImpl(matrix);
+                                         ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:125: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        DecompositionSolver solver = new CholeskyDecompositionImpl(matrix).getSolver();
+                                     ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:132: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        DecompositionSolver solver = new CholeskyDecompositionImpl(matrix).getSolver();
+                                     ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:147: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        DecompositionSolver solver = new CholeskyDecompositionImpl(matrix).getSolver();
+                                     ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:154: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        DecompositionSolver solver = new CholeskyDecompositionImpl(matrix).getSolver();
+                                     ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:167: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        DecompositionSolver solver = new CholeskyDecompositionImpl(matrix).getSolver();
+                                     ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:174: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        DecompositionSolver solver = new CholeskyDecompositionImpl(matrix).getSolver();
+                                     ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:202: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        DecompositionSolver solver = new CholeskyDecompositionImpl(matrix).getSolver();
+                                     ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:223: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        DecompositionSolver solver = new CholeskyDecompositionImpl(matrix).getSolver();
+                                     ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:248: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        DecompositionSolver solver = new CholeskyDecompositionImpl(matrix).getSolver();
+                                     ^
+/tmp/evaluate_gemini_Math_86_kctmn7rv/src/CholeskyDecompositionImplTest.java:256: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        DecompositionSolver solver = new CholeskyDecompositionImpl(matrix).getSolver();
+                                     ^
+19 errors

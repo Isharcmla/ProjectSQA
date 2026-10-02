@@ -1,0 +1,70 @@
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:43: error: reference to TokenBuffer is ambiguous
+        TokenBuffer tb = new TokenBuffer(null);
+                         ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:70: error: reference to TokenBuffer is ambiguous
+        TokenBuffer tb = new TokenBuffer(null);
+                         ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:165: error: reference to TokenBuffer is ambiguous
+        TokenBuffer tb = new TokenBuffer(null);
+                         ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:255: error: reference to TokenBuffer is ambiguous
+        TokenBuffer tbNoCodec = new TokenBuffer(null);
+                                ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:295: error: reference to TokenBuffer is ambiguous
+        TokenBuffer tb = new TokenBuffer(null);
+                         ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:312: error: reference to TokenBuffer is ambiguous
+        TokenBuffer tb = new TokenBuffer(null);
+                         ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:319: error: cannot find symbol
+            Assert.assertEquals(JsonToken.VALUE_NUMBER_INT, parser.peekNextToken());
+                                                                  ^
+  symbol:   method peekNextToken()
+  location: variable parser of type JsonParser
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:323: error: cannot find symbol
+        Assert.assertNull(parser.peekNextToken());
+                                ^
+  symbol:   method peekNextToken()
+  location: variable parser of type JsonParser
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:327: error: cannot find symbol
+        Assert.assertNull(parser.peekNextToken());
+                                ^
+  symbol:   method peekNextToken()
+  location: variable parser of type JsonParser
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:376: error: reference to TokenBuffer is ambiguous
+        TokenBuffer target = new TokenBuffer(null);
+                             ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:433: error: reference to TokenBuffer is ambiguous
+        TokenBuffer output = new TokenBuffer(null);
+                             ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:480: error: reference to TokenBuffer is ambiguous
+        TokenBuffer tb = new TokenBuffer(null);
+                         ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:551: error: reference to TokenBuffer is ambiguous
+        TokenBuffer longTb = new TokenBuffer(null);
+                             ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:582: error: reference to TokenBuffer is ambiguous
+        TokenBuffer tb = new TokenBuffer(null);
+                         ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:642: error: reference to TokenBuffer is ambiguous
+        TokenBuffer tb = new TokenBuffer(null);
+                         ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java:683: error: reference to TokenBuffer is ambiguous
+        TokenBuffer tb = new TokenBuffer(null);
+                         ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+Note: /tmp/evaluate_gemini_JacksonDatabind_7_hoxqn3p4/src/TokenBufferTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+16 errors

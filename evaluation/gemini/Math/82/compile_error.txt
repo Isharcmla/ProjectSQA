@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Math_82_tpkeekc3/src/SimplexSolverTest.java:8: error: cannot find symbol
+import org.apache.commons.math.optimization.MaxIterationsExceededException;
+                                           ^
+  symbol:   class MaxIterationsExceededException
+  location: package org.apache.commons.math.optimization
+/tmp/evaluate_gemini_Math_82_tpkeekc3/src/SimplexSolverTest.java:140: error: cannot find symbol
+    @Test(expected = MaxIterationsExceededException.class)
+                     ^
+  symbol:   class MaxIterationsExceededException
+  location: class SimplexSolverTest
+2 errors

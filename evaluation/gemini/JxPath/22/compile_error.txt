@@ -1,0 +1,15 @@
+/tmp/evaluate_gemini_JxPath_22_6cad50es/src/DOMNodePointerTest.java:205: error: reference to getNamespaceURI is ambiguous
+        Assert.assertEquals("http://default.com", ptr.getNamespaceURI(null));
+                                                     ^
+  both method getNamespaceURI(String) in DOMNodePointer and method getNamespaceURI(Node) in DOMNodePointer match
+/tmp/evaluate_gemini_JxPath_22_6cad50es/src/DOMNodePointerTest.java:588: error: cannot find symbol
+        Assert.assertSame(root, pFound.getBaseValue());
+                                      ^
+  symbol:   method getBaseValue()
+  location: variable pFound of type Pointer
+/tmp/evaluate_gemini_JxPath_22_6cad50es/src/DOMNodePointerTest.java:595: error: cannot find symbol
+        Assert.assertSame(root, pFoundFromElem.getBaseValue());
+                                              ^
+  symbol:   method getBaseValue()
+  location: variable pFoundFromElem of type Pointer
+3 errors

@@ -1,0 +1,13 @@
+/tmp/evaluate_gemini_JacksonDatabind_106_2plp0bit/src/TreeTraversingParserTest.java:27: error: incompatible types: NumericNode cannot be converted to IntNode
+        IntNode node = nf.numberNode(123);
+                                    ^
+/tmp/evaluate_gemini_JacksonDatabind_106_2plp0bit/src/TreeTraversingParserTest.java:400: error: incompatible types: ValueNode cannot be converted to POJONode
+        POJONode pojoNode = nf.pojoNode(pojo);
+                                       ^
+/tmp/evaluate_gemini_JacksonDatabind_106_2plp0bit/src/TreeTraversingParserTest.java:429: error: incompatible types: NumericNode cannot be converted to DoubleNode
+        DoubleNode nanNode = nf.numberNode(Double.NaN);
+                                          ^
+/tmp/evaluate_gemini_JacksonDatabind_106_2plp0bit/src/TreeTraversingParserTest.java:430: error: incompatible types: NumericNode cannot be converted to DoubleNode
+        DoubleNode normalNode = nf.numberNode(1.23);
+                                             ^
+4 errors

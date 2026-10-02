@@ -1,0 +1,8 @@
+/tmp/evaluate_gemini_JacksonDatabind_51_7496u34i/src/TypeDeserializerBaseTest.java:224: error: cannot find symbol
+        BeanProperty prop = new BeanProperty.Bogus();
+                                            ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+Note: /tmp/evaluate_gemini_JacksonDatabind_51_7496u34i/src/TypeDeserializerBaseTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error

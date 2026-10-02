@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_JacksonDatabind_24_s5j2g2q5/src/BaseSettingsTest.java:56: error: cannot find symbol
+        propertyNamingStrategy = PropertyNamingStrategy.SNAKE_CASE;
+                                                       ^
+  symbol:   variable SNAKE_CASE
+  location: class PropertyNamingStrategy
+/tmp/evaluate_gemini_JacksonDatabind_24_s5j2g2q5/src/BaseSettingsTest.java:195: error: cannot find symbol
+        PropertyNamingStrategy newPns = PropertyNamingStrategy.LOWER_CAMEL_CASE;
+                                                              ^
+  symbol:   variable LOWER_CAMEL_CASE
+  location: class PropertyNamingStrategy
+2 errors

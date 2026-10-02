@@ -1,0 +1,10 @@
+/tmp/evaluate_gemini_JacksonCore_2_kztjzt_2/src/ReaderBasedJsonParserTest.java:28: error: createRoot(int) has protected access in CharsToNameCanonicalizer
+        CharsToNameCanonicalizer sym = CharsToNameCanonicalizer.createRoot(12345);
+                                                               ^
+/tmp/evaluate_gemini_JacksonCore_2_kztjzt_2/src/ReaderBasedJsonParserTest.java:72: error: <anonymous com.fasterxml.jackson.core.json.ReaderBasedJsonParserTest$1> is not abstract and does not override abstract method getJsonFactory() in ObjectCodec
+        ObjectCodec mockCodec = new ObjectCodec() {
+                                                  ^
+/tmp/evaluate_gemini_JacksonCore_2_kztjzt_2/src/UTF8StreamJsonParserTest.java:41: error: <anonymous com.fasterxml.jackson.core.json.UTF8StreamJsonParserTest$1> is not abstract and does not override abstract method getJsonFactory() in ObjectCodec
+        ObjectCodec mockCodec = new ObjectCodec() {
+                                                  ^
+3 errors

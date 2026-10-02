@@ -1,0 +1,19 @@
+/tmp/evaluate_gemini_JacksonDatabind_82_6xuzv9ah/src/BeanDeserializerFactoryTest.java:13: error: cannot find symbol
+import com.fasterxml.jackson.databind.introspect.AnnotatedClassResolver;
+                                                ^
+  symbol:   class AnnotatedClassResolver
+  location: package com.fasterxml.jackson.databind.introspect
+/tmp/evaluate_gemini_JacksonDatabind_82_6xuzv9ah/src/BeanDeserializerFactoryTest.java:324: error: package org.apache.xalan.xsltc.trax does not exist
+            mapper.readValue("{}", org.apache.xalan.xsltc.trax.TemplatesImpl.class);
+                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_82_6xuzv9ah/src/BeanDeserializerFactoryTest.java:408: error: cannot find symbol
+        InjectBean bean = mapper.reader(injectables).forType(InjectBean.class).readValue(json);
+        ^
+  symbol:   class InjectBean
+  location: class BeanDeserializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_82_6xuzv9ah/src/BeanDeserializerFactoryTest.java:408: error: cannot find symbol
+        InjectBean bean = mapper.reader(injectables).forType(InjectBean.class).readValue(json);
+                                                             ^
+  symbol:   class InjectBean
+  location: class BeanDeserializerFactoryTest
+4 errors

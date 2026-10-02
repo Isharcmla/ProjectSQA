@@ -1,0 +1,125 @@
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/MethodPropertyTest.java:33: error: cannot find symbol
+import com.fasterxml.jackson.databind.introspect.SimpleBeanPropertyDefinition;
+                                                ^
+  symbol:   class SimpleBeanPropertyDefinition
+  location: package com.fasterxml.jackson.databind.introspect
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/ObjectIdValuePropertyTest.java:23: error: cannot find symbol
+import com.fasterxml.jackson.databind.deser.std.NullsConstantProvider;
+                                               ^
+  symbol:   class NullsConstantProvider
+  location: package com.fasterxml.jackson.databind.deser.std
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/CreatorPropertyTest.java:32: error: DummyFallbackSetter is not abstract and does not override abstract method deserializeSetAndReturn(JsonParser,DeserializationContext,Object) in SettableBeanProperty
+    private static class DummyFallbackSetter extends SettableBeanProperty {
+                   ^
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/CreatorPropertyTest.java:39: error: no suitable constructor found for SettableBeanProperty(PropertyName,JavaType,PropertyMetadata,StringDeserializer)
+            super(name, type, PropertyMetadata.STD_OPTIONAL, StringDeserializer.instance);
+            ^
+    constructor SettableBeanProperty.SettableBeanProperty(BeanPropertyDefinition,JavaType,TypeDeserializer,Annotations) is not applicable
+      (argument mismatch; PropertyName cannot be converted to BeanPropertyDefinition)
+    constructor SettableBeanProperty.SettableBeanProperty(PropertyName,JavaType,PropertyMetadata,JsonDeserializer<Object>) is not applicable
+      (argument mismatch; StringDeserializer cannot be converted to JsonDeserializer<Object>)
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/CreatorPropertyTest.java:300: error: cannot find symbol
+        JsonParser parser = mapper.createParser("\"testValue\"");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/CreatorPropertyTest.java:311: error: cannot find symbol
+        JsonParser parser = mapper.createParser("\"testValue\"");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/CreatorPropertyTest.java:328: error: cannot find symbol
+        JsonParser parser = mapper.createParser("\"sampleJsonString\"");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/CreatorPropertyTest.java:351: error: cannot find symbol
+        JsonParser parser = mapper.createParser("\"sampleJsonString\"");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/CreatorPropertyTest.java:374: error: cannot find symbol
+        JsonParser parser = mapper.createParser("{}");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/CreatorPropertyTest.java:390: error: cannot find symbol
+        JsonParser parser = mapper.createParser("{}");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/CreatorPropertyTest.java:415: error: cannot find symbol
+        JsonParser parser = mapper.createParser("{}");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/FieldPropertyTest.java:99: error: cannot inherit from final FieldProperty
+        FieldProperty prop = new FieldProperty(namePropDef, stringType, null, null, namePropDef.getField()) {
+                                 ^
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/MethodPropertyTest.java:110: error: cannot find symbol
+        SimpleBeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(config, am, propName);
+        ^
+  symbol:   class SimpleBeanPropertyDefinition
+  location: class MethodPropertyTest
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/MethodPropertyTest.java:110: error: cannot find symbol
+        SimpleBeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(config, am, propName);
+                                               ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class MethodPropertyTest
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/MethodPropertyTest.java:121: error: cannot find symbol
+        SimpleBeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(config, am, propName);
+        ^
+  symbol:   class SimpleBeanPropertyDefinition
+  location: class MethodPropertyTest
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/MethodPropertyTest.java:121: error: cannot find symbol
+        SimpleBeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(config, am, propName);
+                                               ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class MethodPropertyTest
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/ObjectIdReferencePropertyTest.java:204: error: cannot find symbol
+        JsonParser parser = mapper.createParser("\"testValue\"");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/ObjectIdReferencePropertyTest.java:226: error: package ObjectIdGenerator does not exist
+                new ReadableObjectId(new ObjectIdGenerator.IdKey(Object.class, Object.class, "idVal"))
+                                                          ^
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/ObjectIdReferencePropertyTest.java:239: error: cannot find symbol
+        JsonParser parser = mapper.createParser("\"test\"");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/ObjectIdReferencePropertyTest.java:261: error: package ObjectIdGenerator does not exist
+                new ReadableObjectId(new ObjectIdGenerator.IdKey(Object.class, Object.class, "idVal"))
+                                                          ^
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/ObjectIdReferencePropertyTest.java:273: error: cannot find symbol
+        JsonParser parser = mapper.createParser("\"test\"");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/ObjectIdReferencePropertyTest.java:290: error: package ObjectIdGenerator does not exist
+        ReadableObjectId roid = new ReadableObjectId(new ObjectIdGenerator.IdKey(Object.class, Object.class, "targetId"));
+                                                                          ^
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/ObjectIdReferencePropertyTest.java:315: error: package ObjectIdGenerator does not exist
+        ReadableObjectId roid = new ReadableObjectId(new ObjectIdGenerator.IdKey(Object.class, Object.class, "targetId"));
+                                                                          ^
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/SetterlessPropertyTest.java:119: error: <anonymous com.fasterxml.jackson.databind.deser.impl.SetterlessPropertyTest$2> is not abstract and does not override abstract method getNullAccessPattern() in NullValueProvider
+        NullValueProvider nva = new NullValueProvider() {
+                                                        ^
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/SetterlessPropertyTest.java:210: error: cannot find symbol
+        prop = (SetterlessProperty) prop.withValueDeserializer(mapper.findRootValueDeserializer(prop.getType()));
+                                                                     ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/SetterlessPropertyTest.java:231: error: cannot find symbol
+        prop = (SetterlessProperty) prop.withValueDeserializer(mapper.findRootValueDeserializer(prop.getType()));
+                                                                     ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_111_xlikownr/src/SetterlessPropertyTest.java:264: error: cannot find symbol
+        JsonDeserializer<Object> deser = mapper.findRootValueDeserializer(listType);
+                                               ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: variable mapper of type ObjectMapper
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+27 errors

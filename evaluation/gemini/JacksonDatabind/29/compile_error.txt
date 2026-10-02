@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_JacksonDatabind_29_q4myz1uj/src/ExternalTypeHandlerTest.java:217: error: incompatible types: BeanPropertyDefinition cannot be converted to SettableBeanProperty
+        for (SettableBeanProperty p : mapper.getDeserializationConfig().introspect(beanType).findProperties()) {
+                                                                                                           ^
+1 error

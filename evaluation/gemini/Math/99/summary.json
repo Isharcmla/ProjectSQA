@@ -1,0 +1,16 @@
+{
+  "project": "Math",
+  "bug_id": "99",
+  "tool": "gemini",
+  "generated_files": 1,
+  "candidate_tests": 80,
+  "classification_counts": {
+    "valid_non_revealing": 73,
+    "invalid_or_unstable": 4,
+    "bug_revealing": 3
+  },
+  "bug_revealing_tests": 3,
+  "bug_detected": true,
+  "generation_status": "unknown",
+  "evaluation_status": "success"
+}

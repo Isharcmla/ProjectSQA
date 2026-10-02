@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_JacksonCore_7_qv6pxz2k/src/JsonWriteContextTest.java:224: error: TYPE_OBJECT has protected access in JsonStreamContext
+        obj.reset(JsonWriteContext.TYPE_OBJECT);
+                                  ^
+1 error

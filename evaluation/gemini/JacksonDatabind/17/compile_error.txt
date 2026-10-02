@@ -1,0 +1,130 @@
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:155: error: BeanDeserializerModifier is abstract; cannot be instantiated
+            context.addBeanDeserializerModifier(new BeanDeserializerModifier());
+                                                ^
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:158: error: BeanSerializerModifier is abstract; cannot be instantiated
+            context.addBeanSerializerModifier(new BeanSerializerModifier());
+                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:162: error: cannot find symbol
+                public JavaType modifyType(JavaType type, java.lang.reflect.Type jdkType, TypeBindings context, TypeFactory typeFactory) {
+                                                                                          ^
+  symbol: class TypeBindings
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:174: error: cannot find symbol
+            context.setNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+                                                            ^
+  symbol:   variable SNAKE_CASE
+  location: class PropertyNamingStrategy
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:309: error: cannot find symbol
+        SubtypeResolver sr = mapper.getSubtypeResolver();
+        ^
+  symbol:   class SubtypeResolver
+  location: class ObjectMapperTest
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:324: error: package JsonTypeInfo does not exist
+        mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.JAVA_LANG_OBJECT, JsonTypeInfo.As.WRAPPER_OBJECT);
+                                                                                            ^
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:403: error: cannot find symbol
+            public TypeResolverBuilder<?> typeResolverBuilderInstance(com.fasterxml.jackson.databind.cfg.MapperConfig<?> config, com.fasterxml.jackson.databind.introspect.Annotated annotated, Class<?> builderClass) { return null; }
+                   ^
+  symbol: class TypeResolverBuilder
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:436: error: cannot find symbol
+        mapper.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT);
+                                                                                               ^
+  symbol:   variable ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT
+  location: class DeserializationFeature
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:438: error: cannot find symbol
+        mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT);
+                                                                                                ^
+  symbol:   variable ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT
+  location: class DeserializationFeature
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:561: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(tmp, tr).getId());
+                                                        ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:562: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(tmp, jt).getId());
+                                                        ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:566: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(url, tr).getId());
+                                                        ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:567: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(url, jt).getId());
+                                                        ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:570: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(json, tr).getId());
+                                                         ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:571: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(json, jt).getId());
+                                                         ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:574: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(new StringReader(json), tr).getId());
+                                                                           ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:575: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(new StringReader(json), jt).getId());
+                                                                           ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:578: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(new ByteArrayInputStream(bytes), tr).getId());
+                                                                                    ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:579: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(new ByteArrayInputStream(bytes), jt).getId());
+                                                                                    ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:582: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(bytes, tr).getId());
+                                                          ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:583: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(bytes, jt).getId());
+                                                          ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:586: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(bytes, 0, bytes.length, tr).getId());
+                                                                           ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:587: error: cannot find symbol
+        Assert.assertEquals(5, mapper.readValue(bytes, 0, bytes.length, jt).getId());
+                                                                           ^
+  symbol:   method getId()
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:681: error: cannot find symbol
+        Assert.assertNotNull(mapper.writer(new DefaultPrettyPrinter()));
+                                               ^
+  symbol:   class DefaultPrettyPrinter
+  location: class ObjectMapperTest
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:698: error: cannot find symbol
+        Assert.assertNotNull(mapper.reader(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT));
+                                                                                                                    ^
+  symbol:   variable ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT
+  location: class DeserializationFeature
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:735: error: cannot find symbol
+        JsonFormatVisitorWrapper visitor = new JsonFormatVisitorWrapper.Base();
+                                                                       ^
+  symbol:   class Base
+  location: interface JsonFormatVisitorWrapper
+/tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java:742: error: cannot find symbol
+        mapper.acceptJsonFormatVisitor((JavaType) null, new JsonFormatVisitorWrapper.Base());
+                                                                                    ^
+  symbol:   class Base
+  location: interface JsonFormatVisitorWrapper
+Note: /tmp/evaluate_gemini_JacksonDatabind_17_6crg8_2l/src/ObjectMapperTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+27 errors

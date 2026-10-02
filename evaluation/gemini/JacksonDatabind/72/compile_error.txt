@@ -1,0 +1,32 @@
+/tmp/evaluate_gemini_JacksonDatabind_72_cp0e3dd7/src/InnerClassPropertyTest.java:32: error: cannot find symbol
+import com.fasterxml.jackson.databind.deser.NullValueProvider;
+                                           ^
+  symbol:   class NullValueProvider
+  location: package com.fasterxml.jackson.databind.deser
+/tmp/evaluate_gemini_JacksonDatabind_72_cp0e3dd7/src/InnerClassPropertyTest.java:104: error: cannot find symbol
+        public SettableBeanProperty withNullProvider(NullValueProvider nva) {
+                                                     ^
+  symbol:   class NullValueProvider
+  location: class DummySettableBeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_72_cp0e3dd7/src/InnerClassPropertyTest.java:103: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_gemini_JacksonDatabind_72_cp0e3dd7/src/InnerClassPropertyTest.java:312: error: cannot find symbol
+            public SettableBeanProperty withNullProvider(NullValueProvider nva) { return this; }
+                                                         ^
+  symbol:   class NullValueProvider
+  location: class StubInnerClassProperty
+/tmp/evaluate_gemini_JacksonDatabind_72_cp0e3dd7/src/InnerClassPropertyTest.java:303: error: cannot assign a value to final variable _valueTypeDeserializer
+                this._valueTypeDeserializer = typeDeser;
+                    ^
+/tmp/evaluate_gemini_JacksonDatabind_72_cp0e3dd7/src/InnerClassPropertyTest.java:304: error: cannot assign a value to final variable _valueDeserializer
+                this._valueDeserializer = base.getValueDeserializer();
+                    ^
+/tmp/evaluate_gemini_JacksonDatabind_72_cp0e3dd7/src/InnerClassPropertyTest.java:311: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_JacksonDatabind_72_cp0e3dd7/src/InnerClassPropertyTest.java:341: error: incompatible types: JavaType cannot be converted to Class<?>
+                type, null, "@type", false, type
+                                            ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+8 errors

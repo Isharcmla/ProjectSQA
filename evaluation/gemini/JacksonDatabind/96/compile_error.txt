@@ -1,0 +1,86 @@
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:58: error: TestBasicDeserializerFactory is not abstract and does not override abstract method createBuilderBasedDeserializer(DeserializationContext,JavaType,BeanDescription,Class<?>) in DeserializerFactory
+    static class TestBasicDeserializerFactory extends BasicDeserializerFactory implements Serializable {
+           ^
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:223: error: cannot find symbol
+            _ctxt = ((DefaultDeserializationContext) _ctxt).createInstance(_config, _mapper.createParser("{}"), null);
+                                                                                           ^
+  symbol:   method createParser(String)
+  location: variable _mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:271: error: method addMapping in class SimpleAbstractTypeResolver cannot be applied to given types;
+        resolver.addMapping(CharSequence.class, Integer.class); // Integer does not implement CharSequence
+                ^
+  required: Class<T>,Class<? extends T>
+  found: Class<CharSequence>,Class<Integer>
+  reason: inference variable T has incompatible bounds
+    equality constraints: CharSequence
+    lower bounds: Integer
+  where T is a type-variable:
+    T extends Object declared in method <T>addMapping(Class<T>,Class<? extends T>)
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:333: error: cannot find symbol
+        AnnotatedClass ac = AnnotatedClassResolver.resolveWithoutSuperTypes(_config, SimplePOJO.class);
+                            ^
+  symbol:   variable AnnotatedClassResolver
+  location: class BasicDeserializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:346: error: cannot find symbol
+        AnnotatedClass ac = AnnotatedClassResolver.resolveWithoutSuperTypes(_config, SimplePOJO.class);
+                            ^
+  symbol:   variable AnnotatedClassResolver
+  location: class BasicDeserializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:352: error: cannot find symbol
+        AnnotatedClass ac = AnnotatedClassResolver.resolveWithoutSuperTypes(_config, SimplePOJO.class);
+                            ^
+  symbol:   variable AnnotatedClassResolver
+  location: class BasicDeserializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:359: error: <anonymous com.fasterxml.jackson.databind.deser.BasicDeserializerFactoryTest$4> is not abstract and does not override abstract method serializerInstance(SerializationConfig,Annotated,Class<?>) in HandlerInstantiator
+        HandlerInstantiator hi = new HandlerInstantiator() {
+                                                           ^
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:375: error: cannot find symbol
+        AnnotatedClass ac = AnnotatedClassResolver.resolveWithoutSuperTypes(cfg, SimplePOJO.class);
+                            ^
+  symbol:   variable AnnotatedClassResolver
+  location: class BasicDeserializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:456: error: method addDeserializer in class SimpleDeserializers cannot be applied to given types;
+        desers.addDeserializer(SimplePOJO.class, new JsonDeserializer<Object>() {
+              ^
+  required: Class<T>,JsonDeserializer<? extends T>
+  found: Class<SimplePOJO>,<anonymous JsonDeserializer<Object>>
+  reason: inference variable T has incompatible bounds
+    equality constraints: SimplePOJO
+    lower bounds: Object
+  where T is a type-variable:
+    T extends Object declared in method <T>addDeserializer(Class<T>,JsonDeserializer<? extends T>)
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:518: error: method addDeserializer in class SimpleDeserializers cannot be applied to given types;
+        desers.addDeserializer(SimplePOJO.class, new JsonDeserializer<Object>() {
+              ^
+  required: Class<T>,JsonDeserializer<? extends T>
+  found: Class<SimplePOJO>,<anonymous JsonDeserializer<Object>>
+  reason: inference variable T has incompatible bounds
+    equality constraints: SimplePOJO
+    lower bounds: Object
+  where T is a type-variable:
+    T extends Object declared in method <T>addDeserializer(Class<T>,JsonDeserializer<? extends T>)
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:651: error: cannot find symbol
+        JsonDeserializer<?> deser = f.findDefaultDeserializer(_ctxt, type, bd);
+                                     ^
+  symbol:   method findDefaultDeserializer(DeserializationContext,JavaType,BeanDescription)
+  location: variable f of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:712: error: cannot find symbol
+        AnnotatedClass ac = AnnotatedClassResolver.resolveWithoutSuperTypes(_config, SimplePOJO.class);
+                            ^
+  symbol:   variable AnnotatedClassResolver
+  location: class BasicDeserializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:722: error: cannot find symbol
+        AnnotatedClass ac = AnnotatedClassResolver.resolveWithoutSuperTypes(_config, SimplePOJO.class);
+                            ^
+  symbol:   variable AnnotatedClassResolver
+  location: class BasicDeserializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java:746: error: cannot find symbol
+        AnnotatedClass ac = AnnotatedClassResolver.resolveWithoutSuperTypes(_config, SimplePOJO.class);
+                            ^
+  symbol:   variable AnnotatedClassResolver
+  location: class BasicDeserializerFactoryTest
+Note: /tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_gemini_JacksonDatabind_96_wepbwzox/src/BasicDeserializerFactoryTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+14 errors

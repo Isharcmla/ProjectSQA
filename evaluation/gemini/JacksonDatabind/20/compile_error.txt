@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_JacksonDatabind_20_z4doncr6/src/ObjectNodeTest.java:467: error: cannot find symbol
+        SerializerProvider provider = new ObjectMapper().getSerializerProviderInstance();
+                                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: class ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_20_z4doncr6/src/ObjectNodeTest.java:481: error: cannot find symbol
+        SerializerProvider provider = new ObjectMapper().getSerializerProviderInstance();
+                                                        ^
+  symbol:   method getSerializerProviderInstance()
+  location: class ObjectMapper
+2 errors

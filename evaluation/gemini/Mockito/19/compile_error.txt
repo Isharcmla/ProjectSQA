@@ -1,0 +1,45 @@
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/MockCandidateFilterTest.java:25: error: <anonymous org.mockito.internal.configuration.injection.filter.MockCandidateFilterTest$1> is not abstract and does not override abstract method thenInject() in OngoingInjecter
+        final OngoingInjecter expectedInjecter = new OngoingInjecter() {
+                                                                       ^
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/MockCandidateFilterTest.java:27: error: thenInject() in <anonymous org.mockito.internal.configuration.injection.filter.MockCandidateFilterTest$1> cannot implement thenInject() in OngoingInjecter
+            public boolean thenInject() {
+                           ^
+  return type boolean is not compatible with Object
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/MockCandidateFilterTest.java:26: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/MockCandidateFilterTest.java:46: error: incompatible types: Object cannot be converted to boolean
+        Assert.assertTrue(result.thenInject());
+                                           ^
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/MockCandidateFilterTest.java:55: error: <anonymous org.mockito.internal.configuration.injection.filter.MockCandidateFilterTest$3> is not abstract and does not override abstract method thenInject() in OngoingInjecter
+        final OngoingInjecter expectedInjecter = new OngoingInjecter() {
+                                                                       ^
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/MockCandidateFilterTest.java:57: error: thenInject() in <anonymous org.mockito.internal.configuration.injection.filter.MockCandidateFilterTest$3> cannot implement thenInject() in OngoingInjecter
+            public boolean thenInject() {
+                           ^
+  return type boolean is not compatible with Object
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/MockCandidateFilterTest.java:56: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/MockCandidateFilterTest.java:75: error: incompatible types: Object cannot be converted to boolean
+        Assert.assertFalse(result.thenInject());
+                                            ^
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/MockCandidateFilterTest.java:80: error: <anonymous org.mockito.internal.configuration.injection.filter.MockCandidateFilterTest$5> is not abstract and does not override abstract method thenInject() in OngoingInjecter
+        final OngoingInjecter nullObjectInjecter = new OngoingInjecter() {
+                                                                         ^
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/MockCandidateFilterTest.java:82: error: thenInject() in <anonymous org.mockito.internal.configuration.injection.filter.MockCandidateFilterTest$5> cannot implement thenInject() in OngoingInjecter
+            public boolean thenInject() {
+                           ^
+  return type boolean is not compatible with Object
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/MockCandidateFilterTest.java:81: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/TypeBasedCandidateFilterTest.java:26: error: <anonymous org.mockito.internal.configuration.injection.filter.TypeBasedCandidateFilterTest$RecordingMockCandidateFilter$1> is not abstract and does not override abstract method thenInject() in OngoingInjecter
+        OngoingInjecter returnedInjecter = new OngoingInjecter() {
+                                                                 ^
+/tmp/evaluate_gemini_Mockito_19_5j8u50yw/src/TypeBasedCandidateFilterTest.java:27: error: thenInject() in <anonymous org.mockito.internal.configuration.injection.filter.TypeBasedCandidateFilterTest$RecordingMockCandidateFilter$1> cannot implement thenInject() in OngoingInjecter
+            public boolean thenInject() {
+                           ^
+  return type boolean is not compatible with Object
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+13 errors

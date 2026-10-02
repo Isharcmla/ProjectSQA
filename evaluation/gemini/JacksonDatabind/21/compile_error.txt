@@ -1,0 +1,97 @@
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:364: error: cannot find symbol
+    @JsonValueInstantiator(ValueInstantiator.class)
+                           ^
+  symbol:   class ValueInstantiator
+  location: class JacksonAnnotationIntrospectorTest
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:46: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        return mapper.getSerializationConfig().introspectClassAnnotations(cls);
+                                                                         ^
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:332: error: CustomTypeIdResolver is not abstract and does not override abstract method typeFromId(String) in TypeIdResolver
+    static class CustomTypeIdResolver implements TypeIdResolver {
+           ^
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:338: error: method does not override or implement a method from a supertype
+        @Override public String getDescForKnownTypeIds() { return null; }
+        ^
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:381: error: cannot find symbol
+        Assert.assertFalse(v.isUnknownVersion());
+                            ^
+  symbol:   method isUnknownVersion()
+  location: variable v of type Version
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:398: error: cannot find symbol
+        Annotation bundle = BundleAnn.class.getAnnotation(Retention.class);
+        ^
+  symbol:   class Annotation
+  location: class JacksonAnnotationIntrospectorTest
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:399: error: cannot find symbol
+        Annotation inside = BundleAnn.class.getAnnotation(JacksonAnnotationsInside.class);
+        ^
+  symbol:   class Annotation
+  location: class JacksonAnnotationIntrospectorTest
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:666: error: cannot find symbol
+        Assert.assertEquals(JsonInclude.Include.NON_NULL, introspector.findSerializationInclusion(incField, JsonInclude.Include.USE_DEFAULTS));
+                                                                                                                               ^
+  symbol:   variable USE_DEFAULTS
+  location: class Include
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:667: error: cannot find symbol
+        Assert.assertEquals(JsonInclude.Include.NON_EMPTY, introspector.findSerializationInclusionForContent(incField, JsonInclude.Include.USE_DEFAULTS));
+                                                                                                                                          ^
+  symbol:   variable USE_DEFAULTS
+  location: class Include
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:670: error: cannot find symbol
+        Assert.assertEquals(JsonInclude.Include.ALWAYS, introspector.findSerializationInclusion(alwaysF, JsonInclude.Include.USE_DEFAULTS));
+                                                                                                                            ^
+  symbol:   variable USE_DEFAULTS
+  location: class Include
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:673: error: cannot find symbol
+        Assert.assertEquals(JsonInclude.Include.NON_NULL, introspector.findSerializationInclusion(nonNullF, JsonInclude.Include.USE_DEFAULTS));
+                                                                                                                               ^
+  symbol:   variable USE_DEFAULTS
+  location: class Include
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:676: error: cannot find symbol
+        Assert.assertEquals(JsonInclude.Include.NON_DEFAULT, introspector.findSerializationInclusion(nonDefF, JsonInclude.Include.USE_DEFAULTS));
+                                                                                                                                 ^
+  symbol:   variable USE_DEFAULTS
+  location: class Include
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:679: error: cannot find symbol
+        Assert.assertEquals(JsonInclude.Include.NON_EMPTY, introspector.findSerializationInclusion(nonEmptyF, JsonInclude.Include.USE_DEFAULTS));
+                                                                                                                                 ^
+  symbol:   variable USE_DEFAULTS
+  location: class Include
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:682: error: cannot find symbol
+        Assert.assertEquals(JsonInclude.Include.USE_DEFAULTS, introspector.findSerializationInclusion(defF, JsonInclude.Include.USE_DEFAULTS));
+                                               ^
+  symbol:   variable USE_DEFAULTS
+  location: class Include
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:682: error: cannot find symbol
+        Assert.assertEquals(JsonInclude.Include.USE_DEFAULTS, introspector.findSerializationInclusion(defF, JsonInclude.Include.USE_DEFAULTS));
+                                                                                                                               ^
+  symbol:   variable USE_DEFAULTS
+  location: class Include
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:685: error: cannot find symbol
+        Assert.assertEquals(JsonInclude.Include.USE_DEFAULTS, introspector.findSerializationInclusion(plainField, JsonInclude.Include.USE_DEFAULTS));
+                                               ^
+  symbol:   variable USE_DEFAULTS
+  location: class Include
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:685: error: cannot find symbol
+        Assert.assertEquals(JsonInclude.Include.USE_DEFAULTS, introspector.findSerializationInclusion(plainField, JsonInclude.Include.USE_DEFAULTS));
+                                                                                                                                     ^
+  symbol:   variable USE_DEFAULTS
+  location: class Include
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:686: error: cannot find symbol
+        Assert.assertEquals(JsonInclude.Include.USE_DEFAULTS, introspector.findSerializationInclusionForContent(plainField, JsonInclude.Include.USE_DEFAULTS));
+                                               ^
+  symbol:   variable USE_DEFAULTS
+  location: class Include
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:686: error: cannot find symbol
+        Assert.assertEquals(JsonInclude.Include.USE_DEFAULTS, introspector.findSerializationInclusionForContent(plainField, JsonInclude.Include.USE_DEFAULTS));
+                                                                                                                                               ^
+  symbol:   variable USE_DEFAULTS
+  location: class Include
+/tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java:778: error: cannot find symbol
+        Assert.assertEquals(ValueInstantiator.class, introspector.findValueInstantiator(acInstantiator));
+                            ^
+  symbol:   class ValueInstantiator
+  location: class JacksonAnnotationIntrospectorTest
+Note: /tmp/evaluate_gemini_JacksonDatabind_21_9h9f7r62/src/JacksonAnnotationIntrospectorTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+20 errors

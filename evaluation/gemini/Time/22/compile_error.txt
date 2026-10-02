@@ -1,0 +1,247 @@
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:143: error: ConcreteReadWritablePeriod is not abstract and does not override abstract method add(ReadableInterval) in ReadWritablePeriod
+    private static class ConcreteReadWritablePeriod extends BasePeriod implements ReadWritablePeriod {
+                   ^
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:257: error: cannot find symbol
+        Assert.assertEquals(1, p.getYears());
+                                ^
+  symbol:   method getYears()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:258: error: cannot find symbol
+        Assert.assertEquals(2, p.getMonths());
+                                ^
+  symbol:   method getMonths()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:259: error: cannot find symbol
+        Assert.assertEquals(3, p.getWeeks());
+                                ^
+  symbol:   method getWeeks()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:260: error: cannot find symbol
+        Assert.assertEquals(4, p.getDays());
+                                ^
+  symbol:   method getDays()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:261: error: cannot find symbol
+        Assert.assertEquals(5, p.getHours());
+                                ^
+  symbol:   method getHours()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:262: error: cannot find symbol
+        Assert.assertEquals(6, p.getMinutes());
+                                ^
+  symbol:   method getMinutes()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:263: error: cannot find symbol
+        Assert.assertEquals(7, p.getSeconds());
+                                ^
+  symbol:   method getSeconds()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:264: error: cannot find symbol
+        Assert.assertEquals(8, p.getMillis());
+                                ^
+  symbol:   method getMillis()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:271: error: cannot find symbol
+        Assert.assertEquals(1, p.getYears());
+                                ^
+  symbol:   method getYears()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:294: error: cannot find symbol
+        Assert.assertEquals(3, p.getDays());
+                                ^
+  symbol:   method getDays()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:303: error: cannot find symbol
+        Assert.assertEquals(4, p.getSeconds());
+                                ^
+  symbol:   method getSeconds()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:323: error: cannot find symbol
+        Assert.assertEquals(1000, p.getSeconds());
+                                   ^
+  symbol:   method getSeconds()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:329: error: reference to ConcreteBasePeriod is ambiguous
+        ConcreteBasePeriod p = new ConcreteBasePeriod(null, end, PeriodType.minutes());
+                               ^
+  both constructor ConcreteBasePeriod(ReadableInstant,ReadableInstant,PeriodType) in ConcreteBasePeriod and constructor ConcreteBasePeriod(ReadableDuration,ReadableInstant,PeriodType) in ConcreteBasePeriod match
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:330: error: cannot find symbol
+        Assert.assertTrue(p.getMinutes() >= 0);
+                           ^
+  symbol:   method getMinutes()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:336: error: reference to ConcreteBasePeriod is ambiguous
+        ConcreteBasePeriod p = new ConcreteBasePeriod(start, null, PeriodType.minutes());
+                               ^
+  both constructor ConcreteBasePeriod(ReadableInstant,ReadableInstant,PeriodType) in ConcreteBasePeriod and constructor ConcreteBasePeriod(ReadableInstant,ReadableDuration,PeriodType) in ConcreteBasePeriod match
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:337: error: cannot find symbol
+        Assert.assertTrue(p.getMinutes() >= 0);
+                           ^
+  symbol:   method getMinutes()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:358: error: cannot find symbol
+        Assert.assertEquals(10, p.getDays());
+                                 ^
+  symbol:   method getDays()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:403: error: cannot find symbol
+        Assert.assertEquals(2, p.getHours());
+                                ^
+  symbol:   method getHours()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:420: error: cannot find symbol
+        Assert.assertEquals(2, p.getHours());
+                                ^
+  symbol:   method getHours()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:437: error: cannot find symbol
+        Assert.assertEquals(2, p.getHours());
+                                ^
+  symbol:   method getHours()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:447: error: cannot find symbol
+        Assert.assertEquals(123, p.getSeconds());
+                                  ^
+  symbol:   method getSeconds()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:448: error: cannot find symbol
+        Assert.assertEquals(456, p.getMillis());
+                                  ^
+  symbol:   method getMillis()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:454: error: cannot find symbol
+        Assert.assertEquals(1, p.getHours());
+                                ^
+  symbol:   method getHours()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:461: error: cannot find symbol
+        Assert.assertEquals(1, p.getSeconds());
+                                ^
+  symbol:   method getSeconds()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:470: error: cannot find symbol
+        Assert.assertEquals(1, p.getYears());
+                                ^
+  symbol:   method getYears()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:471: error: cannot find symbol
+        Assert.assertEquals(2, p.getMonths());
+                                ^
+  symbol:   method getMonths()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:472: error: cannot find symbol
+        Assert.assertEquals(3, p.getWeeks());
+                                ^
+  symbol:   method getWeeks()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:473: error: cannot find symbol
+        Assert.assertEquals(4, p.getDays());
+                                ^
+  symbol:   method getDays()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:474: error: cannot find symbol
+        Assert.assertEquals(5, p.getHours());
+                                ^
+  symbol:   method getHours()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:475: error: cannot find symbol
+        Assert.assertEquals(6, p.getMinutes());
+                                ^
+  symbol:   method getMinutes()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:476: error: cannot find symbol
+        Assert.assertEquals(7, p.getSeconds());
+                                ^
+  symbol:   method getSeconds()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:477: error: cannot find symbol
+        Assert.assertEquals(8, p.getMillis());
+                                ^
+  symbol:   method getMillis()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:483: error: cannot find symbol
+        Assert.assertEquals(1, rwp.getHours());
+                                  ^
+  symbol:   method getHours()
+  location: variable rwp of type ConcreteReadWritablePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:484: error: cannot find symbol
+        Assert.assertEquals(2, rwp.getMinutes());
+                                  ^
+  symbol:   method getMinutes()
+  location: variable rwp of type ConcreteReadWritablePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:493: error: cannot find symbol
+        ConcreteBasePeriod p = new ConcreteBasePeriod(vals, PeriodType.yearMonth());
+                                                                      ^
+  symbol:   method yearMonth()
+  location: class PeriodType
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:510: error: cannot find symbol
+        ConcreteBasePeriod p = new ConcreteBasePeriod(1, 2, 0, 0, 0, 0, 0, 0, PeriodType.yearMonth());
+                                                                                        ^
+  symbol:   method yearMonth()
+  location: class PeriodType
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:580: error: cannot find symbol
+        Assert.assertEquals(1, p.getYears());
+                                ^
+  symbol:   method getYears()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:581: error: cannot find symbol
+        Assert.assertEquals(8, p.getMillis());
+                                ^
+  symbol:   method getMillis()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:595: error: cannot find symbol
+        Assert.assertEquals(10, p.getYears());
+                                 ^
+  symbol:   method getYears()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:596: error: cannot find symbol
+        Assert.assertEquals(80, p.getMillis());
+                                 ^
+  symbol:   method getMillis()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:606: error: cannot find symbol
+        Assert.assertEquals(5, p.getYears());
+                                ^
+  symbol:   method getYears()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:613: error: cannot find symbol
+        Assert.assertEquals(0, p.getDays());
+                                ^
+  symbol:   method getDays()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:632: error: cannot find symbol
+        Assert.assertEquals(5, p.getYears());
+                                ^
+  symbol:   method getYears()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:639: error: cannot find symbol
+        Assert.assertEquals(0, p.getDays());
+                                ^
+  symbol:   method getDays()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:672: error: cannot find symbol
+        Assert.assertEquals(1, p.getYears());
+                                ^
+  symbol:   method getYears()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:680: error: cannot find symbol
+        Assert.assertEquals(10, p.getDays());
+                                 ^
+  symbol:   method getDays()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:694: error: cannot find symbol
+        Assert.assertEquals(1, p.getYears());
+                                ^
+  symbol:   method getYears()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:702: error: cannot find symbol
+        Assert.assertEquals(3, p.getYears());
+                                ^
+  symbol:   method getYears()
+  location: variable p of type ConcreteBasePeriod
+/tmp/evaluate_gemini_Time_22_rr28h94f/src/BasePeriodTest.java:703: error: cannot find symbol
+        Assert.assertEquals(5, p.getMonths());
+                                ^
+  symbol:   method getMonths()
+  location: variable p of type ConcreteBasePeriod
+50 errors

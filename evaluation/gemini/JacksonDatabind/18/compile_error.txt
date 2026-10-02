@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_JacksonDatabind_18_iqcmfg60/src/MappingIteratorTest.java:5: error: cannot find symbol
+import com.fasterxml.jackson.core.RuntimeJsonMappingException;
+                                 ^
+  symbol:   class RuntimeJsonMappingException
+  location: package com.fasterxml.jackson.core
+1 error

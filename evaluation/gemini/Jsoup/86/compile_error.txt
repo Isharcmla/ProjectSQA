@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Jsoup_86_a35ervp4/src/CommentTest.java:105: error: cannot find symbol
+        assertFalse(decl.isProcessingInstruction());
+                        ^
+  symbol:   method isProcessingInstruction()
+  location: variable decl of type XmlDeclaration
+/tmp/evaluate_gemini_Jsoup_86_a35ervp4/src/CommentTest.java:116: error: cannot find symbol
+        assertTrue(decl.isProcessingInstruction());
+                       ^
+  symbol:   method isProcessingInstruction()
+  location: variable decl of type XmlDeclaration
+2 errors

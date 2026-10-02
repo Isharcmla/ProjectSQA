@@ -1,0 +1,79 @@
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:72: error: cannot find symbol
+        assertFalse(v.isUnknownVersion());
+                     ^
+  symbol:   method isUnknownVersion()
+  location: variable v of type Version
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:96: error: cannot find symbol
+        r = r.with(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, DeserializationFeature.ACCEPT_FLOAT_AS_INT);
+                                                                                                    ^
+  symbol:   variable ACCEPT_FLOAT_AS_INT
+  location: class DeserializationFeature
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:98: error: cannot find symbol
+        assertTrue(r.isEnabled(DeserializationFeature.ACCEPT_FLOAT_AS_INT));
+                                                     ^
+  symbol:   variable ACCEPT_FLOAT_AS_INT
+  location: class DeserializationFeature
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:100: error: cannot find symbol
+        r = r.without(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, DeserializationFeature.ACCEPT_FLOAT_AS_INT);
+                                                                                                       ^
+  symbol:   variable ACCEPT_FLOAT_AS_INT
+  location: class DeserializationFeature
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:102: error: cannot find symbol
+        assertFalse(r.isEnabled(DeserializationFeature.ACCEPT_FLOAT_AS_INT));
+                                                      ^
+  symbol:   variable ACCEPT_FLOAT_AS_INT
+  location: class DeserializationFeature
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:116: error: cannot find symbol
+        assertTrue(r.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_COMMENTS.getMask()));
+                                ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:119: error: cannot find symbol
+        assertFalse(r.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_COMMENTS.getMask()));
+                                 ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:122: error: cannot find symbol
+        assertTrue(r.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_COMMENTS.getMask()));
+                                ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:123: error: cannot find symbol
+        assertTrue(r.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_SINGLE_QUOTES.getMask()));
+                                ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:126: error: cannot find symbol
+        assertFalse(r.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_COMMENTS.getMask()));
+                                 ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:127: error: cannot find symbol
+        assertFalse(r.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_SINGLE_QUOTES.getMask()));
+                                 ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:283: error: incompatible types: JsonNode cannot be converted to ArrayNode
+        ArrayNode arr = reader.createArrayNode();
+                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:285: error: incompatible types: JsonNode cannot be converted to ObjectNode
+        ObjectNode obj = reader.createObjectNode();
+                                                ^
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:331: error: cannot find symbol
+        SimpleBean b4 = reader.readValue(p4, (ResolvedType) mapper.constructType(SimpleBean.class));
+                                              ^
+  symbol:   class ResolvedType
+  location: class ObjectReaderTest
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:447: error: cannot find symbol
+        Iterator<SimpleBean> itPResType = reader.readValues(p, (ResolvedType) mapper.constructType(SimpleBean.class));
+                                                                ^
+  symbol:   class ResolvedType
+  location: class ObjectReaderTest
+/tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java:464: error: cannot find symbol
+        ObjectReader r1 = mapper.readerFor(SimpleBean.class);
+                                ^
+  symbol:   method readerFor(Class<SimpleBean>)
+  location: variable mapper of type ObjectMapper
+Note: /tmp/evaluate_gemini_JacksonDatabind_14_o7yd2x2j/src/ObjectReaderTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+16 errors

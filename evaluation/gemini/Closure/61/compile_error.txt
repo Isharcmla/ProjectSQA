@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Closure_61_2w4ucm51/src/NodeUtilTest.java:442: error: cannot find symbol
+    callModifiesThis.setSideEffectFlags(Node.MODIFIES_THIS);
+                                            ^
+  symbol:   variable MODIFIES_THIS
+  location: class Node
+/tmp/evaluate_gemini_Closure_61_2w4ucm51/src/NodeUtilTest.java:458: error: cannot find symbol
+    newObj.setSideEffectFlags(Node.MODIFIES_THIS);
+                                  ^
+  symbol:   variable MODIFIES_THIS
+  location: class Node
+2 errors

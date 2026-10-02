@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_JacksonDatabind_49_3znqx634/src/WritableObjectIdTest.java:31: error: cannot find symbol
+        serializerProvider = objectMapper.getSerializerProviderInstance();
+                                         ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable objectMapper of type ObjectMapper
+1 error

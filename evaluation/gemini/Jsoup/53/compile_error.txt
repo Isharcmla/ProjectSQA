@@ -1,0 +1,9 @@
+/tmp/evaluate_gemini_Jsoup_53_nhepj6tv/src/TokenQueueTest.java:71: error: reference to matchesAny is ambiguous
+        assertFalse(queue.matchesAny());
+                         ^
+  both method matchesAny(String...) in TokenQueue and method matchesAny(char...) in TokenQueue match
+/tmp/evaluate_gemini_Jsoup_53_nhepj6tv/src/TokenQueueTest.java:82: error: reference to matchesAny is ambiguous
+        assertFalse(queue.matchesAny());
+                         ^
+  both method matchesAny(String...) in TokenQueue and method matchesAny(char...) in TokenQueue match
+2 errors

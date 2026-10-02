@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Math_98_l4pm3c6a/src/BigMatrixImplTest.java:108: error: not a statement
+        new double[][]{{1.0, 2.0}, {3.0}};
+        ^
+1 error

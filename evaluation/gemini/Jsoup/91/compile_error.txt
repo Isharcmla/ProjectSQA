@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Jsoup_91_73psd5gl/src/CharacterReaderTest.java:442: error: cannot find symbol
+        assertSame(tag1, tag2);
+        ^
+  symbol:   method assertSame(String,String)
+  location: class CharacterReaderTest
+/tmp/evaluate_gemini_Jsoup_91_73psd5gl/src/CharacterReaderTest.java:448: error: cannot find symbol
+        assertSame(tag1, tag3);
+        ^
+  symbol:   method assertSame(String,String)
+  location: class CharacterReaderTest
+2 errors

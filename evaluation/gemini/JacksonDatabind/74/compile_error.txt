@@ -1,0 +1,10 @@
+/tmp/evaluate_gemini_JacksonDatabind_74_yl3ka7p4/src/AsPropertyTypeDeserializerTest.java:49: error: '(' expected
+        public void set@type(String t) {
+                       ^
+/tmp/evaluate_gemini_JacksonDatabind_74_yl3ka7p4/src/AsPropertyTypeDeserializerTest.java:49: error: ')' expected
+        public void set@type(String t) {
+                                   ^
+/tmp/evaluate_gemini_JacksonDatabind_74_yl3ka7p4/src/AsPropertyTypeDeserializerTest.java:49: error: <identifier> expected
+        public void set@type(String t) {
+                                     ^
+3 errors

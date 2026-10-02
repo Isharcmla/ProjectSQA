@@ -1,0 +1,10 @@
+/tmp/evaluate_gemini_JacksonDatabind_88_jkocuxv2/src/ClassNameIdResolverTest.java:56: error: SimpleDatabindContext is not abstract and does not override abstract method setAttribute(Object,Object) in DatabindContext
+    private static class SimpleDatabindContext extends DatabindContext {
+                   ^
+/tmp/evaluate_gemini_JacksonDatabind_88_jkocuxv2/src/ClassNameIdResolverTest.java:240: error: createDeserializationContext(JsonParser,DeserializationConfig) has protected access in ObjectMapper
+        dctx = mapper.createDeserializationContext(null, mapper.getDeserializationConfig());
+                     ^
+/tmp/evaluate_gemini_JacksonDatabind_88_jkocuxv2/src/ClassNameIdResolverTest.java:247: error: cannot inherit from final TypeFactory
+        TypeFactory throwingTf = new TypeFactory(null) {
+                                     ^
+3 errors

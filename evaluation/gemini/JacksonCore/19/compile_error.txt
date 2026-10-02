@@ -1,0 +1,14 @@
+/tmp/evaluate_gemini_JacksonCore_19_hv7ety_o/src/UTF8StreamJsonParserTest.java:23: error: createRoot(int) has protected access in ByteQuadsCanonicalizer
+        ByteQuadsCanonicalizer sym = ByteQuadsCanonicalizer.createRoot(12345).makeChild(JsonFactory.Feature.collectDefaults());
+                                                           ^
+/tmp/evaluate_gemini_JacksonCore_19_hv7ety_o/src/UTF8StreamJsonParserTest.java:228: error: cannot find symbol
+        assertEquals(JsonToken.END_OBJECT, p.currentToken());
+                                            ^
+  symbol:   method currentToken()
+  location: variable p of type UTF8StreamJsonParser
+/tmp/evaluate_gemini_JacksonCore_19_hv7ety_o/src/UTF8StreamJsonParserTest.java:256: error: cannot find symbol
+        assertEquals(JsonToken.START_ARRAY, p.currentToken());
+                                             ^
+  symbol:   method currentToken()
+  location: variable p of type UTF8StreamJsonParser
+3 errors

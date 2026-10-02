@@ -1,0 +1,12 @@
+{
+  "project": "Jsoup",
+  "bug_id": "28",
+  "tool": "gemini",
+  "generated_files": 3,
+  "candidate_tests": 62,
+  "classification_counts": {},
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "compile_failed"
+}

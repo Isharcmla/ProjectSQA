@@ -1,0 +1,9 @@
+/tmp/evaluate_gemini_Gson_2_8by6s1rc/src/TypeAdaptersTest.java:454: error: <anonymous com.google.gson.internal.bind.TypeAdaptersTest$1> is not abstract and does not override abstract method deepCopy() in JsonElement
+    JsonElement customElement = new JsonElement() {
+                                                  ^
+/tmp/evaluate_gemini_Gson_2_8by6s1rc/src/TypeAdaptersTest.java:455: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+Note: /tmp/evaluate_gemini_Gson_2_8by6s1rc/src/TypeAdaptersTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors

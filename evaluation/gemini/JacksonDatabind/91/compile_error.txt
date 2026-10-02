@@ -1,0 +1,5 @@
+/tmp/evaluate_gemini_JacksonDatabind_91_gv82do73/src/DeserializerCacheTest.java:367: error: cannot find symbol
+            public JsonDeserializer<Object> createBeanDeserializer(DeserializationContext ctxt, JavaType type, BeanDescription beanDesc) {
+                                                                                                               ^
+  symbol: class BeanDescription
+1 error

@@ -1,0 +1,193 @@
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:10: error: cannot find symbol
+import com.google.javascript.rhino.SimpleSourceFile;
+                                  ^
+  symbol:   class SimpleSourceFile
+  location: package com.google.javascript.rhino
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:11: error: cannot find symbol
+import com.google.javascript.rhino.StaticSourceFile;
+                                  ^
+  symbol:   class StaticSourceFile
+  location: package com.google.javascript.rhino
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:81: error: cannot find symbol
+    Node key2 = IR.getterDef("prop2", fn2);
+                  ^
+  symbol:   method getterDef(String,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:85: error: cannot find symbol
+    Node key3 = IR.setterDef("prop3", fn3);
+                  ^
+  symbol:   method setterDef(String,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:121: error: cannot find symbol
+    IR.dec(decName);
+      ^
+  symbol:   method dec(Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:125: error: cannot find symbol
+    IR.inc(incName);
+      ^
+  symbol:   method inc(Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:216: error: cannot find symbol
+    StaticSourceFile file = new SimpleSourceFile("test.js", false);
+    ^
+  symbol:   class StaticSourceFile
+  location: class NodeUtilTest
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:216: error: cannot find symbol
+    StaticSourceFile file = new SimpleSourceFile("test.js", false);
+                                ^
+  symbol:   class SimpleSourceFile
+  location: class NodeUtilTest
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:356: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.isSymmetricOperation(IR.ne(IR.name("a"), IR.name("b"))));
+                                                      ^
+  symbol:   method ne(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:358: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.isSymmetricOperation(IR.shne(IR.name("a"), IR.name("b"))));
+                                                      ^
+  symbol:   method shne(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:359: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.isSymmetricOperation(IR.mul(IR.name("a"), IR.name("b"))));
+                                                      ^
+  symbol:   method mul(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:362: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.isRelationalOperation(IR.gt(IR.name("a"), IR.name("b"))));
+                                                       ^
+  symbol:   method gt(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:363: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.isRelationalOperation(IR.ge(IR.name("a"), IR.name("b"))));
+                                                       ^
+  symbol:   method ge(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:364: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.isRelationalOperation(IR.lt(IR.name("a"), IR.name("b"))));
+                                                       ^
+  symbol:   method lt(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:365: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.isRelationalOperation(IR.le(IR.name("a"), IR.name("b"))));
+                                                       ^
+  symbol:   method le(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:423: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.isSimpleOperator(IR.bitnot(IR.number(1))));
+                                                  ^
+  symbol:   method bitnot(Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:424: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.isSimpleOperator(IR.typeof(IR.name("a"))));
+                                                  ^
+  symbol:   method typeof(Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:504: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(IR.delprop(IR.name("x"))));
+                                                            ^
+  symbol:   method delprop(Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:505: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(IR.inc(IR.name("x"), false)));
+                                                            ^
+  symbol:   method inc(Node,boolean)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:506: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(IR.dec(IR.name("x"), false)));
+                                                            ^
+  symbol:   method dec(Node,boolean)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:599: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.isBooleanResult(IR.delprop(IR.name("a"))));
+                                                 ^
+  symbol:   method delprop(Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:631: error: cannot find symbol
+    Node assignAdd = IR.assignAdd(IR.name("a"), IR.number(1));
+                       ^
+  symbol:   method assignAdd(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:647: error: cannot find symbol
+    Node assignSub = IR.assignSub(IR.name("a"), IR.number(1));
+                       ^
+  symbol:   method assignSub(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:649: error: cannot find symbol
+    Node assignMul = IR.assignMul(IR.name("a"), IR.number(1));
+                       ^
+  symbol:   method assignMul(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:651: error: cannot find symbol
+    Node assignDiv = IR.assignDiv(IR.name("a"), IR.number(1));
+                       ^
+  symbol:   method assignDiv(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:653: error: cannot find symbol
+    Node assignMod = IR.assignMod(IR.name("a"), IR.number(1));
+                       ^
+  symbol:   method assignMod(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:714: error: cannot find symbol
+    Node whileNode = IR.whileNode(IR.trueNode(), IR.block());
+                       ^
+  symbol:   method whileNode(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:740: error: cannot find symbol
+    Node for4 = new Node(Token.FOR, IR.var(IR.name("i")), IR.lt(IR.name("i"), IR.number(10)), IR.inc(IR.name("i"), false), IR.block());
+                                                            ^
+  symbol:   method lt(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:740: error: cannot find symbol
+    Node for4 = new Node(Token.FOR, IR.var(IR.name("i")), IR.lt(IR.name("i"), IR.number(10)), IR.inc(IR.name("i"), false), IR.block());
+                                                                                                ^
+  symbol:   method inc(Node,boolean)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:796: error: cannot find symbol
+    Node tryNode = IR.tryNode(IR.block(), IR.catchNode(IR.name("e"), IR.block()));
+                     ^
+  symbol:   method tryNode(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:872: error: cannot find symbol
+    Node getDef = IR.getterDef("k2", IR.function(IR.name(""), IR.paramList(), IR.block()));
+                    ^
+  symbol:   method getterDef(String,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:873: error: cannot find symbol
+    Node setDef = IR.setterDef("k3", IR.function(IR.name(""), IR.paramList(IR.name("val")), IR.block()));
+                    ^
+  symbol:   method setterDef(String,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:1035: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.evaluatesToLocalValue(IR.delprop(IR.name("x"))));
+                                                       ^
+  symbol:   method delprop(Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:1036: error: cannot find symbol
+    Assert.assertTrue(NodeUtil.evaluatesToLocalValue(IR.in(IR.string("a"), IR.name("b"))));
+                                                       ^
+  symbol:   method in(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:1041: error: cannot find symbol
+    Node inc = IR.inc(IR.name("x"), false);
+                 ^
+  symbol:   method inc(Node,boolean)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:1118: error: cannot find symbol
+    Node whileNode = IR.whileNode(IR.trueNode(), IR.block(IR.exprResult(IR.number(3))));
+                       ^
+  symbol:   method whileNode(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:1140: error: cannot find symbol
+    Assert.assertTrue(negInf.isNeg());
+                            ^
+  symbol:   method isNeg()
+  location: variable negInf of type Node
+/tmp/evaluate_gemini_Closure_10_ikuop39t/src/NodeUtilTest.java:1155: error: no suitable method found for var(no arguments)
+    Assert.assertTrue(matchDecl.apply(IR.var()));
+                                        ^
+    method IR.var(Node,Node) is not applicable
+      (actual and formal argument lists differ in length)
+    method IR.var(Node) is not applicable
+      (actual and formal argument lists differ in length)
+38 errors

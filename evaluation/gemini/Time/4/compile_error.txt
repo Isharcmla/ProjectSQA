@@ -1,0 +1,9 @@
+/tmp/evaluate_gemini_Time_4_rzaw9htm/src/PartialTest.java:114: error: reference to Partial is ambiguous
+        new Partial(null, new int[] { 2020 });
+        ^
+  both constructor Partial(DateTimeFieldType[],int[]) in Partial and constructor Partial(Partial,int[]) in Partial match
+/tmp/evaluate_gemini_Time_4_rzaw9htm/src/PartialTest.java:537: error: reference to toString is ambiguous
+        assertEquals("2020-05-10", ymd.toString(null));
+                                      ^
+  both method toString(DateTimeFormatter) in AbstractPartial and method toString(String) in Partial match
+2 errors

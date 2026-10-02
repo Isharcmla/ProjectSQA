@@ -1,0 +1,134 @@
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/ChangeSetPerformerTest.java:56: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:19: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "test.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:38: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "file1.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:67: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW_CRC, "crc_file.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:90: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW_CRC, "crc_fail.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:105: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_OLD_ASCII, "old_ascii.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:130: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_OLD_BINARY, "old_binary.bin");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:155: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "no_time.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:169: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry1 = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "file1.txt");
+                                  ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:173: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry2 = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "file2.txt");
+                                  ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:186: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_OLD_ASCII, "mismatch.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:195: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry1 = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "duplicate.txt");
+                                  ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:200: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry2 = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "duplicate.txt");
+                                  ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:226: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:241: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "closed.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:250: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "size_mismatch.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:279: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "overflow.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:312: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "zero_len.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:337: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "unclosed.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+/tmp/evaluate_gemini_Compress_4_alytp27c/src/CpioArchiveOutputStreamTest.java:381: error: no suitable constructor found for CpioArchiveEntry(short,String)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_OLD_ASCII, "overflow.txt");
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (argument mismatch; short cannot be converted to String)
+    constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+      (argument mismatch; short cannot be converted to File)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+20 errors

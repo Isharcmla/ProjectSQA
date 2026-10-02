@@ -1,0 +1,111 @@
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/DefaultDeserializationContextTest.java:122: error: cannot inherit from final Impl
+    public static class SubclassedImplWithoutCopy extends DefaultDeserializationContext.Impl {
+                                                                                       ^
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/DefaultDeserializationContextTest.java:158: error: _factory has protected access in DeserializationContext
+        Assert.assertSame(customFactory, ctxWithFactory._factory);
+                                                       ^
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/DefaultDeserializationContextTest.java:228: error: <anonymous com.fasterxml.jackson.databind.deser.DefaultDeserializationContextTest$1> is not abstract and does not override abstract method handleResolvedForwardReference(Object,Object) in Referring
+        roid.appendReferring(new Referring(null, String.class) {
+                                                               ^
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/DefaultDeserializationContextTest.java:229: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/DefaultDeserializationContextTest.java:257: error: <anonymous com.fasterxml.jackson.databind.deser.DefaultDeserializationContextTest$2> is not abstract and does not override abstract method handleResolvedForwardReference(Object,Object) in Referring
+        roid.appendReferring(new Referring(null, (Class<?>) String.class) {
+                                                                          ^
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/DefaultDeserializationContextTest.java:263: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:103: error: cannot find symbol
+        generator = new ObjectIdGenerators.StringIdGenerator();
+                                          ^
+  symbol:   class StringIdGenerator
+  location: class ObjectIdGenerators
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:109: error: cannot find symbol
+        JsonDeserializer<Object> deser = objectMapper.getDeserializationConfig().findRootValueDeserializer(idType);
+                                                                                ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:130: error: cannot find symbol
+        JsonDeserializer<Object> deser = objectMapper.getDeserializationConfig().findRootValueDeserializer(idType);
+                                                                                ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:151: error: cannot find symbol
+        JsonDeserializer<Object> deser = objectMapper.getDeserializationConfig().findRootValueDeserializer(idType);
+                                                                                ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:171: error: cannot find symbol
+        JsonDeserializer<Object> deser1 = objectMapper.getDeserializationConfig().findRootValueDeserializer(idType);
+                                                                                 ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:173: error: cannot find symbol
+        JsonDeserializer<Object> deser2 = objectMapper.getDeserializationConfig().findRootValueDeserializer(intType);
+                                                                                 ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:193: error: cannot find symbol
+        JsonDeserializer<Object> deser = objectMapper.getDeserializationConfig().findRootValueDeserializer(idType);
+                                                                                ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:209: error: cannot find symbol
+        if (ctxt instanceof DefaultDeserializationContext) {
+                            ^
+  symbol:   class DefaultDeserializationContext
+  location: class ObjectIdValuePropertyTest
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:210: error: cannot find symbol
+            ctxt = ((DefaultDeserializationContext) ctxt).createInstance(
+                     ^
+  symbol:   class DefaultDeserializationContext
+  location: class ObjectIdValuePropertyTest
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:213: error: cannot find symbol
+                    objectMapper.getInjectableValues()
+                                ^
+  symbol:   method getInjectableValues()
+  location: variable objectMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:228: error: cannot find symbol
+        JsonDeserializer<Object> deser = objectMapper.getDeserializationConfig().findRootValueDeserializer(idType);
+                                                                                ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:245: error: cannot find symbol
+        if (ctxt instanceof DefaultDeserializationContext) {
+                            ^
+  symbol:   class DefaultDeserializationContext
+  location: class ObjectIdValuePropertyTest
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:246: error: cannot find symbol
+            ctxt = ((DefaultDeserializationContext) ctxt).createInstance(
+                     ^
+  symbol:   class DefaultDeserializationContext
+  location: class ObjectIdValuePropertyTest
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:249: error: cannot find symbol
+                    objectMapper.getInjectableValues()
+                                ^
+  symbol:   method getInjectableValues()
+  location: variable objectMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:264: error: cannot find symbol
+        JsonDeserializer<Object> deser = objectMapper.getDeserializationConfig().findRootValueDeserializer(idType);
+                                                                                ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:287: error: cannot find symbol
+        JsonDeserializer<Object> deser = objectMapper.getDeserializationConfig().findRootValueDeserializer(idType);
+                                                                                ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:308: error: cannot find symbol
+        JsonDeserializer<Object> deser = objectMapper.getDeserializationConfig().findRootValueDeserializer(idType);
+                                                                                ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/ObjectIdValuePropertyTest.java:324: error: cannot find symbol
+        JsonDeserializer<Object> deser = objectMapper.getDeserializationConfig().findRootValueDeserializer(idType);
+                                                                                ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: class DeserializationConfig
+Note: /tmp/evaluate_gemini_JacksonDatabind_13_kt9nu7i6/src/DefaultDeserializationContextTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+24 errors

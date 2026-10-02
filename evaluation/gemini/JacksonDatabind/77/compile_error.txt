@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_JacksonDatabind_77_q171qdey/src/BeanDeserializerFactoryTest.java:16: error: cannot find symbol
+import com.fasterxml.jackson.databind.deser.impl.CreatorProperty;
+                                                ^
+  symbol:   class CreatorProperty
+  location: package com.fasterxml.jackson.databind.deser.impl
+/tmp/evaluate_gemini_JacksonDatabind_77_q171qdey/src/BeanDeserializerFactoryTest.java:524: error: cannot find symbol
+                .forType(ViewsBean.ViewsBean.class)
+                                  ^
+  symbol:   class ViewsBean
+  location: class ViewsBean
+2 errors

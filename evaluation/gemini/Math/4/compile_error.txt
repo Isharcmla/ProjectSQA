@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Math_4_5n_0gg4p/src/SubLineTest.java:73: error: cannot find symbol
+        region = (IntervalsSet) region.union(new IntervalsSet(5.0, 10.0));
+                                      ^
+  symbol:   method union(IntervalsSet)
+  location: variable region of type IntervalsSet
+1 error

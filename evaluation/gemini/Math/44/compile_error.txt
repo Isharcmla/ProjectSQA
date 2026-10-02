@@ -1,0 +1,28 @@
+/tmp/evaluate_gemini_Math_44_jwi427wb/src/AbstractIntegratorTest.java:114: error: forward has private access in AbstractStepInterpolator
+            this.forward = forward;
+                ^
+/tmp/evaluate_gemini_Math_44_jwi427wb/src/AbstractIntegratorTest.java:115: error: finalized has private access in AbstractStepInterpolator
+            this.finalized = true;
+                ^
+/tmp/evaluate_gemini_Math_44_jwi427wb/src/AbstractIntegratorTest.java:130: error: globalCurrentTime has private access in AbstractStepInterpolator
+                interpolatedState[i] = currentState[i] + theta * (globalCurrentTime - globalPreviousTime);
+                                                                  ^
+/tmp/evaluate_gemini_Math_44_jwi427wb/src/AbstractIntegratorTest.java:130: error: globalPreviousTime has private access in AbstractStepInterpolator
+                interpolatedState[i] = currentState[i] + theta * (globalCurrentTime - globalPreviousTime);
+                                                                                      ^
+/tmp/evaluate_gemini_Math_44_jwi427wb/src/AbstractIntegratorTest.java:136: error: globalPreviousTime has private access in AbstractStepInterpolator
+            this.globalPreviousTime = t0;
+                ^
+/tmp/evaluate_gemini_Math_44_jwi427wb/src/AbstractIntegratorTest.java:137: error: globalCurrentTime has private access in AbstractStepInterpolator
+            this.globalCurrentTime = t1;
+                ^
+/tmp/evaluate_gemini_Math_44_jwi427wb/src/AbstractIntegratorTest.java:138: error: softPreviousTime has private access in AbstractStepInterpolator
+            this.softPreviousTime = t0;
+                ^
+/tmp/evaluate_gemini_Math_44_jwi427wb/src/AbstractIntegratorTest.java:139: error: softCurrentTime has private access in AbstractStepInterpolator
+            this.softCurrentTime = t1;
+                ^
+/tmp/evaluate_gemini_Math_44_jwi427wb/src/AbstractIntegratorTest.java:152: error: DummyStepHandler is not abstract and does not override abstract method reset() in StepHandler
+    private static class DummyStepHandler implements StepHandler {
+                   ^
+9 errors

@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Mockito_8_dgz3xyp4/src/GenericMetadataSupportTest.java:64: error: type argument Integer is not within bounds of type-variable K
+    static class ConcreteClass extends MiddleClass<String> implements UpperBoundedInterface<Integer> {
+                                                                                            ^
+  where K is a type-variable:
+    K extends Number,Comparable<K>,Cloneable declared in interface UpperBoundedInterface
+1 error

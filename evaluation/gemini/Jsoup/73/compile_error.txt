@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_Jsoup_73_qi_iozoa/src/W3CDomTest.java:6: error: LeafNode is not public in org.jsoup.nodes; cannot be accessed from outside package
+import org.jsoup.nodes.LeafNode;
+                      ^
+/tmp/evaluate_gemini_Jsoup_73_qi_iozoa/src/W3CDomTest.java:165: error: LeafNode is not public in org.jsoup.nodes; cannot be accessed from outside package
+        div.appendChild(new LeafNode() {
+                            ^
+/tmp/evaluate_gemini_Jsoup_73_qi_iozoa/src/W3CDomTest.java:166: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_Jsoup_73_qi_iozoa/src/W3CDomTest.java:171: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_Jsoup_73_qi_iozoa/src/W3CDomTest.java:175: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+5 errors

@@ -1,0 +1,61 @@
+/tmp/evaluate_gemini_Csv_3_2qayhh8m/src/LexerTest.java:49: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withEscape('\\');
+                                                  ^
+  symbol:   method withEscape(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_gemini_Csv_3_2qayhh8m/src/LexerTest.java:90: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withEscape('\\');
+                                                  ^
+  symbol:   method withEscape(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_gemini_Csv_3_2qayhh8m/src/LexerTest.java:159: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withDelimiter(',');
+                                                  ^
+  symbol:   method withDelimiter(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_gemini_Csv_3_2qayhh8m/src/LexerTest.java:172: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withDelimiter(' ');
+                                                  ^
+  symbol:   method withDelimiter(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_gemini_Csv_3_2qayhh8m/src/LexerTest.java:206: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withDelimiter(';');
+                                                  ^
+  symbol:   method withDelimiter(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_gemini_Csv_3_2qayhh8m/src/LexerTest.java:216: error: cannot find symbol
+        final CSVFormat withEscape = CSVFormat.DEFAULT.withEscape('\\');
+                                                      ^
+  symbol:   method withEscape(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_gemini_Csv_3_2qayhh8m/src/LexerTest.java:221: error: cannot find symbol
+        final CSVFormat withoutEscape = CSVFormat.DEFAULT.withEscape((Character) null);
+                                                         ^
+  symbol:   method withEscape(Character)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_gemini_Csv_3_2qayhh8m/src/LexerTest.java:229: error: cannot find symbol
+        final CSVFormat withQuote = CSVFormat.DEFAULT.withQuote('\'');
+                                                     ^
+  symbol:   method withQuote(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_gemini_Csv_3_2qayhh8m/src/LexerTest.java:234: error: cannot find symbol
+        final CSVFormat withoutQuote = CSVFormat.DEFAULT.withQuote((Character) null);
+                                                        ^
+  symbol:   method withQuote(Character)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_gemini_Csv_3_2qayhh8m/src/LexerTest.java:242: error: cannot find symbol
+        final CSVFormat withComment = CSVFormat.DEFAULT.withCommentStart('#');
+                                                       ^
+  symbol:   method withCommentStart(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_gemini_Csv_3_2qayhh8m/src/LexerTest.java:247: error: cannot find symbol
+        final CSVFormat withoutComment = CSVFormat.DEFAULT.withCommentStart((Character) null);
+                                                          ^
+  symbol:   method withCommentStart(Character)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_gemini_Csv_3_2qayhh8m/src/LexerTest.java:254: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withIgnoreSurroundingSpaces(true).withIgnoreEmptyLines(false);
+                                                  ^
+  symbol:   method withIgnoreSurroundingSpaces(boolean)
+  location: variable DEFAULT of type CSVFormat
+12 errors

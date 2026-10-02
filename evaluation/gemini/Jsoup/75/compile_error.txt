@@ -1,0 +1,8 @@
+/tmp/evaluate_gemini_Jsoup_75_8uor_vln/src/AttributesTest.java:187: error: cannot find symbol
+        assertTrue(attrs.hasNext());
+                        ^
+  symbol:   method hasNext()
+  location: variable attrs of type Attributes
+Note: /tmp/evaluate_gemini_Jsoup_75_8uor_vln/src/AttributesTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error

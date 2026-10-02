@@ -1,0 +1,8 @@
+/tmp/evaluate_gemini_JacksonDatabind_104_sd8s7y1x/src/StdDateFormatTest.java:279: error: cannot find symbol
+        cal.set(Calendar.ERA, GregorianCalendar.AD);
+                              ^
+  symbol:   variable GregorianCalendar
+  location: class StdDateFormatTest
+Note: /tmp/evaluate_gemini_JacksonDatabind_104_sd8s7y1x/src/StdDateFormatTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error

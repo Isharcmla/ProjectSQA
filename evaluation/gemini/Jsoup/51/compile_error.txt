@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Jsoup_51_4orovtpt/src/CharacterReaderTest.java:130: error: input has private access in CharacterReader
+        assertEquals("[[", reader.current() + "" + (char)reader.input[reader.pos() + 1]);
+                                                               ^
+1 error

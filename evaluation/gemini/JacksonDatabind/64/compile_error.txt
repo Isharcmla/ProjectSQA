@@ -1,0 +1,8 @@
+/tmp/evaluate_gemini_JacksonDatabind_64_3ixa0n33/src/PropertyBuilderTest.java:310: error: cannot find symbol
+        nonDefMapper.setDefaultPropertyInclusion(JsonInclude.Value.construct(JsonInclude.Include.NON_DEFAULT, JsonInclude.Include.NON_DEFAULT));
+                    ^
+  symbol:   method setDefaultPropertyInclusion(Value)
+  location: variable nonDefMapper of type ObjectMapper
+Note: /tmp/evaluate_gemini_JacksonDatabind_64_3ixa0n33/src/PropertyBuilderTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error

@@ -1,0 +1,14 @@
+{
+  "project": "Time",
+  "bug_id": "10",
+  "tool": "gemini",
+  "generated_files": 1,
+  "candidate_tests": 29,
+  "classification_counts": {
+    "valid_non_revealing": 29
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "unknown",
+  "evaluation_status": "success"
+}

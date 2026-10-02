@@ -1,0 +1,87 @@
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/TokenTest.java:3: error: cannot find symbol
+import org.jsoup.helper.ValidationException;
+                       ^
+  symbol:   class ValidationException
+  location: package org.jsoup.helper
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/HtmlTreeBuilderStateTest.java:15: error: method initialiseParse in class TreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new java.io.StringReader(html), "http://example.com", Parser.htmlParser());
+          ^
+  required: String,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/HtmlTreeBuilderStateTest.java:46: error: cannot find symbol
+        comment.getData().append("hello comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/HtmlTreeBuilderStateTest.java:75: error: cannot find symbol
+        comment.getData().append("comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/HtmlTreeBuilderStateTest.java:115: error: cannot find symbol
+        comment.getData().append("comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/HtmlTreeBuilderStateTest.java:171: error: cannot find symbol
+        comment.getData().append("head comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/HtmlTreeBuilderStateTest.java:291: error: cannot find symbol
+        comment.getData().append("comm");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/HtmlTreeBuilderStateTest.java:561: error: cannot find symbol
+        comment.getData().append("comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/HtmlTreeBuilderStateTest.java:602: error: cannot find symbol
+        comment.getData().append("col comm");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/HtmlTreeBuilderStateTest.java:768: error: cannot find symbol
+        comment.getData().append("after body comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/HtmlTreeBuilderStateTest.java:802: error: cannot find symbol
+        comment.getData().append("frame comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/HtmlTreeBuilderStateTest.java:827: error: cannot find symbol
+        afterComment.getData().append("final comment");
+                              ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/HtmlTreeBuilderStateTest.java:844: error: cannot find symbol
+        comment.getData().append("comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/XmlTreeBuilderTest.java:97: error: cannot find symbol
+        assertEquals("html", doctype.name());
+                                    ^
+  symbol:   method name()
+  location: variable doctype of type DocumentType
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/XmlTreeBuilderTest.java:237: error: cannot find symbol
+        shortBogus.getData().append("?");
+                            ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/XmlTreeBuilderTest.java:242: error: cannot find symbol
+        noPrefixBogus.getData().append("plain_text");
+                               ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_56_flzk7get/src/XmlTreeBuilderTest.java:295: error: cannot find symbol
+        assertEquals("custom-doctype", dt.name());
+                                         ^
+  symbol:   method name()
+  location: variable dt of type DocumentType
+17 errors

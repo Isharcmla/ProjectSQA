@@ -1,0 +1,7 @@
+/tmp/evaluate_gemini_JxPath_18_78jwo5oq/src/AttributeContextTest.java:104: error: <anonymous org.apache.commons.jxpath.ri.axes.AttributeContextTest$1$1> is not abstract and does not override abstract method compareChildNodePointers(NodePointer,NodePointer) in NodePointer
+                return new NodePointer(null, Locale.US) {
+                                                        ^
+/tmp/evaluate_gemini_JxPath_18_78jwo5oq/src/AttributeContextTest.java:143: error: method does not override or implement a method from a supertype
+                    @Override
+                    ^
+2 errors

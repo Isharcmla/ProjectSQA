@@ -1,0 +1,101 @@
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:237: error: cannot find symbol
+        Module m1 = new SimpleModule("Mod1", Version.unknownVersion()) {
+                        ^
+  symbol:   class SimpleModule
+  location: class ObjectMapperTest
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:239: error: cannot find symbol
+            public void setupModule(SetupContext context) {
+                                    ^
+  symbol: class SetupContext
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:238: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:251: error: cannot find symbol
+                context.addDeserializers(new SimpleDeserializers());
+                                             ^
+  symbol: class SimpleDeserializers
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:252: error: cannot find symbol
+                context.addKeyDeserializers(new SimpleKeyDeserializers());
+                                                ^
+  symbol: class SimpleKeyDeserializers
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:254: error: cannot find symbol
+                context.addSerializers(new SimpleSerializers());
+                                           ^
+  symbol: class SimpleSerializers
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:255: error: cannot find symbol
+                context.addKeySerializers(new SimpleSerializers());
+                                              ^
+  symbol: class SimpleSerializers
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:257: error: cannot find symbol
+                context.addAbstractTypeResolver(new SimpleAbstractTypeResolver());
+                                                    ^
+  symbol: class SimpleAbstractTypeResolver
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:260: error: cannot find symbol
+                    public JavaType modifyType(JavaType type, Type jdkType, TypeBindings context, TypeFactory typeFactory) {
+                                                                            ^
+  symbol: class TypeBindings
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:264: error: cannot find symbol
+                context.addValueInstantiators(new SimpleValueInstantiators());
+                                                  ^
+  symbol: class SimpleValueInstantiators
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:272: error: cannot find symbol
+                context.setNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+                                                                ^
+  symbol:   variable SNAKE_CASE
+  location: class PropertyNamingStrategy
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:276: error: cannot find symbol
+        Module m2 = new SimpleModule("Mod2", Version.unknownVersion());
+                        ^
+  symbol:   class SimpleModule
+  location: class ObjectMapperTest
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:392: error: cannot find symbol
+            @Override public TypeResolverBuilder<?> typeResolverBuilderInstance(MapperConfig<?> c, Annotated a, Class<?> b) { return null; }
+                                                                                ^
+  symbol: class MapperConfig
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:392: error: cannot find symbol
+            @Override public TypeResolverBuilder<?> typeResolverBuilderInstance(MapperConfig<?> c, Annotated a, Class<?> b) { return null; }
+                             ^
+  symbol: class TypeResolverBuilder
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/ObjectMapperTest.java:393: error: cannot find symbol
+            @Override public com.fasterxml.jackson.databind.jsontype.TypeIdResolver typeIdResolverInstance(MapperConfig<?> c, Annotated a, Class<?> r) { return null; }
+                                                                                                           ^
+  symbol: class MapperConfig
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/TokenBufferTest.java:465: error: reference to TokenBuffer is ambiguous
+        TokenBuffer tb = new TokenBuffer(null);
+                         ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/TokenBufferTest.java:598: error: reference to TokenBuffer is ambiguous
+        TokenBuffer tb = new TokenBuffer(null);
+                         ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/TokenBufferTest.java:604: error: reference to TokenBuffer is ambiguous
+        new TokenBuffer(null).writeRawUTF8String(new byte[0], 0, 0);
+        ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/TokenBufferTest.java:609: error: reference to TokenBuffer is ambiguous
+        new TokenBuffer(null).writeUTF8String(new byte[0], 0, 0);
+        ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/TokenBufferTest.java:614: error: reference to TokenBuffer is ambiguous
+        new TokenBuffer(null).writeRaw("abc");
+        ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/TokenBufferTest.java:619: error: reference to TokenBuffer is ambiguous
+        new TokenBuffer(null).writeRaw("abc", 0, 1);
+        ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/TokenBufferTest.java:624: error: reference to TokenBuffer is ambiguous
+        new TokenBuffer(null).writeRaw(new SerializedString("abc"));
+        ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/TokenBufferTest.java:629: error: reference to TokenBuffer is ambiguous
+        new TokenBuffer(null).writeRaw(new char[]{'a'}, 0, 1);
+        ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+/tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/TokenBufferTest.java:634: error: reference to TokenBuffer is ambiguous
+        new TokenBuffer(null).writeRaw('a');
+        ^
+  both constructor TokenBuffer(ObjectCodec) in TokenBuffer and constructor TokenBuffer(JsonParser) in TokenBuffer match
+Note: /tmp/evaluate_gemini_JacksonDatabind_30_44xcbf5r/src/TokenBufferTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+24 errors

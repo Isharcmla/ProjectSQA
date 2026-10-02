@@ -1,0 +1,145 @@
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:29: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", new Parser(tb));
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:53: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", new Parser(tb));
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:72: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", parser);
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:88: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb2.initialiseParse(new StringReader(""), "", parser);
+           ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:100: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", parser);
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:109: error: cannot find symbol
+        comment.getData().append("comment in before head");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:132: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb2.initialiseParse(new StringReader(""), "", parser);
+           ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:161: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "http://example.com/", parser);
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:187: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tbBase.initialiseParse(new StringReader(""), "http://example.com/", parser);
+              ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:199: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", parser);
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:216: error: cannot find symbol
+        comment.getData().append("test");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:249: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", parser);
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:259: error: cannot find symbol
+        comment.getData().append("comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:287: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tbFrame.initialiseParse(new StringReader(""), "", parser);
+               ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:369: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", parser);
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:421: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", parser);
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:460: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", parser);
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:490: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", parser);
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:519: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", parser);
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:579: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", parser);
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:625: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", parser);
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:635: error: cannot find symbol
+        comment.getData().append("comment after body");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderStateTest.java:653: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tbFrame.initialiseParse(new StringReader(""), "", parser);
+               ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderTest.java:105: error: cannot find symbol
+        comment.getData().append("test comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_65_zfi2ogvk/src/HtmlTreeBuilderTest.java:205: error: cannot find symbol
+        comment.getData().append("hello comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+25 errors

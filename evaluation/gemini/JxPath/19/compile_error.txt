@@ -1,0 +1,41 @@
+/tmp/evaluate_gemini_JxPath_19_n3xccw5q/src/DOMNodePointerTest.java:213: error: reference to getNamespaceURI is ambiguous
+        Assert.assertEquals("http://default.com", ptr.getNamespaceURI(null));
+                                                     ^
+  both method getNamespaceURI(String) in DOMNodePointer and method getNamespaceURI(Node) in DOMNodePointer match
+/tmp/evaluate_gemini_JxPath_19_n3xccw5q/src/JDOMNodePointerTest.java:237: error: no suitable constructor found for JDOMNodePointer(Element,Text)
+        JDOMNodePointer textPtr = new JDOMNodePointer(parent, text);
+                                  ^
+    constructor JDOMNodePointer.JDOMNodePointer(Object,Locale) is not applicable
+      (argument mismatch; Text cannot be converted to Locale)
+    constructor JDOMNodePointer.JDOMNodePointer(NodePointer,Object) is not applicable
+      (argument mismatch; Element cannot be converted to NodePointer)
+/tmp/evaluate_gemini_JxPath_19_n3xccw5q/src/JDOMNodePointerTest.java:254: error: no suitable constructor found for JDOMNodePointer(Element,Text)
+        JDOMNodePointer textPtr = new JDOMNodePointer(parent, text);
+                                  ^
+    constructor JDOMNodePointer.JDOMNodePointer(Object,Locale) is not applicable
+      (argument mismatch; Text cannot be converted to Locale)
+    constructor JDOMNodePointer.JDOMNodePointer(NodePointer,Object) is not applicable
+      (argument mismatch; Element cannot be converted to NodePointer)
+/tmp/evaluate_gemini_JxPath_19_n3xccw5q/src/JDOMNodePointerTest.java:559: error: no suitable constructor found for JDOMNodePointer(Element,CDATA)
+        JDOMNodePointer cdataPtr = new JDOMNodePointer(root, cdata);
+                                   ^
+    constructor JDOMNodePointer.JDOMNodePointer(Object,Locale) is not applicable
+      (argument mismatch; CDATA cannot be converted to Locale)
+    constructor JDOMNodePointer.JDOMNodePointer(NodePointer,Object) is not applicable
+      (argument mismatch; Element cannot be converted to NodePointer)
+/tmp/evaluate_gemini_JxPath_19_n3xccw5q/src/JDOMNodePointerTest.java:562: error: no suitable constructor found for JDOMNodePointer(Element,ProcessingInstruction)
+        JDOMNodePointer piPtr = new JDOMNodePointer(root, pi);
+                                ^
+    constructor JDOMNodePointer.JDOMNodePointer(Object,Locale) is not applicable
+      (argument mismatch; ProcessingInstruction cannot be converted to Locale)
+    constructor JDOMNodePointer.JDOMNodePointer(NodePointer,Object) is not applicable
+      (argument mismatch; Element cannot be converted to NodePointer)
+/tmp/evaluate_gemini_JxPath_19_n3xccw5q/src/JDOMNodePointerTest.java:565: error: no suitable constructor found for JDOMNodePointer(Element,Comment)
+        JDOMNodePointer commPtr = new JDOMNodePointer(root, comment);
+                                  ^
+    constructor JDOMNodePointer.JDOMNodePointer(Object,Locale) is not applicable
+      (argument mismatch; Comment cannot be converted to Locale)
+    constructor JDOMNodePointer.JDOMNodePointer(NodePointer,Object) is not applicable
+      (argument mismatch; Element cannot be converted to NodePointer)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+6 errors

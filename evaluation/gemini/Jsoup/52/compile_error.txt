@@ -1,0 +1,7 @@
+/tmp/evaluate_gemini_Jsoup_52_ibzh2eig/src/XmlTreeBuilderTest.java:223: error: Token() has private access in Token
+        Token dummyToken = new Token() {
+                           ^
+/tmp/evaluate_gemini_Jsoup_52_ibzh2eig/src/XmlTreeBuilderTest.java:223: error: <anonymous org.jsoup.parser.XmlTreeBuilderTest$1> is not abstract and does not override abstract method reset() in Token
+        Token dummyToken = new Token() {
+                                       ^
+2 errors

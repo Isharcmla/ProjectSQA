@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_JacksonDatabind_27_gcfkpshb/src/BeanDeserializerTest.java:321: error: cannot find symbol
+                .readerForUpdating(bean)
+                ^
+  symbol:   method readerForUpdating(ViewBean)
+  location: class ObjectReader
+/tmp/evaluate_gemini_JacksonDatabind_27_gcfkpshb/src/BeanDeserializerTest.java:548: error: cannot find symbol
+            Assert.assertTrue(asArr instanceof BeanAsArrayDeserializer);
+                                               ^
+  symbol:   class BeanAsArrayDeserializer
+  location: class BeanDeserializerTest
+2 errors

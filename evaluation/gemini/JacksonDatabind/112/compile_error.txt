@@ -1,0 +1,7 @@
+/tmp/evaluate_gemini_JacksonDatabind_112_uj8l_kl4/src/StringCollectionDeserializerTest.java:237: error: incompatible types: JsonDeserializer<Object> cannot be converted to StringCollectionDeserializer
+        Assert.assertTrue(deser instanceof StringCollectionDeserializer);
+                          ^
+/tmp/evaluate_gemini_JacksonDatabind_112_uj8l_kl4/src/StringCollectionDeserializerTest.java:241: error: incompatible types: JsonDeserializer<Object> cannot be converted to StringCollectionDeserializer
+        ((StringCollectionDeserializer) deser).deserialize(parser, ctxt, existing);
+                                        ^
+2 errors

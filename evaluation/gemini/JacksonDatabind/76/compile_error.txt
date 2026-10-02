@@ -1,0 +1,51 @@
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:10: error: cannot find symbol
+import com.fasterxml.jackson.databind.exc.InvalidDefinitionException;
+                                         ^
+  symbol:   class InvalidDefinitionException
+  location: package com.fasterxml.jackson.databind.exc
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:643: error: cannot find symbol
+                .findRootValueDeserializer(type);
+                ^
+  symbol:   method findRootValueDeserializer(JavaType)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:651: error: _findRootDeserializer(DeserializationContext) has protected access in ObjectReader
+        return (BuilderBasedDeserializer) mapper.readerFor(cls).forType(cls)._findRootDeserializer(ctxt);
+                                                                            ^
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:659: error: _findRootDeserializer(DeserializationContext) has protected access in ObjectReader
+        BuilderBasedDeserializer deser = (BuilderBasedDeserializer) mapper.readerFor(SimpleBean.class)._findRootDeserializer(mapper.getDeserializationContext());
+                                                                                                      ^
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:691: error: _findRootDeserializer(DeserializationContext) has protected access in ObjectReader
+        BuilderBasedDeserializer deser = (BuilderBasedDeserializer) mapper.readerFor(SimpleBean.class)._findRootDeserializer(mapper.getDeserializationContext());
+                                                                                                      ^
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:711: error: _findRootDeserializer(DeserializationContext) has protected access in ObjectReader
+        BuilderBasedDeserializer deser = (BuilderBasedDeserializer) mapper.readerFor(SimpleBean.class)._findRootDeserializer(mapper.getDeserializationContext());
+                                                                                                      ^
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:725: error: _findRootDeserializer(DeserializationContext) has protected access in ObjectReader
+        BuilderBasedDeserializer deser = (BuilderBasedDeserializer) mapper.readerFor(SimpleBean.class)._findRootDeserializer(mapper.getDeserializationContext());
+                                                                                                      ^
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:730: error: cannot find symbol
+            @Override public Codec getCodec() { return null; }
+                             ^
+  symbol: class Codec
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:731: error: cannot find symbol
+            @Override public void setCodec(Codec c) {}
+                                           ^
+  symbol: class Codec
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:757: error: cannot find symbol
+            @Override public BigInteger getBigIntegerValue() throws IOException { return null; }
+                             ^
+  symbol: class BigInteger
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:760: error: cannot find symbol
+            @Override public BigDecimal getDecimalValue() throws IOException { return null; }
+                             ^
+  symbol: class BigDecimal
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:729: error: <anonymous com.fasterxml.jackson.databind.deser.BuilderBasedDeserializerTest$1> is not abstract and does not override abstract method getValueAsString(String) in JsonParser
+        JsonParser parser = new JsonParser() {
+                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:773: error: _findRootDeserializer(DeserializationContext) has protected access in ObjectReader
+        BuilderBasedDeserializer deser = (BuilderBasedDeserializer) mapper.readerFor(SimpleBean.class)._findRootDeserializer(mapper.getDeserializationContext());
+                                                                                                      ^
+/tmp/evaluate_gemini_JacksonDatabind_76_1u39rikl/src/BuilderBasedDeserializerTest.java:789: error: _findRootDeserializer(DeserializationContext) has protected access in ObjectReader
+        BuilderBasedDeserializer deser = (BuilderBasedDeserializer) mapper.readerFor(SimpleBean.class)._findRootDeserializer(mapper.getDeserializationContext());
+                                                                                                      ^
+14 errors

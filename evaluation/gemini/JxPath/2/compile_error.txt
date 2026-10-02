@@ -1,0 +1,8 @@
+/tmp/evaluate_gemini_JxPath_2_5lb5uss7/src/ExpressionTest.java:55: error: cannot find symbol
+        RootContext rootContext = context.getRootContext();
+                                         ^
+  symbol:   method getRootContext()
+  location: variable context of type JXPathContextReferenceImpl
+Note: /tmp/evaluate_gemini_JxPath_2_5lb5uss7/src/ExpressionTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error

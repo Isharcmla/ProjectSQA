@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_JxPath_21_ss14gahn/src/PropertyPointerTest.java:269: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_JxPath_21_ss14gahn/src/PropertyPointerTest.java:292: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_JxPath_21_ss14gahn/src/PropertyPointerTest.java:314: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_JxPath_21_ss14gahn/src/PropertyPointerTest.java:344: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_JxPath_21_ss14gahn/src/PropertyPointerTest.java:501: error: incompatible types: Pointer cannot be converted to NodePointer
+        NodePointer ptr = context.getPointer("items");
+                                            ^
+5 errors

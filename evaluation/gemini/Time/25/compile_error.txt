@@ -1,0 +1,5 @@
+/tmp/evaluate_gemini_Time_25_40zxwbg3/src/DateTimeZoneTest.java:247: error: getDisplayName() in <anonymous org.joda.time.DateTimeZoneTest$1> cannot override getDisplayName() in TimeZone
+            public String getDisplayName() {
+                          ^
+  overridden method is final
+1 error

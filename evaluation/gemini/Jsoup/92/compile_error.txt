@@ -1,0 +1,23 @@
+/tmp/evaluate_gemini_Jsoup_92_9wid1ewh/src/HtmlTreeBuilderTest.java:124: error: cannot find symbol
+        comment.getData().append("hello comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_92_9wid1ewh/src/HtmlTreeBuilderTest.java:132: error: cannot find symbol
+        comment.getData().append("comment in body");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_92_9wid1ewh/src/HtmlTreeBuilderTest.java:261: error: cannot find symbol
+        comment.getData().append("A comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_92_9wid1ewh/src/XmlTreeBuilderTest.java:132: error: cannot find symbol
+        assertEquals("html", doctype.name());
+                                    ^
+  symbol:   method name()
+  location: variable doctype of type DocumentType
+Note: /tmp/evaluate_gemini_Jsoup_92_9wid1ewh/src/AttributesTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 errors

@@ -1,0 +1,54 @@
+/tmp/evaluate_gemini_JacksonDatabind_90_frq3v7zq/src/StdValueInstantiatorTest.java:229: error: constructor AnnotatedParameter in class AnnotatedParameter cannot be applied to given types;
+        AnnotatedParameter param = new AnnotatedParameter(withArgsCtor, jt, typeRes, new AnnotationMap(), 0);
+                                   ^
+  required: AnnotatedWithParams,JavaType,AnnotationMap,int
+  found: AnnotatedConstructor,JavaType,TypeResolutionContext,AnnotationMap,int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_90_frq3v7zq/src/StdValueInstantiatorTest.java:496: error: no suitable method found for with(Std)
+                config.with(injectables),
+                      ^
+    method DeserializationConfig.with(MapperFeature...) is not applicable
+      (varargs mismatch; Std cannot be converted to MapperFeature)
+    method DeserializationConfig.with(ClassIntrospector) is not applicable
+      (argument mismatch; Std cannot be converted to ClassIntrospector)
+    method DeserializationConfig.with(AnnotationIntrospector) is not applicable
+      (argument mismatch; Std cannot be converted to AnnotationIntrospector)
+    method DeserializationConfig.with(VisibilityChecker<?>) is not applicable
+      (argument mismatch; Std cannot be converted to VisibilityChecker<?>)
+    method DeserializationConfig.with(TypeResolverBuilder<?>) is not applicable
+      (argument mismatch; Std cannot be converted to TypeResolverBuilder<?>)
+    method DeserializationConfig.with(SubtypeResolver) is not applicable
+      (argument mismatch; Std cannot be converted to SubtypeResolver)
+    method DeserializationConfig.with(PropertyNamingStrategy) is not applicable
+      (argument mismatch; Std cannot be converted to PropertyNamingStrategy)
+    method DeserializationConfig.with(TypeFactory) is not applicable
+      (argument mismatch; Std cannot be converted to TypeFactory)
+    method DeserializationConfig.with(DateFormat) is not applicable
+      (argument mismatch; Std cannot be converted to DateFormat)
+    method DeserializationConfig.with(HandlerInstantiator) is not applicable
+      (argument mismatch; Std cannot be converted to HandlerInstantiator)
+    method DeserializationConfig.with(Locale) is not applicable
+      (argument mismatch; Std cannot be converted to Locale)
+    method DeserializationConfig.with(TimeZone) is not applicable
+      (argument mismatch; Std cannot be converted to TimeZone)
+    method DeserializationConfig.with(Base64Variant) is not applicable
+      (argument mismatch; Std cannot be converted to Base64Variant)
+    method DeserializationConfig.with(ContextAttributes) is not applicable
+      (argument mismatch; Std cannot be converted to ContextAttributes)
+    method DeserializationConfig.with(DeserializationFeature) is not applicable
+      (argument mismatch; Std cannot be converted to DeserializationFeature)
+    method DeserializationConfig.with(DeserializationFeature,DeserializationFeature...) is not applicable
+      (argument mismatch; Std cannot be converted to DeserializationFeature)
+    method DeserializationConfig.with(Feature) is not applicable
+      (argument mismatch; Std cannot be converted to Feature)
+    method DeserializationConfig.with(FormatFeature) is not applicable
+      (argument mismatch; Std cannot be converted to FormatFeature)
+    method DeserializationConfig.with(JsonNodeFactory) is not applicable
+      (argument mismatch; Std cannot be converted to JsonNodeFactory)
+/tmp/evaluate_gemini_JacksonDatabind_90_frq3v7zq/src/ValueInstantiatorTest.java:95: error: <anonymous com.fasterxml.jackson.databind.deser.ValueInstantiatorTest$1$1> is not abstract and does not override abstract method getGenericParameterType(int) in AnnotatedWithParams
+                return new AnnotatedWithParams(null, null, null) {
+                                                                 ^
+Note: /tmp/evaluate_gemini_JacksonDatabind_90_frq3v7zq/src/StdValueInstantiatorTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+3 errors

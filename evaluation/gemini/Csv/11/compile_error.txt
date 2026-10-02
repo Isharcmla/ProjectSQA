@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Csv_11_0cyiq5r3/src/CSVParserTest.java:275: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withCommentMarker('#');
+                                                  ^
+  symbol:   method withCommentMarker(char)
+  location: variable DEFAULT of type CSVFormat
+1 error

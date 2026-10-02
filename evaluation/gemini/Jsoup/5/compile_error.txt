@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Jsoup_5_vkztl0at/src/ParserTest.java:71: error: cannot find symbol
+                if (!decl.isProcessingInstruction()) {
+                         ^
+  symbol:   method isProcessingInstruction()
+  location: variable decl of type XmlDeclaration
+/tmp/evaluate_gemini_Jsoup_5_vkztl0at/src/ParserTest.java:89: error: cannot find symbol
+        assertEquals(1, div.childNodeSize());
+                           ^
+  symbol:   method childNodeSize()
+  location: variable div of type Element
+2 errors

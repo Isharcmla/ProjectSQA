@@ -1,0 +1,111 @@
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:14: error: cannot find symbol
+import org.apache.commons.math3.optim.nonlinear.vector.Model;
+                                                      ^
+  symbol:   class Model
+  location: package org.apache.commons.math3.optim.nonlinear.vector
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:15: error: cannot find symbol
+import org.apache.commons.math3.optim.nonlinear.vector.ModelJacobian;
+                                                      ^
+  symbol:   class ModelJacobian
+  location: package org.apache.commons.math3.optim.nonlinear.vector
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:44: error: cannot find symbol
+            new Model(model),
+                ^
+  symbol:   class Model
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:45: error: cannot find symbol
+            new ModelJacobian(jacobian)
+                ^
+  symbol:   class ModelJacobian
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:71: error: cannot find symbol
+            new Model(model),
+                ^
+  symbol:   class Model
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:72: error: cannot find symbol
+            new ModelJacobian(jacobian),
+                ^
+  symbol:   class ModelJacobian
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:99: error: cannot find symbol
+            new Model(model),
+                ^
+  symbol:   class Model
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:100: error: cannot find symbol
+            new ModelJacobian(jacobian),
+                ^
+  symbol:   class ModelJacobian
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:130: error: cannot find symbol
+            new Model(model),
+                ^
+  symbol:   class Model
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:131: error: cannot find symbol
+            new ModelJacobian(jacobian)
+                ^
+  symbol:   class ModelJacobian
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:167: error: cannot find symbol
+            new Model(model),
+                ^
+  symbol:   class Model
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:168: error: cannot find symbol
+            new ModelJacobian(jacobian)
+                ^
+  symbol:   class ModelJacobian
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:174: error: cannot find symbol
+        Assert.assertEquals(0.0, optimizer.getCost(), 1e-5);
+                                          ^
+  symbol:   method getCost()
+  location: variable optimizer of type GaussNewtonOptimizer
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:209: error: cannot find symbol
+            new Model(model),
+                ^
+  symbol:   class Model
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:210: error: cannot find symbol
+            new ModelJacobian(jacobian)
+                ^
+  symbol:   class ModelJacobian
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:216: error: cannot find symbol
+        Assert.assertEquals(0.0, optimizer.getCost(), 1e-5);
+                                          ^
+  symbol:   method getCost()
+  location: variable optimizer of type GaussNewtonOptimizer
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:241: error: cannot find symbol
+            new Model(model),
+                ^
+  symbol:   class Model
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:242: error: cannot find symbol
+            new ModelJacobian(jacobian)
+                ^
+  symbol:   class ModelJacobian
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:281: error: cannot find symbol
+            new Model(model),
+                ^
+  symbol:   class Model
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/GaussNewtonOptimizerTest.java:282: error: cannot find symbol
+            new ModelJacobian(jacobian)
+                ^
+  symbol:   class ModelJacobian
+  location: class GaussNewtonOptimizerTest
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/LevenbergMarquardtOptimizerTest.java:132: error: cannot find symbol
+        Assert.assertEquals(0.0, optimizer.getCost(), 1e-6);
+                                          ^
+  symbol:   method getCost()
+  location: variable optimizer of type LevenbergMarquardtOptimizer
+/tmp/evaluate_gemini_Math_6_cmgfidjx/src/LevenbergMarquardtOptimizerTest.java:267: error: cannot find symbol
+        Assert.assertEquals(0.0, optimizer.getCost(), 1e-10);
+                                          ^
+  symbol:   method getCost()
+  location: variable optimizer of type LevenbergMarquardtOptimizer
+22 errors

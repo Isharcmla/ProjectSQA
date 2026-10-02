@@ -1,0 +1,47 @@
+/tmp/evaluate_gemini_JacksonDatabind_26_crw45n9g/src/BeanPropertyWriterTest.java:110: error: cannot find symbol
+        serializerProvider = mapper.getSerializerProviderInstance();
+                                   ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_26_crw45n9g/src/BeanPropertyWriterTest.java:122: error: cannot find symbol
+        BeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(config, af, propName, md, JsonInclude.Include.ALWAYS);
+                                         ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_26_crw45n9g/src/BeanPropertyWriterTest.java:137: error: cannot find symbol
+        BeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(config, am, propName, md, JsonInclude.Include.ALWAYS);
+                                         ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_26_crw45n9g/src/BeanPropertyWriterTest.java:146: error: cannot find symbol
+        BeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(config, null, propName, md, JsonInclude.Include.ALWAYS);
+                                         ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_26_crw45n9g/src/BeanPropertyWriterTest.java:204: error: constructor IntegerSerializer in class IntegerSerializer cannot be applied to given types;
+            bpw.assignSerializer(new NumberSerializers.IntegerSerializer(Integer.class));
+                                 ^
+  required: no arguments
+  found: Class<Integer>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_26_crw45n9g/src/BeanPropertyWriterTest.java:235: error: cannot find symbol
+        TypeSerializer mockTypeSer = mapper.getSerializerProviderInstance().findTypeSerializer(mapper.constructType(SampleBean.class));
+                                           ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_26_crw45n9g/src/BeanPropertyWriterTest.java:342: error: cannot find symbol
+        BeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(config, af, wrapper, md, JsonInclude.Include.ALWAYS);
+                                         ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_26_crw45n9g/src/BeanPropertyWriterTest.java:359: error: cannot find symbol
+        BeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(config, af, propName, PropertyMetadata.STD_OPTIONAL, JsonInclude.Include.ALWAYS);
+                                         ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_26_crw45n9g/src/BeanPropertyWriterTest.java:466: error: cannot find symbol
+        DefaultSerializerProvider.Impl prov = (DefaultSerializerProvider.Impl) mapper.getSerializerProviderInstance();
+                                                                                     ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+9 errors

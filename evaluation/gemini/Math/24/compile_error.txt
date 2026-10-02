@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_Math_24_xtey8nkp/src/BrentOptimizerTest.java:4: error: cannot find symbol
+import org.apache.commons.math3.analysis.Sin;
+                                        ^
+  symbol:   class Sin
+  location: package org.apache.commons.math3.analysis
+/tmp/evaluate_gemini_Math_24_xtey8nkp/src/BrentOptimizerTest.java:90: error: cannot find symbol
+        UnivariateFunction f = new Sin();
+                                   ^
+  symbol:   class Sin
+  location: class BrentOptimizerTest
+/tmp/evaluate_gemini_Math_24_xtey8nkp/src/BrentOptimizerTest.java:120: error: cannot find symbol
+        Assert.assertTrue(optimizer.getIterations() <= 3);
+                                   ^
+  symbol:   method getIterations()
+  location: variable optimizer of type BrentOptimizer
+3 errors

@@ -1,0 +1,24 @@
+/tmp/evaluate_gemini_Jsoup_77__685s0se/src/XmlTreeBuilderTest.java:146: error: cannot find symbol
+        Assert.assertFalse(decl.isProcessingInstruction());
+                               ^
+  symbol:   method isProcessingInstruction()
+  location: variable decl of type XmlDeclaration
+/tmp/evaluate_gemini_Jsoup_77__685s0se/src/XmlTreeBuilderTest.java:159: error: cannot find symbol
+        Assert.assertTrue(decl.isProcessingInstruction());
+                              ^
+  symbol:   method isProcessingInstruction()
+  location: variable decl of type XmlDeclaration
+/tmp/evaluate_gemini_Jsoup_77__685s0se/src/XmlTreeBuilderTest.java:198: error: cannot find symbol
+        Assert.assertEquals("html", doctype.name());
+                                           ^
+  symbol:   method name()
+  location: variable doctype of type DocumentType
+/tmp/evaluate_gemini_Jsoup_77__685s0se/src/XmlTreeBuilderTest.java:209: error: cannot find symbol
+        Assert.assertEquals("html", doctype.name());
+                                           ^
+  symbol:   method name()
+  location: variable doctype of type DocumentType
+/tmp/evaluate_gemini_Jsoup_77__685s0se/src/XmlTreeBuilderTest.java:265: error: Token() has private access in Token
+        Token invalidToken = new Token() {
+                             ^
+5 errors

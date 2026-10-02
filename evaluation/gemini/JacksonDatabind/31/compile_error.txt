@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_JacksonDatabind_31_801ib8_e/src/TokenBufferTest.java:80: error: cannot find symbol
+        Assert.assertNull(p.peekNextToken());
+                           ^
+  symbol:   method peekNextToken()
+  location: variable p of type JsonParser
+/tmp/evaluate_gemini_JacksonDatabind_31_801ib8_e/src/TokenBufferTest.java:400: error: cannot find symbol
+        Assert.assertEquals(JsonToken.START_OBJECT, p.peekNextToken());
+                                                     ^
+  symbol:   method peekNextToken()
+  location: variable p of type JsonParser
+/tmp/evaluate_gemini_JacksonDatabind_31_801ib8_e/src/TokenBufferTest.java:403: error: cannot find symbol
+        Assert.assertEquals(JsonToken.FIELD_NAME, p.peekNextToken());
+                                                   ^
+  symbol:   method peekNextToken()
+  location: variable p of type JsonParser
+3 errors

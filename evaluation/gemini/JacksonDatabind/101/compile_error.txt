@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_JacksonDatabind_101_blt1cjkz/src/BeanDeserializerTest.java:480: error: cannot find symbol
+            Assert.assertTrue(arrayDeser instanceof BeanAsArrayDeserializer);
+                                                    ^
+  symbol:   class BeanAsArrayDeserializer
+  location: class BeanDeserializerTest
+1 error

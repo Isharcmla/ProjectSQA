@@ -1,0 +1,10 @@
+/tmp/evaluate_gemini_JacksonDatabind_53_cp29w9n9/src/TypeFactoryTest.java:553: error: _collectionType(Class<?>,TypeBindings,JavaType,JavaType[]) has private access in TypeFactory
+        tf._collectionType(ArrayList.class, tb, null, null);
+          ^
+/tmp/evaluate_gemini_JacksonDatabind_53_cp29w9n9/src/TypeFactoryTest.java:561: error: _mapType(Class<?>,TypeBindings,JavaType,JavaType[]) has private access in TypeFactory
+        tf._mapType(HashMap.class, tb, null, null);
+          ^
+/tmp/evaluate_gemini_JacksonDatabind_53_cp29w9n9/src/TypeFactoryTest.java:569: error: _referenceType(Class<?>,TypeBindings,JavaType,JavaType[]) has private access in TypeFactory
+        tf._referenceType(AtomicReference.class, tb, null, null);
+          ^
+3 errors

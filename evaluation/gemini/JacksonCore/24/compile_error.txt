@@ -1,0 +1,23 @@
+/tmp/evaluate_gemini_JacksonCore_24_5cthsf6w/src/ParserBaseTest.java:20: error: cannot find symbol
+import com.fasterxml.jackson.core.io.ContentReference;
+                                    ^
+  symbol:   class ContentReference
+  location: package com.fasterxml.jackson.core.io
+/tmp/evaluate_gemini_JacksonCore_24_5cthsf6w/src/ParserMinimalBaseTest.java:15: error: cannot find symbol
+import com.fasterxml.jackson.core.JsonEOFException;
+                                 ^
+  symbol:   class JsonEOFException
+  location: package com.fasterxml.jackson.core
+/tmp/evaluate_gemini_JacksonCore_24_5cthsf6w/src/ParserBaseTest.java:151: error: cannot find symbol
+        IOContext ctxt = new IOContext(recycler, ContentReference.rawReference("test-src"), false);
+                                                 ^
+  symbol:   variable ContentReference
+  location: class ParserBaseTest
+/tmp/evaluate_gemini_JacksonCore_24_5cthsf6w/src/ParserMinimalBaseTest.java:856: error: cannot find symbol
+            Assert.assertTrue(e instanceof JsonEOFException);
+                                           ^
+  symbol:   class JsonEOFException
+  location: class ParserMinimalBaseTest
+Note: /tmp/evaluate_gemini_JacksonCore_24_5cthsf6w/src/ParserBaseTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 errors

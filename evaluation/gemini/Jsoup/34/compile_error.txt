@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Jsoup_34_k44f7kat/src/CharacterReaderTest.java:3: error: cannot find symbol
+import org.jsoup.helper.ValidationException;
+                       ^
+  symbol:   class ValidationException
+  location: package org.jsoup.helper
+1 error

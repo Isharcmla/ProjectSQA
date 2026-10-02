@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Gson_3_n6yilxov/src/ConstructorConstructorTest.java:222: error: cannot find symbol
+    assertTrue(collection instanceof ArrayList);
+                                     ^
+  symbol:   class ArrayList
+  location: class ConstructorConstructorTest
+/tmp/evaluate_gemini_Gson_3_n6yilxov/src/ConstructorConstructorTest.java:230: error: cannot find symbol
+    assertTrue(list instanceof ArrayList);
+                               ^
+  symbol:   class ArrayList
+  location: class ConstructorConstructorTest
+2 errors

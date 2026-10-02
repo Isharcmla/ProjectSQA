@@ -1,0 +1,7 @@
+/tmp/evaluate_gemini_Jsoup_21_hqpycx20/src/CombiningEvaluatorTest.java:55: error: <anonymous org.jsoup.select.CombiningEvaluatorTest$3> is not abstract and does not override abstract method matches(Element,Element) in Evaluator
+        CombiningEvaluator emptyEval = new CombiningEvaluator() {};
+                                                                ^
+/tmp/evaluate_gemini_Jsoup_21_hqpycx20/src/CombiningEvaluatorTest.java:60: error: <anonymous org.jsoup.select.CombiningEvaluatorTest$4> is not abstract and does not override abstract method matches(Element,Element) in Evaluator
+        CombiningEvaluator collectionEval = new CombiningEvaluator(list) {};
+                                                                         ^
+2 errors

@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_Compress_37_5lhlx76m/src/TarArchiveInputStreamTest.java:434: error: cannot find symbol
+        header[TarConstants.PADREV_GNU_SPARSEOFFSET_10X] = 1; // Mark isExtended = true
+                           ^
+  symbol:   variable PADREV_GNU_SPARSEOFFSET_10X
+  location: interface TarConstants
+/tmp/evaluate_gemini_Compress_37_5lhlx76m/src/TarArchiveInputStreamTest.java:439: error: cannot find symbol
+        sparseHeader[TarConstants.SPARSE_OFFSET_GNU_SPARSEENTRY_SPM] = 0; // isExtended = false
+                                 ^
+  symbol:   variable SPARSE_OFFSET_GNU_SPARSEENTRY_SPM
+  location: interface TarConstants
+/tmp/evaluate_gemini_Compress_37_5lhlx76m/src/TarArchiveInputStreamTest.java:459: error: cannot find symbol
+        header[TarConstants.PADREV_GNU_SPARSEOFFSET_10X] = 1;
+                           ^
+  symbol:   variable PADREV_GNU_SPARSEOFFSET_10X
+  location: interface TarConstants
+3 errors

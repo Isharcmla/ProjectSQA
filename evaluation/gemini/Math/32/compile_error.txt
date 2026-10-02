@@ -1,0 +1,46 @@
+/tmp/evaluate_gemini_Math_32_fm9ewlth/src/PolygonsSetTest.java:24: error: cannot find symbol
+        Assert.assertTrue(Double.isNaN(set.getBarycenter().getX()));
+                                                          ^
+  symbol:   method getX()
+  location: interface Vector<Euclidean2D>
+/tmp/evaluate_gemini_Math_32_fm9ewlth/src/PolygonsSetTest.java:25: error: cannot find symbol
+        Assert.assertTrue(Double.isNaN(set.getBarycenter().getY()));
+                                                          ^
+  symbol:   method getY()
+  location: interface Vector<Euclidean2D>
+/tmp/evaluate_gemini_Math_32_fm9ewlth/src/PolygonsSetTest.java:40: error: cannot find symbol
+        Assert.assertEquals(0.0, set.getBarycenter().getX(), EPSILON);
+                                                    ^
+  symbol:   method getX()
+  location: interface Vector<Euclidean2D>
+/tmp/evaluate_gemini_Math_32_fm9ewlth/src/PolygonsSetTest.java:41: error: cannot find symbol
+        Assert.assertEquals(0.0, set.getBarycenter().getY(), EPSILON);
+                                                    ^
+  symbol:   method getY()
+  location: interface Vector<Euclidean2D>
+/tmp/evaluate_gemini_Math_32_fm9ewlth/src/PolygonsSetTest.java:55: error: cannot find symbol
+        Assert.assertTrue(Double.isNaN(set.getBarycenter().getX()));
+                                                          ^
+  symbol:   method getX()
+  location: interface Vector<Euclidean2D>
+/tmp/evaluate_gemini_Math_32_fm9ewlth/src/PolygonsSetTest.java:56: error: cannot find symbol
+        Assert.assertTrue(Double.isNaN(set.getBarycenter().getY()));
+                                                          ^
+  symbol:   method getY()
+  location: interface Vector<Euclidean2D>
+/tmp/evaluate_gemini_Math_32_fm9ewlth/src/PolygonsSetTest.java:137: error: cannot find symbol
+        Assert.assertTrue(Double.isNaN(set.getBarycenter().getX()));
+                                                          ^
+  symbol:   method getX()
+  location: interface Vector<Euclidean2D>
+/tmp/evaluate_gemini_Math_32_fm9ewlth/src/PolygonsSetTest.java:179: error: cannot find symbol
+        Assert.assertTrue(Double.isNaN(inverted.getBarycenter().getX()));
+                                                               ^
+  symbol:   method getX()
+  location: interface Vector<Euclidean2D>
+/tmp/evaluate_gemini_Math_32_fm9ewlth/src/PolygonsSetTest.java:180: error: cannot find symbol
+        Assert.assertTrue(Double.isNaN(inverted.getBarycenter().getY()));
+                                                               ^
+  symbol:   method getY()
+  location: interface Vector<Euclidean2D>
+9 errors

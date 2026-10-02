@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Jsoup_61_29fl38dr/src/ElementTest.java:617: error: setSelfClosing() is not public in Tag; cannot be accessed from outside package
+        customSelfClosing.tag().setSelfClosing();
+                               ^
+1 error

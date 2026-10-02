@@ -1,0 +1,20 @@
+/tmp/evaluate_gemini_Jsoup_38_o1oz55un/src/HtmlTreeBuilderStateTest.java:17: error: incompatible types: StringReader cannot be converted to String
+        tb.initialiseParse(new StringReader(""), "http://example.com", ParseErrorList.tracking(100));
+                           ^
+/tmp/evaluate_gemini_Jsoup_38_o1oz55un/src/HtmlTreeBuilderStateTest.java:23: error: cannot find symbol
+        tb.initialiseParseFragment(context, "http://example.com", ParseErrorList.tracking(100));
+          ^
+  symbol:   method initialiseParseFragment(Element,String,ParseErrorList)
+  location: variable tb of type HtmlTreeBuilder
+/tmp/evaluate_gemini_Jsoup_38_o1oz55un/src/HtmlTreeBuilderStateTest.java:44: error: cannot find symbol
+        comment.getData().append("test comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_38_o1oz55un/src/HtmlTreeBuilderStateTest.java:48: error: cannot find symbol
+        doctype.getName().append("html");
+                         ^
+  symbol:   method append(String)
+  location: class String
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+4 errors

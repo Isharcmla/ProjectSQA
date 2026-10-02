@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Jsoup_9_orqsn_xo/src/EntitiesTest.java:58: error: an enclosing instance that contains Document.OutputSettings is required
+        Document.OutputSettings settings = new Document.OutputSettings();
+                                           ^
+1 error

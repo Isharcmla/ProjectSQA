@@ -1,0 +1,7 @@
+/tmp/evaluate_gemini_Mockito_36_ujel7crq/src/InvocationTest.java:17: error: DummyMockitoMethod is not abstract and does not override abstract method getDeclaringClass() in MockitoMethod
+    private static class DummyMockitoMethod implements MockitoMethod {
+                   ^
+/tmp/evaluate_gemini_Mockito_36_ujel7crq/src/InvocationTest.java:67: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+2 errors

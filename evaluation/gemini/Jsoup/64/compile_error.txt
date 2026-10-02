@@ -1,0 +1,138 @@
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:28: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader(""), "", new Parser(tb));
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:37: error: cannot find symbol
+        assertNotNull(doc.doctype());
+                         ^
+  symbol:   method doctype()
+  location: variable doc of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:38: error: cannot find symbol
+        assertEquals("html", doc.doctype().name());
+                                ^
+  symbol:   method doctype()
+  location: variable doc of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:46: error: cannot find symbol
+        assertNotNull(doc.doctype());
+                         ^
+  symbol:   method doctype()
+  location: variable doc of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:50: error: cannot find symbol
+        assertNotNull(quirksDoc.doctype());
+                               ^
+  symbol:   method doctype()
+  location: variable quirksDoc of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:57: error: cannot find symbol
+        assertEquals("content", doc.selectFirst("div").text());
+                                   ^
+  symbol:   method selectFirst(String)
+  location: variable doc of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:83: error: cannot find symbol
+        assertEquals("1", doc.selectFirst("html").id());
+                             ^
+  symbol:   method selectFirst(String)
+  location: variable doc of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:86: error: cannot find symbol
+        assertEquals("Text", doc.selectFirst("p").text());
+                                ^
+  symbol:   method selectFirst(String)
+  location: variable doc of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:89: error: cannot find symbol
+        assertEquals("Text", doc.selectFirst("p").text());
+                                ^
+  symbol:   method selectFirst(String)
+  location: variable doc of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:124: error: cannot find symbol
+        assertEquals("Body", doc.selectFirst("div").text());
+                                ^
+  symbol:   method selectFirst(String)
+  location: variable doc of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:154: error: cannot find symbol
+        assertEquals("Text", doc1.selectFirst("p").text());
+                                 ^
+  symbol:   method selectFirst(String)
+  location: variable doc1 of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:158: error: cannot find symbol
+        assertNotNull(doc2.selectFirst("frameset"));
+                          ^
+  symbol:   method selectFirst(String)
+  location: variable doc2 of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:213: error: cannot find symbol
+        assertEquals("First Nested", doc.selectFirst("a").text());
+                                        ^
+  symbol:   method selectFirst(String)
+  location: variable doc of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:214: error: cannot find symbol
+        assertEquals("Span text", doc.selectFirst("span").text());
+                                     ^
+  symbol:   method selectFirst(String)
+  location: variable doc of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:223: error: cannot find symbol
+        assertEquals("1", doc1.selectFirst("b").text());
+                              ^
+  symbol:   method selectFirst(String)
+  location: variable doc1 of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:289: error: cannot find symbol
+        assertEquals("Cap", doc1.selectFirst("caption").text());
+                                ^
+  symbol:   method selectFirst(String)
+  location: variable doc1 of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:290: error: cannot find symbol
+        assertEquals("H", doc1.selectFirst("th").text());
+                              ^
+  symbol:   method selectFirst(String)
+  location: variable doc1 of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:291: error: cannot find symbol
+        assertEquals("D", doc1.selectFirst("td").text());
+                              ^
+  symbol:   method selectFirst(String)
+  location: variable doc1 of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:299: error: cannot find symbol
+        assertNotNull(doc3.selectFirst("col"));
+                          ^
+  symbol:   method selectFirst(String)
+  location: variable doc3 of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:326: error: cannot find symbol
+        assertEquals("Content", doc.selectFirst("td").text());
+                                   ^
+  symbol:   method selectFirst(String)
+  location: variable doc of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:333: error: cannot find symbol
+        assertEquals("Caption Text", doc1.selectFirst("caption").text());
+                                         ^
+  symbol:   method selectFirst(String)
+  location: variable doc1 of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:363: error: cannot find symbol
+        assertEquals("Head", doc1.selectFirst("th").text());
+                                 ^
+  symbol:   method selectFirst(String)
+  location: variable doc1 of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:364: error: cannot find symbol
+        assertEquals("Data", doc1.selectFirst("td").text());
+                                 ^
+  symbol:   method selectFirst(String)
+  location: variable doc1 of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:430: error: cannot find symbol
+        assertNotNull(doc1.selectFirst("frameset"));
+                          ^
+  symbol:   method selectFirst(String)
+  location: variable doc1 of type Document
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:475: error: method initialiseParse in class HtmlTreeBuilder cannot be applied to given types;
+        tb.initialiseParse(new StringReader("<div></div>"), "", new Parser(tb));
+          ^
+  required: Reader,String,ParseErrorList,ParseSettings
+  found: StringReader,String,Parser
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:478: error: cannot find symbol
+        doctype.name("html");
+               ^
+  symbol:   method name(String)
+  location: variable doctype of type Doctype
+/tmp/evaluate_gemini_Jsoup_64_wt83eqba/src/HtmlTreeBuilderStateTest.java:481: error: cannot find symbol
+        comment.getData().append("comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+27 errors

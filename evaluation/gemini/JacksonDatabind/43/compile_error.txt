@@ -1,0 +1,21 @@
+/tmp/evaluate_gemini_JacksonDatabind_43_zs8a2wxz/src/ObjectIdValuePropertyTest.java:221: error: cannot find symbol
+        JsonParser parser = mapper.createParser("null");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_43_zs8a2wxz/src/ObjectIdValuePropertyTest.java:236: error: cannot find symbol
+        JsonParser parser = mapper.createParser("\"gen-id-123\"");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_43_zs8a2wxz/src/ObjectIdValuePropertyTest.java:255: error: cannot find symbol
+        JsonParser parser = mapper.createParser("\"gen-id-456\"");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_43_zs8a2wxz/src/ObjectIdValuePropertyTest.java:273: error: cannot find symbol
+        JsonParser parser = mapper.createParser("\"gen-id-789\"");
+                                  ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+4 errors

@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Math_9_orxp05it/src/LineTest.java:258: error: cannot find symbol
+        Assert.assertTrue(Double.isInfinite(subLine.getRemainingRegion().getSize()));
+                                                   ^
+  symbol:   method getRemainingRegion()
+  location: variable subLine of type SubLine
+1 error

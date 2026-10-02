@@ -1,0 +1,16 @@
+{
+  "project": "Gson",
+  "bug_id": "4",
+  "tool": "gemini",
+  "generated_files": 2,
+  "candidate_tests": 96,
+  "classification_counts": {
+    "valid_non_revealing": 91,
+    "invalid_or_unstable": 3,
+    "fixed_regression_or_unstable": 2
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "unknown",
+  "evaluation_status": "success"
+}

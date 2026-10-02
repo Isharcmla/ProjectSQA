@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Math_62_6npkpe5u/src/MultiStartUnivariateRealOptimizerTest.java:188: error: callCount has private access in StubOptimizer
+                if (callCount == 1) {
+                    ^
+1 error

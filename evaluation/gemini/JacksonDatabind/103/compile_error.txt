@@ -1,0 +1,425 @@
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/StdValueInstantiatorTest.java:14: error: cannot find symbol
+import com.fasterxml.jackson.databind.introspect.AnnotatedElement;
+                                                ^
+  symbol:   class AnnotatedElement
+  location: package com.fasterxml.jackson.databind.introspect
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/StdValueInstantiatorTest.java:132: error: cannot find symbol
+        public AnnotatedElement getAnnotated() {
+               ^
+  symbol:   class AnnotatedElement
+  location: class DummyAnnotatedWithParams
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BasicDeserializerFactoryTest.java:109: error: cannot find symbol
+    @JsonDeserialize(valueInstantiator = CustomCustomValueInstantiator.class)
+                     ^
+  symbol:   method valueInstantiator()
+  location: @interface JsonDeserialize
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BasicBeanDescriptionTest.java:615: error: incompatible types: Converter<Object,Object> cannot be converted to TestConverter
+        assertTrue(created instanceof TestConverter);
+                   ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BasicDeserializerFactoryTest.java:272: error: cannot find symbol
+        Assert.assertTrue(df.getFactoryConfig().hasDeserializers());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable df of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BasicDeserializerFactoryTest.java:279: error: cannot find symbol
+        Assert.assertTrue(df.getFactoryConfig().hasKeyDeserializers());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable df of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BasicDeserializerFactoryTest.java:286: error: cannot find symbol
+        Assert.assertTrue(df.getFactoryConfig().hasDeserializerModifiers());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable df of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BasicDeserializerFactoryTest.java:293: error: cannot find symbol
+        Assert.assertTrue(df.getFactoryConfig().hasAbstractTypeResolvers());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable df of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BasicDeserializerFactoryTest.java:300: error: cannot find symbol
+        Assert.assertTrue(df.getFactoryConfig().hasValueInstantiators());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable df of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BasicDeserializerFactoryTest.java:376: error: cannot find symbol
+        Assert.assertNull(factory._valueInstantiatorInstance(config, null, NoClass.class));
+                                                                           ^
+  symbol:   class NoClass
+  location: class BasicDeserializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BasicDeserializerFactoryTest.java:518: error: method addDeserializer in class SimpleDeserializers cannot be applied to given types;
+        desers.addDeserializer(ArrayList.class, new CustomItemDeser());
+              ^
+  required: Class<T>,JsonDeserializer<? extends T>
+  found: Class<ArrayList>,CustomItemDeser
+  reason: inference variable T has incompatible bounds
+    equality constraints: ArrayList
+    lower bounds: String
+  where T is a type-variable:
+    T extends Object declared in method <T>addDeserializer(Class<T>,JsonDeserializer<? extends T>)
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BasicDeserializerFactoryTest.java:582: error: method addDeserializer in class SimpleDeserializers cannot be applied to given types;
+        desers.addDeserializer(HashMap.class, new CustomItemDeser());
+              ^
+  required: Class<T>,JsonDeserializer<? extends T>
+  found: Class<HashMap>,CustomItemDeser
+  reason: inference variable T has incompatible bounds
+    equality constraints: HashMap
+    lower bounds: String
+  where T is a type-variable:
+    T extends Object declared in method <T>addDeserializer(Class<T>,JsonDeserializer<? extends T>)
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BasicDeserializerFactoryTest.java:766: error: cannot find symbol
+        JsonDeserializer<?> untypedDeser = df.findDefaultDeserializer(ctxt, objType, config.introspect(objType));
+                                             ^
+  symbol:   method findDefaultDeserializer(DeserializationContext,JavaType,BeanDescription)
+  location: variable df of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BeanDeserializerFactoryTest.java:316: error: 'void' type not allowed here
+        customMapper.registerModule(new SimpleModule().setAbstractTypes(resolver));
+                                                                       ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BeanDeserializerFactoryTest.java:518: error: cannot find symbol
+        Assert.assertNotNull(builder.hasValueDeserializerFor(new PropertyName("parent")));
+                                    ^
+  symbol:   method hasValueDeserializerFor(PropertyName)
+  location: variable builder of type BeanDeserializerBuilder
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/ClassUtilTest.java:216: error: package org.aopalliance.intercept does not exist
+            public Object newInstance(Class[] a, Object[] b, org.aopalliance.intercept.MethodInterceptor[] c) { return null; }
+                                                                                      ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/ClassUtilTest.java:217: error: package org.aopalliance.intercept does not exist
+            public Object newInstance(org.aopalliance.intercept.MethodInterceptor[] a) { return null; }
+                                                               ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/ClassUtilTest.java:218: error: package org.aopalliance.intercept does not exist
+            public Object newInstance(org.aopalliance.intercept.MethodInterceptor a) { return null; }
+                                                               ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/ClassUtilTest.java:219: error: package org.aopalliance.intercept does not exist
+            public org.aopalliance.intercept.MethodInterceptor getCallback(int a) { return null; }
+                                            ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/ClassUtilTest.java:220: error: package org.aopalliance.intercept does not exist
+            public org.aopalliance.intercept.MethodInterceptor[] getCallbacks() { return null; }
+                                            ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/ClassUtilTest.java:221: error: package org.aopalliance.intercept does not exist
+            public void setCallback(int a, org.aopalliance.intercept.MethodInterceptor b) {}
+                                                                    ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/ClassUtilTest.java:222: error: package org.aopalliance.intercept does not exist
+            public void setCallbacks(org.aopalliance.intercept.MethodInterceptor[] a) {}
+                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/ClassUtilTest.java:217: error: name clash: class DummyCglibProxy has two methods with the same erasure, yet neither overrides the other
+            public Object newInstance(org.aopalliance.intercept.MethodInterceptor[] a) { return null; }
+                          ^
+  first method:  newInstance(MethodInterceptor) in DummyCglibProxy
+  second method: newInstance(Callback) in Factory
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/ClassUtilTest.java:750: error: cannot find symbol
+        Annotation[] annotations = ClassUtil.findClassAnnotations(AnnotatedWithJacksonStdImpl.class);
+        ^
+  symbol:   class Annotation
+  location: class ClassUtilTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DatabindContextTest.java:45: error: method with in class MapperConfig<T> cannot be applied to given types;
+                return _config.with(_handlerInstantiator);
+                              ^
+  required: MapperFeature[]
+  found: HandlerInstantiator
+  reason: varargs mismatch; HandlerInstantiator cannot be converted to MapperFeature
+  where T is a type-variable:
+    T extends MapperConfig<T> declared in class MapperConfig
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DatabindContextTest.java:243: error: cannot find symbol
+            public TypeResolverBuilder<?> typeResolverBuilderInstance(MapperConfig<?> config, Annotated annotated, Class<?> builderClass) { return null; }
+                   ^
+  symbol: class TypeResolverBuilder
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DatabindContextTest.java:245: error: cannot find symbol
+            public TypeIdResolver typeIdResolverInstance(MapperConfig<?> config, Annotated annotated, Class<?> resolverClass) { return null; }
+                   ^
+  symbol: class TypeIdResolver
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DatabindContextTest.java:291: error: cannot find symbol
+            public TypeResolverBuilder<?> typeResolverBuilderInstance(MapperConfig<?> config, Annotated annotated, Class<?> builderClass) { return null; }
+                   ^
+  symbol: class TypeResolverBuilder
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DatabindContextTest.java:293: error: cannot find symbol
+            public TypeIdResolver typeIdResolverInstance(MapperConfig<?> config, Annotated annotated, Class<?> resolverClass) { return null; }
+                   ^
+  symbol: class TypeIdResolver
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DatabindContextTest.java:360: error: incompatible types: Converter<Object,Object> cannot be converted to StringToIntegerConverter
+        Assert.assertTrue(result instanceof StringToIntegerConverter);
+                          ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DatabindContextTest.java:374: error: cannot find symbol
+            public TypeResolverBuilder<?> typeResolverBuilderInstance(MapperConfig<?> config, Annotated annotated, Class<?> builderClass) { return null; }
+                   ^
+  symbol: class TypeResolverBuilder
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DatabindContextTest.java:376: error: cannot find symbol
+            public TypeIdResolver typeIdResolverInstance(MapperConfig<?> config, Annotated annotated, Class<?> resolverClass) { return null; }
+                   ^
+  symbol: class TypeIdResolver
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DefaultSerializerProviderTest.java:160: error: cannot inherit from final Impl
+        DefaultSerializerProvider.Impl subImpl = new DefaultSerializerProvider.Impl() {
+                                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DefaultSerializerProviderTest.java:214: error: incompatible types: JsonSerializer<Object> cannot be converted to CustomTestSerializer
+        Assert.assertTrue(ser instanceof CustomTestSerializer);
+                          ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DefaultSerializerProviderTest.java:233: error: cannot find symbol
+            public TypeResolverBuilder<?> typeResolverBuilderInstance(MapperConfig<?> config, Annotated annotated, Class<?> builderClass) { return null; }
+                   ^
+  symbol: class TypeResolverBuilder
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DefaultSerializerProviderTest.java:235: error: cannot find symbol
+            public TypeIdResolver typeIdResolverInstance(MapperConfig<?> config, Annotated annotated, Class<?> resolverClass) { return null; }
+                   ^
+  symbol: class TypeIdResolver
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DefaultSerializerProviderTest.java:238: error: cannot find symbol
+        SerializationConfig configWithHI = _config.withHandlerInstantiator(hi);
+                                                  ^
+  symbol:   method withHandlerInstantiator(HandlerInstantiator)
+  location: variable _config of type SerializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DefaultSerializerProviderTest.java:271: error: cannot find symbol
+            public TypeResolverBuilder<?> typeResolverBuilderInstance(MapperConfig<?> config, Annotated annotated, Class<?> builderClass) { return null; }
+                   ^
+  symbol: class TypeResolverBuilder
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DefaultSerializerProviderTest.java:273: error: cannot find symbol
+            public TypeIdResolver typeIdResolverInstance(MapperConfig<?> config, Annotated annotated, Class<?> resolverClass) { return null; }
+                   ^
+  symbol: class TypeIdResolver
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DefaultSerializerProviderTest.java:283: error: cannot find symbol
+        SerializationConfig configWithHI = _config.withHandlerInstantiator(hi);
+                                                  ^
+  symbol:   method withHandlerInstantiator(HandlerInstantiator)
+  location: variable _config of type SerializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DefaultSerializerProviderTest.java:749: error: cannot inherit from final Impl
+        DefaultSerializerProvider.Impl prov = new DefaultSerializerProvider.Impl() {
+                                                                           ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DeserializationContextTest.java:130: error: cannot find symbol
+        TestContext blueprint = new TestContext(new BeanDeserializerFactory(new DeserializerFactoryConfig()));
+                                                                                ^
+  symbol:   class DeserializerFactoryConfig
+  location: class DeserializationContextTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DeserializationContextTest.java:136: error: cannot find symbol
+        DeserializerFactory df = new BeanDeserializerFactory(new DeserializerFactoryConfig());
+                                                                 ^
+  symbol:   class DeserializerFactoryConfig
+  location: class DeserializationContextTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DeserializationContextTest.java:152: error: reference to TestContext is ambiguous
+        new TestContext(null, null);
+        ^
+  both constructor TestContext(DeserializerFactory,DeserializerCache) in TestContext and constructor TestContext(TestContext,DeserializerFactory) in TestContext match
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DeserializationContextTest.java:325: error: cannot find symbol
+        TestContext brokenCtx = new TestContext(new DeserializerFactoryConfig() {
+                                                    ^
+  symbol:   class DeserializerFactoryConfig
+  location: class DeserializationContextTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DeserializationContextTest.java:353: error: cannot find symbol
+                _cache.put(DeserializationContextTest.this._context.constructType(CustomContextualKeyDeser.class), null);
+                      ^
+  symbol:   method put(JavaType,<null>)
+  location: variable _cache of type DeserializerCache
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DeserializerCacheTest.java:149: error: cannot find symbol
+                .createInstance(mapper.getDeserializationConfig(), mapper.createParser("{}"), null);
+                                                                         ^
+  symbol:   method createParser(String)
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/DeserializerCacheTest.java:249: error: incompatible types: JsonDeserializer<Object> cannot be converted to CustomDeserializer
+        Assert.assertTrue(deser instanceof CustomDeserializer);
+                          ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/JsonMappingExceptionTest.java:286: error: reference to DeserializationContext is ambiguous
+        DeserializationContext ctxt = new DeserializationContext(null) {
+                                      ^
+  both constructor DeserializationContext(DeserializerFactory) in DeserializationContext and constructor DeserializationContext(DeserializationContext) in DeserializationContext match
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/JsonMappingExceptionTest.java:286: error: <anonymous com.fasterxml.jackson.databind.JsonMappingExceptionTest$2> is not abstract and does not override abstract method keyDeserializerInstance(Annotated,Object) in DeserializationContext
+        DeserializationContext ctxt = new DeserializationContext(null) {
+                                                                       ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/JsonMappingExceptionTest.java:289: error: getParser() in <anonymous com.fasterxml.jackson.databind.JsonMappingExceptionTest$2> cannot override getParser() in DeserializationContext
+            public JsonParser getParser() {
+                              ^
+  overridden method is final
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/JsonMappingExceptionTest.java:310: error: <anonymous com.fasterxml.jackson.databind.JsonMappingExceptionTest$3> is not abstract and does not override abstract method includeFilterSuppressNulls(Object) in SerializerProvider
+        SerializerProvider prov = new SerializerProvider() {
+                                                           ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:229: error: cannot find symbol
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+        ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:229: error: package DefaultSerializerProviderImpl does not exist
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+                                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:230: error: cannot find symbol
+        prov = (DefaultSerializerProviderImpl) prov.createInstance(_config, _mapper.getSerializerFactory());
+                ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:245: error: cannot find symbol
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+        ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:245: error: package DefaultSerializerProviderImpl does not exist
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+                                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:246: error: cannot find symbol
+        prov = (DefaultSerializerProviderImpl) prov.createInstance(_config, _mapper.getSerializerFactory());
+                ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:264: error: cannot find symbol
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+        ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:264: error: package DefaultSerializerProviderImpl does not exist
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+                                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:265: error: cannot find symbol
+        prov = (DefaultSerializerProviderImpl) prov.createInstance(_config, _mapper.getSerializerFactory());
+                ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:277: error: cannot find symbol
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+        ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:277: error: package DefaultSerializerProviderImpl does not exist
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+                                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:278: error: cannot find symbol
+        prov = (DefaultSerializerProviderImpl) prov.createInstance(_config, _mapper.getSerializerFactory());
+                ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:289: error: cannot find symbol
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+        ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:289: error: package DefaultSerializerProviderImpl does not exist
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+                                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:290: error: cannot find symbol
+        prov = (DefaultSerializerProviderImpl) prov.createInstance(_config, _mapper.getSerializerFactory());
+                ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:315: error: cannot find symbol
+        DefaultSerializerProviderImpl provWithoutArrays = (DefaultSerializerProviderImpl) new DefaultSerializerProviderImpl.Impl()
+        ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:315: error: cannot find symbol
+        DefaultSerializerProviderImpl provWithoutArrays = (DefaultSerializerProviderImpl) new DefaultSerializerProviderImpl.Impl()
+                                                           ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:315: error: package DefaultSerializerProviderImpl does not exist
+        DefaultSerializerProviderImpl provWithoutArrays = (DefaultSerializerProviderImpl) new DefaultSerializerProviderImpl.Impl()
+                                                                                                                           ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:350: error: cannot find symbol
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+        ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:350: error: package DefaultSerializerProviderImpl does not exist
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+                                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:351: error: cannot find symbol
+        prov = (DefaultSerializerProviderImpl) prov.createInstance(_config, _mapper.getSerializerFactory());
+                ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:368: error: cannot find symbol
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+        ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:368: error: package DefaultSerializerProviderImpl does not exist
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+                                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:369: error: cannot find symbol
+        prov = (DefaultSerializerProviderImpl) prov.createInstance(_config, _mapper.getSerializerFactory());
+                ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:385: error: cannot find symbol
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+        ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:385: error: package DefaultSerializerProviderImpl does not exist
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+                                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:386: error: cannot find symbol
+        prov = (DefaultSerializerProviderImpl) prov.createInstance(_config, _mapper.getSerializerFactory());
+                ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:388: error: <anonymous com.fasterxml.jackson.databind.ser.PropertyBuilderTest$1> is not abstract and does not override abstract method findInclusion() in BeanPropertyDefinition
+        BeanPropertyDefinition dummyDef = new BeanPropertyDefinition() {
+                                                                       ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:458: error: cannot find symbol
+        Assert.assertTrue(staticType.useStaticTyping());
+                                    ^
+  symbol:   method useStaticTyping()
+  location: variable staticType of type JavaType
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:469: error: cannot find symbol
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+        ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:469: error: package DefaultSerializerProviderImpl does not exist
+        DefaultSerializerProviderImpl prov = new DefaultSerializerProviderImpl.Impl();
+                                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/PropertyBuilderTest.java:470: error: cannot find symbol
+        prov = (DefaultSerializerProviderImpl) prov.createInstance(_config, _mapper.getSerializerFactory());
+                ^
+  symbol:   class DefaultSerializerProviderImpl
+  location: class PropertyBuilderTest
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/SerializerProviderTest.java:542: error: incompatible types: JsonMappingException cannot be converted to InvalidTypeIdException
+        InvalidTypeIdException ite = provider.invalidTypeIdException(type, "myTypeId", "extra explanation");
+                                                                    ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/SettableAnyPropertyTest.java:186: error: <anonymous com.fasterxml.jackson.databind.deser.SettableAnyPropertyTest$1> is not abstract and does not override abstract method getMember() in AnnotatedMember
+        AnnotatedMember mockMember = new AnnotatedMember(null, new AnnotationMap()) {
+                                                                                    ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/SettableBeanPropertyTest.java:221: error: cannot find symbol
+        _member = ac.findField("field");
+                    ^
+  symbol:   method findField(String)
+  location: variable ac of type AnnotatedClass
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/SettableBeanPropertyTest.java:263: error: <anonymous com.fasterxml.jackson.databind.deser.SettableBeanPropertyTest$1> is not abstract and does not override abstract method findInclusion() in BeanPropertyDefinition
+        BeanPropertyDefinition propDef = new BeanPropertyDefinition() {
+                                                                      ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/SettableBeanPropertyTest.java:272: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/SettableBeanPropertyTest.java:464: error: <anonymous com.fasterxml.jackson.databind.deser.SettableBeanPropertyTest$5> is not abstract and does not override abstract method getNullAccessPattern() in NullValueProvider
+        NullValueProvider nuller = new NullValueProvider() {
+                                                           ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/SettableBeanPropertyTest.java:505: error: <anonymous com.fasterxml.jackson.databind.deser.SettableBeanPropertyTest$8> is not abstract and does not override abstract method getNullAccessPattern() in NullValueProvider
+        NullValueProvider nuller = new NullValueProvider() {
+                                                           ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/SettableBeanPropertyTest.java:526: error: <anonymous com.fasterxml.jackson.databind.deser.SettableBeanPropertyTest$9> is not abstract and does not override abstract method deserialize(JsonParser,DeserializationContext) in JsonDeserializer
+        JsonDeserializer<Object> deser = new JsonDeserializer<Object>() {
+                                                                        ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/SettableBeanPropertyTest.java:544: error: <anonymous com.fasterxml.jackson.databind.deser.SettableBeanPropertyTest$10> is not abstract and does not override abstract method getNullAccessPattern() in NullValueProvider
+        NullValueProvider nuller = new NullValueProvider() {
+                                                           ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/SettableBeanPropertyTest.java:563: error: <anonymous com.fasterxml.jackson.databind.deser.SettableBeanPropertyTest$11> is not abstract and does not override abstract method deserialize(JsonParser,DeserializationContext) in JsonDeserializer
+        JsonDeserializer<Object> nullDeser = new JsonDeserializer<Object>() {
+                                                                            ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/StdKeyDeserializerTest.java:460: error: incompatible types: DeserializationConfig cannot be converted to Class<Enum<?>>
+        EnumResolver enumResolver = EnumResolver.constructFor(ctxt.getConfig(), TestEnum.class);
+                                                                            ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/StdKeyDeserializerTest.java:480: error: incompatible types: DeserializationConfig cannot be converted to Class<Enum<?>>
+        EnumResolver enumResolver = EnumResolver.constructFor(unknownNullCtxt.getConfig(), TestEnum.class);
+                                                                                       ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/StdKeyDeserializerTest.java:492: error: incompatible types: DeserializationConfig cannot be converted to Class<Enum<?>>
+        EnumResolver enumResolver = EnumResolver.constructUsingMethod(defaultCtxt.getConfig(), TestEnum.class, null);
+                                                                                           ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/StdKeyDeserializerTest.java:493: error: incompatible types: DeserializationConfig cannot be converted to Class<Enum<?>>
+        EnumResolver enumResolverWithDefault = EnumResolver.constructFor(defaultCtxt.getConfig(), TestEnum.class);
+                                                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/StdKeyDeserializerTest.java:496: error: incompatible types: DeserializationConfig cannot be converted to Class<Enum<?>>
+        EnumResolver resolverWithDef = EnumResolver.constructUsingToString(defaultCtxt.getConfig(), TestEnum.class);
+                                                                                                ^
+/tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/StdKeyDeserializerTest.java:498: error: constructor EnumResolver in class EnumResolver cannot be applied to given types;
+        EnumResolver customResolver = new EnumResolver(TestEnum.class, TestEnum.values(),
+                                      ^
+  required: Class<Enum<?>>,Enum<?>[],HashMap<String,Enum<?>>,Enum<?>
+  found: Class<TestEnum>,TestEnum[],String[],TestEnum,boolean
+  reason: actual and formal argument lists differ in length
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_gemini_JacksonDatabind_103_hylkyq6i/src/BasicDeserializerFactoryTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+100 errors

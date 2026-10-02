@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Mockito_25_fcqbzm4r/src/ReturnsDeepStubsTest.java:188: error: interface not allowed here
+        interface CollectionContainer {
+        ^
+1 error

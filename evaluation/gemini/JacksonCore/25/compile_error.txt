@@ -1,0 +1,13 @@
+/tmp/evaluate_gemini_JacksonCore_25_40cwyc63/src/ReaderBasedJsonParserTest.java:61: error: cannot find symbol
+            @Override public <T> Iterator<T> readValues(JsonParser p, Class<T> valueType) { return null; }
+                                 ^
+  symbol: class Iterator
+/tmp/evaluate_gemini_JacksonCore_25_40cwyc63/src/ReaderBasedJsonParserTest.java:62: error: cannot find symbol
+            @Override public <T> Iterator<T> readValues(JsonParser p, com.fasterxml.jackson.core.type.TypeReference<?> valueTypeRef) { return null; }
+                                 ^
+  symbol: class Iterator
+/tmp/evaluate_gemini_JacksonCore_25_40cwyc63/src/ReaderBasedJsonParserTest.java:63: error: cannot find symbol
+            @Override public <T> Iterator<T> readValues(JsonParser p, com.fasterxml.jackson.core.type.ResolvedType valueType) { return null; }
+                                 ^
+  symbol: class Iterator
+3 errors

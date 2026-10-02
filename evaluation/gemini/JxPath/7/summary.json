@@ -1,0 +1,15 @@
+{
+  "project": "JxPath",
+  "bug_id": "7",
+  "tool": "gemini",
+  "generated_files": 5,
+  "candidate_tests": 42,
+  "classification_counts": {
+    "valid_non_revealing": 34,
+    "fixed_regression_or_unstable": 8
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "unknown",
+  "evaluation_status": "success"
+}

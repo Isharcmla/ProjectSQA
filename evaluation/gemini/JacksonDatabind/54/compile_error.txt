@@ -1,0 +1,143 @@
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:201: error: cannot find symbol
+        Object val = builder.getPropertyDefaultValue("strVal", prop.getPrimaryMember(), prop.getPrimaryType());
+                                                                                            ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:208: error: cannot find symbol
+        Object fallbackVal = noCtorBuilder.getPropertyDefaultValue("field", noCtorProp.getPrimaryMember(), noCtorProp.getPrimaryType());
+                                                                                                                     ^
+  symbol:   method getPrimaryType()
+  location: variable noCtorProp of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:220: error: cannot find symbol
+            builder.getPropertyDefaultValue("throwing", prop.getPrimaryMember(), prop.getPrimaryType());
+                                                                                     ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:235: error: cannot find symbol
+            builder.getPropertyDefaultValue("errorThrowing", prop.getPrimaryMember(), prop.getPrimaryType());
+                                                                                          ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:262: error: cannot find symbol
+        JavaType type = builder.findSerializationType(prop.getPrimaryMember(), false, prop.getPrimaryType());
+                                                                                          ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:265: error: cannot find symbol
+        Assert.assertTrue(type.useStaticTyping());
+                              ^
+  symbol:   method useStaticTyping()
+  location: variable type of type JavaType
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:274: error: cannot find symbol
+        JavaType type = builder.findSerializationType(prop.getPrimaryMember(), false, prop.getPrimaryType());
+                                                                                          ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:277: error: cannot find symbol
+        Assert.assertTrue(type.useStaticTyping());
+                              ^
+  symbol:   method useStaticTyping()
+  location: variable type of type JavaType
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:287: error: cannot find symbol
+            builder.findSerializationType(prop.getPrimaryMember(), false, prop.getPrimaryType());
+                                                                              ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:300: error: cannot find symbol
+        JavaType staticType = builder.findSerializationType(staticProp.getPrimaryMember(), false, staticProp.getPrimaryType());
+                                                                                                            ^
+  symbol:   method getPrimaryType()
+  location: variable staticProp of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:302: error: cannot find symbol
+        Assert.assertTrue(staticType.useStaticTyping());
+                                    ^
+  symbol:   method useStaticTyping()
+  location: variable staticType of type JavaType
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:305: error: cannot find symbol
+        JavaType dynamicType = builder.findSerializationType(dynamicProp.getPrimaryMember(), true, dynamicProp.getPrimaryType());
+                                                                                                              ^
+  symbol:   method getPrimaryType()
+  location: variable dynamicProp of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:310: error: cannot find symbol
+        JavaType defaultStaticType = builder.findSerializationType(superProp.getPrimaryMember(), true, superProp.getPrimaryType());
+                                                                                                                ^
+  symbol:   method getPrimaryType()
+  location: variable superProp of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:312: error: cannot find symbol
+        Assert.assertTrue(defaultStaticType.useStaticTyping());
+                                           ^
+  symbol:   method useStaticTyping()
+  location: variable defaultStaticType of type JavaType
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:320: error: cannot find symbol
+        BeanPropertyWriter nameWriter = builder.buildWriter(_provider, nameProp, nameProp.getPrimaryType(),
+                                                                                         ^
+  symbol:   method getPrimaryType()
+  location: variable nameProp of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:325: error: cannot find symbol
+        BeanPropertyWriter numsWriter = builder.buildWriter(_provider, numsProp, numsProp.getPrimaryType(),
+                                                                                         ^
+  symbol:   method getPrimaryType()
+  location: variable numsProp of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:330: error: cannot find symbol
+        BeanPropertyWriter objWriter = builder.buildWriter(_provider, objProp, objProp.getPrimaryType(),
+                                                                                      ^
+  symbol:   method getPrimaryType()
+  location: variable objProp of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:339: error: cannot find symbol
+        BeanPropertyWriter writer = builder.buildWriter(_provider, prop, prop.getPrimaryType(),
+                                                                             ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:348: error: cannot find symbol
+        BeanPropertyWriter writer = builder.buildWriter(_provider, prop, prop.getPrimaryType(),
+                                                                             ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:358: error: cannot find symbol
+        BeanPropertyWriter writer = builder.buildWriter(_provider, prop, prop.getPrimaryType(),
+                                                                             ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:368: error: cannot find symbol
+        BeanPropertyWriter writer = builder.buildWriter(_provider, prop, prop.getPrimaryType(),
+                                                                             ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:378: error: cannot find symbol
+        BeanPropertyWriter writer = builder.buildWriter(_provider, prop, prop.getPrimaryType(),
+                                                                             ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:391: error: cannot find symbol
+        BeanPropertyWriter writer1 = builderNoArrays.buildWriter(_provider, prop, prop.getPrimaryType(),
+                                                                                      ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:398: error: cannot find symbol
+        BeanPropertyWriter writer2 = builderWithArrays.buildWriter(_provider, prop, prop.getPrimaryType(),
+                                                                                        ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:409: error: cannot find symbol
+        BeanPropertyWriter nullWriter = builder.buildWriter(_provider, nullProp, nullProp.getPrimaryType(),
+                                                                                         ^
+  symbol:   method getPrimaryType()
+  location: variable nullProp of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:415: error: cannot find symbol
+        BeanPropertyWriter unwrappedWriter = builder.buildWriter(_provider, unwrappedProp, unwrappedProp.getPrimaryType(),
+                                                                                                        ^
+  symbol:   method getPrimaryType()
+  location: variable unwrappedProp of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:429: error: cannot find symbol
+        BeanPropertyWriter writer = builder.buildWriter(_provider, prop, prop.getPrimaryType(),
+                                                                             ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+/tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java:443: error: cannot find symbol
+            builder.buildWriter(_provider, prop, prop.getPrimaryType(),
+                                                     ^
+  symbol:   method getPrimaryType()
+  location: variable prop of type BeanPropertyDefinition
+Note: /tmp/evaluate_gemini_JacksonDatabind_54__mvedf9e/src/PropertyBuilderTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+28 errors

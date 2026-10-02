@@ -1,0 +1,48 @@
+/tmp/evaluate_gemini_JacksonDatabind_48_947lkx49/src/DeserializationConfigTest.java:129: error: cannot find symbol
+                MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS
+                             ^
+  symbol:   variable ACCEPT_CASE_INSENSITIVE_ENUMS
+  location: class MapperFeature
+/tmp/evaluate_gemini_JacksonDatabind_48_947lkx49/src/DeserializationConfigTest.java:132: error: cannot find symbol
+        Assert.assertTrue(multi.isEnabled(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS));
+                                                       ^
+  symbol:   variable ACCEPT_CASE_INSENSITIVE_ENUMS
+  location: class MapperFeature
+/tmp/evaluate_gemini_JacksonDatabind_48_947lkx49/src/DeserializationConfigTest.java:175: error: cannot find symbol
+        ClassIntrospector newCi = new BasicClassIntrospector();
+                                      ^
+  symbol:   class BasicClassIntrospector
+  location: class DeserializationConfigTest
+/tmp/evaluate_gemini_JacksonDatabind_48_947lkx49/src/DeserializationConfigTest.java:266: error: cannot find symbol
+        DateFormat df = _config.getDateFormat();
+        ^
+  symbol:   class DateFormat
+  location: class DeserializationConfigTest
+/tmp/evaluate_gemini_JacksonDatabind_48_947lkx49/src/DeserializationConfigTest.java:284: error: cannot find symbol
+            @Override public TypeResolverBuilder<?> typeResolverBuilderInstance(MapperConfig<?> c, com.fasterxml.jackson.databind.introspect.Annotated a, Class<?> k) { return null; }
+                                                                                ^
+  symbol: class MapperConfig
+/tmp/evaluate_gemini_JacksonDatabind_48_947lkx49/src/DeserializationConfigTest.java:285: error: cannot find symbol
+            @Override public TypeIdResolver typeIdResolverInstance(MapperConfig<?> c, com.fasterxml.jackson.databind.introspect.Annotated a, Class<?> k) { return null; }
+                                                                   ^
+  symbol: class MapperConfig
+/tmp/evaluate_gemini_JacksonDatabind_48_947lkx49/src/DeserializationConfigTest.java:285: error: cannot find symbol
+            @Override public TypeIdResolver typeIdResolverInstance(MapperConfig<?> c, com.fasterxml.jackson.databind.introspect.Annotated a, Class<?> k) { return null; }
+                             ^
+  symbol: class TypeIdResolver
+/tmp/evaluate_gemini_JacksonDatabind_48_947lkx49/src/DeserializationConfigTest.java:340: error: cannot find symbol
+        Base64Variant bv = _config.getBase64Variant();
+        ^
+  symbol:   class Base64Variant
+  location: class DeserializationConfigTest
+/tmp/evaluate_gemini_JacksonDatabind_48_947lkx49/src/DeserializationConfigTest.java:389: error: reference to withFeatures is ambiguous
+        DeserializationConfig same = _config.withFeatures();
+                                            ^
+  both method withFeatures(Feature...) in DeserializationConfig and method withFeatures(FormatFeature...) in DeserializationConfig match
+/tmp/evaluate_gemini_JacksonDatabind_48_947lkx49/src/DeserializationConfigTest.java:436: error: reference to withoutFeatures is ambiguous
+        DeserializationConfig same = _config.withoutFeatures();
+                                            ^
+  both method withoutFeatures(Feature...) in DeserializationConfig and method withoutFeatures(FormatFeature...) in DeserializationConfig match
+Note: /tmp/evaluate_gemini_JacksonDatabind_48_947lkx49/src/SerializationConfigTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+10 errors

@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Jsoup_12_2ubh8_ob/src/SelectorTest.java:49: error: cannot find symbol
+        Document doc = Jsoup.parse("<xml><fb:name>Facebook</fb:name><other>None</other></xml>", "", org.jsoup.parser.Parser.xmlParser());
+                                                                                                                           ^
+  symbol:   method xmlParser()
+  location: class Parser
+1 error

@@ -1,0 +1,10 @@
+/tmp/evaluate_gemini_JacksonDatabind_66_2tog1ez3/src/StdKeyDeserializerTest.java:66: error: createDeserializationContext(JsonParser,DeserializationConfig) has protected access in ObjectMapper
+        return mapper.createDeserializationContext(p, mapper.getDeserializationConfig());
+                     ^
+/tmp/evaluate_gemini_JacksonDatabind_66_2tog1ez3/src/StdKeyDeserializerTest.java:408: error: createDeserializationContext(JsonParser,DeserializationConfig) has protected access in ObjectMapper
+        DeserializationContext dcUnknownNull = mapperUnknownNull.createDeserializationContext(p1, mapperUnknownNull.getDeserializationConfig());
+                                                                ^
+/tmp/evaluate_gemini_JacksonDatabind_66_2tog1ez3/src/StdKeyDeserializerTest.java:414: error: createDeserializationContext(JsonParser,DeserializationConfig) has protected access in ObjectMapper
+        DeserializationContext dcToString = mapperToString.createDeserializationContext(p2, mapperToString.getDeserializationConfig());
+                                                          ^
+3 errors

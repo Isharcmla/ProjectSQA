@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Jsoup_2_c5xkcq6s/src/ParserTest.java:67: error: cannot find symbol
+        assertEquals(2, doc.body().childNodeSize());
+                                  ^
+  symbol:   method childNodeSize()
+  location: class Element
+/tmp/evaluate_gemini_Jsoup_2_c5xkcq6s/src/ParserTest.java:77: error: cannot find symbol
+        assertEquals(1, div.childNodeSize());
+                           ^
+  symbol:   method childNodeSize()
+  location: variable div of type Element
+2 errors

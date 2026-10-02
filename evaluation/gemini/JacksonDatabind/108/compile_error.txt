@@ -1,0 +1,27 @@
+/tmp/evaluate_gemini_JacksonDatabind_108_wng5wyue/src/ObjectReaderTest.java:150: error: cannot find symbol
+        Assert.assertTrue(r.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_COMMENTS.getMask()));
+                                       ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_108_wng5wyue/src/ObjectReaderTest.java:153: error: cannot find symbol
+        Assert.assertTrue(r.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_YAML_COMMENTS.getMask()));
+                                       ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_108_wng5wyue/src/ObjectReaderTest.java:156: error: cannot find symbol
+        Assert.assertFalse(r.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_COMMENTS.getMask()));
+                                        ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_108_wng5wyue/src/ObjectReaderTest.java:159: error: cannot find symbol
+        Assert.assertFalse(r.getConfig().hasParserFeatures(JsonParser.Feature.ALLOW_YAML_COMMENTS.getMask()));
+                                        ^
+  symbol:   method hasParserFeatures(int)
+  location: class DeserializationConfig
+/tmp/evaluate_gemini_JacksonDatabind_108_wng5wyue/src/ObjectReaderTest.java:501: error: incompatible types: JsonNode cannot be converted to ArrayNode
+        ArrayNode arr = reader.createArrayNode();
+                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_108_wng5wyue/src/ObjectReaderTest.java:505: error: incompatible types: JsonNode cannot be converted to ObjectNode
+        ObjectNode obj = reader.createObjectNode();
+                                                ^
+6 errors

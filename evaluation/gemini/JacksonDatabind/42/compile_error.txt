@@ -1,0 +1,13 @@
+/tmp/evaluate_gemini_JacksonDatabind_42_eehe2pxk/src/FromStringDeserializerTest.java:270: error: cannot find symbol
+        buffer.writeEmbeddedObject(expectedCurrency);
+              ^
+  symbol:   method writeEmbeddedObject(Currency)
+  location: variable buffer of type TokenBuffer
+/tmp/evaluate_gemini_JacksonDatabind_42_eehe2pxk/src/FromStringDeserializerTest.java:283: error: cannot find symbol
+        buffer.writeEmbeddedObject(new Integer(123));
+              ^
+  symbol:   method writeEmbeddedObject(Integer)
+  location: variable buffer of type TokenBuffer
+Note: /tmp/evaluate_gemini_JacksonDatabind_42_eehe2pxk/src/FromStringDeserializerTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2 errors

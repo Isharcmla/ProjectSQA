@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_Jsoup_63__u47zcbs/src/HtmlTreeBuilderTest.java:88: error: cannot find symbol
+        comment.getData().append("test");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_63__u47zcbs/src/HtmlTreeBuilderTest.java:242: error: cannot find symbol
+        comment.getData().append("Doc comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_63__u47zcbs/src/HtmlTreeBuilderTest.java:249: error: cannot find symbol
+        childComment.getData().append("Child comment");
+                              ^
+  symbol:   method append(String)
+  location: class String
+3 errors

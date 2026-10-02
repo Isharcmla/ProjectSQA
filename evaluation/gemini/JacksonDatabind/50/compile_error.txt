@@ -1,0 +1,9 @@
+/tmp/evaluate_gemini_JacksonDatabind_50_f6bdbd29/src/BeanDeserializerTest.java:241: error: incompatible types: TypeDeserializer cannot be converted to BeanDeserializer
+        BeanDeserializer deser = (BeanDeserializer) mapper.getDeserializationConfig().findTypeDeserializer(type);
+                                                                                                          ^
+/tmp/evaluate_gemini_JacksonDatabind_50_f6bdbd29/src/BeanDeserializerTest.java:261: error: cannot find symbol
+        BeanPropertyMap propMap = deser.getPropertyMap();
+                                       ^
+  symbol:   method getPropertyMap()
+  location: variable deser of type BeanDeserializer
+2 errors

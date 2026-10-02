@@ -1,0 +1,178 @@
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/BeanSerializerFactoryTest.java:71: error: cannot find symbol
+    @JsonSerialize(using = CustomClassSerializer.class)
+     ^
+  symbol:   class JsonSerialize
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/BeanSerializerFactoryTest.java:78: error: cannot find symbol
+    @JsonSerialize(as = SuperType.class)
+     ^
+  symbol:   class JsonSerialize
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/BeanSerializerFactoryTest.java:90: error: cannot find symbol
+    @JsonSerialize(converter = StringConverter.class)
+     ^
+  symbol:   class JsonSerialize
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:99: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:100: error: incompatible types: JsonSerializer<Object> cannot be converted to MapSerializer
+        return (MapSerializer) provider.findValueSerializer(Map.class, null);
+                                                           ^
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:107: error: cannot find symbol
+        BeanProperty prop = new BeanProperty.Bogus();
+                                            ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:112: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:128: error: cannot find symbol
+        BeanProperty prop = new BeanProperty.Bogus();
+                                            ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:133: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:147: error: cannot find symbol
+        BeanProperty prop = new BeanProperty.Bogus();
+                                            ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:152: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:166: error: cannot find symbol
+        BeanProperty prop = new BeanProperty.Bogus();
+                                            ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:171: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:179: error: cannot find symbol
+        BeanProperty prop = new BeanProperty.Bogus();
+                                            ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:184: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:198: error: cannot find symbol
+        BeanProperty prop = new BeanProperty.Bogus();
+                                            ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:206: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:222: error: cannot find symbol
+        BeanProperty prop = new BeanProperty.Bogus();
+                                            ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:227: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:230: error: method serializeAll in class SimpleBeanPropertyFilter cannot be applied to given types;
+        writer.getAndFilter(new NullMapBean(), gen, provider, SimpleBeanPropertyFilter.serializeAll());
+                                                                                      ^
+  required: Set<String>
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:241: error: cannot find symbol
+        BeanProperty prop = new BeanProperty.Bogus();
+                                            ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:246: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:248: error: method serializeAll in class SimpleBeanPropertyFilter cannot be applied to given types;
+        writer.getAndFilter(new InvalidTypeBean(), gen, provider, SimpleBeanPropertyFilter.serializeAll());
+                                                                                          ^
+  required: Set<String>
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:254: error: cannot find symbol
+        BeanProperty prop = new BeanProperty.Bogus();
+                                            ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:259: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:262: error: method serializeAll in class SimpleBeanPropertyFilter cannot be applied to given types;
+        writer.getAndFilter(new FilteredBean(), gen, provider, SimpleBeanPropertyFilter.serializeAll());
+                                                                                       ^
+  required: Set<String>
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:273: error: cannot find symbol
+        BeanProperty prop = new BeanProperty.Bogus();
+                                            ^
+  symbol:   class Bogus
+  location: interface BeanProperty
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/AnyGetterWriterTest.java:276: error: cannot find symbol
+        SerializerProvider provider = mapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/BeanSerializerFactoryTest.java:36: error: cannot find symbol
+        serializerProvider = mapper.getSerializerProviderInstance();
+                                   ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/BeanSerializerFactoryTest.java:264: error: incompatible types: JsonSerializer<Object> cannot be converted to CustomClassSerializer
+        Assert.assertTrue(ser instanceof CustomClassSerializer);
+                          ^
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/BeanSerializerFactoryTest.java:303: error: method addSerializer in class SimpleSerializers cannot be applied to given types;
+        simpleSerializers.addSerializer(SimpleBean.class, dummySer);
+                         ^
+  required: Class<? extends T>,JsonSerializer<T>
+  found: Class<SimpleBean>,JsonSerializer<CAP#1>
+  reason: inference variable T has incompatible bounds
+    equality constraints: CAP#1
+    lower bounds: SimpleBean
+  where T is a type-variable:
+    T extends Object declared in method <T>addSerializer(Class<? extends T>,JsonSerializer<T>)
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Object from capture of ?
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/BeanSerializerFactoryTest.java:423: error: cannot find symbol
+        SerializerProvider prov = requireSettersMapper.getSerializerProviderInstance();
+                                                      ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable requireSettersMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/BeanSerializerFactoryTest.java:455: error: cannot find symbol
+        SerializerProvider prov = viewMapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable viewMapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_10_n6lyqxhx/src/BeanSerializerFactoryTest.java:466: error: cannot find symbol
+        SerializerProvider prov = viewMapper.getSerializerProviderInstance();
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable viewMapper of type ObjectMapper
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+34 errors

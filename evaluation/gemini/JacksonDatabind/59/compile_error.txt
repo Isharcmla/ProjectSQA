@@ -1,0 +1,12 @@
+/tmp/evaluate_gemini_JacksonDatabind_59_xcug165l/src/CollectionLikeTypeTest.java:88: error: <anonymous com.fasterxml.jackson.databind.type.CollectionLikeTypeTest$1> is not abstract and does not override abstract method findTypeParameters(Class<?>) in JavaType
+        ) {
+          ^
+/tmp/evaluate_gemini_JacksonDatabind_59_xcug165l/src/JavaTypeTest.java:17: error: DummyJavaType is not abstract and does not override abstract method toCanonical() in ResolvedType
+    static class DummyJavaType extends JavaType {
+           ^
+/tmp/evaluate_gemini_JacksonDatabind_59_xcug165l/src/MapLikeTypeTest.java:264: error: CustomNonTypeBaseJavaType is not abstract and does not override abstract method findTypeParameters(Class<?>) in JavaType
+    private static class CustomNonTypeBaseJavaType extends JavaType {
+                   ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 errors

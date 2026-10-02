@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Mockito_34_criiqjzr/src/InvocationMatcherTest.java:10: error: cannot find symbol
+import org.mockito.internal.debugging.LocationImpl;
+                                     ^
+  symbol:   class LocationImpl
+  location: package org.mockito.internal.debugging
+/tmp/evaluate_gemini_Mockito_34_criiqjzr/src/InvocationMatcherTest.java:84: error: cannot find symbol
+            this.location = new LocationImpl();
+                                ^
+  symbol:   class LocationImpl
+  location: class DummyInvocation
+2 errors

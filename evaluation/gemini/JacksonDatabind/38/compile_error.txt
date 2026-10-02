@@ -1,0 +1,36 @@
+/tmp/evaluate_gemini_JacksonDatabind_38_5fbxev1a/src/CollectionTypeTest.java:161: error: cannot inherit from final CollectionType
+        CollectionType subclassInstance = new CollectionType(base, _stringType) {};
+                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_38_5fbxev1a/src/MapTypeTest.java:48: error: cannot find symbol
+        assertFalse(mapType.useStaticTyping());
+                           ^
+  symbol:   method useStaticTyping()
+  location: variable mapType of type MapType
+/tmp/evaluate_gemini_JacksonDatabind_38_5fbxev1a/src/MapTypeTest.java:61: error: cannot find symbol
+        assertFalse(mapType.useStaticTyping());
+                           ^
+  symbol:   method useStaticTyping()
+  location: variable mapType of type MapType
+/tmp/evaluate_gemini_JacksonDatabind_38_5fbxev1a/src/MapTypeTest.java:147: error: cannot find symbol
+        assertFalse(mapType.useStaticTyping());
+                           ^
+  symbol:   method useStaticTyping()
+  location: variable mapType of type MapType
+/tmp/evaluate_gemini_JacksonDatabind_38_5fbxev1a/src/MapTypeTest.java:151: error: cannot find symbol
+        assertTrue(staticType.useStaticTyping());
+                             ^
+  symbol:   method useStaticTyping()
+  location: variable staticType of type MapType
+/tmp/evaluate_gemini_JacksonDatabind_38_5fbxev1a/src/MapTypeTest.java:152: error: cannot find symbol
+        assertTrue(staticType.getKeyType().useStaticTyping());
+                                          ^
+  symbol:   method useStaticTyping()
+  location: class JavaType
+/tmp/evaluate_gemini_JacksonDatabind_38_5fbxev1a/src/MapTypeTest.java:153: error: cannot find symbol
+        assertTrue(staticType.getContentType().useStaticTyping());
+                                              ^
+  symbol:   method useStaticTyping()
+  location: class JavaType
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+7 errors

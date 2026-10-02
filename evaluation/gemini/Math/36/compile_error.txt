@@ -1,0 +1,18 @@
+/tmp/evaluate_gemini_Math_36_kuhc9ozr/src/BigFractionTest.java:139: error: cannot find symbol
+        BigFraction f5 = new BigFraction(FastMath.scalb(1.0, 60));
+                                         ^
+  symbol:   variable FastMath
+  location: class BigFractionTest
+/tmp/evaluate_gemini_Math_36_kuhc9ozr/src/BigFractionTest.java:177: error: cannot find symbol
+        new BigFraction(FastMath.PI, 1e-20, 2);
+                        ^
+  symbol:   variable FastMath
+  location: class BigFractionTest
+/tmp/evaluate_gemini_Math_36_kuhc9ozr/src/BigFractionTest.java:401: error: cannot find symbol
+        Assert.assertEquals(FastMath.pow(2.0 / 3.0, 1.5), f.pow(1.5), EPSILON);
+                            ^
+  symbol:   variable FastMath
+  location: class BigFractionTest
+Note: /tmp/evaluate_gemini_Math_36_kuhc9ozr/src/BigFractionTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 errors

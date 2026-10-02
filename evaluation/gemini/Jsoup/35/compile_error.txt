@@ -1,0 +1,13 @@
+/tmp/evaluate_gemini_Jsoup_35_bmxxj_qa/src/HtmlTreeBuilderStateTest.java:17: error: incompatible types: StringReader cannot be converted to String
+        tb.initialiseParse(new StringReader(html), "http://example.com", ParseErrorList.tracking(100));
+                           ^
+/tmp/evaluate_gemini_Jsoup_35_bmxxj_qa/src/HtmlTreeBuilderStateTest.java:43: error: cannot find symbol
+        comment.getData().append("test comment");
+                         ^
+  symbol:   method append(String)
+  location: class String
+/tmp/evaluate_gemini_Jsoup_35_bmxxj_qa/src/HtmlTreeBuilderStateTest.java:58: error: incompatible types: String cannot be converted to Element
+        Assert.assertTrue(tb.onStack("div"));
+                                     ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+3 errors

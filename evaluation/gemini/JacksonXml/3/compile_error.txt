@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_JacksonXml_3_2mxtz68z/src/FromXmlParserTest.java:156: error: cannot find symbol
+        Assert.assertEquals(JsonToken.START_ARRAY, parser.currentToken());
+                                                         ^
+  symbol:   method currentToken()
+  location: variable parser of type FromXmlParser
+1 error

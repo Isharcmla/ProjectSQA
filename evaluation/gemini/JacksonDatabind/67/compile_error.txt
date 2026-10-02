@@ -1,0 +1,40 @@
+/tmp/evaluate_gemini_JacksonDatabind_67_hbvhyvdf/src/BasicDeserializerFactoryTest.java:248: error: cannot find symbol
+        Assert.assertTrue(f1.getFactoryConfig().hasDeserializers());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable f1 of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_67_hbvhyvdf/src/BasicDeserializerFactoryTest.java:253: error: cannot find symbol
+        Assert.assertTrue(f2.getFactoryConfig().hasKeyDeserializers());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable f2 of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_67_hbvhyvdf/src/BasicDeserializerFactoryTest.java:258: error: cannot find symbol
+        Assert.assertTrue(f3.getFactoryConfig().hasDeserializerModifiers());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable f3 of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_67_hbvhyvdf/src/BasicDeserializerFactoryTest.java:263: error: cannot find symbol
+        Assert.assertTrue(f4.getFactoryConfig().hasAbstractTypeResolvers());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable f4 of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_67_hbvhyvdf/src/BasicDeserializerFactoryTest.java:268: error: cannot find symbol
+        Assert.assertTrue(f5.getFactoryConfig().hasValueInstantiators());
+                            ^
+  symbol:   method getFactoryConfig()
+  location: variable f5 of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_67_hbvhyvdf/src/BasicDeserializerFactoryTest.java:663: error: cannot find symbol
+        JsonDeserializer<?> deser = factory.findDefaultDeserializer(_context, objType, beanDesc);
+                                           ^
+  symbol:   method findDefaultDeserializer(DeserializationContext,JavaType,BeanDescription)
+  location: variable factory of type DeserializerFactory
+/tmp/evaluate_gemini_JacksonDatabind_67_hbvhyvdf/src/BasicDeserializerFactoryTest.java:705: error: cannot find symbol
+        EnumResolver enumRes = tf.constructEnumResolver(SimpleEnum.class, config, null);
+        ^
+  symbol:   class EnumResolver
+  location: class BasicDeserializerFactoryTest
+Note: /tmp/evaluate_gemini_JacksonDatabind_67_hbvhyvdf/src/BasicDeserializerFactoryTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_gemini_JacksonDatabind_67_hbvhyvdf/src/BasicDeserializerFactoryTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+7 errors

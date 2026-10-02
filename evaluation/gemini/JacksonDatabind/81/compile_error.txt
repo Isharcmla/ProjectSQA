@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_JacksonDatabind_81_xugh1q0l/src/JacksonAnnotationIntrospectorTest.java:171: error: enum types must not be local
+        enum EmptyEnum {}
+        ^
+1 error

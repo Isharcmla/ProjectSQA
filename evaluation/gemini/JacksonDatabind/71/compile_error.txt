@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_JacksonDatabind_71_uraf260p/src/StdKeyDeserializerTest.java:24: error: cannot find symbol
+import com.fasterxml.jackson.databind.introspect.AnnotatedMethodCollector;
+                                                ^
+  symbol:   class AnnotatedMethodCollector
+  location: package com.fasterxml.jackson.databind.introspect
+1 error

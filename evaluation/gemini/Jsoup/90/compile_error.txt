@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Jsoup_90_vkc6uitt/src/HttpConnectionTest.java:798: error: cannot find symbol
+        headers.put("Set-Cookie", Arrays.asList("sessionId=xyz; Path=/", "=blankName;", null));
+                                  ^
+  symbol:   variable Arrays
+  location: class HttpConnectionTest
+1 error

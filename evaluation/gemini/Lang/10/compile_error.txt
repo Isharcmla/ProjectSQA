@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Lang_10_xa48e2qj/src/FastDateParserTest.java:122: error: cannot find symbol
+        Assert.assertEquals(Calendar.AD, cal.get(Calendar.ERA));
+                                    ^
+  symbol:   variable AD
+  location: class Calendar
+1 error

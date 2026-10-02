@@ -1,0 +1,8 @@
+/tmp/evaluate_gemini_Mockito_32_lgdel2of/src/SpyAnnotationEngineTest.java:92: error: cannot find symbol
+        Assert.assertTrue(mockUtil.isSpy(target.spiedList));
+                                  ^
+  symbol:   method isSpy(List<String>)
+  location: variable mockUtil of type MockUtil
+Note: /tmp/evaluate_gemini_Mockito_32_lgdel2of/src/SpyAnnotationEngineTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error

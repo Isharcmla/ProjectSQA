@@ -1,0 +1,36 @@
+/tmp/evaluate_gemini_JacksonDatabind_110_5hi5xmcq/src/JavaUtilCollectionsDeserializersTest.java:33: error: cannot find symbol
+        Converter<Object, Object> conv = delegatingDeser.getConverter();
+                                                        ^
+  symbol:   method getConverter()
+  location: variable delegatingDeser of type StdDelegatingDeserializer<?>
+/tmp/evaluate_gemini_JacksonDatabind_110_5hi5xmcq/src/JavaUtilCollectionsDeserializersTest.java:49: error: cannot find symbol
+        Converter<Object, Object> conv = delegatingDeser.getConverter();
+                                                        ^
+  symbol:   method getConverter()
+  location: variable delegatingDeser of type StdDelegatingDeserializer<?>
+/tmp/evaluate_gemini_JacksonDatabind_110_5hi5xmcq/src/JavaUtilCollectionsDeserializersTest.java:64: error: cannot find symbol
+        Converter<Object, Object> conv = delegatingDeser.getConverter();
+                                                        ^
+  symbol:   method getConverter()
+  location: variable delegatingDeser of type StdDelegatingDeserializer<?>
+/tmp/evaluate_gemini_JacksonDatabind_110_5hi5xmcq/src/JavaUtilCollectionsDeserializersTest.java:79: error: cannot find symbol
+        Converter<Object, Object> conv = delegatingDeser.getConverter();
+                                                        ^
+  symbol:   method getConverter()
+  location: variable delegatingDeser of type StdDelegatingDeserializer<?>
+/tmp/evaluate_gemini_JacksonDatabind_110_5hi5xmcq/src/JavaUtilCollectionsDeserializersTest.java:95: error: cannot find symbol
+        Converter<Object, Object> conv = delegatingDeser.getConverter();
+                                                        ^
+  symbol:   method getConverter()
+  location: variable delegatingDeser of type StdDelegatingDeserializer<?>
+/tmp/evaluate_gemini_JacksonDatabind_110_5hi5xmcq/src/JavaUtilCollectionsDeserializersTest.java:118: error: cannot find symbol
+        Converter<Object, Object> conv = delegatingDeser.getConverter();
+                                                        ^
+  symbol:   method getConverter()
+  location: variable delegatingDeser of type StdDelegatingDeserializer<?>
+/tmp/evaluate_gemini_JacksonDatabind_110_5hi5xmcq/src/JavaUtilCollectionsDeserializersTest.java:134: error: cannot find symbol
+        Converter<Object, Object> conv = delegatingDeser.getConverter();
+                                                        ^
+  symbol:   method getConverter()
+  location: variable delegatingDeser of type StdDelegatingDeserializer<?>
+7 errors

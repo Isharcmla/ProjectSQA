@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Mockito_37_dbnwnxc9/src/AnswersValidatorTest.java:33: error: SimpleMockitoMethod is not abstract and does not override abstract method getDeclaringClass() in MockitoMethod
+    private static class SimpleMockitoMethod implements MockitoMethod {
+                   ^
+1 error

@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Jsoup_17_ei1h_2cx/src/TreeBuilderStateTest.java:487: error: cannot find symbol
+        HtmlTreeBuilder tb = new HtmlTreeBuilder();
+        ^
+  symbol:   class HtmlTreeBuilder
+  location: class TreeBuilderStateTest
+/tmp/evaluate_gemini_Jsoup_17_ei1h_2cx/src/TreeBuilderStateTest.java:487: error: cannot find symbol
+        HtmlTreeBuilder tb = new HtmlTreeBuilder();
+                                 ^
+  symbol:   class HtmlTreeBuilder
+  location: class TreeBuilderStateTest
+2 errors

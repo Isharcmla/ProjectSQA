@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_JxPath_20_77278pei/src/CoreOperationRelationalExpressionTest.java:56: error: ValueExpression is not abstract and does not override abstract method computeContextDependent() in Expression
+    private static class ValueExpression extends Expression {
+                   ^
+1 error

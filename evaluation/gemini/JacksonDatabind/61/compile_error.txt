@@ -1,0 +1,111 @@
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:148: error: cannot find symbol
+        @JacksonInject("injectId")
+         ^
+  symbol:   class JacksonInject
+  location: class InjectedBean
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:245: error: BeanDeserializerModifier is abstract; cannot be instantiated
+                context.addBeanDeserializerModifier(new BeanDeserializerModifier());
+                                                    ^
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:248: error: BeanSerializerModifier is abstract; cannot be instantiated
+                context.addBeanSerializerModifier(new BeanSerializerModifier());
+                                                  ^
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:252: error: cannot find symbol
+                    public JavaType modifyType(JavaType type, java.lang.reflect.Type jdkType, TypeBindings contextType, TypeFactory typeFactory) {
+                                                                                              ^
+  symbol: class TypeBindings
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:472: error: cannot find symbol
+            @Override public TypeResolverBuilder<?> typeResolverBuilderInstance(MapperConfig<?> c, Annotated a, Class<?> builderClass) { return null; }
+                                                                                ^
+  symbol: class MapperConfig
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:473: error: cannot find symbol
+            @Override public TypeIdResolver typeIdResolverInstance(MapperConfig<?> c, Annotated a, Class<?> resolverClass) { return null; }
+                                                                   ^
+  symbol: class MapperConfig
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:546: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(json, typeRef).id);
+                                                               ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:547: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(json, javaType).id);
+                                                                ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:550: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(new StringReader(json), typeRef).id);
+                                                                                 ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:551: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(new StringReader(json), javaType).id);
+                                                                                  ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:554: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(new ByteArrayInputStream(bytes), typeRef).id);
+                                                                                          ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:555: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(new ByteArrayInputStream(bytes), javaType).id);
+                                                                                           ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:558: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(bytes, typeRef).id);
+                                                                ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:559: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(bytes, javaType).id);
+                                                                 ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:561: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(bytes, 0, bytes.length, typeRef).id);
+                                                                                 ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:562: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(bytes, 0, bytes.length, javaType).id);
+                                                                                  ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:567: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(dataInput, javaType).id);
+                                                                     ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:576: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(tempFile, typeRef).id);
+                                                                   ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:577: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(tempFile, javaType).id);
+                                                                    ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:581: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(fileUrl, typeRef).id);
+                                                                  ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:582: error: cannot find symbol
+        Assert.assertEquals(10, mapper.readValue(fileUrl, javaType).id);
+                                                                   ^
+  symbol:   variable id
+  location: class Object
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:699: error: cannot find symbol
+        mapper.writeTree(g2, (TreeNode) arrNode);
+                              ^
+  symbol:   class TreeNode
+  location: class ObjectMapperTest
+/tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java:745: error: cannot find symbol
+        Assert.assertNotNull(mapper.writer((PrettyPrinter) null));
+                                            ^
+  symbol:   class PrettyPrinter
+  location: class ObjectMapperTest
+Note: /tmp/evaluate_gemini_JacksonDatabind_61_ufilljhn/src/ObjectMapperTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+23 errors

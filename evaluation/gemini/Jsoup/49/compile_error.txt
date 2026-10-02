@@ -1,0 +1,50 @@
+/tmp/evaluate_gemini_Jsoup_49_5g1efgbf/src/NodeTest.java:78: error: reference to TestNode is ambiguous
+        new TestNode("http://example.com", null);
+        ^
+  both constructor TestNode(String,Attributes) in TestNode and constructor TestNode(String,String) in TestNode match
+/tmp/evaluate_gemini_Jsoup_49_5g1efgbf/src/NodeTest.java:271: error: cannot find symbol
+        Element parent = new Element(Tag.valueOf("div"), "http://example.com");
+                                     ^
+  symbol:   variable Tag
+  location: class NodeTest
+/tmp/evaluate_gemini_Jsoup_49_5g1efgbf/src/NodeTest.java:272: error: cannot find symbol
+        Element child = new Element(Tag.valueOf("span"), "http://example.com");
+                                    ^
+  symbol:   variable Tag
+  location: class NodeTest
+/tmp/evaluate_gemini_Jsoup_49_5g1efgbf/src/NodeTest.java:275: error: cannot find symbol
+        Element prev = new Element(Tag.valueOf("p"), "http://example.com");
+                                   ^
+  symbol:   variable Tag
+  location: class NodeTest
+/tmp/evaluate_gemini_Jsoup_49_5g1efgbf/src/NodeTest.java:276: error: cannot find symbol
+        Element next = new Element(Tag.valueOf("b"), "http://example.com");
+                                   ^
+  symbol:   variable Tag
+  location: class NodeTest
+/tmp/evaluate_gemini_Jsoup_49_5g1efgbf/src/NodeTest.java:384: error: cannot find symbol
+        Element parent = new Element(Tag.valueOf("div"), "http://example.com");
+                                     ^
+  symbol:   variable Tag
+  location: class NodeTest
+/tmp/evaluate_gemini_Jsoup_49_5g1efgbf/src/NodeTest.java:385: error: cannot find symbol
+        Element child = new Element(Tag.valueOf("span"), "http://example.com");
+                                    ^
+  symbol:   variable Tag
+  location: class NodeTest
+/tmp/evaluate_gemini_Jsoup_49_5g1efgbf/src/NodeTest.java:395: error: cannot find symbol
+        Element parent = new Element(Tag.valueOf("div"), "http://example.com");
+                                     ^
+  symbol:   variable Tag
+  location: class NodeTest
+/tmp/evaluate_gemini_Jsoup_49_5g1efgbf/src/NodeTest.java:396: error: cannot find symbol
+        Element child1 = new Element(Tag.valueOf("span"), "http://example.com");
+                                     ^
+  symbol:   variable Tag
+  location: class NodeTest
+/tmp/evaluate_gemini_Jsoup_49_5g1efgbf/src/NodeTest.java:397: error: cannot find symbol
+        Element child2 = new Element(Tag.valueOf("p"), "http://example.com");
+                                     ^
+  symbol:   variable Tag
+  location: class NodeTest
+10 errors

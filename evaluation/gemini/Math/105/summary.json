@@ -1,0 +1,14 @@
+{
+  "project": "Math",
+  "bug_id": "105",
+  "tool": "gemini",
+  "generated_files": 1,
+  "candidate_tests": 14,
+  "classification_counts": {
+    "valid_non_revealing": 14
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "unknown",
+  "evaluation_status": "success"
+}

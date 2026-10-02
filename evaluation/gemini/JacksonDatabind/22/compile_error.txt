@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_JacksonDatabind_22_0zawtjnx/src/BasicSerializerFactoryTest.java:574: error: illegal character: '`'
+```
+^
+/tmp/evaluate_gemini_JacksonDatabind_22_0zawtjnx/src/BasicSerializerFactoryTest.java:574: error: illegal character: '`'
+```
+ ^
+/tmp/evaluate_gemini_JacksonDatabind_22_0zawtjnx/src/BasicSerializerFactoryTest.java:574: error: illegal character: '`'
+```
+  ^
+/tmp/evaluate_gemini_JacksonDatabind_22_0zawtjnx/src/BasicSerializerFactoryTest.java:575: error: reached end of file while parsing
+4 errors

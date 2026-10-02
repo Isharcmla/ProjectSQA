@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_JacksonCore_23_jljoh5al/src/DefaultPrettyPrinterTest.java:203: error: cannot find symbol
+        DefaultPrettyPrinter ppNull = pp.withRootSeparator((SerializableString) null);
+                                                            ^
+  symbol:   class SerializableString
+  location: class DefaultPrettyPrinterTest
+1 error

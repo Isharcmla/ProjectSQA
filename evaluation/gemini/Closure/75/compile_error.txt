@@ -1,0 +1,14 @@
+/tmp/evaluate_gemini_Closure_75_rmomowt8/src/NodeUtilTest.java:444: error: no suitable constructor found for Node(int,String)
+    Node varNoInit = new Node(Token.NAME, "x");
+                     ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/tmp/evaluate_gemini_Closure_75_rmomowt8/src/NodeUtilTest.java:471: error: cannot find symbol
+    newN.setSideEffectFlags(Node.FLAG_ONLY_MODIFIES_THIS_TAG);
+                                ^
+  symbol:   variable FLAG_ONLY_MODIFIES_THIS_TAG
+  location: class Node
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+2 errors

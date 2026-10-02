@@ -1,0 +1,51 @@
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:172: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = serConfig.introspectClassAnnotations(DummyAnnotatedClass.class);
+                                                                ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:285: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = mapper.getSerializationConfig().introspectClassAnnotations(DummyAnnotatedClass.class);
+                                                                                      ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:318: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(String.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:330: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(String.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:344: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(ArrayList.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:357: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(String.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:370: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(HashMap.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:413: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(HashMap.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:426: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(ArrayList.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:438: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(String.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:450: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(String.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:463: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(List.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:476: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(String.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:489: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(Map.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:506: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(Map.class);
+                                                             ^
+/tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java:519: error: incompatible types: BeanDescription cannot be converted to AnnotatedClass
+        AnnotatedClass ac = config.introspectClassAnnotations(List.class);
+                                                             ^
+Note: /tmp/evaluate_gemini_JacksonDatabind_47_u_oxdlhj/src/AnnotationIntrospectorTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+16 errors

@@ -1,0 +1,19 @@
+/tmp/evaluate_gemini_Math_71_w2t0ofwo/src/RungeKuttaIntegratorTest.java:7: error: cannot find symbol
+import org.apache.commons.math.ode.sampling.ContinuousOutputModel;
+                                           ^
+  symbol:   class ContinuousOutputModel
+  location: package org.apache.commons.math.ode.sampling
+/tmp/evaluate_gemini_Math_71_w2t0ofwo/src/EmbeddedRungeKuttaIntegratorTest.java:210: error: <anonymous org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegratorTest$1> is not abstract and does not override abstract method requiresDenseOutput() in StepHandler
+        integrator.addStepHandler(new StepHandler() {
+                                                    ^
+/tmp/evaluate_gemini_Math_71_w2t0ofwo/src/RungeKuttaIntegratorTest.java:90: error: cannot find symbol
+        ContinuousOutputModel model = new ContinuousOutputModel();
+        ^
+  symbol:   class ContinuousOutputModel
+  location: class RungeKuttaIntegratorTest
+/tmp/evaluate_gemini_Math_71_w2t0ofwo/src/RungeKuttaIntegratorTest.java:90: error: cannot find symbol
+        ContinuousOutputModel model = new ContinuousOutputModel();
+                                          ^
+  symbol:   class ContinuousOutputModel
+  location: class RungeKuttaIntegratorTest
+4 errors

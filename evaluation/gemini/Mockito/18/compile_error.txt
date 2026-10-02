@@ -1,0 +1,8 @@
+/tmp/evaluate_gemini_Mockito_18_ba_8he_4/src/ReturnsEmptyValuesTest.java:52: error: <anonymous org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest$1> is not abstract and does not override abstract method <T>getArgumentAt(int,Class<T>) in InvocationOnMock
+        return new InvocationOnMock() {
+                                      ^
+  where T is a type-variable:
+    T extends Object declared in method <T>getArgumentAt(int,Class<T>)
+Note: /tmp/evaluate_gemini_Mockito_18_ba_8he_4/src/ReturnsEmptyValuesTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error

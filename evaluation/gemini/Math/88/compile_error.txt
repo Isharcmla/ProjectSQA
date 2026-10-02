@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_Math_88_m31zbh0k/src/SimplexTableauTest.java:11: error: cannot find symbol
+import org.apache.commons.math.linear.ArrayRealVector;
+                                     ^
+  symbol:   class ArrayRealVector
+  location: package org.apache.commons.math.linear
+/tmp/evaluate_gemini_Math_88_m31zbh0k/src/SimplexTableauTest.java:143: error: cannot find symbol
+        RealVector vector = new ArrayRealVector(new double[] { 1.5, -2.5, 3.0 });
+                                ^
+  symbol:   class ArrayRealVector
+  location: class SimplexTableauTest
+/tmp/evaluate_gemini_Math_88_m31zbh0k/src/SimplexTableauTest.java:148: error: cannot find symbol
+        RealVector emptyVector = new ArrayRealVector(new double[] {});
+                                     ^
+  symbol:   class ArrayRealVector
+  location: class SimplexTableauTest
+3 errors
