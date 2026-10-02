@@ -105,20 +105,32 @@ Class name: {class_name}
 
 # ---------- KKU IntelSphere API helpers ----------
 
-def check_api_key():
-    if not KKU_API_KEY:
+_MODEL_ID_CACHE = {}
+
+def check_api_key(api_key=None):
+    key = api_key or KKU_API_KEY
+    if not key:
+        # ลองโหลดจาก .env ถ้ายังไม่ได้โหลด
+        try:
+            from dotenv import load_dotenv
+            load_dotenv()
+            key = os.environ.get("KKU_API_KEY") or os.environ.get("KKU_API_KEY_1")
+        except Exception:
+            pass
+    if not key:
         raise EnvironmentError(
-            "ไม่พบ KKU_API_KEY — รัน: export KKU_API_KEY='your-key' ก่อน "
+            "ไม่พบ KKU_API_KEY — กรุณาตั้งค่าใน .env หรือ Environment Variable "
             "(ขอ key ได้ที่ https://gen.ai.kku.ac.th -> ตั้งค่า -> API Platform)"
         )
+    return key
 
 
-def get_model_list():
+def get_model_list(api_key=None):
     """ดึงรายชื่อโมเดลทั้งหมดที่ใช้ได้ผ่าน POST /chat/models-list"""
-    check_api_key()
+    key = check_api_key(api_key)
     resp = requests.post(
         f"{KKU_API_BASE}/chat/models-list",
-        headers={"Authorization": f"Bearer {KKU_API_KEY}"},
+        headers={"Authorization": f"Bearer {key}"},
         timeout=30,
     )
     resp.raise_for_status()
@@ -132,30 +144,41 @@ DEFAULT_MODEL_NAME = {
 }
 
 
-def find_model_id(exact_name):
-    """หา model id จากชื่อที่ตรงเป๊ะ (exact match) กันปัญหาเลือกผิดรุ่นเวลามีหลายเวอร์ชัน
-    เช่น ระบบมีทั้ง gemini-3.7-flash / gemini-3.8-flash / gemini-3.5-flash-lite พร้อมกัน
+def find_model_id(exact_name, api_key=None):
+    """หา model id จากชื่อที่ตรงเป๊ะ (exact match) พร้อม cache เพื่อลด network calls
+    รองรับทั้ง match จาก 'id' (เช่น claude-sonnet-5, gemini-3.7-flash) หรือ 'name' (เช่น Claude, Gemini)
     """
-    models = get_model_list()
-    matches = [m for m in models if m["name"].lower() == exact_name.lower()]
+    cache_key = exact_name.lower()
+    if cache_key in _MODEL_ID_CACHE:
+        return _MODEL_ID_CACHE[cache_key]
+
+    models = get_model_list(api_key=api_key)
+    matches = [
+        m for m in models
+        if str(m.get("id", "")).lower() == exact_name.lower()
+        or str(m.get("name", "")).lower() == exact_name.lower()
+    ]
     if not matches:
-        available = ", ".join(m["name"] for m in models)
+        available = ", ".join(f"{m.get('id')} ({m.get('name')})" for m in models)
         raise ValueError(f"ไม่พบโมเดลชื่อ '{exact_name}' พอดี — โมเดลที่มีอยู่: {available}")
-    return matches[0]["id"], matches[0]["name"]
+    res = (matches[0]["id"], matches[0].get("id") or matches[0].get("name"))
+    _MODEL_ID_CACHE[cache_key] = res
+    return res
 
 
-def call_kku_api(model_id, prompt, max_tokens=4096, temperature=0.2):
+
+def call_kku_api(model_id, prompt, max_tokens=16384, temperature=0.2, api_key=None):
     """เรียก POST /chat/completions (OpenAI-compatible).
 
     คืนค่า text/quota/usage/finish_reason เพื่อให้ Result JSON เก็บหลักฐาน
     ของ generation ได้ครบ และตรวจกรณี output ถูกตัดเพราะ token limit ได้
     """
-    check_api_key()
+    key = check_api_key(api_key)
     resp = requests.post(
         f"{KKU_API_BASE}/chat/completions",
         headers={
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {KKU_API_KEY}",
+            "Authorization": f"Bearer {key}",
         },
         json={
             "model": model_id,
@@ -163,17 +186,31 @@ def call_kku_api(model_id, prompt, max_tokens=4096, temperature=0.2):
             "temperature": temperature,
             "max_tokens": max_tokens,
         },
-        timeout=120,
+        timeout=300,
     )
-    resp.raise_for_status()
-    data = resp.json()
+    if not resp.ok:
+        err_body = resp.text
+        try:
+            err_json = resp.json()
+            if "error" in err_json:
+                err_body = err_json["error"]
+        except Exception:
+            pass
+        raise RuntimeError(f"HTTP {resp.status_code}: {err_body}")
 
-    choice = data["choices"][0]
-    text = choice["message"]["content"]
+    data = resp.json()
+    choices = data.get("choices", [])
+    if not choices:
+        raise RuntimeError(f"API returned no choices: {data}")
+    choice = choices[0]
+    message = choice.get("message", {})
+    text = message.get("content")
     finish_reason = choice.get("finish_reason")
     quota = data.get("model_quota", {})
     usage = data.get("usage", {})
     return text, quota, usage, finish_reason
+
+
 
 
 # ---------- Source code extraction ----------
@@ -220,9 +257,14 @@ def get_source_code(project, bug_id, class_name):
 
 def clean_java_response(text):
     """ตัด markdown fence ที่โมเดลอาจส่งมาแม้ prompt จะสั่งไม่ให้ส่ง"""
+    if not text:
+        return ""
     text = text.strip()
+    if not text:
+        return ""
     m = re.match(r"^```(?:java)?\s*(.*?)\s*```$", text, flags=re.DOTALL | re.IGNORECASE)
     return (m.group(1) if m else text).strip() + "\n"
+
 
 def build_prompt(model, package_name, class_name, source_code, related_classes="(ไม่มีข้อมูลเพิ่มเติม)"):
     template = GEMINI_TEMPLATE if model == "gemini" else CLAUDE_TEMPLATE
@@ -235,7 +277,7 @@ def build_prompt(model, package_name, class_name, source_code, related_classes="
 
 
 def generate_one(project, bug_id, class_name, model, model_name_override, related,
-                 max_tokens=4096, temperature=0.2):
+                 max_tokens=16384, temperature=0.2):
     """Generate test สำหรับ target class เดียวและบันทึก metadata ตาม benchmark schema กลาง.
 
     หมายเหตุ: compile_result = not_run ที่ stage นี้เสมอ เพราะการ compile/buggy-fixed
@@ -279,10 +321,11 @@ def generate_one(project, bug_id, class_name, model, model_name_override, relate
 
     result_text = clean_java_response(result_text)
 
-    # ถ้า API ระบุชัดว่าหยุดเพราะ token limit อย่านับเป็น generation success
-    truncated = str(finish_reason).lower() in {"length", "max_tokens", "max_token"}
+    # ถ้า API ระบุชัดว่าหยุดเพราะ token limit หรือไม่มี content อย่านับเป็น generation success
+    truncated = (str(finish_reason).lower() in {"length", "max_tokens", "max_token"}) or (not result_text.strip())
     generation_status = "failed" if truncated else "success"
     status = generation_status
+
 
     print("[5/5] บันทึกผลลัพธ์")
     test_file = test_dir / f"{simple_class_name}Test.java"
@@ -338,7 +381,108 @@ def generate_one(project, bug_id, class_name, model, model_name_override, relate
     return result_payload
 
 
+def generate_from_frozen(project, bug_id, class_name, source_code, model,
+                         model_name_override=None, related="(ไม่มีข้อมูลเพิ่มเติม)",
+                         max_tokens=16384, temperature=0.2, api_key=None, verbose=True):
+    """Generate test สำหรับ target class เดียวโดยอ่าน source_code จาก Frozen Dataset โดยตรง
+    (ไม่ต้องใช้ Docker checkout หรือ defects4j command)
+    """
+    package_name = ".".join(class_name.split(".")[:-1])
+    simple_class_name = class_name.split(".")[-1]
+    model_folder = "Gemini" if model.lower() == "gemini" else "Claude"
+
+    base = AI_RESULT_DIR / model_folder
+    prompt_dir = base / "Prompt" / project / str(bug_id)
+    result_dir = base / "Result" / project / str(bug_id)
+    test_dir = base / "TestCode" / project / str(bug_id)
+    for d in (prompt_dir, result_dir, test_dir):
+        d.mkdir(parents=True, exist_ok=True)
+
+    if verbose:
+        print(f"[1/4] สร้าง Prompt สำหรับ {model} ({project}-{bug_id} / {class_name})")
+    prompt = build_prompt(model.lower(), package_name, simple_class_name, source_code, related)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    prompt_file = prompt_dir / f"{simple_class_name}_{timestamp}.txt"
+    prompt_file.write_text(prompt, encoding="utf-8")
+
+    if verbose:
+        print("[2/4] ค้นหา model id")
+    search_name = model_name_override or DEFAULT_MODEL_NAME[model.lower()]
+    model_id, actual_model_name = find_model_id(search_name, api_key=api_key)
+    if verbose:
+        print(f"      ใช้โมเดล: {actual_model_name} (id={model_id})")
+
+    if verbose:
+        print("[3/4] เรียก KKU IntelSphere API")
+    api_started = time.perf_counter()
+    result_text, quota, usage, finish_reason = call_kku_api(
+        model_id, prompt, max_tokens=max_tokens, temperature=temperature, api_key=api_key
+    )
+    elapsed_sec = round(time.perf_counter() - api_started, 2)
+
+    result_text = clean_java_response(result_text)
+
+    truncated = (str(finish_reason).lower() in {"length", "max_tokens", "max_token"}) or (not result_text.strip())
+    generation_status = "failed" if truncated else "success"
+    status = generation_status
+
+
+    if verbose:
+        print("[4/4] บันทึกผลลัพธ์")
+    test_file = test_dir / f"{simple_class_name}Test.java"
+    num_test_files_generated = 0
+    if generation_status == "success":
+        test_file.write_text(result_text, encoding="utf-8")
+        num_test_files_generated = 1
+    else:
+        truncated_file = result_dir / f"{simple_class_name}_{timestamp}_truncated.java.txt"
+        truncated_file.write_text(result_text, encoding="utf-8")
+
+    result_log = result_dir / f"{simple_class_name}_{timestamp}.json"
+    result_payload = {
+        "project": project,
+        "bug_id": str(bug_id),
+        "tool": model.lower(),
+        "class": class_name,
+        "target_classes": [class_name],
+        "status": status,
+        "generation_status": generation_status,
+        "compile_result": "not_run",
+        "elapsed_sec": elapsed_sec,
+        "num_test_files_generated": num_test_files_generated,
+        "model_requested": model.lower(),
+        "model_id": model_id,
+        "model_name": actual_model_name,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+        "finish_reason": finish_reason,
+        "prompt_file": str(prompt_file.relative_to(REPO_DIR)),
+        "test_file": (
+            str(test_file.relative_to(REPO_DIR))
+            if num_test_files_generated else None
+        ),
+        "usage": usage,
+        "model_quota": quota,
+        "timestamp": timestamp,
+    }
+    result_log.write_text(
+        json.dumps(result_payload, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+
+    if verbose:
+        if generation_status == "success":
+            print(f"      Test: {test_file}")
+        else:
+            print(f"      [FAILED] output ถูกตัด (finish_reason={finish_reason})")
+        if quota:
+            print(f"      Token: {quota.get('daily_remaining_tokens', '?')}/{quota.get('daily_quota_tokens', '?')}")
+
+    return result_payload
+
+
 def main():
+
     parser = argparse.ArgumentParser(
         description="AI JUnit generation for Defects4J via KKU IntelSphere"
     )
@@ -352,8 +496,8 @@ def main():
     parser.add_argument("--model-name", default=None, help="override default model name")
     parser.add_argument("--related", default="(ไม่มีข้อมูลเพิ่มเติม)")
     parser.add_argument(
-        "--max-tokens", type=int, default=4096,
-        help="output token limit ของ AI (default: 4096; ต้อง freeze ค่าเดียวกันในการทดลองจริง)",
+        "--max-tokens", type=int, default=16384,
+        help="output token limit ของ AI (default: 16384; ต้อง freeze ค่าเดียวกันในการทดลองจริง)",
     )
     parser.add_argument(
         "--temperature", type=float, default=0.2,

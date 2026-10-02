@@ -43,3 +43,6 @@ smoke/
 coverage.json
 evosuite-report/
 kex-test
+
+# JVM crash logs (เกิดจาก Docker/Kex ตอน evaluate — ขยะ ห้าม commit)
+hs_err_pid*.log

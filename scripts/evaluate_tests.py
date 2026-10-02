@@ -749,20 +749,19 @@ def evaluate(project, bug_id, tool, timeout_sec):
             print("COMPILE FAILED")
             print(compile_output[:8000])
 
-            # Preserve non-compilable generated EvoSuite suites as
-            # evaluation results. Do not modify the generated tests.
+            # Preserve non-compilable generated suites as evaluation results.
+            result_dir = (
+                REPO_DIR
+                / "evaluation"
+                / tool
+                / project
+                / str(bug_id)
+            )
+            result_dir.mkdir(parents=True, exist_ok=True)
+
+            generation_status = "unknown"
+
             if tool == "evosuite":
-                result_dir = (
-                    REPO_DIR
-                    / "evaluation"
-                    / tool
-                    / project
-                    / str(bug_id)
-                )
-                result_dir.mkdir(parents=True, exist_ok=True)
-
-                generation_status = "unknown"
-
                 generation_result = (
                     REPO_DIR
                     / "DynaMOSA-EvoSuite"
@@ -770,7 +769,6 @@ def evaluate(project, bug_id, tool, timeout_sec):
                     / project
                     / f"{project}_{bug_id}_result.json"
                 )
-
                 if generation_result.is_file():
                     try:
                         generation_data = json.loads(
@@ -785,52 +783,51 @@ def evaluate(project, bug_id, tool, timeout_sec):
                                 "unknown",
                             )
                         )
-                    except (
-                        OSError,
-                        json.JSONDecodeError,
-                    ):
+                    except (OSError, json.JSONDecodeError):
                         generation_status = "unknown"
+            elif tool in ("gemini", "claude"):
+                generation_status = "success"
 
-                summary = {
-                    "project": project,
-                    "bug_id": str(bug_id),
-                    "tool": tool,
-                    "generated_files": prepared_file_count,
-                    "candidate_tests": len(executable_tests),
-                    "classification_counts": {},
-                    "bug_revealing_tests": 0,
-                    "bug_detected": False,
-                    "generation_status": generation_status,
-                    "evaluation_status": "compile_failed",
-                }
+            summary = {
+                "project": project,
+                "bug_id": str(bug_id),
+                "tool": tool,
+                "generated_files": prepared_file_count,
+                "candidate_tests": len(executable_tests),
+                "classification_counts": {},
+                "bug_revealing_tests": 0,
+                "bug_detected": False,
+                "generation_status": generation_status,
+                "evaluation_status": "compile_failed",
+            }
 
-                json_path = result_dir / "summary.json"
-                json_path.write_text(
-                    json.dumps(
-                        summary,
-                        indent=2,
-                        ensure_ascii=False,
-                    )
-                    + "\n"
+            json_path = result_dir / "summary.json"
+            json_path.write_text(
+                json.dumps(
+                    summary,
+                    indent=2,
+                    ensure_ascii=False,
                 )
+                + "\n"
+            )
 
-                compile_error_path = (
-                    result_dir / "compile_error.txt"
-                )
-                compile_error_path.write_text(
-                    compile_output,
-                    encoding="utf-8",
-                    errors="replace",
-                )
+            compile_error_path = (
+                result_dir / "compile_error.txt"
+            )
+            compile_error_path.write_text(
+                compile_output,
+                encoding="utf-8",
+                errors="replace",
+            )
 
-                print()
-                print(
-                    "Evaluation status : compile_failed"
-                )
-                print(f"JSON : {json_path}")
-                print(
-                    f"Compile error : {compile_error_path}"
-                )
+            print()
+            print(
+                "Evaluation status : compile_failed"
+            )
+            print(f"JSON : {json_path}")
+            print(
+                f"Compile error : {compile_error_path}"
+            )
 
             return 2
 
