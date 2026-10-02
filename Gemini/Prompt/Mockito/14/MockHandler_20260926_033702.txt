@@ -1,0 +1,140 @@
+คุณคือ Java testing expert คุณต้องเขียน JUnit 4 test suite สำหรับคลาสที่ให้มา
+โดยมีเป้าหมายเพื่อให้ได้ code coverage (line/branch) สูงที่สุดเท่าที่เป็นไปได้
+
+ข้อมูล Class ภายใต้การทดสอบ
+Package: org.mockito.internal
+Class name: MockHandler
+Full source code:
+```java
+/*
+ * Copyright (c) 2007 Mockito contributors
+ * This program is made available under the terms of the MIT License.
+ */
+package org.mockito.internal;
+
+import java.util.List;
+
+import org.mockito.internal.creation.MockSettingsImpl;
+import org.mockito.internal.invocation.Invocation;
+import org.mockito.internal.invocation.InvocationMatcher;
+import org.mockito.internal.invocation.MatchersBinder;
+import org.mockito.internal.progress.MockingProgress;
+import org.mockito.internal.progress.ThreadSafeMockingProgress;
+import org.mockito.internal.stubbing.InvocationContainer;
+import org.mockito.internal.stubbing.InvocationContainerImpl;
+import org.mockito.internal.stubbing.OngoingStubbingImpl;
+import org.mockito.internal.stubbing.StubbedInvocationMatcher;
+import org.mockito.internal.stubbing.VoidMethodStubbableImpl;
+import org.mockito.internal.verification.VerificationDataImpl;
+import org.mockito.stubbing.Answer;
+import org.mockito.stubbing.VoidMethodStubbable;
+import org.mockito.verification.VerificationMode;
+
+/**
+ * Invocation handler set on mock objects.
+ * 
+ * @param <T>
+ *            type of mock object to handle
+ */
+public class MockHandler<T> implements MockitoInvocationHandler, MockHandlerInterface<T> {
+
+    private static final long serialVersionUID = -2917871070982574165L;
+
+    InvocationContainerImpl invocationContainerImpl;
+    MatchersBinder matchersBinder = new MatchersBinder();
+    MockingProgress mockingProgress = new ThreadSafeMockingProgress();
+
+    private final MockSettingsImpl mockSettings;
+
+    public MockHandler(MockSettingsImpl mockSettings) {
+        this.mockSettings = mockSettings;
+        this.mockingProgress = new ThreadSafeMockingProgress();
+        this.matchersBinder = new MatchersBinder();
+        this.invocationContainerImpl = new InvocationContainerImpl(mockingProgress);
+    }
+
+    // for tests
+    MockHandler() {
+        this(new MockSettingsImpl());
+    }
+
+    public MockHandler(MockHandlerInterface<T> oldMockHandler) {
+        this(oldMockHandler.getMockSettings());
+    }
+
+    public Object handle(Invocation invocation) throws Throwable {
+        if (invocationContainerImpl.hasAnswersForStubbing()) {
+            // stubbing voids with stubVoid() or doAnswer() style
+            InvocationMatcher invocationMatcher = matchersBinder.bindMatchers(mockingProgress
+                            .getArgumentMatcherStorage(), invocation);
+            invocationContainerImpl.setMethodForStubbing(invocationMatcher);
+            return null;
+        }
+        VerificationMode verificationMode = mockingProgress.pullVerificationMode();
+
+        InvocationMatcher invocationMatcher = matchersBinder.bindMatchers(mockingProgress.getArgumentMatcherStorage(),
+                        invocation);
+
+        mockingProgress.validateState();
+
+        //if verificationMode is not null then someone is doing verify()        
+        if (verificationMode != null) {
+            //We need to check if verification was started on the correct mock 
+            // - see VerifyingWithAnExtraCallToADifferentMockTest
+                VerificationDataImpl data = new VerificationDataImpl(invocationContainerImpl.getInvocations(), invocationMatcher);            
+                verificationMode.verify(data);
+                return null;
+        }
+        
+        invocationContainerImpl.setInvocationForPotentialStubbing(invocationMatcher);
+        OngoingStubbingImpl<T> ongoingStubbing = new OngoingStubbingImpl<T>(invocationContainerImpl);
+        mockingProgress.reportOngoingStubbing(ongoingStubbing);
+
+        StubbedInvocationMatcher stubbedInvocation = invocationContainerImpl.findAnswerFor(invocation);
+
+        if (stubbedInvocation != null) {
+            stubbedInvocation.captureArgumentsFrom(invocation);
+            return stubbedInvocation.answer(invocation);
+        } else {
+            Object ret = mockSettings.getDefaultAnswer().answer(invocation);
+
+            // redo setting invocation for potential stubbing in case of partial
+            // mocks / spies.
+            // Without it, the real method inside 'when' might have delegated
+            // to other self method and overwrite the intended stubbed method
+            // with a different one.
+            invocationContainerImpl.resetInvocationForPotentialStubbing(invocationMatcher);
+            return ret;
+        }
+    }
+
+    public VoidMethodStubbable<T> voidMethodStubbable(T mock) {
+        return new VoidMethodStubbableImpl<T>(mock, invocationContainerImpl);
+    }
+
+    public MockSettingsImpl getMockSettings() {
+        return mockSettings;
+    }
+
+    @SuppressWarnings("unchecked")
+    public void setAnswersForStubbing(List<Answer> answers) {
+        invocationContainerImpl.setAnswersForStubbing(answers);
+    }
+
+    public InvocationContainer getInvocationContainer() {
+        return invocationContainerImpl;
+    }
+}
+```
+Dependencies ที่เกี่ยวข้อง: (ไม่มีข้อมูลเพิ่มเติม)
+
+ข้อกำหนดของ Test Suite
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert)
+2. ครอบคลุม public method ทุกตัวของคลาสนี้อย่างน้อย 1 test case
+3. ต้องมี test case ทั้งกรณี normal input, edge case (เช่น null, 0, ค่าติดลบ, string ว่าง, array ว่าง),
+   และกรณีที่ควร throw exception (ถ้ามี)
+4. ห้ามใช้ mocking framework ใด ๆ ให้ทดสอบผ่าน public API จริงเท่านั้น
+5. แต่ละ test method ต้องมีชื่อสื่อความหมาย (เช่น testMethodName_condition_expectedResult)
+6. ห้ามเขียนคำอธิบายยาว ๆ ให้ตอบกลับเป็นโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ไม่ต้องมี markdown fence หรือคำอธิบายอื่น
+
+ส่งออกเฉพาะโค้ด Java ของไฟล์ test class ชื่อ MockHandlerTest.java เท่านั้น

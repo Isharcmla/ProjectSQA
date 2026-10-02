@@ -1,0 +1,133 @@
+คุณคือ Java testing expert คุณต้องเขียน JUnit 4 test suite สำหรับคลาสที่ให้มา
+โดยมีเป้าหมายเพื่อให้ได้ code coverage (line/branch) สูงที่สุดเท่าที่เป็นไปได้
+
+ข้อมูล Class ภายใต้การทดสอบ
+Package: org.mockito.internal.invocation
+Class name: InvocationMatcher
+Full source code:
+```java
+/*
+ * Copyright (c) 2007 Mockito contributors
+ * This program is made available under the terms of the MIT License.
+ */
+package org.mockito.internal.invocation;
+
+import java.io.Serializable;
+import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.List;
+
+import org.hamcrest.Matcher;
+import org.mockito.exceptions.PrintableInvocation;
+import org.mockito.internal.debugging.Location;
+import org.mockito.internal.matchers.CapturesArguments;
+import org.mockito.internal.reporting.PrintSettings;
+import org.mockito.internal.reporting.PrintingFriendlyInvocation;
+
+@SuppressWarnings("unchecked")
+public class InvocationMatcher implements PrintableInvocation, PrintingFriendlyInvocation, CapturesArgumensFromInvocation, Serializable {
+
+    private static final long serialVersionUID = -3047126096857467610L;
+    private final Invocation invocation;
+    private final List<Matcher> matchers;
+
+    public InvocationMatcher(Invocation invocation, List<Matcher> matchers) {
+        this.invocation = invocation;
+        if (matchers.isEmpty()) {
+            this.matchers = invocation.argumentsToMatchers();
+        } else {
+            this.matchers = matchers;
+        }
+    }
+    
+    public InvocationMatcher(Invocation invocation) {
+        this(invocation, Collections.<Matcher>emptyList());
+    }
+
+    public Method getMethod() {
+        return invocation.getMethod();
+    }
+    
+    public Invocation getInvocation() {
+        return this.invocation;
+    }
+    
+    public List<Matcher> getMatchers() {
+        return this.matchers;
+    }
+    
+    public String toString() {
+        return invocation.toString(matchers, new PrintSettings());
+    }
+
+    public boolean matches(Invocation actual) {
+        return invocation.getMock().equals(actual.getMock())
+                && hasSameMethod(actual)
+                && new ArgumentsComparator().argumentsMatch(this, actual);
+    }
+
+    private boolean safelyArgumentsMatch(Object[] actualArgs) {
+        try {
+            return new ArgumentsComparator().argumentsMatch(this, actualArgs);
+        } catch (Throwable t) {
+            return false;
+        }
+    }
+
+    /**
+     * similar means the same method name, same mock, unverified 
+     * and: if arguments are the same cannot be overloaded
+     */
+    public boolean hasSimilarMethod(Invocation candidate) {
+        String wantedMethodName = getMethod().getName();
+        String currentMethodName = candidate.getMethod().getName();
+        
+        final boolean methodNameEquals = wantedMethodName.equals(currentMethodName);
+        final boolean isUnverified = !candidate.isVerified();
+        final boolean mockIsTheSame = getInvocation().getMock() == candidate.getMock();
+        final boolean methodEquals = hasSameMethod(candidate);
+
+        if (!methodNameEquals || !isUnverified || !mockIsTheSame) {
+            return false;
+        }
+
+        final boolean overloadedButSameArgs = !methodEquals && safelyArgumentsMatch(candidate.getArguments());
+
+        return !overloadedButSameArgs;
+    }
+
+    public boolean hasSameMethod(Invocation candidate) {
+        return invocation.getMethod().equals(candidate.getMethod());
+    }
+    
+    public Location getLocation() {
+        return invocation.getLocation();
+    }
+
+    public String toString(PrintSettings printSettings) {
+        return invocation.toString(matchers, printSettings);
+    }
+
+    public void captureArgumentsFrom(Invocation i) {
+        int k = 0;
+        for (Matcher m : matchers) {
+            if (m instanceof CapturesArguments) {
+                ((CapturesArguments) m).captureFrom(i.getArguments()[k]);
+            }
+            k++;
+        }
+    }
+}
+```
+Dependencies ที่เกี่ยวข้อง: (ไม่มีข้อมูลเพิ่มเติม)
+
+ข้อกำหนดของ Test Suite
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert)
+2. ครอบคลุม public method ทุกตัวของคลาสนี้อย่างน้อย 1 test case
+3. ต้องมี test case ทั้งกรณี normal input, edge case (เช่น null, 0, ค่าติดลบ, string ว่าง, array ว่าง),
+   และกรณีที่ควร throw exception (ถ้ามี)
+4. ห้ามใช้ mocking framework ใด ๆ ให้ทดสอบผ่าน public API จริงเท่านั้น
+5. แต่ละ test method ต้องมีชื่อสื่อความหมาย (เช่น testMethodName_condition_expectedResult)
+6. ห้ามเขียนคำอธิบายยาว ๆ ให้ตอบกลับเป็นโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ไม่ต้องมี markdown fence หรือคำอธิบายอื่น
+
+ส่งออกเฉพาะโค้ด Java ของไฟล์ test class ชื่อ InvocationMatcherTest.java เท่านั้น

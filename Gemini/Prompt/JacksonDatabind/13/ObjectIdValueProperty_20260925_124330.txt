@@ -1,0 +1,140 @@
+คุณคือ Java testing expert คุณต้องเขียน JUnit 4 test suite สำหรับคลาสที่ให้มา
+โดยมีเป้าหมายเพื่อให้ได้ code coverage (line/branch) สูงที่สุดเท่าที่เป็นไปได้
+
+ข้อมูล Class ภายใต้การทดสอบ
+Package: com.fasterxml.jackson.databind.deser.impl
+Class name: ObjectIdValueProperty
+Full source code:
+```java
+package com.fasterxml.jackson.databind.deser.impl;
+
+import java.io.IOException;
+import java.lang.annotation.Annotation;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.deser.*;
+import com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+
+/**
+ * Specialized {@link SettableBeanProperty} implementation used
+ * for virtual property that represents Object Id that is used
+ * for some POJO types (or properties).
+ */
+public final class ObjectIdValueProperty
+    extends SettableBeanProperty
+{
+    private static final long serialVersionUID = 1L;
+
+    protected final ObjectIdReader _objectIdReader;
+
+    public ObjectIdValueProperty(ObjectIdReader objectIdReader,
+            PropertyMetadata metadata)
+    {
+        super(objectIdReader.propertyName, objectIdReader.getIdType(), metadata,
+                objectIdReader.getDeserializer());
+        _objectIdReader = objectIdReader;
+    }
+
+    protected ObjectIdValueProperty(ObjectIdValueProperty src, JsonDeserializer<?> deser)
+    {
+        super(src, deser);
+        _objectIdReader = src._objectIdReader;
+    }
+
+    @Deprecated // since 2.3
+    protected ObjectIdValueProperty(ObjectIdValueProperty src, PropertyName newName) {
+        super(src, newName);
+        _objectIdReader = src._objectIdReader;
+    }
+    
+    @Deprecated // since 2.3
+    protected ObjectIdValueProperty(ObjectIdValueProperty src, String newName) {
+        this(src, new PropertyName(newName));
+    }
+
+    @Override
+    public ObjectIdValueProperty withName(PropertyName newName) {
+        return new ObjectIdValueProperty(this, newName);
+    }
+
+    @Override
+    public ObjectIdValueProperty withValueDeserializer(JsonDeserializer<?> deser) {
+        return new ObjectIdValueProperty(this, deser);
+    }
+    
+    // // // BeanProperty impl
+    
+    @Override
+    public <A extends Annotation> A getAnnotation(Class<A> acls) {
+        return null;
+    }
+
+    @Override public AnnotatedMember getMember() {  return null; }
+
+    /*
+    /**********************************************************
+    /* Deserialization methods
+    /**********************************************************
+     */
+
+    @Override
+    public void deserializeAndSet(JsonParser jp, DeserializationContext ctxt,
+            Object instance) throws IOException
+    {
+        deserializeSetAndReturn(jp, ctxt, instance);
+    }
+
+    @Override
+    public Object deserializeSetAndReturn(JsonParser jp,
+    		DeserializationContext ctxt, Object instance) throws IOException
+    {
+        // note: no null checks (unlike usually); deserializer should fail if one found
+        Object id = _valueDeserializer.deserialize(jp, ctxt);
+
+        /* 02-Apr-2015, tatu: Actually, as per [databind#742], let it be;
+         *  missing or null id is needed for some cases, such as cases where id
+         *  will be generated externally, at a later point, and is not available
+         *  quite yet. Typical use case is with DB inserts.
+         */
+        
+        ReadableObjectId roid = ctxt.findObjectId(id, _objectIdReader.generator, _objectIdReader.resolver);
+        roid.bindItem(instance);
+        // also: may need to set a property value as well
+        SettableBeanProperty idProp = _objectIdReader.idProperty;
+        if (idProp != null) {
+            return idProp.setAndReturn(instance, id);
+        }
+        return instance;
+    }
+
+    @Override
+    public void set(Object instance, Object value) throws IOException {
+        setAndReturn(instance, value);
+    }
+
+    @Override
+    public Object setAndReturn(Object instance, Object value) throws IOException
+    {
+        SettableBeanProperty idProp = _objectIdReader.idProperty;
+        if (idProp == null) {
+            throw new UnsupportedOperationException(
+                    "Should not call set() on ObjectIdProperty that has no SettableBeanProperty");
+        }
+        return idProp.setAndReturn(instance, value);
+    }
+}
+
+```
+Dependencies ที่เกี่ยวข้อง: (ไม่มีข้อมูลเพิ่มเติม)
+
+ข้อกำหนดของ Test Suite
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert)
+2. ครอบคลุม public method ทุกตัวของคลาสนี้อย่างน้อย 1 test case
+3. ต้องมี test case ทั้งกรณี normal input, edge case (เช่น null, 0, ค่าติดลบ, string ว่าง, array ว่าง),
+   และกรณีที่ควร throw exception (ถ้ามี)
+4. ห้ามใช้ mocking framework ใด ๆ ให้ทดสอบผ่าน public API จริงเท่านั้น
+5. แต่ละ test method ต้องมีชื่อสื่อความหมาย (เช่น testMethodName_condition_expectedResult)
+6. ห้ามเขียนคำอธิบายยาว ๆ ให้ตอบกลับเป็นโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ไม่ต้องมี markdown fence หรือคำอธิบายอื่น
+
+ส่งออกเฉพาะโค้ด Java ของไฟล์ test class ชื่อ ObjectIdValuePropertyTest.java เท่านั้น

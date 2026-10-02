@@ -1,0 +1,138 @@
+คุณคือ Java testing expert คุณต้องเขียน JUnit 4 test suite สำหรับคลาสที่ให้มา
+โดยมีเป้าหมายเพื่อให้ได้ code coverage (line/branch) สูงที่สุดเท่าที่เป็นไปได้
+
+ข้อมูล Class ภายใต้การทดสอบ
+Package: com.fasterxml.jackson.databind.introspect
+Class name: AnnotationMap
+Full source code:
+```java
+package com.fasterxml.jackson.databind.introspect;
+
+import java.lang.annotation.Annotation;
+import java.util.*;
+
+import com.fasterxml.jackson.databind.util.Annotations;
+
+/**
+ * Simple helper class used to keep track of collection of
+ * Jackson Annotations associated with annotatable things
+ * (methods, constructors, classes).
+ * Note that only Jackson-owned annotations are tracked (for now?).
+ */
+public final class AnnotationMap implements Annotations
+{
+    protected HashMap<Class<? extends Annotation>,Annotation> _annotations;
+
+    public AnnotationMap() { }
+    
+    private AnnotationMap(HashMap<Class<? extends Annotation>,Annotation> a) {
+        _annotations = a;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public <A extends Annotation> A get(Class<A> cls)
+    {
+        if (_annotations == null) {
+            return null;
+        }
+        return (A) _annotations.get(cls);
+    }
+
+    /**
+     * @since 2.3
+     */
+    public Iterable<Annotation> annotations() {
+        if (_annotations == null || _annotations.size() == 0) {
+            return Collections.emptyList();
+        }
+        return _annotations.values();
+    }
+    
+    public static AnnotationMap merge(AnnotationMap primary, AnnotationMap secondary)
+    {
+        if (primary == null || primary._annotations == null || primary._annotations.isEmpty()) {
+            return secondary;
+        }
+        if (secondary == null || secondary._annotations == null || secondary._annotations.isEmpty()) {
+            return primary;
+        }
+        HashMap<Class<? extends Annotation>,Annotation> annotations
+            = new HashMap<Class<? extends Annotation>,Annotation>();
+        // add secondary ones first
+        for (Annotation ann : secondary._annotations.values()) {
+            annotations.put(ann.annotationType(), ann);
+        }
+        // to be overridden by primary ones
+        for (Annotation ann : primary._annotations.values()) {
+            annotations.put(ann.annotationType(), ann);
+        }
+        return new AnnotationMap(annotations);
+    }
+    
+    @Override
+    public int size() {
+        return (_annotations == null) ? 0 : _annotations.size();
+    }
+
+    /**
+     * Method called to add specified annotation in the Map, but
+     * only if it didn't yet exist.
+     */
+    public boolean addIfNotPresent(Annotation ann)
+    {
+        if (_annotations == null || !_annotations.containsKey(ann.annotationType())) {
+            _add(ann);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Method called to add specified annotation in the Map.
+     * 
+     * @return True if the addition changed the contents, that is, this map did not
+     *   already have specified annotation
+     */
+    public boolean add(Annotation ann) {
+        return _add(ann);
+    }
+
+    @Override
+    public String toString() {
+        if (_annotations == null) {
+            return "[null]";
+        }
+        return _annotations.toString();
+    }
+
+    /*
+    /**********************************************************
+    /* Helper methods
+    /**********************************************************
+     */
+
+    protected final boolean _add(Annotation ann) {
+        if (_annotations == null) {
+            _annotations = new HashMap<Class<? extends Annotation>,Annotation>();
+        }
+        Annotation previous = _annotations.put(ann.annotationType(), ann);
+        return (previous != null) && previous.equals(ann);
+    }
+}
+
+
+
+```
+Dependencies ที่เกี่ยวข้อง: (ไม่มีข้อมูลเพิ่มเติม)
+
+ข้อกำหนดของ Test Suite
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert)
+2. ครอบคลุม public method ทุกตัวของคลาสนี้อย่างน้อย 1 test case
+3. ต้องมี test case ทั้งกรณี normal input, edge case (เช่น null, 0, ค่าติดลบ, string ว่าง, array ว่าง),
+   และกรณีที่ควร throw exception (ถ้ามี)
+4. ห้ามใช้ mocking framework ใด ๆ ให้ทดสอบผ่าน public API จริงเท่านั้น
+5. แต่ละ test method ต้องมีชื่อสื่อความหมาย (เช่น testMethodName_condition_expectedResult)
+6. ห้ามเขียนคำอธิบายยาว ๆ ให้ตอบกลับเป็นโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ไม่ต้องมี markdown fence หรือคำอธิบายอื่น
+
+ส่งออกเฉพาะโค้ด Java ของไฟล์ test class ชื่อ AnnotationMapTest.java เท่านั้น

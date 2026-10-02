@@ -1,0 +1,101 @@
+คุณคือ Java testing expert คุณต้องเขียน JUnit 4 test suite สำหรับคลาสที่ให้มา
+โดยมีเป้าหมายเพื่อให้ได้ code coverage (line/branch) สูงที่สุดเท่าที่เป็นไปได้
+
+ข้อมูล Class ภายใต้การทดสอบ
+Package: org.mockito.internal.creation
+Class name: MockSettingsImpl
+Full source code:
+```java
+/*
+ * Copyright (c) 2007 Mockito contributors
+ * This program is made available under the terms of the MIT License.
+ */
+package org.mockito.internal.creation;
+
+import org.mockito.MockSettings;
+import org.mockito.exceptions.Reporter;
+import org.mockito.internal.util.MockName;
+import org.mockito.stubbing.Answer;
+
+public class MockSettingsImpl implements MockSettings {
+
+    private static final long serialVersionUID = 4475297236197939568L;
+    private Class<?>[] extraInterfaces;
+    private String name;
+    private Object spiedInstance;
+    private Answer<Object> defaultAnswer;
+    private MockName mockName;
+
+    public MockSettings serializable() {
+        return this.extraInterfaces(java.io.Serializable.class);
+    }
+
+    public MockSettings extraInterfaces(Class<?>... extraInterfaces) {
+        if (extraInterfaces == null || extraInterfaces.length == 0) {
+            new Reporter().extraInterfacesRequiresAtLeastOneInterface();
+        }
+            
+        for (Class<?> i : extraInterfaces) {
+            if (i == null) {
+                new Reporter().extraInterfacesDoesNotAcceptNullParameters();
+            } else if (!i.isInterface()) {
+                new Reporter().extraInterfacesAcceptsOnlyInterfaces(i);
+            }
+        }
+        this.extraInterfaces = extraInterfaces;
+        return this;
+    }
+
+    public MockName getMockName() {
+        return mockName;
+    }
+
+    public Class<?>[] getExtraInterfaces() {
+        return extraInterfaces;
+    }
+
+    public Object getSpiedInstance() {
+        return spiedInstance;
+    }
+
+    public MockSettings name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public MockSettings spiedInstance(Object spiedInstance) {
+        this.spiedInstance = spiedInstance;
+        return this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public MockSettings defaultAnswer(Answer defaultAnswer) {
+        this.defaultAnswer = defaultAnswer;
+        return this;
+    }
+
+    public Answer<Object> getDefaultAnswer() {
+        return defaultAnswer;
+    }
+
+    public boolean isSerializable() {
+        return extraInterfaces != null && java.util.Arrays.asList(extraInterfaces).contains(java.io.Serializable.class);
+    }
+
+    public void initiateMockName(Class classToMock) {
+        mockName = new MockName(name, classToMock);
+    }
+}
+```
+Dependencies ที่เกี่ยวข้อง: (ไม่มีข้อมูลเพิ่มเติม)
+
+ข้อกำหนดของ Test Suite
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert)
+2. ครอบคลุม public method ทุกตัวของคลาสนี้อย่างน้อย 1 test case
+3. ต้องมี test case ทั้งกรณี normal input, edge case (เช่น null, 0, ค่าติดลบ, string ว่าง, array ว่าง),
+   และกรณีที่ควร throw exception (ถ้ามี)
+4. ห้ามใช้ mocking framework ใด ๆ ให้ทดสอบผ่าน public API จริงเท่านั้น
+5. แต่ละ test method ต้องมีชื่อสื่อความหมาย (เช่น testMethodName_condition_expectedResult)
+6. ห้ามเขียนคำอธิบายยาว ๆ ให้ตอบกลับเป็นโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ไม่ต้องมี markdown fence หรือคำอธิบายอื่น
+
+ส่งออกเฉพาะโค้ด Java ของไฟล์ test class ชื่อ MockSettingsImplTest.java เท่านั้น

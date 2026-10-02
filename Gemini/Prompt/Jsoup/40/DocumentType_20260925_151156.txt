@@ -1,0 +1,70 @@
+คุณคือ Java testing expert คุณต้องเขียน JUnit 4 test suite สำหรับคลาสที่ให้มา
+โดยมีเป้าหมายเพื่อให้ได้ code coverage (line/branch) สูงที่สุดเท่าที่เป็นไปได้
+
+ข้อมูล Class ภายใต้การทดสอบ
+Package: org.jsoup.nodes
+Class name: DocumentType
+Full source code:
+```java
+package org.jsoup.nodes;
+
+import org.jsoup.helper.StringUtil;
+import org.jsoup.helper.Validate;
+
+/**
+ * A {@code <!DOCTYPE>} node.
+ */
+public class DocumentType extends Node {
+    // todo: quirk mode from publicId and systemId
+
+    /**
+     * Create a new doctype element.
+     * @param name the doctype's name
+     * @param publicId the doctype's public ID
+     * @param systemId the doctype's system ID
+     * @param baseUri the doctype's base URI
+     */
+    public DocumentType(String name, String publicId, String systemId, String baseUri) {
+        super(baseUri);
+
+        Validate.notEmpty(name);
+        attr("name", name);
+        attr("publicId", publicId);
+        attr("systemId", systemId);
+    }
+
+    @Override
+    public String nodeName() {
+        return "#doctype";
+    }
+
+    @Override
+    void outerHtmlHead(StringBuilder accum, int depth, Document.OutputSettings out) {
+        accum.append("<!DOCTYPE");
+        if (!StringUtil.isBlank(attr("name")))
+            accum.append(" ").append(attr("name"));
+        if (!StringUtil.isBlank(attr("publicId")))
+            accum.append(" PUBLIC \"").append(attr("publicId")).append('"');
+        if (!StringUtil.isBlank(attr("systemId")))
+            accum.append(" \"").append(attr("systemId")).append('"');
+        accum.append('>');
+    }
+
+    @Override
+    void outerHtmlTail(StringBuilder accum, int depth, Document.OutputSettings out) {
+    }
+}
+
+```
+Dependencies ที่เกี่ยวข้อง: (ไม่มีข้อมูลเพิ่มเติม)
+
+ข้อกำหนดของ Test Suite
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert)
+2. ครอบคลุม public method ทุกตัวของคลาสนี้อย่างน้อย 1 test case
+3. ต้องมี test case ทั้งกรณี normal input, edge case (เช่น null, 0, ค่าติดลบ, string ว่าง, array ว่าง),
+   และกรณีที่ควร throw exception (ถ้ามี)
+4. ห้ามใช้ mocking framework ใด ๆ ให้ทดสอบผ่าน public API จริงเท่านั้น
+5. แต่ละ test method ต้องมีชื่อสื่อความหมาย (เช่น testMethodName_condition_expectedResult)
+6. ห้ามเขียนคำอธิบายยาว ๆ ให้ตอบกลับเป็นโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ไม่ต้องมี markdown fence หรือคำอธิบายอื่น
+
+ส่งออกเฉพาะโค้ด Java ของไฟล์ test class ชื่อ DocumentTypeTest.java เท่านั้น
