@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "40",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 1096,
+  "lines_covered": 1075,
+  "conditions_total": 997,
+  "conditions_covered": 975,
+  "line_coverage": 98.1,
+  "condition_coverage": 97.8,
+  "has_failing_tests": true,
+  "failing_test_count": 2,
+  "raw_failing_test_count": 2,
+  "helper_failure_count": 0
+}

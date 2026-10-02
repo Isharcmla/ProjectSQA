@@ -1,0 +1,17 @@
+{
+  "project": "Collections",
+  "bug_id": "19",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 109,
+  "lines_covered": 98,
+  "conditions_total": 38,
+  "conditions_covered": 38,
+  "line_coverage": 89.9,
+  "condition_coverage": 100.0,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

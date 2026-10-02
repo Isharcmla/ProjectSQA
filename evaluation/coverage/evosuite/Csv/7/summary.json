@@ -1,0 +1,17 @@
+{
+  "project": "Csv",
+  "bug_id": "7",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 101,
+  "lines_covered": 86,
+  "conditions_total": 50,
+  "conditions_covered": 40,
+  "line_coverage": 85.1,
+  "condition_coverage": 80.0,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

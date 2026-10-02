@@ -1,0 +1,14 @@
+{
+  "project": "Chart",
+  "bug_id": "11",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 197,
+  "lines_covered": 186,
+  "conditions_total": 116,
+  "conditions_covered": 111,
+  "line_coverage": 94.4,
+  "condition_coverage": 95.7,
+  "has_failing_tests": false
+}

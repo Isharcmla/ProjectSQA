@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_evosuite_JacksonCore_9_wy18a38f/checkout/failing_tests)!
+       Lines total: 3116
+     Lines covered: 1265
+  Conditions total: 2257
+Conditions covered: 800
+     Line coverage: 40.6%
+Condition coverage: 35.4%

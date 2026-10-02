@@ -1,0 +1,7 @@
+{
+  "project": "Gson",
+  "bug_id": "18",
+  "tool": "evosuite",
+  "status": "coverage_failed",
+  "prepared_files": 2
+}

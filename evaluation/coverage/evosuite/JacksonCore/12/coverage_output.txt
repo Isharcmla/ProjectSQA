@@ -1,0 +1,11 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+       Lines total: 3187
+     Lines covered: 1432
+  Conditions total: 2258
+Conditions covered: 918
+     Line coverage: 44.9%
+Condition coverage: 40.7%

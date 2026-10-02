@@ -1,0 +1,17 @@
+{
+  "project": "Codec",
+  "bug_id": "2",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 214,
+  "lines_covered": 171,
+  "conditions_total": 146,
+  "conditions_covered": 111,
+  "line_coverage": 79.9,
+  "condition_coverage": 76.0,
+  "has_failing_tests": true,
+  "failing_test_count": 26,
+  "raw_failing_test_count": 26,
+  "helper_failure_count": 0
+}

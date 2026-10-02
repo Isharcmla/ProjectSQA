@@ -1,0 +1,17 @@
+{
+  "project": "Jsoup",
+  "bug_id": "3",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 6,
+  "lines_total": 593,
+  "lines_covered": 540,
+  "conditions_total": 294,
+  "conditions_covered": 249,
+  "line_coverage": 91.1,
+  "condition_coverage": 84.7,
+  "has_failing_tests": true,
+  "failing_test_count": 2,
+  "raw_failing_test_count": 2,
+  "helper_failure_count": 0
+}

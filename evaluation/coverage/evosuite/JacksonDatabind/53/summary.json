@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "53",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 4,
+  "lines_total": 505,
+  "lines_covered": 471,
+  "conditions_total": 346,
+  "conditions_covered": 289,
+  "line_coverage": 93.3,
+  "condition_coverage": 83.5,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

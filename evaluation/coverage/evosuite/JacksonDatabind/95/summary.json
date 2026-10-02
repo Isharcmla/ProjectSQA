@@ -1,0 +1,7 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "95",
+  "tool": "evosuite",
+  "status": "coverage_failed",
+  "prepared_files": 4
+}

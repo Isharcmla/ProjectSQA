@@ -1,0 +1,17 @@
+{
+  "project": "Gson",
+  "bug_id": "2",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 446,
+  "lines_covered": 299,
+  "conditions_total": 188,
+  "conditions_covered": 111,
+  "line_coverage": 67.0,
+  "condition_coverage": 59.0,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

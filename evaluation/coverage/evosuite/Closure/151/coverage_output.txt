@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_evosuite_Closure_151_8z76f1n3/checkout/failing_tests)!
+       Lines total: 184
+     Lines covered: 142
+  Conditions total: 34
+Conditions covered: 16
+     Line coverage: 77.2%
+Condition coverage: 47.1%

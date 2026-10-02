@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "63",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 518,
+  "lines_covered": 510,
+  "conditions_total": 441,
+  "conditions_covered": 431,
+  "line_coverage": 98.5,
+  "condition_coverage": 97.7,
+  "has_failing_tests": true,
+  "failing_test_count": 1,
+  "raw_failing_test_count": 1,
+  "helper_failure_count": 0
+}

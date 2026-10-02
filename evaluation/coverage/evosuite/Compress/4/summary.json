@@ -1,0 +1,17 @@
+{
+  "project": "Compress",
+  "bug_id": "4",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 8,
+  "lines_total": 616,
+  "lines_covered": 296,
+  "conditions_total": 253,
+  "conditions_covered": 106,
+  "line_coverage": 48.1,
+  "condition_coverage": 41.9,
+  "has_failing_tests": true,
+  "failing_test_count": 1,
+  "raw_failing_test_count": 1,
+  "helper_failure_count": 0
+}

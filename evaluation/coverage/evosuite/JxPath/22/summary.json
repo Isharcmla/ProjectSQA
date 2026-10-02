@@ -1,0 +1,17 @@
+{
+  "project": "JxPath",
+  "bug_id": "22",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 354,
+  "lines_covered": 209,
+  "conditions_total": 274,
+  "conditions_covered": 137,
+  "line_coverage": 59.0,
+  "condition_coverage": 50.0,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

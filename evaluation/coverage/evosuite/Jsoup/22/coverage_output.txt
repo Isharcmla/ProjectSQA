@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_evosuite_Jsoup_22_6_p23n4s/checkout/failing_tests)!
+       Lines total: 667
+     Lines covered: 635
+  Conditions total: 272
+Conditions covered: 261
+     Line coverage: 95.2%
+Condition coverage: 96.0%

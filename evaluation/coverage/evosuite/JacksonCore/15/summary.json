@@ -1,0 +1,17 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "15",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 373,
+  "lines_covered": 234,
+  "conditions_total": 251,
+  "conditions_covered": 136,
+  "line_coverage": 62.7,
+  "condition_coverage": 54.2,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

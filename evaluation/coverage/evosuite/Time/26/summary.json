@@ -1,0 +1,17 @@
+{
+  "project": "Time",
+  "bug_id": "26",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 4,
+  "lines_total": 567,
+  "lines_covered": 355,
+  "conditions_total": 240,
+  "conditions_covered": 127,
+  "line_coverage": 62.6,
+  "condition_coverage": 52.9,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

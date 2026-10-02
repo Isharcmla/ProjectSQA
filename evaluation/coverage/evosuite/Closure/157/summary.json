@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "157",
+  "tool": "evosuite",
+  "status": "success",
+  "prepared_files": 4,
+  "lines_total": 1325,
+  "lines_covered": 294,
+  "conditions_total": 862,
+  "conditions_covered": 120,
+  "line_coverage": 22.2,
+  "condition_coverage": 13.9,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}
