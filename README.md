@@ -57,57 +57,69 @@
 
 ## 📂 โครงสร้าง Repository (Directory Structure)
 
-```
+โครงสร้างหลักของ repository ปัจจุบันแบ่งตามเครื่องมือสร้าง Test Case, evaluation pipeline และ infrastructure ดังนี้:
+
+```text
 ProjectSQA/
-├── README.md                          # เอกสารหลักแนะนำโปรเจกต์และข้อกำหนด
-├── BENCHMARK_PROTOCOL_v2.md           # Protocol กลางสำหรับ benchmark
-├── TEAM_WORKFLOW_GUIDE.md             # คู่มือขั้นตอนการทำงานรายบุคคล
-├── Report_Round1_Draft.md             # รายงานการส่งมอบรอบที่ 1
-├── dataset/                            # Metadata / benchmark dataset ที่สกัดจาก Defects4J
+├── README.md
+├── BENCHMARK_PROTOCOL_v2.md
+├── TEAM_WORKFLOW_GUIDE.md
+├── Project_Handover_Context.md
+├── dataset/
+│   ├── README.md
 │   └── defects4j/
-│       └── Lang_metadata.csv           # Metadata ของ Lang active bugs (61 bugs)
-├── progress.json                      # สถานะการรันระดับ Project-Bug-Technique (Resume State; generated/local)
-├── results/                           # ผลลัพธ์การทดลอง
-│   ├── benchmark_results.csv          # ตารางสรุปผลรวมทั้งหมด
-│   └── <Project>/<Bug_ID>/            # ผลลัพธ์ละเอียดรายบั๊ก (.json)
-├── scripts/                           # สคริปต์ระบบอัตโนมัติ
-│   ├── d4j_meta.py                    # ดึง Metadata จาก Defects4J CLI
-│   ├── run_benchmark.py               # Universal Benchmark Runner (Sample & All-Bugs)
-│   └── ai_generate.py                 # สคริปต์ยิง Gemini/Claude API
-├── target_benchmark/                  # Ground Truth ของ target classes
-│   ├── catalog_17_projects.json       # สารบัญ Machine-Readable ให้ทั้ง 4 สาย
-│   └── <Project>_<BugID>b/            # โฟลเดอร์ของแต่ละบั๊ก
-├── docker/                            # สภาพแวดล้อมมาตรฐานสำหรับรัน Defects4J
-│   ├── Dockerfile                     # Multi-JDK (8/11/17; Java 11 default) + EvoSuite + Kex + Python
-│   ├── docker-compose.yml
-│   └── README_DOCKER.md
-├── DynaMOSA-EvoSuite/                 # Algorithm 1: DynaMOSA (ผ่าน EvoSuite)
+├── DynaMOSA-EvoSuite/
+│   ├── README.md
 │   ├── Code/
-│   ├── Configuration/                 # Search Budget config
+│   ├── Configuration/
+│   ├── Generation_Audit/
 │   ├── Result_Round1/
 │   ├── Result_Round2/
-│   └── TestCode/                      # ไฟล์ JUnit 4 (*_ESTest.java)
-├── Reanimator-Kex/                    # Algorithm 2: Reanimator (ผ่าน Kex)
+│   └── TestCode/
+├── Reanimator-Kex/
+│   ├── README.md
 │   ├── Code/
-│   ├── Configuration/                 # SMT solver config
+│   ├── Configuration/
 │   ├── Result_Round1/
 │   ├── Result_Round2/
-│   └── TestCode/                      # ไฟล์ JUnit 4 (*_ReanimatorTest.java)
-├── Gemini/                            # AI Tool 1: Gemini
+│   └── TestCode/
+├── Gemini/
+│   ├── README.md
 │   ├── Prompt/
-│   ├── Result/                        # Token usage & generation time
-│   └── TestCode/                      # ไฟล์ JUnit 4 (*_GeminiTest.java)
-└── Claude/                            # AI Tool 2: Claude
-    ├── Prompt/
-    ├── Result/
-    └── TestCode/                      # ไฟล์ JUnit 4 (*_ClaudeTest.java)
+│   ├── Result/
+│   └── TestCode/
+├── Claude/
+│   ├── README.md
+│   ├── Prompt/
+│   ├── Result/
+│   └── TestCode/
+├── evaluation/
+│   ├── README.md
+│   └── coverage/
+│       ├── README.md
+│       ├── evosuite/
+│       └── kex/
+├── scripts/
+│   ├── README.md
+│   ├── ai_generate.py
+│   ├── evaluate_coverage.py
+│   ├── evaluate_tests.py
+│   ├── extract_catalog.py
+│   ├── run_benchmark.py
+│   └── run_coverage_benchmark.py
+└── docker/
+    ├── README.md
+    ├── Dockerfile
+    └── docker-compose.yml
 ```
+
+รายละเอียดของแต่ละส่วนถูกแยกไว้ใน `README.md` ภายในโฟลเดอร์นั้น เพื่อให้ README หลักใช้เป็นภาพรวมของโครงการ
 
 ---
 
 ## 🛠️ ขั้นตอนการรันเพื่อทำซ้ำผลลัพธ์ (Steps to Reproduce)
 
-### 1. เปิดใช้งาน Docker Environment (Multi-JDK & Dependencies Ready)
+### 1. เปิดใช้งาน Docker Environment
 
 ```bash
 git clone https://github.com/Isharcmla/ProjectSQA.git
@@ -117,20 +129,118 @@ docker compose -f docker/docker-compose.yml up -d --build sqa_kex
 docker compose -f docker/docker-compose.yml exec sqa_kex bash
 ```
 
-### 2. การสั่งรัน Benchmark ผ่าน Universal Runner
+ภายใน container repository อยู่ที่:
 
-> **สถานะ:** คำสั่งด้านล่างเป็น interface เป้าหมายของ Universal Runner และต้องผ่านการตรวจ End-to-End กับ `Lang 1b` ก่อนจึงค่อยใช้ `--sample-17` หรือ `--all-bugs`
+```text
+/workspace
+```
+
+จึงสามารถเริ่มจาก:
 
 ```bash
-# ทดสอบเดี่ยวเฉพาะบั๊กเป้าหมาย (เช่น Lang Bug 1)
+cd /workspace
+```
+
+รายละเอียดเพิ่มเติมดูที่ [`docker/README.md`](./docker/README.md)
+
+### 2. Test Generation Benchmark
+
+#### Reanimator / KEX
+
+รันบั๊กเดียว:
+
+```bash
 python3 scripts/run_benchmark.py --project Lang --bug 1 --tool kex
+```
 
-# รันประเมินผลกลุ่มตัวแทน 17 Projects
+รัน Sample Benchmark:
+
+```bash
 python3 scripts/run_benchmark.py --sample-17 --tool kex
+```
 
-# รันโหมด Exhaustive (ทุกบั๊กใน Defects4J) พร้อม resume อัตโนมัติ
+รันทุก active bug พร้อม Resume:
+
+```bash
 python3 scripts/run_benchmark.py --all-bugs --tool kex --resume
 ```
+
+#### DynaMOSA / EvoSuite
+
+รันบั๊กเดียว:
+
+```bash
+python3 scripts/run_benchmark.py --project Lang --bug 1 --tool evosuite
+```
+
+สามารถใช้ benchmark mode เดียวกับ KEX ตาม interface ที่ `run_benchmark.py` รองรับ
+
+รายละเอียดเพิ่มเติมดูที่ [`scripts/README.md`](./scripts/README.md)
+
+### 3. Coverage Evaluation
+
+Coverage evaluation เป็นขั้นตอนแยกจาก test generation
+
+รัน case เดี่ยว:
+
+```bash
+python3 scripts/evaluate_coverage.py \
+  --project Lang \
+  --bug 1 \
+  --tool kex \
+  --timeout 600
+```
+
+หรือ EvoSuite:
+
+```bash
+python3 scripts/evaluate_coverage.py \
+  --project Lang \
+  --bug 1 \
+  --tool evosuite \
+  --timeout 600
+```
+
+รัน coverage benchmark แบบ batch:
+
+```bash
+python3 scripts/run_coverage_benchmark.py --tool kex --timeout 600
+python3 scripts/run_coverage_benchmark.py --tool evosuite --timeout 600
+```
+
+`run_coverage_benchmark.py` ใช้ generation cases ที่มี `status == "success"` จากผลใน `Result_Round2`
+
+ผล coverage ถูกจัดเก็บใน:
+
+```text
+evaluation/coverage/kex/<Project>/<BugID>/
+evaluation/coverage/evosuite/<Project>/<BugID>/
+```
+
+ไฟล์ผลที่อาจพบประกอบด้วย:
+
+```text
+summary.json
+coverage_output.txt
+failing_tests.txt
+error.txt
+```
+
+`summary.json` ใช้เก็บข้อมูลสรุป เช่น line/condition coverage, จำนวน failing tests และสถานะของ coverage evaluation
+
+> **สำคัญ:** `coverage_failed` ไม่ควรถูกตีความเป็น Coverage = 0 โดยอัตโนมัติ เพราะความล้มเหลวอาจเกิดจาก compile error, dependency หรือ environment ก่อนที่จะวัด coverage สำเร็จ
+
+รายละเอียดเพิ่มเติมดู [`evaluation/coverage/README.md`](./evaluation/coverage/README.md)
+
+### 4. Generated Tests และผลลัพธ์ของแต่ละเทคนิค
+
+- [`DynaMOSA-EvoSuite/README.md`](./DynaMOSA-EvoSuite/README.md) — DynaMOSA / EvoSuite
+- [`Reanimator-Kex/README.md`](./Reanimator-Kex/README.md) — Reanimator / KEX
+- [`Gemini/README.md`](./Gemini/README.md) — Gemini
+- [`Claude/README.md`](./Claude/README.md) — Claude
+- [`evaluation/README.md`](./evaluation/README.md) — Evaluation pipeline
+
+Generation และ Evaluation เป็นคนละขั้นตอน ดังนั้นสถานะ generation เช่น `success`, `failed` หรือ `timeout` ควรแยกจากสถานะของ test/coverage evaluation
 
 ---
 
