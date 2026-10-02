@@ -1,0 +1,17 @@
+{
+  "project": "JxPath",
+  "bug_id": "22",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 152,
+  "lines_total": 354,
+  "lines_covered": 120,
+  "conditions_total": 274,
+  "conditions_covered": 62,
+  "line_coverage": 33.9,
+  "condition_coverage": 22.6,
+  "has_failing_tests": true,
+  "failing_test_count": 72,
+  "raw_failing_test_count": 74,
+  "helper_failure_count": 2
+}

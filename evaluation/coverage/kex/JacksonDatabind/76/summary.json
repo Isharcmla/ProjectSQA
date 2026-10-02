@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "76",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 114,
+  "lines_total": 320,
+  "lines_covered": 18,
+  "conditions_total": 168,
+  "conditions_covered": 0,
+  "line_coverage": 5.6,
+  "condition_coverage": 0.0,
+  "has_failing_tests": true,
+  "failing_test_count": 59,
+  "raw_failing_test_count": 61,
+  "helper_failure_count": 2
+}

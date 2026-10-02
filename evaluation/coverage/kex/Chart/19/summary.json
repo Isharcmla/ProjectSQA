@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "19",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 161,
+  "lines_total": 1136,
+  "lines_covered": 120,
+  "conditions_total": 594,
+  "conditions_covered": 29,
+  "line_coverage": 10.6,
+  "condition_coverage": 4.9,
+  "has_failing_tests": true,
+  "failing_test_count": 159,
+  "raw_failing_test_count": 161,
+  "helper_failure_count": 2
+}

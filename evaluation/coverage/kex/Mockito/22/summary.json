@@ -1,0 +1,17 @@
+{
+  "project": "Mockito",
+  "bug_id": "22",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 8,
+  "lines_total": 13,
+  "lines_covered": 8,
+  "conditions_total": 24,
+  "conditions_covered": 3,
+  "line_coverage": 61.5,
+  "condition_coverage": 12.5,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 2,
+  "helper_failure_count": 2
+}

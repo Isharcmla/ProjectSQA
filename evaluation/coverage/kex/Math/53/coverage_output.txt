@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_kex_Math_53_wt_eerfe/checkout/failing_tests)!
+       Lines total: 170
+     Lines covered: 132
+  Conditions total: 114
+Conditions covered: 77
+     Line coverage: 77.6%
+Condition coverage: 67.5%

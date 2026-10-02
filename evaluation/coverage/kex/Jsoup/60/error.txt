@@ -1,0 +1,53 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout && ant -f /opt/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/opt/defects4j -Dd4j.dir.projects=/opt/defects4j/framework/projects -Dbasedir=/tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout -Dd4j.test.dir=/tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/.test_suite compile.gen.tests 2>&1
+Buildfile: /opt/defects4j/framework/projects/defects4j.build.xml
+
+test-offline:
+
+get-deps:
+
+jsoup-from-maven.compile:
+    [mkdir] Created dir: /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/target/classes
+    [javac] /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/maven-build.xml:77: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 57 source files to /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/target/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] 4 warnings
+    [javac] Creating empty /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/target/classes/org/jsoup/parser/package-info.class
+    [javac] Creating empty /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/target/classes/org/jsoup/package-info.class
+    [javac] Creating empty /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/target/classes/org/jsoup/select/package-info.class
+    [javac] Creating empty /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/target/classes/org/jsoup/examples/package-info.class
+    [javac] Creating empty /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/target/classes/org/jsoup/nodes/package-info.class
+    [javac] Creating empty /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/target/classes/org/jsoup/safety/package-info.class
+     [copy] Copying 3 files to /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/target/classes
+    [mkdir] Created dir: /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/target/classes/META-INF
+     [copy] Copying 3 files to /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/target/classes/META-INF
+
+compile:
+
+compile.gen.tests:
+     [echo] classes.dir: target/classes
+     [echo] build.home: target/classes/..
+    [mkdir] Created dir: /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/.classes_testgen
+    [javac] /opt/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 130 source files to /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/.classes_testgen
+    [javac] /tmp/coverage_kex_Jsoup_60_0kz2bm45/checkout/.test_suite/org/jsoup/parser/TokenQueue_addFirst_71290478437.java:19: error: cannot find symbol
+    [javac] import static org.jsoup.parser.ReflectionUtils.*;
+    [javac]                               ^
+    [javac]   symbol:   class ReflectionUtils
+    [javac]   location: package org.jsoup.parser
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 1 error
+
+BUILD FAILED
+/opt/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 2 seconds
+Cannot compile extracted test suite! at /opt/defects4j/framework/bin/d4j/d4j-coverage line 142.
+Compilation failed in require at /opt/defects4j/framework/bin/defects4j line 195.

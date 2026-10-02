@@ -1,0 +1,17 @@
+{
+  "project": "Compress",
+  "bug_id": "20",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 153,
+  "lines_total": 214,
+  "lines_covered": 95,
+  "conditions_total": 114,
+  "conditions_covered": 51,
+  "line_coverage": 44.4,
+  "condition_coverage": 44.7,
+  "has_failing_tests": true,
+  "failing_test_count": 89,
+  "raw_failing_test_count": 91,
+  "helper_failure_count": 2
+}

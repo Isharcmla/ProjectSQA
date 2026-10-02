@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "108",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 16,
+  "lines_total": 269,
+  "lines_covered": 56,
+  "conditions_total": 150,
+  "conditions_covered": 19,
+  "line_coverage": 20.8,
+  "condition_coverage": 12.7,
+  "has_failing_tests": true,
+  "failing_test_count": 7,
+  "raw_failing_test_count": 9,
+  "helper_failure_count": 2
+}

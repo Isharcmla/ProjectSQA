@@ -1,0 +1,17 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "26",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 70,
+  "lines_total": 1482,
+  "lines_covered": 12,
+  "conditions_total": 951,
+  "conditions_covered": 0,
+  "line_coverage": 0.8,
+  "condition_coverage": 0.0,
+  "has_failing_tests": true,
+  "failing_test_count": 3,
+  "raw_failing_test_count": 5,
+  "helper_failure_count": 2
+}

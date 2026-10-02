@@ -1,0 +1,17 @@
+{
+  "project": "Cli",
+  "bug_id": "8",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 57,
+  "lines_total": 192,
+  "lines_covered": 0,
+  "conditions_total": 104,
+  "conditions_covered": 0,
+  "line_coverage": 0.0,
+  "condition_coverage": 0.0,
+  "has_failing_tests": true,
+  "failing_test_count": 55,
+  "raw_failing_test_count": 57,
+  "helper_failure_count": 2
+}

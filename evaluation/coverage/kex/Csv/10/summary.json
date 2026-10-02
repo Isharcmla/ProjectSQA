@@ -1,0 +1,17 @@
+{
+  "project": "Csv",
+  "bug_id": "10",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 166,
+  "lines_total": 160,
+  "lines_covered": 99,
+  "conditions_total": 117,
+  "conditions_covered": 61,
+  "line_coverage": 61.9,
+  "condition_coverage": 52.1,
+  "has_failing_tests": true,
+  "failing_test_count": 3,
+  "raw_failing_test_count": 5,
+  "helper_failure_count": 2
+}

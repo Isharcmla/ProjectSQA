@@ -1,0 +1,17 @@
+{
+  "project": "Time",
+  "bug_id": "24",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 48,
+  "lines_total": 144,
+  "lines_covered": 84,
+  "conditions_total": 64,
+  "conditions_covered": 23,
+  "line_coverage": 58.3,
+  "condition_coverage": 35.9,
+  "has_failing_tests": true,
+  "failing_test_count": 23,
+  "raw_failing_test_count": 25,
+  "helper_failure_count": 2
+}

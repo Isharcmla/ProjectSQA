@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "99",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 97,
+  "lines_total": 269,
+  "lines_covered": 167,
+  "conditions_total": 271,
+  "conditions_covered": 144,
+  "line_coverage": 62.1,
+  "condition_coverage": 53.1,
+  "has_failing_tests": true,
+  "failing_test_count": 14,
+  "raw_failing_test_count": 16,
+  "helper_failure_count": 2
+}

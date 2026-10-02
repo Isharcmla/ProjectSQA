@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_kex_JacksonCore_16_ss1fa36s/checkout/failing_tests)!
+       Lines total: 33
+     Lines covered: 16
+  Conditions total: 22
+Conditions covered: 8
+     Line coverage: 48.5%
+Condition coverage: 36.4%

@@ -1,0 +1,17 @@
+{
+  "project": "Codec",
+  "bug_id": "17",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 32,
+  "lines_total": 39,
+  "lines_covered": 36,
+  "conditions_total": 20,
+  "conditions_covered": 15,
+  "line_coverage": 92.3,
+  "condition_coverage": 75.0,
+  "has_failing_tests": true,
+  "failing_test_count": 7,
+  "raw_failing_test_count": 9,
+  "helper_failure_count": 2
+}

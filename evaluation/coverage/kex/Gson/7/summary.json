@@ -1,0 +1,17 @@
+{
+  "project": "Gson",
+  "bug_id": "7",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 340,
+  "lines_total": 684,
+  "lines_covered": 281,
+  "conditions_total": 469,
+  "conditions_covered": 163,
+  "line_coverage": 41.1,
+  "condition_coverage": 34.8,
+  "has_failing_tests": true,
+  "failing_test_count": 46,
+  "raw_failing_test_count": 48,
+  "helper_failure_count": 2
+}

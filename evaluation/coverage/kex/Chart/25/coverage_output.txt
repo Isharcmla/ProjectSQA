@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_kex_Chart_25_neauav57/checkout/failing_tests)!
+       Lines total: 174
+     Lines covered: 21
+  Conditions total: 82
+Conditions covered: 3
+     Line coverage: 12.1%
+Condition coverage: 3.7%

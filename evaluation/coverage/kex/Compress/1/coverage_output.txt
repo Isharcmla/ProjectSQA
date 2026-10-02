@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_kex_Compress_1_9goq_5nq/checkout/failing_tests)!
+       Lines total: 164
+     Lines covered: 102
+  Conditions total: 59
+Conditions covered: 52
+     Line coverage: 62.2%
+Condition coverage: 88.1%

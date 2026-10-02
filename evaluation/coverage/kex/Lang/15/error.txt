@@ -1,0 +1,60 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/coverage_kex_Lang_15_fy3jhcux/checkout && ant -f /opt/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/opt/defects4j -Dd4j.dir.projects=/opt/defects4j/framework/projects -Dbasedir=/tmp/coverage_kex_Lang_15_fy3jhcux/checkout -Dd4j.test.dir=/tmp/coverage_kex_Lang_15_fy3jhcux/checkout/.test_suite compile.gen.tests 2>&1
+Buildfile: /opt/defects4j/framework/projects/defects4j.build.xml
+
+init:
+     [echo] -------- commons-lang3 3.2-SNAPSHOT --------
+    [mkdir] Created dir: /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/target
+
+compile:
+    [mkdir] Created dir: /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/target/classes
+    [javac] Compiling 99 source files to /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/target/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/src/main/java/org/apache/commons/lang3/reflect/FieldUtils.java:305: warning: [deprecation] isAccessible() in AccessibleObject has been deprecated
+    [javac]         if (forceAccess && !field.isAccessible()) {
+    [javac]                                  ^
+    [javac] /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/src/main/java/org/apache/commons/lang3/reflect/FieldUtils.java:514: warning: [deprecation] isAccessible() in AccessibleObject has been deprecated
+    [javac]         if (forceAccess && !field.isAccessible()) {
+    [javac]                                  ^
+    [javac] /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/src/main/java/org/apache/commons/lang3/reflect/MemberUtils.java:55: warning: [deprecation] isAccessible() in AccessibleObject has been deprecated
+    [javac]         if (o == null || o.isAccessible()) {
+    [javac]                           ^
+    [javac] 7 warnings
+     [copy] Copying 14 files to /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/target/classes
+
+compile.gen.tests:
+     [echo] classes.dir: target/classes
+     [echo] build.home: target
+    [mkdir] Created dir: /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/.classes_testgen
+    [javac] /opt/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 102 source files to /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/.classes_testgen
+    [javac] /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/.test_suite/org/apache/commons/lang3/reflect/ReflectionUtils.java:9: warning: Unsafe is internal proprietary API and may be removed in a future release
+    [javac] import sun.misc.Unsafe;
+    [javac]                ^
+    [javac] /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/.test_suite/org/apache/commons/lang3/reflect/TypeUtils_determineTypeArguments_379396381130.java:20: error: package org.mockito does not exist
+    [javac] import org.mockito.Mockito;
+    [javac]                   ^
+    [javac] /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/.test_suite/org/apache/commons/lang3/reflect/ReflectionUtils.java:13: warning: Unsafe is internal proprietary API and may be removed in a future release
+    [javac]     public static final Unsafe UNSAFE;
+    [javac]                         ^
+    [javac] /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/.test_suite/org/apache/commons/lang3/reflect/ReflectionUtils.java:17: warning: Unsafe is internal proprietary API and may be removed in a future release
+    [javac]             final Field uns = Unsafe.class.getDeclaredField("theUnsafe");
+    [javac]                               ^
+    [javac] /tmp/coverage_kex_Lang_15_fy3jhcux/checkout/.test_suite/org/apache/commons/lang3/reflect/ReflectionUtils.java:19: warning: Unsafe is internal proprietary API and may be removed in a future release
+    [javac]             UNSAFE = (Unsafe) uns.get(null);
+    [javac]                       ^
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 1 error
+    [javac] 4 warnings
+
+BUILD FAILED
+/opt/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 2 seconds
+Cannot compile extracted test suite! at /opt/defects4j/framework/bin/d4j/d4j-coverage line 142.
+Compilation failed in require at /opt/defects4j/framework/bin/defects4j line 195.

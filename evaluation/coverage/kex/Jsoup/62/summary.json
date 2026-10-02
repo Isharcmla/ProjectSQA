@@ -1,0 +1,17 @@
+{
+  "project": "Jsoup",
+  "bug_id": "62",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 173,
+  "lines_total": 1103,
+  "lines_covered": 59,
+  "conditions_total": 757,
+  "conditions_covered": 6,
+  "line_coverage": 5.3,
+  "condition_coverage": 0.8,
+  "has_failing_tests": true,
+  "failing_test_count": 6,
+  "raw_failing_test_count": 8,
+  "helper_failure_count": 2
+}

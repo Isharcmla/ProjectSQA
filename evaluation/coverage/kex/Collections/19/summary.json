@@ -1,0 +1,17 @@
+{
+  "project": "Collections",
+  "bug_id": "19",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 70,
+  "lines_total": 109,
+  "lines_covered": 65,
+  "conditions_total": 38,
+  "conditions_covered": 22,
+  "line_coverage": 59.6,
+  "condition_coverage": 57.9,
+  "has_failing_tests": true,
+  "failing_test_count": 16,
+  "raw_failing_test_count": 18,
+  "helper_failure_count": 2
+}

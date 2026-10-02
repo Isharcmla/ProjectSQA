@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_kex_JacksonDatabind_42_qelx6omk/checkout/failing_tests)!
+       Lines total: 110
+     Lines covered: 15
+  Conditions total: 79
+Conditions covered: 12
+     Line coverage: 13.6%
+Condition coverage: 15.2%

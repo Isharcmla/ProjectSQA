@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "11",
+  "tool": "kex",
+  "status": "success",
+  "prepared_files": 25,
+  "lines_total": 56,
+  "lines_covered": 41,
+  "conditions_total": 54,
+  "conditions_covered": 32,
+  "line_coverage": 73.2,
+  "condition_coverage": 59.3,
+  "has_failing_tests": true,
+  "failing_test_count": 12,
+  "raw_failing_test_count": 14,
+  "helper_failure_count": 2
+}
