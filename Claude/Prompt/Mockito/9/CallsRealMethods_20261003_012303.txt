@@ -1,0 +1,69 @@
+คุณคือ Java testing expert ที่เชี่ยวชาญด้าน unit testing และ JUnit framework
+งานของคุณคือเขียน JUnit 4 test suite ให้กับคลาสที่อยู่ใน tag <source_code> ด้านล่าง
+เป้าหมายหลักคือให้ได้ line coverage และ branch coverage สูงที่สุดเท่าที่เป็นไปได้
+
+<class_info>
+Package: org.mockito.internal.stubbing.answers
+Class name: CallsRealMethods
+</class_info>
+
+<source_code>
+/*
+ * Copyright (c) 2007 Mockito contributors
+ * This program is made available under the terms of the MIT License.
+ */
+package org.mockito.internal.stubbing.answers;
+
+import java.io.Serializable;
+
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
+
+/**
+ * Optional Answer that adds partial mocking support
+ * <p>
+ * {@link Answer} can be used to define the return values of unstubbed invocations.
+ * <p>
+ * This implementation can be helpful when working with legacy code.
+ * When this implementation is used, unstubbed methods will delegate to the real implementation.
+ * This is a way to create a partial mock object that calls real methods by default.
+ * <p>
+ * As usual you are going to read <b>the partial mock warning</b>:
+ * Object oriented programming is more less tackling complexity by dividing the complexity into separate, specific, SRPy objects.
+ * How does partial mock fit into this paradigm? Well, it just doesn't... 
+ * Partial mock usually means that the complexity has been moved to a different method on the same object.
+ * In most cases, this is not the way you want to design your application.
+ * <p>
+ * However, there are rare cases when partial mocks come handy: 
+ * dealing with code you cannot change easily (3rd party interfaces, interim refactoring of legacy code etc.)
+ * However, I wouldn't use partial mocks for new, test-driven & well-designed code.
+ * <p>
+ */
+public class CallsRealMethods implements Answer<Object>, Serializable {
+    private static final long serialVersionUID = 9057165148930624087L;
+
+    public Object answer(InvocationOnMock invocation) throws Throwable {
+        return invocation.callRealMethod();
+    }
+}
+</source_code>
+
+<dependencies>
+(ไม่มีข้อมูลเพิ่มเติม)
+</dependencies>
+
+<requirements>
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert, org.junit.Before ถ้าจำเป็น)
+2. ครอบคลุม public method ทุกตัวอย่างน้อย 1 test case ต่อ method
+3. ต้องมี test case ครบทั้ง 3 กลุ่ม: (ก) normal/typical input (ข) edge case เช่น null, 0, ค่าติดลบ, string ว่าง,
+   boundary value (ค) กรณีที่ควร throw exception พร้อมใช้ @Test(expected=...) หรือ try-catch ตรวจสอบ
+4. ห้ามใช้ mocking framework ใด ๆ ทดสอบผ่าน public API ของคลาสจริงเท่านั้น
+5. ตั้งชื่อ test method ให้สื่อความหมายตามรูปแบบ testMethodName_condition_expectedResult
+6. ห้าม import class ที่ไม่มีอยู่จริงหรือเดา API ที่ไม่ได้ให้มา ถ้าจำเป็นต้องใช้ dependency ที่ไม่มีข้อมูลเพียงพอ
+   ให้ระบุไว้เป็น comment ในโค้ดแทนการเดา
+</requirements>
+
+<output_format>
+ตอบกลับเฉพาะโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ห้ามมีคำอธิบายก่อน/หลังโค้ด ห้ามใช้ markdown code fence
+ชื่อไฟล์/คลาสคือ CallsRealMethodsTest.java
+</output_format>

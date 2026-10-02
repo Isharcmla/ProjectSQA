@@ -1,0 +1,161 @@
+คุณคือ Java testing expert ที่เชี่ยวชาญด้าน unit testing และ JUnit framework
+งานของคุณคือเขียน JUnit 4 test suite ให้กับคลาสที่อยู่ใน tag <source_code> ด้านล่าง
+เป้าหมายหลักคือให้ได้ line coverage และ branch coverage สูงที่สุดเท่าที่เป็นไปได้
+
+<class_info>
+Package: org.jsoup.safety
+Class name: Cleaner
+</class_info>
+
+<source_code>
+package org.jsoup.safety;
+
+import org.jsoup.helper.Validate;
+import org.jsoup.nodes.*;
+import org.jsoup.parser.Tag;
+
+import java.util.List;
+
+/**
+ The whitelist based HTML cleaner. Use to ensure that end-user provided HTML contains only the elements and attributes
+ that you are expecting; no junk, and no cross-site scripting attacks!
+ <p/>
+ The HTML cleaner parses the input as HTML and then runs it through a white-list, so the output HTML can only contain
+ HTML that is allowed by the whitelist.
+ <p/>
+ It is assumed that the input HTML is a body fragment; the clean methods only pull from the source's body, and the
+ canned white-lists only allow body contained tags.
+ <p/>
+ Rather than interacting directly with a Cleaner object, generally see the {@code clean} methods in {@link org.jsoup.Jsoup}.
+ */
+public class Cleaner {
+    private Whitelist whitelist;
+
+    /**
+     Create a new cleaner, that sanitizes documents using the supplied whitelist.
+     @param whitelist white-list to clean with
+     */
+    public Cleaner(Whitelist whitelist) {
+        Validate.notNull(whitelist);
+        this.whitelist = whitelist;
+    }
+
+    /**
+     Creates a new, clean document, from the original dirty document, containing only elements allowed by the whitelist.
+     The original document is not modified. Only elements from the dirt document's <code>body</code> are used.
+     @param dirtyDocument Untrusted base document to clean.
+     @return cleaned document.
+     */
+    public Document clean(Document dirtyDocument) {
+        Validate.notNull(dirtyDocument);
+
+        Document clean = Document.createShell(dirtyDocument.baseUri());
+            copySafeNodes(dirtyDocument.body(), clean.body());
+
+        return clean;
+    }
+
+    /**
+     Determines if the input document is valid, against the whitelist. It is considered valid if all the tags and attributes
+     in the input HTML are allowed by the whitelist.
+     <p/>
+     This method can be used as a validator for user input forms. An invalid document will still be cleaned successfully
+     using the {@link #clean(Document)} document. If using as a validator, it is recommended to still clean the document
+     to ensure enforced attributes are set correctly, and that the output is tidied.
+     @param dirtyDocument document to test
+     @return true if no tags or attributes need to be removed; false if they do
+     */
+    public boolean isValid(Document dirtyDocument) {
+        Validate.notNull(dirtyDocument);
+
+        Document clean = Document.createShell(dirtyDocument.baseUri());
+        int numDiscarded = copySafeNodes(dirtyDocument.body(), clean.body());
+        return numDiscarded == 0;
+    }
+
+    /**
+     Iterates the input and copies trusted nodes (tags, attributes, text) into the destination.
+     @param source source of HTML
+     @param dest destination element to copy into
+     @return number of discarded elements (that were considered unsafe)
+     */
+    private int copySafeNodes(Element source, Element dest) {
+        List<Node> sourceChildren = source.childNodes();
+        int numDiscarded = 0;
+
+        for (Node sourceChild : sourceChildren) {
+            if (sourceChild instanceof Element) {
+                Element sourceEl = (Element) sourceChild;
+
+                if (whitelist.isSafeTag(sourceEl.tagName())) { // safe, clone and copy safe attrs
+                    ElementMeta meta = createSafeElement(sourceEl);
+                    Element destChild = meta.el;
+                    dest.appendChild(destChild);
+
+                    numDiscarded += meta.numAttribsDiscarded;
+                    numDiscarded += copySafeNodes(sourceEl, destChild); // recurs
+                } else { // not a safe tag, but it may have children (els or text) that are, so recurse
+                    numDiscarded++;
+                    numDiscarded += copySafeNodes(sourceEl, dest);
+                }
+            } else if (sourceChild instanceof TextNode) {
+                TextNode sourceText = (TextNode) sourceChild;
+                TextNode destText = new TextNode(sourceText.getWholeText(), sourceChild.baseUri());
+                dest.appendChild(destText);
+            } // else, we don't care about comments, xml proc instructions, etc
+        }
+        return numDiscarded;
+    }
+
+    private ElementMeta createSafeElement(Element sourceEl) {
+        String sourceTag = sourceEl.tagName();
+        Attributes destAttrs = new Attributes();
+        Element dest = new Element(Tag.valueOf(sourceTag), sourceEl.baseUri(), destAttrs);
+        int numDiscarded = 0;
+
+        Attributes sourceAttrs = sourceEl.attributes();
+        for (Attribute sourceAttr : sourceAttrs) {
+            if (whitelist.isSafeAttribute(sourceTag, sourceEl, sourceAttr))
+                destAttrs.put(sourceAttr);
+            else
+                numDiscarded++;
+        }
+        Attributes enforcedAttrs = whitelist.getEnforcedAttributes(sourceTag);
+        destAttrs.addAll(enforcedAttrs);
+
+        return new ElementMeta(dest, numDiscarded);
+    }
+
+    private static class ElementMeta {
+        Element el;
+        int numAttribsDiscarded;
+
+        ElementMeta(Element el, int numAttribsDiscarded) {
+            this.el = el;
+            this.numAttribsDiscarded = numAttribsDiscarded;
+        }
+    }
+
+}
+
+</source_code>
+
+<dependencies>
+(ไม่มีข้อมูลเพิ่มเติม)
+</dependencies>
+
+<requirements>
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert, org.junit.Before ถ้าจำเป็น)
+2. ครอบคลุม public method ทุกตัวอย่างน้อย 1 test case ต่อ method
+3. ต้องมี test case ครบทั้ง 3 กลุ่ม: (ก) normal/typical input (ข) edge case เช่น null, 0, ค่าติดลบ, string ว่าง,
+   boundary value (ค) กรณีที่ควร throw exception พร้อมใช้ @Test(expected=...) หรือ try-catch ตรวจสอบ
+4. ห้ามใช้ mocking framework ใด ๆ ทดสอบผ่าน public API ของคลาสจริงเท่านั้น
+5. ตั้งชื่อ test method ให้สื่อความหมายตามรูปแบบ testMethodName_condition_expectedResult
+6. ห้าม import class ที่ไม่มีอยู่จริงหรือเดา API ที่ไม่ได้ให้มา ถ้าจำเป็นต้องใช้ dependency ที่ไม่มีข้อมูลเพียงพอ
+   ให้ระบุไว้เป็น comment ในโค้ดแทนการเดา
+</requirements>
+
+<output_format>
+ตอบกลับเฉพาะโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ห้ามมีคำอธิบายก่อน/หลังโค้ด ห้ามใช้ markdown code fence
+ชื่อไฟล์/คลาสคือ CleanerTest.java
+</output_format>

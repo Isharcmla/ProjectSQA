@@ -1,0 +1,131 @@
+คุณคือ Java testing expert ที่เชี่ยวชาญด้าน unit testing และ JUnit framework
+งานของคุณคือเขียน JUnit 4 test suite ให้กับคลาสที่อยู่ใน tag <source_code> ด้านล่าง
+เป้าหมายหลักคือให้ได้ line coverage และ branch coverage สูงที่สุดเท่าที่เป็นไปได้
+
+<class_info>
+Package: org.apache.commons.compress.utils
+Class name: ChecksumCalculatingInputStream
+</class_info>
+
+<source_code>
+/*
+ *  Licensed to the Apache Software Foundation (ASF) under one or more
+ *  contributor license agreements.  See the NOTICE file distributed with
+ *  this work for additional information regarding copyright ownership.
+ *  The ASF licenses this file to You under the Apache License, Version 2.0
+ *  (the "License"); you may not use this file except in compliance with
+ *  the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
+package org.apache.commons.compress.utils;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.Checksum;
+
+/**
+ * A stream that calculates the checksum of the data read.
+ * @NotThreadSafe
+ * @since 1.14
+ */
+public class ChecksumCalculatingInputStream extends InputStream {
+    private final InputStream in;
+    private final Checksum checksum;
+
+    public ChecksumCalculatingInputStream(final Checksum checksum, final InputStream in) {
+
+
+
+        this.checksum = checksum;
+        this.in = in;
+    }
+
+    /**
+     * Reads a single byte from the stream
+     * @throws IOException if the underlying stream throws or the
+     * stream is exhausted and the Checksum doesn't match the expected
+     * value
+     */
+    @Override
+    public int read() throws IOException {
+        final int ret = in.read();
+        if (ret >= 0) {
+            checksum.update(ret);
+        }
+        return ret;
+    }
+
+    /**
+     * Reads a byte array from the stream
+     * @throws IOException if the underlying stream throws or the
+     * stream is exhausted and the Checksum doesn't match the expected
+     * value
+     */
+    @Override
+    public int read(final byte[] b) throws IOException {
+        return read(b, 0, b.length);
+    }
+
+    /**
+     * Reads from the stream into a byte array.
+     * @throws IOException if the underlying stream throws or the
+     * stream is exhausted and the Checksum doesn't match the expected
+     * value
+     */
+    @Override
+    public int read(final byte[] b, final int off, final int len) throws IOException {
+        final int ret = in.read(b, off, len);
+        if (ret >= 0) {
+            checksum.update(b, off, ret);
+        }
+        return ret;
+    }
+
+    @Override
+    public long skip(final long n) throws IOException {
+        // Can't really skip, we have to hash everything to verify the checksum
+        if (read() >= 0) {
+            return 1;
+        }
+        return 0;
+    }
+
+    /**
+     * Returns the calculated checksum.
+     * @return the calculated checksum.
+     */
+    public long getValue() {
+        return checksum.getValue();
+    }
+
+}
+
+</source_code>
+
+<dependencies>
+(ไม่มีข้อมูลเพิ่มเติม)
+</dependencies>
+
+<requirements>
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert, org.junit.Before ถ้าจำเป็น)
+2. ครอบคลุม public method ทุกตัวอย่างน้อย 1 test case ต่อ method
+3. ต้องมี test case ครบทั้ง 3 กลุ่ม: (ก) normal/typical input (ข) edge case เช่น null, 0, ค่าติดลบ, string ว่าง,
+   boundary value (ค) กรณีที่ควร throw exception พร้อมใช้ @Test(expected=...) หรือ try-catch ตรวจสอบ
+4. ห้ามใช้ mocking framework ใด ๆ ทดสอบผ่าน public API ของคลาสจริงเท่านั้น
+5. ตั้งชื่อ test method ให้สื่อความหมายตามรูปแบบ testMethodName_condition_expectedResult
+6. ห้าม import class ที่ไม่มีอยู่จริงหรือเดา API ที่ไม่ได้ให้มา ถ้าจำเป็นต้องใช้ dependency ที่ไม่มีข้อมูลเพียงพอ
+   ให้ระบุไว้เป็น comment ในโค้ดแทนการเดา
+</requirements>
+
+<output_format>
+ตอบกลับเฉพาะโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ห้ามมีคำอธิบายก่อน/หลังโค้ด ห้ามใช้ markdown code fence
+ชื่อไฟล์/คลาสคือ ChecksumCalculatingInputStreamTest.java
+</output_format>

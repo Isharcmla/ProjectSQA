@@ -1,0 +1,171 @@
+คุณคือ Java testing expert ที่เชี่ยวชาญด้าน unit testing และ JUnit framework
+งานของคุณคือเขียน JUnit 4 test suite ให้กับคลาสที่อยู่ใน tag <source_code> ด้านล่าง
+เป้าหมายหลักคือให้ได้ line coverage และ branch coverage สูงที่สุดเท่าที่เป็นไปได้
+
+<class_info>
+Package: org.mockito.internal
+Class name: MockitoCore
+</class_info>
+
+<source_code>
+/*
+ * Copyright (c) 2007 Mockito contributors
+ * This program is made available under the terms of the MIT License.
+ */
+package org.mockito.internal;
+
+import org.mockito.InOrder;
+import org.mockito.MockSettings;
+import org.mockito.exceptions.Reporter;
+import org.mockito.exceptions.misusing.NotAMockException;
+import org.mockito.internal.creation.MockSettingsImpl;
+import org.mockito.internal.invocation.Invocation;
+import org.mockito.internal.progress.IOngoingStubbing;
+import org.mockito.internal.progress.MockingProgress;
+import org.mockito.internal.progress.ThreadSafeMockingProgress;
+import org.mockito.internal.stubbing.OngoingStubbingImpl;
+import org.mockito.internal.stubbing.StubberImpl;
+import org.mockito.internal.util.MockUtil;
+import org.mockito.internal.verification.api.VerificationMode;
+import org.mockito.stubbing.*;
+
+import java.util.Arrays;
+import java.util.List;
+
+@SuppressWarnings("unchecked")
+public class MockitoCore {
+
+    private final Reporter reporter = new Reporter();
+    private final MockUtil mockUtil = new MockUtil();
+    private final MockingProgress mockingProgress = new ThreadSafeMockingProgress();
+    
+    public <T> T mock(Class<T> classToMock, MockSettings mockSettings, boolean shouldResetOngoingStubbing) { return mock(classToMock, mockSettings); }
+    public <T> T mock(Class<T> classToMock, MockSettings mockSettings) {
+        mockingProgress.validateState();
+            mockingProgress.resetOngoingStubbing();
+        return mockUtil.createMock(classToMock, (MockSettingsImpl) mockSettings);
+    }
+    
+    public IOngoingStubbing stub() {
+        IOngoingStubbing stubbing = mockingProgress.pullOngoingStubbing();
+        if (stubbing == null) {
+            mockingProgress.reset();
+            reporter.missingMethodInvocation();
+        }
+        return stubbing;
+    }
+
+    @Deprecated
+    public <T> DeprecatedOngoingStubbing<T> stub(T methodCall) {
+        mockingProgress.stubbingStarted();
+        return (DeprecatedOngoingStubbing) stub();
+    }
+
+    public <T> OngoingStubbing<T> when(T methodCall) {
+        mockingProgress.stubbingStarted();
+        return (OngoingStubbing) stub();
+    }
+    
+    
+    public <T> T verify(T mock, VerificationMode mode) {
+        if (mock == null) {
+            reporter.nullPassedToVerify();
+        } else if (!mockUtil.isMock(mock)) {
+            reporter.notAMockPassedToVerify();
+        }
+        mockingProgress.verificationStarted(mode);
+        return mock;
+    }
+    
+    public <T> void reset(T ... mocks) {
+        mockingProgress.validateState();
+        mockingProgress.reset();
+        mockingProgress.resetOngoingStubbing();
+        
+        for (T m : mocks) {
+            mockUtil.resetMock(m);
+        }
+    }
+    
+    public void verifyNoMoreInteractions(Object... mocks) {
+        assertMocksNotEmpty(mocks);
+        mockingProgress.validateState();
+        for (Object mock : mocks) {
+            try {
+                if (mock == null) {
+                    reporter.nullPassedToVerifyNoMoreInteractions();
+                }
+                mockUtil.getMockHandler(mock).verifyNoMoreInteractions();
+            } catch (NotAMockException e) {
+                reporter.notAMockPassedToVerifyNoMoreInteractions();
+            }
+        }
+    }
+    
+    private void assertMocksNotEmpty(Object[] mocks) {
+        if (mocks == null || mocks.length == 0) {
+            reporter.mocksHaveToBePassedToVerifyNoMoreInteractions();
+        }
+    }
+    
+    public InOrder inOrder(Object... mocks) {
+        if (mocks == null || mocks.length == 0) {
+            reporter.mocksHaveToBePassedWhenCreatingInOrder();
+        }
+        for (Object mock : mocks) {
+            if (mock == null) {
+                reporter.nullPassedWhenCreatingInOrder();
+            } else if (!mockUtil.isMock(mock)) {
+                reporter.notAMockPassedWhenCreatingInOrder();
+            }
+        }
+        return new InOrderImpl(Arrays.asList(mocks));
+    }
+    
+    public Stubber doAnswer(Answer answer) {
+        mockingProgress.stubbingStarted();
+        mockingProgress.resetOngoingStubbing();
+        return new StubberImpl().doAnswer(answer);
+    }
+    
+    public <T> VoidMethodStubbable<T> stubVoid(T mock) {
+        MockHandlerInterface<T> handler = mockUtil.getMockHandler(mock);
+        mockingProgress.stubbingStarted();
+        return handler.voidMethodStubbable(mock);
+    }
+
+    public void validateMockitoUsage() {
+        mockingProgress.validateState();
+    }
+
+    /**
+     * For testing purposes only. Is not the part of main API.
+     * @return last invocation
+     */
+    public Invocation getLastInvocation() {
+        OngoingStubbingImpl ongoingStubbing = ((OngoingStubbingImpl) mockingProgress.pullOngoingStubbing());
+        List<Invocation> allInvocations = ongoingStubbing.getRegisteredInvocations();
+        return allInvocations.get(allInvocations.size()-1);
+    }
+}
+</source_code>
+
+<dependencies>
+(ไม่มีข้อมูลเพิ่มเติม)
+</dependencies>
+
+<requirements>
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert, org.junit.Before ถ้าจำเป็น)
+2. ครอบคลุม public method ทุกตัวอย่างน้อย 1 test case ต่อ method
+3. ต้องมี test case ครบทั้ง 3 กลุ่ม: (ก) normal/typical input (ข) edge case เช่น null, 0, ค่าติดลบ, string ว่าง,
+   boundary value (ค) กรณีที่ควร throw exception พร้อมใช้ @Test(expected=...) หรือ try-catch ตรวจสอบ
+4. ห้ามใช้ mocking framework ใด ๆ ทดสอบผ่าน public API ของคลาสจริงเท่านั้น
+5. ตั้งชื่อ test method ให้สื่อความหมายตามรูปแบบ testMethodName_condition_expectedResult
+6. ห้าม import class ที่ไม่มีอยู่จริงหรือเดา API ที่ไม่ได้ให้มา ถ้าจำเป็นต้องใช้ dependency ที่ไม่มีข้อมูลเพียงพอ
+   ให้ระบุไว้เป็น comment ในโค้ดแทนการเดา
+</requirements>
+
+<output_format>
+ตอบกลับเฉพาะโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ห้ามมีคำอธิบายก่อน/หลังโค้ด ห้ามใช้ markdown code fence
+ชื่อไฟล์/คลาสคือ MockitoCoreTest.java
+</output_format>

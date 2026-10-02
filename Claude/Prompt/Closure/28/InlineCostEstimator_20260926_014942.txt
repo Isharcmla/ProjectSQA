@@ -1,0 +1,135 @@
+คุณคือ Java testing expert ที่เชี่ยวชาญด้าน unit testing และ JUnit framework
+งานของคุณคือเขียน JUnit 4 test suite ให้กับคลาสที่อยู่ใน tag <source_code> ด้านล่าง
+เป้าหมายหลักคือให้ได้ line coverage และ branch coverage สูงที่สุดเท่าที่เป็นไปได้
+
+<class_info>
+Package: com.google.javascript.jscomp
+Class name: InlineCostEstimator
+</class_info>
+
+<source_code>
+/*
+ * Copyright 2008 The Closure Compiler Authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.google.javascript.jscomp;
+
+import com.google.javascript.rhino.Node;
+
+/**
+ * For use with CodeGenerator to determine the cost of generated code.
+ *
+ * @see CodeGenerator
+ * @see CodePrinter
+ */
+class InlineCostEstimator {
+  // For now simply assume identifiers are 2 characters.
+  private static final String ESTIMATED_IDENTIFIER = "ab";
+  static final int ESTIMATED_IDENTIFIER_COST = ESTIMATED_IDENTIFIER.length();
+
+  private InlineCostEstimator() {
+  }
+
+  /**
+   * Determines the size of the js code.
+   */
+  static int getCost(Node root) {
+    return getCost(root, Integer.MAX_VALUE);
+  }
+
+  /**
+   * Determines the estimated size of the js snippet represented by the node.
+   */
+  static int getCost(Node root, int costThreshhold) {
+    CompiledSizeEstimator estimator = new CompiledSizeEstimator(costThreshhold);
+    estimator.add(root);
+    return estimator.getCost();
+  }
+
+  /**
+   * Code consumer that estimates compiled size by assuming names are
+   * shortened and all whitespace is stripped.
+   */
+  private static class CompiledSizeEstimator extends CodeConsumer {
+    private int maxCost;
+    private int cost = 0;
+    private char last = '\0';
+    private boolean continueProcessing = true;
+
+    CompiledSizeEstimator(int costThreshhold) {
+      this.maxCost = costThreshhold;
+    }
+
+    void add(Node root) {
+      CodeGenerator cg = new CodeGenerator(this);
+      cg.add(root);
+    }
+
+    int getCost() {
+      return cost;
+    }
+
+    @Override
+    boolean continueProcessing() {
+      return continueProcessing;
+    }
+
+    @Override
+    char getLastChar() {
+      return last;
+    }
+
+    @Override
+    void append(String str){
+      last = str.charAt(str.length() - 1);
+      cost += str.length();
+      if (maxCost <= cost) {
+        continueProcessing = false;
+      }
+    }
+
+    @Override
+    void addIdentifier(String identifier) {
+      add(ESTIMATED_IDENTIFIER);
+    }
+
+    /**
+     * Constants (true, false, null) are considered basically free,
+     * because it's likely that they will get folded when we're done.
+     */
+  }
+}
+
+</source_code>
+
+<dependencies>
+(ไม่มีข้อมูลเพิ่มเติม)
+</dependencies>
+
+<requirements>
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert, org.junit.Before ถ้าจำเป็น)
+2. ครอบคลุม public method ทุกตัวอย่างน้อย 1 test case ต่อ method
+3. ต้องมี test case ครบทั้ง 3 กลุ่ม: (ก) normal/typical input (ข) edge case เช่น null, 0, ค่าติดลบ, string ว่าง,
+   boundary value (ค) กรณีที่ควร throw exception พร้อมใช้ @Test(expected=...) หรือ try-catch ตรวจสอบ
+4. ห้ามใช้ mocking framework ใด ๆ ทดสอบผ่าน public API ของคลาสจริงเท่านั้น
+5. ตั้งชื่อ test method ให้สื่อความหมายตามรูปแบบ testMethodName_condition_expectedResult
+6. ห้าม import class ที่ไม่มีอยู่จริงหรือเดา API ที่ไม่ได้ให้มา ถ้าจำเป็นต้องใช้ dependency ที่ไม่มีข้อมูลเพียงพอ
+   ให้ระบุไว้เป็น comment ในโค้ดแทนการเดา
+</requirements>
+
+<output_format>
+ตอบกลับเฉพาะโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ห้ามมีคำอธิบายก่อน/หลังโค้ด ห้ามใช้ markdown code fence
+ชื่อไฟล์/คลาสคือ InlineCostEstimatorTest.java
+</output_format>

@@ -1,0 +1,184 @@
+คุณคือ Java testing expert ที่เชี่ยวชาญด้าน unit testing และ JUnit framework
+งานของคุณคือเขียน JUnit 4 test suite ให้กับคลาสที่อยู่ใน tag <source_code> ด้านล่าง
+เป้าหมายหลักคือให้ได้ line coverage และ branch coverage สูงที่สุดเท่าที่เป็นไปได้
+
+<class_info>
+Package: com.fasterxml.jackson.core.util
+Class name: JsonParserSequence
+</class_info>
+
+<source_code>
+package com.fasterxml.jackson.core.util;
+
+import java.io.IOException;
+import java.util.*;
+
+import com.fasterxml.jackson.core.*;
+
+/**
+ * Helper class that can be used to sequence multiple physical
+ * {@link JsonParser}s to create a single logical sequence of
+ * tokens, as a single {@link JsonParser}.
+ *<p>
+ * Fairly simple use of {@link JsonParserDelegate}: only need
+ * to override {@link #nextToken} to handle transition
+ */
+public class JsonParserSequence extends JsonParserDelegate
+{
+    /**
+     * Parsers other than the first one (which is initially assigned
+     * as delegate)
+     */
+    protected final JsonParser[] _parsers;
+    
+    /**
+     * Index of the next parser in {@link #_parsers}.
+     */
+    protected int _nextParser;
+
+    /**
+     * Flag used to indicate that `JsonParser.nextToken()` should not be called,
+     * due to parser already pointing to a token.
+     *
+     * @since 2.8
+     */
+    
+    /*
+     *******************************************************
+     * Construction
+     *******************************************************
+     */
+
+    protected JsonParserSequence(JsonParser[] parsers)
+    {
+        super(parsers[0]);
+        _parsers = parsers;
+        _nextParser = 1;
+    }
+
+    /**
+     * Method that will construct a parser (possibly a sequence) that
+     * contains all given sub-parsers.
+     * All parsers given are checked to see if they are sequences: and
+     * if so, they will be "flattened", that is, contained parsers are
+     * directly added in a new sequence instead of adding sequences
+     * within sequences. This is done to minimize delegation depth,
+     * ideally only having just a single level of delegation.
+     */
+    public static JsonParserSequence createFlattened(JsonParser first, JsonParser second)
+    {
+        if (!(first instanceof JsonParserSequence || second instanceof JsonParserSequence)) {
+            // simple:
+            return new JsonParserSequence(new JsonParser[] { first, second });
+        }
+        ArrayList<JsonParser> p = new ArrayList<JsonParser>();
+        if (first instanceof JsonParserSequence) {
+            ((JsonParserSequence) first).addFlattenedActiveParsers(p);
+        } else {
+            p.add(first);
+        }
+        if (second instanceof JsonParserSequence) {
+            ((JsonParserSequence) second).addFlattenedActiveParsers(p);
+        } else {
+            p.add(second);
+        }
+        return new JsonParserSequence(p.toArray(new JsonParser[p.size()]));
+    }
+
+    @SuppressWarnings("resource")
+    protected void addFlattenedActiveParsers(List<JsonParser> result)
+    {
+        for (int i = _nextParser-1, len = _parsers.length; i < len; ++i) {
+            JsonParser p = _parsers[i];
+            if (p instanceof JsonParserSequence) {
+                ((JsonParserSequence) p).addFlattenedActiveParsers(result);
+            } else {
+                result.add(p);
+            }
+        }
+    }
+    
+    /*
+     *******************************************************
+     * Overridden methods, needed: cases where default
+     * delegation does not work
+     *******************************************************
+     */
+    
+    @Override
+    public void close() throws IOException {
+        do { delegate.close(); } while (switchToNext());
+    }
+
+    @Override
+    public JsonToken nextToken() throws IOException, JsonParseException
+    {
+        JsonToken t = delegate.nextToken();
+        if (t != null) return t;
+        while (switchToNext()) {
+            t = delegate.nextToken();
+            if (t != null) return t;
+        }
+        return null;
+    }
+
+    /*
+    /*******************************************************
+    /* Additional extended API
+    /*******************************************************
+     */
+
+    /**
+     * Method that is most useful for debugging or testing;
+     * returns actual number of underlying parsers sequence
+     * was constructed with (nor just ones remaining active)
+     */
+    public int containedParsersCount() {
+        return _parsers.length;
+    }
+    
+    /*
+    /*******************************************************
+    /* Helper methods
+    /*******************************************************
+     */
+
+    /**
+     * Method that will switch active parser from the current one
+     * to next parser in sequence, if there is another parser left,
+     * making this the new delegate. Old delegate is returned if
+     * switch succeeds.
+     * 
+     * @return True if switch succeeded; false otherwise
+     */
+    protected boolean switchToNext()
+    {
+        if (_nextParser >= _parsers.length) {
+            return false;
+        }
+        delegate = _parsers[_nextParser++];
+        return true;
+    }
+}
+
+</source_code>
+
+<dependencies>
+(ไม่มีข้อมูลเพิ่มเติม)
+</dependencies>
+
+<requirements>
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert, org.junit.Before ถ้าจำเป็น)
+2. ครอบคลุม public method ทุกตัวอย่างน้อย 1 test case ต่อ method
+3. ต้องมี test case ครบทั้ง 3 กลุ่ม: (ก) normal/typical input (ข) edge case เช่น null, 0, ค่าติดลบ, string ว่าง,
+   boundary value (ค) กรณีที่ควร throw exception พร้อมใช้ @Test(expected=...) หรือ try-catch ตรวจสอบ
+4. ห้ามใช้ mocking framework ใด ๆ ทดสอบผ่าน public API ของคลาสจริงเท่านั้น
+5. ตั้งชื่อ test method ให้สื่อความหมายตามรูปแบบ testMethodName_condition_expectedResult
+6. ห้าม import class ที่ไม่มีอยู่จริงหรือเดา API ที่ไม่ได้ให้มา ถ้าจำเป็นต้องใช้ dependency ที่ไม่มีข้อมูลเพียงพอ
+   ให้ระบุไว้เป็น comment ในโค้ดแทนการเดา
+</requirements>
+
+<output_format>
+ตอบกลับเฉพาะโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ห้ามมีคำอธิบายก่อน/หลังโค้ด ห้ามใช้ markdown code fence
+ชื่อไฟล์/คลาสคือ JsonParserSequenceTest.java
+</output_format>

@@ -1,0 +1,204 @@
+คุณคือ Java testing expert ที่เชี่ยวชาญด้าน unit testing และ JUnit framework
+งานของคุณคือเขียน JUnit 4 test suite ให้กับคลาสที่อยู่ใน tag <source_code> ด้านล่าง
+เป้าหมายหลักคือให้ได้ line coverage และ branch coverage สูงที่สุดเท่าที่เป็นไปได้
+
+<class_info>
+Package: com.fasterxml.jackson.databind.node
+Class name: POJONode
+</class_info>
+
+<source_code>
+package com.fasterxml.jackson.databind.node;
+
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.databind.JsonSerializable;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.util.RawValue;
+
+/**
+ * Value node that contains a wrapped POJO, to be serialized as
+ * a JSON constructed through data mapping (usually done by
+ * calling {@link com.fasterxml.jackson.databind.ObjectMapper}).
+ */
+public class POJONode
+    extends ValueNode
+{
+    protected final Object _value;
+
+    public POJONode(Object v) { _value = v; }
+
+    /*
+    /**********************************************************
+    /* Base class overrides
+    /**********************************************************
+     */
+
+    @Override
+    public JsonNodeType getNodeType() {
+        return JsonNodeType.POJO;
+    }
+
+    @Override public JsonToken asToken() { return JsonToken.VALUE_EMBEDDED_OBJECT; }
+
+    /**
+     * As it is possible that some implementations embed byte[] as POJONode
+     * (despite optimal being {@link BinaryNode}), let's add support for exposing
+     * binary data here too.
+     */
+    @Override
+    public byte[] binaryValue() throws IOException
+    {
+        if (_value instanceof byte[]) {
+            return (byte[]) _value;
+        }
+        return super.binaryValue();
+    }
+    
+    /* 
+    /**********************************************************
+    /* General type coercions
+    /**********************************************************
+     */
+
+    @Override
+    public String asText() { return (_value == null) ? "null" : _value.toString(); }
+
+    @Override public String asText(String defaultValue) {
+        return (_value == null) ? defaultValue : _value.toString();
+    }
+    
+    @Override
+    public boolean asBoolean(boolean defaultValue)
+    {
+        if (_value != null && _value instanceof Boolean) {
+            return ((Boolean) _value).booleanValue();
+        }
+        return defaultValue;
+    }
+    
+    @Override
+    public int asInt(int defaultValue)
+    {
+        if (_value instanceof Number) {
+            return ((Number) _value).intValue();
+        }
+        return defaultValue;
+    }
+
+    @Override
+    public long asLong(long defaultValue)
+    {
+        if (_value instanceof Number) {
+            return ((Number) _value).longValue();
+        }
+        return defaultValue;
+    }
+    
+    @Override
+    public double asDouble(double defaultValue)
+    {
+        if (_value instanceof Number) {
+            return ((Number) _value).doubleValue();
+        }
+        return defaultValue;
+    }
+    
+    /*
+    /**********************************************************
+    /* Public API, serialization
+    /**********************************************************
+     */
+
+    @Override
+    public final void serialize(JsonGenerator gen, SerializerProvider ctxt) throws IOException
+    {
+        if (_value == null) {
+            ctxt.defaultSerializeNull(gen);
+        } else if (_value instanceof JsonSerializable) {
+            ((JsonSerializable) _value).serialize(gen, ctxt);
+        } else {
+            // 25-May-2018, tatu: [databind#1991] do not call via generator but through context;
+            //    this to preserve contextual information
+            gen.writeObject(_value);
+        }
+    }
+
+    /*
+    /**********************************************************
+    /* Extended API
+    /**********************************************************
+     */
+
+    /**
+     * Method that can be used to access the POJO this node wraps.
+     */
+    public Object getPojo() { return _value; }
+
+    /*
+    /**********************************************************
+    /* Overridden standard methods
+    /**********************************************************
+     */
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o == this) return true;
+        if (o == null) return false;
+        if (o instanceof POJONode) {
+            return _pojoEquals((POJONode) o);
+        }
+        return false;
+    }
+
+    /**
+     * @since 2.3
+     */
+    protected boolean _pojoEquals(POJONode other)
+    {
+        if (_value == null) {
+            return other._value == null;
+        }
+        return _value.equals(other._value);
+    }
+    
+    @Override
+    public int hashCode() { return _value.hashCode(); }
+
+    @Override
+    public String toString()
+    {
+        // [databind#743]: Let's try indicating content type, for debugging purposes
+        if (_value instanceof byte[]) {
+            return String.format("(binary value of %d bytes)", ((byte[]) _value).length);
+        }
+        if (_value instanceof RawValue) {
+            return String.format("(raw value '%s')", ((RawValue) _value).toString());
+        }
+        return String.valueOf(_value);
+    }
+}
+
+</source_code>
+
+<dependencies>
+(ไม่มีข้อมูลเพิ่มเติม)
+</dependencies>
+
+<requirements>
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert, org.junit.Before ถ้าจำเป็น)
+2. ครอบคลุม public method ทุกตัวอย่างน้อย 1 test case ต่อ method
+3. ต้องมี test case ครบทั้ง 3 กลุ่ม: (ก) normal/typical input (ข) edge case เช่น null, 0, ค่าติดลบ, string ว่าง,
+   boundary value (ค) กรณีที่ควร throw exception พร้อมใช้ @Test(expected=...) หรือ try-catch ตรวจสอบ
+4. ห้ามใช้ mocking framework ใด ๆ ทดสอบผ่าน public API ของคลาสจริงเท่านั้น
+5. ตั้งชื่อ test method ให้สื่อความหมายตามรูปแบบ testMethodName_condition_expectedResult
+6. ห้าม import class ที่ไม่มีอยู่จริงหรือเดา API ที่ไม่ได้ให้มา ถ้าจำเป็นต้องใช้ dependency ที่ไม่มีข้อมูลเพียงพอ
+   ให้ระบุไว้เป็น comment ในโค้ดแทนการเดา
+</requirements>
+
+<output_format>
+ตอบกลับเฉพาะโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ห้ามมีคำอธิบายก่อน/หลังโค้ด ห้ามใช้ markdown code fence
+ชื่อไฟล์/คลาสคือ POJONodeTest.java
+</output_format>

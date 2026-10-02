@@ -1,0 +1,93 @@
+คุณคือ Java testing expert ที่เชี่ยวชาญด้าน unit testing และ JUnit framework
+งานของคุณคือเขียน JUnit 4 test suite ให้กับคลาสที่อยู่ใน tag <source_code> ด้านล่าง
+เป้าหมายหลักคือให้ได้ line coverage และ branch coverage สูงที่สุดเท่าที่เป็นไปได้
+
+<class_info>
+Package: org.mockito.internal.creation
+Class name: DelegatingMethod
+</class_info>
+
+<source_code>
+/*
+ * Copyright (c) 2007 Mockito contributors
+ * This program is made available under the terms of the MIT License.
+ */
+package org.mockito.internal.creation;
+
+import org.mockito.internal.invocation.MockitoMethod;
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+
+public class DelegatingMethod implements MockitoMethod {
+
+    private final Method method;
+
+    public DelegatingMethod(Method method) {
+        assert method != null : "Method cannot be null";
+        this.method = method;
+    }
+
+    public Class<?>[] getExceptionTypes() {
+        return method.getExceptionTypes();
+    }
+
+    public Method getJavaMethod() {
+        return method;
+    }
+
+    public String getName() {
+        return method.getName();
+    }
+
+    public Class<?>[] getParameterTypes() {
+        return method.getParameterTypes();
+    }
+
+    public Class<?> getReturnType() {
+        return method.getReturnType();
+    }
+
+    public boolean isVarArgs() {
+        return method.isVarArgs();
+    }
+
+    public boolean isAbstract() {
+        return (method.getModifiers() & Modifier.ABSTRACT) != 0;
+    }
+
+    /**
+     * @return True if the input object is a DelegatingMethod which has an internal Method which is equal to the internal Method of this DelegatingMethod,
+     * or if the input object is a Method which is equal to the internal Method of this DelegatingMethod.
+     */
+    @Override
+    public boolean equals(Object o) {
+            return method.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return 1;
+    }
+}
+</source_code>
+
+<dependencies>
+(ไม่มีข้อมูลเพิ่มเติม)
+</dependencies>
+
+<requirements>
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert, org.junit.Before ถ้าจำเป็น)
+2. ครอบคลุม public method ทุกตัวอย่างน้อย 1 test case ต่อ method
+3. ต้องมี test case ครบทั้ง 3 กลุ่ม: (ก) normal/typical input (ข) edge case เช่น null, 0, ค่าติดลบ, string ว่าง,
+   boundary value (ค) กรณีที่ควร throw exception พร้อมใช้ @Test(expected=...) หรือ try-catch ตรวจสอบ
+4. ห้ามใช้ mocking framework ใด ๆ ทดสอบผ่าน public API ของคลาสจริงเท่านั้น
+5. ตั้งชื่อ test method ให้สื่อความหมายตามรูปแบบ testMethodName_condition_expectedResult
+6. ห้าม import class ที่ไม่มีอยู่จริงหรือเดา API ที่ไม่ได้ให้มา ถ้าจำเป็นต้องใช้ dependency ที่ไม่มีข้อมูลเพียงพอ
+   ให้ระบุไว้เป็น comment ในโค้ดแทนการเดา
+</requirements>
+
+<output_format>
+ตอบกลับเฉพาะโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ห้ามมีคำอธิบายก่อน/หลังโค้ด ห้ามใช้ markdown code fence
+ชื่อไฟล์/คลาสคือ DelegatingMethodTest.java
+</output_format>

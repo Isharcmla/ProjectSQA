@@ -1,0 +1,122 @@
+คุณคือ Java testing expert ที่เชี่ยวชาญด้าน unit testing และ JUnit framework
+งานของคุณคือเขียน JUnit 4 test suite ให้กับคลาสที่อยู่ใน tag <source_code> ด้านล่าง
+เป้าหมายหลักคือให้ได้ line coverage และ branch coverage สูงที่สุดเท่าที่เป็นไปได้
+
+<class_info>
+Package: com.fasterxml.jackson.databind.module
+Class name: SimpleAbstractTypeResolver
+</class_info>
+
+<source_code>
+package com.fasterxml.jackson.databind.module;
+
+import java.lang.reflect.Modifier;
+import java.util.*;
+
+
+import com.fasterxml.jackson.databind.AbstractTypeResolver;
+import com.fasterxml.jackson.databind.DeserializationConfig;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.type.ClassKey;
+
+/**
+ * Simple {@link AbstractTypeResolver} implementation, which is
+ * based on static mapping from abstract super types into
+ * sub types (concrete or abstract), but retaining generic
+ * parameterization.
+ * Can be used for things like specifying which implementation of
+ * {@link java.util.Collection} to use:
+ *<pre>
+ *  SimpleAbstractTypeResolver resolver = new SimpleAbstractTypeResolver();
+ *  // To make all properties declared as Collection, List, to LinkedList
+ *  resolver.addMapping(Collection.class, LinkedList.class);
+ *  resolver.addMapping(List.class, LinkedList.class);
+ *</pre>
+ * Can also be used as an alternative to per-class annotations when defining
+ * concrete implementations; however, only works with abstract types (since
+ * this is only called for abstract types)
+ */
+public class SimpleAbstractTypeResolver
+    extends AbstractTypeResolver
+    implements java.io.Serializable
+{
+    private static final long serialVersionUID = 8635483102371490919L;
+
+    /**
+     * Mappings from super types to subtypes
+     */
+    protected final HashMap<ClassKey,Class<?>> _mappings = new HashMap<ClassKey,Class<?>>();
+
+    /**
+     * Method for adding a mapping from super type to specific subtype.
+     * Arguments will be checked by method, to ensure that <code>superType</code>
+     * is abstract (since resolver is never called for concrete classes);
+     * as well as to ensure that there is supertype/subtype relationship
+     * (to ensure there won't be cycles during resolution).
+     * 
+     * @param superType Abstract type to resolve
+     * @param subType Sub-class of superType, to map superTo to
+     * 
+     * @return This resolver, to allow chaining of initializations
+     */
+    public <T> SimpleAbstractTypeResolver addMapping(Class<T> superType, Class<? extends T> subType)
+    {
+        // Sanity checks, just in case someone tries to force typing...
+        if (superType == subType) {
+            throw new IllegalArgumentException("Can not add mapping from class to itself");
+        }
+        if (!superType.isAssignableFrom(subType)) {
+            throw new IllegalArgumentException("Can not add mapping from class "+superType.getName()
+                    +" to "+subType.getName()+", as latter is not a subtype of former");
+        }
+        if (!Modifier.isAbstract(superType.getModifiers())) {
+            throw new IllegalArgumentException("Can not add mapping from class "+superType.getName()
+                    +" since it is not abstract");
+        }
+        _mappings.put(new ClassKey(superType), subType);
+        return this;
+    }
+
+    @Override
+    public JavaType findTypeMapping(DeserializationConfig config, JavaType type)
+    {
+        // this is the main mapping base, so let's 
+        Class<?> src = type.getRawClass();
+        Class<?> dst = _mappings.get(new ClassKey(src));
+        if (dst == null) {
+            return null;
+        }
+        // 09-Aug-2015, tatu: Instead of direct call via JavaType, better use TypeFactory
+        return type.narrowBy(dst);
+    }
+
+    
+    @Override
+    public JavaType resolveAbstractType(DeserializationConfig config, JavaType type)
+    {
+        // never materialize anything, so:
+        return null;
+    }
+}
+
+</source_code>
+
+<dependencies>
+(ไม่มีข้อมูลเพิ่มเติม)
+</dependencies>
+
+<requirements>
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert, org.junit.Before ถ้าจำเป็น)
+2. ครอบคลุม public method ทุกตัวอย่างน้อย 1 test case ต่อ method
+3. ต้องมี test case ครบทั้ง 3 กลุ่ม: (ก) normal/typical input (ข) edge case เช่น null, 0, ค่าติดลบ, string ว่าง,
+   boundary value (ค) กรณีที่ควร throw exception พร้อมใช้ @Test(expected=...) หรือ try-catch ตรวจสอบ
+4. ห้ามใช้ mocking framework ใด ๆ ทดสอบผ่าน public API ของคลาสจริงเท่านั้น
+5. ตั้งชื่อ test method ให้สื่อความหมายตามรูปแบบ testMethodName_condition_expectedResult
+6. ห้าม import class ที่ไม่มีอยู่จริงหรือเดา API ที่ไม่ได้ให้มา ถ้าจำเป็นต้องใช้ dependency ที่ไม่มีข้อมูลเพียงพอ
+   ให้ระบุไว้เป็น comment ในโค้ดแทนการเดา
+</requirements>
+
+<output_format>
+ตอบกลับเฉพาะโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ห้ามมีคำอธิบายก่อน/หลังโค้ด ห้ามใช้ markdown code fence
+ชื่อไฟล์/คลาสคือ SimpleAbstractTypeResolverTest.java
+</output_format>

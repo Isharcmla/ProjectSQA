@@ -1,0 +1,162 @@
+คุณคือ Java testing expert ที่เชี่ยวชาญด้าน unit testing และ JUnit framework
+งานของคุณคือเขียน JUnit 4 test suite ให้กับคลาสที่อยู่ใน tag <source_code> ด้านล่าง
+เป้าหมายหลักคือให้ได้ line coverage และ branch coverage สูงที่สุดเท่าที่เป็นไปได้
+
+<class_info>
+Package: org.mockito.internal.configuration.injection
+Class name: PropertyAndSetterInjection
+</class_info>
+
+<source_code>
+/*
+ * Copyright (c) 2007 Mockito contributors
+ * This program is made available under the terms of the MIT License.
+ */
+
+package org.mockito.internal.configuration.injection;
+
+import org.mockito.exceptions.Reporter;
+import org.mockito.exceptions.base.MockitoException;
+import org.mockito.internal.configuration.injection.filter.FinalMockCandidateFilter;
+import org.mockito.internal.configuration.injection.filter.MockCandidateFilter;
+import org.mockito.internal.configuration.injection.filter.NameBasedCandidateFilter;
+import org.mockito.internal.configuration.injection.filter.TypeBasedCandidateFilter;
+import org.mockito.internal.util.collections.ListUtil;
+import org.mockito.internal.util.reflection.FieldInitializationReport;
+import org.mockito.internal.util.reflection.FieldInitializer;
+import org.mockito.internal.util.reflection.SuperTypesLastSorter;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
+import java.util.*;
+
+import static org.mockito.internal.util.collections.Sets.newMockSafeHashSet;
+
+/**
+ * Inject mocks using first setters then fields, if no setters available.
+ *
+ * <p>
+ * <u>Algorithm :<br></u>
+ * for each field annotated by @InjectMocks
+ *   <ul>
+ *   <li>initialize field annotated by @InjectMocks
+ *   <li>for each fields of a class in @InjectMocks type hierarchy
+ *     <ul>
+ *     <li>make a copy of mock candidates
+ *     <li>order fields from sub-type to super-type, then by field name
+ *     <li>for the list of fields in a class try two passes of :
+ *         <ul>
+ *             <li>find mock candidate by type
+ *             <li>if more than <b>*one*</b> candidate find mock candidate on name
+ *             <li>if one mock candidate then
+ *                 <ul>
+ *                     <li>set mock by property setter if possible
+ *                     <li>else set mock by field injection
+ *                 </ul>
+ *             <li>remove mock from mocks copy (mocks are just injected once in a class)
+ *             <li>remove injected field from list of class fields
+ *         </ul>
+ *     <li>else don't fail, user will then provide dependencies
+ *     </ul>
+ *   </ul>
+ * </p>
+ *
+ * <p>
+ * <u>Note:</u> If the field needing injection is not initialized, the strategy tries
+ * to create one using a no-arg constructor of the field type.
+ * </p>
+ */
+public class PropertyAndSetterInjection extends MockInjectionStrategy {
+
+    private final MockCandidateFilter mockCandidateFilter = new TypeBasedCandidateFilter(new NameBasedCandidateFilter(new FinalMockCandidateFilter()));
+
+    private final ListUtil.Filter<Field> notFinalOrStatic = new ListUtil.Filter<Field>() {
+        public boolean isOut(Field object) {
+            return Modifier.isFinal(object.getModifiers()) || Modifier.isStatic(object.getModifiers());
+        }
+    };
+
+
+    public boolean processInjection(Field injectMocksField, Object injectMocksFieldOwner, Set<Object> mockCandidates) {
+        // Set<Object> mocksToBeInjected = new HashSet<Object>(mockCandidates);
+        FieldInitializationReport report = initializeInjectMocksField(injectMocksField, injectMocksFieldOwner);
+
+        // for each field in the class hierarchy
+        boolean injectionOccurred = false;
+        Class<?> fieldClass = report.fieldClass();
+        Object fieldInstanceNeedingInjection = report.fieldInstance();
+        while (fieldClass != Object.class) {
+            injectionOccurred |= injectMockCandidates(fieldClass, newMockSafeHashSet(mockCandidates), fieldInstanceNeedingInjection);
+            fieldClass = fieldClass.getSuperclass();
+        }
+        return injectionOccurred;
+    }
+
+    private FieldInitializationReport initializeInjectMocksField(Field field, Object fieldOwner) {
+        FieldInitializationReport report = null;
+        try {
+            report = new FieldInitializer(fieldOwner, field).initialize();
+        } catch (MockitoException e) {
+            if(e.getCause() instanceof InvocationTargetException) {
+                Throwable realCause = e.getCause().getCause();
+                new Reporter().fieldInitialisationThrewException(field, realCause);
+            }
+            new Reporter().cannotInitializeForInjectMocksAnnotation(field.getName(), e);
+        }
+        return report; // never null
+    }
+
+
+    private boolean injectMockCandidates(Class<?> awaitingInjectionClazz, Set<Object> mocks, Object instance) {
+        boolean injectionOccurred = false;
+        List<Field> orderedInstanceFields = orderedInstanceFieldsFrom(awaitingInjectionClazz);
+        // pass 1
+        injectionOccurred |= injectMockCandidatesOnFields(mocks, instance, injectionOccurred, orderedInstanceFields);
+        // pass 2
+        injectionOccurred |= injectMockCandidatesOnFields(mocks, instance, injectionOccurred, orderedInstanceFields);
+        return injectionOccurred;
+    }
+
+    private boolean injectMockCandidatesOnFields(Set<Object> mocks, Object instance, boolean injectionOccurred, List<Field> orderedInstanceFields) {
+        for (Iterator<Field> it = orderedInstanceFields.iterator(); it.hasNext(); ) {
+            Field field = it.next();
+            Object injected = mockCandidateFilter.filterCandidate(mocks, field, instance).thenInject();
+            if (injected != null) {
+                injectionOccurred |= true;
+                mocks.remove(injected);
+                it.remove();
+            }
+        }
+        return injectionOccurred;
+    }
+
+    private List<Field> orderedInstanceFieldsFrom(Class<?> awaitingInjectionClazz) {
+        List<Field> declaredFields = Arrays.asList(awaitingInjectionClazz.getDeclaredFields());
+        declaredFields = ListUtil.filter(declaredFields, notFinalOrStatic);
+
+        return new SuperTypesLastSorter().sort(declaredFields);
+    }
+}
+
+</source_code>
+
+<dependencies>
+(ไม่มีข้อมูลเพิ่มเติม)
+</dependencies>
+
+<requirements>
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert, org.junit.Before ถ้าจำเป็น)
+2. ครอบคลุม public method ทุกตัวอย่างน้อย 1 test case ต่อ method
+3. ต้องมี test case ครบทั้ง 3 กลุ่ม: (ก) normal/typical input (ข) edge case เช่น null, 0, ค่าติดลบ, string ว่าง,
+   boundary value (ค) กรณีที่ควร throw exception พร้อมใช้ @Test(expected=...) หรือ try-catch ตรวจสอบ
+4. ห้ามใช้ mocking framework ใด ๆ ทดสอบผ่าน public API ของคลาสจริงเท่านั้น
+5. ตั้งชื่อ test method ให้สื่อความหมายตามรูปแบบ testMethodName_condition_expectedResult
+6. ห้าม import class ที่ไม่มีอยู่จริงหรือเดา API ที่ไม่ได้ให้มา ถ้าจำเป็นต้องใช้ dependency ที่ไม่มีข้อมูลเพียงพอ
+   ให้ระบุไว้เป็น comment ในโค้ดแทนการเดา
+</requirements>
+
+<output_format>
+ตอบกลับเฉพาะโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ห้ามมีคำอธิบายก่อน/หลังโค้ด ห้ามใช้ markdown code fence
+ชื่อไฟล์/คลาสคือ PropertyAndSetterInjectionTest.java
+</output_format>

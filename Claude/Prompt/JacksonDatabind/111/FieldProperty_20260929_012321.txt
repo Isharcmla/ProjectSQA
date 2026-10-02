@@ -1,0 +1,249 @@
+คุณคือ Java testing expert ที่เชี่ยวชาญด้าน unit testing และ JUnit framework
+งานของคุณคือเขียน JUnit 4 test suite ให้กับคลาสที่อยู่ใน tag <source_code> ด้านล่าง
+เป้าหมายหลักคือให้ได้ line coverage และ branch coverage สูงที่สุดเท่าที่เป็นไปได้
+
+<class_info>
+Package: com.fasterxml.jackson.databind.deser.impl
+Class name: FieldProperty
+</class_info>
+
+<source_code>
+package com.fasterxml.jackson.databind.deser.impl;
+
+import java.io.IOException;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
+
+import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.deser.NullValueProvider;
+import com.fasterxml.jackson.databind.deser.SettableBeanProperty;
+import com.fasterxml.jackson.databind.introspect.AnnotatedField;
+import com.fasterxml.jackson.databind.introspect.AnnotatedMember;
+import com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition;
+import com.fasterxml.jackson.databind.jsontype.TypeDeserializer;
+import com.fasterxml.jackson.databind.util.Annotations;
+import com.fasterxml.jackson.databind.util.ClassUtil;
+
+/**
+ * This concrete sub-class implements property that is set
+ * directly assigning to a Field.
+ */
+public final class FieldProperty
+    extends SettableBeanProperty
+{
+    private static final long serialVersionUID = 1L;
+
+    final protected AnnotatedField _annotated;
+
+    /**
+     * Actual field to set when deserializing this property.
+     * Transient since there is no need to persist; only needed during
+     * construction of objects.
+     */
+    final protected transient Field _field;
+
+    /**
+     * @since 2.9
+     */
+    final protected boolean _skipNulls;
+
+    public FieldProperty(BeanPropertyDefinition propDef, JavaType type,
+            TypeDeserializer typeDeser, Annotations contextAnnotations, AnnotatedField field)
+    {
+        super(propDef, type, typeDeser, contextAnnotations);
+        _annotated = field;
+        _field = field.getAnnotated();
+        _skipNulls = NullsConstantProvider.isSkipper(_nullProvider);
+    }
+
+    protected FieldProperty(FieldProperty src, JsonDeserializer<?> deser,
+            NullValueProvider nva) {
+        super(src, deser, nva);
+        _annotated = src._annotated;
+        _field = src._field;
+        _skipNulls = NullsConstantProvider.isSkipper(nva);
+    }
+
+    protected FieldProperty(FieldProperty src, PropertyName newName) {
+        super(src, newName);
+        _annotated = src._annotated;
+        _field = src._field;
+        _skipNulls = src._skipNulls;
+    }
+
+    /**
+     * Constructor used for JDK Serialization when reading persisted object
+     */
+    protected FieldProperty(FieldProperty src)
+    {
+        super(src);
+        _annotated = src._annotated;
+        Field f = _annotated.getAnnotated();
+        if (f == null) {
+            throw new IllegalArgumentException("Missing field (broken JDK (de)serialization?)");
+        }
+        _field = f;
+        _skipNulls = src._skipNulls;
+    }
+
+    @Override
+    public SettableBeanProperty withName(PropertyName newName) {
+        return new FieldProperty(this, newName);
+    }
+
+    @Override
+    public SettableBeanProperty withValueDeserializer(JsonDeserializer<?> deser) {
+        if (_valueDeserializer == deser) {
+            return this;
+        }
+        // 07-May-2019, tatu: As per [databind#2303], must keep VD/NVP in-sync if they were
+        return new FieldProperty(this, deser, _nullProvider);
+    }
+
+    @Override
+    public SettableBeanProperty withNullProvider(NullValueProvider nva) {
+        return new FieldProperty(this, _valueDeserializer, nva);
+    }
+
+    @Override
+    public void fixAccess(DeserializationConfig config) {
+        ClassUtil.checkAndFixAccess(_field,
+                config.isEnabled(MapperFeature.OVERRIDE_PUBLIC_ACCESS_MODIFIERS));
+    }
+
+    /*
+    /**********************************************************
+    /* BeanProperty impl
+    /**********************************************************
+     */
+    
+    @Override
+    public <A extends Annotation> A getAnnotation(Class<A> acls) {
+        return (_annotated == null) ? null : _annotated.getAnnotation(acls);
+    }
+
+    @Override public AnnotatedMember getMember() {  return _annotated; }
+
+    /*
+    /**********************************************************
+    /* Overridden methods
+    /**********************************************************
+     */
+
+    @Override
+    public void deserializeAndSet(JsonParser p,
+    		DeserializationContext ctxt, Object instance) throws IOException
+    {
+        Object value;
+        if (p.hasToken(JsonToken.VALUE_NULL)) {
+            if (_skipNulls) {
+                return;
+            }
+            value = _nullProvider.getNullValue(ctxt);
+        } else if (_valueTypeDeserializer == null) {
+            value = _valueDeserializer.deserialize(p, ctxt);
+            // 04-May-2018, tatu: [databind#2023] Coercion from String (mostly) can give null
+            if (value == null) {
+                if (_skipNulls) {
+                    return;
+                }
+                value = _nullProvider.getNullValue(ctxt);
+            }
+        } else {
+            value = _valueDeserializer.deserializeWithType(p, ctxt, _valueTypeDeserializer);
+        }
+        try {
+            _field.set(instance, value);
+        } catch (Exception e) {
+            _throwAsIOE(p, e, value);
+        }
+    }
+
+    @Override
+    public Object deserializeSetAndReturn(JsonParser p,
+    		DeserializationContext ctxt, Object instance) throws IOException
+    {
+        Object value;
+        if (p.hasToken(JsonToken.VALUE_NULL)) {
+            if (_skipNulls) {
+                return instance;
+            }
+            value = _nullProvider.getNullValue(ctxt);
+        } else if (_valueTypeDeserializer == null) {
+            value = _valueDeserializer.deserialize(p, ctxt);
+            // 04-May-2018, tatu: [databind#2023] Coercion from String (mostly) can give null
+            if (value == null) {
+                if (_skipNulls) {
+                    return instance;
+                }
+                value = _nullProvider.getNullValue(ctxt);
+            }
+        } else {
+            value = _valueDeserializer.deserializeWithType(p, ctxt, _valueTypeDeserializer);
+        }
+        try {
+            _field.set(instance, value);
+        } catch (Exception e) {
+            _throwAsIOE(p, e, value);
+        }
+        return instance;
+    }
+
+    @Override
+    public void set(Object instance, Object value) throws IOException
+    {
+        try {
+            _field.set(instance, value);
+        } catch (Exception e) {
+            // 15-Sep-2015, tatu: How could we get a ref to JsonParser?
+            _throwAsIOE(e, value);
+        }
+    }
+
+    @Override
+    public Object setAndReturn(Object instance, Object value) throws IOException
+    {
+        try {
+            _field.set(instance, value);
+        } catch (Exception e) {
+            // 15-Sep-2015, tatu: How could we get a ref to JsonParser?
+            _throwAsIOE(e, value);
+        }
+        return instance;
+    }
+
+    /*
+    /**********************************************************
+    /* JDK serialization handling
+    /**********************************************************
+     */
+
+    Object readResolve() {
+        return new FieldProperty(this);
+    }
+}
+
+</source_code>
+
+<dependencies>
+(ไม่มีข้อมูลเพิ่มเติม)
+</dependencies>
+
+<requirements>
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert, org.junit.Before ถ้าจำเป็น)
+2. ครอบคลุม public method ทุกตัวอย่างน้อย 1 test case ต่อ method
+3. ต้องมี test case ครบทั้ง 3 กลุ่ม: (ก) normal/typical input (ข) edge case เช่น null, 0, ค่าติดลบ, string ว่าง,
+   boundary value (ค) กรณีที่ควร throw exception พร้อมใช้ @Test(expected=...) หรือ try-catch ตรวจสอบ
+4. ห้ามใช้ mocking framework ใด ๆ ทดสอบผ่าน public API ของคลาสจริงเท่านั้น
+5. ตั้งชื่อ test method ให้สื่อความหมายตามรูปแบบ testMethodName_condition_expectedResult
+6. ห้าม import class ที่ไม่มีอยู่จริงหรือเดา API ที่ไม่ได้ให้มา ถ้าจำเป็นต้องใช้ dependency ที่ไม่มีข้อมูลเพียงพอ
+   ให้ระบุไว้เป็น comment ในโค้ดแทนการเดา
+</requirements>
+
+<output_format>
+ตอบกลับเฉพาะโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ห้ามมีคำอธิบายก่อน/หลังโค้ด ห้ามใช้ markdown code fence
+ชื่อไฟล์/คลาสคือ FieldPropertyTest.java
+</output_format>
