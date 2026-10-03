@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_gemini_Codec_8_1sausho1/checkout/failing_tests)!
+       Lines total: 261
+     Lines covered: 259
+  Conditions total: 186
+Conditions covered: 169
+     Line coverage: 99.2%
+Condition coverage: 90.9%

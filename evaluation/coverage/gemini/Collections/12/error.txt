@@ -1,0 +1,120 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/coverage_gemini_Collections_12_dranvd1k/checkout && ant -f /opt/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/opt/defects4j -Dd4j.dir.projects=/opt/defects4j/framework/projects -Dbasedir=/tmp/coverage_gemini_Collections_12_dranvd1k/checkout -Dd4j.test.dir=/tmp/coverage_gemini_Collections_12_dranvd1k/checkout/.test_suite compile.gen.tests 2>&1
+Buildfile: /opt/defects4j/framework/projects/defects4j.build.xml
+
+init:
+     [echo] -------- commons-collections 3.3-SNAPSHOT --------
+
+prepare:
+    [mkdir] Created dir: /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/build
+
+compile:
+    [mkdir] Created dir: /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/build/classes
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/build.xml:129: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 273 source files to /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/CollectionUtils.java:61: warning: [deprecation] Integer(int) in Integer has been deprecated
+    [javac]     private static Integer INTEGER_ONE = new Integer(1);
+    [javac]                                          ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/CollectionUtils.java:236: warning: [deprecation] Integer(int) in Integer has been deprecated
+    [javac]                 count.put(obj,new Integer(c.intValue() + 1));
+    [javac]                               ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1196: warning: [deprecation] Boolean(boolean) in Boolean has been deprecated
+    [javac]         return getBoolean(key, new Boolean(defaultValue)).booleanValue();
+    [javac]                                ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1218: warning: [deprecation] Boolean(String) in Boolean has been deprecated
+    [javac]             Boolean b = new Boolean(s);
+    [javac]                         ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1290: warning: [deprecation] Byte(byte) in Byte has been deprecated
+    [javac]         return getByte(key, new Byte(defaultValue)).byteValue();
+    [javac]                             ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1312: warning: [deprecation] Byte(String) in Byte has been deprecated
+    [javac]             Byte b = new Byte((String) value);
+    [javac]                      ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1360: warning: [deprecation] Short(short) in Short has been deprecated
+    [javac]         return getShort(key, new Short(defaultValue)).shortValue();
+    [javac]                              ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1382: warning: [deprecation] Short(String) in Short has been deprecated
+    [javac]             Short s = new Short((String) value);
+    [javac]                       ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1480: warning: [deprecation] Integer(String) in Integer has been deprecated
+    [javac]             Integer i = new Integer((String) value);
+    [javac]                         ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1528: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         return getLong(key, new Long(defaultValue)).longValue();
+    [javac]                             ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1550: warning: [deprecation] Long(String) in Long has been deprecated
+    [javac]             Long l = new Long((String) value);
+    [javac]                      ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1598: warning: [deprecation] Float(float) in Float has been deprecated
+    [javac]         return getFloat(key, new Float(defaultValue)).floatValue();
+    [javac]                              ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1620: warning: [deprecation] Float(String) in Float has been deprecated
+    [javac]             Float f = new Float((String) value);
+    [javac]                       ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1668: warning: [deprecation] Double(double) in Double has been deprecated
+    [javac]         return getDouble(key, new Double(defaultValue)).doubleValue();
+    [javac]                               ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/ExtendedProperties.java:1690: warning: [deprecation] Double(String) in Double has been deprecated
+    [javac]             Double d = new Double((String) value);
+    [javac]                        ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/MapUtils.java:171: warning: [deprecation] Boolean(String) in Boolean has been deprecated
+    [javac]                     return new Boolean((String) answer);
+    [javac]                            ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/MapUtils.java:232: warning: [deprecation] Byte(byte) in Byte has been deprecated
+    [javac]         return new Byte(answer.byteValue());
+    [javac]                ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/MapUtils.java:251: warning: [deprecation] Short(short) in Short has been deprecated
+    [javac]         return new Short(answer.shortValue());
+    [javac]                ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/MapUtils.java:270: warning: [deprecation] Integer(int) in Integer has been deprecated
+    [javac]         return new Integer(answer.intValue());
+    [javac]                ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/MapUtils.java:289: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         return new Long(answer.longValue());
+    [javac]                ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/MapUtils.java:308: warning: [deprecation] Float(float) in Float has been deprecated
+    [javac]         return new Float(answer.floatValue());
+    [javac]                ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/MapUtils.java:327: warning: [deprecation] Double(double) in Double has been deprecated
+    [javac]         return new Double(answer.doubleValue());
+    [javac]                ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/comparators/FixedOrderComparator.java:194: warning: [deprecation] Integer(int) in Integer has been deprecated
+    [javac]         Object position = map.put(obj, new Integer(counter++));
+    [javac]                                        ^
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/src/java/org/apache/commons/collections/map/MultiValueMap.java:470: warning: [deprecation] newInstance() in Class has been deprecated
+    [javac]                 return clazz.newInstance();
+    [javac]                             ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 28 warnings
+
+compile.gen.tests:
+     [echo] classes.dir: build/classes
+     [echo] build.home: build
+    [mkdir] Created dir: /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/.classes_testgen
+    [javac] /opt/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/.classes_testgen
+    [javac] /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/.test_suite/org/apache/commons/collections/ExtendedPropertiesTest.java:312: error: cannot find symbol
+    [javac]         ep.addPropertyDirectForTest("objKey", new Object());
+    [javac]           ^
+    [javac]   symbol:   method addPropertyDirectForTest(String,Object)
+    [javac]   location: variable ep of type ExtendedProperties
+    [javac] Note: /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/.test_suite/org/apache/commons/collections/ExtendedPropertiesTest.java uses or overrides a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: /tmp/coverage_gemini_Collections_12_dranvd1k/checkout/.test_suite/org/apache/commons/collections/ExtendedPropertiesTest.java uses unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 1 error
+
+BUILD FAILED
+/opt/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 2 seconds
+Cannot compile extracted test suite! at /opt/defects4j/framework/bin/d4j/d4j-coverage line 142.
+Compilation failed in require at /opt/defects4j/framework/bin/defects4j line 195.

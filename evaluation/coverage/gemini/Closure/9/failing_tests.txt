@@ -1,0 +1,71 @@
+--- com.google.javascript.jscomp.ProcessCommonJSModulesTest::testProcess_multipleScripts_throwsIllegalArgumentException
+java.lang.Exception: Unexpected exception, expected<java.lang.IllegalArgumentException> but was<java.lang.RuntimeException>
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:520)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1060)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:911)
+Caused by: java.lang.RuntimeException: INTERNAL COMPILER ERROR.
+Please report this problem.
+ProcessCommonJSModules supports only one invocation per CompilerInput / script node
+  Node(SCRIPT): app/file2.js:1:0
+var b = 2;
+  Parent(BLOCK): [source unknown]
+
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:92)
+	at com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback.visitScript(ProcessCommonJSModules.java:180)
+	at com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback.visit(ProcessCommonJSModules.java:146)
+	at com.google.javascript.jscomp.NodeTraversal.traverseBranch(NodeTraversal.java:505)
+	at com.google.javascript.jscomp.NodeTraversal.traverseBranch(NodeTraversal.java:498)
+	at com.google.javascript.jscomp.NodeTraversal.traverse(NodeTraversal.java:277)
+	at com.google.javascript.jscomp.NodeTraversal.traverse(NodeTraversal.java:456)
+	at com.google.javascript.jscomp.ProcessCommonJSModules.process(ProcessCommonJSModules.java:68)
+	at com.google.javascript.jscomp.ProcessCommonJSModulesTest.testProcess_multipleScripts_throwsIllegalArgumentException(ProcessCommonJSModulesTest.java:167)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)
+	... 13 more
+Caused by: java.lang.IllegalArgumentException: ProcessCommonJSModules supports only one invocation per CompilerInput / script node
+	... 31 more
+--- com.google.javascript.jscomp.ProcessCommonJSModulesTest::testProcess_fullRewritingWithRequireAndModuleExports
+junit.framework.AssertionFailedError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at com.google.javascript.jscomp.ProcessCommonJSModulesTest.testProcess_fullRewritingWithRequireAndModuleExports(ProcessCommonJSModulesTest.java:98)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:38)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:520)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:1060)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:911)

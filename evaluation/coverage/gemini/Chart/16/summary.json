@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "16",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 188,
+  "lines_covered": 185,
+  "conditions_total": 128,
+  "conditions_covered": 123,
+  "line_coverage": 98.4,
+  "condition_coverage": 96.1,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

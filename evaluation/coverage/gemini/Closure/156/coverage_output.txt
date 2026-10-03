@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_gemini_Closure_156_8koiqqn_/checkout/failing_tests)!
+       Lines total: 335
+     Lines covered: 302
+  Conditions total: 240
+Conditions covered: 172
+     Line coverage: 90.1%
+Condition coverage: 71.7%

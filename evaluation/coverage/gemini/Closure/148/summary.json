@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "148",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 705,
+  "lines_covered": 510,
+  "conditions_total": 506,
+  "conditions_covered": 271,
+  "line_coverage": 72.3,
+  "condition_coverage": 53.6,
+  "has_failing_tests": true,
+  "failing_test_count": 51,
+  "raw_failing_test_count": 51,
+  "helper_failure_count": 0
+}

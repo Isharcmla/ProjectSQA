@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_gemini_Chart_5_npu_d8lc/checkout/failing_tests)!
+       Lines total: 172
+     Lines covered: 168
+  Conditions total: 80
+Conditions covered: 78
+     Line coverage: 97.7%
+Condition coverage: 97.5%

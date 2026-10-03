@@ -1,0 +1,17 @@
+{
+  "project": "Codec",
+  "bug_id": "2",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 214,
+  "lines_covered": 210,
+  "conditions_total": 146,
+  "conditions_covered": 134,
+  "line_coverage": 98.1,
+  "condition_coverage": 91.8,
+  "has_failing_tests": true,
+  "failing_test_count": 3,
+  "raw_failing_test_count": 3,
+  "helper_failure_count": 0
+}

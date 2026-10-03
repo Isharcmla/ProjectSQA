@@ -1,0 +1,91 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/coverage_gemini_Collections_20_o549aqvr/checkout && ant -f /opt/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/opt/defects4j -Dd4j.dir.projects=/opt/defects4j/framework/projects -Dbasedir=/tmp/coverage_gemini_Collections_20_o549aqvr/checkout -Dd4j.test.dir=/tmp/coverage_gemini_Collections_20_o549aqvr/checkout/.test_suite compile.gen.tests 2>&1
+Buildfile: /opt/defects4j/framework/projects/defects4j.build.xml
+  [taskdef] Could not load definitions from resource emma_ant.properties. It could not be found.
+
+init:
+     [echo] -------- commons-collections 4.0-SNAPSHOT --------
+
+prepare:
+    [mkdir] Created dir: /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build
+
+compile:
+    [mkdir] Created dir: /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes
+    [javac] Compiling 305 source files to /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/src/main/java/org/apache/commons/collections/ExtendedProperties.java:1280: warning: [deprecation] Byte(String) in Byte has been deprecated
+    [javac]             final Byte b = new Byte((String) value);
+    [javac]                            ^
+    [javac] /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/src/main/java/org/apache/commons/collections/ExtendedProperties.java:1350: warning: [deprecation] Short(String) in Short has been deprecated
+    [javac]             final Short s = new Short((String) value);
+    [javac]                             ^
+    [javac] /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/src/main/java/org/apache/commons/collections/ExtendedProperties.java:1448: warning: [deprecation] Integer(String) in Integer has been deprecated
+    [javac]             final Integer i = new Integer((String) value);
+    [javac]                               ^
+    [javac] /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/src/main/java/org/apache/commons/collections/ExtendedProperties.java:1518: warning: [deprecation] Long(String) in Long has been deprecated
+    [javac]             final Long l = new Long((String) value);
+    [javac]                            ^
+    [javac] /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/src/main/java/org/apache/commons/collections/ExtendedProperties.java:1566: warning: [deprecation] Float(float) in Float has been deprecated
+    [javac]         return getFloat(key, new Float(defaultValue)).floatValue();
+    [javac]                              ^
+    [javac] /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/src/main/java/org/apache/commons/collections/ExtendedProperties.java:1588: warning: [deprecation] Float(String) in Float has been deprecated
+    [javac]             final Float f = new Float((String) value);
+    [javac]                             ^
+    [javac] /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/src/main/java/org/apache/commons/collections/ExtendedProperties.java:1636: warning: [deprecation] Double(double) in Double has been deprecated
+    [javac]         return getDouble(key, new Double(defaultValue)).doubleValue();
+    [javac]                               ^
+    [javac] /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/src/main/java/org/apache/commons/collections/ExtendedProperties.java:1658: warning: [deprecation] Double(String) in Double has been deprecated
+    [javac]             final Double d = new Double((String) value);
+    [javac]                              ^
+    [javac] /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/src/main/java/org/apache/commons/collections/map/MultiValueMap.java:490: warning: [deprecation] newInstance() in Class has been deprecated
+    [javac]                 return clazz.newInstance();
+    [javac]                             ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/src/main/java/org/apache/commons/collections/list/SetUniqueList.java:348: warning: [deprecation] newInstance() in Class has been deprecated
+    [javac]                 subSet = set.getClass().newInstance();
+    [javac]                                        ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] Note: /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/src/main/java/org/apache/commons/collections/ClosureUtils.java uses unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 14 warnings
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/bidimap/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/trie/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/functors/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/bag/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/comparators/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/buffer/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/comparators/sequence/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/map/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/collection/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/keyvalue/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/splitmap/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/list/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/iterators/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/build/classes/org/apache/commons/collections/set/package-info.class
+
+compile.gen.tests:
+     [echo] classes.dir: build/classes
+     [echo] build.home: build
+    [mkdir] Created dir: /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/.classes_testgen
+    [javac] /opt/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/.classes_testgen
+    [javac] /tmp/coverage_gemini_Collections_20_o549aqvr/checkout/.test_suite/org/apache/commons/collections/list/TreeListTest.java:524: error: AVLNode(int,E,AVLNode<E>,AVLNode<E>) has private access in AVLNode
+    [javac]         TreeList.AVLNode<String> node = new TreeList.AVLNode<String>(0, "test", null, null);
+    [javac]                                         ^
+    [javac]   where E is a type-variable:
+    [javac]     E extends Object declared in class AVLNode
+    [javac] 1 error
+
+BUILD FAILED
+/opt/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 2 seconds
+Cannot compile extracted test suite! at /opt/defects4j/framework/bin/d4j/d4j-coverage line 142.
+Compilation failed in require at /opt/defects4j/framework/bin/defects4j line 195.

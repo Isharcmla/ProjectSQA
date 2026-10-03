@@ -1,0 +1,17 @@
+{
+  "project": "Csv",
+  "bug_id": "1",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 37,
+  "lines_covered": 37,
+  "conditions_total": 22,
+  "conditions_covered": 21,
+  "line_coverage": 100.0,
+  "condition_coverage": 95.5,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

@@ -1,0 +1,82 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout && ant -f /opt/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/opt/defects4j -Dd4j.dir.projects=/opt/defects4j/framework/projects -Dbasedir=/tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout -Dd4j.test.dir=/tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/.test_suite compile.gen.tests 2>&1
+Buildfile: /opt/defects4j/framework/projects/defects4j.build.xml
+
+test-offline:
+
+get-deps:
+
+commons-compress-from-maven.compile:
+    [mkdir] Created dir: /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/target/classes
+    [javac] /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/maven-build.xml:74: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 56 source files to /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/target/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java:57: warning: [deprecation] newInstance() in Class has been deprecated
+    [javac]             ZipExtraField ze = (ZipExtraField) c.newInstance();
+    [javac]                                                 ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java:80: warning: [deprecation] newInstance() in Class has been deprecated
+    [javac]             return (ZipExtraField) c.newInstance();
+    [javac]                                     ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/src/main/java/org/apache/commons/compress/archivers/zip/ZipUtil.java:49: warning: [deprecation] getYear() in Date has been deprecated
+    [javac]         int year = time.getYear() + 1900;
+    [javac]                        ^
+    [javac] /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/src/main/java/org/apache/commons/compress/archivers/zip/ZipUtil.java:53: warning: [deprecation] getMonth() in Date has been deprecated
+    [javac]         int month = time.getMonth() + 1;
+    [javac]                         ^
+    [javac] /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/src/main/java/org/apache/commons/compress/archivers/zip/ZipUtil.java:56: warning: [deprecation] getDate() in Date has been deprecated
+    [javac]             |         (time.getDate() << 16)
+    [javac]                            ^
+    [javac] /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/src/main/java/org/apache/commons/compress/archivers/zip/ZipUtil.java:57: warning: [deprecation] getHours() in Date has been deprecated
+    [javac]             |         (time.getHours() << 11)
+    [javac]                            ^
+    [javac] /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/src/main/java/org/apache/commons/compress/archivers/zip/ZipUtil.java:58: warning: [deprecation] getMinutes() in Date has been deprecated
+    [javac]             |         (time.getMinutes() << 5)
+    [javac]                            ^
+    [javac] /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/src/main/java/org/apache/commons/compress/archivers/zip/ZipUtil.java:59: warning: [deprecation] getSeconds() in Date has been deprecated
+    [javac]             |         (time.getSeconds() >> 1);
+    [javac]                            ^
+    [javac] /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorOutputStream.java:369: warning: [deprecation] finalize() in Object has been deprecated
+    [javac]     protected void finalize() throws Throwable {
+    [javac]                    ^
+    [javac] /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorOutputStream.java:371: warning: [deprecation] finalize() in Object has been deprecated
+    [javac]         super.finalize();
+    [javac]              ^
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 14 warnings
+    [mkdir] Created dir: /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/target/classes/META-INF
+     [copy] Copying 2 files to /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/target/classes/META-INF
+
+compile:
+
+compile.gen.tests:
+     [echo] classes.dir: target/classes
+     [echo] build.home: target/classes/..
+    [mkdir] Created dir: /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/.classes_testgen
+    [javac] /opt/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/.classes_testgen
+    [javac] /tmp/coverage_gemini_Compress_1_yqy0qdlf/checkout/.test_suite/org/apache/commons/compress/archivers/cpio/CpioArchiveOutputStreamTest.java:35: error: no suitable constructor found for CpioArchiveEntry(short,String,int)
+    [javac]         CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "file1.txt", 4);
+    [javac]                                  ^
+    [javac]     constructor CpioArchiveEntry.CpioArchiveEntry(short) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     constructor CpioArchiveEntry.CpioArchiveEntry(String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac] 1 error
+
+BUILD FAILED
+/opt/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 1 second
+Cannot compile extracted test suite! at /opt/defects4j/framework/bin/d4j/d4j-coverage line 142.
+Compilation failed in require at /opt/defects4j/framework/bin/defects4j line 195.

@@ -1,0 +1,17 @@
+{
+  "project": "Collections",
+  "bug_id": "25",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 213,
+  "lines_covered": 209,
+  "conditions_total": 126,
+  "conditions_covered": 123,
+  "line_coverage": 98.1,
+  "condition_coverage": 97.6,
+  "has_failing_tests": true,
+  "failing_test_count": 4,
+  "raw_failing_test_count": 4,
+  "helper_failure_count": 0
+}
