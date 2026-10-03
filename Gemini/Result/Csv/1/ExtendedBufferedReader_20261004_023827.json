@@ -1,0 +1,33 @@
+{
+  "project": "Csv",
+  "bug_id": "1",
+  "tool": "gemini",
+  "class": "org.apache.commons.csv.ExtendedBufferedReader",
+  "target_classes": [
+    "org.apache.commons.csv.ExtendedBufferedReader"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.83,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Csv\\1\\ExtendedBufferedReader_20261004_023827.txt",
+  "test_file": "Gemini\\TestCode\\Csv\\1\\ExtendedBufferedReaderTest.java",
+  "usage": {
+    "prompt_tokens": 1496,
+    "completion_tokens": 1923,
+    "total_tokens": 6328
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 95640,
+    "daily_remaining_tokens": 254360
+  },
+  "timestamp": "20261004_023827"
+}

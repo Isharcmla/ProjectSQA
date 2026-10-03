@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "16",
+  "tool": "gemini",
+  "class": "org.apache.commons.compress.archivers.ArchiveStreamFactory",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.ArchiveStreamFactory"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.51,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Compress\\16\\ArchiveStreamFactory_20261004_022117.txt",
+  "test_file": "Gemini\\TestCode\\Compress\\16\\ArchiveStreamFactoryTest.java",
+  "usage": {
+    "prompt_tokens": 2753,
+    "completion_tokens": 3964,
+    "total_tokens": 9533
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 175842,
+    "daily_remaining_tokens": 174158
+  },
+  "timestamp": "20261004_022117"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "141",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.PureFunctionIdentifier",
+  "target_classes": [
+    "com.google.javascript.jscomp.PureFunctionIdentifier"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 32.52,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\141\\PureFunctionIdentifier_20261004_001028.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\141\\PureFunctionIdentifierTest.java",
+  "usage": {
+    "prompt_tokens": 5669,
+    "completion_tokens": 3589,
+    "total_tokens": 11841
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 146141,
+    "daily_remaining_tokens": 203859
+  },
+  "timestamp": "20261004_001028"
+}

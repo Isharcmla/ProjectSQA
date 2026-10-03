@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "9",
+  "tool": "gemini",
+  "class": "org.apache.commons.collections.ExtendedProperties",
+  "target_classes": [
+    "org.apache.commons.collections.ExtendedProperties"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.96,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Collections\\9\\ExtendedProperties_20261004_021617.txt",
+  "test_file": "Gemini\\TestCode\\Collections\\9\\ExtendedPropertiesTest.java",
+  "usage": {
+    "prompt_tokens": 14904,
+    "completion_tokens": 7170,
+    "total_tokens": 23010
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 98790,
+    "daily_remaining_tokens": 251210
+  },
+  "timestamp": "20261004_021617"
+}

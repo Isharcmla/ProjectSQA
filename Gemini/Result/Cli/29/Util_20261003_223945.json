@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "29",
+  "tool": "gemini",
+  "class": "org.apache.commons.cli.Util",
+  "target_classes": [
+    "org.apache.commons.cli.Util"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 12.42,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Cli\\29\\Util_20261003_223945.txt",
+  "test_file": "Gemini\\TestCode\\Cli\\29\\UtilTest.java",
+  "usage": {
+    "prompt_tokens": 861,
+    "completion_tokens": 617,
+    "total_tokens": 2911
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 294673,
+    "daily_remaining_tokens": 55327
+  },
+  "timestamp": "20261003_223945"
+}

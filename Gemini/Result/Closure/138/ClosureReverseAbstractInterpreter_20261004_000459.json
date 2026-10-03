@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "138",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.ClosureReverseAbstractInterpreter",
+  "target_classes": [
+    "com.google.javascript.jscomp.ClosureReverseAbstractInterpreter"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 50.6,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\138\\ClosureReverseAbstractInterpreter_20261004_000459.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\138\\ClosureReverseAbstractInterpreterTest.java",
+  "usage": {
+    "prompt_tokens": 2559,
+    "completion_tokens": 4563,
+    "total_tokens": 10547
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 58254,
+    "daily_remaining_tokens": 291746
+  },
+  "timestamp": "20261004_000459"
+}

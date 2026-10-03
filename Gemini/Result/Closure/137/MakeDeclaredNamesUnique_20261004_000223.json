@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "137",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.MakeDeclaredNamesUnique",
+  "target_classes": [
+    "com.google.javascript.jscomp.MakeDeclaredNamesUnique"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.85,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\137\\MakeDeclaredNamesUnique_20261004_000223.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\137\\MakeDeclaredNamesUniqueTest.java",
+  "usage": {
+    "prompt_tokens": 4270,
+    "completion_tokens": 2335,
+    "total_tokens": 8567
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 8567,
+    "daily_remaining_tokens": 341433
+  },
+  "timestamp": "20261004_000223"
+}

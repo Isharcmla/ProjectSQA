@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "3",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.FlowSensitiveInlineVariables",
+  "target_classes": [
+    "com.google.javascript.jscomp.FlowSensitiveInlineVariables"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 36.53,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\3\\FlowSensitiveInlineVariables_20261004_010641.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\3\\FlowSensitiveInlineVariablesTest.java",
+  "usage": {
+    "prompt_tokens": 5031,
+    "completion_tokens": 1971,
+    "total_tokens": 10811
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 354032,
+    "daily_remaining_tokens": -4032
+  },
+  "timestamp": "20261004_010641"
+}

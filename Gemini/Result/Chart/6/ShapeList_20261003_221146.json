@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "6",
+  "tool": "gemini",
+  "class": "org.jfree.chart.util.ShapeList",
+  "target_classes": [
+    "org.jfree.chart.util.ShapeList"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 18.55,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Chart\\6\\ShapeList_20261003_221146.txt",
+  "test_file": "Gemini\\TestCode\\Chart\\6\\ShapeListTest.java",
+  "usage": {
+    "prompt_tokens": 1525,
+    "completion_tokens": 2329,
+    "total_tokens": 4703
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 81725,
+    "daily_remaining_tokens": 268275
+  },
+  "timestamp": "20261003_221146"
+}

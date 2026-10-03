@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "58",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.LiveVariablesAnalysis",
+  "target_classes": [
+    "com.google.javascript.jscomp.LiveVariablesAnalysis"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 39.42,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\58\\LiveVariablesAnalysis_20261004_011913.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\58\\LiveVariablesAnalysisTest.java",
+  "usage": {
+    "prompt_tokens": 2869,
+    "completion_tokens": 4251,
+    "total_tokens": 7856
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 261906,
+    "daily_remaining_tokens": 88094
+  },
+  "timestamp": "20261004_011913"
+}

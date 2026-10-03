@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "169",
+  "tool": "gemini",
+  "class": "com.google.javascript.rhino.jstype.ArrowType",
+  "target_classes": [
+    "com.google.javascript.rhino.jstype.ArrowType"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 34.19,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\169\\ArrowType_20261004_004121.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\169\\ArrowTypeTest.java",
+  "usage": {
+    "prompt_tokens": 2994,
+    "completion_tokens": 4195,
+    "total_tokens": 9867
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 89389,
+    "daily_remaining_tokens": 260611
+  },
+  "timestamp": "20261004_004121"
+}

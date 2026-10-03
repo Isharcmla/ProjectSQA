@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "21",
+  "tool": "gemini",
+  "class": "org.apache.commons.cli2.WriteableCommandLine",
+  "target_classes": [
+    "org.apache.commons.cli2.WriteableCommandLine"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 24.42,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Cli\\21\\WriteableCommandLine_20261003_222322.txt",
+  "test_file": "Gemini\\TestCode\\Cli\\21\\WriteableCommandLineTest.java",
+  "usage": {
+    "prompt_tokens": 1183,
+    "completion_tokens": 3487,
+    "total_tokens": 5566
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 225393,
+    "daily_remaining_tokens": 124607
+  },
+  "timestamp": "20261003_222322"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "10",
+  "tool": "gemini",
+  "class": "org.apache.commons.codec.language.Caverphone",
+  "target_classes": [
+    "org.apache.commons.codec.language.Caverphone"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 33.23,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Codec\\10\\Caverphone_20261004_015158.txt",
+  "test_file": "Gemini\\TestCode\\Codec\\10\\CaverphoneTest.java",
+  "usage": {
+    "prompt_tokens": 2413,
+    "completion_tokens": 2521,
+    "total_tokens": 7427
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 259628,
+    "daily_remaining_tokens": 90372
+  },
+  "timestamp": "20261004_015158"
+}

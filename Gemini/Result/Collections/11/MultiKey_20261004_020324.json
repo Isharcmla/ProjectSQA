@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "11",
+  "tool": "gemini",
+  "class": "org.apache.commons.collections.keyvalue.MultiKey",
+  "target_classes": [
+    "org.apache.commons.collections.keyvalue.MultiKey"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 14.33,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Collections\\11\\MultiKey_20261004_020324.txt",
+  "test_file": "Gemini\\TestCode\\Collections\\11\\MultiKeyTest.java",
+  "usage": {
+    "prompt_tokens": 2694,
+    "completion_tokens": 2416,
+    "total_tokens": 5110
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 136596,
+    "daily_remaining_tokens": 213404
+  },
+  "timestamp": "20261004_020324"
+}

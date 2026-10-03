@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "17",
+  "tool": "gemini",
+  "class": "org.apache.commons.cli.PosixParser",
+  "target_classes": [
+    "org.apache.commons.cli.PosixParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 33.8,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Cli\\17\\PosixParser_20261003_222047.txt",
+  "test_file": "Gemini\\TestCode\\Cli\\17\\PosixParserTest.java",
+  "usage": {
+    "prompt_tokens": 2896,
+    "completion_tokens": 2313,
+    "total_tokens": 7830
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 202762,
+    "daily_remaining_tokens": 147238
+  },
+  "timestamp": "20261003_222047"
+}

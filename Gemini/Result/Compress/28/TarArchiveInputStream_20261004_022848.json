@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "28",
+  "tool": "gemini",
+  "class": "org.apache.commons.compress.archivers.tar.TarArchiveInputStream",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.tar.TarArchiveInputStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 51.47,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Compress\\28\\TarArchiveInputStream_20261004_022848.txt",
+  "test_file": "Gemini\\TestCode\\Compress\\28\\TarArchiveInputStreamTest.java",
+  "usage": {
+    "prompt_tokens": 6115,
+    "completion_tokens": 7205,
+    "total_tokens": 16315
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 308369,
+    "daily_remaining_tokens": 41631
+  },
+  "timestamp": "20261004_022848"
+}

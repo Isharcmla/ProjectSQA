@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "105",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.FoldConstants",
+  "target_classes": [
+    "com.google.javascript.jscomp.FoldConstants"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 31.77,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\105\\FoldConstants_20261003_231145.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\105\\FoldConstantsTest.java",
+  "usage": {
+    "prompt_tokens": 17975,
+    "completion_tokens": 4479,
+    "total_tokens": 24524
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 179940,
+    "daily_remaining_tokens": 170060
+  },
+  "timestamp": "20261003_231145"
+}

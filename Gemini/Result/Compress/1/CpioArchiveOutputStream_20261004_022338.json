@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "1",
+  "tool": "gemini",
+  "class": "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.cpio.CpioArchiveOutputStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 33.97,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Compress\\1\\CpioArchiveOutputStream_20261004_022338.txt",
+  "test_file": "Gemini\\TestCode\\Compress\\1\\CpioArchiveOutputStreamTest.java",
+  "usage": {
+    "prompt_tokens": 4148,
+    "completion_tokens": 3214,
+    "total_tokens": 9818
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 211650,
+    "daily_remaining_tokens": 138350
+  },
+  "timestamp": "20261004_022338"
+}

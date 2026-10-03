@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "8",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.CollapseVariableDeclarations",
+  "target_classes": [
+    "com.google.javascript.jscomp.CollapseVariableDeclarations"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 13.28,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\8\\CollapseVariableDeclarations_20261004_014440.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\8\\CollapseVariableDeclarationsTest.java",
+  "usage": {
+    "prompt_tokens": 2192,
+    "completion_tokens": 1203,
+    "total_tokens": 4547
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 106344,
+    "daily_remaining_tokens": 243656
+  },
+  "timestamp": "20261004_014440"
+}

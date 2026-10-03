@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "119",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.GlobalNamespace",
+  "target_classes": [
+    "com.google.javascript.jscomp.GlobalNamespace"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 45.45,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\119\\GlobalNamespace_20261003_232127.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\119\\GlobalNamespaceTest.java",
+  "usage": {
+    "prompt_tokens": 11551,
+    "completion_tokens": 6200,
+    "total_tokens": 19164
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 79508,
+    "daily_remaining_tokens": 270492
+  },
+  "timestamp": "20261003_232127"
+}

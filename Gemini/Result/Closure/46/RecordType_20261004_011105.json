@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "46",
+  "tool": "gemini",
+  "class": "com.google.javascript.rhino.jstype.RecordType",
+  "target_classes": [
+    "com.google.javascript.rhino.jstype.RecordType"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 25.74,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\46\\RecordType_20261004_011105.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\46\\RecordTypeTest.java",
+  "usage": {
+    "prompt_tokens": 3088,
+    "completion_tokens": 3395,
+    "total_tokens": 8372
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 99836,
+    "daily_remaining_tokens": 250164
+  },
+  "timestamp": "20261004_011105"
+}

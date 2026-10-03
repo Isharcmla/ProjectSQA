@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "159",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.InlineFunctions",
+  "target_classes": [
+    "com.google.javascript.jscomp.InlineFunctions"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 26.51,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\159\\InlineFunctions_20261004_003146.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\159\\InlineFunctionsTest.java",
+  "usage": {
+    "prompt_tokens": 9315,
+    "completion_tokens": 3559,
+    "total_tokens": 14610
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 251423,
+    "daily_remaining_tokens": 98577
+  },
+  "timestamp": "20261004_003146"
+}

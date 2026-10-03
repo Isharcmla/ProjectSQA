@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "144",
+  "tool": "gemini",
+  "class": "com.google.javascript.rhino.jstype.FunctionType",
+  "target_classes": [
+    "com.google.javascript.rhino.jstype.FunctionType"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 46.19,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\144\\FunctionType_20261004_001438.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\144\\FunctionTypeTest.java",
+  "usage": {
+    "prompt_tokens": 7582,
+    "completion_tokens": 5989,
+    "total_tokens": 16193
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 239447,
+    "daily_remaining_tokens": 110553
+  },
+  "timestamp": "20261004_001438"
+}

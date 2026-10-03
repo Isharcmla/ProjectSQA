@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "18",
+  "tool": "gemini",
+  "class": "org.jfree.data.DefaultKeyedValues",
+  "target_classes": [
+    "org.jfree.data.DefaultKeyedValues"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.3,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Chart\\18\\DefaultKeyedValues_20261003_215417.txt",
+  "test_file": "Gemini\\TestCode\\Chart\\18\\DefaultKeyedValuesTest.java",
+  "usage": {
+    "prompt_tokens": 4450,
+    "completion_tokens": 4053,
+    "total_tokens": 10596
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 176616,
+    "daily_remaining_tokens": 173384
+  },
+  "timestamp": "20261003_215417"
+}

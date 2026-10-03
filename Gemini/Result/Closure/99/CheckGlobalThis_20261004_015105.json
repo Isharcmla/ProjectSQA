@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "99",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.CheckGlobalThis",
+  "target_classes": [
+    "com.google.javascript.jscomp.CheckGlobalThis"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 11.52,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\99\\CheckGlobalThis_20261004_015105.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\99\\CheckGlobalThisTest.java",
+  "usage": {
+    "prompt_tokens": 1903,
+    "completion_tokens": 1812,
+    "total_tokens": 3715
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 247621,
+    "daily_remaining_tokens": 102379
+  },
+  "timestamp": "20261004_015105"
+}

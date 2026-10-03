@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "27",
+  "tool": "gemini",
+  "class": "com.google.javascript.rhino.IR",
+  "target_classes": [
+    "com.google.javascript.rhino.IR"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 40.97,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\27\\IR_20261004_005703.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\27\\IRTest.java",
+  "usage": {
+    "prompt_tokens": 5177,
+    "completion_tokens": 7992,
+    "total_tokens": 14324
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 139821,
+    "daily_remaining_tokens": 210179
+  },
+  "timestamp": "20261004_005703"
+}

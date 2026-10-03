@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "74",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.PeepholeFoldConstants",
+  "target_classes": [
+    "com.google.javascript.jscomp.PeepholeFoldConstants"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 40.47,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\74\\PeepholeFoldConstants_20261004_013209.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\74\\PeepholeFoldConstantsTest.java",
+  "usage": {
+    "prompt_tokens": 14415,
+    "completion_tokens": 3037,
+    "total_tokens": 20846
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 196750,
+    "daily_remaining_tokens": 153250
+  },
+  "timestamp": "20261004_013209"
+}

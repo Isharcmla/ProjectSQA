@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "28",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.InlineCostEstimator",
+  "target_classes": [
+    "com.google.javascript.jscomp.InlineCostEstimator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 14.89,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\28\\InlineCostEstimator_20261004_005746.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\28\\InlineCostEstimatorTest.java",
+  "usage": {
+    "prompt_tokens": 1008,
+    "completion_tokens": 1212,
+    "total_tokens": 3589
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 142255,
+    "daily_remaining_tokens": 207745
+  },
+  "timestamp": "20261004_005746"
+}

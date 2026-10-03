@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "7",
+  "tool": "gemini",
+  "class": "org.apache.commons.cli2.builder.PatternBuilder",
+  "target_classes": [
+    "org.apache.commons.cli2.builder.PatternBuilder"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 22.49,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Cli\\7\\PatternBuilder_20261003_230721.txt",
+  "test_file": "Gemini\\TestCode\\Cli\\7\\PatternBuilderTest.java",
+  "usage": {
+    "prompt_tokens": 1693,
+    "completion_tokens": 1482,
+    "total_tokens": 5383
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 84107,
+    "daily_remaining_tokens": 265893
+  },
+  "timestamp": "20261003_230721"
+}

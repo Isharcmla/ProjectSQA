@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "39",
+  "tool": "gemini",
+  "class": "org.apache.commons.cli.TypeHandler",
+  "target_classes": [
+    "org.apache.commons.cli.TypeHandler"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 22.32,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Cli\\39\\TypeHandler_20261003_230534.txt",
+  "test_file": "Gemini\\TestCode\\Cli\\39\\TypeHandlerTest.java",
+  "usage": {
+    "prompt_tokens": 2164,
+    "completion_tokens": 1980,
+    "total_tokens": 5913
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 64547,
+    "daily_remaining_tokens": 285453
+  },
+  "timestamp": "20261003_230534"
+}

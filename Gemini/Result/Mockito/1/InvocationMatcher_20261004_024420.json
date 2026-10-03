@@ -1,0 +1,33 @@
+{
+  "project": "Mockito",
+  "bug_id": "1",
+  "tool": "gemini",
+  "class": "org.mockito.internal.invocation.InvocationMatcher",
+  "target_classes": [
+    "org.mockito.internal.invocation.InvocationMatcher"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 30.67,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Mockito\\1\\InvocationMatcher_20261004_024420.txt",
+  "test_file": "Gemini\\TestCode\\Mockito\\1\\InvocationMatcherTest.java",
+  "usage": {
+    "prompt_tokens": 1844,
+    "completion_tokens": 4002,
+    "total_tokens": 7950
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 199284,
+    "daily_remaining_tokens": 150716
+  },
+  "timestamp": "20261004_024420"
+}

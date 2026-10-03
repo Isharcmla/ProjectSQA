@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "155",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.ReferenceCollectingCallback",
+  "target_classes": [
+    "com.google.javascript.jscomp.ReferenceCollectingCallback"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 21.4,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\155\\ReferenceCollectingCallback_20261004_002710.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\155\\ReferenceCollectingCallbackTest.java",
+  "usage": {
+    "prompt_tokens": 4961,
+    "completion_tokens": 3827,
+    "total_tokens": 8788
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 138462,
+    "daily_remaining_tokens": 211538
+  },
+  "timestamp": "20261004_002710"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "2",
+  "tool": "gemini",
+  "class": "org.apache.commons.codec.binary.Base64",
+  "target_classes": [
+    "org.apache.commons.codec.binary.Base64"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 22.4,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Codec\\2\\Base64_20261004_015843.txt",
+  "test_file": "Gemini\\TestCode\\Codec\\2\\Base64Test.java",
+  "usage": {
+    "prompt_tokens": 10160,
+    "completion_tokens": 4396,
+    "total_tokens": 14556
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 17185,
+    "daily_remaining_tokens": 332815
+  },
+  "timestamp": "20261004_015843"
+}

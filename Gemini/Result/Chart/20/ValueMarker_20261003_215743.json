@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "20",
+  "tool": "gemini",
+  "class": "org.jfree.chart.plot.ValueMarker",
+  "target_classes": [
+    "org.jfree.chart.plot.ValueMarker"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 16.31,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Chart\\20\\ValueMarker_20261003_215743.txt",
+  "test_file": "Gemini\\TestCode\\Chart\\20\\ValueMarkerTest.java",
+  "usage": {
+    "prompt_tokens": 1617,
+    "completion_tokens": 2249,
+    "total_tokens": 4900
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 259936,
+    "daily_remaining_tokens": 90064
+  },
+  "timestamp": "20261003_215743"
+}

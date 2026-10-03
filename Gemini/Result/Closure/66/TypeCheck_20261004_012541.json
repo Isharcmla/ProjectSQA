@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "66",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.TypeCheck",
+  "target_classes": [
+    "com.google.javascript.jscomp.TypeCheck"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 40.73,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\66\\TypeCheck_20261004_012541.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\66\\TypeCheckTest.java",
+  "usage": {
+    "prompt_tokens": 18289,
+    "completion_tokens": 5377,
+    "total_tokens": 25225
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 44865,
+    "daily_remaining_tokens": 305135
+  },
+  "timestamp": "20261004_012541"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "87",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax",
+  "target_classes": [
+    "com.google.javascript.jscomp.PeepholeSubstituteAlternateSyntax"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.42,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\87\\PeepholeSubstituteAlternateSyntax_20261004_014258.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\87\\PeepholeSubstituteAlternateSyntaxTest.java",
+  "usage": {
+    "prompt_tokens": 9898,
+    "completion_tokens": 2588,
+    "total_tokens": 16984
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 75847,
+    "daily_remaining_tokens": 274153
+  },
+  "timestamp": "20261004_014258"
+}

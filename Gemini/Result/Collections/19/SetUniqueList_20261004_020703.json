@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "19",
+  "tool": "gemini",
+  "class": "org.apache.commons.collections.list.SetUniqueList",
+  "target_classes": [
+    "org.apache.commons.collections.list.SetUniqueList"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 22.39,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Collections\\19\\SetUniqueList_20261004_020703.txt",
+  "test_file": "Gemini\\TestCode\\Collections\\19\\SetUniqueListTest.java",
+  "usage": {
+    "prompt_tokens": 3717,
+    "completion_tokens": 4252,
+    "total_tokens": 8689
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 216476,
+    "daily_remaining_tokens": 133524
+  },
+  "timestamp": "20261004_020703"
+}

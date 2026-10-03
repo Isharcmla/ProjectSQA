@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "40",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.NameAnalyzer",
+  "target_classes": [
+    "com.google.javascript.jscomp.NameAnalyzer"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 16.36,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\40\\NameAnalyzer_20261004_010719.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\40\\NameAnalyzerTest.java",
+  "usage": {
+    "prompt_tokens": 15910,
+    "completion_tokens": 2679,
+    "total_tokens": 18589
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 18589,
+    "daily_remaining_tokens": 331411
+  },
+  "timestamp": "20261004_010719"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Time",
+  "bug_id": "1",
+  "tool": "gemini",
+  "class": "org.joda.time.Partial",
+  "target_classes": [
+    "org.joda.time.Partial"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 26.56,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Time\\1\\Partial_20261004_024517.txt",
+  "test_file": "Gemini\\TestCode\\Time\\1\\PartialTest.java",
+  "usage": {
+    "prompt_tokens": 9770,
+    "completion_tokens": 5217,
+    "total_tokens": 14987
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 216693,
+    "daily_remaining_tokens": 133307
+  },
+  "timestamp": "20261004_024517"
+}

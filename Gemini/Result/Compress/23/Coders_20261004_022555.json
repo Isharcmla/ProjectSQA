@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "23",
+  "tool": "gemini",
+  "class": "org.apache.commons.compress.archivers.sevenz.Coders",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.sevenz.Coders"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 43.43,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Compress\\23\\Coders_20261004_022555.txt",
+  "test_file": "Gemini\\TestCode\\Compress\\23\\CodersTest.java",
+  "usage": {
+    "prompt_tokens": 2949,
+    "completion_tokens": 3411,
+    "total_tokens": 11796
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 254506,
+    "daily_remaining_tokens": 95494
+  },
+  "timestamp": "20261004_022555"
+}

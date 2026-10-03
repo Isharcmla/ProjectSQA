@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "67",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.AnalyzePrototypeProperties",
+  "target_classes": [
+    "com.google.javascript.jscomp.AnalyzePrototypeProperties"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 24.54,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\67\\AnalyzePrototypeProperties_20261004_012623.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\67\\AnalyzePrototypePropertiesTest.java",
+  "usage": {
+    "prompt_tokens": 6080,
+    "completion_tokens": 3455,
+    "total_tokens": 10210
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 53516,
+    "daily_remaining_tokens": 296484
+  },
+  "timestamp": "20261004_012623"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "115",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.FunctionInjector",
+  "target_classes": [
+    "com.google.javascript.jscomp.FunctionInjector"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 43.66,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\115\\FunctionInjector_20261003_231819.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\115\\FunctionInjectorTest.java",
+  "usage": {
+    "prompt_tokens": 8960,
+    "completion_tokens": 5821,
+    "total_tokens": 15928
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 15928,
+    "daily_remaining_tokens": 334072
+  },
+  "timestamp": "20261003_231819"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "13",
+  "tool": "gemini",
+  "class": "org.apache.commons.codec.language.DoubleMetaphone",
+  "target_classes": [
+    "org.apache.commons.codec.language.DoubleMetaphone"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 37.04,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Codec\\13\\DoubleMetaphone_20261004_015350.txt",
+  "test_file": "Gemini\\TestCode\\Codec\\13\\DoubleMetaphoneTest.java",
+  "usage": {
+    "prompt_tokens": 10476,
+    "completion_tokens": 6298,
+    "total_tokens": 16774
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 292032,
+    "daily_remaining_tokens": 57968
+  },
+  "timestamp": "20261004_015350"
+}

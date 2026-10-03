@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "36",
+  "tool": "gemini",
+  "class": "org.apache.commons.cli.OptionGroup",
+  "target_classes": [
+    "org.apache.commons.cli.OptionGroup"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 16.75,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Cli\\36\\OptionGroup_20261003_230359.txt",
+  "test_file": "Gemini\\TestCode\\Cli\\36\\OptionGroupTest.java",
+  "usage": {
+    "prompt_tokens": 1405,
+    "completion_tokens": 1504,
+    "total_tokens": 4009
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 34634,
+    "daily_remaining_tokens": 315366
+  },
+  "timestamp": "20261003_230359"
+}

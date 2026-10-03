@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "16",
+  "tool": "gemini",
+  "class": "org.apache.commons.cli2.commandline.WriteableCommandLineImpl",
+  "target_classes": [
+    "org.apache.commons.cli2.commandline.WriteableCommandLineImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 35.21,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Cli\\16\\WriteableCommandLineImpl_20261003_221844.txt",
+  "test_file": "Gemini\\TestCode\\Cli\\16\\WriteableCommandLineImplTest.java",
+  "usage": {
+    "prompt_tokens": 2385,
+    "completion_tokens": 3504,
+    "total_tokens": 7963
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 182707,
+    "daily_remaining_tokens": 167293
+  },
+  "timestamp": "20261003_221844"
+}

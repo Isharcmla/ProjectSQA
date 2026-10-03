@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "174",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.ScopedAliases",
+  "target_classes": [
+    "com.google.javascript.jscomp.ScopedAliases"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 30.86,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\174\\ScopedAliases_20261004_004914.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\174\\ScopedAliasesTest.java",
+  "usage": {
+    "prompt_tokens": 5435,
+    "completion_tokens": 2898,
+    "total_tokens": 10466
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 307433,
+    "daily_remaining_tokens": 42567
+  },
+  "timestamp": "20261004_004914"
+}

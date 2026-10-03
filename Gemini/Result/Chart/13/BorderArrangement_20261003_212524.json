@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "13",
+  "tool": "gemini",
+  "class": "org.jfree.chart.block.BorderArrangement",
+  "target_classes": [
+    "org.jfree.chart.block.BorderArrangement"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 22.39,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Chart\\13\\BorderArrangement_20261003_212524.txt",
+  "test_file": "Gemini\\TestCode\\Chart\\13\\BorderArrangementTest.java",
+  "usage": {
+    "prompt_tokens": 5850,
+    "completion_tokens": 4149,
+    "total_tokens": 10719
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 352179,
+    "daily_remaining_tokens": -2179
+  },
+  "timestamp": "20261003_212524"
+}

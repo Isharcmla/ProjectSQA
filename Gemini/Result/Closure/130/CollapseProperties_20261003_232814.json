@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "130",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.CollapseProperties",
+  "target_classes": [
+    "com.google.javascript.jscomp.CollapseProperties"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 14.66,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\130\\CollapseProperties_20261003_232814.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\130\\CollapsePropertiesTest.java",
+  "usage": {
+    "prompt_tokens": 9894,
+    "completion_tokens": 1999,
+    "total_tokens": 11893
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 238596,
+    "daily_remaining_tokens": 111404
+  },
+  "timestamp": "20261003_232814"
+}

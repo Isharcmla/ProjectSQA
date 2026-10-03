@@ -1,0 +1,986 @@
+package com.google.javascript.jscomp;
+
+import com.google.common.base.Predicates;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
+import com.google.javascript.rhino.JSDocInfo;
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+import com.google.javascript.rhino.jstype.FunctionType;
+import com.google.javascript.rhino.jstype.JSType;
+import com.google.javascript.rhino.jstype.JSTypeRegistry;
+import com.google.javascript.rhino.jstype.TernaryValue;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class NodeUtilTest {
+
+  private final CodingConvention convention = new DefaultCodingConvention();
+
+  @Test
+  public void testGetImpureBooleanValue() {
+    Node numZero = Node.newNumber(0);
+    Node numOne = Node.newNumber(1);
+    Node strEmpty = Node.newString("");
+    Node strNonEmpty = Node.newString("hello");
+
+    Node assign = new Node(Token.ASSIGN, Node.newString(Token.NAME, "x"), numOne);
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getImpureBooleanValue(assign));
+
+    Node comma = new Node(Token.COMMA, numOne, numZero);
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getImpureBooleanValue(comma));
+
+    Node notNode = new Node(Token.NOT, numZero);
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getImpureBooleanValue(notNode));
+
+    Node andNode = new Node(Token.AND, numOne, numZero);
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getImpureBooleanValue(andNode));
+
+    Node orNode = new Node(Token.OR, numZero, numOne);
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getImpureBooleanValue(orNode));
+
+    Node hookSame = new Node(Token.HOOK, numOne, numOne.cloneNode(), Node.newNumber(2));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getImpureBooleanValue(hookSame));
+
+    Node hookDiff = new Node(Token.HOOK, numOne, numOne.cloneNode(), numZero);
+    Assert.assertEquals(TernaryValue.UNKNOWN, NodeUtil.getImpureBooleanValue(hookDiff));
+
+    Node arrayLit = new Node(Token.ARRAYLIT);
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getImpureBooleanValue(arrayLit));
+
+    Node objLit = new Node(Token.OBJECTLIT);
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getImpureBooleanValue(objLit));
+
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getImpureBooleanValue(strEmpty));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getImpureBooleanValue(strNonEmpty));
+  }
+
+  @Test
+  public void testGetPureBooleanValue() {
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(Node.newString("foo")));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(Node.newString("")));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(Node.newNumber(42)));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(Node.newNumber(0)));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(new Node(Token.NULL)));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(new Node(Token.FALSE)));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(new Node(Token.TRUE)));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(new Node(Token.VOID, Node.newNumber(0))));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(new Node(Token.REGEXP, Node.newString("a"))));
+
+    Node notTrue = new Node(Token.NOT, new Node(Token.TRUE));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(notTrue));
+
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(Node.newString(Token.NAME, "undefined")));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.getPureBooleanValue(Node.newString(Token.NAME, "NaN")));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(Node.newString(Token.NAME, "Infinity")));
+    Assert.assertEquals(TernaryValue.UNKNOWN, NodeUtil.getPureBooleanValue(Node.newString(Token.NAME, "other")));
+
+    Node pureArray = new Node(Token.ARRAYLIT);
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(pureArray));
+
+    Node impureArray = new Node(Token.ARRAYLIT, new Node(Token.CALL, Node.newString(Token.NAME, "sideEffect")));
+    Assert.assertEquals(TernaryValue.UNKNOWN, NodeUtil.getPureBooleanValue(impureArray));
+
+    Node pureObj = new Node(Token.OBJECTLIT);
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.getPureBooleanValue(pureObj));
+  }
+
+  @Test
+  public void testGetStringValue() {
+    Assert.assertEquals("foo", NodeUtil.getStringValue(Node.newString("foo")));
+    Assert.assertEquals("undefined", NodeUtil.getStringValue(Node.newString(Token.NAME, "undefined")));
+    Assert.assertEquals("Infinity", NodeUtil.getStringValue(Node.newString(Token.NAME, "Infinity")));
+    Assert.assertEquals("NaN", NodeUtil.getStringValue(Node.newString(Token.NAME, "NaN")));
+    Assert.assertNull(NodeUtil.getStringValue(Node.newString(Token.NAME, "x")));
+
+    Assert.assertEquals("0", NodeUtil.getStringValue(Node.newNumber(0)));
+    Assert.assertEquals("1.5", NodeUtil.getStringValue(Node.newNumber(1.5)));
+    Assert.assertEquals("false", NodeUtil.getStringValue(new Node(Token.FALSE)));
+    Assert.assertEquals("true", NodeUtil.getStringValue(new Node(Token.TRUE)));
+    Assert.assertEquals("null", NodeUtil.getStringValue(new Node(Token.NULL)));
+    Assert.assertEquals("undefined", NodeUtil.getStringValue(new Node(Token.VOID, Node.newNumber(0))));
+
+    Node notNode = new Node(Token.NOT, new Node(Token.TRUE));
+    Assert.assertEquals("false", NodeUtil.getStringValue(notNode));
+
+    Node notUnknown = new Node(Token.NOT, Node.newString(Token.NAME, "someVar"));
+    Assert.assertNull(NodeUtil.getStringValue(notUnknown));
+
+    Node arr = new Node(Token.ARRAYLIT, Node.newString("a"), Node.newNumber(1), new Node(Token.NULL));
+    Assert.assertEquals("a,1,", NodeUtil.getStringValue(arr));
+
+    Node obj = new Node(Token.OBJECTLIT);
+    Assert.assertEquals("[object Object]", NodeUtil.getStringValue(obj));
+
+    Assert.assertNull(NodeUtil.getStringValue(new Node(Token.ADD)));
+  }
+
+  @Test
+  public void testGetStringValueDouble() {
+    Assert.assertEquals("0", NodeUtil.getStringValue(0.0));
+    Assert.assertEquals("100", NodeUtil.getStringValue(100.0));
+    Assert.assertEquals("-5", NodeUtil.getStringValue(-5.0));
+    Assert.assertEquals("3.14", NodeUtil.getStringValue(3.14));
+  }
+
+  @Test
+  public void testGetArrayElementStringValue() {
+    Assert.assertEquals("", NodeUtil.getArrayElementStringValue(new Node(Token.NULL)));
+    Assert.assertEquals("", NodeUtil.getArrayElementStringValue(new Node(Token.VOID, Node.newNumber(0))));
+    Assert.assertEquals("", NodeUtil.getArrayElementStringValue(new Node(Token.EMPTY)));
+    Assert.assertEquals("foo", NodeUtil.getArrayElementStringValue(Node.newString("foo")));
+  }
+
+  @Test
+  public void testArrayToString() {
+    Node arr = new Node(Token.ARRAYLIT, Node.newString("x"), new Node(Token.EMPTY), Node.newNumber(2));
+    Assert.assertEquals("x,,2", NodeUtil.arrayToString(arr));
+
+    Node badArr = new Node(Token.ARRAYLIT, Node.newString(Token.NAME, "unknownVar"));
+    Assert.assertNull(NodeUtil.arrayToString(badArr));
+  }
+
+  @Test
+  public void testGetNumberValue() {
+    Assert.assertEquals(Double.valueOf(1.0), NodeUtil.getNumberValue(new Node(Token.TRUE)));
+    Assert.assertEquals(Double.valueOf(0.0), NodeUtil.getNumberValue(new Node(Token.FALSE)));
+    Assert.assertEquals(Double.valueOf(0.0), NodeUtil.getNumberValue(new Node(Token.NULL)));
+    Assert.assertEquals(Double.valueOf(42.5), NodeUtil.getNumberValue(Node.newNumber(42.5)));
+
+    Node voidPure = new Node(Token.VOID, Node.newNumber(0));
+    Assert.assertTrue(Double.isNaN(NodeUtil.getNumberValue(voidPure)));
+
+    Node voidImpure = new Node(Token.VOID, new Node(Token.CALL, Node.newString(Token.NAME, "foo")));
+    Assert.assertNull(NodeUtil.getNumberValue(voidImpure));
+
+    Assert.assertTrue(Double.isNaN(NodeUtil.getNumberValue(Node.newString(Token.NAME, "undefined"))));
+    Assert.assertTrue(Double.isNaN(NodeUtil.getNumberValue(Node.newString(Token.NAME, "NaN"))));
+    Assert.assertEquals(Double.valueOf(Double.POSITIVE_INFINITY), NodeUtil.getNumberValue(Node.newString(Token.NAME, "Infinity")));
+    Assert.assertNull(NodeUtil.getNumberValue(Node.newString(Token.NAME, "other")));
+
+    Node negInf = new Node(Token.NEG, Node.newString(Token.NAME, "Infinity"));
+    Assert.assertEquals(Double.valueOf(Double.NEGATIVE_INFINITY), NodeUtil.getNumberValue(negInf));
+
+    Node negOther = new Node(Token.NEG, Node.newString(Token.NAME, "foo"));
+    Assert.assertNull(NodeUtil.getNumberValue(negOther));
+
+    Node notTrue = new Node(Token.NOT, new Node(Token.TRUE));
+    Assert.assertEquals(Double.valueOf(0.0), NodeUtil.getNumberValue(notTrue));
+    Node notFalse = new Node(Token.NOT, new Node(Token.FALSE));
+    Assert.assertEquals(Double.valueOf(1.0), NodeUtil.getNumberValue(notFalse));
+    Node notUnknown = new Node(Token.NOT, Node.newString(Token.NAME, "unknown"));
+    Assert.assertNull(NodeUtil.getNumberValue(notUnknown));
+
+    Assert.assertEquals(Double.valueOf(123.0), NodeUtil.getNumberValue(Node.newString("123")));
+    Assert.assertNull(NodeUtil.getNumberValue(new Node(Token.BLOCK)));
+  }
+
+  @Test
+  public void testGetStringNumberValue() {
+    Assert.assertNull(NodeUtil.getStringNumberValue("12\u000b34"));
+    Assert.assertEquals(Double.valueOf(0.0), NodeUtil.getStringNumberValue(""));
+    Assert.assertEquals(Double.valueOf(0.0), NodeUtil.getStringNumberValue("   "));
+    Assert.assertEquals(Double.valueOf(255.0), NodeUtil.getStringNumberValue("0xFF"));
+    Assert.assertEquals(Double.valueOf(255.0), NodeUtil.getStringNumberValue("0xff"));
+    Assert.assertTrue(Double.isNaN(NodeUtil.getStringNumberValue("0xZZ")));
+    Assert.assertNull(NodeUtil.getStringNumberValue("+0x12"));
+    Assert.assertNull(NodeUtil.getStringNumberValue("-0x12"));
+    Assert.assertNull(NodeUtil.getStringNumberValue("infinity"));
+    Assert.assertNull(NodeUtil.getStringNumberValue("-infinity"));
+    Assert.assertNull(NodeUtil.getStringNumberValue("+infinity"));
+    Assert.assertEquals(Double.valueOf(12.34), NodeUtil.getStringNumberValue("  12.34  "));
+    Assert.assertTrue(Double.isNaN(NodeUtil.getStringNumberValue("abc")));
+  }
+
+  @Test
+  public void testTrimJsWhiteSpaceAndIsStrWhiteSpaceChar() {
+    Assert.assertEquals(TernaryValue.UNKNOWN, NodeUtil.isStrWhiteSpaceChar('\u000B'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar(' '));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\n'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\r'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\t'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\u00A0'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\u000C'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\u2028'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\u2029'));
+    Assert.assertEquals(TernaryValue.TRUE, NodeUtil.isStrWhiteSpaceChar('\uFEFF'));
+    Assert.assertEquals(TernaryValue.FALSE, NodeUtil.isStrWhiteSpaceChar('a'));
+
+    Assert.assertEquals("foo", NodeUtil.trimJsWhiteSpace(" \t\n\rfoo\t\n "));
+    Assert.assertEquals("", NodeUtil.trimJsWhiteSpace("    "));
+  }
+
+  @Test
+  public void testGetFunctionNameAndNearestFunctionName() {
+    Node fn = NodeUtil.newFunctionNode("myFunc", Collections.<Node>emptyList(), new Node(Token.BLOCK), 1, 1);
+    Assert.assertEquals("myFunc", NodeUtil.getFunctionName(fn));
+    Assert.assertEquals("myFunc", NodeUtil.getNearestFunctionName(fn));
+
+    Node anonFn = NodeUtil.newFunctionNode("", Collections.<Node>emptyList(), new Node(Token.BLOCK), 1, 1);
+    Node varName = Node.newString(Token.NAME, "varName");
+    varName.addChildToBack(anonFn);
+    new Node(Token.VAR, varName);
+    Assert.assertEquals("varName", NodeUtil.getFunctionName(anonFn));
+    Assert.assertEquals("varName", NodeUtil.getNearestFunctionName(anonFn));
+
+    Node anonFn2 = NodeUtil.newFunctionNode("", Collections.<Node>emptyList(), new Node(Token.BLOCK), 1, 1);
+    Node assign = new Node(Token.ASSIGN, Node.newString(Token.NAME, "obj.prop"), anonFn2);
+    Assert.assertEquals("obj.prop", NodeUtil.getFunctionName(anonFn2));
+    Assert.assertEquals("obj.prop", NodeUtil.getNearestFunctionName(anonFn2));
+
+    Node anonFn3 = NodeUtil.newFunctionNode("", Collections.<Node>emptyList(), new Node(Token.BLOCK), 1, 1);
+    Node strKey = Node.newString(Token.STRING, "keyName");
+    strKey.addChildToBack(anonFn3);
+    new Node(Token.OBJECTLIT, strKey);
+    Assert.assertNull(NodeUtil.getFunctionName(anonFn3));
+    Assert.assertEquals("keyName", NodeUtil.getNearestFunctionName(anonFn3));
+
+    Node anonFn4 = NodeUtil.newFunctionNode("", Collections.<Node>emptyList(), new Node(Token.BLOCK), 1, 1);
+    Node numKey = Node.newNumber(42);
+    numKey.addChildToBack(anonFn4);
+    new Node(Token.OBJECTLIT, numKey);
+    Assert.assertEquals("42", NodeUtil.getNearestFunctionName(anonFn4));
+
+    Node anonFn5 = NodeUtil.newFunctionNode("", Collections.<Node>emptyList(), new Node(Token.BLOCK), 1, 1);
+    Node getKey = new Node(Token.GET);
+    getKey.setString("getProp");
+    getKey.addChildToBack(anonFn5);
+    new Node(Token.OBJECTLIT, getKey);
+    Assert.assertEquals("getProp", NodeUtil.getNearestFunctionName(anonFn5));
+
+    Node standaloneAnon = NodeUtil.newFunctionNode("", Collections.<Node>emptyList(), new Node(Token.BLOCK), 1, 1);
+    new Node(Token.EXPR_RESULT, standaloneAnon);
+    Assert.assertNull(NodeUtil.getNearestFunctionName(standaloneAnon));
+  }
+
+  @Test
+  public void testIsImmutableValue() {
+    Assert.assertTrue(NodeUtil.isImmutableValue(Node.newString("str")));
+    Assert.assertTrue(NodeUtil.isImmutableValue(Node.newNumber(10)));
+    Assert.assertTrue(NodeUtil.isImmutableValue(new Node(Token.NULL)));
+    Assert.assertTrue(NodeUtil.isImmutableValue(new Node(Token.TRUE)));
+    Assert.assertTrue(NodeUtil.isImmutableValue(new Node(Token.FALSE)));
+    Assert.assertTrue(NodeUtil.isImmutableValue(new Node(Token.NOT, new Node(Token.TRUE))));
+    Assert.assertTrue(NodeUtil.isImmutableValue(new Node(Token.VOID, Node.newNumber(0))));
+    Assert.assertTrue(NodeUtil.isImmutableValue(new Node(Token.NEG, Node.newNumber(5))));
+    Assert.assertTrue(NodeUtil.isImmutableValue(Node.newString(Token.NAME, "undefined")));
+    Assert.assertTrue(NodeUtil.isImmutableValue(Node.newString(Token.NAME, "Infinity")));
+    Assert.assertTrue(NodeUtil.isImmutableValue(Node.newString(Token.NAME, "NaN")));
+    Assert.assertFalse(NodeUtil.isImmutableValue(Node.newString(Token.NAME, "other")));
+    Assert.assertFalse(NodeUtil.isImmutableValue(new Node(Token.OBJECTLIT)));
+  }
+
+  @Test
+  public void testIsLiteralValue() {
+    Assert.assertTrue(NodeUtil.isLiteralValue(Node.newNumber(1), false));
+
+    Node arrayLit = new Node(Token.ARRAYLIT, Node.newNumber(1), new Node(Token.EMPTY), Node.newString("s"));
+    Assert.assertTrue(NodeUtil.isLiteralValue(arrayLit, false));
+
+    Node arrayLitWithNonLit = new Node(Token.ARRAYLIT, Node.newString(Token.NAME, "foo"));
+    Assert.assertFalse(NodeUtil.isLiteralValue(arrayLitWithNonLit, false));
+
+    Node regExpLit = new Node(Token.REGEXP, Node.newString("abc"));
+    Assert.assertTrue(NodeUtil.isLiteralValue(regExpLit, false));
+    Node regExpBad = new Node(Token.REGEXP, Node.newString(Token.NAME, "dyn"));
+    Assert.assertFalse(NodeUtil.isLiteralValue(regExpBad, false));
+
+    Node objLit = new Node(Token.OBJECTLIT);
+    Node key = Node.newString(Token.STRING, "k");
+    key.addChildToBack(Node.newNumber(2));
+    objLit.addChildToBack(key);
+    Assert.assertTrue(NodeUtil.isLiteralValue(objLit, false));
+
+    Node keyBad = Node.newString(Token.STRING, "k2");
+    keyBad.addChildToBack(Node.newString(Token.NAME, "badVal"));
+    objLit.addChildToBack(keyBad);
+    Assert.assertFalse(NodeUtil.isLiteralValue(objLit, false));
+
+    Node fnExpr = NodeUtil.newFunctionNode("", Collections.<Node>emptyList(), new Node(Token.BLOCK), 1, 1);
+    new Node(Token.ASSIGN, Node.newString(Token.NAME, "x"), fnExpr);
+    Assert.assertTrue(NodeUtil.isLiteralValue(fnExpr, true));
+    Assert.assertFalse(NodeUtil.isLiteralValue(fnExpr, false));
+
+    Node fnDecl = NodeUtil.newFunctionNode("f", Collections.<Node>emptyList(), new Node(Token.BLOCK), 1, 1);
+    new Node(Token.SCRIPT, fnDecl);
+    Assert.assertFalse(NodeUtil.isLiteralValue(fnDecl, true));
+  }
+
+  @Test
+  public void testIsValidDefineValue() {
+    Set<String> defines = Sets.newHashSet("MY_DEF", "A.B");
+    Assert.assertTrue(NodeUtil.isValidDefineValue(Node.newString("s"), defines));
+    Assert.assertTrue(NodeUtil.isValidDefineValue(Node.newNumber(1), defines));
+    Assert.assertTrue(NodeUtil.isValidDefineValue(new Node(Token.TRUE), defines));
+    Assert.assertTrue(NodeUtil.isValidDefineValue(new Node(Token.FALSE), defines));
+
+    Node binOp = new Node(Token.ADD, Node.newNumber(1), Node.newNumber(2));
+    Assert.assertTrue(NodeUtil.isValidDefineValue(binOp, defines));
+
+    Node unOp = new Node(Token.NOT, new Node(Token.TRUE));
+    Assert.assertTrue(NodeUtil.isValidDefineValue(unOp, defines));
+
+    Node nameDef = Node.newString(Token.NAME, "MY_DEF");
+    Assert.assertTrue(NodeUtil.isValidDefineValue(nameDef, defines));
+
+    Node nameNonDef = Node.newString(Token.NAME, "NOT_DEF");
+    Assert.assertFalse(NodeUtil.isValidDefineValue(nameNonDef, defines));
+
+    Node getprop = new Node(Token.GETPROP, Node.newString(Token.NAME, "A"), Node.newString(Token.STRING, "B"));
+    Assert.assertTrue(NodeUtil.isValidDefineValue(getprop, defines));
+
+    Assert.assertFalse(NodeUtil.isValidDefineValue(new Node(Token.ARRAYLIT), defines));
+  }
+
+  @Test
+  public void testIsEmptyBlock() {
+    Assert.assertFalse(NodeUtil.isEmptyBlock(Node.newNumber(1)));
+    Assert.assertTrue(NodeUtil.isEmptyBlock(new Node(Token.BLOCK)));
+    Assert.assertTrue(NodeUtil.isEmptyBlock(new Node(Token.BLOCK, new Node(Token.EMPTY))));
+    Assert.assertFalse(NodeUtil.isEmptyBlock(new Node(Token.BLOCK, Node.newNumber(1))));
+  }
+
+  @Test
+  public void testIsSimpleOperatorAndPrecedence() {
+    int[] simpleOps = {
+        Token.ADD, Token.BITAND, Token.BITNOT, Token.BITOR, Token.BITXOR,
+        Token.COMMA, Token.DIV, Token.EQ, Token.GE, Token.GETELEM, Token.GETPROP,
+        Token.GT, Token.INSTANCEOF, Token.LE, Token.LSH, Token.LT, Token.MOD,
+        Token.MUL, Token.NE, Token.NOT, Token.RSH, Token.SHEQ, Token.SHNE,
+        Token.SUB, Token.TYPEOF, Token.VOID, Token.POS, Token.NEG, Token.URSH
+    };
+    for (int op : simpleOps) {
+      Assert.assertTrue(NodeUtil.isSimpleOperatorType(op));
+      Assert.assertTrue(NodeUtil.isSimpleOperator(new Node(op)));
+    }
+    Assert.assertFalse(NodeUtil.isSimpleOperatorType(Token.VAR));
+    Assert.assertFalse(NodeUtil.isSimpleOperator(new Node(Token.VAR)));
+
+    Assert.assertEquals(0, NodeUtil.precedence(Token.COMMA));
+    Assert.assertEquals(1, NodeUtil.precedence(Token.ASSIGN));
+    Assert.assertEquals(2, NodeUtil.precedence(Token.HOOK));
+    Assert.assertEquals(3, NodeUtil.precedence(Token.OR));
+    Assert.assertEquals(4, NodeUtil.precedence(Token.AND));
+    Assert.assertEquals(5, NodeUtil.precedence(Token.BITOR));
+    Assert.assertEquals(6, NodeUtil.precedence(Token.BITXOR));
+    Assert.assertEquals(7, NodeUtil.precedence(Token.BITAND));
+    Assert.assertEquals(8, NodeUtil.precedence(Token.EQ));
+    Assert.assertEquals(9, NodeUtil.precedence(Token.LT));
+    Assert.assertEquals(10, NodeUtil.precedence(Token.LSH));
+    Assert.assertEquals(11, NodeUtil.precedence(Token.ADD));
+    Assert.assertEquals(12, NodeUtil.precedence(Token.MUL));
+    Assert.assertEquals(13, NodeUtil.precedence(Token.NOT));
+    Assert.assertEquals(15, NodeUtil.precedence(Token.CALL));
+  }
+
+  @Test(expected = Error.class)
+  public void testPrecedenceUnknownTypeThrows() {
+    NodeUtil.precedence(-999);
+  }
+
+  @Test
+  public void testNewExpr() {
+    Node child = Node.newNumber(1);
+    Node expr = NodeUtil.newExpr(child);
+    Assert.assertEquals(Token.EXPR_RESULT, expr.getType());
+    Assert.assertSame(child, expr.getFirstChild());
+  }
+
+  @Test
+  public void testMayHaveSideEffectsAndMayEffectMutableState() {
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(Node.newNumber(1)));
+    Assert.assertTrue(NodeUtil.mayHaveSideEffects(new Node(Token.THROW, Node.newString("err"))));
+
+    Node objLit = new Node(Token.OBJECTLIT);
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(objLit));
+    Assert.assertTrue(NodeUtil.mayEffectMutableState(objLit));
+
+    Node arrLit = new Node(Token.ARRAYLIT);
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(arrLit));
+    Assert.assertTrue(NodeUtil.mayEffectMutableState(arrLit));
+
+    Node varWithInit = new Node(Token.VAR, Node.newString(Token.NAME, "x"));
+    varWithInit.getFirstChild().addChildToBack(Node.newNumber(1));
+    Assert.assertTrue(NodeUtil.mayHaveSideEffects(varWithInit));
+
+    Node varWithoutInit = new Node(Token.VAR, Node.newString(Token.NAME, "y"));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(varWithoutInit));
+
+    Node fnDecl = NodeUtil.newFunctionNode("f", Collections.<Node>emptyList(), new Node(Token.BLOCK), 1, 1);
+    new Node(Token.SCRIPT, fnDecl);
+    Assert.assertTrue(NodeUtil.mayHaveSideEffects(fnDecl));
+
+    Node fnExpr = NodeUtil.newFunctionNode("", Collections.<Node>emptyList(), new Node(Token.BLOCK), 1, 1);
+    new Node(Token.ASSIGN, Node.newString(Token.NAME, "a"), fnExpr);
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(fnExpr));
+
+    Node newArray = new Node(Token.NEW, Node.newString(Token.NAME, "Array"));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(newArray));
+
+    Node newCustom = new Node(Token.NEW, Node.newString(Token.NAME, "CustomClass"));
+    Assert.assertTrue(NodeUtil.mayHaveSideEffects(newCustom));
+
+    Node callBuiltin = new Node(Token.CALL, Node.newString(Token.NAME, "String"));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(callBuiltin));
+
+    Node callCustom = new Node(Token.CALL, Node.newString(Token.NAME, "myFunc"));
+    Assert.assertTrue(NodeUtil.mayHaveSideEffects(callCustom));
+
+    Node assignName = new Node(Token.ASSIGN, Node.newString(Token.NAME, "x"), Node.newNumber(1));
+    Assert.assertTrue(NodeUtil.mayHaveSideEffects(assignName));
+
+    Node assignGetPropOnLit = new Node(Token.ASSIGN,
+        new Node(Token.GETPROP, new Node(Token.OBJECTLIT), Node.newString(Token.STRING, "p")),
+        Node.newNumber(1));
+    Assert.assertFalse(NodeUtil.mayHaveSideEffects(assignGetPropOnLit));
+  }
+
+  @Test
+  public void testConstructorCallHasSideEffects() {
+    Node newObj = new Node(Token.NEW, Node.newString(Token.NAME, "Object"));
+    Assert.assertFalse(NodeUtil.constructorCallHasSideEffects(newObj));
+
+    Node newDate = new Node(Token.NEW, Node.newString(Token.NAME, "Date"));
+    Assert.assertFalse(NodeUtil.constructorCallHasSideEffects(newDate));
+
+    Node newCustom = new Node(Token.NEW, Node.newString(Token.NAME, "Foo"));
+    Assert.assertTrue(NodeUtil.constructorCallHasSideEffects(newCustom));
+
+    Node newNoSideEffects = new Node(Token.NEW, Node.newString(Token.NAME, "Foo"));
+    newNoSideEffects.setIsNoSideEffectsCall();
+    Assert.assertFalse(NodeUtil.constructorCallHasSideEffects(newNoSideEffects));
+  }
+
+  @Test(expected = IllegalStateException.class)
+  public void testConstructorCallHasSideEffectsNonNewNode() {
+    NodeUtil.constructorCallHasSideEffects(Node.newNumber(1));
+  }
+
+  @Test
+  public void testFunctionCallHasSideEffects() {
+    Node callObj = new Node(Token.CALL, Node.newString(Token.NAME, "Object"));
+    Assert.assertFalse(NodeUtil.functionCallHasSideEffects(callObj));
+
+    Node callNoSideEffects = new Node(Token.CALL, Node.newString(Token.NAME, "foo"));
+    callNoSideEffects.setIsNoSideEffectsCall();
+    Assert.assertFalse(NodeUtil.functionCallHasSideEffects(callNoSideEffects));
+
+    Node mathFloor = new Node(Token.CALL,
+        new Node(Token.GETPROP, Node.newString(Token.NAME, "Math"), Node.newString(Token.STRING, "floor")));
+    Assert.assertFalse(NodeUtil.functionCallHasSideEffects(mathFloor));
+
+    Node callToString = new Node(Token.CALL,
+        new Node(Token.GETPROP, Node.newString(Token.NAME, "a"), Node.newString(Token.STRING, "toString")));
+    Assert.assertFalse(NodeUtil.functionCallHasSideEffects(callToString));
+
+    Node callOnlyModifiesThis = new Node(Token.CALL,
+        new Node(Token.GETPROP, new Node(Token.OBJECTLIT), Node.newString(Token.STRING, "method")));
+    callOnlyModifiesThis.setOnlyModifiesThisCall();
+    Assert.assertFalse(NodeUtil.functionCallHasSideEffects(callOnlyModifiesThis));
+
+    Node normalCall = new Node(Token.CALL, Node.newString(Token.NAME, "alert"));
+    Assert.assertTrue(NodeUtil.functionCallHasSideEffects(normalCall));
+  }
+
+  @Test(expected = IllegalStateException.class)
+  public void testFunctionCallHasSideEffectsNonCallNode() {
+    NodeUtil.functionCallHasSideEffects(Node.newNumber(1));
+  }
+
+  @Test
+  public void testCallHasLocalResultAndNewHasLocalResult() {
+    Node call = new Node(Token.CALL, Node.newString(Token.NAME, "foo"));
+    Assert.assertFalse(NodeUtil.callHasLocalResult(call));
+    call.setSideEffectFlags(Node.FLAG_LOCAL_RESULTS);
+    Assert.assertTrue(NodeUtil.callHasLocalResult(call));
+
+    Node newNode = new Node(Token.NEW, Node.newString(Token.NAME, "Foo"));
+    Assert.assertFalse(NodeUtil.newHasLocalResult(newNode));
+    newNode.setOnlyModifiesThisCall();
+    Assert.assertTrue(NodeUtil.newHasLocalResult(newNode));
+  }
+
+  @Test
+  public void testNodeTypeMayHaveSideEffects() {
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(new Node(Token.DELPROP)));
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(new Node(Token.INC)));
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(new Node(Token.DEC)));
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(new Node(Token.THROW, Node.newString("e"))));
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(new Node(Token.ASSIGN)));
+
+    Node nameWithChild = Node.newString(Token.NAME, "x");
+    nameWithChild.addChildToBack(Node.newNumber(1));
+    Assert.assertTrue(NodeUtil.nodeTypeMayHaveSideEffects(nameWithChild));
+
+    Node nameWithoutChild = Node.newString(Token.NAME, "x");
+    Assert.assertFalse(NodeUtil.nodeTypeMayHaveSideEffects(nameWithoutChild));
+
+    Assert.assertFalse(NodeUtil.nodeTypeMayHaveSideEffects(Node.newNumber(1)));
+  }
+
+  @Test
+  public void testCanBeSideEffected() {
+    Node call = new Node(Token.CALL, Node.newString(Token.NAME, "f"));
+    Assert.assertTrue(NodeUtil.canBeSideEffected(call));
+
+    Node newNode = new Node(Token.NEW, Node.newString(Token.NAME, "C"));
+    Assert.assertTrue(NodeUtil.canBeSideEffected(newNode));
+
+    Node getProp = new Node(Token.GETPROP, Node.newString(Token.NAME, "a"), Node.newString(Token.STRING, "b"));
+    Assert.assertTrue(NodeUtil.canBeSideEffected(getProp));
+
+    Node getElem = new Node(Token.GETELEM, Node.newString(Token.NAME, "a"), Node.newNumber(0));
+    Assert.assertTrue(NodeUtil.canBeSideEffected(getElem));
+
+    Node nameConst = Node.newString(Token.NAME, "K");
+    nameConst.putBooleanProp(Node.IS_CONSTANT_NAME, true);
+    Assert.assertFalse(NodeUtil.canBeSideEffected(nameConst));
+
+    Node nameNonConst = Node.newString(Token.NAME, "x");
+    Assert.assertTrue(NodeUtil.canBeSideEffected(nameNonConst));
+    Assert.assertFalse(NodeUtil.canBeSideEffected(nameNonConst, Collections.singleton("x")));
+
+    Node fnExpr = NodeUtil.newFunctionNode("", Collections.<Node>emptyList(), new Node(Token.BLOCK), 1, 1);
+    new Node(Token.ASSIGN, Node.newString(Token.NAME, "f"), fnExpr);
+    Assert.assertFalse(NodeUtil.canBeSideEffected(fnExpr));
+  }
+
+  @Test
+  public void testNumericAndBooleanResult() {
+    Assert.assertTrue(NodeUtil.isNumericResult(Node.newNumber(10)));
+    Assert.assertTrue(NodeUtil.isNumericResult(new Node(Token.SUB, Node.newNumber(2), Node.newNumber(1))));
+    Assert.assertTrue(NodeUtil.isNumericResult(new Node(Token.ADD, Node.newNumber(2), Node.newNumber(1))));
+    Assert.assertFalse(NodeUtil.isNumericResult(new Node(Token.ADD, Node.newString("a"), Node.newNumber(1))));
+    Assert.assertTrue(NodeUtil.isNumericResult(Node.newString(Token.NAME, "NaN")));
+    Assert.assertTrue(NodeUtil.isNumericResult(Node.newString(Token.NAME, "Infinity")));
+    Assert.assertFalse(NodeUtil.isNumericResult(Node.newString(Token.NAME, "x")));
+
+    Assert.assertTrue(NodeUtil.isBooleanResult(new Node(Token.TRUE)));
+    Assert.assertTrue(NodeUtil.isBooleanResult(new Node(Token.FALSE)));
+    Assert.assertTrue(NodeUtil.isBooleanResult(new Node(Token.EQ, Node.newNumber(1), Node.newNumber(2))));
+    Assert.assertTrue(NodeUtil.isBooleanResult(new Node(Token.NOT, Node.newNumber(1))));
+    Assert.assertTrue(NodeUtil.isBooleanResult(new Node(Token.DELPROP, Node.newString(Token.NAME, "x"))));
+    Assert.assertTrue(NodeUtil.isBooleanResult(new Node(Token.INSTANCEOF, Node.newString(Token.NAME, "a"), Node.newString(Token.NAME, "b"))));
+    Assert.assertFalse(NodeUtil.isBooleanResult(Node.newNumber(1)));
+  }
+
+  @Test
+  public void testNullAndUndefinedCheck() {
+    Node nullNode = new Node(Token.NULL);
+    Node voidNode = new Node(Token.VOID, Node.newNumber(0));
+    Node undefName = Node.newString(Token.NAME, "undefined");
+    Node regularName = Node.newString(Token.NAME, "x");
+
+    Assert.assertTrue(NodeUtil.isNull(nullNode));
+    Assert.assertFalse(NodeUtil.isNull(voidNode));
+
+    Assert.assertTrue(NodeUtil.isUndefined(voidNode));
+    Assert.assertTrue(NodeUtil.isUndefined(undefName));
+    Assert.assertFalse(NodeUtil.isUndefined(regularName));
+
+    Assert.assertTrue(NodeUtil.isNullOrUndefined(nullNode));
+    Assert.assertTrue(NodeUtil.isNullOrUndefined(voidNode));
+    Assert.assertTrue(NodeUtil.isNullOrUndefined(undefName));
+    Assert.assertFalse(NodeUtil.isNullOrUndefined(regularName));
+  }
+
+  @Test
+  public void testMayBeString() {
+    Assert.assertTrue(NodeUtil.mayBeString(Node.newString("abc")));
+    Assert.assertFalse(NodeUtil.mayBeString(Node.newNumber(123)));
+    Assert.assertFalse(NodeUtil.mayBeString(new Node(Token.TRUE)));
+    Assert.assertFalse(NodeUtil.mayBeString(new Node(Token.NULL)));
+    Assert.assertFalse(NodeUtil.mayBeString(new Node(Token.VOID, Node.newNumber(0))));
+    Assert.assertTrue(NodeUtil.mayBeString(Node.newString(Token.NAME, "unknownVar"), false));
+  }
+
+  @Test
+  public void testIsAssociativeAndCommutative() {
+    Assert.assertTrue(NodeUtil.isAssociative(Token.MUL));
+    Assert.assertTrue(NodeUtil.isAssociative(Token.AND));
+    Assert.assertTrue(NodeUtil.isAssociative(Token.OR));
+    Assert.assertTrue(NodeUtil.isAssociative(Token.BITOR));
+    Assert.assertTrue(NodeUtil.isAssociative(Token.BITXOR));
+    Assert.assertTrue(NodeUtil.isAssociative(Token.BITAND));
+    Assert.assertFalse(NodeUtil.isAssociative(Token.ADD));
+    Assert.assertFalse(NodeUtil.isAssociative(Token.SUB));
+
+    Assert.assertTrue(NodeUtil.isCommutative(Token.MUL));
+    Assert.assertTrue(NodeUtil.isCommutative(Token.BITOR));
+    Assert.assertTrue(NodeUtil.isCommutative(Token.BITXOR));
+    Assert.assertTrue(NodeUtil.isCommutative(Token.BITAND));
+    Assert.assertFalse(NodeUtil.isCommutative(Token.ADD));
+    Assert.assertFalse(NodeUtil.isCommutative(Token.AND));
+  }
+
+  @Test
+  public void testAssignmentOps() {
+    int[] assignTokens = {
+        Token.ASSIGN, Token.ASSIGN_BITOR, Token.ASSIGN_BITXOR, Token.ASSIGN_BITAND,
+        Token.ASSIGN_LSH, Token.ASSIGN_RSH, Token.ASSIGN_URSH, Token.ASSIGN_ADD,
+        Token.ASSIGN_SUB, Token.ASSIGN_MUL, Token.ASSIGN_DIV, Token.ASSIGN_MOD
+    };
+    int[] expectedOps = {
+        -1, Token.BITOR, Token.BITXOR, Token.BITAND,
+        Token.LSH, Token.RSH, Token.URSH, Token.ADD,
+        Token.SUB, Token.MUL, Token.DIV, Token.MOD
+    };
+
+    for (int i = 0; i < assignTokens.length; i++) {
+      Node n = new Node(assignTokens[i]);
+      Assert.assertTrue(NodeUtil.isAssignmentOp(n));
+      if (assignTokens[i] != Token.ASSIGN) {
+        Assert.assertEquals(expectedOps[i], NodeUtil.getOpFromAssignmentOp(n));
+      }
+    }
+    Assert.assertFalse(NodeUtil.isAssignmentOp(Node.newNumber(1)));
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testGetOpFromAssignmentOpThrowsOnNonAssign() {
+    NodeUtil.getOpFromAssignmentOp(new Node(Token.ADD));
+  }
+
+  @Test
+  public void testNodePredicates() {
+    Assert.assertTrue(NodeUtil.isExpressionNode(new Node(Token.EXPR_RESULT)));
+    Assert.assertFalse(NodeUtil.isExpressionNode(new Node(Token.BLOCK)));
+
+    Assert.assertTrue(NodeUtil.isGet(new Node(Token.GETPROP)));
+    Assert.assertTrue(NodeUtil.isGet(new Node(Token.GETELEM)));
+    Assert.assertFalse(NodeUtil.isGet(new Node(Token.NAME)));
+
+    Assert.assertTrue(NodeUtil.isGetProp(new Node(Token.GETPROP)));
+    Assert.assertFalse(NodeUtil.isGetProp(new Node(Token.GETELEM)));
+
+    Assert.assertTrue(NodeUtil.isName(Node.newString(Token.NAME, "x")));
+    Assert.assertFalse(NodeUtil.isName(Node.newNumber(1)));
+
+    Assert.assertTrue(NodeUtil.isNew(new Node(Token.NEW)));
+    Assert.assertTrue(NodeUtil.isVar(new Node(Token.VAR)));
+    Assert.assertTrue(NodeUtil.isString(Node.newString("str")));
+    Assert.assertTrue(NodeUtil.isAssign(new Node(Token.ASSIGN)));
+    Assert.assertTrue(NodeUtil.isCall(new Node(Token.CALL)));
+    Assert.assertTrue(NodeUtil.isCallOrNew(new Node(Token.CALL)));
+    Assert.assertTrue(NodeUtil.isCallOrNew(new Node(Token.NEW)));
+    Assert.assertTrue(NodeUtil.isThis(new Node(Token.THIS)));
+    Assert.assertTrue(NodeUtil.isArrayLiteral(new Node(Token.ARRAYLIT)));
+    Assert.assertTrue(NodeUtil.isFunction(new Node(Token.FUNCTION)));
+    Assert.assertTrue(NodeUtil.isStatementBlock(new Node(Token.SCRIPT)));
+    Assert.assertTrue(NodeUtil.isStatementBlock(new Node(Token.BLOCK)));
+    Assert.assertTrue(NodeUtil.isSwitchCase(new Node(Token.CASE)));
+    Assert.assertTrue(NodeUtil.isSwitchCase(new Node(Token.DEFAULT)));
+    Assert.assertTrue(NodeUtil.isReferenceName(Node.newString(Token.NAME, "a")));
+    Assert.assertFalse(NodeUtil.isReferenceName(Node.newString(Token.NAME, "")));
+    Assert.assertTrue(NodeUtil.isLabelName(new Node(Token.LABEL_NAME)));
+    Assert.assertFalse(NodeUtil.isLabelName(null));
+  }
+
+  @Test
+  public void testIsVarDeclarationAndGetAssignedValue() {
+    Node nameNode = Node.newString(Token.NAME, "x");
+    Node varNode = new Node(Token.VAR, nameNode);
+    Node valNode = Node.newNumber(100);
+    nameNode.addChildToBack(valNode);
+
+    Assert.assertTrue(NodeUtil.isVarDeclaration(nameNode));
+    Assert.assertSame(valNode, NodeUtil.getAssignedValue(nameNode));
+
+    Node assignTarget = Node.newString(Token.NAME, "y");
+    Node assignVal = Node.newString("val");
+    new Node(Token.ASSIGN, assignTarget, assignVal);
+    Assert.assertSame(assignVal, NodeUtil.getAssignedValue(assignTarget));
+
+    Node standaloneName = Node.newString(Token.NAME, "z");
+    new Node(Token.EXPR_RESULT, standaloneName);
+    Assert.assertNull(NodeUtil.getAssignedValue(standaloneName));
+  }
+
+  @Test
+  public void testIsExprAssignAndIsExprCall() {
+    Node exprAssign = new Node(Token.EXPR_RESULT, new Node(Token.ASSIGN, Node.newString(Token.NAME, "x"), Node.newNumber(1)));
+    Assert.assertTrue(NodeUtil.isExprAssign(exprAssign));
+    Assert.assertFalse(NodeUtil.isExprCall(exprAssign));
+
+    Node exprCall = new Node(Token.EXPR_RESULT, new Node(Token.CALL, Node.newString(Token.NAME, "fn")));
+    Assert.assertTrue(NodeUtil.isExprCall(exprCall));
+    Assert.assertFalse(NodeUtil.isExprAssign(exprCall));
+  }
+
+  @Test
+  public void testLoopsAndControlStructures() {
+    Node forIn = new Node(Token.FOR, Node.newString(Token.NAME, "i"), Node.newString(Token.NAME, "obj"), new Node(Token.BLOCK));
+    Assert.assertTrue(NodeUtil.isForIn(forIn));
+    Assert.assertTrue(NodeUtil.isLoopStructure(forIn));
+    Assert.assertTrue(NodeUtil.isControlStructure(forIn));
+    Assert.assertSame(forIn.getLastChild(), NodeUtil.getLoopCodeBlock(forIn));
+    Assert.assertNull(NodeUtil.getConditionExpression(forIn));
+
+    Node for4 = new Node(Token.FOR, new Node(Token.EMPTY), Node.newNumber(1), new Node(Token.EMPTY), new Node(Token.BLOCK));
+    Assert.assertFalse(NodeUtil.isForIn(for4));
+    Assert.assertEquals(1, NodeUtil.getConditionExpression(for4).getDouble(), 0.0);
+
+    Node whileNode = new Node(Token.WHILE, new Node(Token.TRUE), new Node(Token.BLOCK));
+    Assert.assertTrue(NodeUtil.isLoopStructure(whileNode));
+    Assert.assertSame(whileNode.getFirstChild(), NodeUtil.getConditionExpression(whileNode));
+    Assert.assertSame(whileNode.getLastChild(), NodeUtil.getLoopCodeBlock(whileNode));
+
+    Node doNode = new Node(Token.DO, new Node(Token.BLOCK), new Node(Token.TRUE));
+    Assert.assertTrue(NodeUtil.isLoopStructure(doNode));
+    Assert.assertSame(doNode.getLastChild(), NodeUtil.getConditionExpression(doNode));
+    Assert.assertSame(doNode.getFirstChild(), NodeUtil.getLoopCodeBlock(doNode));
+
+    Node ifNode = new Node(Token.IF, new Node(Token.TRUE), new Node(Token.BLOCK));
+    Assert.assertTrue(NodeUtil.isControlStructure(ifNode));
+    Assert.assertFalse(NodeUtil.isLoopStructure(ifNode));
+    Assert.assertSame(ifNode.getFirstChild(), NodeUtil.getConditionExpression(ifNode));
+
+    Node innerNode = Node.newNumber(1);
+    whileNode.getLastChild().addChildToBack(innerNode);
+    Assert.assertTrue(NodeUtil.isWithinLoop(innerNode));
+    Assert.assertFalse(NodeUtil.isWithinLoop(whileNode));
+  }
+
+  @Test
+  public void testIsControlStructureCodeBlock() {
+    Node body = new Node(Token.BLOCK);
+    Node cond = new Node(Token.TRUE);
+
+    Node forNode = new Node(Token.FOR, new Node(Token.EMPTY), cond, new Node(Token.EMPTY), body);
+    Assert.assertTrue(NodeUtil.isControlStructureCodeBlock(forNode, body));
+    Assert.assertFalse(NodeUtil.isControlStructureCodeBlock(forNode, cond));
+
+    Node doNode = new Node(Token.DO, body, cond);
+    Assert.assertTrue(NodeUtil.isControlStructureCodeBlock(doNode, body));
+
+    Node ifNode = new Node(Token.IF, cond, body);
+    Assert.assertTrue(NodeUtil.isControlStructureCodeBlock(ifNode, body));
+    Assert.assertFalse(NodeUtil.isControlStructureCodeBlock(ifNode, cond));
+
+    Node defNode = new Node(Token.DEFAULT, body);
+    Assert.assertTrue(NodeUtil.isControlStructureCodeBlock(defNode, body));
+  }
+
+  @Test
+  public void testIsStatementAndIsStatementParent() {
+    Node script = new Node(Token.SCRIPT);
+    Node expr = new Node(Token.EXPR_RESULT, Node.newNumber(1));
+    script.addChildToBack(expr);
+
+    Assert.assertTrue(NodeUtil.isStatement(expr));
+    Assert.assertTrue(NodeUtil.isStatementParent(script));
+
+    Node innerChild = expr.getFirstChild();
+    Assert.assertFalse(NodeUtil.isStatement(innerChild));
+  }
+
+  @Test
+  public void testTryCatchFinally() {
+    Node tryBody = new Node(Token.BLOCK);
+    Node catchContainer = new Node(Token.BLOCK);
+    Node catchNode = new Node(Token.CATCH, Node.newString(Token.NAME, "e"), new Node(Token.BLOCK));
+    catchContainer.addChildToBack(catchNode);
+    Node finallyBody = new Node(Token.BLOCK);
+
+    Node tryNode = new Node(Token.TRY, tryBody, catchContainer, finallyBody);
+
+    Assert.assertTrue(NodeUtil.hasFinally(tryNode));
+    Assert.assertSame(catchContainer, NodeUtil.getCatchBlock(tryNode));
+    Assert.assertTrue(NodeUtil.hasCatchHandler(catchContainer));
+    Assert.assertTrue(NodeUtil.isTryFinallyNode(tryNode, finallyBody));
+    Assert.assertFalse(NodeUtil.isTryFinallyNode(tryNode, tryBody));
+    Assert.assertTrue(NodeUtil.isTryCatchNodeContainer(catchContainer));
+
+    Node tryWithoutFinally = new Node(Token.TRY, tryBody.cloneNode(), catchContainer.cloneNode());
+    Assert.assertFalse(NodeUtil.hasFinally(tryWithoutFinally));
+    NodeUtil.maybeAddFinally(tryWithoutFinally);
+    Assert.assertTrue(NodeUtil.hasFinally(tryWithoutFinally));
+  }
+
+  @Test
+  public void testRemoveChild() {
+    Node block = new Node(Token.BLOCK);
+    Node stmt1 = new Node(Token.EXPR_RESULT, Node.newNumber(1));
+    Node stmt2 = new Node(Token.EXPR_RESULT, Node.newNumber(2));
+    block.addChildToBack(stmt1);
+    block.addChildToBack(stmt2);
+
+    NodeUtil.removeChild(block, stmt1);
+    Assert.assertEquals(1, block.getChildCount());
+    Assert.assertSame(stmt2, block.getFirstChild());
+
+    Node varParent = new Node(Token.BLOCK);
+    Node varNode = new Node(Token.VAR, Node.newString(Token.NAME, "a"));
+    varParent.addChildToBack(varNode);
+    NodeUtil.removeChild(varNode, varNode.getFirstChild());
+    Assert.assertEquals(0, varParent.getChildCount());
+
+    Node tryCatch = new Node(Token.BLOCK);
+    Node cNode = new Node(Token.CATCH, Node.newString(Token.NAME, "err"), new Node(Token.BLOCK));
+    tryCatch.addChildToBack(cNode);
+    Node tryN = new Node(Token.TRY, new Node(Token.BLOCK), tryCatch, new Node(Token.BLOCK));
+    NodeUtil.removeChild(tryCatch, cNode);
+    Assert.assertEquals(0, tryCatch.getChildCount());
+
+    Node forNode = new Node(Token.FOR, new Node(Token.EMPTY), Node.newNumber(1), new Node(Token.EMPTY), new Node(Token.BLOCK));
+    Node cond = forNode.getFirstChild().getNext();
+    NodeUtil.removeChild(forNode, cond);
+    Assert.assertEquals(Token.EMPTY, forNode.getFirstChild().getNext().getType());
+  }
+
+  @Test
+  public void testTryMergeBlock() {
+    Node parentBlock = new Node(Token.BLOCK);
+    Node childBlock = new Node(Token.BLOCK, new Node(Token.EXPR_RESULT, Node.newNumber(1)), new Node(Token.EXPR_RESULT, Node.newNumber(2)));
+    parentBlock.addChildToBack(childBlock);
+
+    boolean merged = NodeUtil.tryMergeBlock(childBlock);
+    Assert.assertTrue(merged);
+    Assert.assertEquals(2, parentBlock.getChildCount());
+
+    Node nonStatementParent = new Node(Token.EXPR_RESULT);
+    Node isolatedBlock = new Node(Token.BLOCK);
+    nonStatementParent.addChildToBack(isolatedBlock);
+    Assert.assertFalse(NodeUtil.tryMergeBlock(isolatedBlock));
+  }
+
+  @Test
+  public void testFunctionStructureAndVarArgs() {
+    Node body = new Node(Token.BLOCK, new Node(Token.RETURN, Node.newString(Token.NAME, "arguments")));
+    Node paramParen = new Node(Token.LP, Node.newString(Token.NAME, "a"));
+    Node fn = new Node(Token.FUNCTION, Node.newString(Token.NAME, "f"), paramParen, body);
+
+    Assert.assertSame(body, NodeUtil.getFunctionBody(fn));
+    Assert.assertSame(paramParen, NodeUtil.getFunctionParameters(fn));
+    Assert.assertTrue(NodeUtil.isVarArgsFunction(fn));
+    Assert.assertSame(paramParen.getFirstChild(), NodeUtil.getArgumentForFunction(fn, 0));
+    Assert.assertNull(NodeUtil.getArgumentForFunction(fn, 1));
+
+    Node nonVarArgsBody = new Node(Token.BLOCK, new Node(Token.RETURN, Node.newNumber(1)));
+    Node fnNoArgs = new Node(Token.FUNCTION, Node.newString(Token.NAME, "f2"), new Node(Token.LP), nonVarArgsBody);
+    Assert.assertFalse(NodeUtil.isVarArgsFunction(fnNoArgs));
+  }
+
+  @Test
+  public void testFunctionCallHelpers() {
+    Node fnCall = new Node(Token.CALL,
+        new Node(Token.GETPROP, Node.newString(Token.NAME, "f"), Node.newString(Token.STRING, "call")),
+        Node.newString(Token.NAME, "ctx"),
+        Node.newNumber(1));
+    Assert.assertTrue(NodeUtil.isObjectCallMethod(fnCall, "call"));
+    Assert.assertTrue(NodeUtil.isFunctionObjectCall(fnCall));
+    Assert.assertTrue(NodeUtil.isFunctionObjectCallOrApply(fnCall));
+    Assert.assertTrue(NodeUtil.isSimpleFunctionObjectCall(fnCall));
+    Assert.assertFalse(NodeUtil.isFunctionObjectApply(fnCall));
+    Assert.assertEquals("ctx", NodeUtil.getArgumentForCallOrNew(fnCall, 0).getString());
+    Assert.assertEquals(1.0, NodeUtil.getArgumentForCallOrNew(fnCall, 1).getDouble(), 0.0);
+    Assert.assertNull(NodeUtil.getArgumentForCallOrNew(fnCall, 2));
+
+    Node applyCall = new Node(Token.CALL,
+        new Node(Token.GETPROP, Node.newString(Token.NAME, "f"), Node.newString(Token.STRING, "apply")),
+        Node.newString(Token.NAME, "ctx"));
+    Assert.assertTrue(NodeUtil.isFunctionObjectApply(applyCall));
+    Assert.assertTrue(NodeUtil.isFunctionObjectCallOrApply(applyCall));
+  }
+
+  @Test
+  public void testIsLValue() {
+    Node target = Node.newString(Token.NAME, "x");
+    new Node(Token.ASSIGN, target, Node.newNumber(1));
+    Assert.assertTrue(NodeUtil.isLValue(target));
+    Assert.assertTrue(NodeUtil.isVarOrSimpleAssignLhs(target, target.getParent()));
+
+    Node varName = Node.newString(Token.NAME, "v");
+    new Node(Token.VAR, varName);
+    Assert.assertTrue(NodeUtil.isLValue(varName));
+    Assert.assertTrue(NodeUtil.isVarOrSimpleAssignLhs(varName, varName.getParent()));
+
+    Node incName = Node.newString(Token.NAME, "c");
+    new Node(Token.INC, incName);
+    Assert.assertTrue(NodeUtil.isLValue(incName));
+  }
+
+  @Test
+  public void testObjectLitKeyMethods() {
+    Node objLit = new Node(Token.OBJECTLIT);
+    Node strKey = Node.newString(Token.STRING, "k");
+    objLit.addChildToBack(strKey);
+
+    Assert.assertTrue(NodeUtil.isObjectLitKey(strKey, objLit));
+    Assert.assertEquals("k", NodeUtil.getObjectLitKeyName(strKey));
+    Assert.assertFalse(NodeUtil.isGetOrSetKey(strKey));
+
+    Node getKey = new Node(Token.GET);
+    getKey.setString("gk");
+    Assert.assertTrue(NodeUtil.isObjectLitKey(getKey, objLit));
+    Assert.assertTrue(NodeUtil.isGetOrSetKey(getKey));
+    Assert.assertEquals("gk", NodeUtil.getObjectLitKeyName(getKey));
+
+    Node setKey = new Node(Token.SET);
+    setKey.setString("sk");
+    Assert.assertTrue(NodeUtil.isGetOrSetKey(setKey));
+    Assert.assertEquals("sk", NodeUtil.getObjectLitKeyName(setKey));
+  }
+
+  @Test
+  public void testOpToStrAndNoFail() {
+    Assert.assertEquals("+", NodeUtil.opToStr(Token.ADD));
+    Assert.assertEquals("-", NodeUtil.opToStr(Token.SUB));
+    Assert.assertEquals("*", NodeUtil.opToStr(Token.MUL));
+    Assert.assertEquals("/", NodeUtil.opToStr(Token.DIV));
+    Assert.assertEquals("%", NodeUtil.opToStr(Token.MOD));
+    Assert.assertEquals("===", NodeUtil.opToStr(Token.SHEQ));
+    Assert.assertEquals("!==", NodeUtil.opToStr(Token.SHNE));
+    Assert.assertEquals("==", NodeUtil.opToStr(Token.EQ));
+    Assert.assertEquals("!=", NodeUtil.opToStr(Token.NE));
+    Assert.assertEquals("!", NodeUtil.opToStr(Token.NOT));
+    Assert.assertEquals("~", NodeUtil.opToStr(Token.BITNOT));
+    Assert.assertEquals("&", NodeUtil.opToStr(Token.BITAND));
+    Assert.assertEquals("|", NodeUtil.opToStr(Token.BITOR));
+    Assert.assertEquals("^", NodeUtil.opToStr(Token.BITXOR));
+    Assert.assertEquals("&&", NodeUtil.opToStr(Token.AND));
+    Assert.assertEquals("||", NodeUtil.opToStr(Token.OR));
+    Assert.assertEquals("<<", NodeUtil.opToStr(Token.LSH));
+    Assert.assertEquals(">>", NodeUtil.opToStr(Token.RSH));
+    Assert.assertEquals(">>>", NodeUtil.opToStr(Token.URSH));
+    Assert.assertEquals("<", NodeUtil.opToStr(Token.LT));
+    Assert.assertEquals("<=", NodeUtil.opToStr(Token.LE));
+    Assert.assertEquals(">", NodeUtil.opToStr(Token.GT));
+    Assert.assertEquals(">=", NodeUtil.opToStr(Token.GE));
+    Assert.assertEquals("in", NodeUtil.opToStr(Token.IN));
+    Assert.assertEquals("instanceof", NodeUtil.opToStr(Token.INSTANCEOF));
+    Assert.assertEquals("typeof", NodeUtil.opToStr(Token.TYPEOF));
+    Assert.assertEquals("void", NodeUtil.opToStr(Token.VOID));
+    Assert.assertEquals("=", NodeUtil.opToStr(Token.ASSIGN));
+    Assert.assertEquals("+=", NodeUtil.opToStr(Token.ASSIGN_ADD));
+
+    Assert.assertNull(NodeUtil.opToStr(Token.VAR));
+    Assert.assertEquals("+", NodeUtil.opToStrNoFail(Token.ADD));
+  }
+
+  @Test(expected = Error.class)
+  public void testOpToStrNoFailThrowsOnInvalid() {
+    NodeUtil.opToStrNoFail(Token.VAR);
+  }
+
+  @Test
+  public void testQualifiedNameAndFactoryMethods() {
+    Node qName = NodeUtil.newQualifiedNameNode(convention, "a.b.c", 10, 5);
+    Assert.assertEquals(Token.GETPROP, qName.getType());
+    Assert.assertEquals("a.b.c", qName.getQualifiedName());
+
+    Node root = NodeUtil.getRootOfQualifiedName(qName);
+    Assert.assertEquals(Token.NAME, root.getType());
+    Assert.assertEquals("a", root.getString());
+
+    Node basis = Node.newString(Token.NAME, "orig");
+    Node clonedQName = NodeUtil.newQualifiedNameNode(convention, "x.y", basis, "origName");
+    Assert

@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "32",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.parsing.JsDocInfoParser",
+  "target_classes": [
+    "com.google.javascript.jscomp.parsing.JsDocInfoParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 31.48,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\32\\JsDocInfoParser_20261004_010049.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\32\\JsDocInfoParserTest.java",
+  "usage": {
+    "prompt_tokens": 18783,
+    "completion_tokens": 5270,
+    "total_tokens": 25296
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 238010,
+    "daily_remaining_tokens": 111990
+  },
+  "timestamp": "20261004_010049"
+}

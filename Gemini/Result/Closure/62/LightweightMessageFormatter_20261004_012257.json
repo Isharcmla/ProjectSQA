@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "62",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.LightweightMessageFormatter",
+  "target_classes": [
+    "com.google.javascript.jscomp.LightweightMessageFormatter"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 20.77,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\62\\LightweightMessageFormatter_20261004_012257.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\62\\LightweightMessageFormatterTest.java",
+  "usage": {
+    "prompt_tokens": 1671,
+    "completion_tokens": 2493,
+    "total_tokens": 4978
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 337982,
+    "daily_remaining_tokens": 12018
+  },
+  "timestamp": "20261004_012257"
+}

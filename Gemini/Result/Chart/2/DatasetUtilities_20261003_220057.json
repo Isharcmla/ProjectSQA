@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "2",
+  "tool": "gemini",
+  "class": "org.jfree.data.general.DatasetUtilities",
+  "target_classes": [
+    "org.jfree.data.general.DatasetUtilities"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 45.19,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Chart\\2\\DatasetUtilities_20261003_220057.txt",
+  "test_file": "Gemini\\TestCode\\Chart\\2\\DatasetUtilitiesTest.java",
+  "usage": {
+    "prompt_tokens": 20449,
+    "completion_tokens": 9426,
+    "total_tokens": 29875
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 349705,
+    "daily_remaining_tokens": 295
+  },
+  "timestamp": "20261003_220057"
+}

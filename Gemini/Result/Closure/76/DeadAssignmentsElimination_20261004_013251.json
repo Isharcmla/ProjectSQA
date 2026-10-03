@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "76",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.DeadAssignmentsElimination",
+  "target_classes": [
+    "com.google.javascript.jscomp.DeadAssignmentsElimination"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 27.84,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\76\\DeadAssignmentsElimination_20261004_013251.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\76\\DeadAssignmentsEliminationTest.java",
+  "usage": {
+    "prompt_tokens": 4128,
+    "completion_tokens": 2063,
+    "total_tokens": 8866
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 202222,
+    "daily_remaining_tokens": 147778
+  },
+  "timestamp": "20261004_013251"
+}

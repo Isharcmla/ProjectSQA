@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "18",
+  "tool": "gemini",
+  "class": "org.apache.commons.codec.binary.StringUtils",
+  "target_classes": [
+    "org.apache.commons.codec.binary.StringUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 12.33,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Codec\\18\\StringUtils_20261004_015726.txt",
+  "test_file": "Gemini\\TestCode\\Codec\\18\\StringUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 5184,
+    "completion_tokens": 2287,
+    "total_tokens": 7471
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 345411,
+    "daily_remaining_tokens": 4589
+  },
+  "timestamp": "20261004_015726"
+}

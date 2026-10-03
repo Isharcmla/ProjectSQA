@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "41",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.FunctionTypeBuilder",
+  "target_classes": [
+    "com.google.javascript.jscomp.FunctionTypeBuilder"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 48.88,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\41\\FunctionTypeBuilder_20261004_010737.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\41\\FunctionTypeBuilderTest.java",
+  "usage": {
+    "prompt_tokens": 7657,
+    "completion_tokens": 5509,
+    "total_tokens": 17809
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 36398,
+    "daily_remaining_tokens": 313602
+  },
+  "timestamp": "20261004_010737"
+}

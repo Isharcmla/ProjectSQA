@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "142",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.CoalesceVariableNames",
+  "target_classes": [
+    "com.google.javascript.jscomp.CoalesceVariableNames"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 18.2,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\142\\CoalesceVariableNames_20261004_001102.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\142\\CoalesceVariableNamesTest.java",
+  "usage": {
+    "prompt_tokens": 4585,
+    "completion_tokens": 2090,
+    "total_tokens": 7562
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 151120,
+    "daily_remaining_tokens": 198880
+  },
+  "timestamp": "20261004_001102"
+}

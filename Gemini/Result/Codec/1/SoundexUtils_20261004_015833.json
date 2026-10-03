@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "1",
+  "tool": "gemini",
+  "class": "org.apache.commons.codec.language.SoundexUtils",
+  "target_classes": [
+    "org.apache.commons.codec.language.SoundexUtils"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 7.88,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Codec\\1\\SoundexUtils_20261004_015833.txt",
+  "test_file": "Gemini\\TestCode\\Codec\\1\\SoundexUtilsTest.java",
+  "usage": {
+    "prompt_tokens": 1476,
+    "completion_tokens": 1153,
+    "total_tokens": 2629
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 2629,
+    "daily_remaining_tokens": 347371
+  },
+  "timestamp": "20261004_015833"
+}

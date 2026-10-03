@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "21",
+  "tool": "gemini",
+  "class": "org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset",
+  "target_classes": [
+    "org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 30.42,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Chart\\21\\DefaultBoxAndWhiskerCategoryDataset_20261003_215800.txt",
+  "test_file": "Gemini\\TestCode\\Chart\\21\\DefaultBoxAndWhiskerCategoryDatasetTest.java",
+  "usage": {
+    "prompt_tokens": 6777,
+    "completion_tokens": 4330,
+    "total_tokens": 13290
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 272192,
+    "daily_remaining_tokens": 77808
+  },
+  "timestamp": "20261003_215800"
+}

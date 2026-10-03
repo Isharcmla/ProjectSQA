@@ -1,0 +1,174 @@
+คุณคือ Java testing expert คุณต้องเขียน JUnit 4 test suite สำหรับคลาสที่ให้มา
+โดยมีเป้าหมายเพื่อให้ได้ code coverage (line/branch) สูงที่สุดเท่าที่เป็นไปได้
+
+ข้อมูล Class ภายใต้การทดสอบ
+Package: com.google.javascript.rhino.jstype
+Class name: FunctionBuilder
+Full source code:
+```java
+/*
+ *
+ * ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Rhino code, released
+ * May 6, 1999.
+ *
+ * The Initial Developer of the Original Code is
+ * Netscape Communications Corporation.
+ * Portions created by the Initial Developer are Copyright (C) 1997-1999
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *   Bob Jervis
+ *   Google Inc.
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * the GNU General Public License Version 2 or later (the "GPL"), in which
+ * case the provisions of the GPL are applicable instead of those above. If
+ * you wish to allow use of your version of this file only under the terms of
+ * the GPL and not to allow others to use your version of this file under the
+ * MPL, indicate your decision by deleting the provisions above and replacing
+ * them with the notice and other provisions required by the GPL. If you do
+ * not delete the provisions above, a recipient may use your version of this
+ * file under either the MPL or the GPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+package com.google.javascript.rhino.jstype;
+
+import com.google.javascript.rhino.Node;
+
+/**
+ * A builder class for function and arrow types.
+ *
+ * If you need to build an interface constructor,
+ * use {@link JSTypeRegistry#createInterfaceType}.
+ *
+ * @author nicksantos@google.com (Nick Santos)
+ */
+public final class FunctionBuilder {
+  private final JSTypeRegistry registry;
+  private String name = null;
+  private Node sourceNode = null;
+  private Node parametersNode = null;
+  private JSType returnType = null;
+  private ObjectType typeOfThis = null;
+  private String templateTypeName = null;
+  private boolean inferredReturnType = false;
+  private boolean isConstructor = false;
+  private boolean isNativeType = false;
+
+  public FunctionBuilder(JSTypeRegistry registry) {
+    this.registry = registry;
+  }
+
+  /** Set the name of the function type. */
+  public FunctionBuilder withName(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /** Set the source node of the function type. */
+  public FunctionBuilder withSourceNode(Node sourceNode) {
+    this.sourceNode = sourceNode;
+    return this;
+  }
+
+  /** Set the parameters of the function type from a FunctionParamBuilder. */
+  public FunctionBuilder withParams(FunctionParamBuilder params) {
+    this.parametersNode = params.build();
+    return this;
+  }
+
+  /**
+   * Set the parameters of the function type with a specially-formatted node.
+   */
+  public FunctionBuilder withParamsNode(Node parametersNode) {
+    this.parametersNode = parametersNode;
+    return this;
+  }
+
+  /** Set the return type. */
+  public FunctionBuilder withReturnType(JSType returnType) {
+    this.returnType = returnType;
+    return this;
+  }
+
+  /** Set the return type and whether it's inferred. */
+
+  /** Sets an inferred return type. */
+  public FunctionBuilder withInferredReturnType(JSType returnType) {
+    this.returnType = returnType;
+    this.inferredReturnType = true;
+    return this;
+  }
+
+  /** Set the "this" type. */
+  public FunctionBuilder withTypeOfThis(ObjectType typeOfThis) {
+    this.typeOfThis = typeOfThis;
+    return this;
+  }
+
+  /** Set the template name. */
+  public FunctionBuilder withTemplateName(String templateTypeName) {
+    this.templateTypeName = templateTypeName;
+    return this;
+  }
+
+  /** Make this a constructor. */
+  public FunctionBuilder forConstructor() {
+    this.isConstructor = true;
+    return this;
+  }
+
+  /** Make this a native type. */
+  FunctionBuilder forNativeType() {
+    this.isNativeType = true;
+    return this;
+  }
+
+  /** Copies all the information from another function type. */
+  public FunctionBuilder copyFromOtherFunction(FunctionType otherType) {
+    this.name = otherType.getReferenceName();
+    this.sourceNode = otherType.getSource();
+    this.parametersNode = otherType.getParametersNode();
+    this.returnType = otherType.getReturnType();
+    this.typeOfThis = otherType.getTypeOfThis();
+    this.templateTypeName = otherType.getTemplateTypeName();
+    this.isConstructor = otherType.isConstructor();
+    this.isNativeType = otherType.isNativeObjectType();
+    return this;
+  }
+
+  /** Construct a new function type. */
+  public FunctionType build() {
+    return new FunctionType(registry, name, sourceNode,
+        new ArrowType(registry, parametersNode, returnType, inferredReturnType),
+        typeOfThis, templateTypeName, isConstructor, isNativeType);
+  }
+}
+
+```
+Dependencies ที่เกี่ยวข้อง: (ไม่มีข้อมูลเพิ่มเติม)
+
+ข้อกำหนดของ Test Suite
+1. เขียนเป็น JUnit 4 เท่านั้น (import org.junit.Test, org.junit.Assert)
+2. ครอบคลุม public method ทุกตัวของคลาสนี้อย่างน้อย 1 test case
+3. ต้องมี test case ทั้งกรณี normal input, edge case (เช่น null, 0, ค่าติดลบ, string ว่าง, array ว่าง),
+   และกรณีที่ควร throw exception (ถ้ามี)
+4. ห้ามใช้ mocking framework ใด ๆ ให้ทดสอบผ่าน public API จริงเท่านั้น
+5. แต่ละ test method ต้องมีชื่อสื่อความหมาย (เช่น testMethodName_condition_expectedResult)
+6. ห้ามเขียนคำอธิบายยาว ๆ ให้ตอบกลับเป็นโค้ด Java ที่คอมไพล์ได้จริงเท่านั้น ไม่ต้องมี markdown fence หรือคำอธิบายอื่น
+
+ส่งออกเฉพาะโค้ด Java ของไฟล์ test class ชื่อ FunctionBuilderTest.java เท่านั้น

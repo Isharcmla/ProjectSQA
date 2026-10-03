@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "14",
+  "tool": "gemini",
+  "class": "org.jfree.chart.plot.XYPlot",
+  "target_classes": [
+    "org.jfree.chart.plot.XYPlot"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 45.02,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Chart\\14\\XYPlot_20261003_215047.txt",
+  "test_file": "Gemini\\TestCode\\Chart\\14\\XYPlotTest.java",
+  "usage": {
+    "prompt_tokens": 45720,
+    "completion_tokens": 8739,
+    "total_tokens": 54459
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 100547,
+    "daily_remaining_tokens": 249453
+  },
+  "timestamp": "20261003_215047"
+}

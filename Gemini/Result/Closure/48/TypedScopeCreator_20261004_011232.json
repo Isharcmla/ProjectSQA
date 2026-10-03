@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "48",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.TypedScopeCreator",
+  "target_classes": [
+    "com.google.javascript.jscomp.TypedScopeCreator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.05,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\48\\TypedScopeCreator_20261004_011232.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\48\\TypedScopeCreatorTest.java",
+  "usage": {
+    "prompt_tokens": 18662,
+    "completion_tokens": 4627,
+    "total_tokens": 24126
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 136891,
+    "daily_remaining_tokens": 213109
+  },
+  "timestamp": "20261004_011232"
+}

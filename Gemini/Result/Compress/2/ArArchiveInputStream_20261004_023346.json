@@ -1,0 +1,33 @@
+{
+  "project": "Compress",
+  "bug_id": "2",
+  "tool": "gemini",
+  "class": "org.apache.commons.compress.archivers.ar.ArArchiveInputStream",
+  "target_classes": [
+    "org.apache.commons.compress.archivers.ar.ArArchiveInputStream"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 29.65,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Compress\\2\\ArArchiveInputStream_20261004_023346.txt",
+  "test_file": "Gemini\\TestCode\\Compress\\2\\ArArchiveInputStreamTest.java",
+  "usage": {
+    "prompt_tokens": 1693,
+    "completion_tokens": 3076,
+    "total_tokens": 6828
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 35068,
+    "daily_remaining_tokens": 314932
+  },
+  "timestamp": "20261004_023346"
+}

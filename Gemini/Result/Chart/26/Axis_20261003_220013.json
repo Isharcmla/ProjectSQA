@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "26",
+  "tool": "gemini",
+  "class": "org.jfree.chart.axis.Axis",
+  "target_classes": [
+    "org.jfree.chart.axis.Axis"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 42.6,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Chart\\26\\Axis_20261003_220013.txt",
+  "test_file": "Gemini\\TestCode\\Chart\\26\\AxisTest.java",
+  "usage": {
+    "prompt_tokens": 12741,
+    "completion_tokens": 6958,
+    "total_tokens": 21585
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 321716,
+    "daily_remaining_tokens": 28284
+  },
+  "timestamp": "20261003_220013"
+}

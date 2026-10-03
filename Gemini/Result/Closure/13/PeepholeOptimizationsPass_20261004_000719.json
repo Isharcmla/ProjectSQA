@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "13",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.PeepholeOptimizationsPass",
+  "target_classes": [
+    "com.google.javascript.jscomp.PeepholeOptimizationsPass"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 62.71,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\13\\PeepholeOptimizationsPass_20261004_000719.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\13\\PeepholeOptimizationsPassTest.java",
+  "usage": {
+    "prompt_tokens": 1764,
+    "completion_tokens": 2280,
+    "total_tokens": 5423
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 86533,
+    "daily_remaining_tokens": 263467
+  },
+  "timestamp": "20261004_000719"
+}

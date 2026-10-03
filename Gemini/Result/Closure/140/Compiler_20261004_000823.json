@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "140",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.Compiler",
+  "target_classes": [
+    "com.google.javascript.jscomp.Compiler"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 47.64,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\140\\Compiler_20261004_000823.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\140\\CompilerTest.java",
+  "usage": {
+    "prompt_tokens": 13240,
+    "completion_tokens": 7155,
+    "total_tokens": 21094
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 106248,
+    "daily_remaining_tokens": 243752
+  },
+  "timestamp": "20261004_000823"
+}

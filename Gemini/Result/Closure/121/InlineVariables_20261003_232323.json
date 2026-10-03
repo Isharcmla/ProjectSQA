@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "121",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.InlineVariables",
+  "target_classes": [
+    "com.google.javascript.jscomp.InlineVariables"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 14.29,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\121\\InlineVariables_20261003_232323.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\121\\InlineVariablesTest.java",
+  "usage": {
+    "prompt_tokens": 6763,
+    "completion_tokens": 2335,
+    "total_tokens": 9098
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 119650,
+    "daily_remaining_tokens": 230350
+  },
+  "timestamp": "20261003_232323"
+}

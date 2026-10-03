@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "9",
+  "tool": "gemini",
+  "class": "org.apache.commons.cli.Parser",
+  "target_classes": [
+    "org.apache.commons.cli.Parser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 34.71,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Cli\\9\\Parser_20261003_230812.txt",
+  "test_file": "Gemini\\TestCode\\Cli\\9\\ParserTest.java",
+  "usage": {
+    "prompt_tokens": 3235,
+    "completion_tokens": 3675,
+    "total_tokens": 9265
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 101724,
+    "daily_remaining_tokens": 248276
+  },
+  "timestamp": "20261003_230812"
+}

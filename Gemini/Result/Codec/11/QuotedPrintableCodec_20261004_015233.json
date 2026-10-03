@@ -1,0 +1,33 @@
+{
+  "project": "Codec",
+  "bug_id": "11",
+  "tool": "gemini",
+  "class": "org.apache.commons.codec.net.QuotedPrintableCodec",
+  "target_classes": [
+    "org.apache.commons.codec.net.QuotedPrintableCodec"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 25.66,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Codec\\11\\QuotedPrintableCodec_20261004_015233.txt",
+  "test_file": "Gemini\\TestCode\\Codec\\11\\QuotedPrintableCodecTest.java",
+  "usage": {
+    "prompt_tokens": 4154,
+    "completion_tokens": 2851,
+    "total_tokens": 8508
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 265643,
+    "daily_remaining_tokens": 84357
+  },
+  "timestamp": "20261004_015233"
+}

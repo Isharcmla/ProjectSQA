@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "14",
+  "tool": "gemini",
+  "class": "org.apache.commons.cli2.option.GroupImpl",
+  "target_classes": [
+    "org.apache.commons.cli2.option.GroupImpl"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 42.3,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Cli\\14\\GroupImpl_20261003_221654.txt",
+  "test_file": "Gemini\\TestCode\\Cli\\14\\GroupImplTest.java",
+  "usage": {
+    "prompt_tokens": 3910,
+    "completion_tokens": 5715,
+    "total_tokens": 11025
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 165077,
+    "daily_remaining_tokens": 184923
+  },
+  "timestamp": "20261003_221654"
+}

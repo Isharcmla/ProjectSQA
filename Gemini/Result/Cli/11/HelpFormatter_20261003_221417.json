@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "11",
+  "tool": "gemini",
+  "class": "org.apache.commons.cli.HelpFormatter",
+  "target_classes": [
+    "org.apache.commons.cli.HelpFormatter"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 29.75,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Cli\\11\\HelpFormatter_20261003_221417.txt",
+  "test_file": "Gemini\\TestCode\\Cli\\11\\HelpFormatterTest.java",
+  "usage": {
+    "prompt_tokens": 7762,
+    "completion_tokens": 3695,
+    "total_tokens": 12212
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 135670,
+    "daily_remaining_tokens": 214330
+  },
+  "timestamp": "20261003_221417"
+}

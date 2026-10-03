@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "22",
+  "tool": "gemini",
+  "class": "org.apache.commons.collections4.map.ListOrderedMap",
+  "target_classes": [
+    "org.apache.commons.collections4.map.ListOrderedMap"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 33.38,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Collections\\22\\ListOrderedMap_20261004_020905.txt",
+  "test_file": "Gemini\\TestCode\\Collections\\22\\ListOrderedMapTest.java",
+  "usage": {
+    "prompt_tokens": 6571,
+    "completion_tokens": 5161,
+    "total_tokens": 13481
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 266802,
+    "daily_remaining_tokens": 83198
+  },
+  "timestamp": "20261004_020905"
+}

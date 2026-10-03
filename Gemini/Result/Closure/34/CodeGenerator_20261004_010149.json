@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "34",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.CodeGenerator",
+  "target_classes": [
+    "com.google.javascript.jscomp.CodeGenerator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 69.64,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\34\\CodeGenerator_20261004_010149.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\34\\CodeGeneratorTest.java",
+  "usage": {
+    "prompt_tokens": 10753,
+    "completion_tokens": 7909,
+    "total_tokens": 23991
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 270440,
+    "daily_remaining_tokens": 79560
+  },
+  "timestamp": "20261004_010149"
+}

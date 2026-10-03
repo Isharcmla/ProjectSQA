@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "6",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.TypeValidator",
+  "target_classes": [
+    "com.google.javascript.jscomp.TypeValidator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 51.36,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\6\\TypeValidator_20261004_012831.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\6\\TypeValidatorTest.java",
+  "usage": {
+    "prompt_tokens": 8872,
+    "completion_tokens": 6601,
+    "total_tokens": 18049
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 116593,
+    "daily_remaining_tokens": 233407
+  },
+  "timestamp": "20261004_012831"
+}

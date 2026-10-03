@@ -1,0 +1,33 @@
+{
+  "project": "Collections",
+  "bug_id": "23",
+  "tool": "gemini",
+  "class": "org.apache.commons.collections4.trie.UnmodifiableTrie",
+  "target_classes": [
+    "org.apache.commons.collections4.trie.UnmodifiableTrie"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 18.87,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Collections\\23\\UnmodifiableTrie_20261004_020940.txt",
+  "test_file": "Gemini\\TestCode\\Collections\\23\\UnmodifiableTrieTest.java",
+  "usage": {
+    "prompt_tokens": 1711,
+    "completion_tokens": 2914,
+    "total_tokens": 5378
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 270431,
+    "daily_remaining_tokens": 79569
+  },
+  "timestamp": "20261004_020940"
+}

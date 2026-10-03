@@ -1,0 +1,33 @@
+{
+  "project": "Closure",
+  "bug_id": "147",
+  "tool": "gemini",
+  "class": "com.google.javascript.jscomp.RuntimeTypeCheck",
+  "target_classes": [
+    "com.google.javascript.jscomp.RuntimeTypeCheck"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 10.66,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Closure\\147\\RuntimeTypeCheck_20261004_001750.txt",
+  "test_file": "Gemini\\TestCode\\Closure\\147\\RuntimeTypeCheckTest.java",
+  "usage": {
+    "prompt_tokens": 3668,
+    "completion_tokens": 1476,
+    "total_tokens": 5144
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 279414,
+    "daily_remaining_tokens": 70586
+  },
+  "timestamp": "20261004_001750"
+}

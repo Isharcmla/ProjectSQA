@@ -1,0 +1,33 @@
+{
+  "project": "Chart",
+  "bug_id": "10",
+  "tool": "gemini",
+  "class": "org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator",
+  "target_classes": [
+    "org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 8.48,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Chart\\10\\StandardToolTipTagFragmentGenerator_20261003_212253.txt",
+  "test_file": "Gemini\\TestCode\\Chart\\10\\StandardToolTipTagFragmentGeneratorTest.java",
+  "usage": {
+    "prompt_tokens": 904,
+    "completion_tokens": 578,
+    "total_tokens": 1949
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 348217,
+    "daily_remaining_tokens": 1783
+  },
+  "timestamp": "20261003_212253"
+}

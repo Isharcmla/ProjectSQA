@@ -1,0 +1,33 @@
+{
+  "project": "Cli",
+  "bug_id": "12",
+  "tool": "gemini",
+  "class": "org.apache.commons.cli.GnuParser",
+  "target_classes": [
+    "org.apache.commons.cli.GnuParser"
+  ],
+  "status": "success",
+  "generation_status": "success",
+  "compile_result": "not_run",
+  "elapsed_sec": 28.08,
+  "num_test_files_generated": 1,
+  "model_requested": "gemini",
+  "model_id": "gemini-3.7-flash",
+  "model_name": "gemini-3.7-flash",
+  "max_tokens": 16384,
+  "temperature": 0.2,
+  "finish_reason": "stop",
+  "prompt_file": "Gemini\\Prompt\\Cli\\12\\GnuParser_20261003_221448.txt",
+  "test_file": "Gemini\\TestCode\\Cli\\12\\GnuParserTest.java",
+  "usage": {
+    "prompt_tokens": 1177,
+    "completion_tokens": 1302,
+    "total_tokens": 5232
+  },
+  "model_quota": {
+    "daily_quota_tokens": 350000,
+    "daily_usage_tokens": 140147,
+    "daily_remaining_tokens": 209853
+  },
+  "timestamp": "20261003_221448"
+}
