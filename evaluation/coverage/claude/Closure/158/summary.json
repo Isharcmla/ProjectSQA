@@ -1,0 +1,17 @@
+{
+  "project": "Closure",
+  "bug_id": "158",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 896,
+  "lines_covered": 385,
+  "conditions_total": 328,
+  "conditions_covered": 38,
+  "line_coverage": 43.0,
+  "condition_coverage": 11.6,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

@@ -1,0 +1,17 @@
+{
+  "project": "JxPath",
+  "bug_id": "9",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 63,
+  "lines_covered": 33,
+  "conditions_total": 66,
+  "conditions_covered": 27,
+  "line_coverage": 52.4,
+  "condition_coverage": 40.9,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

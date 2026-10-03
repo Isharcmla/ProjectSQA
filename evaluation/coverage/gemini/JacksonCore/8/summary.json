@@ -1,0 +1,17 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "8",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 271,
+  "lines_covered": 238,
+  "conditions_total": 138,
+  "conditions_covered": 104,
+  "line_coverage": 87.8,
+  "condition_coverage": 75.4,
+  "has_failing_tests": true,
+  "failing_test_count": 8,
+  "raw_failing_test_count": 8,
+  "helper_failure_count": 0
+}

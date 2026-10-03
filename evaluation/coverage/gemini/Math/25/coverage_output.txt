@@ -1,0 +1,15 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+Use of uninitialized value $lines[16] in pattern match (m//) at /opt/defects4j/framework/core/Utils.pm line 738.
+Use of uninitialized value $lines[16] in pattern match (m//) at /opt/defects4j/framework/core/Utils.pm line 738.
+Use of uninitialized value in pattern match (m//) at /opt/defects4j/framework/core/Utils.pm line 741.
+WARNING: Some tests failed (see /tmp/coverage_gemini_Math_25_idt79rll/checkout/failing_tests)!
+       Lines total: 94
+     Lines covered: 93
+  Conditions total: 28
+Conditions covered: 26
+     Line coverage: 98.9%
+Condition coverage: 92.9%

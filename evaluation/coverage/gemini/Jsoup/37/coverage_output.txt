@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_gemini_Jsoup_37_2h2nrpum/checkout/failing_tests)!
+       Lines total: 307
+     Lines covered: 277
+  Conditions total: 152
+Conditions covered: 124
+     Line coverage: 90.2%
+Condition coverage: 81.6%

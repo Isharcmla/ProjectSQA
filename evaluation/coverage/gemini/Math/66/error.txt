@@ -1,0 +1,51 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/coverage_gemini_Math_66_x4hcieje/checkout && ant -f /opt/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/opt/defects4j -Dd4j.dir.projects=/opt/defects4j/framework/projects -Dbasedir=/tmp/coverage_gemini_Math_66_x4hcieje/checkout -Dd4j.test.dir=/tmp/coverage_gemini_Math_66_x4hcieje/checkout/.test_suite compile.gen.tests 2>&1
+Buildfile: /opt/defects4j/framework/projects/defects4j.build.xml
+[hastarget] Warning: Nashorn engine is planned to be removed from a future JDK release
+
+init:
+     [echo] -------- Commons MATH 2.2-SNAPSHOT --------
+    [mkdir] Created dir: /tmp/coverage_gemini_Math_66_x4hcieje/checkout/target
+    [mkdir] Created dir: /tmp/coverage_gemini_Math_66_x4hcieje/checkout/target/classes
+    [mkdir] Created dir: /tmp/coverage_gemini_Math_66_x4hcieje/checkout/target/test-classes
+    [mkdir] Created dir: /tmp/coverage_gemini_Math_66_x4hcieje/checkout/target/classes/META-INF
+     [copy] Copying 1 file to /tmp/coverage_gemini_Math_66_x4hcieje/checkout/target/classes/META-INF
+
+compile:
+    [javac] /tmp/coverage_gemini_Math_66_x4hcieje/checkout/build.xml:158: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 435 source files to /tmp/coverage_gemini_Math_66_x4hcieje/checkout/target/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] /tmp/coverage_gemini_Math_66_x4hcieje/checkout/src/main/java/org/apache/commons/math/exception/NoDataException.java:41: warning: non-varargs call of varargs method with inexact argument type for last parameter;
+    [javac]         super(specific, LocalizedFormats.NO_DATA, null);
+    [javac]                                                   ^
+    [javac]   cast to Object for a varargs call
+    [javac]   cast to Object[] for a non-varargs call and to suppress this warning
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: /tmp/coverage_gemini_Math_66_x4hcieje/checkout/src/main/java/org/apache/commons/math/stat/Frequency.java uses unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 5 warnings
+
+compile.gen.tests:
+     [echo] classes.dir: target/classes
+     [echo] build.home: target
+    [mkdir] Created dir: /tmp/coverage_gemini_Math_66_x4hcieje/checkout/.classes_testgen
+    [javac] /opt/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /tmp/coverage_gemini_Math_66_x4hcieje/checkout/.classes_testgen
+    [javac] /tmp/coverage_gemini_Math_66_x4hcieje/checkout/.test_suite/org/apache/commons/math/optimization/univariate/BrentOptimizerTest.java:5: error: cannot find symbol
+    [javac] import org.apache.commons.math.analysis.SinFunction;
+    [javac]                                        ^
+    [javac]   symbol:   class SinFunction
+    [javac]   location: package org.apache.commons.math.analysis
+    [javac] 1 error
+
+BUILD FAILED
+/opt/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 2 seconds
+Cannot compile extracted test suite! at /opt/defects4j/framework/bin/d4j/d4j-coverage line 142.
+Compilation failed in require at /opt/defects4j/framework/bin/defects4j line 195.

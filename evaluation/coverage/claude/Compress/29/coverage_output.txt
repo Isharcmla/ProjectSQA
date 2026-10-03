@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_claude_Compress_29_k855r1b2/checkout/failing_tests)!
+       Lines total: 1609
+     Lines covered: 429
+  Conditions total: 885
+Conditions covered: 164
+     Line coverage: 26.7%
+Condition coverage: 18.5%

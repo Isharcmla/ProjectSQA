@@ -1,0 +1,49 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout && ant -f /opt/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/opt/defects4j -Dd4j.dir.projects=/opt/defects4j/framework/projects -Dbasedir=/tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout -Dd4j.test.dir=/tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout/.test_suite compile.gen.tests 2>&1
+Buildfile: /opt/defects4j/framework/projects/defects4j.build.xml
+
+test-offline:
+
+get-deps:
+
+jackson-dataformat-xml-from-maven.compile:
+    [mkdir] Created dir: /tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout/target/classes
+    [javac] /tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout/maven-build.xml:90: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 36 source files to /tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout/target/classes
+    [javac] /tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout/src/main/java/com/fasterxml/jackson/dataformat/xml/XmlFactory.java:195: warning: [deprecation] newInstance() in Class has been deprecated
+    [javac]             XMLInputFactory inf = (XMLInputFactory) Class.forName(_jdkXmlInFactory).newInstance();
+    [javac]                                                                                    ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout/src/main/java/com/fasterxml/jackson/dataformat/xml/XmlFactory.java:196: warning: [deprecation] newInstance() in Class has been deprecated
+    [javac]             XMLOutputFactory outf = (XMLOutputFactory) Class.forName(_jdkXmlOutFactory).newInstance();
+    [javac]                                                                                        ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] 2 warnings
+    [javac] Creating empty /tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout/target/classes/com/fasterxml/jackson/dataformat/xml/package-info.class
+    [javac] Creating empty /tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout/target/classes/com/fasterxml/jackson/dataformat/xml/annotation/package-info.class
+     [copy] Copying 4 files to /tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout/target/classes
+
+compile:
+
+compile.gen.tests:
+     [echo] classes.dir: target/classes
+     [echo] build.home: target/classes/..
+    [mkdir] Created dir: /tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout/.classes_testgen
+    [javac] /opt/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout/.classes_testgen
+    [javac] /tmp/coverage_gemini_JacksonXml_4_zwvib2hc/checkout/.test_suite/com/fasterxml/jackson/dataformat/xml/ser/XmlSerializerProviderTest.java:128: error: cannot find symbol
+    [javac]         _xmlMapper.getSerializerProviderInstance().serializeValue(xgen, null);
+    [javac]                                                   ^
+    [javac]   symbol:   method serializeValue(ToXmlGenerator,<null>)
+    [javac]   location: class SerializerProvider
+    [javac] 1 error
+
+BUILD FAILED
+/opt/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 1 second
+Cannot compile extracted test suite! at /opt/defects4j/framework/bin/d4j/d4j-coverage line 142.
+Compilation failed in require at /opt/defects4j/framework/bin/defects4j line 195.

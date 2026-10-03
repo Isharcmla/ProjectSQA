@@ -1,0 +1,17 @@
+{
+  "project": "Chart",
+  "bug_id": "24",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 25,
+  "lines_covered": 25,
+  "conditions_total": 10,
+  "conditions_covered": 10,
+  "line_coverage": 100.0,
+  "condition_coverage": 100.0,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

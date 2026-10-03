@@ -1,0 +1,17 @@
+{
+  "project": "Time",
+  "bug_id": "8",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 355,
+  "lines_covered": 312,
+  "conditions_total": 178,
+  "conditions_covered": 140,
+  "line_coverage": 87.9,
+  "condition_coverage": 78.7,
+  "has_failing_tests": true,
+  "failing_test_count": 4,
+  "raw_failing_test_count": 4,
+  "helper_failure_count": 0
+}

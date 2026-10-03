@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_gemini_JacksonCore_22_woki6fs8/checkout/failing_tests)!
+       Lines total: 381
+     Lines covered: 220
+  Conditions total: 267
+Conditions covered: 129
+     Line coverage: 57.7%
+Condition coverage: 48.3%

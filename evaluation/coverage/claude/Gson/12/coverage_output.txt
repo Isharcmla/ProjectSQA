@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_claude_Gson_12_qqzl3lrn/checkout/failing_tests)!
+       Lines total: 168
+     Lines covered: 160
+  Conditions total: 86
+Conditions covered: 75
+     Line coverage: 95.2%
+Condition coverage: 87.2%

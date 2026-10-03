@@ -1,0 +1,195 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/coverage_claude_Math_105_vc7u3xiw/checkout && ant -f /opt/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/opt/defects4j -Dd4j.dir.projects=/opt/defects4j/framework/projects -Dbasedir=/tmp/coverage_claude_Math_105_vc7u3xiw/checkout -Dd4j.test.dir=/tmp/coverage_claude_Math_105_vc7u3xiw/checkout/.test_suite compile.gen.tests 2>&1
+Buildfile: /opt/defects4j/framework/projects/defects4j.build.xml
+[hastarget] Warning: Nashorn engine is planned to be removed from a future JDK release
+
+init:
+
+setProxy:
+
+noProxy:
+     [echo] Proxy not used.
+
+get-custom-dep-commons-logging.jar:
+
+get-dep-commons-logging.jar:
+      [get] Getting: https://repo1.maven.org/maven2/commons-logging/commons-logging/1.0.3/commons-logging-1.0.3.jar
+      [get] To: /root/.maven/repository/commons-logging/jars/commons-logging-1.0.3.jar
+      [get] Not modified - so not downloaded
+
+get-custom-dep-commons-discovery.jar:
+
+get-dep-commons-discovery.jar:
+      [get] Getting: https://repo1.maven.org/maven2/commons-discovery/commons-discovery/0.2/commons-discovery-0.2.jar
+      [get] To: /root/.maven/repository/commons-discovery/jars/commons-discovery-0.2.jar
+      [get] Not modified - so not downloaded
+
+get-deps:
+
+compile:
+    [mkdir] Created dir: /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/target/classes
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/build.xml:72: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 139 source files to /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/target/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/complex/ComplexFormat.java:450: warning: [deprecation] Double(double) in Double has been deprecated
+    [javac]                 ret = new Double(value);
+    [javac]                       ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/linear/BigMatrixImpl.java:68: warning: [deprecation] ROUND_HALF_UP in BigDecimal has been deprecated
+    [javac]     private int roundingMode = BigDecimal.ROUND_HALF_UP;
+    [javac]                                          ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/linear/BigMatrixImpl.java:989: warning: [deprecation] divide(BigDecimal,int,int) in BigDecimal has been deprecated
+    [javac]                 bp[col][j] = bp[col][j].divide(lu[col][col], scale, roundingMode);
+    [javac]                                        ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/linear/BigMatrixImpl.java:1089: warning: [deprecation] divide(BigDecimal,int,int) in BigDecimal has been deprecated
+    [javac]                 lu[row][col] = lu[row][col].divide(lu[col][col], scale, roundingMode);
+    [javac]                                            ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/random/EmpiricalDistributionImpl.java:270: warning: [deprecation] Double(String) in Double has been deprecated
+    [javac]                 val = new Double(str).doubleValue();
+    [javac]                       ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/random/EmpiricalDistributionImpl.java:334: warning: [deprecation] Double(double) in Double has been deprecated
+    [javac]         double delta = (max - min)/(new Double(binCount)).doubleValue();
+    [javac]                                     ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/descriptive/SummaryStatistics.java:46: warning: [deprecation] newInstance() in Class has been deprecated
+    [javac]         return (SummaryStatistics)cls.newInstance();
+    [javac]                                      ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/random/RandomDataImpl.java:137: warning: [deprecation] Integer(int) in Integer has been deprecated
+    [javac]             Integer c = new Integer(randomBytes[i]);
+    [javac]                         ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/random/RandomDataImpl.java:232: warning: [deprecation] Integer(int) in Integer has been deprecated
+    [javac]                 Integer c = new Integer(hash[i]);
+    [javac]                             ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/random/ValueServer.java:325: warning: [deprecation] Double(String) in Double has been deprecated
+    [javac]         return new Double(str).doubleValue();
+    [javac]                ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:98: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]            obj = new Long(((Integer) v).longValue());
+    [javac]                  ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:103: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]                 freqTable.put(obj, new Long(1));
+    [javac]                                    ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:105: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]                 freqTable.put(obj, new Long(count.longValue() + 1));
+    [javac]                                    ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:119: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         addValue(new Long(v));
+    [javac]                  ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:128: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         addValue(new Long(v.longValue()));
+    [javac]                  ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:137: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         addValue(new Long(v));
+    [javac]                  ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:146: warning: [deprecation] Character(char) in Character has been deprecated
+    [javac]         addValue(new Character(v));
+    [javac]                  ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:212: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         return getCount(new Long(v));
+    [javac]                         ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:222: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         return getCount(new Long(v));
+    [javac]                         ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:232: warning: [deprecation] Character(char) in Character has been deprecated
+    [javac]         return getCount(new Character(v));
+    [javac]                         ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:261: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         return getPct(new Long(v));       
+    [javac]                       ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:272: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         return getPct(new Long(v));         
+    [javac]                       ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:283: warning: [deprecation] Character(char) in Character has been deprecated
+    [javac]         return getPct(new Character(v));         
+    [javac]                       ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:347: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         return getCumFreq(new Long(v));       
+    [javac]                           ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:359: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         return getCumFreq(new Long(v));         
+    [javac]                           ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:371: warning: [deprecation] Character(char) in Character has been deprecated
+    [javac]         return getCumFreq(new Character(v));         
+    [javac]                           ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:404: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         return getCumPct(new Long(v));       
+    [javac]                          ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:417: warning: [deprecation] Long(long) in Long has been deprecated
+    [javac]         return getCumPct(new Long(v));         
+    [javac]                          ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/Frequency.java:430: warning: [deprecation] Character(char) in Character has been deprecated
+    [javac]         return getCumPct(new Character(v));         
+    [javac]                          ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/stat/descriptive/DescriptiveStatistics.java:55: warning: [deprecation] newInstance() in Class has been deprecated
+    [javac]         return (DescriptiveStatistics)cls.newInstance();
+    [javac]                                          ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/DefaultTransformer.java:54: warning: [deprecation] Double(String) in Double has been deprecated
+    [javac]             return new Double(o.toString()).doubleValue();
+    [javac]                    ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/MathUtils.java:542: warning: [deprecation] ROUND_HALF_UP in BigDecimal has been deprecated
+    [javac]         return round(x, scale, BigDecimal.ROUND_HALF_UP);
+    [javac]                                          ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/MathUtils.java:560: warning: [deprecation] Double(double) in Double has been deprecated
+    [javac]                    (new Double(x).toString())
+    [javac]                     ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/MathUtils.java:561: warning: [deprecation] setScale(int,int) in BigDecimal has been deprecated
+    [javac]                    .setScale(scale, roundingMethod))
+    [javac]                    ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/MathUtils.java:582: warning: [deprecation] ROUND_HALF_UP in BigDecimal has been deprecated
+    [javac]         return round(x, scale, BigDecimal.ROUND_HALF_UP);
+    [javac]                                          ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/MathUtils.java:618: warning: [deprecation] ROUND_CEILING in BigDecimal has been deprecated
+    [javac]         case BigDecimal.ROUND_CEILING :
+    [javac]                        ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/MathUtils.java:625: warning: [deprecation] ROUND_DOWN in BigDecimal has been deprecated
+    [javac]         case BigDecimal.ROUND_DOWN :
+    [javac]                        ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/MathUtils.java:628: warning: [deprecation] ROUND_FLOOR in BigDecimal has been deprecated
+    [javac]         case BigDecimal.ROUND_FLOOR :
+    [javac]                        ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/MathUtils.java:635: warning: [deprecation] ROUND_HALF_DOWN in BigDecimal has been deprecated
+    [javac]         case BigDecimal.ROUND_HALF_DOWN : {
+    [javac]                        ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/MathUtils.java:645: warning: [deprecation] ROUND_HALF_EVEN in BigDecimal has been deprecated
+    [javac]         case BigDecimal.ROUND_HALF_EVEN : {
+    [javac]                        ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/MathUtils.java:661: warning: [deprecation] ROUND_HALF_UP in BigDecimal has been deprecated
+    [javac]         case BigDecimal.ROUND_HALF_UP : {
+    [javac]                        ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/MathUtils.java:671: warning: [deprecation] ROUND_UNNECESSARY in BigDecimal has been deprecated
+    [javac]         case BigDecimal.ROUND_UNNECESSARY :
+    [javac]                        ^
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/src/java/org/apache/commons/math/util/MathUtils.java:676: warning: [deprecation] ROUND_UP in BigDecimal has been deprecated
+    [javac]         case BigDecimal.ROUND_UP :
+    [javac]                        ^
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 47 warnings
+    [mkdir] Created dir: /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/target/classes/META-INF
+     [copy] Copying 1 file to /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/target/classes/META-INF
+
+compile.gen.tests:
+     [echo] classes.dir: /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/target/classes/../classes
+     [echo] build.home: /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/target/classes/..
+    [mkdir] Created dir: /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/.classes_testgen
+    [javac] /opt/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/.classes_testgen
+    [javac] /tmp/coverage_claude_Math_105_vc7u3xiw/checkout/.test_suite/SimpleRegressionTest.java:8: error: cannot find symbol
+    [javac]     private SimpleRegression regression;
+    [javac]             ^
+    [javac]   symbol:   class SimpleRegression
+    [javac]   location: class SimpleRegressionTest
+    [javac] 1 error
+
+BUILD FAILED
+/opt/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 2 seconds
+Cannot compile extracted test suite! at /opt/defects4j/framework/bin/d4j/d4j-coverage line 142.
+Compilation failed in require at /opt/defects4j/framework/bin/defects4j line 195.

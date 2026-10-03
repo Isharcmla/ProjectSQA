@@ -1,0 +1,47 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/coverage_claude_Lang_13_xko_ztou/checkout && ant -f /opt/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/opt/defects4j -Dd4j.dir.projects=/opt/defects4j/framework/projects -Dbasedir=/tmp/coverage_claude_Lang_13_xko_ztou/checkout -Dd4j.test.dir=/tmp/coverage_claude_Lang_13_xko_ztou/checkout/.test_suite compile.gen.tests 2>&1
+Buildfile: /opt/defects4j/framework/projects/defects4j.build.xml
+
+init:
+     [echo] -------- commons-lang3 3.2-SNAPSHOT --------
+    [mkdir] Created dir: /tmp/coverage_claude_Lang_13_xko_ztou/checkout/target
+
+compile:
+    [mkdir] Created dir: /tmp/coverage_claude_Lang_13_xko_ztou/checkout/target/classes
+    [javac] Compiling 106 source files to /tmp/coverage_claude_Lang_13_xko_ztou/checkout/target/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] /tmp/coverage_claude_Lang_13_xko_ztou/checkout/src/main/java/org/apache/commons/lang3/reflect/FieldUtils.java:305: warning: [deprecation] isAccessible() in AccessibleObject has been deprecated
+    [javac]         if (forceAccess && !field.isAccessible()) {
+    [javac]                                  ^
+    [javac] /tmp/coverage_claude_Lang_13_xko_ztou/checkout/src/main/java/org/apache/commons/lang3/reflect/FieldUtils.java:514: warning: [deprecation] isAccessible() in AccessibleObject has been deprecated
+    [javac]         if (forceAccess && !field.isAccessible()) {
+    [javac]                                  ^
+    [javac] /tmp/coverage_claude_Lang_13_xko_ztou/checkout/src/main/java/org/apache/commons/lang3/reflect/MemberUtils.java:55: warning: [deprecation] isAccessible() in AccessibleObject has been deprecated
+    [javac]         if (o == null || o.isAccessible()) {
+    [javac]                           ^
+    [javac] 7 warnings
+     [copy] Copying 1 file to /tmp/coverage_claude_Lang_13_xko_ztou/checkout/target/classes
+
+compile.gen.tests:
+     [echo] classes.dir: target/classes
+     [echo] build.home: target
+    [mkdir] Created dir: /tmp/coverage_claude_Lang_13_xko_ztou/checkout/.classes_testgen
+    [javac] /opt/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /tmp/coverage_claude_Lang_13_xko_ztou/checkout/.classes_testgen
+    [javac] /tmp/coverage_claude_Lang_13_xko_ztou/checkout/.test_suite/SerializationUtilsTest.java:137: error: cannot find symbol
+    [javac]     @Test(expected = SerializationException.class)
+    [javac]                      ^
+    [javac]   symbol:   class SerializationException
+    [javac]   location: class SerializationUtilsTest
+    [javac] 1 error
+
+BUILD FAILED
+/opt/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 1 second
+Cannot compile extracted test suite! at /opt/defects4j/framework/bin/d4j/d4j-coverage line 142.
+Compilation failed in require at /opt/defects4j/framework/bin/defects4j line 195.

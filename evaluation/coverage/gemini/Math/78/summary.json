@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "78",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 90,
+  "lines_covered": 74,
+  "conditions_total": 50,
+  "conditions_covered": 35,
+  "line_coverage": 82.2,
+  "condition_coverage": 70.0,
+  "has_failing_tests": true,
+  "failing_test_count": 1,
+  "raw_failing_test_count": 1,
+  "helper_failure_count": 0
+}

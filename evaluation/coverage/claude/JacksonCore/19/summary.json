@@ -1,0 +1,17 @@
+{
+  "project": "JacksonCore",
+  "bug_id": "19",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 3197,
+  "lines_covered": 1775,
+  "conditions_total": 2254,
+  "conditions_covered": 966,
+  "line_coverage": 55.5,
+  "condition_coverage": 42.9,
+  "has_failing_tests": true,
+  "failing_test_count": 3,
+  "raw_failing_test_count": 3,
+  "helper_failure_count": 0
+}

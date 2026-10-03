@@ -1,0 +1,17 @@
+{
+  "project": "JxPath",
+  "bug_id": "9",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 3,
+  "lines_total": 63,
+  "lines_covered": 59,
+  "conditions_total": 66,
+  "conditions_covered": 61,
+  "line_coverage": 93.7,
+  "condition_coverage": 92.4,
+  "has_failing_tests": true,
+  "failing_test_count": 2,
+  "raw_failing_test_count": 2,
+  "helper_failure_count": 0
+}

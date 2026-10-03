@@ -1,0 +1,17 @@
+{
+  "project": "Compress",
+  "bug_id": "43",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 533,
+  "lines_covered": 265,
+  "conditions_total": 300,
+  "conditions_covered": 120,
+  "line_coverage": 49.7,
+  "condition_coverage": 40.0,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

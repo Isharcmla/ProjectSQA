@@ -1,0 +1,17 @@
+{
+  "project": "Compress",
+  "bug_id": "6",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 136,
+  "lines_covered": 131,
+  "conditions_total": 60,
+  "conditions_covered": 56,
+  "line_coverage": 96.3,
+  "condition_coverage": 93.3,
+  "has_failing_tests": true,
+  "failing_test_count": 2,
+  "raw_failing_test_count": 2,
+  "helper_failure_count": 0
+}

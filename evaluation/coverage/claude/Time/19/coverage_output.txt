@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_claude_Time_19_bxue3i1w/checkout/failing_tests)!
+       Lines total: 343
+     Lines covered: 269
+  Conditions total: 162
+Conditions covered: 101
+     Line coverage: 78.4%
+Condition coverage: 62.3%

@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "92",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 343,
+  "lines_covered": 297,
+  "conditions_total": 204,
+  "conditions_covered": 151,
+  "line_coverage": 86.6,
+  "condition_coverage": 74.0,
+  "has_failing_tests": true,
+  "failing_test_count": 1,
+  "raw_failing_test_count": 1,
+  "helper_failure_count": 0
+}

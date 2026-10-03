@@ -38,6 +38,32 @@ TOOL_CONFIG = {
             / "kex"
         ),
     },
+    "gemini": {
+        "test_dir": (
+            REPO_DIR
+            / "Gemini"
+            / "TestCode"
+        ),
+        "coverage_dir": (
+            REPO_DIR
+            / "evaluation"
+            / "coverage"
+            / "gemini"
+        ),
+    },
+    "claude": {
+        "test_dir": (
+            REPO_DIR
+            / "Claude"
+            / "TestCode"
+        ),
+        "coverage_dir": (
+            REPO_DIR
+            / "evaluation"
+            / "coverage"
+            / "claude"
+        ),
+    },
 }
 
 EVALUATOR = (
@@ -50,52 +76,98 @@ EVALUATOR = (
 def load_generation_cases(tool):
     cases = []
 
-    generation_dir = (
-        TOOL_CONFIG[tool]["generation_dir"]
-    )
-
-    for path in sorted(
-        generation_dir.rglob("*_result.json")
-    ):
-        try:
-            data = json.loads(
-                path.read_text(
-                    encoding="utf-8",
-                    errors="replace",
-                )
-            )
-        except (
-            OSError,
-            json.JSONDecodeError,
-        ) as exc:
-            print(
-                f"[WARN] Cannot read {path}: {exc}",
-                file=sys.stderr,
-            )
-            continue
-
-        if data.get("status") != "success":
-            continue
-
-        project = data.get("project")
-        bug_id = data.get("bug_id")
-
-        if project is None or bug_id is None:
-            print(
-                f"[WARN] Missing project/bug_id: {path}",
-                file=sys.stderr,
-            )
-            continue
-
-        cases.append(
-            (
-                str(project),
-                str(bug_id),
-                path,
-            )
+    if tool in ("evosuite", "kex"):
+        generation_dir = (
+            TOOL_CONFIG[tool]["generation_dir"]
         )
 
-    return cases
+        for path in sorted(
+            generation_dir.rglob("*_result.json")
+        ):
+            try:
+                data = json.loads(
+                    path.read_text(
+                        encoding="utf-8",
+                        errors="replace",
+                    )
+                )
+            except (
+                OSError,
+                json.JSONDecodeError,
+            ) as exc:
+                print(
+                    f"[WARN] Cannot read {path}: {exc}",
+                    file=sys.stderr,
+                )
+                continue
+
+            if data.get("status") != "success":
+                continue
+
+            project = data.get("project")
+            bug_id = data.get("bug_id")
+
+            if project is None or bug_id is None:
+                print(
+                    f"[WARN] Missing project/bug_id: "
+                    f"{path}",
+                    file=sys.stderr,
+                )
+                continue
+
+            cases.append(
+                (
+                    str(project),
+                    str(bug_id),
+                    path,
+                )
+            )
+
+        return cases
+
+    if tool in ("gemini", "claude"):
+        test_dir = TOOL_CONFIG[tool]["test_dir"]
+
+        if not test_dir.is_dir():
+            print(
+                f"[WARN] Test directory not found: "
+                f"{test_dir}",
+                file=sys.stderr,
+            )
+            return cases
+
+        for project_dir in sorted(
+            test_dir.iterdir()
+        ):
+            if not project_dir.is_dir():
+                continue
+
+            for bug_dir in sorted(
+                project_dir.iterdir()
+            ):
+                if not bug_dir.is_dir():
+                    continue
+
+                java_files = list(
+                    bug_dir.glob("*.java")
+                )
+
+                if not java_files:
+                    continue
+
+                cases.append(
+                    (
+                        project_dir.name,
+                        bug_dir.name,
+                        bug_dir,
+                    )
+                )
+
+        return cases
+
+    raise ValueError(
+        f"Unsupported tool: {tool}"
+    )
 
 
 def read_existing_summary(
@@ -145,6 +217,8 @@ def main():
         choices=[
             "evosuite",
             "kex",
+            "gemini",
+            "claude",
         ],
         help=(
             "Generated-test tool to evaluate."

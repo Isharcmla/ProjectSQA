@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_gemini_JacksonCore_10_byapn3as/checkout/failing_tests)!
+       Lines total: 465
+     Lines covered: 410
+  Conditions total: 266
+Conditions covered: 166
+     Line coverage: 88.2%
+Condition coverage: 62.4%

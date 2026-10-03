@@ -1,0 +1,48 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/coverage_claude_Math_52_3wi95vlz/checkout && ant -f /opt/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/opt/defects4j -Dd4j.dir.projects=/opt/defects4j/framework/projects -Dbasedir=/tmp/coverage_claude_Math_52_3wi95vlz/checkout -Dd4j.test.dir=/tmp/coverage_claude_Math_52_3wi95vlz/checkout/.test_suite compile.gen.tests 2>&1
+Buildfile: /opt/defects4j/framework/projects/defects4j.build.xml
+[hastarget] Warning: Nashorn engine is planned to be removed from a future JDK release
+
+init:
+     [echo] -------- Commons MATH 3.0-SNAPSHOT --------
+    [mkdir] Created dir: /tmp/coverage_claude_Math_52_3wi95vlz/checkout/target
+    [mkdir] Created dir: /tmp/coverage_claude_Math_52_3wi95vlz/checkout/target/classes
+    [mkdir] Created dir: /tmp/coverage_claude_Math_52_3wi95vlz/checkout/target/test-classes
+    [mkdir] Created dir: /tmp/coverage_claude_Math_52_3wi95vlz/checkout/target/classes/META-INF
+     [copy] Copying 1 file to /tmp/coverage_claude_Math_52_3wi95vlz/checkout/target/classes/META-INF
+
+compile:
+    [javac] Compiling 565 source files to /tmp/coverage_claude_Math_52_3wi95vlz/checkout/target/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: /tmp/coverage_claude_Math_52_3wi95vlz/checkout/src/main/java/org/apache/commons/math/stat/Frequency.java uses unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 4 warnings
+
+compile.gen.tests:
+     [echo] classes.dir: target/classes
+     [echo] build.home: target
+    [mkdir] Created dir: /tmp/coverage_claude_Math_52_3wi95vlz/checkout/.classes_testgen
+    [javac] /opt/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /tmp/coverage_claude_Math_52_3wi95vlz/checkout/.classes_testgen
+    [javac] /tmp/coverage_claude_Math_52_3wi95vlz/checkout/.test_suite/org/apache/commons/math/geometry/euclidean/threed/RotationTest.java:80: error: no suitable method found for assertEquals(double,double,double,double)
+    [javac]         assertEquals(1.0, r.getQ1() * r.getQ1() * 4
+    [javac]         ^
+    [javac]     method Assert.assertEquals(String,float,float,float) is not applicable
+    [javac]       (argument mismatch; double cannot be converted to String)
+    [javac]     method Assert.assertEquals(String,double,double,double) is not applicable
+    [javac]       (argument mismatch; double cannot be converted to String)
+    [javac] Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+    [javac] 1 error
+
+BUILD FAILED
+/opt/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 3 seconds
+Cannot compile extracted test suite! at /opt/defects4j/framework/bin/d4j/d4j-coverage line 142.
+Compilation failed in require at /opt/defects4j/framework/bin/defects4j line 195.

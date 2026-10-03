@@ -1,0 +1,17 @@
+{
+  "project": "Gson",
+  "bug_id": "15",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 198,
+  "lines_covered": 195,
+  "conditions_total": 92,
+  "conditions_covered": 86,
+  "line_coverage": 98.5,
+  "condition_coverage": 93.5,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

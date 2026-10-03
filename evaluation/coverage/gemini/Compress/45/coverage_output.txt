@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_gemini_Compress_45_ei96_qgh/checkout/failing_tests)!
+       Lines total: 171
+     Lines covered: 158
+  Conditions total: 108
+Conditions covered: 103
+     Line coverage: 92.4%
+Condition coverage: 95.4%

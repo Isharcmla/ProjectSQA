@@ -1,0 +1,17 @@
+{
+  "project": "Cli",
+  "bug_id": "38",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 191,
+  "lines_covered": 176,
+  "conditions_total": 158,
+  "conditions_covered": 116,
+  "line_coverage": 92.1,
+  "condition_coverage": 73.4,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

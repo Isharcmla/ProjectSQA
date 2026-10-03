@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "47",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 696,
+  "lines_covered": 666,
+  "conditions_total": 492,
+  "conditions_covered": 456,
+  "line_coverage": 95.7,
+  "condition_coverage": 92.7,
+  "has_failing_tests": true,
+  "failing_test_count": 3,
+  "raw_failing_test_count": 3,
+  "helper_failure_count": 0
+}

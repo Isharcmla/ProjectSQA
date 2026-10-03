@@ -1,0 +1,17 @@
+{
+  "project": "Time",
+  "bug_id": "9",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 351,
+  "lines_covered": 277,
+  "conditions_total": 170,
+  "conditions_covered": 106,
+  "line_coverage": 78.9,
+  "condition_coverage": 62.4,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

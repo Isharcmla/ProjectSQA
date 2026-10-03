@@ -1,0 +1,66 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/coverage_claude_Compress_4_5bl752t8/checkout && ant -f /opt/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/opt/defects4j -Dd4j.dir.projects=/opt/defects4j/framework/projects -Dbasedir=/tmp/coverage_claude_Compress_4_5bl752t8/checkout -Dd4j.test.dir=/tmp/coverage_claude_Compress_4_5bl752t8/checkout/.test_suite compile.gen.tests 2>&1
+Buildfile: /opt/defects4j/framework/projects/defects4j.build.xml
+
+test-offline:
+
+get-deps:
+
+commons-compress-from-maven.compile:
+    [mkdir] Created dir: /tmp/coverage_claude_Compress_4_5bl752t8/checkout/target/classes
+    [javac] /tmp/coverage_claude_Compress_4_5bl752t8/checkout/maven-build.xml:74: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 61 source files to /tmp/coverage_claude_Compress_4_5bl752t8/checkout/target/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] /tmp/coverage_claude_Compress_4_5bl752t8/checkout/src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java:57: warning: [deprecation] newInstance() in Class has been deprecated
+    [javac]             ZipExtraField ze = (ZipExtraField) c.newInstance();
+    [javac]                                                 ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /tmp/coverage_claude_Compress_4_5bl752t8/checkout/src/main/java/org/apache/commons/compress/archivers/zip/ExtraFieldUtils.java:80: warning: [deprecation] newInstance() in Class has been deprecated
+    [javac]             return (ZipExtraField) c.newInstance();
+    [javac]                                     ^
+    [javac]   where T is a type-variable:
+    [javac]     T extends Object declared in class Class
+    [javac] /tmp/coverage_claude_Compress_4_5bl752t8/checkout/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorOutputStream.java:499: warning: [deprecation] finalize() in Object has been deprecated
+    [javac]     protected void finalize() throws Throwable {
+    [javac]                    ^
+    [javac] /tmp/coverage_claude_Compress_4_5bl752t8/checkout/src/main/java/org/apache/commons/compress/compressors/bzip2/BZip2CompressorOutputStream.java:501: warning: [deprecation] finalize() in Object has been deprecated
+    [javac]         super.finalize();
+    [javac]              ^
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 8 warnings
+    [mkdir] Created dir: /tmp/coverage_claude_Compress_4_5bl752t8/checkout/target/classes/META-INF
+     [copy] Copying 2 files to /tmp/coverage_claude_Compress_4_5bl752t8/checkout/target/classes/META-INF
+
+compile:
+
+compile.gen.tests:
+     [echo] classes.dir: target/classes
+     [echo] build.home: target/classes/..
+    [mkdir] Created dir: /tmp/coverage_claude_Compress_4_5bl752t8/checkout/.classes_testgen
+    [javac] /opt/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 2 source files to /tmp/coverage_claude_Compress_4_5bl752t8/checkout/.classes_testgen
+    [javac] /tmp/coverage_claude_Compress_4_5bl752t8/checkout/.test_suite/CpioArchiveOutputStreamTest.java:74: error: no suitable constructor found for CpioArchiveEntry(short,String,int)
+    [javac]         CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "testfile", 5);
+    [javac]                                  ^
+    [javac]     constructor CpioArchiveEntry.CpioArchiveEntry(short) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     constructor CpioArchiveEntry.CpioArchiveEntry(String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac]     constructor CpioArchiveEntry.CpioArchiveEntry(File,String) is not applicable
+    [javac]       (actual and formal argument lists differ in length)
+    [javac] 1 error
+
+BUILD FAILED
+/opt/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 1 second
+Cannot compile extracted test suite! at /opt/defects4j/framework/bin/d4j/d4j-coverage line 142.
+Compilation failed in require at /opt/defects4j/framework/bin/defects4j line 195.

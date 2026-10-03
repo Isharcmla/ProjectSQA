@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_gemini_Gson_5_tdy2_phw/checkout/failing_tests)!
+       Lines total: 150
+     Lines covered: 149
+  Conditions total: 89
+Conditions covered: 76
+     Line coverage: 99.3%
+Condition coverage: 85.4%

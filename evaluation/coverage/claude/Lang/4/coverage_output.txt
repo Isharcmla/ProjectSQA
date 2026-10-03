@@ -1,0 +1,15 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+Use of uninitialized value $lines[17] in pattern match (m//) at /opt/defects4j/framework/core/Utils.pm line 738.
+Use of uninitialized value $lines[17] in pattern match (m//) at /opt/defects4j/framework/core/Utils.pm line 738.
+Use of uninitialized value in pattern match (m//) at /opt/defects4j/framework/core/Utils.pm line 741.
+WARNING: Some tests failed (see /tmp/coverage_claude_Lang_4_o752tyif/checkout/failing_tests)!
+       Lines total: 25
+     Lines covered: 25
+  Conditions total: 14
+Conditions covered: 13
+     Line coverage: 100.0%
+Condition coverage: 92.9%

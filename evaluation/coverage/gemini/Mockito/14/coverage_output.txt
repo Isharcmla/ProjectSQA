@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_gemini_Mockito_14_tqtxumf1/checkout/failing_tests)!
+       Lines total: 106
+     Lines covered: 99
+  Conditions total: 32
+Conditions covered: 31
+     Line coverage: 93.4%
+Condition coverage: 96.9%

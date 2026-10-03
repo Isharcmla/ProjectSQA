@@ -1,0 +1,17 @@
+{
+  "project": "JacksonXml",
+  "bug_id": "6",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 485,
+  "lines_covered": 190,
+  "conditions_total": 222,
+  "conditions_covered": 66,
+  "line_coverage": 39.2,
+  "condition_coverage": 29.7,
+  "has_failing_tests": true,
+  "failing_test_count": 15,
+  "raw_failing_test_count": 15,
+  "helper_failure_count": 0
+}

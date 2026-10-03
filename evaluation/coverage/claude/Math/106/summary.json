@@ -1,0 +1,17 @@
+{
+  "project": "Math",
+  "bug_id": "106",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 57,
+  "lines_covered": 53,
+  "conditions_total": 15,
+  "conditions_covered": 13,
+  "line_coverage": 93.0,
+  "condition_coverage": 86.7,
+  "has_failing_tests": true,
+  "failing_test_count": 4,
+  "raw_failing_test_count": 4,
+  "helper_failure_count": 0
+}

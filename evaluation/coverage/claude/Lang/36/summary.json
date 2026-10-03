@@ -1,0 +1,17 @@
+{
+  "project": "Lang",
+  "bug_id": "36",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 370,
+  "lines_covered": 339,
+  "conditions_total": 344,
+  "conditions_covered": 266,
+  "line_coverage": 91.6,
+  "condition_coverage": 77.3,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

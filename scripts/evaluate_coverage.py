@@ -27,6 +27,18 @@ KEX_ROOT = (
     / "TestCode"
 )
 
+GEMINI_ROOT = (
+    REPO_DIR
+    / "Gemini"
+    / "TestCode"
+)
+
+CLAUDE_ROOT = (
+    REPO_DIR
+    / "Claude"
+    / "TestCode"
+)
+
 OUTPUT_ROOT = (
     REPO_DIR
     / "evaluation"
@@ -244,6 +256,89 @@ def prepare_kex_sources(
     return prepared
 
 
+def prepare_ai_sources(
+    tool,
+    project,
+    bug_id,
+    suite_root,
+):
+    if tool == "gemini":
+        source_root = GEMINI_ROOT
+    elif tool == "claude":
+        source_root = CLAUDE_ROOT
+    else:
+        raise ValueError(
+            f"Unsupported AI tool: {tool}"
+        )
+
+    source_dir = (
+        source_root
+        / project
+        / str(bug_id)
+    )
+
+    source_files = sorted(
+        source_dir.glob("*.java")
+    )
+
+    if not source_files:
+        raise RuntimeError(
+            f"No AI generated Java files found: "
+            f"{source_dir}/*.java"
+        )
+
+    prepared = []
+
+    for src in source_files:
+        text = src.read_text(
+            encoding="utf-8",
+            errors="replace",
+        )
+
+        class_name = extract_public_class(text)
+
+        if not class_name:
+            print(
+                f"  [SKIP] no public class: "
+                f"{src.name}"
+            )
+            continue
+
+        package = extract_package(text)
+
+        if package:
+            dest_dir = (
+                suite_root
+                / Path(package.replace(".", "/"))
+            )
+        else:
+            dest_dir = suite_root
+
+        dest_dir.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+
+        # Java filename must match public class name.
+        dest = dest_dir / f"{class_name}.java"
+
+        shutil.copy2(src, dest)
+
+        prepared.append({
+            "source": str(src),
+            "destination": str(dest),
+            "package": package,
+            "class_name": class_name,
+        })
+
+    if not prepared:
+        raise RuntimeError(
+            f"No usable {tool} Java sources"
+        )
+
+    return prepared
+
+
 def create_archive(
     suite_root,
     archive_path,
@@ -440,6 +535,13 @@ def evaluate(
                 )
             elif tool == "kex":
                 prepared = prepare_kex_sources(
+                    project,
+                    bug_id,
+                    suite_root,
+                )
+            elif tool in ("gemini", "claude"):
+                prepared = prepare_ai_sources(
+                    tool,
                     project,
                     bug_id,
                     suite_root,
@@ -710,7 +812,7 @@ def main():
     parser.add_argument(
         "--tool",
         default="evosuite",
-        choices=["evosuite", "kex"],
+        choices=["evosuite", "kex", "gemini", "claude"],
     )
 
     parser.add_argument(

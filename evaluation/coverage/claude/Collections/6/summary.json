@@ -1,0 +1,17 @@
+{
+  "project": "Collections",
+  "bug_id": "6",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 495,
+  "lines_covered": 464,
+  "conditions_total": 376,
+  "conditions_covered": 285,
+  "line_coverage": 93.7,
+  "condition_coverage": 75.8,
+  "has_failing_tests": true,
+  "failing_test_count": 6,
+  "raw_failing_test_count": 6,
+  "helper_failure_count": 0
+}

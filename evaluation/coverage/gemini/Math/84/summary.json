@@ -1,0 +1,7 @@
+{
+  "project": "Math",
+  "bug_id": "84",
+  "tool": "gemini",
+  "status": "timeout",
+  "prepared_files": 1
+}

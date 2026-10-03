@@ -1,0 +1,17 @@
+{
+  "project": "Jsoup",
+  "bug_id": "50",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 90,
+  "lines_covered": 89,
+  "conditions_total": 50,
+  "conditions_covered": 44,
+  "line_coverage": 98.9,
+  "condition_coverage": 88.0,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

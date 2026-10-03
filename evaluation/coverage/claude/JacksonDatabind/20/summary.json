@@ -1,0 +1,17 @@
+{
+  "project": "JacksonDatabind",
+  "bug_id": "20",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 186,
+  "lines_covered": 177,
+  "conditions_total": 84,
+  "conditions_covered": 79,
+  "line_coverage": 95.2,
+  "condition_coverage": 94.0,
+  "has_failing_tests": true,
+  "failing_test_count": 1,
+  "raw_failing_test_count": 1,
+  "helper_failure_count": 0
+}

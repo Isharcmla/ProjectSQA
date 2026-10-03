@@ -1,0 +1,17 @@
+{
+  "project": "Codec",
+  "bug_id": "4",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 231,
+  "lines_covered": 229,
+  "conditions_total": 158,
+  "conditions_covered": 144,
+  "line_coverage": 99.1,
+  "condition_coverage": 91.1,
+  "has_failing_tests": true,
+  "failing_test_count": 5,
+  "raw_failing_test_count": 5,
+  "helper_failure_count": 0
+}

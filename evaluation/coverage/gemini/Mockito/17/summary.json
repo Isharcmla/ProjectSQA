@@ -1,0 +1,17 @@
+{
+  "project": "Mockito",
+  "bug_id": "17",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 2,
+  "lines_total": 61,
+  "lines_covered": 61,
+  "conditions_total": 32,
+  "conditions_covered": 32,
+  "line_coverage": 100.0,
+  "condition_coverage": 100.0,
+  "has_failing_tests": true,
+  "failing_test_count": 1,
+  "raw_failing_test_count": 1,
+  "helper_failure_count": 0
+}

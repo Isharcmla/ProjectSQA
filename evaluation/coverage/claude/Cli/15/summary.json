@@ -1,0 +1,7 @@
+{
+  "project": "Cli",
+  "bug_id": "15",
+  "tool": "claude",
+  "status": "coverage_failed",
+  "prepared_files": 1
+}

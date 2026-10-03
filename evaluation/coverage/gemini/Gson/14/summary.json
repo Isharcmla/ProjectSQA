@@ -1,0 +1,17 @@
+{
+  "project": "Gson",
+  "bug_id": "14",
+  "tool": "gemini",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 243,
+  "lines_covered": 236,
+  "conditions_total": 190,
+  "conditions_covered": 168,
+  "line_coverage": 97.1,
+  "condition_coverage": 88.4,
+  "has_failing_tests": false,
+  "failing_test_count": 0,
+  "raw_failing_test_count": 0,
+  "helper_failure_count": 0
+}

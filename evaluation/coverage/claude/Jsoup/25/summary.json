@@ -1,0 +1,17 @@
+{
+  "project": "Jsoup",
+  "bug_id": "25",
+  "tool": "claude",
+  "status": "success",
+  "prepared_files": 1,
+  "lines_total": 90,
+  "lines_covered": 87,
+  "conditions_total": 46,
+  "conditions_covered": 34,
+  "line_coverage": 96.7,
+  "condition_coverage": 73.9,
+  "has_failing_tests": true,
+  "failing_test_count": 2,
+  "raw_failing_test_count": 2,
+  "helper_failure_count": 0
+}

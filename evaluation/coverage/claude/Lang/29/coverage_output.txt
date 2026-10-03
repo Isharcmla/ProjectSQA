@@ -1,0 +1,12 @@
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (coverage.instrument).......................................... OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (coverage.report).............................................. OK
+WARNING: Some tests failed (see /tmp/coverage_claude_Lang_29_h9x35jz_/checkout/failing_tests)!
+       Lines total: 141
+     Lines covered: 134
+  Conditions total: 50
+Conditions covered: 43
+     Line coverage: 95.0%
+Condition coverage: 86.0%
