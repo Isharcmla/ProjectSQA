@@ -1,0 +1,13 @@
+/tmp/evaluate_claude_Cli_15_8w_958hs/src/WriteableCommandLineImplTest.java:43: error: cannot find symbol
+            .withShortPrefix("-")
+            ^
+  symbol:   method withShortPrefix(String)
+  location: class DefaultOptionBuilder
+/tmp/evaluate_claude_Cli_15_8w_958hs/src/WriteableCommandLineImplTest.java:50: error: cannot find symbol
+            .withShortPrefix("-")
+            ^
+  symbol:   method withShortPrefix(String)
+  location: class DefaultOptionBuilder
+Note: /tmp/evaluate_claude_Cli_15_8w_958hs/src/WriteableCommandLineImplTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors

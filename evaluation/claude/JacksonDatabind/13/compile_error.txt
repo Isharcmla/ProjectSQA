@@ -1,0 +1,4 @@
+/tmp/evaluate_claude_JacksonDatabind_13_fhb7ekb4/src/DefaultDeserializationContextTest.java:63: error: TestIdGenerator is not abstract and does not override abstract method key(Object) in ObjectIdGenerator
+    static class TestIdGenerator extends ObjectIdGenerator<Object> {
+           ^
+1 error

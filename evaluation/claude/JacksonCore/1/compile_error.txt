@@ -1,0 +1,386 @@
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:13: error: cannot find symbol
+        Assert.assertEquals(1, NumberInput.parseInt(digits, 0, 1));
+                               ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:14: error: cannot find symbol
+        Assert.assertEquals(12, NumberInput.parseInt(digits, 0, 2));
+                                ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:15: error: cannot find symbol
+        Assert.assertEquals(123, NumberInput.parseInt(digits, 0, 3));
+                                 ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:16: error: cannot find symbol
+        Assert.assertEquals(1234, NumberInput.parseInt(digits, 0, 4));
+                                  ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:17: error: cannot find symbol
+        Assert.assertEquals(12345, NumberInput.parseInt(digits, 0, 5));
+                                   ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:18: error: cannot find symbol
+        Assert.assertEquals(123456, NumberInput.parseInt(digits, 0, 6));
+                                    ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:19: error: cannot find symbol
+        Assert.assertEquals(1234567, NumberInput.parseInt(digits, 0, 7));
+                                     ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:20: error: cannot find symbol
+        Assert.assertEquals(12345678, NumberInput.parseInt(digits, 0, 8));
+                                      ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:21: error: cannot find symbol
+        Assert.assertEquals(123456789, NumberInput.parseInt(digits, 0, 9));
+                                       ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:27: error: cannot find symbol
+        Assert.assertEquals(123456789, NumberInput.parseInt(digits, 2, 9));
+                                       ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:33: error: cannot find symbol
+        Assert.assertEquals(0, NumberInput.parseInt(digits, 0, 1));
+                               ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:40: error: cannot find symbol
+        Assert.assertEquals(0, NumberInput.parseInt("0"));
+                               ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:45: error: cannot find symbol
+        Assert.assertEquals(1, NumberInput.parseInt("1"));
+                               ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:46: error: cannot find symbol
+        Assert.assertEquals(12, NumberInput.parseInt("12"));
+                                ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:47: error: cannot find symbol
+        Assert.assertEquals(123, NumberInput.parseInt("123"));
+                                 ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:48: error: cannot find symbol
+        Assert.assertEquals(1234, NumberInput.parseInt("1234"));
+                                  ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:49: error: cannot find symbol
+        Assert.assertEquals(123456789, NumberInput.parseInt("123456789"));
+                                       ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:54: error: cannot find symbol
+        Assert.assertEquals(-1, NumberInput.parseInt("-1"));
+                                ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:55: error: cannot find symbol
+        Assert.assertEquals(-123456789, NumberInput.parseInt("-123456789"));
+                                        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:61: error: cannot find symbol
+        Assert.assertEquals(2000000000, NumberInput.parseInt("2000000000"));
+                                        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:67: error: cannot find symbol
+        Assert.assertEquals(-1234567890, NumberInput.parseInt("-1234567890"));
+                                         ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:73: error: cannot find symbol
+        NumberInput.parseInt("-");
+        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:78: error: cannot find symbol
+        NumberInput.parseInt("12a45");
+        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:83: error: cannot find symbol
+        NumberInput.parseInt("a2345");
+        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:88: error: cannot find symbol
+        NumberInput.parseInt("1a345");
+        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:93: error: cannot find symbol
+        NumberInput.parseInt("12a45");
+        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:101: error: cannot find symbol
+        Assert.assertEquals(1234567890L, NumberInput.parseLong(digits, 0, 10));
+                                         ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:107: error: cannot find symbol
+        Assert.assertEquals(123456789012345678L, NumberInput.parseLong(digits, 0, 18));
+                                                 ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:113: error: cannot find symbol
+        Assert.assertEquals(1234567890L, NumberInput.parseLong(digits, 2, 10));
+                                         ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:120: error: cannot find symbol
+        Assert.assertEquals(123456789L, NumberInput.parseLong("123456789"));
+                                        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:125: error: cannot find symbol
+        Assert.assertEquals(1234567890123L, NumberInput.parseLong("1234567890123"));
+                                            ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:130: error: cannot find symbol
+        Assert.assertEquals(-123L, NumberInput.parseLong("-123"));
+                                   ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:135: error: cannot find symbol
+        Assert.assertEquals(-1234567890123L, NumberInput.parseLong("-1234567890123"));
+                                             ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:143: error: cannot find symbol
+        Assert.assertTrue(NumberInput.inLongRange(digits, 0, 3, false));
+                          ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:149: error: cannot find symbol
+        Assert.assertFalse(NumberInput.inLongRange(digits, 0, 20, false));
+                           ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:155: error: cannot find symbol
+        Assert.assertTrue(NumberInput.inLongRange(digits, 0, 19, false));
+                          ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:161: error: cannot find symbol
+        Assert.assertFalse(NumberInput.inLongRange(digits, 0, 19, false));
+                           ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:167: error: cannot find symbol
+        Assert.assertTrue(NumberInput.inLongRange(digits, 0, 19, false));
+                          ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:173: error: cannot find symbol
+        Assert.assertTrue(NumberInput.inLongRange(digits, 0, 19, true));
+                          ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:179: error: cannot find symbol
+        Assert.assertFalse(NumberInput.inLongRange(digits, 0, 19, true));
+                           ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:186: error: cannot find symbol
+        Assert.assertTrue(NumberInput.inLongRange("123", false));
+                          ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:191: error: cannot find symbol
+        Assert.assertFalse(NumberInput.inLongRange("12345678901234567890", false));
+                           ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:196: error: cannot find symbol
+        Assert.assertTrue(NumberInput.inLongRange("9223372036854775807", false));
+                          ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:201: error: cannot find symbol
+        Assert.assertFalse(NumberInput.inLongRange("9223372036854775817", false));
+                           ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:206: error: cannot find symbol
+        Assert.assertTrue(NumberInput.inLongRange("9223372036854775707", false));
+                          ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:211: error: cannot find symbol
+        Assert.assertTrue(NumberInput.inLongRange("9223372036854775808", true));
+                          ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:218: error: cannot find symbol
+        Assert.assertEquals(42, NumberInput.parseAsInt(null, 42));
+                                ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:223: error: cannot find symbol
+        Assert.assertEquals(42, NumberInput.parseAsInt("   ", 42));
+                                ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:228: error: cannot find symbol
+        Assert.assertEquals(123, NumberInput.parseAsInt("123", 0));
+                                 ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:233: error: cannot find symbol
+        Assert.assertEquals(123, NumberInput.parseAsInt("+123", 0));
+                                 ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:238: error: cannot find symbol
+        Assert.assertEquals(-123, NumberInput.parseAsInt("-123", 0));
+                                  ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:243: error: cannot find symbol
+        Assert.assertEquals(123, NumberInput.parseAsInt("  123  ", 0));
+                                 ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:248: error: cannot find symbol
+        Assert.assertEquals(12, NumberInput.parseAsInt("12.5", 0));
+                                ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:253: error: cannot find symbol
+        Assert.assertEquals(42, NumberInput.parseAsInt("abc", 42));
+                                ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:259: error: cannot find symbol
+        Assert.assertEquals(42, NumberInput.parseAsInt("99999999999", 42));
+                                ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:266: error: cannot find symbol
+        Assert.assertEquals(42L, NumberInput.parseAsLong(null, 42L));
+                                 ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:271: error: cannot find symbol
+        Assert.assertEquals(42L, NumberInput.parseAsLong("  ", 42L));
+                                 ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:276: error: cannot find symbol
+        Assert.assertEquals(123456789012L, NumberInput.parseAsLong("123456789012", 0L));
+                                           ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:281: error: cannot find symbol
+        Assert.assertEquals(123L, NumberInput.parseAsLong("+123", 0L));
+                                  ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:286: error: cannot find symbol
+        Assert.assertEquals(-123L, NumberInput.parseAsLong("-123", 0L));
+                                   ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:291: error: cannot find symbol
+        Assert.assertEquals(12L, NumberInput.parseAsLong("12.5", 0L));
+                                 ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:296: error: cannot find symbol
+        Assert.assertEquals(42L, NumberInput.parseAsLong("abc", 42L));
+                                 ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:302: error: cannot find symbol
+        Assert.assertEquals(42L, NumberInput.parseAsLong("99999999999999999999", 42L));
+                                 ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:309: error: cannot find symbol
+        Assert.assertEquals(3.14, NumberInput.parseAsDouble(null, 3.14), 0.0001);
+                                  ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:314: error: cannot find symbol
+        Assert.assertEquals(3.14, NumberInput.parseAsDouble("   ", 3.14), 0.0001);
+                                  ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:319: error: cannot find symbol
+        Assert.assertEquals(3.14, NumberInput.parseAsDouble("3.14", 0.0), 0.0001);
+                                  ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:324: error: cannot find symbol
+        Assert.assertEquals(42.0, NumberInput.parseAsDouble("abc", 42.0), 0.0001);
+                                  ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:332: error: cannot find symbol
+                NumberInput.parseDouble(NumberInput.NASTY_SMALL_DOUBLE), 0.0);
+                                        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:332: error: cannot find symbol
+                NumberInput.parseDouble(NumberInput.NASTY_SMALL_DOUBLE), 0.0);
+                ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:337: error: cannot find symbol
+        Assert.assertEquals(123.45, NumberInput.parseDouble("123.45"), 0.0001);
+                                    ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:342: error: cannot find symbol
+        NumberInput.parseDouble("abc");
+        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:349: error: cannot find symbol
+        BigDecimal result = NumberInput.parseBigDecimal("123.45");
+                            ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:355: error: cannot find symbol
+        NumberInput.parseBigDecimal("abc");
+        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:363: error: cannot find symbol
+        BigDecimal result = NumberInput.parseBigDecimal(buffer);
+                            ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:370: error: cannot find symbol
+        NumberInput.parseBigDecimal(buffer);
+        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:378: error: cannot find symbol
+        BigDecimal result = NumberInput.parseBigDecimal(buffer, 2, 6);
+                            ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+/tmp/evaluate_claude_JacksonCore_1_t6_fvvfx/src/NumberInputTest.java:385: error: cannot find symbol
+        NumberInput.parseBigDecimal(buffer, 2, 3);
+        ^
+  symbol:   variable NumberInput
+  location: class NumberInputTest
+77 errors

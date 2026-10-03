@@ -1,0 +1,199 @@
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:26: error: cannot find symbol
+    private final ArchiveStreamFactory factory = new ArchiveStreamFactory();
+                  ^
+  symbol:   class ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:99: error: cannot find symbol
+    @Test(expected = ArchiveException.class)
+                     ^
+  symbol:   class ArchiveException
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:153: error: cannot find symbol
+    @Test(expected = ArchiveException.class)
+                     ^
+  symbol:   class ArchiveException
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:230: error: cannot find symbol
+    @Test(expected = ArchiveException.class)
+                     ^
+  symbol:   class ArchiveException
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:240: error: cannot find symbol
+    @Test(expected = ArchiveException.class)
+                     ^
+  symbol:   class ArchiveException
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:26: error: cannot find symbol
+    private final ArchiveStreamFactory factory = new ArchiveStreamFactory();
+                                                     ^
+  symbol:   class ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:39: error: cannot find symbol
+        factory.createArchiveInputStream(ArchiveStreamFactory.ZIP, null);
+                                         ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:44: error: cannot find symbol
+        ArchiveInputStream ais = factory.createArchiveInputStream(
+        ^
+  symbol:   class ArchiveInputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:45: error: cannot find symbol
+                ArchiveStreamFactory.AR, new ByteArrayInputStream(new byte[0]));
+                ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:51: error: cannot find symbol
+        ArchiveInputStream ais = factory.createArchiveInputStream(
+        ^
+  symbol:   class ArchiveInputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:52: error: cannot find symbol
+                ArchiveStreamFactory.ZIP, new ByteArrayInputStream(new byte[0]));
+                ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:58: error: cannot find symbol
+        ArchiveInputStream ais = factory.createArchiveInputStream(
+        ^
+  symbol:   class ArchiveInputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:59: error: cannot find symbol
+                ArchiveStreamFactory.TAR, new ByteArrayInputStream(new byte[0]));
+                ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:65: error: cannot find symbol
+        ArchiveInputStream ais = factory.createArchiveInputStream(
+        ^
+  symbol:   class ArchiveInputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:66: error: cannot find symbol
+                ArchiveStreamFactory.JAR, new ByteArrayInputStream(new byte[0]));
+                ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:72: error: cannot find symbol
+        ArchiveInputStream ais = factory.createArchiveInputStream(
+        ^
+  symbol:   class ArchiveInputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:73: error: cannot find symbol
+                ArchiveStreamFactory.CPIO, new ByteArrayInputStream(new byte[0]));
+                ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:82: error: cannot find symbol
+            ArchiveInputStream ais = factory.createArchiveInputStream(
+            ^
+  symbol:   class ArchiveInputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:83: error: cannot find symbol
+                    ArchiveStreamFactory.DUMP, new ByteArrayInputStream(new byte[64]));
+                    ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:94: error: cannot find symbol
+        ArchiveInputStream ais = factory.createArchiveInputStream(
+        ^
+  symbol:   class ArchiveInputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:115: error: cannot find symbol
+        factory.createArchiveOutputStream(ArchiveStreamFactory.ZIP, null);
+                                          ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:120: error: cannot find symbol
+        ArchiveOutputStream aos = factory.createArchiveOutputStream(
+        ^
+  symbol:   class ArchiveOutputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:121: error: cannot find symbol
+                ArchiveStreamFactory.AR, new ByteArrayOutputStream());
+                ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:127: error: cannot find symbol
+        ArchiveOutputStream aos = factory.createArchiveOutputStream(
+        ^
+  symbol:   class ArchiveOutputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:128: error: cannot find symbol
+                ArchiveStreamFactory.ZIP, new ByteArrayOutputStream());
+                ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:134: error: cannot find symbol
+        ArchiveOutputStream aos = factory.createArchiveOutputStream(
+        ^
+  symbol:   class ArchiveOutputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:135: error: cannot find symbol
+                ArchiveStreamFactory.TAR, new ByteArrayOutputStream());
+                ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:141: error: cannot find symbol
+        ArchiveOutputStream aos = factory.createArchiveOutputStream(
+        ^
+  symbol:   class ArchiveOutputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:142: error: cannot find symbol
+                ArchiveStreamFactory.JAR, new ByteArrayOutputStream());
+                ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:148: error: cannot find symbol
+        ArchiveOutputStream aos = factory.createArchiveOutputStream(
+        ^
+  symbol:   class ArchiveOutputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:149: error: cannot find symbol
+                ArchiveStreamFactory.CPIO, new ByteArrayOutputStream());
+                ^
+  symbol:   variable ArchiveStreamFactory
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:189: error: cannot find symbol
+        ArchiveInputStream ais = factory.createArchiveInputStream(bais);
+        ^
+  symbol:   class ArchiveInputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:199: error: cannot find symbol
+        ArchiveInputStream ais = factory.createArchiveInputStream(bais);
+        ^
+  symbol:   class ArchiveInputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:209: error: cannot find symbol
+        ArchiveInputStream ais = factory.createArchiveInputStream(bais);
+        ^
+  symbol:   class ArchiveInputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:226: error: cannot find symbol
+        ArchiveInputStream ais = factory.createArchiveInputStream(bais);
+        ^
+  symbol:   class ArchiveInputStream
+  location: class ArchiveStreamFactoryTest
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:268: error: package ArchiveStreamFactory does not exist
+        assertTrue(ArchiveStreamFactory.AR.equals("ar"));
+                                       ^
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:269: error: package ArchiveStreamFactory does not exist
+        assertTrue(ArchiveStreamFactory.CPIO.equals("cpio"));
+                                       ^
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:270: error: package ArchiveStreamFactory does not exist
+        assertTrue(ArchiveStreamFactory.DUMP.equals("dump"));
+                                       ^
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:271: error: package ArchiveStreamFactory does not exist
+        assertTrue(ArchiveStreamFactory.JAR.equals("jar"));
+                                       ^
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:272: error: package ArchiveStreamFactory does not exist
+        assertTrue(ArchiveStreamFactory.TAR.equals("tar"));
+                                       ^
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:273: error: package ArchiveStreamFactory does not exist
+        assertTrue(ArchiveStreamFactory.ZIP.equals("zip"));
+                                       ^
+/tmp/evaluate_claude_Compress_16_ktynho6o/src/ArchiveStreamFactoryTest.java:281: error: cannot find symbol
+        } catch (ArchiveException expected) {
+                 ^
+  symbol:   class ArchiveException
+  location: class ArchiveStreamFactoryTest
+42 errors

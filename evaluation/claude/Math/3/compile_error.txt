@@ -1,0 +1,455 @@
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:21: error: cannot find symbol
+        double[] result = MathArrays.scale(2.0, arr);
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:30: error: cannot find symbol
+        double[] result = MathArrays.scale(5.0, arr);
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:38: error: cannot find symbol
+        MathArrays.scaleInPlace(3.0, arr);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:47: error: cannot find symbol
+        double[] result = MathArrays.ebeAdd(a, b);
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:53: error: cannot find symbol
+        MathArrays.ebeAdd(new double[]{1.0}, new double[]{1.0, 2.0});
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:61: error: cannot find symbol
+        double[] result = MathArrays.ebeSubtract(a, b);
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:67: error: cannot find symbol
+        MathArrays.ebeSubtract(new double[]{1.0}, new double[]{1.0, 2.0});
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:75: error: cannot find symbol
+        double[] result = MathArrays.ebeMultiply(a, b);
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:81: error: cannot find symbol
+        MathArrays.ebeMultiply(new double[]{1.0}, new double[]{1.0, 2.0});
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:89: error: cannot find symbol
+        double[] result = MathArrays.ebeDivide(a, b);
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:95: error: cannot find symbol
+        MathArrays.ebeDivide(new double[]{1.0}, new double[]{1.0, 2.0});
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:103: error: cannot find symbol
+        Assert.assertEquals(7.0, MathArrays.distance1(p1, p2), 1e-12);
+                                 ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:111: error: cannot find symbol
+        Assert.assertEquals(7, MathArrays.distance1(p1, p2));
+                               ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:119: error: cannot find symbol
+        Assert.assertEquals(5.0, MathArrays.distance(p1, p2), 1e-12);
+                                 ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:127: error: cannot find symbol
+        Assert.assertEquals(5.0, MathArrays.distance(p1, p2), 1e-12);
+                                 ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:135: error: cannot find symbol
+        Assert.assertEquals(4.0, MathArrays.distanceInf(p1, p2), 1e-12);
+                                 ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:143: error: cannot find symbol
+        Assert.assertEquals(4, MathArrays.distanceInf(p1, p2));
+                               ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:150: error: package MathArrays does not exist
+        Assert.assertTrue(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.INCREASING, true));
+                                                                ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:150: error: cannot find symbol
+        Assert.assertTrue(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.INCREASING, true));
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:156: error: package MathArrays does not exist
+        Assert.assertFalse(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.INCREASING, true));
+                                                                 ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:156: error: cannot find symbol
+        Assert.assertFalse(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.INCREASING, true));
+                           ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:162: error: package MathArrays does not exist
+        Assert.assertTrue(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.INCREASING, false));
+                                                                ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:162: error: cannot find symbol
+        Assert.assertTrue(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.INCREASING, false));
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:168: error: package MathArrays does not exist
+        Assert.assertFalse(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.INCREASING, false));
+                                                                 ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:168: error: cannot find symbol
+        Assert.assertFalse(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.INCREASING, false));
+                           ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:174: error: package MathArrays does not exist
+        Assert.assertTrue(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.DECREASING, true));
+                                                                ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:174: error: cannot find symbol
+        Assert.assertTrue(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.DECREASING, true));
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:180: error: package MathArrays does not exist
+        Assert.assertFalse(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.DECREASING, true));
+                                                                 ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:180: error: cannot find symbol
+        Assert.assertFalse(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.DECREASING, true));
+                           ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:186: error: package MathArrays does not exist
+        Assert.assertTrue(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.DECREASING, false));
+                                                                ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:186: error: cannot find symbol
+        Assert.assertTrue(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.DECREASING, false));
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:192: error: package MathArrays does not exist
+        Assert.assertFalse(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.DECREASING, false));
+                                                                 ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:192: error: cannot find symbol
+        Assert.assertFalse(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.DECREASING, false));
+                           ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:199: error: package MathArrays does not exist
+        Assert.assertTrue(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.INCREASING, true));
+                                                                ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:199: error: cannot find symbol
+        Assert.assertTrue(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.INCREASING, true));
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:205: error: package MathArrays does not exist
+        Assert.assertFalse(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.INCREASING, true));
+                                                                 ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:205: error: cannot find symbol
+        Assert.assertFalse(MathArrays.isMonotonic(arr, MathArrays.OrderDirection.INCREASING, true));
+                           ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:212: error: package MathArrays does not exist
+        Assert.assertTrue(MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, true, false));
+                                                               ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:212: error: cannot find symbol
+        Assert.assertTrue(MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, true, false));
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:218: error: package MathArrays does not exist
+        Assert.assertFalse(MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, true, false));
+                                                                ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:218: error: cannot find symbol
+        Assert.assertFalse(MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, true, false));
+                           ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:224: error: package MathArrays does not exist
+        Assert.assertTrue(MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, false, false));
+                                                               ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:224: error: cannot find symbol
+        Assert.assertTrue(MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, false, false));
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:230: error: package MathArrays does not exist
+        Assert.assertFalse(MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, false, false));
+                                                                ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:230: error: cannot find symbol
+        Assert.assertFalse(MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, false, false));
+                           ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:236: error: package MathArrays does not exist
+        Assert.assertTrue(MathArrays.checkOrder(arr, MathArrays.OrderDirection.DECREASING, true, false));
+                                                               ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:236: error: cannot find symbol
+        Assert.assertTrue(MathArrays.checkOrder(arr, MathArrays.OrderDirection.DECREASING, true, false));
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:242: error: package MathArrays does not exist
+        Assert.assertFalse(MathArrays.checkOrder(arr, MathArrays.OrderDirection.DECREASING, true, false));
+                                                                ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:242: error: cannot find symbol
+        Assert.assertFalse(MathArrays.checkOrder(arr, MathArrays.OrderDirection.DECREASING, true, false));
+                           ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:248: error: package MathArrays does not exist
+        Assert.assertTrue(MathArrays.checkOrder(arr, MathArrays.OrderDirection.DECREASING, false, false));
+                                                               ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:248: error: cannot find symbol
+        Assert.assertTrue(MathArrays.checkOrder(arr, MathArrays.OrderDirection.DECREASING, false, false));
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:254: error: package MathArrays does not exist
+        Assert.assertFalse(MathArrays.checkOrder(arr, MathArrays.OrderDirection.DECREASING, false, false));
+                                                                ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:254: error: cannot find symbol
+        Assert.assertFalse(MathArrays.checkOrder(arr, MathArrays.OrderDirection.DECREASING, false, false));
+                           ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:260: error: package MathArrays does not exist
+        MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, true, true);
+                                             ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:260: error: cannot find symbol
+        MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, true, true);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:267: error: package MathArrays does not exist
+        MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, true);
+                                             ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:267: error: cannot find symbol
+        MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, true);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:273: error: package MathArrays does not exist
+        MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, true);
+                                             ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:273: error: cannot find symbol
+        MathArrays.checkOrder(arr, MathArrays.OrderDirection.INCREASING, true);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:280: error: cannot find symbol
+        MathArrays.checkOrder(arr);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:286: error: cannot find symbol
+        MathArrays.checkOrder(arr);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:293: error: cannot find symbol
+        MathArrays.checkRectangular(arr);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:299: error: cannot find symbol
+        MathArrays.checkRectangular(arr);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:304: error: cannot find symbol
+        MathArrays.checkRectangular(null);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:311: error: cannot find symbol
+        MathArrays.checkPositive(arr);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:317: error: cannot find symbol
+        MathArrays.checkPositive(arr);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:323: error: cannot find symbol
+        MathArrays.checkPositive(arr);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:330: error: cannot find symbol
+        MathArrays.checkNonNegative(arr);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:336: error: cannot find symbol
+        MathArrays.checkNonNegative(arr);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:343: error: cannot find symbol
+        MathArrays.checkNonNegative(arr);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:349: error: cannot find symbol
+        MathArrays.checkNonNegative(arr);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:356: error: cannot find symbol
+        Assert.assertEquals(5.0, MathArrays.safeNorm(v), 1e-9);
+                                 ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:362: error: cannot find symbol
+        Assert.assertEquals(0.0, MathArrays.safeNorm(v), 1e-9);
+                                 ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:368: error: cannot find symbol
+        double norm = MathArrays.safeNorm(v);
+                      ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:375: error: cannot find symbol
+        double norm = MathArrays.safeNorm(v);
+                      ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:385: error: cannot find symbol
+        MathArrays.sortInPlace(x, y, z);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:394: error: cannot find symbol
+        MathArrays.sortInPlace(null, y);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:401: error: cannot find symbol
+        MathArrays.sortInPlace(x, y);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:408: error: cannot find symbol
+        MathArrays.sortInPlace(x, y);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:416: error: package MathArrays does not exist
+        MathArrays.sortInPlace(x, MathArrays.OrderDirection.DECREASING, y);
+                                            ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:416: error: cannot find symbol
+        MathArrays.sortInPlace(x, MathArrays.OrderDirection.DECREASING, y);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:424: error: package MathArrays does not exist
+        MathArrays.sortInPlace(x, MathArrays.OrderDirection.INCREASING);
+                                            ^
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:424: error: cannot find symbol
+        MathArrays.sortInPlace(x, MathArrays.OrderDirection.INCREASING);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:432: error: cannot find symbol
+        int[] copy = MathArrays.copyOf(source);
+                     ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:441: error: cannot find symbol
+        double[] copy = MathArrays.copyOf(source);
+                        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:450: error: cannot find symbol
+        int[] copy = MathArrays.copyOf(source, 2);
+                     ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:457: error: cannot find symbol
+        int[] copy = MathArrays.copyOf(source, 4);
+                     ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:465: error: cannot find symbol
+        double[] copy = MathArrays.copyOf(source, 2);
+                        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:472: error: cannot find symbol
+        double[] copy = MathArrays.copyOf(source, 4);
+                        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:481: error: cannot find symbol
+        double result = MathArrays.linearCombination(a, b);
+                        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:489: error: cannot find symbol
+        MathArrays.linearCombination(a, b);
+        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:496: error: cannot find symbol
+        double result = MathArrays.linearCombination(a, b);
+                        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:503: error: cannot find symbol
+        double result = MathArrays.linearCombination(1.0, 2.0, 3.0, 4.0);
+                        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:509: error: cannot find symbol
+        double result = MathArrays.linearCombination(Double.POSITIVE_INFINITY, 1.0, 1.0, 1.0);
+                        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:516: error: cannot find symbol
+        double result = MathArrays.linearCombination(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
+                        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:522: error: cannot find symbol
+        double result = MathArrays.linearCombination(Double.NaN, 1.0, 1.0, 1.0, 1.0, 1.0);
+                        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:529: error: cannot find symbol
+        double result = MathArrays.linearCombination(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0);
+                        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:535: error: cannot find symbol
+        double result = MathArrays.linearCombination(Double.POSITIVE_INFINITY, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0);
+                        ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:542: error: cannot find symbol
+        Assert.assertTrue(MathArrays.equals((float[]) null, (float[]) null));
+                          ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+/tmp/evaluate_claude_Math_3_cum2juh0/src/MathArraysTest.java:547: error: cannot find symbol
+        Assert.assertFalse(MathArrays.equals(new float[]{1.0f}, null));
+                           ^
+  symbol:   variable MathArrays
+  location: class MathArraysTest
+100 errors

@@ -1,0 +1,7 @@
+/tmp/evaluate_claude_Compress_41_mwiu5i63/src/ZipArchiveInputStreamTest.java:73: error: encoding is not public in ZipArchiveInputStream; cannot be accessed from outside package
+        assertEquals("UTF-8", zis.encoding);
+                                 ^
+/tmp/evaluate_claude_Compress_41_mwiu5i63/src/ZipArchiveInputStreamTest.java:98: error: encoding is not public in ZipArchiveInputStream; cannot be accessed from outside package
+        assertNull(zis.encoding);
+                      ^
+2 errors

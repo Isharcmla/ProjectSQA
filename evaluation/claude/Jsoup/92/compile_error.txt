@@ -1,0 +1,230 @@
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:9: error: package ParseSettings does not exist
+        assertFalse(ParseSettings.htmlDefault.preserveTagCase());
+                                 ^
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:14: error: package ParseSettings does not exist
+        assertTrue(ParseSettings.preserveCase.preserveTagCase());
+                                ^
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:19: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(true, true);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:19: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(true, true);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:25: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:25: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:31: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(true, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:31: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(true, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:37: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, true);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:37: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, true);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:43: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:43: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:50: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(true, true);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:50: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(true, true);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:57: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:57: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:64: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:64: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:71: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:71: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:78: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:78: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:84: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(true, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:84: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(true, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:91: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:91: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:98: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(true, true);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:98: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(true, true);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:105: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:105: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:112: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:112: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:119: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:119: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:126: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:126: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:132: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, true);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:132: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, true);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:139: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:139: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:141: error: add(String,String) has private access in Attributes
+        attributes.add("CLASS", "someValue");
+                  ^
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:149: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(true, true);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:149: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(true, true);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:151: error: add(String,String) has private access in Attributes
+        attributes.add("CLASS", "someValue");
+                  ^
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:159: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+        ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/ParseSettingsTest.java:159: error: cannot find symbol
+        ParseSettings settings = new ParseSettings(false, false);
+                                     ^
+  symbol:   class ParseSettings
+  location: class ParseSettingsTest
+/tmp/evaluate_claude_Jsoup_92_c11sb0db/src/TokenTest.java:140: error: cannot find symbol
+        assertFalse(startTag.getAttributes().hasDeclaredValueForKey("checked") && false);
+                                            ^
+  symbol:   method hasDeclaredValueForKey(String)
+  location: class Attributes
+Note: /tmp/evaluate_claude_Jsoup_92_c11sb0db/src/AttributesTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+47 errors

@@ -1,0 +1,100 @@
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:27: error: CommandLine() is not public in CommandLine; cannot be accessed from outside package
+        commandLine = new CommandLine();
+                      ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:42: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:49: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:61: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:83: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:104: error: addValue(String) is not public in Option; cannot be accessed from outside package
+        opt.addValue("value1");
+           ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:105: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:112: error: addValue(String) is not public in Option; cannot be accessed from outside package
+        opt.addValue("valueB");
+           ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:113: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:134: error: addValue(String) is not public in Option; cannot be accessed from outside package
+        opt.addValue("v1");
+           ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:135: error: addValue(String) is not public in Option; cannot be accessed from outside package
+        opt.addValue("v2");
+           ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:136: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:147: error: addValue(String) is not public in Option; cannot be accessed from outside package
+        opt.addValue("val");
+           ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:148: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:157: error: addValue(String) is not public in Option; cannot be accessed from outside package
+        opt.addValue("longVal");
+           ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:158: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:167: error: addValue(String) is not public in Option; cannot be accessed from outside package
+        opt.addValue("cVal");
+           ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:168: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:186: error: addValue(String) is not public in Option; cannot be accessed from outside package
+        opt.addValue("actual");
+           ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:187: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:199: error: addValue(String) is not public in Option; cannot be accessed from outside package
+        opt.addValue("dVal");
+           ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:200: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:227: error: addArg(String) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addArg("arg1");
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:228: error: addArg(String) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addArg("arg2");
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:244: error: addArg(String) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addArg("first");
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:252: error: addArg(String) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addArg("someArg");
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:258: error: addArg(String) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addArg("");
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:270: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:279: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:298: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt1);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:299: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt2);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:326: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt1);
+                   ^
+/tmp/evaluate_claude_Cli_1_4h9lyrke/src/CommandLineTest.java:327: error: addOption(Option) is not public in CommandLine; cannot be accessed from outside package
+        commandLine.addOption(opt2);
+                   ^
+33 errors

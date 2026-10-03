@@ -1,0 +1,51 @@
+/tmp/evaluate_claude_Mockito_15_i9wnuy93/src/FinalMockCandidateFilterTest.java:4: error: cannot find symbol
+import org.mockito.internal.configuration.injection.MockCandidateFilter.OngoingInjecter;
+                                                                       ^
+  symbol:   class OngoingInjecter
+  location: interface MockCandidateFilter
+/tmp/evaluate_claude_Mockito_15_i9wnuy93/src/FinalMockCandidateFilterTest.java:20: error: cannot find symbol
+    private FinalMockCandidateFilter filter;
+            ^
+  symbol:   class FinalMockCandidateFilter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_15_i9wnuy93/src/FinalMockCandidateFilterTest.java:24: error: cannot find symbol
+        filter = new FinalMockCandidateFilter();
+                     ^
+  symbol:   class FinalMockCandidateFilter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_15_i9wnuy93/src/FinalMockCandidateFilterTest.java:35: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, field, holder);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_15_i9wnuy93/src/FinalMockCandidateFilterTest.java:51: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, field, holder);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_15_i9wnuy93/src/FinalMockCandidateFilterTest.java:66: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, field, holder);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_15_i9wnuy93/src/FinalMockCandidateFilterTest.java:82: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, field, holder);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_15_i9wnuy93/src/FinalMockCandidateFilterTest.java:97: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, field, holder);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_15_i9wnuy93/src/FinalMockCandidateFilterTest.java:108: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, field, null);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_15_i9wnuy93/src/FinalMockCandidateFilterTest.java:121: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, field, holder);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+10 errors

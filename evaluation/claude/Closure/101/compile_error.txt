@@ -1,0 +1,7 @@
+/tmp/evaluate_claude_Closure_101_v_z5n6qp/src/CommandLineRunnerTest.java:317: error: unreported exception FlagUsageException; must be caught or declared to be thrown
+    List<JSSourceFile> externs = runner.createExterns();
+                                                     ^
+/tmp/evaluate_claude_Closure_101_v_z5n6qp/src/CommandLineRunnerTest.java:326: error: unreported exception FlagUsageException; must be caught or declared to be thrown
+      List<JSSourceFile> externs = runner.createExterns();
+                                                       ^
+2 errors

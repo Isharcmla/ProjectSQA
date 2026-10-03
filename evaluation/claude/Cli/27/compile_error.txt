@@ -1,0 +1,181 @@
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:9: error: cannot find symbol
+    private OptionGroup group;
+            ^
+  symbol:   class OptionGroup
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:131: error: cannot find symbol
+    @Test(expected = AlreadySelectedException.class)
+                     ^
+  symbol:   class AlreadySelectedException
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:14: error: cannot find symbol
+        group = new OptionGroup();
+                    ^
+  symbol:   class OptionGroup
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:20: error: cannot find symbol
+        Option option = new Option("a", "description a");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:20: error: cannot find symbol
+        Option option = new Option("a", "description a");
+                            ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:21: error: cannot find symbol
+        OptionGroup result = group.addOption(option);
+        ^
+  symbol:   class OptionGroup
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:31: error: cannot find symbol
+        Option option1 = new Option("a", "description a");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:31: error: cannot find symbol
+        Option option1 = new Option("a", "description a");
+                             ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:32: error: cannot find symbol
+        Option option2 = new Option("b", "description b");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:32: error: cannot find symbol
+        Option option2 = new Option("b", "description b");
+                             ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:44: error: cannot find symbol
+        Option option1 = new Option("a", "description a");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:44: error: cannot find symbol
+        Option option1 = new Option("a", "description a");
+                             ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:45: error: cannot find symbol
+        Option option2 = new Option("a", "description a2");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:45: error: cannot find symbol
+        Option option2 = new Option("a", "description a2");
+                             ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:52: error: cannot find symbol
+        Option retrieved = (Option) options.iterator().next();
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:52: error: cannot find symbol
+        Option retrieved = (Option) options.iterator().next();
+                            ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:67: error: cannot find symbol
+        group.addOption(new Option("a", "description a"));
+                            ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:68: error: cannot find symbol
+        group.addOption(new Option("b", "description b"));
+                            ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:87: error: cannot find symbol
+        Option option = new Option("a", "description a");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:87: error: cannot find symbol
+        Option option = new Option("a", "description a");
+                            ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:98: error: cannot find symbol
+        Option option = new Option("a", "description a");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:98: error: cannot find symbol
+        Option option = new Option("a", "description a");
+                            ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:111: error: cannot find symbol
+        Option option = new Option("a", "description a");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:111: error: cannot find symbol
+        Option option = new Option("a", "description a");
+                            ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:122: error: cannot find symbol
+        Option option = new Option("a", "description a");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:122: error: cannot find symbol
+        Option option = new Option("a", "description a");
+                            ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:134: error: cannot find symbol
+        Option option1 = new Option("a", "description a");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:134: error: cannot find symbol
+        Option option1 = new Option("a", "description a");
+                             ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:135: error: cannot find symbol
+        Option option2 = new Option("b", "description b");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:135: error: cannot find symbol
+        Option option2 = new Option("b", "description b");
+                             ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:179: error: cannot find symbol
+        Option option = new Option("a", "description a");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:179: error: cannot find symbol
+        Option option = new Option("a", "description a");
+                            ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:189: error: cannot find symbol
+        Option option1 = new Option("a", "description a");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:189: error: cannot find symbol
+        Option option1 = new Option("a", "description a");
+                             ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:201: error: cannot find symbol
+        Option option = new Option(null, "longopt", false, "description long");
+        ^
+  symbol:   class Option
+  location: class OptionGroupTest
+/tmp/evaluate_claude_Cli_27_0ev90sob/src/OptionGroupTest.java:201: error: cannot find symbol
+        Option option = new Option(null, "longopt", false, "description long");
+                            ^
+  symbol:   class Option
+  location: class OptionGroupTest
+36 errors

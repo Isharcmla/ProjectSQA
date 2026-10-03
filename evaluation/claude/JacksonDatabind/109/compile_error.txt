@@ -1,0 +1,56 @@
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:68: error: cannot find symbol
+        NumberSerializers.addAll(map);
+        ^
+  symbol:   variable NumberSerializers
+  location: class NumberSerializersTest
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:92: error: cannot find symbol
+        NumberSerializers.addAll(map);
+        ^
+  symbol:   variable NumberSerializers
+  location: class NumberSerializersTest
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:268: error: instance is not public in ShortSerializer; cannot be accessed from outside package
+        ShortSerializer ser = ShortSerializer.instance;
+                                             ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:278: error: instance is not public in ShortSerializer; cannot be accessed from outside package
+        ShortSerializer ser = ShortSerializer.instance;
+                                             ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:295: error: instance is not public in ShortSerializer; cannot be accessed from outside package
+        ShortSerializer ser = ShortSerializer.instance;
+                                             ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:309: error: instance is not public in ShortSerializer; cannot be accessed from outside package
+        ShortSerializer ser = ShortSerializer.instance;
+                                             ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:316: error: instance is not public in ShortSerializer; cannot be accessed from outside package
+        ShortSerializer ser = ShortSerializer.instance;
+                                             ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:331: error: instance is not public in IntLikeSerializer; cannot be accessed from outside package
+        IntLikeSerializer ser = IntLikeSerializer.instance;
+                                                 ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:341: error: instance is not public in IntLikeSerializer; cannot be accessed from outside package
+        IntLikeSerializer ser = IntLikeSerializer.instance;
+                                                 ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:358: error: instance is not public in IntLikeSerializer; cannot be accessed from outside package
+        IntLikeSerializer ser = IntLikeSerializer.instance;
+                                                 ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:372: error: instance is not public in IntLikeSerializer; cannot be accessed from outside package
+        IntLikeSerializer ser = IntLikeSerializer.instance;
+                                                 ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:379: error: instance is not public in IntLikeSerializer; cannot be accessed from outside package
+        IntLikeSerializer ser = IntLikeSerializer.instance;
+                                                 ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:394: error: instance is not public in FloatSerializer; cannot be accessed from outside package
+        FloatSerializer ser = FloatSerializer.instance;
+                                             ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:404: error: instance is not public in FloatSerializer; cannot be accessed from outside package
+        FloatSerializer ser = FloatSerializer.instance;
+                                             ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:421: error: instance is not public in FloatSerializer; cannot be accessed from outside package
+        FloatSerializer ser = FloatSerializer.instance;
+                                             ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:435: error: instance is not public in FloatSerializer; cannot be accessed from outside package
+        FloatSerializer ser = FloatSerializer.instance;
+                                             ^
+/tmp/evaluate_claude_JacksonDatabind_109_6cuw07c6/src/NumberSerializersTest.java:442: error: instance is not public in FloatSerializer; cannot be accessed from outside package
+        FloatSerializer ser = FloatSerializer.instance;
+                                             ^
+17 errors

@@ -1,0 +1,36 @@
+/tmp/evaluate_claude_Csv_3_es_r63wp/src/LexerTest.java:255: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withDelimiter(';');
+                                                  ^
+  symbol:   method withDelimiter(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_claude_Csv_3_es_r63wp/src/LexerTest.java:262: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withDelimiter(';');
+                                                  ^
+  symbol:   method withDelimiter(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_claude_Csv_3_es_r63wp/src/LexerTest.java:271: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withEscape('\\');
+                                                  ^
+  symbol:   method withEscape(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_claude_Csv_3_es_r63wp/src/LexerTest.java:286: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withQuote('\'');
+                                                  ^
+  symbol:   method withQuote(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_claude_Csv_3_es_r63wp/src/LexerTest.java:293: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withQuote('\'');
+                                                  ^
+  symbol:   method withQuote(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_claude_Csv_3_es_r63wp/src/LexerTest.java:302: error: cannot find symbol
+        final CSVFormat format = CSVFormat.DEFAULT.withCommentStart('#');
+                                                  ^
+  symbol:   method withCommentStart(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_claude_Csv_3_es_r63wp/src/LexerTest.java:335: error: cannot find symbol
+                .withIgnoreSurroundingSpaces(true)
+                ^
+  symbol:   method withIgnoreSurroundingSpaces(boolean)
+  location: variable DEFAULT of type CSVFormat
+7 errors

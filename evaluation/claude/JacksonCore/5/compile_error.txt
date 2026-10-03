@@ -1,0 +1,501 @@
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:7: error: cannot find symbol
+    private JsonPointer pointer;
+            ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:20: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile(null);
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:20: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile(null);
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:28: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:28: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:36: error: cannot find symbol
+        JsonPointer.compile("foo");
+        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:41: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:41: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:49: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a/b");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:49: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a/b");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:52: error: cannot find symbol
+        JsonPointer tail = p.tail();
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:59: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/0");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:59: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/0");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:66: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:66: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:73: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("//");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:73: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("//");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:81: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/2147483647");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:81: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/2147483647");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:88: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/9999999999");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:88: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/9999999999");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:95: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/12345678901");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:95: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/12345678901");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:102: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/-1");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:102: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/-1");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:109: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a~0b");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:109: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a~0b");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:116: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a~1b");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:116: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a~1b");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:122: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a~1b/c");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:122: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a~1b/c");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:124: error: cannot find symbol
+        JsonPointer tail = p.tail();
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:132: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a~");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:132: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a~");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:139: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a~0~1b");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:139: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a~0~1b");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:149: error: cannot find symbol
+        JsonPointer p1 = JsonPointer.valueOf("/foo/bar");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:149: error: cannot find symbol
+        JsonPointer p1 = JsonPointer.valueOf("/foo/bar");
+                         ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:150: error: cannot find symbol
+        JsonPointer p2 = JsonPointer.compile("/foo/bar");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:150: error: cannot find symbol
+        JsonPointer p2 = JsonPointer.compile("/foo/bar");
+                         ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:157: error: cannot find symbol
+        JsonPointer p = JsonPointer.valueOf(null);
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:157: error: cannot find symbol
+        JsonPointer p = JsonPointer.valueOf(null);
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:163: error: cannot find symbol
+        JsonPointer.valueOf("noSlash");
+        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:172: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:172: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:178: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:178: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:184: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:184: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:185: error: cannot find symbol
+        JsonPointer next = p.matchProperty("foo");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:196: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/hello");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:196: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/hello");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:202: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:202: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:212: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/42");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:212: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/42");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:218: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:218: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:228: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:228: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:234: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:234: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:244: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/3");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:244: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/3");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:250: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:250: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:260: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo/bar");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:260: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo/bar");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:261: error: cannot find symbol
+        JsonPointer next = p.matchProperty("foo");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:268: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:268: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:274: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:274: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:284: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/0/foo");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:284: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/0/foo");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:285: error: cannot find symbol
+        JsonPointer next = p.matchElement(0);
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:292: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/0");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:292: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/0");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:298: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/0");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:298: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/0");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:308: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a/b/c");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:308: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a/b/c");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:309: error: cannot find symbol
+        JsonPointer tail = p.tail();
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:316: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:316: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/foo");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:317: error: cannot find symbol
+        JsonPointer tail = p.tail();
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:324: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:324: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:334: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a/b/c");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:334: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("/a/b/c");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:340: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:340: error: cannot find symbol
+        JsonPointer p = JsonPointer.compile("");
+                        ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:350: error: cannot find symbol
+        JsonPointer p1 = JsonPointer.compile("/a/b");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:350: error: cannot find symbol
+        JsonPointer p1 = JsonPointer.compile("/a/b");
+                         ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:351: error: cannot find symbol
+        JsonPointer p2 = JsonPointer.compile("/a/b");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:351: error: cannot find symbol
+        JsonPointer p2 = JsonPointer.compile("/a/b");
+                         ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:357: error: cannot find symbol
+        JsonPointer p1 = JsonPointer.compile("/a");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:357: error: cannot find symbol
+        JsonPointer p1 = JsonPointer.compile("/a");
+                         ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:358: error: cannot find symbol
+        JsonPointer p2 = JsonPointer.compile("/b");
+        ^
+  symbol:   class JsonPointer
+  location: class JsonPointerTest
+/tmp/evaluate_claude_JacksonCore_5_cka5c0r4/src/JsonPointerTest.java:358: error: cannot find symbol
+        JsonPointer p2 = JsonPointer.compile("/b");
+                         ^
+  symbol:   variable JsonPointer
+  location: class JsonPointerTest
+100 errors

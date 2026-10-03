@@ -1,0 +1,15 @@
+{
+  "project": "Jsoup",
+  "bug_id": "8",
+  "tool": "claude",
+  "generated_files": 1,
+  "candidate_tests": 52,
+  "classification_counts": {
+    "valid_non_revealing": 50,
+    "bug_revealing": 2
+  },
+  "bug_revealing_tests": 2,
+  "bug_detected": true,
+  "generation_status": "unknown",
+  "evaluation_status": "success"
+}

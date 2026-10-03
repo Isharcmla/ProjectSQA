@@ -1,0 +1,417 @@
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:18: error: cannot find symbol
+    private CSVFormat format;
+            ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:22: error: cannot find symbol
+        format = CSVFormat.DEFAULT;
+                 ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:29: error: cannot find symbol
+        assertNotNull(CSVFormat.DEFAULT);
+                      ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:30: error: package CSVFormat does not exist
+        assertEquals(',', CSVFormat.DEFAULT.getDelimiter());
+                                   ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:31: error: package CSVFormat does not exist
+        assertEquals(Character.valueOf('"'), CSVFormat.DEFAULT.getQuoteCharacter());
+                                                      ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:32: error: package CSVFormat does not exist
+        assertTrue(CSVFormat.DEFAULT.getIgnoreEmptyLines());
+                            ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:37: error: package CSVFormat does not exist
+        assertTrue(CSVFormat.EXCEL.getAllowMissingColumnNames());
+                            ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:38: error: package CSVFormat does not exist
+        assertFalse(CSVFormat.EXCEL.getIgnoreEmptyLines());
+                             ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:43: error: package CSVFormat does not exist
+        assertEquals('\t', CSVFormat.MYSQL.getDelimiter());
+                                    ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:44: error: package CSVFormat does not exist
+        assertEquals("\\N", CSVFormat.MYSQL.getNullString());
+                                     ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:45: error: cannot find symbol
+        assertEquals(QuoteMode.ALL_NON_NULL, CSVFormat.MYSQL.getQuoteMode());
+                     ^
+  symbol:   variable QuoteMode
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:45: error: package CSVFormat does not exist
+        assertEquals(QuoteMode.ALL_NON_NULL, CSVFormat.MYSQL.getQuoteMode());
+                                                      ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:50: error: package CSVFormat does not exist
+        assertFalse(CSVFormat.RFC4180.getIgnoreEmptyLines());
+                             ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:55: error: package CSVFormat does not exist
+        assertEquals('\t', CSVFormat.TDF.getDelimiter());
+                                    ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:56: error: package CSVFormat does not exist
+        assertTrue(CSVFormat.TDF.getIgnoreSurroundingSpaces());
+                            ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:61: error: package CSVFormat does not exist
+        assertEquals('|', CSVFormat.INFORMIX_UNLOAD.getDelimiter());
+                                   ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:62: error: package CSVFormat does not exist
+        assertEquals(Character.valueOf('\\'), CSVFormat.INFORMIX_UNLOAD.getEscapeCharacter());
+                                                       ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:67: error: package CSVFormat does not exist
+        assertEquals(',', CSVFormat.INFORMIX_UNLOAD_CSV.getDelimiter());
+                                   ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:72: error: package CSVFormat does not exist
+        assertEquals("", CSVFormat.POSTGRESQL_CSV.getNullString());
+                                  ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:77: error: package CSVFormat does not exist
+        assertEquals("\\N", CSVFormat.POSTGRESQL_TEXT.getNullString());
+                                     ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:84: error: cannot find symbol
+        assertEquals(CSVFormat.DEFAULT, CSVFormat.Predefined.Default.getFormat());
+                     ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:84: error: package CSVFormat.Predefined does not exist
+        assertEquals(CSVFormat.DEFAULT, CSVFormat.Predefined.Default.getFormat());
+                                                            ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:85: error: cannot find symbol
+        assertEquals(CSVFormat.EXCEL, CSVFormat.Predefined.Excel.getFormat());
+                     ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:85: error: package CSVFormat.Predefined does not exist
+        assertEquals(CSVFormat.EXCEL, CSVFormat.Predefined.Excel.getFormat());
+                                                          ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:86: error: cannot find symbol
+        assertEquals(CSVFormat.MYSQL, CSVFormat.Predefined.MySQL.getFormat());
+                     ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:86: error: package CSVFormat.Predefined does not exist
+        assertEquals(CSVFormat.MYSQL, CSVFormat.Predefined.MySQL.getFormat());
+                                                          ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:87: error: cannot find symbol
+        assertEquals(CSVFormat.RFC4180, CSVFormat.Predefined.RFC4180.getFormat());
+                     ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:87: error: package CSVFormat.Predefined does not exist
+        assertEquals(CSVFormat.RFC4180, CSVFormat.Predefined.RFC4180.getFormat());
+                                                            ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:88: error: cannot find symbol
+        assertEquals(CSVFormat.TDF, CSVFormat.Predefined.TDF.getFormat());
+                     ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:88: error: package CSVFormat.Predefined does not exist
+        assertEquals(CSVFormat.TDF, CSVFormat.Predefined.TDF.getFormat());
+                                                        ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:89: error: cannot find symbol
+        assertEquals(CSVFormat.INFORMIX_UNLOAD, CSVFormat.Predefined.InformixUnload.getFormat());
+                     ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:89: error: package CSVFormat.Predefined does not exist
+        assertEquals(CSVFormat.INFORMIX_UNLOAD, CSVFormat.Predefined.InformixUnload.getFormat());
+                                                                    ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:90: error: cannot find symbol
+        assertEquals(CSVFormat.INFORMIX_UNLOAD_CSV, CSVFormat.Predefined.InformixUnloadCsv.getFormat());
+                     ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:90: error: package CSVFormat.Predefined does not exist
+        assertEquals(CSVFormat.INFORMIX_UNLOAD_CSV, CSVFormat.Predefined.InformixUnloadCsv.getFormat());
+                                                                        ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:91: error: cannot find symbol
+        assertEquals(CSVFormat.POSTGRESQL_CSV, CSVFormat.Predefined.PostgreSQLCsv.getFormat());
+                     ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:91: error: package CSVFormat.Predefined does not exist
+        assertEquals(CSVFormat.POSTGRESQL_CSV, CSVFormat.Predefined.PostgreSQLCsv.getFormat());
+                                                                   ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:92: error: cannot find symbol
+        assertEquals(CSVFormat.POSTGRESQL_TEXT, CSVFormat.Predefined.PostgreSQLText.getFormat());
+                     ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:92: error: package CSVFormat.Predefined does not exist
+        assertEquals(CSVFormat.POSTGRESQL_TEXT, CSVFormat.Predefined.PostgreSQLText.getFormat());
+                                                                    ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:99: error: cannot find symbol
+        CSVFormat newFmt = CSVFormat.newFormat(';');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:99: error: cannot find symbol
+        CSVFormat newFmt = CSVFormat.newFormat(';');
+                           ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:107: error: cannot find symbol
+        CSVFormat.newFormat('\n');
+        ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:114: error: cannot find symbol
+        assertEquals(CSVFormat.DEFAULT, CSVFormat.valueOf("Default"));
+                     ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:114: error: cannot find symbol
+        assertEquals(CSVFormat.DEFAULT, CSVFormat.valueOf("Default"));
+                                        ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:119: error: cannot find symbol
+        CSVFormat.valueOf("NotAFormat");
+        ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:141: error: cannot find symbol
+        CSVFormat other = format.withDelimiter(';');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:147: error: cannot find symbol
+        CSVFormat a = CSVFormat.newFormat(',').withQuote('"');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:147: error: cannot find symbol
+        CSVFormat a = CSVFormat.newFormat(',').withQuote('"');
+                      ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:148: error: cannot find symbol
+        CSVFormat b = CSVFormat.newFormat(',').withQuote('"');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:148: error: cannot find symbol
+        CSVFormat b = CSVFormat.newFormat(',').withQuote('"');
+                      ^
+  symbol:   variable CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:154: error: cannot find symbol
+        CSVFormat a = format.withEscape('\\').withQuoteMode(QuoteMode.ALL);
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:154: error: cannot find symbol
+        CSVFormat a = format.withEscape('\\').withQuoteMode(QuoteMode.ALL);
+                                                            ^
+  symbol:   variable QuoteMode
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:155: error: cannot find symbol
+        CSVFormat b = format.withEscape('\\').withQuoteMode(QuoteMode.MINIMAL);
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:155: error: cannot find symbol
+        CSVFormat b = format.withEscape('\\').withQuoteMode(QuoteMode.MINIMAL);
+                                                            ^
+  symbol:   variable QuoteMode
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:161: error: cannot find symbol
+        CSVFormat a = format.withQuote('"');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:162: error: cannot find symbol
+        CSVFormat b = format.withQuote('\'');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:168: error: cannot find symbol
+        CSVFormat a = format.withEscape('\\').withQuote((Character) null);
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:169: error: cannot find symbol
+        CSVFormat b = format.withQuote('"');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:175: error: cannot find symbol
+        CSVFormat a = format.withCommentMarker('#');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:176: error: cannot find symbol
+        CSVFormat b = format.withCommentMarker('!');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:182: error: cannot find symbol
+        CSVFormat a = format;
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:183: error: cannot find symbol
+        CSVFormat b = format.withCommentMarker('#');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:189: error: cannot find symbol
+        CSVFormat a = format.withEscape('\\');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:190: error: cannot find symbol
+        CSVFormat b = format.withEscape('/');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:196: error: cannot find symbol
+        CSVFormat a = format;
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:197: error: cannot find symbol
+        CSVFormat b = format.withEscape('\\');
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:203: error: cannot find symbol
+        CSVFormat a = format.withNullString("NULL");
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:204: error: cannot find symbol
+        CSVFormat b = format.withNullString("N/A");
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:210: error: cannot find symbol
+        CSVFormat a = format;
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:211: error: cannot find symbol
+        CSVFormat b = format.withNullString("NULL");
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:217: error: cannot find symbol
+        CSVFormat a = format.withHeader("a", "b");
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:218: error: cannot find symbol
+        CSVFormat b = format.withHeader("c", "d");
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:224: error: cannot find symbol
+        CSVFormat a = format.withIgnoreSurroundingSpaces(true);
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:225: error: cannot find symbol
+        CSVFormat b = format.withIgnoreSurroundingSpaces(false);
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:231: error: cannot find symbol
+        CSVFormat a = format.withIgnoreEmptyLines(true);
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:232: error: cannot find symbol
+        CSVFormat b = format.withIgnoreEmptyLines(false);
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:238: error: cannot find symbol
+        CSVFormat a = format.withSkipHeaderRecord(true);
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:239: error: cannot find symbol
+        CSVFormat b = format.withSkipHeaderRecord(false);
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:245: error: cannot find symbol
+        CSVFormat a = format.withRecordSeparator("\n");
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:246: error: cannot find symbol
+        CSVFormat b = format.withRecordSeparator("\r\n");
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:252: error: cannot find symbol
+        CSVFormat a = format.withRecordSeparator((String) null);
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:253: error: cannot find symbol
+        CSVFormat b = format.withRecordSeparator("\n");
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:261: error: package CSVFormat does not exist
+        String result = CSVFormat.DEFAULT.format("a", "b", "c");
+                                 ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:267: error: package CSVFormat does not exist
+        String result = CSVFormat.DEFAULT.format();
+                                 ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:275: error: package CSVFormat does not exist
+        assertFalse(CSVFormat.DEFAULT.getAllowMissingColumnNames());
+                             ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:280: error: package CSVFormat does not exist
+        assertNull(CSVFormat.DEFAULT.getCommentMarker());
+                            ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:285: error: package CSVFormat does not exist
+        assertEquals(Character.valueOf('#'), CSVFormat.DEFAULT.withCommentMarker('#').getCommentMarker());
+                                                      ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:290: error: package CSVFormat does not exist
+        assertEquals(',', CSVFormat.DEFAULT.getDelimiter());
+                                   ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:295: error: package CSVFormat does not exist
+        assertNull(CSVFormat.DEFAULT.getEscapeCharacter());
+                            ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:300: error: package CSVFormat does not exist
+        assertNull(CSVFormat.DEFAULT.getHeader());
+                            ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:305: error: cannot find symbol
+        CSVFormat withHeader = CSVFormat.DEFAULT.withHeader("a", "b");
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:305: error: package CSVFormat does not exist
+        CSVFormat withHeader = CSVFormat.DEFAULT.withHeader("a", "b");
+                                        ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:312: error: package CSVFormat does not exist
+        assertNull(CSVFormat.DEFAULT.getHeaderComments());
+                            ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:317: error: cannot find symbol
+        CSVFormat withComments = CSVFormat.DEFAULT.withHeaderComments("comment1", "comment2");
+        ^
+  symbol:   class CSVFormat
+  location: class CSVFormatTest
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:317: error: package CSVFormat does not exist
+        CSVFormat withComments = CSVFormat.DEFAULT.withHeaderComments("comment1", "comment2");
+                                          ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:324: error: package CSVFormat does not exist
+        assertTrue(CSVFormat.DEFAULT.getIgnoreEmptyLines());
+                            ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:329: error: package CSVFormat does not exist
+        assertFalse(CSVFormat.DEFAULT.getIgnoreHeaderCase());
+                             ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:334: error: package CSVFormat does not exist
+        assertFalse(CSVFormat.DEFAULT.getIgnoreSurroundingSpaces());
+                             ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:339: error: package CSVFormat does not exist
+        assertNull(CSVFormat.DEFAULT.getNullString());
+                            ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:344: error: package CSVFormat does not exist
+        assertEquals(Character.valueOf('"'), CSVFormat.DEFAULT.getQuoteCharacter());
+                                                      ^
+/tmp/evaluate_claude_Csv_15_nkbg_f9k/src/CSVFormatTest.java:349: error: package CSVFormat does not exist
+        assertNull(CSVFormat.DEFAULT.getQuoteMode());
+                            ^
+100 errors

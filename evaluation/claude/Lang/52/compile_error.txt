@@ -1,0 +1,346 @@
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:15: error: cannot find symbol
+        StringEscapeUtils instance = new StringEscapeUtils();
+        ^
+  symbol:   class StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:15: error: cannot find symbol
+        StringEscapeUtils instance = new StringEscapeUtils();
+                                         ^
+  symbol:   class StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:24: error: cannot find symbol
+        Assert.assertNull(StringEscapeUtils.escapeJava(null));
+                          ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:29: error: cannot find symbol
+        Assert.assertEquals("", StringEscapeUtils.escapeJava(""));
+                                ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:35: error: cannot find symbol
+        String result = StringEscapeUtils.escapeJava(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:41: error: cannot find symbol
+        String result = StringEscapeUtils.escapeJava("a\\b");
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:47: error: cannot find symbol
+        String result = StringEscapeUtils.escapeJava("it's");
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:54: error: cannot find symbol
+        String result = StringEscapeUtils.escapeJava(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:62: error: cannot find symbol
+        String result = StringEscapeUtils.escapeJava(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:70: error: cannot find symbol
+        String result = StringEscapeUtils.escapeJava(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:78: error: cannot find symbol
+        String result = StringEscapeUtils.escapeJava(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:86: error: cannot find symbol
+        String result = StringEscapeUtils.escapeJava(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:94: error: cannot find symbol
+        String result = StringEscapeUtils.escapeJava(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:100: error: cannot find symbol
+        String result = StringEscapeUtils.escapeJava("abc123");
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:109: error: cannot find symbol
+        StringEscapeUtils.escapeJava(null, "abc");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:115: error: cannot find symbol
+        StringEscapeUtils.escapeJava(writer, null);
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:122: error: cannot find symbol
+        StringEscapeUtils.escapeJava(writer, "a\"b");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:131: error: cannot find symbol
+        Assert.assertNull(StringEscapeUtils.escapeJavaScript(null));
+                          ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:136: error: cannot find symbol
+        String result = StringEscapeUtils.escapeJavaScript("it's");
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:143: error: cannot find symbol
+        String result = StringEscapeUtils.escapeJavaScript(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:152: error: cannot find symbol
+        StringEscapeUtils.escapeJavaScript(null, "abc");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:158: error: cannot find symbol
+        StringEscapeUtils.escapeJavaScript(writer, null);
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:165: error: cannot find symbol
+        StringEscapeUtils.escapeJavaScript(writer, "it's");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:174: error: cannot find symbol
+        Assert.assertNull(StringEscapeUtils.unescapeJava(null));
+                          ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:179: error: cannot find symbol
+        Assert.assertEquals("", StringEscapeUtils.unescapeJava(""));
+                                ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:185: error: cannot find symbol
+        String result = StringEscapeUtils.unescapeJava(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:192: error: cannot find symbol
+        String result = StringEscapeUtils.unescapeJava(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:199: error: cannot find symbol
+            StringEscapeUtils.unescapeJava("\\uZZZZ");
+            ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:208: error: cannot find symbol
+        String result = StringEscapeUtils.unescapeJava("abc\\");
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:214: error: cannot find symbol
+        String result = StringEscapeUtils.unescapeJava("\\z");
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:220: error: cannot find symbol
+        String result = StringEscapeUtils.unescapeJava("hello world");
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:229: error: cannot find symbol
+        StringEscapeUtils.unescapeJava(null, "abc");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:235: error: cannot find symbol
+        StringEscapeUtils.unescapeJava(writer, null);
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:242: error: cannot find symbol
+        StringEscapeUtils.unescapeJava(writer, "\\n");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:251: error: cannot find symbol
+        Assert.assertNull(StringEscapeUtils.unescapeJavaScript(null));
+                          ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:256: error: cannot find symbol
+        String result = StringEscapeUtils.unescapeJavaScript("a\\'b");
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:265: error: cannot find symbol
+        StringEscapeUtils.unescapeJavaScript(null, "abc");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:271: error: cannot find symbol
+        StringEscapeUtils.unescapeJavaScript(writer, "\\t");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:280: error: cannot find symbol
+        Assert.assertNull(StringEscapeUtils.escapeHtml(null));
+                          ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:285: error: cannot find symbol
+        Assert.assertEquals("", StringEscapeUtils.escapeHtml(""));
+                                ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:291: error: cannot find symbol
+        String result = StringEscapeUtils.escapeHtml(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:300: error: cannot find symbol
+        StringEscapeUtils.escapeHtml(null, "abc");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:306: error: cannot find symbol
+        StringEscapeUtils.escapeHtml(writer, null);
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:313: error: cannot find symbol
+        StringEscapeUtils.escapeHtml(writer, "<a>");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:322: error: cannot find symbol
+        Assert.assertNull(StringEscapeUtils.unescapeHtml(null));
+                          ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:327: error: cannot find symbol
+        Assert.assertEquals("", StringEscapeUtils.unescapeHtml(""));
+                                ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:333: error: cannot find symbol
+        String result = StringEscapeUtils.unescapeHtml(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:340: error: cannot find symbol
+        String result = StringEscapeUtils.unescapeHtml(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:349: error: cannot find symbol
+        StringEscapeUtils.unescapeHtml(null, "abc");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:355: error: cannot find symbol
+        StringEscapeUtils.unescapeHtml(writer, null);
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:362: error: cannot find symbol
+        StringEscapeUtils.unescapeHtml(writer, "&amp;");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:371: error: cannot find symbol
+        StringEscapeUtils.escapeXml(null, "abc");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:377: error: cannot find symbol
+        StringEscapeUtils.escapeXml(writer, null);
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:384: error: cannot find symbol
+        StringEscapeUtils.escapeXml(writer, "<a>");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:393: error: cannot find symbol
+        Assert.assertNull(StringEscapeUtils.escapeXml(null));
+                          ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:398: error: cannot find symbol
+        Assert.assertEquals("", StringEscapeUtils.escapeXml(""));
+                                ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:404: error: cannot find symbol
+        String result = StringEscapeUtils.escapeXml(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:410: error: cannot find symbol
+        String result = StringEscapeUtils.escapeXml("it's");
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:419: error: cannot find symbol
+        StringEscapeUtils.unescapeXml(null, "abc");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:425: error: cannot find symbol
+        StringEscapeUtils.unescapeXml(writer, null);
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:432: error: cannot find symbol
+        StringEscapeUtils.unescapeXml(writer, "&lt;a&gt;");
+        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:441: error: cannot find symbol
+        Assert.assertNull(StringEscapeUtils.unescapeXml(null));
+                          ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:446: error: cannot find symbol
+        Assert.assertEquals("", StringEscapeUtils.unescapeXml(""));
+                                ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:452: error: cannot find symbol
+        String result = StringEscapeUtils.unescapeXml(input);
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:461: error: cannot find symbol
+        Assert.assertNull(StringEscapeUtils.escapeSql(null));
+                          ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:466: error: cannot find symbol
+        Assert.assertEquals("", StringEscapeUtils.escapeSql(""));
+                                ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:471: error: cannot find symbol
+        String result = StringEscapeUtils.escapeSql("McHale's Navy");
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:477: error: cannot find symbol
+        String result = StringEscapeUtils.escapeSql("no quotes here");
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+/tmp/evaluate_claude_Lang_52_ax9cgapp/src/StringEscapeUtilsTest.java:483: error: cannot find symbol
+        String result = StringEscapeUtils.escapeSql("''");
+                        ^
+  symbol:   variable StringEscapeUtils
+  location: class StringEscapeUtilsTest
+69 errors

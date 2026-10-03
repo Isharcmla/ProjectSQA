@@ -1,0 +1,326 @@
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:33: error: cannot find symbol
+    private XmlTokenStream createStream(String xml) throws Exception {
+            ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:35: error: cannot find symbol
+        return new XmlTokenStream(r, "test-source");
+                   ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:44: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root attr=\"val\"><child>text</child></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:46: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_START_ELEMENT, stream.getCurrentToken());
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:54: error: cannot find symbol
+        new XmlTokenStream(r, "test-source");
+            ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:59: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:70: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root attr=\"val\"><child>text</child></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:73: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_START_ELEMENT, stream.getCurrentToken());
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:77: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_ATTRIBUTE_NAME, t1);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:83: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_ATTRIBUTE_VALUE, t2);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:87: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_START_ELEMENT, t3);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:92: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_TEXT, t4);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:97: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_END_ELEMENT, t5);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:101: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_END_ELEMENT, t6);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:105: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_END, t7);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:109: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_END, t8);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:114: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:116: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_END_ELEMENT, type);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:121: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root><![CDATA[hello]]></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:123: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_TEXT, type);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:133: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:136: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_END_ELEMENT, stream.getCurrentToken());
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:141: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root attr=\"val\"></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:156: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:157: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_START_ELEMENT, stream.getCurrentToken());
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:162: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:168: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:174: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:186: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root attr=\"val\"></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:192: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:198: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root attr=\"val\"></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:209: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:215: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:225: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:232: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:243: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root><item>A</item></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:246: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_START_ELEMENT, t);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:253: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_START_ELEMENT, repeated);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:258: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root attr=\"val\"></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:265: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root><item>A</item><item>B</item></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:268: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_START_ELEMENT, t);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:274: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_START_ELEMENT, repeated);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:277: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_TEXT, textToken);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:283: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_END_ELEMENT, endToken);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:287: error: cannot find symbol
+        Assert.assertTrue(following >= XmlTokenStream.XML_START_ELEMENT
+                                       ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:288: error: cannot find symbol
+                && following <= XmlTokenStream.XML_END);
+                                ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:297: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root attr=\"val\"><child/></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:299: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_ATTRIBUTE_NAME, t);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:303: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_START_ELEMENT, stream.getCurrentToken());
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:309: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:310: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_START_ELEMENT, stream.getCurrentToken());
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:312: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_START_ELEMENT, stream.getCurrentToken());
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:317: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root>text</root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:319: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_TEXT, t);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:321: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_TEXT, stream.getCurrentToken());
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:326: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:337: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root attr=\"val\"></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:339: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_ATTRIBUTE_NAME, t);
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:343: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_TEXT, stream.getCurrentToken());
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:348: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:356: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root attr1=\"a\" attr2=\"b\"></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:360: error: cannot find symbol
+        Assert.assertEquals(XmlTokenStream.XML_ATTRIBUTE_NAME, stream.getCurrentToken());
+                            ^
+  symbol:   variable XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:368: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root attr=\"val\"><child/></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:380: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root attr=\"val\"></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+/tmp/evaluate_claude_JacksonXml_2_4779ru8o/src/XmlTokenStreamTest.java:389: error: cannot find symbol
+        XmlTokenStream stream = createStream("<root attr=\"val\"></root>");
+        ^
+  symbol:   class XmlTokenStream
+  location: class XmlTokenStreamTest
+65 errors

@@ -1,0 +1,44 @@
+/tmp/evaluate_claude_Mockito_19_ijfp01dm/src/FinalMockCandidateFilterTest.java:12: error: cannot find symbol
+    private FinalMockCandidateFilter filter = new FinalMockCandidateFilter();
+            ^
+  symbol:   class FinalMockCandidateFilter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_19_ijfp01dm/src/FinalMockCandidateFilterTest.java:12: error: cannot find symbol
+    private FinalMockCandidateFilter filter = new FinalMockCandidateFilter();
+                                                  ^
+  symbol:   class FinalMockCandidateFilter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_19_ijfp01dm/src/FinalMockCandidateFilterTest.java:36: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, field, instance);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_19_ijfp01dm/src/FinalMockCandidateFilterTest.java:51: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, field, instance);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_19_ijfp01dm/src/FinalMockCandidateFilterTest.java:62: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, null, null);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_19_ijfp01dm/src/FinalMockCandidateFilterTest.java:74: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, null, null);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_19_ijfp01dm/src/FinalMockCandidateFilterTest.java:88: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, field, instance);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_19_ijfp01dm/src/FinalMockCandidateFilterTest.java:100: error: cannot find symbol
+        OngoingInjecter injecter = filter.filterCandidate(mocks, field, instance);
+        ^
+  symbol:   class OngoingInjecter
+  location: class FinalMockCandidateFilterTest
+/tmp/evaluate_claude_Mockito_19_ijfp01dm/src/TypeBasedCandidateFilterTest.java:23: error: SimpleOngoingInjecter is not abstract and does not override abstract method thenInject() in OngoingInjecter
+    static class SimpleOngoingInjecter implements OngoingInjecter {
+           ^
+9 errors

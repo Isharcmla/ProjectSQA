@@ -1,0 +1,501 @@
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:11: error: cannot find symbol
+        Assert.assertEquals(1, NumberUtils.toInt("1"));
+                               ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:16: error: cannot find symbol
+        Assert.assertEquals(0, NumberUtils.toInt(null));
+                               ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:21: error: cannot find symbol
+        Assert.assertEquals(0, NumberUtils.toInt(""));
+                               ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:26: error: cannot find symbol
+        Assert.assertEquals(0, NumberUtils.toInt("abc"));
+                               ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:31: error: cannot find symbol
+        Assert.assertEquals(1, NumberUtils.toInt(null, 1));
+                               ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:36: error: cannot find symbol
+        Assert.assertEquals(5, NumberUtils.toInt("abc", 5));
+                               ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:41: error: cannot find symbol
+        Assert.assertEquals(1, NumberUtils.toInt("1", 0));
+                               ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:47: error: cannot find symbol
+        Assert.assertEquals(1L, NumberUtils.toLong("1"));
+                                ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:52: error: cannot find symbol
+        Assert.assertEquals(0L, NumberUtils.toLong(null));
+                                ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:57: error: cannot find symbol
+        Assert.assertEquals(0L, NumberUtils.toLong(""));
+                                ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:62: error: cannot find symbol
+        Assert.assertEquals(1L, NumberUtils.toLong(null, 1L));
+                                ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:67: error: cannot find symbol
+        Assert.assertEquals(1L, NumberUtils.toLong("abc", 1L));
+                                ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:72: error: cannot find symbol
+        Assert.assertEquals(1L, NumberUtils.toLong("1", 0L));
+                                ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:78: error: cannot find symbol
+        Assert.assertEquals(1.5f, NumberUtils.toFloat("1.5"), 0.0001f);
+                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:83: error: cannot find symbol
+        Assert.assertEquals(0.0f, NumberUtils.toFloat(null), 0.0001f);
+                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:88: error: cannot find symbol
+        Assert.assertEquals(0.0f, NumberUtils.toFloat(""), 0.0001f);
+                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:93: error: cannot find symbol
+        Assert.assertEquals(1.1f, NumberUtils.toFloat(null, 1.1f), 0.0001f);
+                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:98: error: cannot find symbol
+        Assert.assertEquals(1.1f, NumberUtils.toFloat("abc", 1.1f), 0.0001f);
+                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:103: error: cannot find symbol
+        Assert.assertEquals(1.5f, NumberUtils.toFloat("1.5", 0.0f), 0.0001f);
+                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:109: error: cannot find symbol
+        Assert.assertEquals(1.5d, NumberUtils.toDouble("1.5"), 0.0001d);
+                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:114: error: cannot find symbol
+        Assert.assertEquals(0.0d, NumberUtils.toDouble(null), 0.0001d);
+                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:119: error: cannot find symbol
+        Assert.assertEquals(0.0d, NumberUtils.toDouble(""), 0.0001d);
+                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:124: error: cannot find symbol
+        Assert.assertEquals(1.1d, NumberUtils.toDouble(null, 1.1d), 0.0001d);
+                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:129: error: cannot find symbol
+        Assert.assertEquals(1.1d, NumberUtils.toDouble("abc", 1.1d), 0.0001d);
+                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:134: error: cannot find symbol
+        Assert.assertEquals(1.5d, NumberUtils.toDouble("1.5", 0.0d), 0.0001d);
+                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:140: error: cannot find symbol
+        Assert.assertEquals((byte) 1, NumberUtils.toByte("1"));
+                                      ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:145: error: cannot find symbol
+        Assert.assertEquals((byte) 0, NumberUtils.toByte(null));
+                                      ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:150: error: cannot find symbol
+        Assert.assertEquals((byte) 0, NumberUtils.toByte(""));
+                                      ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:155: error: cannot find symbol
+        Assert.assertEquals((byte) 1, NumberUtils.toByte(null, (byte) 1));
+                                      ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:160: error: cannot find symbol
+        Assert.assertEquals((byte) 1, NumberUtils.toByte("abc", (byte) 1));
+                                      ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:165: error: cannot find symbol
+        Assert.assertEquals((byte) 1, NumberUtils.toByte("1", (byte) 0));
+                                      ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:171: error: cannot find symbol
+        Assert.assertEquals((short) 1, NumberUtils.toShort("1"));
+                                       ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:176: error: cannot find symbol
+        Assert.assertEquals((short) 0, NumberUtils.toShort(null));
+                                       ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:181: error: cannot find symbol
+        Assert.assertEquals((short) 0, NumberUtils.toShort(""));
+                                       ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:186: error: cannot find symbol
+        Assert.assertEquals((short) 1, NumberUtils.toShort(null, (short) 1));
+                                       ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:191: error: cannot find symbol
+        Assert.assertEquals((short) 1, NumberUtils.toShort("abc", (short) 1));
+                                       ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:196: error: cannot find symbol
+        Assert.assertEquals((short) 1, NumberUtils.toShort("1", (short) 0));
+                                       ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:202: error: cannot find symbol
+        Assert.assertNull(NumberUtils.createNumber(null));
+                          ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:207: error: cannot find symbol
+        NumberUtils.createNumber("   ");
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:212: error: cannot find symbol
+        Number n = NumberUtils.createNumber("123");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:219: error: cannot find symbol
+        Number n = NumberUtils.createNumber("-123");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:226: error: cannot find symbol
+        Number n = NumberUtils.createNumber("123456789012");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:232: error: cannot find symbol
+        Number n = NumberUtils.createNumber("123456789012345678901234567890");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:238: error: cannot find symbol
+        Number n = NumberUtils.createNumber("0x1A");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:245: error: cannot find symbol
+        Number n = NumberUtils.createNumber("0X1A");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:251: error: cannot find symbol
+        Number n = NumberUtils.createNumber("-0x1A");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:258: error: cannot find symbol
+        Number n = NumberUtils.createNumber("#1A");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:264: error: cannot find symbol
+        Number n = NumberUtils.createNumber("-#1A");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:270: error: cannot find symbol
+        Number n = NumberUtils.createNumber("0x123456789");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:276: error: cannot find symbol
+        Number n = NumberUtils.createNumber("0x12345678901234567");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:282: error: cannot find symbol
+        Number n = NumberUtils.createNumber("1.5f");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:288: error: cannot find symbol
+        Number n = NumberUtils.createNumber("1.5F");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:294: error: cannot find symbol
+        Number n = NumberUtils.createNumber("1.5d");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:300: error: cannot find symbol
+        Number n = NumberUtils.createNumber("1.5D");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:306: error: cannot find symbol
+        Number n = NumberUtils.createNumber("123L");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:312: error: cannot find symbol
+        Number n = NumberUtils.createNumber("123l");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:318: error: cannot find symbol
+        Number n = NumberUtils.createNumber("-123L");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:324: error: cannot find symbol
+        Number n = NumberUtils.createNumber("123456789012345678901234567890L");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:330: error: cannot find symbol
+        NumberUtils.createNumber("1.5L");
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:335: error: cannot find symbol
+        Number n = NumberUtils.createNumber("1.5");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:341: error: cannot find symbol
+        Number n = NumberUtils.createNumber("1.23456789012345");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:347: error: cannot find symbol
+        Number n = NumberUtils.createNumber("1.5e10");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:353: error: cannot find symbol
+        Number n = NumberUtils.createNumber("1.5E10");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:359: error: cannot find symbol
+        NumberUtils.createNumber("abc");
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:364: error: cannot find symbol
+        NumberUtils.createNumber("1e10.5");
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:369: error: cannot find symbol
+        Number n = NumberUtils.createNumber("1.234567890123456789012345678901234567890");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:375: error: cannot find symbol
+        Number n = NumberUtils.createNumber("0.0f");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:382: error: cannot find symbol
+        Number n = NumberUtils.createNumber("010");
+                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:390: error: cannot find symbol
+        Assert.assertEquals(Float.valueOf(1.5f), NumberUtils.createFloat("1.5"));
+                                                 ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:395: error: cannot find symbol
+        Assert.assertNull(NumberUtils.createFloat(null));
+                          ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:400: error: cannot find symbol
+        NumberUtils.createFloat("abc");
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:406: error: cannot find symbol
+        Assert.assertEquals(Double.valueOf(1.5d), NumberUtils.createDouble("1.5"));
+                                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:411: error: cannot find symbol
+        Assert.assertNull(NumberUtils.createDouble(null));
+                          ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:416: error: cannot find symbol
+        NumberUtils.createDouble("abc");
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:422: error: cannot find symbol
+        Assert.assertEquals(Integer.valueOf(123), NumberUtils.createInteger("123"));
+                                                  ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:427: error: cannot find symbol
+        Assert.assertNull(NumberUtils.createInteger(null));
+                          ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:432: error: cannot find symbol
+        Assert.assertEquals(Integer.valueOf(26), NumberUtils.createInteger("0x1A"));
+                                                 ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:437: error: cannot find symbol
+        NumberUtils.createInteger("abc");
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:443: error: cannot find symbol
+        Assert.assertEquals(Long.valueOf(123L), NumberUtils.createLong("123"));
+                                                ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:448: error: cannot find symbol
+        Assert.assertNull(NumberUtils.createLong(null));
+                          ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:453: error: cannot find symbol
+        NumberUtils.createLong("abc");
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:459: error: cannot find symbol
+        Assert.assertEquals(BigInteger.valueOf(123), NumberUtils.createBigInteger("123"));
+                                                     ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:464: error: cannot find symbol
+        Assert.assertNull(NumberUtils.createBigInteger(null));
+                          ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:469: error: cannot find symbol
+        Assert.assertEquals(BigInteger.valueOf(-123), NumberUtils.createBigInteger("-123"));
+                                                      ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:474: error: cannot find symbol
+        Assert.assertEquals(BigInteger.valueOf(26), NumberUtils.createBigInteger("0x1A"));
+                                                    ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:479: error: cannot find symbol
+        Assert.assertEquals(BigInteger.valueOf(26), NumberUtils.createBigInteger("#1A"));
+                                                    ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:484: error: cannot find symbol
+        Assert.assertEquals(BigInteger.valueOf(8), NumberUtils.createBigInteger("010"));
+                                                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:489: error: cannot find symbol
+        NumberUtils.createBigInteger("abc");
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:495: error: cannot find symbol
+        Assert.assertEquals(new BigDecimal("1.5"), NumberUtils.createBigDecimal("1.5"));
+                                                   ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:500: error: cannot find symbol
+        Assert.assertNull(NumberUtils.createBigDecimal(null));
+                          ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:505: error: cannot find symbol
+        NumberUtils.createBigDecimal("   ");
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:510: error: cannot find symbol
+        NumberUtils.createBigDecimal("--123");
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:515: error: cannot find symbol
+        NumberUtils.createBigDecimal("abc");
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:521: error: cannot find symbol
+        Assert.assertEquals(1L, NumberUtils.min(new long[]{3L, 1L, 2L}));
+                                ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:526: error: cannot find symbol
+        NumberUtils.min((long[]) null);
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:531: error: cannot find symbol
+        NumberUtils.min(new long[]{});
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:536: error: cannot find symbol
+        Assert.assertEquals(3L, NumberUtils.max(new long[]{3L, 1L, 2L}));
+                                ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:541: error: cannot find symbol
+        NumberUtils.max((long[]) null);
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:546: error: cannot find symbol
+        NumberUtils.max(new long[]{});
+        ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+/tmp/evaluate_claude_Lang_3_xarzn_x8/src/NumberUtilsTest.java:552: error: cannot find symbol
+        Assert.assertEquals(1, NumberUtils.min(new int[]{3, 1, 2}));
+                               ^
+  symbol:   variable NumberUtils
+  location: class NumberUtilsTest
+100 errors

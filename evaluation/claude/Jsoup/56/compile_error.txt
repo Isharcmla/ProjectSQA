@@ -1,0 +1,6 @@
+/tmp/evaluate_claude_Jsoup_56_r4b87_bg/src/XmlTreeBuilderTest.java:61: error: cannot find symbol
+        assertFalse(br.hasChildNodes());
+                      ^
+  symbol:   method hasChildNodes()
+  location: variable br of type Element
+1 error

@@ -1,0 +1,452 @@
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:12: error: cannot find symbol
+    static class TestConsumer extends CodeConsumer {
+                                      ^
+  symbol:   class CodeConsumer
+  location: class CodeConsumerTest
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:15: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:20: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:37: error: cannot find symbol
+        Node n = new Node(Node.NULL);
+                              ^
+  symbol:   variable NULL
+  location: class Node
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:38: error: cannot find symbol
+        consumer.startSourceMapping(n);
+                ^
+  symbol:   method startSourceMapping(Node)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:45: error: cannot find symbol
+        Node n = new Node(Node.NULL);
+                              ^
+  symbol:   variable NULL
+  location: class Node
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:46: error: cannot find symbol
+        consumer.endSourceMapping(n);
+                ^
+  symbol:   method endSourceMapping(Node)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:54: error: cannot find symbol
+        assertTrue(consumer.continueProcessing());
+                           ^
+  symbol:   method continueProcessing()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:74: error: cannot find symbol
+        consumer.addIdentifier("myVar");
+                ^
+  symbol:   method addIdentifier(String)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:90: error: cannot find symbol
+        consumer.appendBlockStart();
+                ^
+  symbol:   method appendBlockStart()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:96: error: cannot find symbol
+        consumer.appendBlockEnd();
+                ^
+  symbol:   method appendBlockEnd()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:104: error: cannot find symbol
+        consumer.startNewLine();
+                ^
+  symbol:   method startNewLine()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:110: error: cannot find symbol
+        consumer.maybeLineBreak();
+                ^
+  symbol:   method maybeLineBreak()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:116: error: cannot find symbol
+        consumer.maybeCutLine();
+                ^
+  symbol:   method maybeCutLine()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:122: error: cannot find symbol
+        consumer.endLine();
+                ^
+  symbol:   method endLine()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:128: error: cannot find symbol
+        consumer.notePreferredLineBreak();
+                ^
+  symbol:   method notePreferredLineBreak()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:136: error: cannot find symbol
+        consumer.statementNeedsEnded = true;
+                ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:137: error: cannot find symbol
+        consumer.beginBlock();
+                ^
+  symbol:   method beginBlock()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:139: error: cannot find symbol
+        assertFalse(consumer.statementNeedsEnded);
+                            ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:144: error: cannot find symbol
+        consumer.statementNeedsEnded = false;
+                ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:145: error: cannot find symbol
+        consumer.beginBlock();
+                ^
+  symbol:   method beginBlock()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:147: error: cannot find symbol
+        assertFalse(consumer.statementNeedsEnded);
+                            ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:154: error: cannot find symbol
+        consumer.statementNeedsEnded = true;
+                ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:155: error: cannot find symbol
+        consumer.endBlock();
+                ^
+  symbol:   method endBlock()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:157: error: cannot find symbol
+        assertFalse(consumer.statementNeedsEnded);
+                            ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:162: error: cannot find symbol
+        consumer.endBlock(true);
+                ^
+  symbol:   method endBlock(boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:164: error: cannot find symbol
+        assertFalse(consumer.statementNeedsEnded);
+                            ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:169: error: cannot find symbol
+        consumer.endBlock(false);
+                ^
+  symbol:   method endBlock(boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:171: error: cannot find symbol
+        assertFalse(consumer.statementNeedsEnded);
+                            ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:178: error: cannot find symbol
+        consumer.listSeparator();
+                ^
+  symbol:   method listSeparator()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:186: error: cannot find symbol
+        consumer.statementStarted = true;
+                ^
+  symbol:   variable statementStarted
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:187: error: cannot find symbol
+        consumer.endStatement();
+                ^
+  symbol:   method endStatement()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:188: error: cannot find symbol
+        assertTrue(consumer.statementNeedsEnded);
+                           ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:193: error: cannot find symbol
+        consumer.endStatement(true);
+                ^
+  symbol:   method endStatement(boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:195: error: cannot find symbol
+        assertFalse(consumer.statementNeedsEnded);
+                            ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:200: error: cannot find symbol
+        consumer.statementStarted = true;
+                ^
+  symbol:   variable statementStarted
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:201: error: cannot find symbol
+        consumer.endStatement(false);
+                ^
+  symbol:   method endStatement(boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:202: error: cannot find symbol
+        assertTrue(consumer.statementNeedsEnded);
+                           ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:207: error: cannot find symbol
+        consumer.statementStarted = false;
+                ^
+  symbol:   variable statementStarted
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:208: error: cannot find symbol
+        consumer.statementNeedsEnded = false;
+                ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:209: error: cannot find symbol
+        consumer.endStatement(false);
+                ^
+  symbol:   method endStatement(boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:210: error: cannot find symbol
+        assertFalse(consumer.statementNeedsEnded);
+                            ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:217: error: cannot find symbol
+        consumer.statementNeedsEnded = true;
+                ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:218: error: cannot find symbol
+        consumer.maybeEndStatement();
+                ^
+  symbol:   method maybeEndStatement()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:220: error: cannot find symbol
+        assertFalse(consumer.statementNeedsEnded);
+                            ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:221: error: cannot find symbol
+        assertTrue(consumer.statementStarted);
+                           ^
+  symbol:   variable statementStarted
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:226: error: cannot find symbol
+        consumer.statementNeedsEnded = false;
+                ^
+  symbol:   variable statementNeedsEnded
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:227: error: cannot find symbol
+        consumer.maybeEndStatement();
+                ^
+  symbol:   method maybeEndStatement()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:229: error: cannot find symbol
+        assertTrue(consumer.statementStarted);
+                           ^
+  symbol:   variable statementStarted
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:236: error: cannot find symbol
+        consumer.endFunction();
+                ^
+  symbol:   method endFunction()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:237: error: cannot find symbol
+        assertTrue(consumer.sawFunction);
+                           ^
+  symbol:   variable sawFunction
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:242: error: cannot find symbol
+        consumer.endFunction(true);
+                ^
+  symbol:   method endFunction(boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:243: error: cannot find symbol
+        assertTrue(consumer.sawFunction);
+                           ^
+  symbol:   variable sawFunction
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:248: error: cannot find symbol
+        consumer.endFunction(false);
+                ^
+  symbol:   method endFunction(boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:249: error: cannot find symbol
+        assertTrue(consumer.sawFunction);
+                           ^
+  symbol:   variable sawFunction
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:256: error: cannot find symbol
+        consumer.beginCaseBody();
+                ^
+  symbol:   method beginCaseBody()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:262: error: cannot find symbol
+        consumer.endCaseBody();
+                ^
+  symbol:   method endCaseBody()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:270: error: cannot find symbol
+        consumer.add("");
+                ^
+  symbol:   method add(String)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:277: error: cannot find symbol
+        consumer.add("foo");
+                ^
+  symbol:   method add(String)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:284: error: cannot find symbol
+        consumer.add("\\foo");
+                ^
+  symbol:   method add(String)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:291: error: cannot find symbol
+        consumer.add("/regex");
+                ^
+  symbol:   method add(String)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:298: error: cannot find symbol
+        consumer.add("abc");
+                ^
+  symbol:   method add(String)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:306: error: cannot find symbol
+        consumer.appendOp("+", true);
+                ^
+  symbol:   method appendOp(String,boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:315: error: cannot find symbol
+        consumer.addOp("+", true);
+                ^
+  symbol:   method addOp(String,boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:322: error: cannot find symbol
+        consumer.addOp("-", true);
+                ^
+  symbol:   method addOp(String,boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:329: error: cannot find symbol
+        consumer.addOp("instanceof", false);
+                ^
+  symbol:   method addOp(String,boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:336: error: cannot find symbol
+        consumer.addOp(">", true);
+                ^
+  symbol:   method addOp(String,boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:343: error: cannot find symbol
+        consumer.addOp("=", false);
+                ^
+  symbol:   method addOp(String,boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:349: error: cannot find symbol
+        consumer.addOp("=", false);
+                ^
+  symbol:   method addOp(String,boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:357: error: cannot find symbol
+        consumer.addNumber(5);
+                ^
+  symbol:   method addNumber(int)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:363: error: cannot find symbol
+        consumer.addNumber(1000);
+                ^
+  symbol:   method addNumber(int)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:369: error: cannot find symbol
+        consumer.addNumber(100);
+                ^
+  symbol:   method addNumber(int)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:376: error: cannot find symbol
+        consumer.addNumber(-5);
+                ^
+  symbol:   method addNumber(int)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:382: error: cannot find symbol
+        consumer.addNumber(1.5);
+                ^
+  symbol:   method addNumber(double)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:388: error: cannot find symbol
+        consumer.addNumber(-0.0);
+                ^
+  symbol:   method addNumber(double)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:394: error: cannot find symbol
+        consumer.addNumber(0);
+                ^
+  symbol:   method addNumber(int)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:402: error: cannot find symbol
+        assertTrue(CodeConsumer.isNegativeZero(-0.0));
+                   ^
+  symbol:   variable CodeConsumer
+  location: class CodeConsumerTest
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:407: error: cannot find symbol
+        assertFalse(CodeConsumer.isNegativeZero(0.0));
+                    ^
+  symbol:   variable CodeConsumer
+  location: class CodeConsumerTest
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:412: error: cannot find symbol
+        assertFalse(CodeConsumer.isNegativeZero(5.0));
+                    ^
+  symbol:   variable CodeConsumer
+  location: class CodeConsumerTest
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:419: error: cannot find symbol
+        assertTrue(CodeConsumer.isWordChar('_'));
+                   ^
+  symbol:   variable CodeConsumer
+  location: class CodeConsumerTest
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:424: error: cannot find symbol
+        assertTrue(CodeConsumer.isWordChar('$'));
+                   ^
+  symbol:   variable CodeConsumer
+  location: class CodeConsumerTest
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:429: error: cannot find symbol
+        assertTrue(CodeConsumer.isWordChar('a'));
+                   ^
+  symbol:   variable CodeConsumer
+  location: class CodeConsumerTest
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:434: error: cannot find symbol
+        assertTrue(CodeConsumer.isWordChar('5'));
+                   ^
+  symbol:   variable CodeConsumer
+  location: class CodeConsumerTest
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:439: error: cannot find symbol
+        assertFalse(CodeConsumer.isWordChar('/'));
+                    ^
+  symbol:   variable CodeConsumer
+  location: class CodeConsumerTest
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:444: error: cannot find symbol
+        assertFalse(CodeConsumer.isWordChar('\0'));
+                    ^
+  symbol:   variable CodeConsumer
+  location: class CodeConsumerTest
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:451: error: cannot find symbol
+        assertFalse(consumer.shouldPreserveExtraBlocks());
+                            ^
+  symbol:   method shouldPreserveExtraBlocks()
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:458: error: cannot find symbol
+        Node n = new Node(Node.BLOCK);
+                              ^
+  symbol:   variable BLOCK
+  location: class Node
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:459: error: cannot find symbol
+        assertTrue(consumer.breakAfterBlockFor(n, true));
+                           ^
+  symbol:   method breakAfterBlockFor(Node,boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:464: error: cannot find symbol
+        Node n = new Node(Node.BLOCK);
+                              ^
+  symbol:   variable BLOCK
+  location: class Node
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:465: error: cannot find symbol
+        assertFalse(consumer.breakAfterBlockFor(n, false));
+                            ^
+  symbol:   method breakAfterBlockFor(Node,boolean)
+  location: variable consumer of type TestConsumer
+/tmp/evaluate_claude_Closure_38_bswf0pz3/src/CodeConsumerTest.java:472: error: cannot find symbol
+        consumer.endFile();
+                ^
+  symbol:   method endFile()
+  location: variable consumer of type TestConsumer
+91 errors

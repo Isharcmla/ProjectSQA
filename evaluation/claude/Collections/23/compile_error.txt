@@ -1,0 +1,126 @@
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:19: error: cannot find symbol
+    private PatriciaTrie<String, String> delegateTrie;
+            ^
+  symbol:   class PatriciaTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:20: error: cannot find symbol
+    private UnmodifiableTrie<String, String> unmodifiableTrie;
+            ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:24: error: cannot find symbol
+        delegateTrie = new PatriciaTrie<String, String>();
+                           ^
+  symbol:   class PatriciaTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:33: error: cannot find symbol
+        unmodifiableTrie = new UnmodifiableTrie<String, String>(delegateTrie);
+                               ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:40: error: cannot find symbol
+        UnmodifiableTrie<String, String> trie = new UnmodifiableTrie<String, String>(delegateTrie);
+        ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:40: error: cannot find symbol
+        UnmodifiableTrie<String, String> trie = new UnmodifiableTrie<String, String>(delegateTrie);
+                                                    ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:46: error: cannot find symbol
+        new UnmodifiableTrie<String, String>(null);
+            ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:53: error: cannot find symbol
+        UnmodifiableTrie<String, String> trie = UnmodifiableTrie.unmodifiableTrie(delegateTrie);
+        ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:53: error: cannot find symbol
+        UnmodifiableTrie<String, String> trie = UnmodifiableTrie.unmodifiableTrie(delegateTrie);
+                                                ^
+  symbol:   variable UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:153: error: cannot find symbol
+        PatriciaTrie<String, String> emptyDelegate = new PatriciaTrie<String, String>();
+        ^
+  symbol:   class PatriciaTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:153: error: cannot find symbol
+        PatriciaTrie<String, String> emptyDelegate = new PatriciaTrie<String, String>();
+                                                         ^
+  symbol:   class PatriciaTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:154: error: cannot find symbol
+        UnmodifiableTrie<String, String> emptyTrie = new UnmodifiableTrie<String, String>(emptyDelegate);
+        ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:154: error: cannot find symbol
+        UnmodifiableTrie<String, String> emptyTrie = new UnmodifiableTrie<String, String>(emptyDelegate);
+                                                         ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:190: error: cannot find symbol
+        PatriciaTrie<String, String> emptyDelegate = new PatriciaTrie<String, String>();
+        ^
+  symbol:   class PatriciaTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:190: error: cannot find symbol
+        PatriciaTrie<String, String> emptyDelegate = new PatriciaTrie<String, String>();
+                                                         ^
+  symbol:   class PatriciaTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:191: error: cannot find symbol
+        UnmodifiableTrie<String, String> emptyTrie = new UnmodifiableTrie<String, String>(emptyDelegate);
+        ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:191: error: cannot find symbol
+        UnmodifiableTrie<String, String> emptyTrie = new UnmodifiableTrie<String, String>(emptyDelegate);
+                                                         ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:204: error: cannot find symbol
+        PatriciaTrie<String, String> emptyDelegate = new PatriciaTrie<String, String>();
+        ^
+  symbol:   class PatriciaTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:204: error: cannot find symbol
+        PatriciaTrie<String, String> emptyDelegate = new PatriciaTrie<String, String>();
+                                                         ^
+  symbol:   class PatriciaTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:205: error: cannot find symbol
+        UnmodifiableTrie<String, String> emptyTrie = new UnmodifiableTrie<String, String>(emptyDelegate);
+        ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:205: error: cannot find symbol
+        UnmodifiableTrie<String, String> emptyTrie = new UnmodifiableTrie<String, String>(emptyDelegate);
+                                                         ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:232: error: cannot find symbol
+        PatriciaTrie<String, String> emptyDelegate = new PatriciaTrie<String, String>();
+        ^
+  symbol:   class PatriciaTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:232: error: cannot find symbol
+        PatriciaTrie<String, String> emptyDelegate = new PatriciaTrie<String, String>();
+                                                         ^
+  symbol:   class PatriciaTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:233: error: cannot find symbol
+        UnmodifiableTrie<String, String> emptyTrie = new UnmodifiableTrie<String, String>(emptyDelegate);
+        ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+/tmp/evaluate_claude_Collections_23_4p2f10c6/src/UnmodifiableTrieTest.java:233: error: cannot find symbol
+        UnmodifiableTrie<String, String> emptyTrie = new UnmodifiableTrie<String, String>(emptyDelegate);
+                                                         ^
+  symbol:   class UnmodifiableTrie
+  location: class UnmodifiableTrieTest
+25 errors

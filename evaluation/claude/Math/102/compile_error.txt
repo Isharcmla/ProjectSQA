@@ -1,0 +1,31 @@
+/tmp/evaluate_claude_Math_102_y451rg2j/src/ChiSquareTestImplTest.java:10: error: cannot find symbol
+    private ChiSquareTestImpl testStatistic;
+            ^
+  symbol:   class ChiSquareTestImpl
+  location: class ChiSquareTestImplTest
+/tmp/evaluate_claude_Math_102_y451rg2j/src/ChiSquareTestImplTest.java:14: error: cannot find symbol
+        testStatistic = new ChiSquareTestImpl();
+                            ^
+  symbol:   class ChiSquareTestImpl
+  location: class ChiSquareTestImplTest
+/tmp/evaluate_claude_Math_102_y451rg2j/src/ChiSquareTestImplTest.java:21: error: cannot find symbol
+        ChiSquareTestImpl instance = new ChiSquareTestImpl();
+        ^
+  symbol:   class ChiSquareTestImpl
+  location: class ChiSquareTestImplTest
+/tmp/evaluate_claude_Math_102_y451rg2j/src/ChiSquareTestImplTest.java:21: error: cannot find symbol
+        ChiSquareTestImpl instance = new ChiSquareTestImpl();
+                                         ^
+  symbol:   class ChiSquareTestImpl
+  location: class ChiSquareTestImplTest
+/tmp/evaluate_claude_Math_102_y451rg2j/src/ChiSquareTestImplTest.java:28: error: cannot find symbol
+        ChiSquareTestImpl instance = new ChiSquareTestImpl(dist);
+        ^
+  symbol:   class ChiSquareTestImpl
+  location: class ChiSquareTestImplTest
+/tmp/evaluate_claude_Math_102_y451rg2j/src/ChiSquareTestImplTest.java:28: error: cannot find symbol
+        ChiSquareTestImpl instance = new ChiSquareTestImpl(dist);
+                                         ^
+  symbol:   class ChiSquareTestImpl
+  location: class ChiSquareTestImplTest
+6 errors

@@ -1,0 +1,396 @@
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:12: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:12: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:18: error: cannot find symbol
+        Base32 base32 = new Base32((byte) '!');
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:18: error: cannot find symbol
+        Base32 base32 = new Base32((byte) '!');
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:27: error: cannot find symbol
+        Base32 base32 = new Base32(true);
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:27: error: cannot find symbol
+        Base32 base32 = new Base32(true);
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:36: error: cannot find symbol
+        Base32 base32 = new Base32(false, (byte) '@');
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:36: error: cannot find symbol
+        Base32 base32 = new Base32(false, (byte) '@');
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:45: error: cannot find symbol
+        Base32 base32 = new Base32(4);
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:45: error: cannot find symbol
+        Base32 base32 = new Base32(4);
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:56: error: cannot find symbol
+        Base32 base32 = new Base32(8, sep);
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:56: error: cannot find symbol
+        Base32 base32 = new Base32(8, sep);
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:66: error: cannot find symbol
+        Base32 base32 = new Base32(8, sep, true);
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:66: error: cannot find symbol
+        Base32 base32 = new Base32(8, sep, true);
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:76: error: cannot find symbol
+        Base32 base32 = new Base32(8, sep, false, (byte) '*');
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:76: error: cannot find symbol
+        Base32 base32 = new Base32(8, sep, false, (byte) '*');
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:85: error: cannot find symbol
+        new Base32(8, null, false, Base32.PAD_DEFAULT);
+            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:85: error: cannot find symbol
+        new Base32(8, null, false, Base32.PAD_DEFAULT);
+                                   ^
+  symbol:   variable Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:91: error: cannot find symbol
+        new Base32(8, badSep);
+            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:96: error: cannot find symbol
+        new Base32(false, (byte) 'A');
+            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:101: error: cannot find symbol
+        new Base32(false, (byte) ' ');
+            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:108: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:108: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:120: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:120: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:129: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:129: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:138: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:138: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:147: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:147: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:156: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:156: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:165: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:165: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:174: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:174: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:183: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:183: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:196: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:196: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:207: error: cannot find symbol
+        Base32 base32 = new Base32(true);
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:207: error: cannot find symbol
+        Base32 base32 = new Base32(true);
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:223: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:223: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:234: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:234: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:250: error: cannot find symbol
+        Base32 base32 = new Base32(8);
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:250: error: cannot find symbol
+        Base32 base32 = new Base32(8);
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:262: error: cannot find symbol
+        Base32 base32 = new Base32(0);
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:262: error: cannot find symbol
+        Base32 base32 = new Base32(0);
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:274: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:274: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:283: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:283: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:292: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:292: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:299: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:299: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:306: error: cannot find symbol
+        Base32 base32 = new Base32(true);
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:306: error: cannot find symbol
+        Base32 base32 = new Base32(true);
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:313: error: cannot find symbol
+        Base32 base32 = new Base32(true);
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:313: error: cannot find symbol
+        Base32 base32 = new Base32(true);
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:322: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:322: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:331: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:331: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:342: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:342: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:349: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:349: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:356: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:356: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:365: error: cannot find symbol
+        Base32 base32 = new Base32((byte) '#');
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:365: error: cannot find symbol
+        Base32 base32 = new Base32((byte) '#');
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:378: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:378: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:387: error: cannot find symbol
+        Base32 base32 = new Base32();
+        ^
+  symbol:   class Base32
+  location: class Base32Test
+/tmp/evaluate_claude_Codec_16_5adisaw8/src/Base32Test.java:387: error: cannot find symbol
+        Base32 base32 = new Base32();
+                            ^
+  symbol:   class Base32
+  location: class Base32Test
+79 errors

@@ -1,0 +1,481 @@
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:13: error: cannot find symbol
+    private Line xAxisLine;
+            ^
+  symbol:   class Line
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:17: error: cannot find symbol
+        xAxisLine = new Line(new Vector3D(0, 0, 0), new Vector3D(1, 0, 0));
+                        ^
+  symbol:   class Line
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:17: error: cannot find symbol
+        xAxisLine = new Line(new Vector3D(0, 0, 0), new Vector3D(1, 0, 0));
+                                 ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:17: error: cannot find symbol
+        xAxisLine = new Line(new Vector3D(0, 0, 0), new Vector3D(1, 0, 0));
+                                                        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:24: error: cannot find symbol
+        Vector3D start = new Vector3D(0, 0, 0);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:24: error: cannot find symbol
+        Vector3D start = new Vector3D(0, 0, 0);
+                             ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:25: error: cannot find symbol
+        Vector3D end   = new Vector3D(1, 0, 0);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:25: error: cannot find symbol
+        Vector3D end   = new Vector3D(1, 0, 0);
+                             ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:26: error: cannot find symbol
+        SubLine subLine = new SubLine(start, end);
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:26: error: cannot find symbol
+        SubLine subLine = new SubLine(start, end);
+                              ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:27: error: cannot find symbol
+        List<Segment> segments = subLine.getSegments();
+             ^
+  symbol:   class Segment
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:34: error: cannot find symbol
+        Vector3D p = new Vector3D(1, 1, 1);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:34: error: cannot find symbol
+        Vector3D p = new Vector3D(1, 1, 1);
+                         ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:35: error: cannot find symbol
+        new SubLine(p, p);
+            ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:42: error: cannot find symbol
+        Vector3D start = new Vector3D(0, 0, 0);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:42: error: cannot find symbol
+        Vector3D start = new Vector3D(0, 0, 0);
+                             ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:43: error: cannot find symbol
+        Vector3D end   = new Vector3D(2, 0, 0);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:43: error: cannot find symbol
+        Vector3D end   = new Vector3D(2, 0, 0);
+                             ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:44: error: cannot find symbol
+        Segment segment = new Segment(start, end, xAxisLine);
+        ^
+  symbol:   class Segment
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:44: error: cannot find symbol
+        Segment segment = new Segment(start, end, xAxisLine);
+                              ^
+  symbol:   class Segment
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:45: error: cannot find symbol
+        SubLine subLine = new SubLine(segment);
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:45: error: cannot find symbol
+        SubLine subLine = new SubLine(segment);
+                              ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:46: error: cannot find symbol
+        List<Segment> segments = subLine.getSegments();
+             ^
+  symbol:   class Segment
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:53: error: cannot find symbol
+        Vector3D p = new Vector3D(3, 3, 3);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:53: error: cannot find symbol
+        Vector3D p = new Vector3D(3, 3, 3);
+                         ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:54: error: cannot find symbol
+        Segment segment = new Segment(p, p, xAxisLine);
+        ^
+  symbol:   class Segment
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:54: error: cannot find symbol
+        Segment segment = new Segment(p, p, xAxisLine);
+                              ^
+  symbol:   class Segment
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:55: error: cannot find symbol
+        new SubLine(segment);
+            ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:63: error: cannot find symbol
+        SubLine subLine = new SubLine(xAxisLine, intervalsSet);
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:63: error: cannot find symbol
+        SubLine subLine = new SubLine(xAxisLine, intervalsSet);
+                              ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:64: error: cannot find symbol
+        List<Segment> segments = subLine.getSegments();
+             ^
+  symbol:   class Segment
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:73: error: cannot find symbol
+        Vector3D start = new Vector3D(0, 0, 0);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:73: error: cannot find symbol
+        Vector3D start = new Vector3D(0, 0, 0);
+                             ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:74: error: cannot find symbol
+        Vector3D end   = new Vector3D(2, 0, 0);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:74: error: cannot find symbol
+        Vector3D end   = new Vector3D(2, 0, 0);
+                             ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:75: error: cannot find symbol
+        SubLine subLine = new SubLine(start, end);
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:75: error: cannot find symbol
+        SubLine subLine = new SubLine(start, end);
+                              ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:76: error: cannot find symbol
+        List<Segment> segments = subLine.getSegments();
+             ^
+  symbol:   class Segment
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:78: error: cannot find symbol
+        Segment segment = segments.get(0);
+        ^
+  symbol:   class Segment
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:86: error: cannot find symbol
+        SubLine subLine = new SubLine(xAxisLine, wholeLine);
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:86: error: cannot find symbol
+        SubLine subLine = new SubLine(xAxisLine, wholeLine);
+                              ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:87: error: cannot find symbol
+        List<Segment> segments = subLine.getSegments();
+             ^
+  symbol:   class Segment
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:89: error: cannot find symbol
+        Segment segment = segments.get(0);
+        ^
+  symbol:   class Segment
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:103: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:103: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+                           ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:103: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+                                       ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:103: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+                                                              ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:104: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(0.5, -1, 0), new Vector3D(0.5, 1, 0));
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:104: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(0.5, -1, 0), new Vector3D(0.5, 1, 0));
+                           ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:104: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(0.5, -1, 0), new Vector3D(0.5, 1, 0));
+                                       ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:104: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(0.5, -1, 0), new Vector3D(0.5, 1, 0));
+                                                                 ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:106: error: cannot find symbol
+        Vector3D intersection = sub1.intersection(sub2, true);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:115: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:115: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+                           ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:115: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+                                       ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:115: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+                                                              ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:116: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(0.5, -1, 0), new Vector3D(0.5, 1, 0));
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:116: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(0.5, -1, 0), new Vector3D(0.5, 1, 0));
+                           ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:116: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(0.5, -1, 0), new Vector3D(0.5, 1, 0));
+                                       ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:116: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(0.5, -1, 0), new Vector3D(0.5, 1, 0));
+                                                                 ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:118: error: cannot find symbol
+        Vector3D intersection = sub1.intersection(sub2, false);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:127: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:127: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+                           ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:127: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+                                       ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:127: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+                                                              ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:128: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(2, -1, 0), new Vector3D(2, 1, 0));
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:128: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(2, -1, 0), new Vector3D(2, 1, 0));
+                           ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:128: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(2, -1, 0), new Vector3D(2, 1, 0));
+                                       ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:128: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(2, -1, 0), new Vector3D(2, 1, 0));
+                                                               ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:130: error: cannot find symbol
+        Vector3D intersection = sub1.intersection(sub2, true);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:138: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:138: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+                           ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:138: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+                                       ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:138: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(2, 0, 0));
+                                                              ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:139: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(2, -1, 0), new Vector3D(2, 1, 0));
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:139: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(2, -1, 0), new Vector3D(2, 1, 0));
+                           ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:139: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(2, -1, 0), new Vector3D(2, 1, 0));
+                                       ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:139: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(2, -1, 0), new Vector3D(2, 1, 0));
+                                                               ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:141: error: cannot find symbol
+        Vector3D intersection = sub1.intersection(sub2, false);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:147: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(1, 0, 0));
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:147: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(1, 0, 0));
+                           ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:147: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(1, 0, 0));
+                                       ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:147: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(1, 0, 0));
+                                                              ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:148: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(5, -1, 0), new Vector3D(5, 1, 0));
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:148: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(5, -1, 0), new Vector3D(5, 1, 0));
+                           ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:148: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(5, -1, 0), new Vector3D(5, 1, 0));
+                                       ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:148: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(5, -1, 0), new Vector3D(5, 1, 0));
+                                                               ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:150: error: cannot find symbol
+        Vector3D intersection = sub1.intersection(sub2, true);
+        ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:156: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(1, 0, 0));
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:156: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(1, 0, 0));
+                           ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:156: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(1, 0, 0));
+                                       ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:156: error: cannot find symbol
+        SubLine sub1 = new SubLine(new Vector3D(0, 0, 0), new Vector3D(1, 0, 0));
+                                                              ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:157: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(0, 1, 0), new Vector3D(1, 1, 0));
+        ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:157: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(0, 1, 0), new Vector3D(1, 1, 0));
+                           ^
+  symbol:   class SubLine
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:157: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(0, 1, 0), new Vector3D(1, 1, 0));
+                                       ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+/tmp/evaluate_claude_Math_4_l_0zowea/src/SubLineTest.java:157: error: cannot find symbol
+        SubLine sub2 = new SubLine(new Vector3D(0, 1, 0), new Vector3D(1, 1, 0));
+                                                              ^
+  symbol:   class Vector3D
+  location: class SubLineTest
+96 errors

@@ -1,0 +1,4 @@
+/tmp/evaluate_claude_Mockito_36_dfsg6s9o/src/InvocationTest.java:17: error: FakeMockitoMethod is not abstract and does not override abstract method getDeclaringClass() in MockitoMethod
+    static class FakeMockitoMethod implements MockitoMethod {
+           ^
+1 error

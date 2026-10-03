@@ -1,0 +1,96 @@
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:11: error: cannot find symbol
+    public static final class ColorEnum extends ValuedEnum {
+                                                ^
+  symbol:   class ValuedEnum
+  location: class ValuedEnumTest
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:33: error: cannot find symbol
+    public static final class ShapeEnum extends ValuedEnum {
+                                                ^
+  symbol:   class ValuedEnum
+  location: class ValuedEnumTest
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:25: error: cannot find symbol
+            return (ColorEnum) ValuedEnum.getEnum(ColorEnum.class, value);
+                               ^
+  symbol:   variable ValuedEnum
+  location: class ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:51: error: cannot find symbol
+        assertEquals(ColorEnum.RED_VALUE, ColorEnum.RED.getValue());
+                                                       ^
+  symbol:   method getValue()
+  location: variable RED of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:52: error: cannot find symbol
+        assertEquals(ColorEnum.GREEN_VALUE, ColorEnum.GREEN.getValue());
+                                                           ^
+  symbol:   method getValue()
+  location: variable GREEN of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:53: error: cannot find symbol
+        assertEquals(ColorEnum.BLUE_VALUE, ColorEnum.BLUE.getValue());
+                                                         ^
+  symbol:   method getValue()
+  location: variable BLUE of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:63: error: cannot find symbol
+        assertEquals("Green", result.getName());
+                                    ^
+  symbol:   method getName()
+  location: variable result of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:74: error: cannot find symbol
+        ValuedEnum.getEnum(null, 0);
+        ^
+  symbol:   variable ValuedEnum
+  location: class ValuedEnumTest
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:81: error: cannot find symbol
+        int result = ColorEnum.RED.compareTo(ColorEnum.GREEN);
+                                  ^
+  symbol:   method compareTo(ColorEnum)
+  location: variable RED of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:87: error: cannot find symbol
+        int result = ColorEnum.BLUE.compareTo(ColorEnum.RED);
+                                   ^
+  symbol:   method compareTo(ColorEnum)
+  location: variable BLUE of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:93: error: cannot find symbol
+        int result = ColorEnum.RED.compareTo(ColorEnum.RED);
+                                  ^
+  symbol:   method compareTo(ColorEnum)
+  location: variable RED of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:100: error: cannot find symbol
+        int result = ColorEnum.RED.compareTo(ShapeEnum.CIRCLE);
+                                  ^
+  symbol:   method compareTo(ShapeEnum)
+  location: variable RED of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:106: error: cannot find symbol
+        ColorEnum.RED.compareTo(null);
+                     ^
+  symbol:   method compareTo(<null>)
+  location: variable RED of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:111: error: cannot find symbol
+        ColorEnum.RED.compareTo("Not a ValuedEnum");
+                     ^
+  symbol:   method compareTo(String)
+  location: variable RED of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:118: error: cannot find symbol
+        String result = ColorEnum.RED.toString();
+                                     ^
+  symbol:   method toString()
+  location: variable RED of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:128: error: cannot find symbol
+        String firstCall = ColorEnum.GREEN.toString();
+                                          ^
+  symbol:   method toString()
+  location: variable GREEN of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:129: error: cannot find symbol
+        String secondCall = ColorEnum.GREEN.toString();
+                                           ^
+  symbol:   method toString()
+  location: variable GREEN of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:135: error: cannot find symbol
+        String redString = ColorEnum.RED.toString();
+                                        ^
+  symbol:   method toString()
+  location: variable RED of type ColorEnum
+/tmp/evaluate_claude_Lang_64_z3kpmj3z/src/ValuedEnumTest.java:136: error: cannot find symbol
+        String blueString = ColorEnum.BLUE.toString();
+                                          ^
+  symbol:   method toString()
+  location: variable BLUE of type ColorEnum
+19 errors

@@ -1,0 +1,12 @@
+/tmp/evaluate_claude_Mockito_5_5w9cuz0c/src/VerificationOverTimeImplTest.java:35: error: constructor ArgumentsAreDifferent in class ArgumentsAreDifferent cannot be applied to given types;
+            throw new ArgumentsAreDifferent("args different");
+                  ^
+  required: String,String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Mockito_5_5w9cuz0c/src/VerificationOverTimeImplTest.java:196: error: cannot find symbol
+            assertEquals(1, delegate.callCount);
+                                    ^
+  symbol:   variable callCount
+  location: variable delegate of type FailingAtMost
+2 errors

@@ -1,0 +1,273 @@
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:13: error: cannot find symbol
+    private TypeFactory factory;
+            ^
+  symbol:   class TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:17: error: cannot find symbol
+        factory = TypeFactory.defaultInstance();
+                  ^
+  symbol:   variable TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:24: error: cannot find symbol
+        TypeFactory f1 = TypeFactory.defaultInstance();
+        ^
+  symbol:   class TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:24: error: cannot find symbol
+        TypeFactory f1 = TypeFactory.defaultInstance();
+                         ^
+  symbol:   variable TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:25: error: cannot find symbol
+        TypeFactory f2 = TypeFactory.defaultInstance();
+        ^
+  symbol:   class TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:25: error: cannot find symbol
+        TypeFactory f2 = TypeFactory.defaultInstance();
+                         ^
+  symbol:   variable TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:31: error: cannot find symbol
+        JavaType t = TypeFactory.unknownType();
+                     ^
+  symbol:   variable TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:38: error: cannot find symbol
+        Class<?> c = TypeFactory.rawClass(String.class);
+                     ^
+  symbol:   variable TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:45: error: cannot find symbol
+        Class<?> c = TypeFactory.rawClass(t);
+                     ^
+  symbol:   variable TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:79: error: cannot find symbol
+        assertTrue(t instanceof ArrayType);
+                                ^
+  symbol:   class ArrayType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:91: error: cannot find symbol
+        assertTrue(t instanceof MapType);
+                                ^
+  symbol:   class MapType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:97: error: cannot find symbol
+        assertTrue(t instanceof CollectionType);
+                                ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:104: error: cannot find symbol
+        assertTrue(javaType instanceof CollectionType);
+                                       ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:105: error: cannot find symbol
+        assertEquals(String.class, ((CollectionType) javaType).getContentType().getRawClass());
+                                     ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:112: error: cannot find symbol
+        assertTrue(javaType instanceof MapType);
+                                       ^
+  symbol:   class MapType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:119: error: cannot find symbol
+        assertTrue(javaType instanceof ArrayType);
+                                       ^
+  symbol:   class ArrayType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:126: error: cannot find symbol
+        assertTrue(javaType instanceof CollectionType);
+                                       ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:144: error: cannot find symbol
+        assertTrue(t instanceof CollectionType);
+                                ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:174: error: cannot find symbol
+        JavaType t = factory.constructType(String.class, (TypeBindings) null);
+                                                          ^
+  symbol:   class TypeBindings
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:191: error: cannot find symbol
+        assertTrue(result instanceof CollectionType);
+                                     ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:256: error: cannot find symbol
+        TypeBindings bindings = new TypeBindings(factory, ArrayList.class);
+        ^
+  symbol:   class TypeBindings
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:256: error: cannot find symbol
+        TypeBindings bindings = new TypeBindings(factory, ArrayList.class);
+                                    ^
+  symbol:   class TypeBindings
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:305: error: cannot find symbol
+        ArrayType t = factory.constructArrayType(String.class);
+        ^
+  symbol:   class ArrayType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:313: error: cannot find symbol
+        ArrayType t = factory.constructArrayType(elem);
+        ^
+  symbol:   class ArrayType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:322: error: cannot find symbol
+        CollectionType t = factory.constructCollectionType(List.class, String.class);
+        ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:329: error: cannot find symbol
+        CollectionType t = factory.constructCollectionType(List.class, elem);
+        ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:337: error: cannot find symbol
+        CollectionLikeType t = factory.constructCollectionLikeType(List.class, String.class);
+        ^
+  symbol:   class CollectionLikeType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:344: error: cannot find symbol
+        CollectionLikeType t = factory.constructCollectionLikeType(List.class, elem);
+        ^
+  symbol:   class CollectionLikeType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:354: error: cannot find symbol
+        MapType t = factory.constructMapType(HashMap.class, keyType, valType);
+        ^
+  symbol:   class MapType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:360: error: cannot find symbol
+        MapType t = factory.constructMapType(HashMap.class, String.class, Integer.class);
+        ^
+  symbol:   class MapType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:370: error: cannot find symbol
+        MapLikeType t = factory.constructMapLikeType(HashMap.class, keyType, valType);
+        ^
+  symbol:   class MapLikeType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:376: error: cannot find symbol
+        MapLikeType t = factory.constructMapLikeType(HashMap.class, String.class, Integer.class);
+        ^
+  symbol:   class MapLikeType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:417: error: cannot find symbol
+        assertTrue(t instanceof CollectionType);
+                                ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:423: error: cannot find symbol
+        assertTrue(t instanceof MapType);
+                                ^
+  symbol:   class MapType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:429: error: cannot find symbol
+        assertTrue(t instanceof CollectionType);
+                                ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:438: error: cannot find symbol
+        assertTrue(t instanceof ArrayType);
+                                ^
+  symbol:   class ArrayType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:452: error: cannot find symbol
+        assertTrue(t instanceof MapType);
+                                ^
+  symbol:   class MapType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:465: error: cannot find symbol
+        assertTrue(t instanceof CollectionType);
+                                ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:486: error: cannot find symbol
+        assertTrue(t instanceof CollectionType);
+                                ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:493: error: cannot find symbol
+        CollectionType t = factory.constructRawCollectionType(ArrayList.class);
+        ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:499: error: cannot find symbol
+        CollectionLikeType t = factory.constructRawCollectionLikeType(ArrayList.class);
+        ^
+  symbol:   class CollectionLikeType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:505: error: cannot find symbol
+        MapType t = factory.constructRawMapType(HashMap.class);
+        ^
+  symbol:   class MapType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:512: error: cannot find symbol
+        MapLikeType t = factory.constructRawMapLikeType(HashMap.class);
+        ^
+  symbol:   class MapLikeType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:520: error: cannot find symbol
+        TypeFactory f2 = factory.withModifier(null);
+        ^
+  symbol:   class TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:527: error: cannot find symbol
+        TypeModifier mod = new TypeModifier() {
+        ^
+  symbol:   class TypeModifier
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:527: error: cannot find symbol
+        TypeModifier mod = new TypeModifier() {
+                               ^
+  symbol:   class TypeModifier
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:529: error: cannot find symbol
+            public JavaType modifyType(JavaType type, Type jdkType, TypeBindings context, TypeFactory typeFactory) {
+                                                                    ^
+  symbol: class TypeBindings
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:529: error: cannot find symbol
+            public JavaType modifyType(JavaType type, Type jdkType, TypeBindings context, TypeFactory typeFactory) {
+                                                                                          ^
+  symbol: class TypeFactory
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:528: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:533: error: cannot find symbol
+        TypeFactory f2 = factory.withModifier(mod);
+        ^
+  symbol:   class TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:539: error: cannot find symbol
+        TypeModifier mod2 = new TypeModifier() {
+        ^
+  symbol:   class TypeModifier
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:539: error: cannot find symbol
+        TypeModifier mod2 = new TypeModifier() {
+                                ^
+  symbol:   class TypeModifier
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:541: error: cannot find symbol
+            public JavaType modifyType(JavaType type, Type jdkType, TypeBindings context, TypeFactory typeFactory) {
+                                                                    ^
+  symbol: class TypeBindings
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:541: error: cannot find symbol
+            public JavaType modifyType(JavaType type, Type jdkType, TypeBindings context, TypeFactory typeFactory) {
+                                                                                          ^
+  symbol: class TypeFactory
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:540: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_claude_JacksonDatabind_11_ttfepz1f/src/TypeFactoryTest.java:545: error: cannot find symbol
+        TypeFactory f3 = f2.withModifier(mod2);
+        ^
+  symbol:   class TypeFactory
+  location: class TypeFactoryTest
+56 errors

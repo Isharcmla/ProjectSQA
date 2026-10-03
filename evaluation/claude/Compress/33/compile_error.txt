@@ -1,0 +1,501 @@
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:84: error: cannot find symbol
+    @Test(expected = CompressorException.class)
+                     ^
+  symbol:   class CompressorException
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:136: error: cannot find symbol
+    @Test(expected = CompressorException.class)
+                     ^
+  symbol:   class CompressorException
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:274: error: cannot find symbol
+    @Test(expected = CompressorException.class)
+                     ^
+  symbol:   class CompressorException
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:372: error: cannot find symbol
+    @Test(expected = CompressorException.class)
+                     ^
+  symbol:   class CompressorException
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:378: error: cannot find symbol
+    @Test(expected = CompressorException.class)
+                     ^
+  symbol:   class CompressorException
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:26: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:26: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:32: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory(true);
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:32: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory(true);
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:38: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory(false);
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:38: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory(false);
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:46: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:46: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:55: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory(true);
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:55: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory(true);
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:63: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:63: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:69: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:69: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:86: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:86: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:99: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:99: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:101: error: cannot find symbol
+        CompressorInputStream cis = factory.createCompressorInputStream(in);
+        ^
+  symbol:   class CompressorInputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:114: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:114: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:116: error: cannot find symbol
+        CompressorInputStream cis = factory.createCompressorInputStream(in);
+        ^
+  symbol:   class CompressorInputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:126: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:126: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:132: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:132: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:133: error: cannot find symbol
+        factory.createCompressorInputStream(CompressorStreamFactory.GZIP, null);
+                                            ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:138: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:138: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:149: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:149: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:150: error: cannot find symbol
+        CompressorInputStream cis = factory.createCompressorInputStream(
+        ^
+  symbol:   class CompressorInputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:151: error: cannot find symbol
+                CompressorStreamFactory.GZIP, new ByteArrayInputStream(baos.toByteArray()));
+                ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:164: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:164: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:165: error: cannot find symbol
+        CompressorInputStream cis = factory.createCompressorInputStream(
+        ^
+  symbol:   class CompressorInputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:166: error: cannot find symbol
+                CompressorStreamFactory.BZIP2, new ByteArrayInputStream(baos.toByteArray()));
+                ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:179: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:179: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:180: error: cannot find symbol
+        CompressorInputStream cis = factory.createCompressorInputStream(
+        ^
+  symbol:   class CompressorInputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:181: error: cannot find symbol
+                CompressorStreamFactory.DEFLATE, new ByteArrayInputStream(baos.toByteArray()));
+                ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:189: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:189: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:191: error: cannot find symbol
+            CompressorInputStream cis = factory.createCompressorInputStream(
+            ^
+  symbol:   class CompressorInputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:192: error: cannot find symbol
+                    CompressorStreamFactory.XZ, new ByteArrayInputStream(new byte[]{1, 2, 3, 4, 5}));
+                    ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:194: error: cannot find symbol
+        } catch (CompressorException e) {
+                 ^
+  symbol:   class CompressorException
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:202: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:202: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:204: error: cannot find symbol
+            CompressorInputStream cis = factory.createCompressorInputStream(
+            ^
+  symbol:   class CompressorInputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:205: error: cannot find symbol
+                    CompressorStreamFactory.LZMA, new ByteArrayInputStream(new byte[]{1, 2, 3, 4, 5}));
+                    ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:207: error: cannot find symbol
+        } catch (CompressorException e) {
+                 ^
+  symbol:   class CompressorException
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:214: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:214: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:216: error: cannot find symbol
+            CompressorInputStream cis = factory.createCompressorInputStream(
+            ^
+  symbol:   class CompressorInputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:217: error: cannot find symbol
+                    CompressorStreamFactory.PACK200, new ByteArrayInputStream(new byte[]{1, 2, 3, 4, 5}));
+                    ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:219: error: cannot find symbol
+        } catch (CompressorException e) {
+                 ^
+  symbol:   class CompressorException
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:226: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:226: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:228: error: cannot find symbol
+            CompressorInputStream cis = factory.createCompressorInputStream(
+            ^
+  symbol:   class CompressorInputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:229: error: cannot find symbol
+                    CompressorStreamFactory.SNAPPY_RAW, new ByteArrayInputStream(new byte[]{1, 2, 3, 4, 5}));
+                    ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:231: error: cannot find symbol
+        } catch (CompressorException e) {
+                 ^
+  symbol:   class CompressorException
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:238: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:238: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:240: error: cannot find symbol
+            CompressorInputStream cis = factory.createCompressorInputStream(
+            ^
+  symbol:   class CompressorInputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:241: error: cannot find symbol
+                    CompressorStreamFactory.SNAPPY_FRAMED, new ByteArrayInputStream(new byte[]{1, 2, 3, 4, 5}));
+                    ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:243: error: cannot find symbol
+        } catch (CompressorException e) {
+                 ^
+  symbol:   class CompressorException
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:250: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:250: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:252: error: cannot find symbol
+            CompressorInputStream cis = factory.createCompressorInputStream(
+            ^
+  symbol:   class CompressorInputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:253: error: cannot find symbol
+                    CompressorStreamFactory.Z, new ByteArrayInputStream(new byte[]{1, 2, 3, 4, 5}));
+                    ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:255: error: cannot find symbol
+        } catch (CompressorException e) {
+                 ^
+  symbol:   class CompressorException
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:264: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:264: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:270: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:270: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:271: error: cannot find symbol
+        factory.createCompressorOutputStream(CompressorStreamFactory.GZIP, null);
+                                             ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:276: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:276: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:282: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:282: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:284: error: cannot find symbol
+        CompressorOutputStream cos = factory.createCompressorOutputStream(CompressorStreamFactory.GZIP, out);
+        ^
+  symbol:   class CompressorOutputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:284: error: cannot find symbol
+        CompressorOutputStream cos = factory.createCompressorOutputStream(CompressorStreamFactory.GZIP, out);
+                                                                          ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:292: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:292: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:294: error: cannot find symbol
+        CompressorOutputStream cos = factory.createCompressorOutputStream(CompressorStreamFactory.BZIP2, out);
+        ^
+  symbol:   class CompressorOutputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:294: error: cannot find symbol
+        CompressorOutputStream cos = factory.createCompressorOutputStream(CompressorStreamFactory.BZIP2, out);
+                                                                          ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:302: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:302: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:304: error: cannot find symbol
+        CompressorOutputStream cos = factory.createCompressorOutputStream(CompressorStreamFactory.DEFLATE, out);
+        ^
+  symbol:   class CompressorOutputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:304: error: cannot find symbol
+        CompressorOutputStream cos = factory.createCompressorOutputStream(CompressorStreamFactory.DEFLATE, out);
+                                                                          ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:312: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+        ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:312: error: cannot find symbol
+        CompressorStreamFactory factory = new CompressorStreamFactory();
+                                              ^
+  symbol:   class CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:315: error: cannot find symbol
+            CompressorOutputStream cos = factory.createCompressorOutputStream(CompressorStreamFactory.XZ, out);
+            ^
+  symbol:   class CompressorOutputStream
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:315: error: cannot find symbol
+            CompressorOutputStream cos = factory.createCompressorOutputStream(CompressorStreamFactory.XZ, out);
+                                                                              ^
+  symbol:   variable CompressorStreamFactory
+  location: class CompressorStreamFactoryTest
+/tmp/evaluate_claude_Compress_33_pxl46usp/src/CompressorStreamFactoryTest.java:319: error: cannot find symbol
+        } catch (CompressorException e) {
+                 ^
+  symbol:   class CompressorException
+  location: class CompressorStreamFactoryTest
+100 errors

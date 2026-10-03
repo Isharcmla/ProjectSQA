@@ -1,0 +1,191 @@
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:16: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:16: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:28: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, null);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:28: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, null);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:35: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo((PropertyName) null, null, null, SimpleObjectIdResolver.class);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:35: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo((PropertyName) null, null, null, SimpleObjectIdResolver.class);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:48: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, String.class, null);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:48: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, String.class, null);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:61: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo("myId", Object.class, null);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:61: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo("myId", Object.class, null);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:73: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo("", Object.class, null);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:73: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo("", Object.class, null);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:84: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:84: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:86: error: cannot find symbol
+        ObjectIdInfo result = info.withAlwaysAsId(false);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:94: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:94: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:96: error: cannot find symbol
+        ObjectIdInfo result = info.withAlwaysAsId(true);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:109: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:109: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:111: error: cannot find symbol
+        ObjectIdInfo toggledOnce = info.withAlwaysAsId(true);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:112: error: cannot find symbol
+        ObjectIdInfo toggledTwice = toggledOnce.withAlwaysAsId(false);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:122: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:122: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:129: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(new PropertyName("x"), String.class, null, SimpleObjectIdResolver.class);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:129: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(new PropertyName("x"), String.class, null, SimpleObjectIdResolver.class);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:136: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(new PropertyName("x"), Object.class, null, SimpleObjectIdResolver.class);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:136: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(new PropertyName("x"), Object.class, null, SimpleObjectIdResolver.class);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:143: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(new PropertyName("x"), Object.class, null, SimpleObjectIdResolver.class);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:143: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(new PropertyName("x"), Object.class, null, SimpleObjectIdResolver.class);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:150: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(new PropertyName("x"), Object.class, null, SimpleObjectIdResolver.class);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:150: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(new PropertyName("x"), Object.class, null, SimpleObjectIdResolver.class);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:159: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo((PropertyName) null, null, null, SimpleObjectIdResolver.class);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:159: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo((PropertyName) null, null, null, SimpleObjectIdResolver.class);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:171: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class);
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:171: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class);
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:182: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class)
+        ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+/tmp/evaluate_claude_JacksonDatabind_79_ox1wonth/src/ObjectIdInfoTest.java:182: error: cannot find symbol
+        ObjectIdInfo info = new ObjectIdInfo(name, Object.class, null, SimpleObjectIdResolver.class)
+                                ^
+  symbol:   class ObjectIdInfo
+  location: class ObjectIdInfoTest
+38 errors

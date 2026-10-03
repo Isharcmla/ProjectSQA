@@ -1,0 +1,6 @@
+/tmp/evaluate_claude_Closure_135_id9ubuyg/src/DevirtualizePrototypeMethodsTest.java:35: error: cannot find symbol
+    options.setPrettyPrint(true);
+           ^
+  symbol:   method setPrettyPrint(boolean)
+  location: variable options of type CompilerOptions
+1 error

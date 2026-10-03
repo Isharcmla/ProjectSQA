@@ -1,0 +1,8 @@
+/tmp/evaluate_claude_JacksonDatabind_44_wg_ec80l/src/SimpleTypeTest.java:143: error: cannot find symbol
+        assertFalse(type.isStatic() /* may not exist */);
+                        ^
+  symbol:   method isStatic()
+  location: variable type of type SimpleType
+Note: /tmp/evaluate_claude_JacksonDatabind_44_wg_ec80l/src/SimpleTypeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 error

@@ -1,0 +1,146 @@
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:38: error: cannot find symbol
+        Class<?>[] types = FromStringDeserializer.types();
+                           ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:80: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(File.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:80: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(File.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:82: error: package FromStringDeserializer does not exist
+        assertEquals(FromStringDeserializer.Std.STD_FILE, std._kind);
+                                           ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:87: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(URL.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:87: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(URL.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:89: error: package FromStringDeserializer does not exist
+        assertEquals(FromStringDeserializer.Std.STD_URL, std._kind);
+                                           ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:94: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(URI.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:94: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(URI.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:96: error: package FromStringDeserializer does not exist
+        assertEquals(FromStringDeserializer.Std.STD_URI, std._kind);
+                                           ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:101: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(Class.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:101: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(Class.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:103: error: package FromStringDeserializer does not exist
+        assertEquals(FromStringDeserializer.Std.STD_CLASS, std._kind);
+                                           ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:108: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(JavaType.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:108: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(JavaType.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:110: error: package FromStringDeserializer does not exist
+        assertEquals(FromStringDeserializer.Std.STD_JAVA_TYPE, std._kind);
+                                           ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:115: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(Currency.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:115: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(Currency.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:117: error: package FromStringDeserializer does not exist
+        assertEquals(FromStringDeserializer.Std.STD_CURRENCY, std._kind);
+                                           ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:122: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(Pattern.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:122: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(Pattern.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:124: error: package FromStringDeserializer does not exist
+        assertEquals(FromStringDeserializer.Std.STD_PATTERN, std._kind);
+                                           ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:129: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(Locale.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:129: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(Locale.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:131: error: package FromStringDeserializer does not exist
+        assertEquals(FromStringDeserializer.Std.STD_LOCALE, std._kind);
+                                           ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:136: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(Charset.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:136: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(Charset.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:138: error: package FromStringDeserializer does not exist
+        assertEquals(FromStringDeserializer.Std.STD_CHARSET, std._kind);
+                                           ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:143: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(TimeZone.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:143: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(TimeZone.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:145: error: package FromStringDeserializer does not exist
+        assertEquals(FromStringDeserializer.Std.STD_TIME_ZONE, std._kind);
+                                           ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:150: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(InetAddress.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:150: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(InetAddress.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:152: error: package FromStringDeserializer does not exist
+        assertEquals(FromStringDeserializer.Std.STD_INET_ADDRESS, std._kind);
+                                           ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:157: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(InetSocketAddress.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:157: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(InetSocketAddress.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:159: error: package FromStringDeserializer does not exist
+        assertEquals(FromStringDeserializer.Std.STD_INET_SOCKET_ADDRESS, std._kind);
+                                           ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:164: error: package FromStringDeserializer does not exist
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(String.class);
+                              ^
+/tmp/evaluate_claude_JacksonDatabind_56_iyox6ymy/src/FromStringDeserializerTest.java:164: error: cannot find symbol
+        FromStringDeserializer.Std std = FromStringDeserializer.findDeserializer(String.class);
+                                         ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+39 errors

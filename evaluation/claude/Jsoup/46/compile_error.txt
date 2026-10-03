@@ -1,0 +1,206 @@
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:45: error: cannot find symbol
+        assertTrue(Entities.isNamedEntity("amp"));
+                   ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:46: error: cannot find symbol
+        assertTrue(Entities.isNamedEntity("lt"));
+                   ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:47: error: cannot find symbol
+        assertTrue(Entities.isNamedEntity("gt"));
+                   ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:48: error: cannot find symbol
+        assertTrue(Entities.isNamedEntity("quot"));
+                   ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:53: error: cannot find symbol
+        assertFalse(Entities.isNamedEntity("zzzzznotreal"));
+                    ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:58: error: cannot find symbol
+        assertFalse(Entities.isNamedEntity(""));
+                    ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:63: error: cannot find symbol
+        assertFalse(Entities.isNamedEntity(null));
+                    ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:70: error: cannot find symbol
+        assertTrue(Entities.isBaseNamedEntity("amp"));
+                   ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:71: error: cannot find symbol
+        assertTrue(Entities.isBaseNamedEntity("lt"));
+                   ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:76: error: cannot find symbol
+        assertFalse(Entities.isBaseNamedEntity("zzzzznotreal"));
+                    ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:81: error: cannot find symbol
+        assertFalse(Entities.isBaseNamedEntity(""));
+                    ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:86: error: cannot find symbol
+        assertFalse(Entities.isBaseNamedEntity(null));
+                    ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:93: error: cannot find symbol
+        Character c = Entities.getCharacterByName("amp");
+                      ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:100: error: cannot find symbol
+        Character c = Entities.getCharacterByName("lt");
+                      ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:106: error: cannot find symbol
+        Character c = Entities.getCharacterByName("zzzzznotreal");
+                      ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:112: error: cannot find symbol
+        Character c = Entities.getCharacterByName(null);
+                      ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:136: error: cannot find symbol
+        String result = Entities.escape("a & b", baseUtf8);
+                        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:142: error: cannot find symbol
+        String result = Entities.escape("", baseUtf8);
+                        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:149: error: cannot find symbol
+        Entities.escape(accum, "<div>", baseUtf8, false, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:156: error: cannot find symbol
+        Entities.escape(accum, "<div>", baseUtf8, true, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:163: error: cannot find symbol
+        Entities.escape(accum, "say \"hi\"", baseUtf8, true, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:170: error: cannot find symbol
+        Entities.escape(accum, "say \"hi\"", baseUtf8, false, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:178: error: cannot find symbol
+        Entities.escape(accum, input, baseUtf8, false, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:186: error: cannot find symbol
+        Entities.escape(accum, input, xhtmlUtf8, false, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:193: error: cannot find symbol
+        Entities.escape(accum, "hello", baseUtf8, false, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:201: error: cannot find symbol
+        Entities.escape(accum, input, baseAscii, false, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:211: error: cannot find symbol
+        Entities.escape(accum, input, extendedAscii, false, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:221: error: cannot find symbol
+        Entities.escape(accum, input, baseUtf8, false, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:229: error: cannot find symbol
+        Entities.escape(accum, emoji, baseUtf8, false, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:237: error: cannot find symbol
+        Entities.escape(accum, emoji, baseAscii, false, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:246: error: cannot find symbol
+        Entities.escape(accum, "a   b\t\tc", baseUtf8, false, true, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:253: error: cannot find symbol
+        Entities.escape(accum, "   hello", baseUtf8, false, true, true);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:260: error: cannot find symbol
+        Entities.escape(accum, "   hello", baseUtf8, false, true, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:271: error: cannot find symbol
+        Entities.escape(accum, input, iso, false, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:282: error: cannot find symbol
+        Entities.escape(accum, input, iso, false, false, false);
+        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:292: error: cannot find symbol
+        String result = Entities.unescape("&lt;div&gt; &amp; &quot;text&quot;");
+                        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:298: error: cannot find symbol
+        assertEquals("", Entities.unescape(""));
+                         ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:303: error: cannot find symbol
+        assertEquals("plain text", Entities.unescape("plain text"));
+                                   ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:308: error: cannot find symbol
+        String result = Entities.unescape("&amp no semi", true);
+                        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:314: error: cannot find symbol
+        String result = Entities.unescape("&amp no semi", false);
+                        ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+/tmp/evaluate_claude_Jsoup_46_hziky92g/src/EntitiesTest.java:321: error: cannot find symbol
+            String result = Entities.unescape(null);
+                            ^
+  symbol:   variable Entities
+  location: class EntitiesTest
+41 errors

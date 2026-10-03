@@ -1,0 +1,111 @@
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:9: error: cannot find symbol
+    private X7875_NewUnix field;
+            ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:13: error: cannot find symbol
+        field = new X7875_NewUnix();
+                    ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:24: error: cannot find symbol
+        ZipShort headerId = field.getHeaderId();
+        ^
+  symbol:   class ZipShort
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:70: error: cannot find symbol
+        ZipShort length = field.getLocalFileDataLength();
+        ^
+  symbol:   class ZipShort
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:177: error: cannot find symbol
+        X7875_NewUnix other = new X7875_NewUnix();
+        ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:177: error: cannot find symbol
+        X7875_NewUnix other = new X7875_NewUnix();
+                                  ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:183: error: cannot find symbol
+        X7875_NewUnix other = new X7875_NewUnix();
+        ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:183: error: cannot find symbol
+        X7875_NewUnix other = new X7875_NewUnix();
+                                  ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:190: error: cannot find symbol
+        X7875_NewUnix other = new X7875_NewUnix();
+        ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:190: error: cannot find symbol
+        X7875_NewUnix other = new X7875_NewUnix();
+                                  ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:212: error: cannot find symbol
+        X7875_NewUnix other = new X7875_NewUnix();
+        ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:212: error: cannot find symbol
+        X7875_NewUnix other = new X7875_NewUnix();
+                                  ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:218: error: cannot find symbol
+        X7875_NewUnix other = new X7875_NewUnix();
+        ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:218: error: cannot find symbol
+        X7875_NewUnix other = new X7875_NewUnix();
+                                  ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:226: error: cannot find symbol
+        byte[] result = X7875_NewUnix.trimLeadingZeroesForceMinLength(null);
+                        ^
+  symbol:   variable X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:233: error: cannot find symbol
+        byte[] result = X7875_NewUnix.trimLeadingZeroesForceMinLength(input);
+                        ^
+  symbol:   variable X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:241: error: cannot find symbol
+        byte[] result = X7875_NewUnix.trimLeadingZeroesForceMinLength(input);
+                        ^
+  symbol:   variable X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:250: error: cannot find symbol
+        byte[] result = X7875_NewUnix.trimLeadingZeroesForceMinLength(input);
+                        ^
+  symbol:   variable X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:260: error: cannot find symbol
+        byte[] result = X7875_NewUnix.trimLeadingZeroesForceMinLength(input);
+                        ^
+  symbol:   variable X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:268: error: cannot find symbol
+        byte[] result = X7875_NewUnix.trimLeadingZeroesForceMinLength(input);
+                        ^
+  symbol:   variable X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:279: error: cannot find symbol
+        X7875_NewUnix parsed = new X7875_NewUnix();
+        ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+/tmp/evaluate_claude_Compress_34_9u9ksdib/src/X7875_NewUnixTest.java:279: error: cannot find symbol
+        X7875_NewUnix parsed = new X7875_NewUnix();
+                                   ^
+  symbol:   class X7875_NewUnix
+  location: class X7875_NewUnixTest
+22 errors

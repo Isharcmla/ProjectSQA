@@ -1,0 +1,501 @@
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:32: error: cannot find symbol
+        assertTrue(DateUtils.isSameDay(cal1.getTime(), cal2.getTime()));
+                   ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:41: error: cannot find symbol
+        assertFalse(DateUtils.isSameDay(cal1.getTime(), cal2.getTime()));
+                    ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:46: error: cannot find symbol
+        DateUtils.isSameDay((Date) null, new Date());
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:51: error: cannot find symbol
+        DateUtils.isSameDay(new Date(), (Date) null);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:62: error: cannot find symbol
+        assertTrue(DateUtils.isSameDay(cal1, cal2));
+                   ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:71: error: cannot find symbol
+        assertFalse(DateUtils.isSameDay(cal1, cal2));
+                    ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:76: error: cannot find symbol
+        DateUtils.isSameDay((Calendar) null, Calendar.getInstance());
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:81: error: cannot find symbol
+        DateUtils.isSameDay(Calendar.getInstance(), (Calendar) null);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:90: error: cannot find symbol
+        assertTrue(DateUtils.isSameInstant(d1, d2));
+                   ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:97: error: cannot find symbol
+        assertFalse(DateUtils.isSameInstant(d1, d2));
+                    ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:102: error: cannot find symbol
+        DateUtils.isSameInstant((Date) null, (Date) null);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:113: error: cannot find symbol
+        assertTrue(DateUtils.isSameInstant(cal1, cal2));
+                   ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:122: error: cannot find symbol
+        assertFalse(DateUtils.isSameInstant(cal1, cal2));
+                    ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:127: error: cannot find symbol
+        DateUtils.isSameInstant((Calendar) null, (Calendar) null);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:138: error: cannot find symbol
+        assertTrue(DateUtils.isSameLocalTime(cal1, cal2));
+                   ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:149: error: cannot find symbol
+        assertFalse(DateUtils.isSameLocalTime(cal1, cal2));
+                    ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:154: error: cannot find symbol
+        DateUtils.isSameLocalTime((Calendar) null, (Calendar) null);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:162: error: cannot find symbol
+        Date d = DateUtils.parseDate("2005-06-15", patterns);
+                 ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:169: error: cannot find symbol
+        Date d = DateUtils.parseDate("2005-06-15", patterns);
+                 ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:176: error: cannot find symbol
+        DateUtils.parseDate("not-a-date", patterns);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:181: error: cannot find symbol
+        DateUtils.parseDate(null, new String[] { "yyyy-MM-dd" });
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:186: error: cannot find symbol
+        DateUtils.parseDate("2005-06-15", null);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:193: error: cannot find symbol
+        Date result = DateUtils.addYears(baseDate, 1);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:201: error: cannot find symbol
+        DateUtils.addYears(null, 1);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:206: error: cannot find symbol
+        Date result = DateUtils.addMonths(baseDate, -1);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:214: error: cannot find symbol
+        Date result = DateUtils.addWeeks(baseDate, 1);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:220: error: cannot find symbol
+        Date result = DateUtils.addDays(baseDate, 1);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:228: error: cannot find symbol
+        Date result = DateUtils.addHours(baseDate, 1);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:234: error: cannot find symbol
+        Date result = DateUtils.addMinutes(baseDate, 1);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:240: error: cannot find symbol
+        Date result = DateUtils.addSeconds(baseDate, 1);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:246: error: cannot find symbol
+        Date result = DateUtils.addMilliseconds(baseDate, 1);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:254: error: cannot find symbol
+        Date result = DateUtils.add(baseDate, Calendar.YEAR, 2);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:262: error: cannot find symbol
+        DateUtils.add(null, Calendar.YEAR, 1);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:272: error: cannot find symbol
+        Date result = DateUtils.round(cal.getTime(), Calendar.HOUR_OF_DAY);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:281: error: cannot find symbol
+        DateUtils.round((Date) null, Calendar.HOUR_OF_DAY);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:288: error: cannot find symbol
+        DateUtils.round(cal.getTime(), Calendar.HOUR_OF_DAY);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:293: error: cannot find symbol
+        DateUtils.round(baseDate, Calendar.ZONE_OFFSET);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:300: error: cannot find symbol
+        Date result = DateUtils.round(cal.getTime(), DateUtils.SEMI_MONTH);
+                                                     ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:300: error: cannot find symbol
+        Date result = DateUtils.round(cal.getTime(), DateUtils.SEMI_MONTH);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:310: error: cannot find symbol
+        Date result = DateUtils.round(cal.getTime(), DateUtils.SEMI_MONTH);
+                                                     ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:310: error: cannot find symbol
+        Date result = DateUtils.round(cal.getTime(), DateUtils.SEMI_MONTH);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:322: error: cannot find symbol
+        Date result = DateUtils.round(cal.getTime(), Calendar.AM_PM);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:335: error: cannot find symbol
+        Calendar result = DateUtils.round(cal, Calendar.MONTH);
+                          ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:341: error: cannot find symbol
+        DateUtils.round((Calendar) null, Calendar.HOUR_OF_DAY);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:348: error: cannot find symbol
+        Date result = DateUtils.round((Object) baseDate, Calendar.YEAR);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:354: error: cannot find symbol
+        Date result = DateUtils.round((Object) baseCal, Calendar.YEAR);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:360: error: cannot find symbol
+        DateUtils.round((Object) null, Calendar.YEAR);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:365: error: cannot find symbol
+        DateUtils.round((Object) "not a date", Calendar.YEAR);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:375: error: cannot find symbol
+        Date result = DateUtils.truncate(cal.getTime(), Calendar.HOUR_OF_DAY);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:386: error: cannot find symbol
+        DateUtils.truncate((Date) null, Calendar.HOUR_OF_DAY);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:393: error: cannot find symbol
+        Date result = DateUtils.truncate(cal.getTime(), DateUtils.SEMI_MONTH);
+                                                        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:393: error: cannot find symbol
+        Date result = DateUtils.truncate(cal.getTime(), DateUtils.SEMI_MONTH);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:403: error: cannot find symbol
+        Date result = DateUtils.truncate(cal.getTime(), DateUtils.SEMI_MONTH);
+                                                        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:403: error: cannot find symbol
+        Date result = DateUtils.truncate(cal.getTime(), DateUtils.SEMI_MONTH);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:413: error: cannot find symbol
+        Date result = DateUtils.truncate(cal.getTime(), Calendar.AM_PM);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:421: error: cannot find symbol
+        DateUtils.truncate(baseDate, Calendar.ZONE_OFFSET);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:428: error: cannot find symbol
+        DateUtils.truncate(cal.getTime(), Calendar.HOUR_OF_DAY);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:437: error: cannot find symbol
+        Calendar result = DateUtils.truncate(cal, Calendar.MONTH);
+                          ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:443: error: cannot find symbol
+        DateUtils.truncate((Calendar) null, Calendar.HOUR_OF_DAY);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:450: error: cannot find symbol
+        Date result = DateUtils.truncate((Object) baseDate, Calendar.YEAR);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:456: error: cannot find symbol
+        Date result = DateUtils.truncate((Object) baseCal, Calendar.YEAR);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:462: error: cannot find symbol
+        DateUtils.truncate((Object) null, Calendar.YEAR);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:467: error: cannot find symbol
+        DateUtils.truncate((Object) "not a date", Calendar.YEAR);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:474: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseDate, DateUtils.RANGE_WEEK_SUNDAY);
+                                                   ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:474: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseDate, DateUtils.RANGE_WEEK_SUNDAY);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:481: error: cannot find symbol
+        DateUtils.iterator((Date) null, DateUtils.RANGE_WEEK_SUNDAY);
+                                        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:481: error: cannot find symbol
+        DateUtils.iterator((Date) null, DateUtils.RANGE_WEEK_SUNDAY);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:488: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_WEEK_SUNDAY);
+                                                  ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:488: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_WEEK_SUNDAY);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:500: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_WEEK_MONDAY);
+                                                  ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:500: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_WEEK_MONDAY);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:511: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_WEEK_RELATIVE);
+                                                  ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:511: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_WEEK_RELATIVE);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:522: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_WEEK_CENTER);
+                                                  ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:522: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_WEEK_CENTER);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:533: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_MONTH_SUNDAY);
+                                                  ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:533: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_MONTH_SUNDAY);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:543: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_MONTH_MONDAY);
+                                                  ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:543: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_MONTH_MONDAY);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:553: error: cannot find symbol
+        DateUtils.iterator((Calendar) null, DateUtils.RANGE_WEEK_SUNDAY);
+                                            ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:553: error: cannot find symbol
+        DateUtils.iterator((Calendar) null, DateUtils.RANGE_WEEK_SUNDAY);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:558: error: cannot find symbol
+        DateUtils.iterator(baseCal, 999);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:565: error: cannot find symbol
+        Iterator it = DateUtils.iterator((Object) baseDate, DateUtils.RANGE_WEEK_SUNDAY);
+                                                            ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:565: error: cannot find symbol
+        Iterator it = DateUtils.iterator((Object) baseDate, DateUtils.RANGE_WEEK_SUNDAY);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:571: error: cannot find symbol
+        Iterator it = DateUtils.iterator((Object) baseCal, DateUtils.RANGE_WEEK_SUNDAY);
+                                                           ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:571: error: cannot find symbol
+        Iterator it = DateUtils.iterator((Object) baseCal, DateUtils.RANGE_WEEK_SUNDAY);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:577: error: cannot find symbol
+        DateUtils.iterator((Object) null, DateUtils.RANGE_WEEK_SUNDAY);
+                                          ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:577: error: cannot find symbol
+        DateUtils.iterator((Object) null, DateUtils.RANGE_WEEK_SUNDAY);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:582: error: cannot find symbol
+        DateUtils.iterator((Object) "not a date", DateUtils.RANGE_WEEK_SUNDAY);
+                                                  ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:582: error: cannot find symbol
+        DateUtils.iterator((Object) "not a date", DateUtils.RANGE_WEEK_SUNDAY);
+        ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:589: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_WEEK_SUNDAY);
+                                                  ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:589: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_WEEK_SUNDAY);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:603: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_WEEK_SUNDAY);
+                                                  ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:603: error: cannot find symbol
+        Iterator it = DateUtils.iterator(baseCal, DateUtils.RANGE_WEEK_SUNDAY);
+                      ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:611: error: cannot find symbol
+        assertEquals(1000L, DateUtils.MILLIS_PER_SECOND);
+                            ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:612: error: cannot find symbol
+        assertEquals(60000L, DateUtils.MILLIS_PER_MINUTE);
+                             ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:613: error: cannot find symbol
+        assertEquals(3600000L, DateUtils.MILLIS_PER_HOUR);
+                               ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:614: error: cannot find symbol
+        assertEquals(86400000L, DateUtils.MILLIS_PER_DAY);
+                                ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:615: error: cannot find symbol
+        assertEquals(1000, DateUtils.MILLIS_IN_SECOND);
+                           ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+/tmp/evaluate_claude_Lang_65_dk68ssze/src/DateUtilsTest.java:616: error: cannot find symbol
+        assertEquals(60000, DateUtils.MILLIS_IN_MINUTE);
+                            ^
+  symbol:   variable DateUtils
+  location: class DateUtilsTest
+100 errors

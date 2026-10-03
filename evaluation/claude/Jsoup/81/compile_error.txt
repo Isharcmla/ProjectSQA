@@ -1,0 +1,181 @@
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:24: error: cannot find symbol
+        Document doc = DataUtil.load(tmp, "UTF-8", "http://example.com/");
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:32: error: cannot find symbol
+        DataUtil.load(notExist, "UTF-8", "http://example.com/");
+        ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:41: error: cannot find symbol
+        Document doc = DataUtil.load(in, "UTF-8", "http://example.com/");
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:49: error: cannot find symbol
+        Document doc = DataUtil.load(in, null, "http://example.com/");
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:59: error: cannot find symbol
+        Document doc = DataUtil.load(in, "UTF-8", "http://example.com/", Parser.xmlParser());
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:70: error: cannot find symbol
+        DataUtil.crossStreams(in, out);
+        ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:78: error: cannot find symbol
+        Document doc = DataUtil.parseInputStream(null, "UTF-8", "http://example.com/", Parser.htmlParser());
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:87: error: cannot find symbol
+        Document doc = DataUtil.parseInputStream(in, "UTF-8", "http://example.com/", Parser.htmlParser());
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:95: error: cannot find symbol
+        DataUtil.parseInputStream(in, "", "http://example.com/", Parser.htmlParser());
+        ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:104: error: cannot find symbol
+        Document doc = DataUtil.parseInputStream(in, null, "http://example.com/", Parser.htmlParser());
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:113: error: cannot find symbol
+        Document doc = DataUtil.parseInputStream(in, null, "http://example.com/", Parser.htmlParser());
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:122: error: cannot find symbol
+        Document doc = DataUtil.parseInputStream(in, null, "http://example.com/", Parser.xmlParser());
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:135: error: cannot find symbol
+        Document doc = DataUtil.parseInputStream(in, null, "http://example.com/", Parser.htmlParser());
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:148: error: cannot find symbol
+        Document doc = DataUtil.parseInputStream(in, null, "http://example.com/", Parser.htmlParser());
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:161: error: cannot find symbol
+        Document doc = DataUtil.parseInputStream(in, null, "http://example.com/", Parser.htmlParser());
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:175: error: cannot find symbol
+        Document doc = DataUtil.parseInputStream(in, null, "http://example.com/", Parser.htmlParser());
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:189: error: cannot find symbol
+        Document doc = DataUtil.parseInputStream(in, null, "http://example.com/", Parser.htmlParser());
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:197: error: cannot find symbol
+        Document doc = DataUtil.parseInputStream(in, null, "http://example.com/", Parser.htmlParser());
+                       ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:207: error: cannot find symbol
+        ByteBuffer buffer = DataUtil.readToByteBuffer(in, 0);
+                            ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:217: error: cannot find symbol
+        ByteBuffer buffer = DataUtil.readToByteBuffer(in, 5);
+                            ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:225: error: cannot find symbol
+        DataUtil.readToByteBuffer(in, -1);
+        ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:232: error: cannot find symbol
+        ByteBuffer buffer = DataUtil.readToByteBuffer(in);
+                            ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:248: error: cannot find symbol
+        ByteBuffer buffer = DataUtil.readFileToByteBuffer(tmp);
+                            ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:257: error: cannot find symbol
+        DataUtil.readFileToByteBuffer(notExist);
+        ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:264: error: cannot find symbol
+        ByteBuffer buffer = DataUtil.emptyByteBuffer();
+                            ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:273: error: cannot find symbol
+        String result = DataUtil.getCharsetFromContentType("text/html; charset=UTF-8");
+                        ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:279: error: cannot find symbol
+        assertNull(DataUtil.getCharsetFromContentType(null));
+                   ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:284: error: cannot find symbol
+        assertNull(DataUtil.getCharsetFromContentType("text/html"));
+                   ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:289: error: cannot find symbol
+        String result = DataUtil.getCharsetFromContentType("text/html; charset=BOGUS-CHARSET-XYZ");
+                        ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:295: error: cannot find symbol
+        String result = DataUtil.getCharsetFromContentType("text/html; charset=\"ISO-8859-1\"");
+                        ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:303: error: cannot find symbol
+        String boundary = DataUtil.mimeBoundary();
+                          ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:304: error: cannot find symbol
+        assertEquals(DataUtil.boundaryLength, boundary.length());
+                     ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:313: error: cannot find symbol
+        String b1 = DataUtil.mimeBoundary();
+                    ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:314: error: cannot find symbol
+        String b2 = DataUtil.mimeBoundary();
+                    ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:316: error: cannot find symbol
+        assertEquals(DataUtil.boundaryLength, b1.length());
+                     ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+/tmp/evaluate_claude_Jsoup_81_hva5g9nn/src/DataUtilTest.java:317: error: cannot find symbol
+        assertEquals(DataUtil.boundaryLength, b2.length());
+                     ^
+  symbol:   variable DataUtil
+  location: class DataUtilTest
+36 errors

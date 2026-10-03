@@ -1,0 +1,6 @@
+/tmp/evaluate_claude_JacksonDatabind_99_vw0acat1/src/ReferenceTypeTest.java:181: error: cannot find symbol
+        assertTrue(updated.isStatic());
+                          ^
+  symbol:   method isStatic()
+  location: variable updated of type ReferenceType
+1 error

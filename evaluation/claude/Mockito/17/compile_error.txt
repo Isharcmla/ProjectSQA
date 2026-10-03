@@ -1,0 +1,11 @@
+/tmp/evaluate_claude_Mockito_17_mkuh3v4a/src/MockSettingsImplTest.java:15: error: cannot find symbol
+    private MockSettingsImpl settings;
+            ^
+  symbol:   class MockSettingsImpl
+  location: class MockSettingsImplTest
+/tmp/evaluate_claude_Mockito_17_mkuh3v4a/src/MockSettingsImplTest.java:19: error: cannot find symbol
+        settings = new MockSettingsImpl();
+                       ^
+  symbol:   class MockSettingsImpl
+  location: class MockSettingsImplTest
+2 errors

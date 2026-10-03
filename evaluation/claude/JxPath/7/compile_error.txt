@@ -1,0 +1,111 @@
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:14: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+        ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:14: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+                                       ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:23: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+        ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:23: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+                                       ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:32: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+        ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:32: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+                                       ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:41: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+        ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:41: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+                                       ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:50: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+        ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:50: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+                                       ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:59: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+        ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:59: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+                                       ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:68: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+        ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:68: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+                                       ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:78: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+        ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:78: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+                                       ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:88: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+        ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:88: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+                                       ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:94: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(null, new Constant(1.0));
+        ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:94: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(null, new Constant(1.0));
+                                       ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:102: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+        ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+/tmp/evaluate_claude_JxPath_7_j3v4hqpt/src/CoreOperationLessThanTest.java:102: error: cannot find symbol
+        CoreOperationLessThan op = new CoreOperationLessThan(arg1, arg2);
+                                       ^
+  symbol:   class CoreOperationLessThan
+  location: class CoreOperationLessThanTest
+22 errors

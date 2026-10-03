@@ -1,0 +1,16 @@
+/tmp/evaluate_claude_JacksonXml_5_2bckzyo_/src/XmlSerializerProviderTest.java:1: error: cannot find symbol
+import com.fasterxml.jackson.databind.DefaultSerializerProvider;
+                                     ^
+  symbol:   class DefaultSerializerProvider
+  location: package com.fasterxml.jackson.databind
+/tmp/evaluate_claude_JacksonXml_5_2bckzyo_/src/XmlSerializerProviderTest.java:76: error: cannot find symbol
+        DefaultSerializerProvider copy = provider.copy();
+        ^
+  symbol:   class DefaultSerializerProvider
+  location: class XmlSerializerProviderTest
+/tmp/evaluate_claude_JacksonXml_5_2bckzyo_/src/XmlSerializerProviderTest.java:89: error: cannot find symbol
+        DefaultSerializerProvider instance = provider.createInstance(config, factory);
+        ^
+  symbol:   class DefaultSerializerProvider
+  location: class XmlSerializerProviderTest
+3 errors

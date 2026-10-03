@@ -1,0 +1,312 @@
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:7: error: cannot find symbol
+    private XmlDeclaration decl;
+            ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:97: error: crossStreams(InputStream,OutputStream) is not public in DataUtil; cannot be accessed from outside package
+        DataUtil.crossStreams(in, out);
+                ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:105: error: crossStreams(InputStream,OutputStream) is not public in DataUtil; cannot be accessed from outside package
+        DataUtil.crossStreams(in, out);
+                ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:115: error: parseByteData(ByteBuffer,String,String,Parser) is not public in DataUtil; cannot be accessed from outside package
+        Document doc = DataUtil.parseByteData(buffer, "UTF-8", "http://example.com/", Parser.htmlParser());
+                               ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:125: error: parseByteData(ByteBuffer,String,String,Parser) is not public in DataUtil; cannot be accessed from outside package
+        Document doc = DataUtil.parseByteData(buffer, null, "http://example.com/", Parser.htmlParser());
+                               ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:134: error: parseByteData(ByteBuffer,String,String,Parser) is not public in DataUtil; cannot be accessed from outside package
+        Document doc = DataUtil.parseByteData(buffer, null, "http://example.com/", Parser.htmlParser());
+                               ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:143: error: parseByteData(ByteBuffer,String,String,Parser) is not public in DataUtil; cannot be accessed from outside package
+        Document doc = DataUtil.parseByteData(buffer, null, "http://example.com/", Parser.htmlParser());
+                               ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:152: error: parseByteData(ByteBuffer,String,String,Parser) is not public in DataUtil; cannot be accessed from outside package
+        Document doc = DataUtil.parseByteData(buffer, null, "http://example.com/", Parser.xmlParser());
+                               ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:166: error: parseByteData(ByteBuffer,String,String,Parser) is not public in DataUtil; cannot be accessed from outside package
+        Document doc = DataUtil.parseByteData(buffer, null, "http://example.com/", Parser.htmlParser());
+                               ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:175: error: parseByteData(ByteBuffer,String,String,Parser) is not public in DataUtil; cannot be accessed from outside package
+        Document doc = DataUtil.parseByteData(buffer, null, "http://example.com/", Parser.htmlParser());
+                               ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:186: error: method readToByteBuffer in class DataUtil cannot be applied to given types;
+        ByteBuffer buffer = DataUtil.readToByteBuffer(in, 0);
+                                    ^
+  required: InputStream
+  found: InputStream,int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:194: error: method readToByteBuffer in class DataUtil cannot be applied to given types;
+        ByteBuffer buffer = DataUtil.readToByteBuffer(in, 5);
+                                    ^
+  required: InputStream
+  found: InputStream,int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:202: error: method readToByteBuffer in class DataUtil cannot be applied to given types;
+        DataUtil.readToByteBuffer(in, -1);
+                ^
+  required: InputStream
+  found: InputStream,int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:208: error: method readToByteBuffer in class DataUtil cannot be applied to given types;
+        ByteBuffer buffer = DataUtil.readToByteBuffer(in, 0);
+                                    ^
+  required: InputStream
+  found: InputStream,int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:218: error: readToByteBuffer(InputStream) is not public in DataUtil; cannot be accessed from outside package
+        ByteBuffer buffer = DataUtil.readToByteBuffer(in);
+                                    ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:232: error: readFileToByteBuffer(File) is not public in DataUtil; cannot be accessed from outside package
+        ByteBuffer buffer = DataUtil.readFileToByteBuffer(tempFile);
+                                    ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:240: error: readFileToByteBuffer(File) is not public in DataUtil; cannot be accessed from outside package
+        DataUtil.readFileToByteBuffer(nonExistent);
+                ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:247: error: emptyByteBuffer() is not public in DataUtil; cannot be accessed from outside package
+        ByteBuffer buffer = DataUtil.emptyByteBuffer();
+                                    ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:256: error: getCharsetFromContentType(String) is not public in DataUtil; cannot be accessed from outside package
+        String result = DataUtil.getCharsetFromContentType("text/html; charset=UTF-8");
+                                ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:262: error: getCharsetFromContentType(String) is not public in DataUtil; cannot be accessed from outside package
+        String result = DataUtil.getCharsetFromContentType(null);
+                                ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:268: error: getCharsetFromContentType(String) is not public in DataUtil; cannot be accessed from outside package
+        String result = DataUtil.getCharsetFromContentType("text/html");
+                                ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:274: error: getCharsetFromContentType(String) is not public in DataUtil; cannot be accessed from outside package
+        String result = DataUtil.getCharsetFromContentType("text/html; charset=\"UTF-8\"");
+                                ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:280: error: getCharsetFromContentType(String) is not public in DataUtil; cannot be accessed from outside package
+        String result = DataUtil.getCharsetFromContentType("text/html; charset=totally-invalid-charset-xyz");
+                                ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:286: error: getCharsetFromContentType(String) is not public in DataUtil; cannot be accessed from outside package
+        String result = DataUtil.getCharsetFromContentType("");
+                                ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:294: error: mimeBoundary() is not public in DataUtil; cannot be accessed from outside package
+        String boundary = DataUtil.mimeBoundary();
+                                  ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:296: error: boundaryLength is not public in DataUtil; cannot be accessed from outside package
+        assertEquals(DataUtil.boundaryLength, boundary.length());
+                             ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:301: error: mimeBoundary() is not public in DataUtil; cannot be accessed from outside package
+        String boundary = DataUtil.mimeBoundary();
+                                  ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:310: error: mimeBoundary() is not public in DataUtil; cannot be accessed from outside package
+        String boundary1 = DataUtil.mimeBoundary();
+                                   ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/DataUtilTest.java:311: error: mimeBoundary() is not public in DataUtil; cannot be accessed from outside package
+        String boundary2 = DataUtil.mimeBoundary();
+                                   ^
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:11: error: cannot find symbol
+        decl = new XmlDeclaration("xml", "http://example.com", false);
+                   ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:18: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "http://example.com/", true);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:18: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "http://example.com/", true);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:25: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("processing", "http://example.com/", true);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:25: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("processing", "http://example.com/", true);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:31: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("declaration", "http://example.com/", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:31: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("declaration", "http://example.com/", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:37: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:37: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:44: error: cannot find symbol
+        new XmlDeclaration(null, "http://example.com/", false);
+            ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:49: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("", "http://example.com/", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:49: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("", "http://example.com/", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:62: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("test", "uri", true);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:62: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("test", "uri", true);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:75: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("", "uri", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:75: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("", "uri", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:81: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("custom", "uri", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:81: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("custom", "uri", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:89: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("notxml", "uri", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:89: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("notxml", "uri", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:95: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:95: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:101: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:101: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:108: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:108: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:119: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:119: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:128: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:128: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:137: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:137: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:148: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", true);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:148: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", true);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:158: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:158: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:168: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("DOCTYPE", "uri", true);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:168: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("DOCTYPE", "uri", true);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:175: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:175: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:183: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+        ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+/tmp/evaluate_claude_Jsoup_52_zi1dl4b4/src/XmlDeclarationTest.java:183: error: cannot find symbol
+        XmlDeclaration d = new XmlDeclaration("xml", "uri", false);
+                               ^
+  symbol:   class XmlDeclaration
+  location: class XmlDeclarationTest
+71 errors

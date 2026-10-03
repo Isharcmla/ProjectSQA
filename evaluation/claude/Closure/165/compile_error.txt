@@ -1,0 +1,10 @@
+/tmp/evaluate_claude_Closure_165_wg7uuvi0/src/RecordTypeBuilderTest.java:15: error: <anonymous com.google.javascript.rhino.jstype.RecordTypeBuilderTest$1> is not abstract and does not override abstract method error(String,String,int,int) in ErrorReporter
+    ErrorReporter reporter = new ErrorReporter() {
+                                                 ^
+/tmp/evaluate_claude_Closure_165_wg7uuvi0/src/RecordTypeBuilderTest.java:16: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_claude_Closure_165_wg7uuvi0/src/RecordTypeBuilderTest.java:21: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+3 errors

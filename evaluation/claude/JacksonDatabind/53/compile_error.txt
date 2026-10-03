@@ -1,0 +1,5 @@
+/tmp/evaluate_claude_JacksonDatabind_53_iuts41pr/src/TypeBindingsTest.java:195: error: reference to createIfNeeded is ambiguous
+        TypeBindings tb = TypeBindings.createIfNeeded(Object.class, null);
+                                      ^
+  both method createIfNeeded(Class<?>,JavaType) in TypeBindings and method createIfNeeded(Class<?>,JavaType[]) in TypeBindings match
+1 error

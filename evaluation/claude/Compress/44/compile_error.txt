@@ -1,0 +1,201 @@
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:50: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:50: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:70: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:70: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:80: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:80: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:97: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:97: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:108: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:108: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:120: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:120: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:140: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:140: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:152: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:152: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:164: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:164: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:173: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:173: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:183: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:183: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:202: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:202: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:216: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:216: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:224: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:224: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:232: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:232: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:241: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:241: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:250: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:250: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:258: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:258: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:269: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(crc, in);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:269: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(crc, in);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:278: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+        ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+/tmp/evaluate_claude_Compress_44_hxr_ljsj/src/ChecksumCalculatingInputStreamTest.java:278: error: cannot find symbol
+        ChecksumCalculatingInputStream stream = new ChecksumCalculatingInputStream(checksum, bais);
+                                                    ^
+  symbol:   class ChecksumCalculatingInputStream
+  location: class ChecksumCalculatingInputStreamTest
+40 errors

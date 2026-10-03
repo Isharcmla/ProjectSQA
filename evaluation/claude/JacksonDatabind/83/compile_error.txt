@@ -1,0 +1,115 @@
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:36: error: cannot find symbol
+        Class<?>[] types = FromStringDeserializer.types();
+                           ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:67: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(File.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:69: error: _kind has protected access in Std
+        assertEquals(Std.STD_FILE, d._kind);
+                                    ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:74: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(URL.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:76: error: _kind has protected access in Std
+        assertEquals(Std.STD_URL, d._kind);
+                                   ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:81: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(URI.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:83: error: _kind has protected access in Std
+        assertEquals(Std.STD_URI, d._kind);
+                                   ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:88: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(Class.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:90: error: _kind has protected access in Std
+        assertEquals(Std.STD_CLASS, d._kind);
+                                     ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:95: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(JavaType.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:97: error: _kind has protected access in Std
+        assertEquals(Std.STD_JAVA_TYPE, d._kind);
+                                         ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:102: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(Currency.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:104: error: _kind has protected access in Std
+        assertEquals(Std.STD_CURRENCY, d._kind);
+                                        ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:109: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(Pattern.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:111: error: _kind has protected access in Std
+        assertEquals(Std.STD_PATTERN, d._kind);
+                                       ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:116: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(Locale.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:118: error: _kind has protected access in Std
+        assertEquals(Std.STD_LOCALE, d._kind);
+                                      ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:123: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(Charset.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:125: error: _kind has protected access in Std
+        assertEquals(Std.STD_CHARSET, d._kind);
+                                       ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:130: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(TimeZone.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:132: error: _kind has protected access in Std
+        assertEquals(Std.STD_TIME_ZONE, d._kind);
+                                         ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:137: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(InetAddress.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:139: error: _kind has protected access in Std
+        assertEquals(Std.STD_INET_ADDRESS, d._kind);
+                                            ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:144: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(InetSocketAddress.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:146: error: _kind has protected access in Std
+        assertEquals(Std.STD_INET_SOCKET_ADDRESS, d._kind);
+                                                   ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:151: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(StringBuilder.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:153: error: _kind has protected access in Std
+        assertEquals(Std.STD_STRING_BUILDER, d._kind);
+                                              ^
+/tmp/evaluate_claude_JacksonDatabind_83_29biah5l/src/FromStringDeserializerTest.java:158: error: cannot find symbol
+        Std d = FromStringDeserializer.findDeserializer(String.class);
+                ^
+  symbol:   variable FromStringDeserializer
+  location: class FromStringDeserializerTest
+28 errors

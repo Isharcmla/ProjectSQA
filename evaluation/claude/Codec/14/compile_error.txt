@@ -1,0 +1,326 @@
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:9: error: cannot find symbol
+    private PhoneticEngine genericEngine;
+            ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:10: error: cannot find symbol
+    private PhoneticEngine ashkenaziEngine;
+            ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:11: error: cannot find symbol
+    private PhoneticEngine sephardicEngine;
+            ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:15: error: cannot find symbol
+        genericEngine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true);
+                            ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:15: error: cannot find symbol
+        genericEngine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true);
+                                           ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:15: error: cannot find symbol
+        genericEngine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true);
+                                                             ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:16: error: cannot find symbol
+        ashkenaziEngine = new PhoneticEngine(NameType.ASHKENAZI, RuleType.APPROX, true);
+                              ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:16: error: cannot find symbol
+        ashkenaziEngine = new PhoneticEngine(NameType.ASHKENAZI, RuleType.APPROX, true);
+                                             ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:16: error: cannot find symbol
+        ashkenaziEngine = new PhoneticEngine(NameType.ASHKENAZI, RuleType.APPROX, true);
+                                                                 ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:17: error: cannot find symbol
+        sephardicEngine = new PhoneticEngine(NameType.SEPHARDIC, RuleType.APPROX, true);
+                              ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:17: error: cannot find symbol
+        sephardicEngine = new PhoneticEngine(NameType.SEPHARDIC, RuleType.APPROX, true);
+                                             ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:17: error: cannot find symbol
+        sephardicEngine = new PhoneticEngine(NameType.SEPHARDIC, RuleType.APPROX, true);
+                                                                 ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:24: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true);
+        ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:24: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true);
+                                    ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:24: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true);
+                                                   ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:24: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true);
+                                                                     ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:26: error: cannot find symbol
+        assertEquals(NameType.GENERIC, engine.getNameType());
+                     ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:27: error: cannot find symbol
+        assertEquals(RuleType.APPROX, engine.getRuleType());
+                     ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:33: error: cannot find symbol
+        new PhoneticEngine(NameType.GENERIC, RuleType.RULES, true);
+            ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:33: error: cannot find symbol
+        new PhoneticEngine(NameType.GENERIC, RuleType.RULES, true);
+                           ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:33: error: cannot find symbol
+        new PhoneticEngine(NameType.GENERIC, RuleType.RULES, true);
+                                             ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:38: error: cannot find symbol
+        new PhoneticEngine(NameType.GENERIC, RuleType.RULES, true, 10);
+            ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:38: error: cannot find symbol
+        new PhoneticEngine(NameType.GENERIC, RuleType.RULES, true, 10);
+                           ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:38: error: cannot find symbol
+        new PhoneticEngine(NameType.GENERIC, RuleType.RULES, true, 10);
+                                             ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:43: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.EXACT, false, 5);
+        ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:43: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.EXACT, false, 5);
+                                    ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:43: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.EXACT, false, 5);
+                                                   ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:43: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.EXACT, false, 5);
+                                                                     ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:46: error: cannot find symbol
+        assertEquals(RuleType.EXACT, engine.getRuleType());
+                     ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:51: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true);
+        ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:51: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true);
+                                    ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:51: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true);
+                                                   ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:51: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true);
+                                                                     ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:64: error: cannot find symbol
+        assertEquals(NameType.GENERIC, genericEngine.getNameType());
+                     ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:65: error: cannot find symbol
+        assertEquals(NameType.ASHKENAZI, ashkenaziEngine.getNameType());
+                     ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:66: error: cannot find symbol
+        assertEquals(NameType.SEPHARDIC, sephardicEngine.getNameType());
+                     ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:71: error: cannot find symbol
+        assertEquals(RuleType.APPROX, genericEngine.getRuleType());
+                     ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:81: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, false);
+        ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:81: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, false);
+                                    ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:81: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, false);
+                                                   ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:81: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, false);
+                                                                     ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:200: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, false);
+        ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:200: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, false);
+                                    ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:200: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, false);
+                                                   ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:200: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, false);
+                                                                     ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:208: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, false);
+        ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:208: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, false);
+                                    ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:208: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, false);
+                                                   ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:208: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, false);
+                                                                     ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:239: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true, 1);
+        ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:239: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true, 1);
+                                    ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:239: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true, 1);
+                                                   ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:239: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.APPROX, true, 1);
+                                                                     ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:258: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.EXACT, true);
+        ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:258: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.EXACT, true);
+                                    ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:258: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.EXACT, true);
+                                                   ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:258: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.GENERIC, RuleType.EXACT, true);
+                                                                     ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:266: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.ASHKENAZI, RuleType.EXACT, true);
+        ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:266: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.ASHKENAZI, RuleType.EXACT, true);
+                                    ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:266: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.ASHKENAZI, RuleType.EXACT, true);
+                                                   ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:266: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.ASHKENAZI, RuleType.EXACT, true);
+                                                                       ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:274: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.SEPHARDIC, RuleType.EXACT, true);
+        ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:274: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.SEPHARDIC, RuleType.EXACT, true);
+                                    ^
+  symbol:   class PhoneticEngine
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:274: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.SEPHARDIC, RuleType.EXACT, true);
+                                                   ^
+  symbol:   variable NameType
+  location: class PhoneticEngineTest
+/tmp/evaluate_claude_Codec_14_662orrl4/src/PhoneticEngineTest.java:274: error: cannot find symbol
+        PhoneticEngine engine = new PhoneticEngine(NameType.SEPHARDIC, RuleType.EXACT, true);
+                                                                       ^
+  symbol:   variable RuleType
+  location: class PhoneticEngineTest
+65 errors

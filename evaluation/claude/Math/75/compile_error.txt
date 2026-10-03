@@ -1,0 +1,101 @@
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:9: error: cannot find symbol
+    private Frequency freq;
+            ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:13: error: cannot find symbol
+        freq = new Frequency();
+                   ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:20: error: cannot find symbol
+        Frequency f = new Frequency();
+        ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:20: error: cannot find symbol
+        Frequency f = new Frequency();
+                          ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:31: error: cannot find symbol
+        Frequency f = new Frequency(reverseComparator);
+        ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:31: error: cannot find symbol
+        Frequency f = new Frequency(reverseComparator);
+                          ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:353: error: cannot find symbol
+        Frequency f = new Frequency(reverseComparator);
+        ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:353: error: cannot find symbol
+        Frequency f = new Frequency(reverseComparator);
+                          ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:479: error: cannot find symbol
+        Frequency f1 = new Frequency();
+        ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:479: error: cannot find symbol
+        Frequency f1 = new Frequency();
+                           ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:480: error: cannot find symbol
+        Frequency f2 = new Frequency();
+        ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:480: error: cannot find symbol
+        Frequency f2 = new Frequency();
+                           ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:512: error: cannot find symbol
+        Frequency f1 = new Frequency();
+        ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:512: error: cannot find symbol
+        Frequency f1 = new Frequency();
+                           ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:513: error: cannot find symbol
+        Frequency f2 = new Frequency();
+        ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:513: error: cannot find symbol
+        Frequency f2 = new Frequency();
+                           ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:521: error: cannot find symbol
+        Frequency f1 = new Frequency();
+        ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:521: error: cannot find symbol
+        Frequency f1 = new Frequency();
+                           ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:522: error: cannot find symbol
+        Frequency f2 = new Frequency();
+        ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+/tmp/evaluate_claude_Math_75_nwtxx4zu/src/FrequencyTest.java:522: error: cannot find symbol
+        Frequency f2 = new Frequency();
+                           ^
+  symbol:   class Frequency
+  location: class FrequencyTest
+20 errors

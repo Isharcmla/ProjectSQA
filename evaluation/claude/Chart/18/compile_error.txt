@@ -1,0 +1,100 @@
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:10: error: cannot find symbol
+    private DefaultKeyedValues data;
+            ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:98: error: cannot find symbol
+    @Test(expected = UnknownKeyException.class)
+                     ^
+  symbol:   class UnknownKeyException
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:14: error: cannot find symbol
+        data = new DefaultKeyedValues();
+                   ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:352: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+        ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:352: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+                                       ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:361: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+        ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:361: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+                                       ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:369: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+        ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:369: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+                                       ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:377: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+        ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:377: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+                                       ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:385: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+        ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:385: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+                                       ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:394: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+        ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:394: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+                                       ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:404: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+        ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:404: error: cannot find symbol
+        DefaultKeyedValues other = new DefaultKeyedValues();
+                                       ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:414: error: cannot find symbol
+        DefaultKeyedValues clone = (DefaultKeyedValues) data.clone();
+        ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+/tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValuesTest.java:414: error: cannot find symbol
+        DefaultKeyedValues clone = (DefaultKeyedValues) data.clone();
+                                    ^
+  symbol:   class DefaultKeyedValues
+  location: class DefaultKeyedValuesTest
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_claude_Chart_18_9na4b_bb/src/DefaultKeyedValues2DTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+19 errors

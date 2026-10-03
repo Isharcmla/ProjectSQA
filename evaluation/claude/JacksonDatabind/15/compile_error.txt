@@ -1,0 +1,459 @@
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:15: error: cannot find symbol
+    static class TestJavaType extends JavaType {
+                                      ^
+  symbol:   class JavaType
+  location: class JavaTypeTest
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:26: error: cannot find symbol
+        public JavaType withTypeHandler(Object h) {
+               ^
+  symbol:   class JavaType
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:31: error: cannot find symbol
+        public JavaType withContentTypeHandler(Object h) {
+               ^
+  symbol:   class JavaType
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:36: error: cannot find symbol
+        public JavaType withValueHandler(Object h) {
+               ^
+  symbol:   class JavaType
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:41: error: cannot find symbol
+        public JavaType withContentValueHandler(Object h) {
+               ^
+  symbol:   class JavaType
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:46: error: cannot find symbol
+        public JavaType withStaticTyping() {
+               ^
+  symbol:   class JavaType
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:51: error: cannot find symbol
+        protected JavaType _narrow(Class<?> subclass) {
+                  ^
+  symbol:   class JavaType
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:56: error: cannot find symbol
+        public JavaType narrowContentsBy(Class<?> contentClass) {
+               ^
+  symbol:   class JavaType
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:61: error: cannot find symbol
+        public JavaType widenContentsBy(Class<?> contentClass) {
+               ^
+  symbol:   class JavaType
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:114: error: cannot find symbol
+        protected JavaType _narrow(Class<?> subclass) {
+                  ^
+  symbol:   class JavaType
+  location: class HandlerDroppingJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:119: error: cannot find symbol
+        public JavaType withValueHandler(Object h) {
+               ^
+  symbol:   class JavaType
+  location: class HandlerDroppingJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:124: error: cannot find symbol
+        public JavaType withTypeHandler(Object h) {
+               ^
+  symbol:   class JavaType
+  location: class HandlerDroppingJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:134: error: cannot find symbol
+        private final JavaType _content;
+                      ^
+  symbol:   class JavaType
+  location: class ContainerJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:136: error: cannot find symbol
+        ContainerJavaType(Class<?> raw, JavaType content) {
+                                        ^
+  symbol:   class JavaType
+  location: class ContainerJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:162: error: cannot find symbol
+        public JavaType containedType(int index) {
+               ^
+  symbol:   class JavaType
+  location: class ContainerJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:178: error: cannot find symbol
+        public JavaType getContentType() {
+               ^
+  symbol:   class JavaType
+  location: class ContainerJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:183: error: cannot find symbol
+        public JavaType getKeyType() {
+               ^
+  symbol:   class JavaType
+  location: class ContainerJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:25: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:27: error: cannot find symbol
+            return new TestJavaType(_class, _valueHandler, h, _asStatic);
+                                    ^
+  symbol:   variable _class
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:27: error: cannot find symbol
+            return new TestJavaType(_class, _valueHandler, h, _asStatic);
+                                            ^
+  symbol:   variable _valueHandler
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:27: error: cannot find symbol
+            return new TestJavaType(_class, _valueHandler, h, _asStatic);
+                                                              ^
+  symbol:   variable _asStatic
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:30: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:35: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:37: error: cannot find symbol
+            return new TestJavaType(_class, h, _typeHandler, _asStatic);
+                                    ^
+  symbol:   variable _class
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:37: error: cannot find symbol
+            return new TestJavaType(_class, h, _typeHandler, _asStatic);
+                                               ^
+  symbol:   variable _typeHandler
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:37: error: cannot find symbol
+            return new TestJavaType(_class, h, _typeHandler, _asStatic);
+                                                             ^
+  symbol:   variable _asStatic
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:40: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:45: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:47: error: cannot find symbol
+            return new TestJavaType(_class, _valueHandler, _typeHandler, true);
+                                    ^
+  symbol:   variable _class
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:47: error: cannot find symbol
+            return new TestJavaType(_class, _valueHandler, _typeHandler, true);
+                                            ^
+  symbol:   variable _valueHandler
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:47: error: cannot find symbol
+            return new TestJavaType(_class, _valueHandler, _typeHandler, true);
+                                                           ^
+  symbol:   variable _typeHandler
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:50: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:52: error: cannot find symbol
+            return new TestJavaType(subclass, _valueHandler, _typeHandler, _asStatic);
+                                              ^
+  symbol:   variable _valueHandler
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:52: error: cannot find symbol
+            return new TestJavaType(subclass, _valueHandler, _typeHandler, _asStatic);
+                                                             ^
+  symbol:   variable _typeHandler
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:52: error: cannot find symbol
+            return new TestJavaType(subclass, _valueHandler, _typeHandler, _asStatic);
+                                                                           ^
+  symbol:   variable _asStatic
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:55: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:60: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:65: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:70: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:72: error: cannot find symbol
+            return _class;
+                   ^
+  symbol:   variable _class
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:75: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:77: error: cannot find symbol
+            return sb.append("Generic:").append(_class.getName());
+                                                ^
+  symbol:   variable _class
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:80: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:82: error: cannot find symbol
+            return sb.append("Erased:").append(_class.getName());
+                                               ^
+  symbol:   variable _class
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:85: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:87: error: cannot find symbol
+            return "[TestJavaType, class " + _class.getName() + "]";
+                                             ^
+  symbol:   variable _class
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:90: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:99: error: cannot find symbol
+            return other._class == _class;
+                        ^
+  symbol:   variable _class
+  location: variable other of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:99: error: cannot find symbol
+            return other._class == _class;
+                                   ^
+  symbol:   variable _class
+  location: class TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:120: error: cannot find symbol
+            return new HandlerDroppingJavaType(_class, h, _typeHandler);
+                                               ^
+  symbol:   variable _class
+  location: class HandlerDroppingJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:120: error: cannot find symbol
+            return new HandlerDroppingJavaType(_class, h, _typeHandler);
+                                                          ^
+  symbol:   variable _typeHandler
+  location: class HandlerDroppingJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:125: error: cannot find symbol
+            return new HandlerDroppingJavaType(_class, _valueHandler, h);
+                                               ^
+  symbol:   variable _class
+  location: class HandlerDroppingJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:125: error: cannot find symbol
+            return new HandlerDroppingJavaType(_class, _valueHandler, h);
+                                                       ^
+  symbol:   variable _valueHandler
+  location: class HandlerDroppingJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:146: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:151: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:156: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:161: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:169: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:177: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:182: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:203: error: cannot find symbol
+        assertEquals(Number.class, numberType.getRawClass());
+                                             ^
+  symbol:   method getRawClass()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:208: error: cannot find symbol
+        assertTrue(numberType.hasRawClass(Number.class));
+                             ^
+  symbol:   method hasRawClass(Class<Number>)
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:213: error: cannot find symbol
+        assertFalse(numberType.hasRawClass(String.class));
+                              ^
+  symbol:   method hasRawClass(Class<String>)
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:218: error: cannot find symbol
+        assertFalse(numberType.hasRawClass(null));
+                              ^
+  symbol:   method hasRawClass(<null>)
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:227: error: cannot find symbol
+        assertTrue(numberType.isAbstract());
+                             ^
+  symbol:   method isAbstract()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:233: error: cannot find symbol
+        assertFalse(t.isAbstract());
+                     ^
+  symbol:   method isAbstract()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:243: error: cannot find symbol
+        assertTrue(t.isConcrete());
+                    ^
+  symbol:   method isConcrete()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:249: error: cannot find symbol
+        assertFalse(t.isConcrete());
+                     ^
+  symbol:   method isConcrete()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:255: error: cannot find symbol
+        assertTrue(t.isConcrete());
+                    ^
+  symbol:   method isConcrete()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:260: error: cannot find symbol
+        assertFalse(numberType.isConcrete());
+                              ^
+  symbol:   method isConcrete()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:270: error: cannot find symbol
+        assertTrue(t.isThrowable());
+                    ^
+  symbol:   method isThrowable()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:276: error: cannot find symbol
+        assertFalse(t.isThrowable());
+                     ^
+  symbol:   method isThrowable()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:285: error: cannot find symbol
+        assertFalse(numberType.isArrayType());
+                              ^
+  symbol:   method isArrayType()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:287: error: cannot find symbol
+        assertFalse(arrType.isArrayType());
+                           ^
+  symbol:   method isArrayType()
+  location: variable arrType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:297: error: cannot find symbol
+        assertTrue(t.isEnumType());
+                    ^
+  symbol:   method isEnumType()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:303: error: cannot find symbol
+        assertFalse(t.isEnumType());
+                     ^
+  symbol:   method isEnumType()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:313: error: cannot find symbol
+        assertTrue(t.isInterface());
+                    ^
+  symbol:   method isInterface()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:319: error: cannot find symbol
+        assertFalse(t.isInterface());
+                     ^
+  symbol:   method isInterface()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:329: error: cannot find symbol
+        assertTrue(t.isPrimitive());
+                    ^
+  symbol:   method isPrimitive()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:335: error: cannot find symbol
+        assertFalse(t.isPrimitive());
+                     ^
+  symbol:   method isPrimitive()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:345: error: cannot find symbol
+        assertTrue(t.isFinal());
+                    ^
+  symbol:   method isFinal()
+  location: variable t of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:350: error: cannot find symbol
+        assertFalse(numberType.isFinal());
+                              ^
+  symbol:   method isFinal()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:370: error: cannot find symbol
+        assertFalse(numberType.isCollectionLikeType());
+                              ^
+  symbol:   method isCollectionLikeType()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:381: error: cannot find symbol
+        assertFalse(numberType.isMapLikeType());
+                              ^
+  symbol:   method isMapLikeType()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:396: error: cannot find symbol
+        assertFalse(numberType.useStaticType());
+                              ^
+  symbol:   method useStaticType()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:401: error: cannot find symbol
+        JavaType t = numberType.withStaticTyping();
+        ^
+  symbol:   class JavaType
+  location: class JavaTypeTest
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:411: error: cannot find symbol
+        assertFalse(numberType.hasGenericTypes());
+                              ^
+  symbol:   method hasGenericTypes()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:417: error: cannot find symbol
+        assertTrue(c.hasGenericTypes());
+                    ^
+  symbol:   method hasGenericTypes()
+  location: variable c of type ContainerJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:422: error: cannot find symbol
+        assertEquals(0, numberType.containedTypeCount());
+                                  ^
+  symbol:   method containedTypeCount()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:427: error: cannot find symbol
+        assertNull(numberType.containedType(0));
+                             ^
+  symbol:   method containedType(int)
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:432: error: cannot find symbol
+        assertNull(numberType.containedTypeName(0));
+                             ^
+  symbol:   method containedTypeName(int)
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:454: error: cannot find symbol
+        assertNull(numberType.getKeyType());
+                             ^
+  symbol:   method getKeyType()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:459: error: cannot find symbol
+        assertNull(numberType.getContentType());
+                             ^
+  symbol:   method getContentType()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:483: error: cannot find symbol
+        JavaType unknown = numberType.containedTypeOrUnknown(0);
+        ^
+  symbol:   class JavaType
+  location: class JavaTypeTest
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:483: error: cannot find symbol
+        JavaType unknown = numberType.containedTypeOrUnknown(0);
+                                     ^
+  symbol:   method containedTypeOrUnknown(int)
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:491: error: cannot find symbol
+        JavaType result = c.containedTypeOrUnknown(0);
+        ^
+  symbol:   class JavaType
+  location: class JavaTypeTest
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:491: error: cannot find symbol
+        JavaType result = c.containedTypeOrUnknown(0);
+                           ^
+  symbol:   method containedTypeOrUnknown(int)
+  location: variable c of type ContainerJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:501: error: cannot find symbol
+        assertNull(numberType.<Object>getValueHandler());
+                             ^
+  symbol:   method <Object>getValueHandler()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:506: error: cannot find symbol
+        assertNull(numberType.<Object>getTypeHandler());
+                             ^
+  symbol:   method <Object>getTypeHandler()
+  location: variable numberType of type TestJavaType
+/tmp/evaluate_claude_JacksonDatabind_15_hxectki0/src/JavaTypeTest.java:512: error: cannot find symbol
+        JavaType t = numberType.withValueHandler(handler);
+        ^
+  symbol:   class JavaType
+  location: class JavaTypeTest
+100 errors

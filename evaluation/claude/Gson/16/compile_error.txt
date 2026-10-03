@@ -1,0 +1,401 @@
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:82: error: cannot find symbol
+        ParameterizedType pt = $Gson$Types.newParameterizedTypeWithOwner(null, List.class, String.class);
+                               ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:91: error: cannot find symbol
+        ParameterizedType pt = $Gson$Types.newParameterizedTypeWithOwner(null, List.class);
+                               ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:97: error: cannot find symbol
+        $Gson$Types.newParameterizedTypeWithOwner(null, List.class, int.class);
+        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:102: error: cannot find symbol
+        $Gson$Types.newParameterizedTypeWithOwner(null, List.class, (Type) null);
+        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:109: error: cannot find symbol
+        GenericArrayType gat = $Gson$Types.arrayOf(String.class);
+                               ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:118: error: cannot find symbol
+        WildcardType wt = $Gson$Types.subtypeOf(String.class);
+                          ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:125: error: cannot find symbol
+        WildcardType wt = $Gson$Types.subtypeOf(Object.class);
+                          ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:131: error: cannot find symbol
+        WildcardType inner = $Gson$Types.subtypeOf(String.class);
+                             ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:132: error: cannot find symbol
+        WildcardType outer = $Gson$Types.subtypeOf(inner);
+                             ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:140: error: cannot find symbol
+        WildcardType wt = $Gson$Types.supertypeOf(String.class);
+                          ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:147: error: cannot find symbol
+        WildcardType inner = $Gson$Types.supertypeOf(String.class);
+                             ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:148: error: cannot find symbol
+        WildcardType outer = $Gson$Types.supertypeOf(inner);
+                             ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:156: error: cannot find symbol
+        Type result = $Gson$Types.canonicalize(String.class);
+                      ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:162: error: cannot find symbol
+        Type result = $Gson$Types.canonicalize(String[].class);
+                      ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:169: error: cannot find symbol
+        ParameterizedType pt = $Gson$Types.newParameterizedTypeWithOwner(null, List.class, String.class);
+                               ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:170: error: cannot find symbol
+        Type result = $Gson$Types.canonicalize(pt);
+                      ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:177: error: cannot find symbol
+        GenericArrayType gat = $Gson$Types.arrayOf(String.class);
+                               ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:178: error: cannot find symbol
+        Type result = $Gson$Types.canonicalize(gat);
+                      ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:184: error: cannot find symbol
+        WildcardType wt = $Gson$Types.subtypeOf(String.class);
+                          ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:185: error: cannot find symbol
+        Type result = $Gson$Types.canonicalize(wt);
+                      ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:192: error: cannot find symbol
+        Type result = $Gson$Types.canonicalize(ut);
+                      ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:200: error: cannot find symbol
+        assertEquals(String.class, $Gson$Types.getRawType(String.class));
+                                   ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:205: error: cannot find symbol
+        ParameterizedType pt = $Gson$Types.newParameterizedTypeWithOwner(null, List.class, String.class);
+                               ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:206: error: cannot find symbol
+        assertEquals(List.class, $Gson$Types.getRawType(pt));
+                                 ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:211: error: cannot find symbol
+        GenericArrayType gat = $Gson$Types.arrayOf(String.class);
+                               ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:212: error: cannot find symbol
+        Class<?> rawType = $Gson$Types.getRawType(gat);
+                           ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:219: error: cannot find symbol
+        assertEquals(Object.class, $Gson$Types.getRawType(tv));
+                                   ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:224: error: cannot find symbol
+        WildcardType wt = $Gson$Types.subtypeOf(String.class);
+                          ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:225: error: cannot find symbol
+        assertEquals(String.class, $Gson$Types.getRawType(wt));
+                                   ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:230: error: cannot find symbol
+        $Gson$Types.getRawType(null);
+        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:235: error: cannot find symbol
+        $Gson$Types.getRawType(new UnknownType());
+        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:242: error: cannot find symbol
+        assertTrue($Gson$Types.equals(String.class, String.class));
+                   ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:247: error: cannot find symbol
+        assertFalse($Gson$Types.equals(String.class, Integer.class));
+                    ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:252: error: cannot find symbol
+        ParameterizedType a = $Gson$Types.newParameterizedTypeWithOwner(null, List.class, String.class);
+                              ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:253: error: cannot find symbol
+        ParameterizedType b = $Gson$Types.newParameterizedTypeWithOwner(null, List.class, String.class);
+                              ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:254: error: cannot find symbol
+        assertTrue($Gson$Types.equals(a, b));
+                   ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:259: error: cannot find symbol
+        ParameterizedType a = $Gson$Types.newParameterizedTypeWithOwner(null, List.class, String.class);
+                              ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:260: error: cannot find symbol
+        assertFalse($Gson$Types.equals(a, String.class));
+                    ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:265: error: cannot find symbol
+        GenericArrayType a = $Gson$Types.arrayOf(String.class);
+                             ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:266: error: cannot find symbol
+        GenericArrayType b = $Gson$Types.arrayOf(String.class);
+                             ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:267: error: cannot find symbol
+        assertTrue($Gson$Types.equals(a, b));
+                   ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:272: error: cannot find symbol
+        GenericArrayType a = $Gson$Types.arrayOf(String.class);
+                             ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:273: error: cannot find symbol
+        assertFalse($Gson$Types.equals(a, String.class));
+                    ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:278: error: cannot find symbol
+        WildcardType a = $Gson$Types.subtypeOf(String.class);
+                         ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:279: error: cannot find symbol
+        WildcardType b = $Gson$Types.subtypeOf(String.class);
+                         ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:280: error: cannot find symbol
+        assertTrue($Gson$Types.equals(a, b));
+                   ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:285: error: cannot find symbol
+        WildcardType a = $Gson$Types.subtypeOf(String.class);
+                         ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:286: error: cannot find symbol
+        assertFalse($Gson$Types.equals(a, String.class));
+                    ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:293: error: cannot find symbol
+        assertTrue($Gson$Types.equals(a, b));
+                   ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:299: error: cannot find symbol
+        assertFalse($Gson$Types.equals(a, String.class));
+                    ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:306: error: cannot find symbol
+        assertFalse($Gson$Types.equals(a, b));
+                    ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:313: error: cannot find symbol
+        assertEquals("java.lang.String", $Gson$Types.typeToString(String.class));
+                                         ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:318: error: cannot find symbol
+        ParameterizedType pt = $Gson$Types.newParameterizedTypeWithOwner(null, List.class, String.class);
+                               ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:319: error: cannot find symbol
+        assertEquals(pt.toString(), $Gson$Types.typeToString(pt));
+                                    ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:326: error: cannot find symbol
+        Type result = $Gson$Types.getArrayComponentType(String[].class);
+                      ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:332: error: cannot find symbol
+        GenericArrayType gat = $Gson$Types.arrayOf(String.class);
+                               ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:333: error: cannot find symbol
+        Type result = $Gson$Types.getArrayComponentType(gat);
+                      ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:339: error: cannot find symbol
+        ParameterizedType pt = $Gson$Types.newParameterizedTypeWithOwner(null, List.class, String.class);
+                               ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:340: error: cannot find symbol
+        $Gson$Types.getArrayComponentType(pt);
+        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:347: error: cannot find symbol
+        Type elementType = $Gson$Types.getCollectionElementType(StringList.class, StringList.class);
+                           ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:353: error: cannot find symbol
+        Type elementType = $Gson$Types.getCollectionElementType(RawList.class, RawList.class);
+                           ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:359: error: cannot find symbol
+        $Gson$Types.getCollectionElementType(String.class, String.class);
+        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:366: error: cannot find symbol
+        Type[] types = $Gson$Types.getMapKeyAndValueTypes(Properties.class, Properties.class);
+                       ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:372: error: cannot find symbol
+        Type[] types = $Gson$Types.getMapKeyAndValueTypes(IntegerStringMap.class, IntegerStringMap.class);
+                       ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:378: error: cannot find symbol
+        Type[] types = $Gson$Types.getMapKeyAndValueTypes(RawMap.class, RawMap.class);
+                       ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:384: error: cannot find symbol
+        $Gson$Types.getMapKeyAndValueTypes(String.class, String.class);
+        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:393: error: cannot find symbol
+        Type resolved = $Gson$Types.resolve(context, StringBox.class, t);
+                        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:399: error: cannot find symbol
+        Type resolved = $Gson$Types.resolve(String.class, String.class, int[].class);
+                        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:408: error: cannot find symbol
+        Type resolved = $Gson$Types.resolve(context, StringArrayBox.class, toResolve);
+                        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:409: error: cannot find symbol
+        Type componentType = $Gson$Types.getArrayComponentType(resolved);
+                             ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:418: error: cannot find symbol
+        Type resolved = $Gson$Types.resolve(context, StringBox2.class, toResolve);
+                        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:430: error: cannot find symbol
+        Type resolved = $Gson$Types.resolve(context, StringBox2.class, toResolve);
+                        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:439: error: cannot find symbol
+        Type resolved = $Gson$Types.resolve(String.class, String.class, Integer.class);
+                        ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:447: error: cannot find symbol
+        ParameterizedType a = $Gson$Types.newParameterizedTypeWithOwner(null, List.class, String.class);
+                              ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:448: error: cannot find symbol
+        ParameterizedType b = $Gson$Types.newParameterizedTypeWithOwner(null, List.class, String.class);
+                              ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:456: error: cannot find symbol
+        GenericArrayType a = $Gson$Types.arrayOf(String.class);
+                             ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:457: error: cannot find symbol
+        GenericArrayType b = $Gson$Types.arrayOf(String.class);
+                             ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:465: error: cannot find symbol
+        WildcardType a = $Gson$Types.subtypeOf(String.class);
+                         ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:466: error: cannot find symbol
+        WildcardType b = $Gson$Types.subtypeOf(String.class);
+                         ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+/tmp/evaluate_claude_Gson_16_g00xc6dw/src/$Gson$TypesTest.java:474: error: cannot find symbol
+        WildcardType wt = $Gson$Types.supertypeOf(String.class);
+                          ^
+  symbol:   variable $Gson$Types
+  location: class $Gson$TypesTest
+80 errors

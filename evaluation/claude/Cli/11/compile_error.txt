@@ -1,0 +1,396 @@
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:11: error: cannot find symbol
+    private HelpFormatter formatter;
+            ^
+  symbol:   class HelpFormatter
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:15: error: cannot find symbol
+        formatter = new HelpFormatter();
+                        ^
+  symbol:   class HelpFormatter
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:22: error: cannot find symbol
+        Assert.assertEquals(HelpFormatter.DEFAULT_WIDTH, formatter.getWidth());
+                            ^
+  symbol:   variable HelpFormatter
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:39: error: cannot find symbol
+        Assert.assertEquals(HelpFormatter.DEFAULT_LEFT_PAD, formatter.getLeftPadding());
+                            ^
+  symbol:   variable HelpFormatter
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:50: error: cannot find symbol
+        Assert.assertEquals(HelpFormatter.DEFAULT_DESC_PAD, formatter.getDescPadding());
+                            ^
+  symbol:   variable HelpFormatter
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:61: error: cannot find symbol
+        Assert.assertEquals(HelpFormatter.DEFAULT_SYNTAX_PREFIX, formatter.getSyntaxPrefix());
+                            ^
+  symbol:   variable HelpFormatter
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:83: error: cannot find symbol
+        Assert.assertEquals(HelpFormatter.DEFAULT_OPT_PREFIX, formatter.getOptPrefix());
+                            ^
+  symbol:   variable HelpFormatter
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:94: error: cannot find symbol
+        Assert.assertEquals(HelpFormatter.DEFAULT_LONG_OPT_PREFIX, formatter.getLongOptPrefix());
+                            ^
+  symbol:   variable HelpFormatter
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:105: error: cannot find symbol
+        Assert.assertEquals(HelpFormatter.DEFAULT_ARG_NAME, formatter.getArgName());
+                            ^
+  symbol:   variable HelpFormatter
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:140: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:140: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:147: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:147: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:154: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:154: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:161: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:161: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:168: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:168: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:175: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:175: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:182: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:182: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:193: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:193: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:204: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:204: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:212: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:212: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:220: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:220: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:233: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:233: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:234: error: cannot find symbol
+        Option opt = new Option("a", false, "option a");
+        ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:234: error: cannot find symbol
+        Option opt = new Option("a", false, "option a");
+                         ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:255: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:255: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:256: error: cannot find symbol
+        Option opt = new Option("a", false, "option a");
+        ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:256: error: cannot find symbol
+        Option opt = new Option("a", false, "option a");
+                         ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:268: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:268: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:269: error: cannot find symbol
+        OptionGroup group = new OptionGroup();
+        ^
+  symbol:   class OptionGroup
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:269: error: cannot find symbol
+        OptionGroup group = new OptionGroup();
+                                ^
+  symbol:   class OptionGroup
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:270: error: cannot find symbol
+        Option opt1 = new Option("a", false, "option a");
+        ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:270: error: cannot find symbol
+        Option opt1 = new Option("a", false, "option a");
+                          ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:271: error: cannot find symbol
+        Option opt2 = new Option("b", false, "option b");
+        ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:271: error: cannot find symbol
+        Option opt2 = new Option("b", false, "option b");
+                          ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:284: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:284: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:285: error: cannot find symbol
+        OptionGroup group = new OptionGroup();
+        ^
+  symbol:   class OptionGroup
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:285: error: cannot find symbol
+        OptionGroup group = new OptionGroup();
+                                ^
+  symbol:   class OptionGroup
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:286: error: cannot find symbol
+        Option opt1 = new Option("a", false, "option a");
+        ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:286: error: cannot find symbol
+        Option opt1 = new Option("a", false, "option a");
+                          ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:287: error: cannot find symbol
+        Option opt2 = new Option("b", false, "option b");
+        ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:287: error: cannot find symbol
+        Option opt2 = new Option("b", false, "option b");
+                          ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:302: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:302: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:303: error: cannot find symbol
+        Option opt = new Option(null, "longopt", false, "long option");
+        ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:303: error: cannot find symbol
+        Option opt = new Option(null, "longopt", false, "long option");
+                         ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:314: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:314: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:315: error: cannot find symbol
+        Option opt = new Option("a", true, "option a");
+        ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:315: error: cannot find symbol
+        Option opt = new Option("a", true, "option a");
+                         ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:329: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:329: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:341: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:341: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:383: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:383: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:393: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:393: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:394: error: cannot find symbol
+        Option opt = new Option("a", true, "desc");
+        ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:394: error: cannot find symbol
+        Option opt = new Option("a", true, "desc");
+                         ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:404: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:404: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:405: error: cannot find symbol
+        Option opt = new Option("a", true, "desc");
+        ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:405: error: cannot find symbol
+        Option opt = new Option("a", true, "desc");
+                         ^
+  symbol:   class Option
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:415: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+/tmp/evaluate_claude_Cli_11_kfbn_y5p/src/HelpFormatterTest.java:415: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class HelpFormatterTest
+79 errors

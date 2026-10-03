@@ -1,0 +1,311 @@
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:9: error: cannot find symbol
+        WordUtils wu = new WordUtils();
+        ^
+  symbol:   class WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:9: error: cannot find symbol
+        WordUtils wu = new WordUtils();
+                           ^
+  symbol:   class WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:16: error: cannot find symbol
+        Assert.assertNull(WordUtils.wrap(null, 20));
+                          ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:21: error: cannot find symbol
+        Assert.assertEquals("", WordUtils.wrap("", 20));
+                                ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:31: error: cannot find symbol
+        Assert.assertEquals(expected, WordUtils.wrap(input, 20));
+                                      ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:37: error: cannot find symbol
+        String result = WordUtils.wrap(input, 0);
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:44: error: cannot find symbol
+        Assert.assertEquals("short", WordUtils.wrap(input, 20));
+                                     ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:50: error: cannot find symbol
+        Assert.assertNull(WordUtils.wrap(null, 20, "\n", true));
+                          ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:56: error: cannot find symbol
+        String result = WordUtils.wrap(input, 20, "\n", false);
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:63: error: cannot find symbol
+        String result = WordUtils.wrap(input, 10, "\n", true);
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:70: error: cannot find symbol
+        String result = WordUtils.wrap(input, 10, "\n", false);
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:77: error: cannot find symbol
+        String result = WordUtils.wrap(input, 10, "\n", false);
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:84: error: cannot find symbol
+        String result = WordUtils.wrap(input, 10, "\n", false);
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:91: error: cannot find symbol
+        String result = WordUtils.wrap(input, -5, "\n", false);
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:98: error: cannot find symbol
+        Assert.assertNull(WordUtils.capitalize(null));
+                          ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:103: error: cannot find symbol
+        Assert.assertEquals("", WordUtils.capitalize(""));
+                                ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:108: error: cannot find symbol
+        Assert.assertEquals("I Am FINE", WordUtils.capitalize("i am FINE"));
+                                         ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:114: error: cannot find symbol
+        Assert.assertNull(WordUtils.capitalize(null, new char[]{'.'}));
+                          ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:119: error: cannot find symbol
+        Assert.assertEquals("", WordUtils.capitalize("", new char[]{'.'}));
+                                ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:125: error: cannot find symbol
+        Assert.assertEquals(input, WordUtils.capitalize(input, new char[0]));
+                                   ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:130: error: cannot find symbol
+        Assert.assertEquals("I Am Fine", WordUtils.capitalize("i am fine", null));
+                                         ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:135: error: cannot find symbol
+        Assert.assertEquals("I aM.Fine", WordUtils.capitalize("i aM.fine", new char[]{'.'}));
+                                         ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:141: error: cannot find symbol
+        Assert.assertNull(WordUtils.capitalizeFully(null));
+                          ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:146: error: cannot find symbol
+        Assert.assertEquals("", WordUtils.capitalizeFully(""));
+                                ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:151: error: cannot find symbol
+        Assert.assertEquals("I Am Fine", WordUtils.capitalizeFully("i am FINE"));
+                                         ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:157: error: cannot find symbol
+        Assert.assertNull(WordUtils.capitalizeFully(null, new char[]{'.'}));
+                          ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:162: error: cannot find symbol
+        Assert.assertEquals("", WordUtils.capitalizeFully("", new char[]{'.'}));
+                                ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:168: error: cannot find symbol
+        Assert.assertEquals(input, WordUtils.capitalizeFully(input, new char[0]));
+                                   ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:173: error: cannot find symbol
+        Assert.assertEquals("I Am Fine", WordUtils.capitalizeFully("I AM FINE", null));
+                                         ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:178: error: cannot find symbol
+        Assert.assertEquals("I am.Fine", WordUtils.capitalizeFully("i aM.fine", new char[]{'.'}));
+                                         ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:184: error: cannot find symbol
+        Assert.assertNull(WordUtils.uncapitalize(null));
+                          ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:189: error: cannot find symbol
+        Assert.assertEquals("", WordUtils.uncapitalize(""));
+                                ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:194: error: cannot find symbol
+        Assert.assertEquals("i am fINE", WordUtils.uncapitalize("I Am FINE"));
+                                         ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:200: error: cannot find symbol
+        Assert.assertNull(WordUtils.uncapitalize(null, new char[]{'.'}));
+                          ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:205: error: cannot find symbol
+        Assert.assertEquals("", WordUtils.uncapitalize("", new char[]{'.'}));
+                                ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:211: error: cannot find symbol
+        Assert.assertEquals(input, WordUtils.uncapitalize(input, new char[0]));
+                                   ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:216: error: cannot find symbol
+        Assert.assertEquals("i aM fINE", WordUtils.uncapitalize("I aM FINE", null));
+                                         ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:221: error: cannot find symbol
+        Assert.assertEquals("i AM.fINE", WordUtils.uncapitalize("I AM.FINE", new char[]{'.'}));
+                                         ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:227: error: cannot find symbol
+        Assert.assertNull(WordUtils.swapCase(null));
+                          ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:232: error: cannot find symbol
+        Assert.assertEquals("", WordUtils.swapCase(""));
+                                ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:237: error: cannot find symbol
+        Assert.assertEquals("tHE DOG HAS A bone", WordUtils.swapCase("The dog has a BONE"));
+                                                  ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:245: error: cannot find symbol
+        String result = WordUtils.swapCase(input);
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:251: error: cannot find symbol
+        Assert.assertEquals("123", WordUtils.swapCase("123"));
+                                   ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:257: error: cannot find symbol
+        Assert.assertNull(WordUtils.initials(null));
+                          ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:262: error: cannot find symbol
+        Assert.assertEquals("", WordUtils.initials(""));
+                                ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:267: error: cannot find symbol
+        Assert.assertEquals("BJL", WordUtils.initials("Ben John Lee"));
+                                   ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:272: error: cannot find symbol
+        Assert.assertEquals("BJ", WordUtils.initials("Ben J.Lee"));
+                                  ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:278: error: cannot find symbol
+        Assert.assertNull(WordUtils.initials(null, new char[]{' '}));
+                          ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:283: error: cannot find symbol
+        Assert.assertEquals("", WordUtils.initials("", new char[]{' '}));
+                                ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:288: error: cannot find symbol
+        Assert.assertEquals("", WordUtils.initials("Ben John Lee", new char[0]));
+                                ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:293: error: cannot find symbol
+        Assert.assertEquals("BJL", WordUtils.initials("Ben John Lee", null));
+                                   ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:298: error: cannot find symbol
+        Assert.assertEquals("BJL", WordUtils.initials("Ben J.Lee", new char[]{' ', '.'}));
+                                   ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:304: error: cannot find symbol
+        Assert.assertNull(WordUtils.abbreviate(null, 5, 10, "..."));
+                          ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:309: error: cannot find symbol
+        Assert.assertEquals("", WordUtils.abbreviate("", 5, 10, "..."));
+                                ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:315: error: cannot find symbol
+        String result = WordUtils.abbreviate(input, 10, 20, "");
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:322: error: cannot find symbol
+        String result = WordUtils.abbreviate(input, 3, -1, "...");
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:329: error: cannot find symbol
+        String result = WordUtils.abbreviate(input, 3, 5, "...");
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:336: error: cannot find symbol
+        String result = WordUtils.abbreviate(input, 3, 6, "...");
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:343: error: cannot find symbol
+        String result = WordUtils.abbreviate(input, 5, 2, "...");
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:350: error: cannot find symbol
+        String result = WordUtils.abbreviate(input, 3, -1, "...");
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:357: error: cannot find symbol
+        String result = WordUtils.abbreviate(input, 3, 5, null);
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+/tmp/evaluate_claude_Lang_45_gady6fj4/src/WordUtilsTest.java:364: error: cannot find symbol
+        String result = WordUtils.abbreviate(input, 2, 3, "...");
+                        ^
+  symbol:   variable WordUtils
+  location: class WordUtilsTest
+62 errors

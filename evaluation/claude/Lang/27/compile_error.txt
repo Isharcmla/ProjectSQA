@@ -1,0 +1,23 @@
+/tmp/evaluate_claude_Lang_27_cmhxoeu7/src/NumberUtilsTest.java:1: error: class, interface, or enum expected
+NumberUtilsTest.java
+^
+/tmp/evaluate_claude_Lang_27_cmhxoeu7/src/NumberUtilsTest.java:2: error: illegal character: '`'
+```java
+^
+/tmp/evaluate_claude_Lang_27_cmhxoeu7/src/NumberUtilsTest.java:2: error: illegal character: '`'
+```java
+ ^
+/tmp/evaluate_claude_Lang_27_cmhxoeu7/src/NumberUtilsTest.java:2: error: illegal character: '`'
+```java
+  ^
+/tmp/evaluate_claude_Lang_27_cmhxoeu7/src/NumberUtilsTest.java:965: error: illegal character: '`'
+```
+^
+/tmp/evaluate_claude_Lang_27_cmhxoeu7/src/NumberUtilsTest.java:965: error: illegal character: '`'
+```
+ ^
+/tmp/evaluate_claude_Lang_27_cmhxoeu7/src/NumberUtilsTest.java:965: error: illegal character: '`'
+```
+  ^
+/tmp/evaluate_claude_Lang_27_cmhxoeu7/src/NumberUtilsTest.java:966: error: reached end of file while parsing
+8 errors

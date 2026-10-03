@@ -1,0 +1,64 @@
+/tmp/evaluate_claude_Jsoup_22_il8n_34f/src/ElementsTest.java:486: error: no suitable constructor found for Element(String)
+        Element other = new Element("div");
+                        ^
+    constructor Element.Element(Tag,String,Attributes) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Element.Element(Tag,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_claude_Jsoup_22_il8n_34f/src/ElementsTest.java:515: error: no suitable constructor found for Element(String)
+        Element newElement = new Element("div");
+                             ^
+    constructor Element.Element(Tag,String,Attributes) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Element.Element(Tag,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_claude_Jsoup_22_il8n_34f/src/ElementsTest.java:531: error: no suitable constructor found for Element(String)
+        Element other = new Element("div");
+                        ^
+    constructor Element.Element(Tag,String,Attributes) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Element.Element(Tag,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_claude_Jsoup_22_il8n_34f/src/ElementsTest.java:545: error: no suitable constructor found for Element(String)
+        more.add(new Element("div"));
+                 ^
+    constructor Element.Element(Tag,String,Attributes) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Element.Element(Tag,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_claude_Jsoup_22_il8n_34f/src/ElementsTest.java:554: error: no suitable constructor found for Element(String)
+        more.add(new Element("div"));
+                 ^
+    constructor Element.Element(Tag,String,Attributes) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Element.Element(Tag,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_claude_Jsoup_22_il8n_34f/src/ElementsTest.java:614: error: no suitable constructor found for Element(String)
+        Element newElement = new Element("div");
+                             ^
+    constructor Element.Element(Tag,String,Attributes) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Element.Element(Tag,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_claude_Jsoup_22_il8n_34f/src/ElementsTest.java:622: error: no suitable constructor found for Element(String)
+        Element newElement = new Element("div");
+                             ^
+    constructor Element.Element(Tag,String,Attributes) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Element.Element(Tag,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_claude_Jsoup_22_il8n_34f/src/ElementsTest.java:643: error: no suitable constructor found for Element(String)
+        Element other = new Element("div");
+                        ^
+    constructor Element.Element(Tag,String,Attributes) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Element.Element(Tag,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_claude_Jsoup_22_il8n_34f/src/ElementsTest.java:655: error: no suitable constructor found for Element(String)
+        Element other = new Element("div");
+                        ^
+    constructor Element.Element(Tag,String,Attributes) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Element.Element(Tag,String) is not applicable
+      (actual and formal argument lists differ in length)
+9 errors

@@ -1,0 +1,6 @@
+/tmp/evaluate_claude_Csv_11_cs734xpn/src/CSVParserTest.java:339: error: cannot find symbol
+        CSVFormat format = CSVFormat.DEFAULT.withCommentMarker('#');
+                                            ^
+  symbol:   method withCommentMarker(char)
+  location: variable DEFAULT of type CSVFormat
+1 error

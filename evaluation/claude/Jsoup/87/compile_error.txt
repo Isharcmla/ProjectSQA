@@ -1,0 +1,501 @@
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:9: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:9: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:15: error: cannot find symbol
+        Tag tag = Tag.valueOf("customtag");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:15: error: cannot find symbol
+        Tag tag = Tag.valueOf("customtag");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:22: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("p");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:22: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("p");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:23: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("p");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:23: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("p");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:29: error: cannot find symbol
+        Tag tag = Tag.valueOf("foobar123");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:29: error: cannot find symbol
+        Tag tag = Tag.valueOf("foobar123");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:38: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("unknowntagxyz");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:38: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("unknowntagxyz");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:39: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("unknowntagxyz");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:39: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("unknowntagxyz");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:46: error: cannot find symbol
+        Tag.valueOf(null);
+        ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:51: error: cannot find symbol
+        Tag.valueOf("");
+        ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:56: error: cannot find symbol
+        Tag tag = Tag.valueOf("DIV", ParseSettings.preserveCase);
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:56: error: cannot find symbol
+        Tag tag = Tag.valueOf("DIV", ParseSettings.preserveCase);
+                                     ^
+  symbol:   variable ParseSettings
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:56: error: cannot find symbol
+        Tag tag = Tag.valueOf("DIV", ParseSettings.preserveCase);
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:64: error: cannot find symbol
+        Tag tag = Tag.valueOf("div", ParseSettings.preserveCase);
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:64: error: cannot find symbol
+        Tag tag = Tag.valueOf("div", ParseSettings.preserveCase);
+                                     ^
+  symbol:   variable ParseSettings
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:64: error: cannot find symbol
+        Tag tag = Tag.valueOf("div", ParseSettings.preserveCase);
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:72: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:72: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:78: error: cannot find symbol
+        Tag tag = Tag.valueOf("span");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:78: error: cannot find symbol
+        Tag tag = Tag.valueOf("span");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:85: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:85: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:91: error: cannot find symbol
+        Tag tag = Tag.valueOf("p");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:91: error: cannot find symbol
+        Tag tag = Tag.valueOf("p");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:98: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:98: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:105: error: cannot find symbol
+        Tag tag = Tag.valueOf("span");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:105: error: cannot find symbol
+        Tag tag = Tag.valueOf("span");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:112: error: cannot find symbol
+        Tag tag = Tag.valueOf("span");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:112: error: cannot find symbol
+        Tag tag = Tag.valueOf("span");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:118: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:118: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:125: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:125: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:131: error: cannot find symbol
+        Tag tag = Tag.valueOf("img");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:131: error: cannot find symbol
+        Tag tag = Tag.valueOf("img");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:137: error: cannot find symbol
+        Tag tag = Tag.valueOf("script");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:137: error: cannot find symbol
+        Tag tag = Tag.valueOf("script");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:144: error: cannot find symbol
+        Tag tag = Tag.valueOf("img");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:144: error: cannot find symbol
+        Tag tag = Tag.valueOf("img");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:150: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:150: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:157: error: cannot find symbol
+        Tag tag = Tag.valueOf("img");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:157: error: cannot find symbol
+        Tag tag = Tag.valueOf("img");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:163: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:163: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:170: error: cannot find symbol
+        Tag tag = Tag.valueOf("p");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:170: error: cannot find symbol
+        Tag tag = Tag.valueOf("p");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:176: error: cannot find symbol
+        Tag tag = Tag.valueOf("unknownxyzabc");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:176: error: cannot find symbol
+        Tag tag = Tag.valueOf("unknownxyzabc");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:183: error: cannot find symbol
+        assertTrue(Tag.isKnownTag("div"));
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:188: error: cannot find symbol
+        assertFalse(Tag.isKnownTag("notarealtag999"));
+                    ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:193: error: cannot find symbol
+        assertFalse(Tag.isKnownTag(""));
+                    ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:199: error: cannot find symbol
+        Tag tag = Tag.valueOf("pre");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:199: error: cannot find symbol
+        Tag tag = Tag.valueOf("pre");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:205: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:205: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:212: error: cannot find symbol
+        Tag tag = Tag.valueOf("input");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:212: error: cannot find symbol
+        Tag tag = Tag.valueOf("input");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:218: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:218: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:225: error: cannot find symbol
+        Tag tag = Tag.valueOf("input");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:225: error: cannot find symbol
+        Tag tag = Tag.valueOf("input");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:231: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:231: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:238: error: cannot find symbol
+        Tag tag = Tag.valueOf("fieldset");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:238: error: cannot find symbol
+        Tag tag = Tag.valueOf("fieldset");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:246: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:246: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:252: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:252: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("div");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:253: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:253: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("div");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:259: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:259: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("div");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:260: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("span");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:260: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("span");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:266: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:266: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:272: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:272: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+                  ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:278: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("customunknown1");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:278: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("customunknown1");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:279: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("customunknown1");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:279: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("customunknown1");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:287: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:287: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("div");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:288: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:288: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("div");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:294: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:294: error: cannot find symbol
+        Tag tag1 = Tag.valueOf("div");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:295: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("span");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:295: error: cannot find symbol
+        Tag tag2 = Tag.valueOf("span");
+                   ^
+  symbol:   variable Tag
+  location: class TagTest
+/tmp/evaluate_claude_Jsoup_87_2g0h348q/src/TagTest.java:302: error: cannot find symbol
+        Tag tag = Tag.valueOf("div");
+        ^
+  symbol:   class Tag
+  location: class TagTest
+100 errors

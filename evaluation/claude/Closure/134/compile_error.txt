@@ -1,0 +1,28 @@
+/tmp/evaluate_claude_Closure_134_v7v7x__9/src/AmbiguatePropertiesTest.java:38: error: no suitable method found for compile(SourceFile,SourceFile,CompilerOptions)
+    compiler.compile(externs, input, options);
+            ^
+    method Compiler.compile(JSSourceFile,JSSourceFile,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+    method Compiler.compile(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+/tmp/evaluate_claude_Closure_134_v7v7x__9/src/AmbiguatePropertiesTest.java:113: error: no suitable method found for compile(SourceFile,SourceFile,CompilerOptions)
+    compiler.compile(externs, input, options);
+            ^
+    method Compiler.compile(JSSourceFile,JSSourceFile,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+    method Compiler.compile(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+2 errors

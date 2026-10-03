@@ -1,0 +1,11 @@
+/tmp/evaluate_claude_Cli_22_usdral1n/src/PosixParserTest.java:16: error: cannot find symbol
+    private PosixParser parser;
+            ^
+  symbol:   class PosixParser
+  location: class PosixParserTest
+/tmp/evaluate_claude_Cli_22_usdral1n/src/PosixParserTest.java:22: error: cannot find symbol
+        parser = new PosixParser();
+                     ^
+  symbol:   class PosixParser
+  location: class PosixParserTest
+2 errors

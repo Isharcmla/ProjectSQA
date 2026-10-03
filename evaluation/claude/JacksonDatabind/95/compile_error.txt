@@ -1,0 +1,21 @@
+/tmp/evaluate_claude_JacksonDatabind_95_2teeyedn/src/TypeParserTest.java:10: error: cannot find symbol
+    private TypeParser parser;
+            ^
+  symbol:   class TypeParser
+  location: class TypeParserTest
+/tmp/evaluate_claude_JacksonDatabind_95_2teeyedn/src/TypeParserTest.java:15: error: cannot find symbol
+        parser = new TypeParser(factory);
+                     ^
+  symbol:   class TypeParser
+  location: class TypeParserTest
+/tmp/evaluate_claude_JacksonDatabind_95_2teeyedn/src/TypeParserTest.java:76: error: cannot find symbol
+        TypeParser result = parser.withFactory(factory);
+        ^
+  symbol:   class TypeParser
+  location: class TypeParserTest
+/tmp/evaluate_claude_JacksonDatabind_95_2teeyedn/src/TypeParserTest.java:83: error: cannot find symbol
+        TypeParser result = parser.withFactory(otherFactory);
+        ^
+  symbol:   class TypeParser
+  location: class TypeParserTest
+4 errors

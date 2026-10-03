@@ -1,0 +1,11 @@
+/tmp/evaluate_claude_Math_66_u4mowytx/src/BrentOptimizerTest.java:19: error: cannot find symbol
+    private BrentOptimizer optimizer;
+            ^
+  symbol:   class BrentOptimizer
+  location: class BrentOptimizerTest
+/tmp/evaluate_claude_Math_66_u4mowytx/src/BrentOptimizerTest.java:23: error: cannot find symbol
+        optimizer = new BrentOptimizer();
+                        ^
+  symbol:   class BrentOptimizer
+  location: class BrentOptimizerTest
+2 errors

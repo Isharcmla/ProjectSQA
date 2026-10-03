@@ -1,0 +1,9 @@
+/tmp/evaluate_claude_Math_52_6pm78pnp/src/RotationTest.java:80: error: no suitable method found for assertEquals(double,double,double,double)
+        assertEquals(1.0, r.getQ1() * r.getQ1() * 4
+        ^
+    method Assert.assertEquals(String,float,float,float) is not applicable
+      (argument mismatch; double cannot be converted to String)
+    method Assert.assertEquals(String,double,double,double) is not applicable
+      (argument mismatch; double cannot be converted to String)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

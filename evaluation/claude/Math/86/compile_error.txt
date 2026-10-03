@@ -1,0 +1,64 @@
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:27: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:43: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:58: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        new CholeskyDecompositionImpl(nonSquare);
+        ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:67: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        new CholeskyDecompositionImpl(nonSymmetric);
+        ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:76: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        new CholeskyDecompositionImpl(notPositiveDefinite);
+        ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:85: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        new CholeskyDecompositionImpl(zeroDiagonal);
+        ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:94: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:101: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:110: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:118: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:130: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:141: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:148: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:159: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:170: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:182: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:192: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:204: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:219: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:235: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(spdMatrix);
+                                       ^
+/tmp/evaluate_claude_Math_86_bn0aui5o/src/CholeskyDecompositionImplTest.java:255: error: unreported exception NotSymmetricMatrixException; must be caught or declared to be thrown
+        CholeskyDecompositionImpl cd = new CholeskyDecompositionImpl(larger);
+                                       ^
+21 errors

@@ -1,0 +1,26 @@
+/tmp/evaluate_claude_Math_8_qhsivs44/src/DiscreteDistributionTest.java:132: error: probability(T) is not public in DiscreteDistribution; cannot be accessed from outside package
+        double prob = distribution.probability("A");
+                                  ^
+  where T is a type-variable:
+    T extends Object declared in class DiscreteDistribution
+/tmp/evaluate_claude_Math_8_qhsivs44/src/DiscreteDistributionTest.java:138: error: probability(T) is not public in DiscreteDistribution; cannot be accessed from outside package
+        double prob = distribution.probability("Z");
+                                  ^
+  where T is a type-variable:
+    T extends Object declared in class DiscreteDistribution
+/tmp/evaluate_claude_Math_8_qhsivs44/src/DiscreteDistributionTest.java:149: error: probability(T) is not public in DiscreteDistribution; cannot be accessed from outside package
+        double prob = dist.probability(null);
+                          ^
+  where T is a type-variable:
+    T extends Object declared in class DiscreteDistribution
+/tmp/evaluate_claude_Math_8_qhsivs44/src/DiscreteDistributionTest.java:155: error: probability(T) is not public in DiscreteDistribution; cannot be accessed from outside package
+        double prob = distribution.probability(null);
+                                  ^
+  where T is a type-variable:
+    T extends Object declared in class DiscreteDistribution
+/tmp/evaluate_claude_Math_8_qhsivs44/src/DiscreteDistributionTest.java:167: error: probability(T) is not public in DiscreteDistribution; cannot be accessed from outside package
+        double prob = dist.probability("A");
+                          ^
+  where T is a type-variable:
+    T extends Object declared in class DiscreteDistribution
+5 errors

@@ -1,0 +1,301 @@
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:47: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:47: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:54: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, true);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:54: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, true);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:61: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:61: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:68: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, true, 4, new byte[] { '\n' });
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:68: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, true, 4, new byte[] { '\n' });
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:77: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:77: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:86: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:86: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true);
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:92: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:92: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:101: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:101: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true);
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:107: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:107: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:116: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true, 4, new byte[] { '\n' });
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:116: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true, 4, new byte[] { '\n' });
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:122: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:122: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:136: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:136: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true);
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:142: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:142: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:151: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:151: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true);
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:155: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:155: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:171: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:171: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:178: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:178: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:187: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:187: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:196: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:196: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:206: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:206: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true);
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:210: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:210: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:219: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true, 0, new byte[] { '\r', '\n' });
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:219: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true, 0, new byte[] { '\r', '\n' });
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:224: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:224: error: cannot find symbol
+        Base64InputStream decodeStream = new Base64InputStream(encodedInput, false);
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:233: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true, -1, new byte[] { '\r', '\n' });
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:233: error: cannot find symbol
+        Base64InputStream encodeStream = new Base64InputStream(bais, true, -1, new byte[] { '\r', '\n' });
+                                             ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:243: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:243: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:250: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:250: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:258: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:258: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:266: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:266: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:274: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:274: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:282: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+        ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+/tmp/evaluate_claude_Codec_6_6xmslmlz/src/Base64InputStreamTest.java:282: error: cannot find symbol
+        Base64InputStream stream = new Base64InputStream(bais, false);
+                                       ^
+  symbol:   class Base64InputStream
+  location: class Base64InputStreamTest
+60 errors

@@ -1,0 +1,6 @@
+/tmp/evaluate_claude_JacksonDatabind_39_3ejnnlg0/src/NullifyingDeserializerTest.java:175: error: cannot find symbol
+        assertEquals(JsonToken.END_OBJECT, p.currentToken());
+                                            ^
+  symbol:   method currentToken()
+  location: variable p of type JsonParser
+1 error

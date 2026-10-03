@@ -1,0 +1,6 @@
+/tmp/evaluate_claude_JacksonDatabind_97_ty5tc45f/src/POJONodeTest.java:172: error: cannot find symbol
+        JsonNode inner = IntNode.valueOf(99);
+        ^
+  symbol:   class JsonNode
+  location: class POJONodeTest
+1 error

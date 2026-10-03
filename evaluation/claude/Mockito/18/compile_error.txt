@@ -1,0 +1,111 @@
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:34: error: FakeInvocation is not abstract and does not override abstract method <T>getArgumentAt(int,Class<T>) in InvocationOnMock
+    private static class FakeInvocation implements InvocationOnMock {
+                   ^
+  where T is a type-variable:
+    T extends Object declared in method <T>getArgumentAt(int,Class<T>)
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:56: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:62: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:217: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(int.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:223: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(Integer.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:229: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(boolean.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:235: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(Boolean.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:241: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(byte.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:247: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(Byte.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:253: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(short.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:259: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(Short.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:265: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(long.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:271: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(Long.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:277: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(float.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:283: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(Float.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:289: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(double.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:295: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(Double.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:301: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(char.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:308: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(Character.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:315: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(Collection.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:322: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(Set.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:329: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(HashSet.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:335: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(SortedSet.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:341: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(TreeSet.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:347: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(LinkedHashSet.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:353: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(List.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:359: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(LinkedList.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:365: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(ArrayList.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:371: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(Map.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:378: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(HashMap.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:384: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(SortedMap.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:390: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(TreeMap.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:396: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(LinkedHashMap.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:402: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(String.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:408: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        Object result = returnsEmptyValues.returnValueFor(SampleClass.class);
+                                          ^
+/tmp/evaluate_claude_Mockito_18_xauz0qoe/src/ReturnsEmptyValuesTest.java:414: error: returnValueFor(Class<?>) is not public in ReturnsEmptyValues; cannot be accessed from outside package
+        returnsEmptyValues.returnValueFor(null);
+                          ^
+36 errors

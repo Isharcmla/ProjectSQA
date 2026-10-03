@@ -1,0 +1,216 @@
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:15: error: cannot find symbol
+        Object result = TypeHandler.createValue("hello", (Object) PatternOptionBuilder.STRING_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:21: error: cannot find symbol
+        Object result = TypeHandler.createValue("123", (Object) PatternOptionBuilder.NUMBER_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:30: error: cannot find symbol
+        Object result = TypeHandler.createValue("test string", PatternOptionBuilder.STRING_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:36: error: cannot find symbol
+        Object result = TypeHandler.createValue("java.lang.String", PatternOptionBuilder.OBJECT_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:43: error: cannot find symbol
+        Object result = TypeHandler.createValue("no.such.Class", PatternOptionBuilder.OBJECT_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:49: error: cannot find symbol
+        Object result = TypeHandler.createValue("42", PatternOptionBuilder.NUMBER_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:56: error: cannot find symbol
+        Object result = TypeHandler.createValue("3.14", PatternOptionBuilder.NUMBER_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:63: error: cannot find symbol
+        Object result = TypeHandler.createValue("notANumber", PatternOptionBuilder.NUMBER_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:69: error: cannot find symbol
+        Object result = TypeHandler.createValue("2020-01-01", PatternOptionBuilder.DATE_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:75: error: cannot find symbol
+        Object result = TypeHandler.createValue("java.lang.String", PatternOptionBuilder.CLASS_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:82: error: cannot find symbol
+        Object result = TypeHandler.createValue("no.such.Class", PatternOptionBuilder.CLASS_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:88: error: cannot find symbol
+        Object result = TypeHandler.createValue("test.txt", PatternOptionBuilder.FILE_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:96: error: cannot find symbol
+        Object result = TypeHandler.createValue("existing.txt", PatternOptionBuilder.EXISTING_FILE_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:103: error: cannot find symbol
+        Object result = TypeHandler.createValue("file1,file2", PatternOptionBuilder.FILES_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:109: error: cannot find symbol
+        Object result = TypeHandler.createValue("http://www.example.com", PatternOptionBuilder.URL_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:117: error: cannot find symbol
+        Object result = TypeHandler.createValue("not a valid url", PatternOptionBuilder.URL_VALUE);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:123: error: cannot find symbol
+        Object result = TypeHandler.createValue("someValue", (Class) Integer.class);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:131: error: cannot find symbol
+        Object result = TypeHandler.createObject("java.lang.Object");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:138: error: cannot find symbol
+        Object result = TypeHandler.createObject("no.such.ClassName");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:144: error: cannot find symbol
+        Object result = TypeHandler.createObject("");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:151: error: cannot find symbol
+        Object result = TypeHandler.createObject("java.util.AbstractList");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:158: error: cannot find symbol
+        Object result = TypeHandler.createObject("java.lang.Math");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:166: error: cannot find symbol
+        Number result = TypeHandler.createNumber("100");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:173: error: cannot find symbol
+        Number result = TypeHandler.createNumber("1.5");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:180: error: cannot find symbol
+        Number result = TypeHandler.createNumber("-50");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:187: error: cannot find symbol
+        Number result = TypeHandler.createNumber("abc");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:193: error: cannot find symbol
+        Number result = TypeHandler.createNumber("");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:199: error: cannot find symbol
+        Number result = TypeHandler.createNumber("0");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:208: error: cannot find symbol
+        Class result = TypeHandler.createClass("java.lang.String");
+                       ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:215: error: cannot find symbol
+        Class result = TypeHandler.createClass("no.such.Class");
+                       ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:221: error: cannot find symbol
+        Class result = TypeHandler.createClass("");
+                       ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:229: error: cannot find symbol
+        Date result = TypeHandler.createDate("2020-01-01");
+                      ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:235: error: cannot find symbol
+        Date result = TypeHandler.createDate("");
+                      ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:241: error: cannot find symbol
+        Date result = TypeHandler.createDate(null);
+                      ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:249: error: cannot find symbol
+        URL result = TypeHandler.createURL("http://www.apache.org");
+                     ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:256: error: cannot find symbol
+        URL result = TypeHandler.createURL("malformed url string");
+                     ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:262: error: cannot find symbol
+        URL result = TypeHandler.createURL("");
+                     ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:270: error: cannot find symbol
+        File result = TypeHandler.createFile("/tmp/test.txt");
+                      ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:277: error: cannot find symbol
+        File result = TypeHandler.createFile("");
+                      ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:283: error: cannot find symbol
+        File result = TypeHandler.createFile("relative/path/file.txt");
+                      ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:292: error: cannot find symbol
+        File[] result = TypeHandler.createFiles("file1,file2");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:298: error: cannot find symbol
+        File[] result = TypeHandler.createFiles("");
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+/tmp/evaluate_claude_Cli_3_hqb_5x9n/src/TypeHandlerTest.java:304: error: cannot find symbol
+        File[] result = TypeHandler.createFiles(null);
+                        ^
+  symbol:   variable TypeHandler
+  location: class TypeHandlerTest
+43 errors

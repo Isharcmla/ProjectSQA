@@ -1,0 +1,40 @@
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:52: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        assertEquals(GJChronology.DEFAULT_CUTOVER, chrono.getGregorianCutover());
+                                 ^
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:64: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        GJChronology chrono = GJChronology.getInstance(DateTimeZone.UTC, GJChronology.DEFAULT_CUTOVER, 2);
+                                                                                     ^
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:70: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        GJChronology chrono1 = GJChronology.getInstance(DateTimeZone.UTC, GJChronology.DEFAULT_CUTOVER, 4);
+                                                                                      ^
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:71: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        GJChronology chrono2 = GJChronology.getInstance(DateTimeZone.UTC, GJChronology.DEFAULT_CUTOVER, 4);
+                                                                                      ^
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:78: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        GJChronology chrono = GJChronology.getInstance(zone, GJChronology.DEFAULT_CUTOVER, 4);
+                                                                         ^
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:84: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        GJChronology chrono = GJChronology.getInstance(DateTimeZone.UTC, GJChronology.DEFAULT_CUTOVER.getMillis(), 4);
+                                                                                     ^
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:85: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        assertEquals(GJChronology.DEFAULT_CUTOVER, chrono.getGregorianCutover());
+                                 ^
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:156: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        assertEquals(GJChronology.DEFAULT_CUTOVER, gjUTC.getGregorianCutover());
+                                 ^
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:196: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        GJChronology chrono1 = GJChronology.getInstance(DateTimeZone.UTC, GJChronology.DEFAULT_CUTOVER, 4);
+                                                                                      ^
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:197: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        GJChronology chrono2 = GJChronology.getInstance(DateTimeZone.UTC, GJChronology.DEFAULT_CUTOVER, 4);
+                                                                                      ^
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:219: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        GJChronology chrono = GJChronology.getInstance(DateTimeZone.UTC, GJChronology.DEFAULT_CUTOVER, 2);
+                                                                                     ^
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:380: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        GJChronology chrono1 = GJChronology.getInstance(DateTimeZone.UTC, GJChronology.DEFAULT_CUTOVER, 1);
+                                                                                      ^
+/tmp/evaluate_claude_Time_18_dk6we_nq/src/GJChronologyTest.java:381: error: DEFAULT_CUTOVER is not public in GJChronology; cannot be accessed from outside package
+        GJChronology chrono2 = GJChronology.getInstance(DateTimeZone.UTC, GJChronology.DEFAULT_CUTOVER, 7);
+                                                                                      ^
+13 errors

@@ -1,0 +1,4 @@
+/tmp/evaluate_claude_Time_1_1_g6woym/src/UnsupportedDurationFieldTest.java:25: error: SupportedDummyDurationField is not abstract and does not override abstract method toString() in DurationField
+    private static class SupportedDummyDurationField extends DurationField {
+                   ^
+1 error

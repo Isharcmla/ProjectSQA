@@ -1,0 +1,426 @@
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:18: error: cannot find symbol
+    private DateTimeFormatterBuilder builder;
+            ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:23: error: cannot find symbol
+        builder = new DateTimeFormatterBuilder();
+                      ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:37: error: cannot find symbol
+        DateTimeFormatterBuilder b = new DateTimeFormatterBuilder();
+        ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:37: error: cannot find symbol
+        DateTimeFormatterBuilder b = new DateTimeFormatterBuilder();
+                                         ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:47: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:61: error: cannot find symbol
+        DateTimePrinter p = builder.toPrinter();
+        ^
+  symbol:   class DateTimePrinter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:67: error: cannot find symbol
+        builder.appendOptional(new DateTimeFormatterBuilder().appendLiteral('Z').toParser());
+                                   ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:74: error: cannot find symbol
+        DateTimeParser p = builder.toParser();
+        ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:80: error: cannot find symbol
+        DateTimePrinter printer = new DateTimeFormatterBuilder().appendLiteral('Z').toFormatter().getPrinter();
+        ^
+  symbol:   class DateTimePrinter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:80: error: cannot find symbol
+        DateTimePrinter printer = new DateTimeFormatterBuilder().appendLiteral('Z').toFormatter().getPrinter();
+                                      ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:126: error: cannot find symbol
+        DateTimeFormatter inner = new DateTimeFormatterBuilder().appendLiteral('Y').toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:126: error: cannot find symbol
+        DateTimeFormatter inner = new DateTimeFormatterBuilder().appendLiteral('Y').toFormatter();
+                                      ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:128: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:134: error: cannot find symbol
+        builder.append((DateTimeFormatter) null);
+                        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:142: error: cannot find symbol
+        DateTimePrinter printer = new DateTimeFormatterBuilder().appendLiteral('P').toFormatter().getPrinter();
+        ^
+  symbol:   class DateTimePrinter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:142: error: cannot find symbol
+        DateTimePrinter printer = new DateTimeFormatterBuilder().appendLiteral('P').toFormatter().getPrinter();
+                                      ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:150: error: cannot find symbol
+        builder.append((DateTimePrinter) null);
+                        ^
+  symbol:   class DateTimePrinter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:158: error: cannot find symbol
+        DateTimeParser parser = new DateTimeFormatterBuilder().appendLiteral('P').toFormatter().getParser();
+        ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:158: error: cannot find symbol
+        DateTimeParser parser = new DateTimeFormatterBuilder().appendLiteral('P').toFormatter().getParser();
+                                    ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:166: error: cannot find symbol
+        builder.append((DateTimeParser) null);
+                        ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:174: error: cannot find symbol
+        DateTimeFormatter inner = new DateTimeFormatterBuilder().appendLiteral('Q').toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:174: error: cannot find symbol
+        DateTimeFormatter inner = new DateTimeFormatterBuilder().appendLiteral('Q').toFormatter();
+                                      ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:181: error: cannot find symbol
+        DateTimeFormatter inner = new DateTimeFormatterBuilder().appendLiteral('Q').toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:181: error: cannot find symbol
+        DateTimeFormatter inner = new DateTimeFormatterBuilder().appendLiteral('Q').toFormatter();
+                                      ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:182: error: cannot find symbol
+        builder.append((DateTimePrinter) null, inner.getParser());
+                        ^
+  symbol:   class DateTimePrinter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:187: error: cannot find symbol
+        DateTimeFormatter inner = new DateTimeFormatterBuilder().appendLiteral('Q').toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:187: error: cannot find symbol
+        DateTimeFormatter inner = new DateTimeFormatterBuilder().appendLiteral('Q').toFormatter();
+                                      ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:188: error: cannot find symbol
+        builder.append(inner.getPrinter(), (DateTimeParser) null);
+                                            ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:196: error: cannot find symbol
+        DateTimeFormatter inner = new DateTimeFormatterBuilder().appendLiteral('R').toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:196: error: cannot find symbol
+        DateTimeFormatter inner = new DateTimeFormatterBuilder().appendLiteral('R').toFormatter();
+                                      ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:197: error: cannot find symbol
+        DateTimeParser[] parsers = new DateTimeParser[] { inner.getParser() };
+        ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:197: error: cannot find symbol
+        DateTimeParser[] parsers = new DateTimeParser[] { inner.getParser() };
+                                       ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:204: error: cannot find symbol
+        DateTimeFormatter innerA = new DateTimeFormatterBuilder().appendLiteral('A').toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:204: error: cannot find symbol
+        DateTimeFormatter innerA = new DateTimeFormatterBuilder().appendLiteral('A').toFormatter();
+                                       ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:205: error: cannot find symbol
+        DateTimeFormatter innerB = new DateTimeFormatterBuilder().appendLiteral('B').toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:205: error: cannot find symbol
+        DateTimeFormatter innerB = new DateTimeFormatterBuilder().appendLiteral('B').toFormatter();
+                                       ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:206: error: cannot find symbol
+        DateTimeParser[] parsers = new DateTimeParser[] { innerA.getParser(), innerB.getParser() };
+        ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:206: error: cannot find symbol
+        DateTimeParser[] parsers = new DateTimeParser[] { innerA.getParser(), innerB.getParser() };
+                                       ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:213: error: cannot find symbol
+        DateTimeFormatter innerA = new DateTimeFormatterBuilder().appendLiteral('A').toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:213: error: cannot find symbol
+        DateTimeFormatter innerA = new DateTimeFormatterBuilder().appendLiteral('A').toFormatter();
+                                       ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:214: error: cannot find symbol
+        DateTimeParser[] parsers = new DateTimeParser[] { innerA.getParser(), null };
+        ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:214: error: cannot find symbol
+        DateTimeParser[] parsers = new DateTimeParser[] { innerA.getParser(), null };
+                                       ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:221: error: cannot find symbol
+        builder.append((DateTimePrinter) null, (DateTimeParser[]) null);
+                        ^
+  symbol:   class DateTimePrinter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:221: error: cannot find symbol
+        builder.append((DateTimePrinter) null, (DateTimeParser[]) null);
+                                                ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:226: error: cannot find symbol
+        DateTimeParser[] parsers = new DateTimeParser[] { null };
+        ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:226: error: cannot find symbol
+        DateTimeParser[] parsers = new DateTimeParser[] { null };
+                                       ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:227: error: cannot find symbol
+        builder.append((DateTimePrinter) null, parsers);
+                        ^
+  symbol:   class DateTimePrinter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:232: error: cannot find symbol
+        DateTimeFormatter innerA = new DateTimeFormatterBuilder().appendLiteral('A').toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:232: error: cannot find symbol
+        DateTimeFormatter innerA = new DateTimeFormatterBuilder().appendLiteral('A').toFormatter();
+                                       ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:233: error: cannot find symbol
+        DateTimeParser[] parsers = new DateTimeParser[] { null, innerA.getParser() };
+        ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:233: error: cannot find symbol
+        DateTimeParser[] parsers = new DateTimeParser[] { null, innerA.getParser() };
+                                       ^
+  symbol:   class DateTimeParser
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:242: error: cannot find symbol
+        DateTimeFormatter inner = new DateTimeFormatterBuilder().appendLiteral('O').toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:242: error: cannot find symbol
+        DateTimeFormatter inner = new DateTimeFormatterBuilder().appendLiteral('O').toFormatter();
+                                      ^
+  symbol:   class DateTimeFormatterBuilder
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:258: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:268: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:281: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:296: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:304: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:327: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:338: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:359: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:367: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:388: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:409: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter().withLocale(Locale.ENGLISH);
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:422: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter().withLocale(Locale.ENGLISH);
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:438: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:487: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:504: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:521: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:538: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:576: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:608: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:625: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:684: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter().withLocale(Locale.ENGLISH);
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:773: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:790: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:801: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:817: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:825: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:833: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:842: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter().withLocale(Locale.ENGLISH);
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:850: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:863: error: cannot find symbol
+        DateTimeFormatter f = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:871: error: cannot find symbol
+        DateTimeFormatter f1 = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+/tmp/evaluate_claude_Time_20_99atwq5q/src/DateTimeFormatterBuilderTest.java:873: error: cannot find symbol
+        DateTimeFormatter f2 = builder.toFormatter();
+        ^
+  symbol:   class DateTimeFormatter
+  location: class DateTimeFormatterBuilderTest
+85 errors

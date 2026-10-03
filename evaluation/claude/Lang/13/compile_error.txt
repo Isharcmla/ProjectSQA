@@ -1,0 +1,186 @@
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:137: error: cannot find symbol
+    @Test(expected = SerializationException.class)
+                     ^
+  symbol:   class SerializationException
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:174: error: cannot find symbol
+    @Test(expected = SerializationException.class)
+                     ^
+  symbol:   class SerializationException
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:183: error: cannot find symbol
+    @Test(expected = SerializationException.class)
+                     ^
+  symbol:   class SerializationException
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:216: error: cannot find symbol
+    @Test(expected = SerializationException.class)
+                     ^
+  symbol:   class SerializationException
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:253: error: cannot find symbol
+    @Test(expected = SerializationException.class)
+                     ^
+  symbol:   class SerializationException
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:261: error: cannot find symbol
+    @Test(expected = SerializationException.class)
+                     ^
+  symbol:   class SerializationException
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:299: error: cannot find symbol
+    @Test(expected = SerializationException.class)
+                     ^
+  symbol:   class SerializationException
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:81: error: cannot find symbol
+        SerializationUtils utils = new SerializationUtils();
+        ^
+  symbol:   class SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:81: error: cannot find symbol
+        SerializationUtils utils = new SerializationUtils();
+                                       ^
+  symbol:   class SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:89: error: cannot find symbol
+        Object result = SerializationUtils.clone(null);
+                        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:96: error: cannot find symbol
+        SerializableTestObject cloned = SerializationUtils.clone(original);
+                                        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:108: error: cannot find symbol
+        String cloned = SerializationUtils.clone(original);
+                        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:117: error: cannot find symbol
+        Integer cloned = SerializationUtils.clone(original);
+                         ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:130: error: cannot find symbol
+        List<String> cloned = SerializationUtils.clone((Serializable) original);
+                              ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:141: error: cannot find symbol
+        SerializationUtils.clone(wrapper);
+        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:148: error: cannot find symbol
+        SerializationUtils.serialize(new SerializableTestObject(1, "x"), null);
+        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:156: error: cannot find symbol
+        SerializationUtils.serialize(obj, baos);
+        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:167: error: cannot find symbol
+        SerializationUtils.serialize(null, baos);
+        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:180: error: cannot find symbol
+        SerializationUtils.serialize(wrapper, baos);
+        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:194: error: cannot find symbol
+        SerializationUtils.serialize(obj, failingStream);
+        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:202: error: cannot find symbol
+        byte[] data = SerializationUtils.serialize(obj);
+                      ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:210: error: cannot find symbol
+        byte[] data = SerializationUtils.serialize(null);
+                      ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:220: error: cannot find symbol
+        SerializationUtils.serialize(wrapper);
+        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:227: error: cannot find symbol
+        SerializationUtils.deserialize((java.io.InputStream) null);
+        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:233: error: cannot find symbol
+        byte[] data = SerializationUtils.serialize(original);
+                      ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:236: error: cannot find symbol
+        Object result = SerializationUtils.deserialize(bais);
+                        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:245: error: cannot find symbol
+        byte[] data = SerializationUtils.serialize(null);
+                      ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:248: error: cannot find symbol
+        Object result = SerializationUtils.deserialize(bais);
+                        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:258: error: cannot find symbol
+        SerializationUtils.deserialize(bais);
+        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:266: error: cannot find symbol
+        SerializationUtils.deserialize(bais);
+        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:273: error: cannot find symbol
+        SerializationUtils.deserialize((byte[]) null);
+        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:279: error: cannot find symbol
+        byte[] data = SerializationUtils.serialize(original);
+                      ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:281: error: cannot find symbol
+        Object result = SerializationUtils.deserialize(data);
+                        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:291: error: cannot find symbol
+        byte[] data = SerializationUtils.serialize(original);
+                      ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:293: error: cannot find symbol
+        Object result = SerializationUtils.deserialize(data);
+                        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:303: error: cannot find symbol
+        SerializationUtils.deserialize(corruptData);
+        ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+/tmp/evaluate_claude_Lang_13_4aii5xge/src/SerializationUtilsTest.java:314: error: cannot find symbol
+        List<SerializableTestObject> cloned = SerializationUtils.clone((Serializable) original);
+                                              ^
+  symbol:   variable SerializationUtils
+  location: class SerializationUtilsTest
+37 errors

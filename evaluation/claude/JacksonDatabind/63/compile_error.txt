@@ -1,0 +1,449 @@
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:28: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("simple message");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:28: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("simple message");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:35: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("msg2", cause);
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:35: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("msg2", cause);
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:44: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("msg3", loc);
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:44: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("msg3", loc);
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:54: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("msg4", loc, cause);
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:54: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("msg4", loc, cause);
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:65: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException(p, "parser msg");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:65: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException(p, "parser msg");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:74: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException(sw, "writer msg");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:74: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException(sw, "writer msg");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:81: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException((Closeable) null, "null proc msg");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:81: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException((Closeable) null, "null proc msg");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:90: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException(p, "msg with cause", cause);
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:90: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException(p, "msg with cause", cause);
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:101: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException(p, "msg with loc", loc);
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:101: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException(p, "msg with loc", loc);
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:112: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.from(p, "from parser msg");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:112: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.from(p, "from parser msg");
+                                  ^
+  symbol:   variable JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:122: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.from(p, "from parser msg2", cause);
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:122: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.from(p, "from parser msg2", cause);
+                                  ^
+  symbol:   variable JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:134: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.from(g, "from generator msg");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:134: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.from(g, "from generator msg");
+                                  ^
+  symbol:   variable JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:145: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.from(g, "from generator msg2", cause);
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:145: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.from(g, "from generator msg2", cause);
+                                  ^
+  symbol:   variable JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:163: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.fromUnexpectedIOE(ioe);
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:163: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.fromUnexpectedIOE(ioe);
+                                  ^
+  symbol:   variable JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:171: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.fromUnexpectedIOE(ioe);
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:171: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.fromUnexpectedIOE(ioe);
+                                  ^
+  symbol:   variable JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:180: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.wrapWithPath(src, "fromObj", "fieldX");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:180: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.wrapWithPath(src, "fromObj", "fieldX");
+                                  ^
+  symbol:   variable JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:189: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.wrapWithPath(src, "fromObj2", 5);
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:189: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.wrapWithPath(src, "fromObj2", 5);
+                                  ^
+  symbol:   variable JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:197: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference("owner", "fld");
+                            ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:197: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference("owner", "fld");
+                                                                     ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:198: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.wrapWithPath(src, ref);
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:198: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.wrapWithPath(src, ref);
+                                  ^
+  symbol:   variable JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:205: error: cannot find symbol
+        JsonMappingException existing = new JsonMappingException("existing msg");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:205: error: cannot find symbol
+        JsonMappingException existing = new JsonMappingException("existing msg");
+                                            ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:208: error: cannot find symbol
+        JsonMappingException result = JsonMappingException.wrapWithPath(existing, "secondOwner", "secondField");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:208: error: cannot find symbol
+        JsonMappingException result = JsonMappingException.wrapWithPath(existing, "secondOwner", "secondField");
+                                      ^
+  symbol:   variable JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:220: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.wrapWithPath(src, "obj", "field");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:220: error: cannot find symbol
+        JsonMappingException ex = JsonMappingException.wrapWithPath(src, "obj", "field");
+                                  ^
+  symbol:   variable JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:235: error: cannot find symbol
+            JsonMappingException ex = JsonMappingException.wrapWithPath(jpe, "src", "field");
+            ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:235: error: cannot find symbol
+            JsonMappingException ex = JsonMappingException.wrapWithPath(jpe, "src", "field");
+                                      ^
+  symbol:   variable JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:247: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("no path");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:247: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("no path");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:248: error: package JsonMappingException does not exist
+        List<JsonMappingException.Reference> path = ex.getPath();
+                                 ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:255: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("has path");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:255: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("has path");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:258: error: package JsonMappingException does not exist
+        List<JsonMappingException.Reference> path = ex.getPath();
+                                 ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:268: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("path unmodifiable");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:268: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("path unmodifiable");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:270: error: package JsonMappingException does not exist
+        List<JsonMappingException.Reference> path = ex.getPath();
+                                 ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:271: error: package JsonMappingException does not exist
+        path.add(new JsonMappingException.Reference("x", "y")); // should throw
+                                         ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:276: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("ref path");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:276: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("ref path");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:277: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference("o", 2);
+                            ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:277: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference("o", 2);
+                                                                     ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:285: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("bounded path");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:285: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("bounded path");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:297: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("no path ref");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:297: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("no path ref");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:303: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("with path ref");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:303: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("with path ref");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:312: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("sb path");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:312: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("sb path");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:323: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("no processor");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:323: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("no processor");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:330: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException(p, "with processor");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:330: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException(p, "with processor");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:339: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("plain message");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:339: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("plain message");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:345: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("base message");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:345: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("base message");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:354: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException((String) null);
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:354: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException((String) null);
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:363: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("localized msg");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:363: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("localized msg");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:372: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("tostring msg");
+        ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:372: error: cannot find symbol
+        JsonMappingException ex = new JsonMappingException("tostring msg");
+                                      ^
+  symbol:   class JsonMappingException
+  location: class JsonMappingExceptionTest
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:383: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference(from);
+                            ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:383: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference(from);
+                                                                     ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:392: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference(from, "myField");
+                            ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:392: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference(from, "myField");
+                                                                     ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:400: error: package JsonMappingException does not exist
+        new JsonMappingException.Reference("owner", (String) null);
+                                ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:406: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference(from, 7);
+                            ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:406: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference(from, 7);
+                                                                     ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:414: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference("owner", "theField");
+                            ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:414: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference("owner", "theField");
+                                                                     ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:421: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference("owner", 4);
+                            ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:421: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference("owner", 4);
+                                                                     ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:428: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference("owner");
+                            ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:428: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference("owner");
+                                                                     ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:435: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference(null, "f");
+                            ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:435: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference(null, "f");
+                                                                     ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:442: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference(String.class, "f");
+                            ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:442: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference(String.class, "f");
+                                                                     ^
+/tmp/evaluate_claude_JacksonDatabind_63_4lgizx43/src/JsonMappingExceptionTest.java:449: error: package JsonMappingException does not exist
+        JsonMappingException.Reference ref = new JsonMappingException.Reference(new int[0], "arrField");
+                            ^
+100 errors

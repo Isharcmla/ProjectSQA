@@ -1,0 +1,16 @@
+/tmp/evaluate_claude_JacksonCore_7_tywj2b17/src/JsonWriteContextTest.java:146: error: cannot find symbol
+        assertTrue(obj.hasCurrentName());
+                      ^
+  symbol:   method hasCurrentName()
+  location: variable obj of type JsonWriteContext
+/tmp/evaluate_claude_JacksonCore_7_tywj2b17/src/JsonWriteContextTest.java:381: error: cannot find symbol
+        assertFalse(obj.hasCurrentName());
+                       ^
+  symbol:   method hasCurrentName()
+  location: variable obj of type JsonWriteContext
+/tmp/evaluate_claude_JacksonCore_7_tywj2b17/src/JsonWriteContextTest.java:383: error: cannot find symbol
+        assertTrue(obj.hasCurrentName());
+                      ^
+  symbol:   method hasCurrentName()
+  location: variable obj of type JsonWriteContext
+3 errors

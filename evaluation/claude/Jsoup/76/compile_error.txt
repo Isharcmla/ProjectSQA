@@ -1,0 +1,41 @@
+/tmp/evaluate_claude_Jsoup_76_1m4bdb_d/src/HtmlTreeBuilderStateTest.java:6: error: cannot find symbol
+import org.jsoup.nodes.Elements;
+                      ^
+  symbol:   class Elements
+  location: package org.jsoup.nodes
+/tmp/evaluate_claude_Jsoup_76_1m4bdb_d/src/HtmlTreeBuilderStateTest.java:97: error: cannot find symbol
+        Elements metas = doc.select("meta");
+        ^
+  symbol:   class Elements
+  location: class HtmlTreeBuilderStateTest
+/tmp/evaluate_claude_Jsoup_76_1m4bdb_d/src/HtmlTreeBuilderStateTest.java:146: error: cannot find symbol
+        Elements frames = doc.select("frame");
+        ^
+  symbol:   class Elements
+  location: class HtmlTreeBuilderStateTest
+/tmp/evaluate_claude_Jsoup_76_1m4bdb_d/src/HtmlTreeBuilderStateTest.java:163: error: cannot find symbol
+        Elements anchors = doc.select("a");
+        ^
+  symbol:   class Elements
+  location: class HtmlTreeBuilderStateTest
+/tmp/evaluate_claude_Jsoup_76_1m4bdb_d/src/HtmlTreeBuilderStateTest.java:185: error: cannot find symbol
+        Elements lis = doc.select("li");
+        ^
+  symbol:   class Elements
+  location: class HtmlTreeBuilderStateTest
+/tmp/evaluate_claude_Jsoup_76_1m4bdb_d/src/HtmlTreeBuilderStateTest.java:270: error: cannot find symbol
+        Elements cells = doc.select("td");
+        ^
+  symbol:   class Elements
+  location: class HtmlTreeBuilderStateTest
+/tmp/evaluate_claude_Jsoup_76_1m4bdb_d/src/HtmlTreeBuilderStateTest.java:540: error: cannot find symbol
+        Elements tables = doc.select("table");
+        ^
+  symbol:   class Elements
+  location: class HtmlTreeBuilderStateTest
+/tmp/evaluate_claude_Jsoup_76_1m4bdb_d/src/HtmlTreeBuilderStateTest.java:569: error: cannot find symbol
+        Elements cells = doc.select("td");
+        ^
+  symbol:   class Elements
+  location: class HtmlTreeBuilderStateTest
+8 errors

@@ -1,0 +1,345 @@
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:14: error: cannot find symbol
+    private TimeSeries series;
+            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:18: error: cannot find symbol
+        series = new TimeSeries("Test Series");
+                     ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:25: error: cannot find symbol
+        TimeSeries s = new TimeSeries("MySeries");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:25: error: cannot find symbol
+        TimeSeries s = new TimeSeries("MySeries");
+                           ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:36: error: cannot find symbol
+        TimeSeries s = new TimeSeries("MySeries", Year.class);
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:36: error: cannot find symbol
+        TimeSeries s = new TimeSeries("MySeries", Year.class);
+                           ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:44: error: cannot find symbol
+        TimeSeries s = new TimeSeries("MySeries", "MyDomain", "MyRange",
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:44: error: cannot find symbol
+        TimeSeries s = new TimeSeries("MySeries", "MyDomain", "MyRange",
+                           ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:53: error: cannot find symbol
+        TimeSeries s = new TimeSeries("MySeries", null, null, Day.class);
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:53: error: cannot find symbol
+        TimeSeries s = new TimeSeries("MySeries", null, null, Day.class);
+                           ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:176: error: cannot find symbol
+        TimeSeriesDataItem item = series.getDataItem(0);
+        ^
+  symbol:   class TimeSeriesDataItem
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:192: error: cannot find symbol
+        TimeSeriesDataItem item = series.getDataItem(day);
+        ^
+  symbol:   class TimeSeriesDataItem
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:200: error: cannot find symbol
+        TimeSeriesDataItem item = series.getDataItem(new Day(2, 1, 2020));
+        ^
+  symbol:   class TimeSeriesDataItem
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:217: error: cannot find symbol
+        RegularTimePeriod next = series.getNextTimePeriod();
+        ^
+  symbol:   class RegularTimePeriod
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:242: error: cannot find symbol
+        TimeSeries other = new TimeSeries("Other");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:242: error: cannot find symbol
+        TimeSeries other = new TimeSeries("Other");
+                               ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:298: error: cannot find symbol
+        TimeSeriesDataItem item = new TimeSeriesDataItem(new Day(1, 1, 2020), 10.0);
+        ^
+  symbol:   class TimeSeriesDataItem
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:298: error: cannot find symbol
+        TimeSeriesDataItem item = new TimeSeriesDataItem(new Day(1, 1, 2020), 10.0);
+                                      ^
+  symbol:   class TimeSeriesDataItem
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:305: error: cannot find symbol
+        series.add((TimeSeriesDataItem) null);
+                    ^
+  symbol:   class TimeSeriesDataItem
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:310: error: cannot find symbol
+        TimeSeriesDataItem item = new TimeSeriesDataItem(new Year(2020), 10.0);
+        ^
+  symbol:   class TimeSeriesDataItem
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:310: error: cannot find symbol
+        TimeSeriesDataItem item = new TimeSeriesDataItem(new Year(2020), 10.0);
+                                      ^
+  symbol:   class TimeSeriesDataItem
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:333: error: cannot find symbol
+        TimeSeriesDataItem item = new TimeSeriesDataItem(new Day(1, 1, 2020), 10.0);
+        ^
+  symbol:   class TimeSeriesDataItem
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:333: error: cannot find symbol
+        TimeSeriesDataItem item = new TimeSeriesDataItem(new Day(1, 1, 2020), 10.0);
+                                      ^
+  symbol:   class TimeSeriesDataItem
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:416: error: cannot find symbol
+        TimeSeries other = new TimeSeries("Other", Day.class);
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:416: error: cannot find symbol
+        TimeSeries other = new TimeSeries("Other", Day.class);
+                               ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:419: error: cannot find symbol
+        TimeSeries overwritten = series.addAndOrUpdate(other);
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:429: error: cannot find symbol
+        TimeSeriesDataItem overwritten = series.addOrUpdate(new Day(1, 1, 2020), 5.0);
+        ^
+  symbol:   class TimeSeriesDataItem
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:437: error: cannot find symbol
+        TimeSeriesDataItem overwritten = series.addOrUpdate(new Day(1, 1, 2020), 10.0);
+        ^
+  symbol:   class TimeSeriesDataItem
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:545: error: cannot find symbol
+        TimeSeries clone = (TimeSeries) series.clone();
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:545: error: cannot find symbol
+        TimeSeries clone = (TimeSeries) series.clone();
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:559: error: cannot find symbol
+        TimeSeries copy = series.createCopy(0, 1);
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:584: error: cannot find symbol
+        TimeSeries copy = series.createCopy(new Day(1, 1, 2020), new Day(2, 1, 2020));
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:591: error: cannot find symbol
+        series.createCopy((RegularTimePeriod) null, new Day(1, 1, 2020));
+                           ^
+  symbol:   class RegularTimePeriod
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:597: error: cannot find symbol
+        series.createCopy(new Day(1, 1, 2020), (RegularTimePeriod) null);
+                                                ^
+  symbol:   class RegularTimePeriod
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:610: error: cannot find symbol
+        TimeSeries copy = series.createCopy(new Day(5, 1, 2020), new Day(6, 1, 2020));
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:619: error: cannot find symbol
+        TimeSeries copy = series.createCopy(new Day(1, 1, 2020), new Day(6, 1, 2020));
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:637: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:637: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test");
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:638: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:638: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test");
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:646: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test", "DomainA", "Range", Day.class);
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:646: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test", "DomainA", "Range", Day.class);
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:647: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test", "DomainB", "Range", Day.class);
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:647: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test", "DomainB", "Range", Day.class);
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:653: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test", "Domain", "RangeA", Day.class);
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:653: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test", "Domain", "RangeA", Day.class);
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:654: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test", "Domain", "RangeB", Day.class);
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:654: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test", "Domain", "RangeB", Day.class);
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:660: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:660: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test");
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:661: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:661: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test");
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:669: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:669: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test");
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:670: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:670: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test");
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:678: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:678: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test");
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:679: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:679: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test");
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:686: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:686: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test");
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:687: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:687: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test");
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:732: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:732: error: cannot find symbol
+        TimeSeries s1 = new TimeSeries("Test");
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:733: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test");
+        ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+/tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java:733: error: cannot find symbol
+        TimeSeries s2 = new TimeSeries("Test");
+                            ^
+  symbol:   class TimeSeries
+  location: class TimeSeriesTest
+Note: /tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_claude_Chart_9_md7cl73q/src/TimeSeriesTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+68 errors

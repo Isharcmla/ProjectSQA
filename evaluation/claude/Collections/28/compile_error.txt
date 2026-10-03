@@ -1,0 +1,21 @@
+/tmp/evaluate_claude_Collections_28_cp6s8j1d/src/AbstractPatriciaTrieTest.java:24: error: cannot find symbol
+    private PatriciaTrie<String, String> trie;
+            ^
+  symbol:   class PatriciaTrie
+  location: class AbstractPatriciaTrieTest
+/tmp/evaluate_claude_Collections_28_cp6s8j1d/src/AbstractPatriciaTrieTest.java:28: error: cannot find symbol
+        trie = new PatriciaTrie<String, String>();
+                   ^
+  symbol:   class PatriciaTrie
+  location: class AbstractPatriciaTrieTest
+/tmp/evaluate_claude_Collections_28_cp6s8j1d/src/AbstractPatriciaTrieTest.java:647: error: cannot find symbol
+        final PatriciaTrie<String, String> newTrie = new PatriciaTrie<String, String>(initial);
+              ^
+  symbol:   class PatriciaTrie
+  location: class AbstractPatriciaTrieTest
+/tmp/evaluate_claude_Collections_28_cp6s8j1d/src/AbstractPatriciaTrieTest.java:647: error: cannot find symbol
+        final PatriciaTrie<String, String> newTrie = new PatriciaTrie<String, String>(initial);
+                                                         ^
+  symbol:   class PatriciaTrie
+  location: class AbstractPatriciaTrieTest
+4 errors

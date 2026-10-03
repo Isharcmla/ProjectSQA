@@ -1,0 +1,151 @@
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:12: error: cannot find symbol
+    private TypeFactory typeFactory;
+            ^
+  symbol:   class TypeFactory
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:13: error: cannot find symbol
+    private MapType baseType;
+            ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:17: error: cannot find symbol
+        typeFactory = TypeFactory.defaultInstance();
+                      ^
+  symbol:   variable TypeFactory
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:33: error: cannot find symbol
+        TypeBindings bindings = TypeBindings.emptyBindings();
+        ^
+  symbol:   class TypeBindings
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:33: error: cannot find symbol
+        TypeBindings bindings = TypeBindings.emptyBindings();
+                                ^
+  symbol:   variable TypeBindings
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:39: error: cannot find symbol
+        MapType mt = MapType.construct(HashMap.class, bindings, superClass, superInterfaces,
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:39: error: cannot find symbol
+        MapType mt = MapType.construct(HashMap.class, bindings, superClass, superInterfaces,
+                     ^
+  symbol:   variable MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:56: error: cannot find symbol
+        MapType mt = MapType.construct(HashMap.class, keyType, valueType);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:56: error: cannot find symbol
+        MapType mt = MapType.construct(HashMap.class, keyType, valueType);
+                     ^
+  symbol:   variable MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:69: error: cannot find symbol
+        assertTrue(narrowed instanceof MapType);
+                                       ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:78: error: cannot find symbol
+        MapType result = baseType.withTypeHandler(handler);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:86: error: cannot find symbol
+        MapType result = baseType.withTypeHandler(null);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:95: error: cannot find symbol
+        MapType result = baseType.withContentTypeHandler(handler);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:102: error: cannot find symbol
+        MapType nullContentType = (MapType) baseType.withContentType(null);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:102: error: cannot find symbol
+        MapType nullContentType = (MapType) baseType.withContentType(null);
+                                   ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:112: error: cannot find symbol
+        MapType result = baseType.withValueHandler(handler);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:119: error: cannot find symbol
+        MapType result = baseType.withValueHandler(null);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:128: error: cannot find symbol
+        MapType result = baseType.withContentValueHandler(handler);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:137: error: cannot find symbol
+        MapType staticType = baseType.withStaticTyping();
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:144: error: cannot find symbol
+        MapType staticType = baseType.withStaticTyping();
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:145: error: cannot find symbol
+        MapType staticType2 = staticType.withStaticTyping();
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:179: error: cannot find symbol
+        MapType result = baseType.withKeyType(newKeyType);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:188: error: cannot find symbol
+        MapType result = baseType.withKeyType(sameKeyType);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:195: error: cannot find symbol
+        MapType result = baseType.withKeyType(null);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:210: error: cannot find symbol
+        assertTrue(refined instanceof MapType);
+                                      ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:219: error: cannot find symbol
+        MapType result = baseType.withKeyTypeHandler(handler);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:226: error: cannot find symbol
+        MapType nullKeyType = baseType.withKeyType(null);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:236: error: cannot find symbol
+        MapType result = baseType.withKeyValueHandler(handler);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:243: error: cannot find symbol
+        MapType nullKeyType = baseType.withKeyType(null);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+/tmp/evaluate_claude_JacksonDatabind_38_1ebfhv72/src/MapTypeTest.java:262: error: cannot find symbol
+        MapType mt = typeFactory.constructMapType(Map.class, String.class, String.class);
+        ^
+  symbol:   class MapType
+  location: class MapTypeTest
+30 errors

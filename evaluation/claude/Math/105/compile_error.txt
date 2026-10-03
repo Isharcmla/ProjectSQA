@@ -1,0 +1,11 @@
+/tmp/evaluate_claude_Math_105_r57z82jr/src/SimpleRegressionTest.java:8: error: cannot find symbol
+    private SimpleRegression regression;
+            ^
+  symbol:   class SimpleRegression
+  location: class SimpleRegressionTest
+/tmp/evaluate_claude_Math_105_r57z82jr/src/SimpleRegressionTest.java:12: error: cannot find symbol
+        regression = new SimpleRegression();
+                         ^
+  symbol:   class SimpleRegression
+  location: class SimpleRegressionTest
+2 errors

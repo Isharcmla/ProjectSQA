@@ -1,0 +1,81 @@
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:24: error: cannot find symbol
+    private BeanSerializerFactory factory;
+            ^
+  symbol:   class BeanSerializerFactory
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:30: error: cannot find symbol
+        factory = BeanSerializerFactory.instance;
+                  ^
+  symbol:   variable BeanSerializerFactory
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:31: error: cannot find symbol
+        prov = mapper.getSerializerProviderInstance();
+                     ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:64: error: cannot find symbol
+        assertNotNull(BeanSerializerFactory.instance);
+                      ^
+  symbol:   variable BeanSerializerFactory
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:78: error: cannot find symbol
+        assertTrue(result instanceof BeanSerializerFactory);
+                                     ^
+  symbol:   class BeanSerializerFactory
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:83: error: cannot find symbol
+        BeanSerializerFactory sub = new BeanSerializerFactory(null) { };
+        ^
+  symbol:   class BeanSerializerFactory
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:83: error: cannot find symbol
+        BeanSerializerFactory sub = new BeanSerializerFactory(null) { };
+                                        ^
+  symbol:   class BeanSerializerFactory
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:89: error: cannot find symbol
+        Iterable<Serializers> custom = factory.customSerializers();
+                 ^
+  symbol:   class Serializers
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:262: error: cannot find symbol
+        BeanSerializerBuilder builder = factory.constructBeanSerializerBuilder(beanDesc);
+        ^
+  symbol:   class BeanSerializerBuilder
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:271: error: cannot find symbol
+        PropertyBuilder pb = factory.constructPropertyBuilder(config, beanDesc);
+        ^
+  symbol:   class PropertyBuilder
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:281: error: cannot find symbol
+        BeanSerializerBuilder builder = factory.constructBeanSerializerBuilder(beanDesc);
+        ^
+  symbol:   class BeanSerializerBuilder
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:293: error: cannot find symbol
+        BeanSerializerBuilder builder = factory.constructBeanSerializerBuilder(beanDesc);
+        ^
+  symbol:   class BeanSerializerBuilder
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:307: error: cannot find symbol
+        BeanSerializerBuilder builder = factory.constructBeanSerializerBuilder(beanDesc);
+        ^
+  symbol:   class BeanSerializerBuilder
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:325: error: cannot find symbol
+        BeanSerializerBuilder builder = factory.constructBeanSerializerBuilder(beanDesc);
+        ^
+  symbol:   class BeanSerializerBuilder
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:342: error: cannot find symbol
+        BeanSerializerBuilder builder = factory.constructBeanSerializerBuilder(beanDesc);
+        ^
+  symbol:   class BeanSerializerBuilder
+  location: class BeanSerializerFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_22_496w_bd8/src/BeanSerializerFactoryTest.java:360: error: cannot find symbol
+        BeanSerializerBuilder builder = factory.constructBeanSerializerBuilder(beanDesc);
+        ^
+  symbol:   class BeanSerializerBuilder
+  location: class BeanSerializerFactoryTest
+16 errors

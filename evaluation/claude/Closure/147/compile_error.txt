@@ -1,0 +1,152 @@
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:95: error: cannot find symbol
+    options.setCheckTypes(true);
+           ^
+  symbol:   method setCheckTypes(boolean)
+  location: variable options of type CompilerOptions
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:102: error: no suitable method found for compile(SourceFile,SourceFile,CompilerOptions)
+    Result result = compiler.compile(externs, input, options);
+                            ^
+    method Compiler.compile(JSSourceFile,JSSourceFile,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+    method Compiler.compile(List<JSSourceFile>,List<JSSourceFile>,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to List<JSSourceFile>)
+    method Compiler.compile(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:107: error: cannot find symbol
+      pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                           ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:107: error: cannot find symbol
+      pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                      ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:117: error: cannot find symbol
+    options.setCheckTypes(true);
+           ^
+  symbol:   method setCheckTypes(boolean)
+  location: variable options of type CompilerOptions
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:146: error: no suitable method found for compile(SourceFile,SourceFile,CompilerOptions)
+    Result result = compiler.compile(externs, input, options);
+                            ^
+    method Compiler.compile(JSSourceFile,JSSourceFile,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+    method Compiler.compile(List<JSSourceFile>,List<JSSourceFile>,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to List<JSSourceFile>)
+    method Compiler.compile(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:151: error: cannot find symbol
+      pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                           ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:151: error: cannot find symbol
+      pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                      ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:161: error: cannot find symbol
+    options.setCheckTypes(true);
+           ^
+  symbol:   method setCheckTypes(boolean)
+  location: variable options of type CompilerOptions
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:169: error: no suitable method found for compile(SourceFile,SourceFile,CompilerOptions)
+    Result result = compiler.compile(externs, input, options);
+                            ^
+    method Compiler.compile(JSSourceFile,JSSourceFile,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+    method Compiler.compile(List<JSSourceFile>,List<JSSourceFile>,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to List<JSSourceFile>)
+    method Compiler.compile(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:174: error: cannot find symbol
+      pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                           ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:174: error: cannot find symbol
+      pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                      ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:184: error: cannot find symbol
+    options.setCheckTypes(true);
+           ^
+  symbol:   method setCheckTypes(boolean)
+  location: variable options of type CompilerOptions
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:198: error: no suitable method found for compile(SourceFile,SourceFile,CompilerOptions)
+    Result result = compiler.compile(externs, input, options);
+                            ^
+    method Compiler.compile(JSSourceFile,JSSourceFile,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+    method Compiler.compile(List<JSSourceFile>,List<JSSourceFile>,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to List<JSSourceFile>)
+    method Compiler.compile(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:203: error: cannot find symbol
+      pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                           ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:203: error: cannot find symbol
+      pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                      ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:231: error: cannot find symbol
+    options.setCheckTypes(true);
+           ^
+  symbol:   method setCheckTypes(boolean)
+  location: variable options of type CompilerOptions
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:236: error: no suitable method found for compile(SourceFile,SourceFile,CompilerOptions)
+    Result result = compiler.compile(externs, input, options);
+                            ^
+    method Compiler.compile(JSSourceFile,JSSourceFile,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+    method Compiler.compile(List<JSSourceFile>,List<JSSourceFile>,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to List<JSSourceFile>)
+    method Compiler.compile(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:241: error: cannot find symbol
+      pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                           ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_147_qzbpk12s/src/RuntimeTypeCheckTest.java:241: error: cannot find symbol
+      pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                      ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+20 errors

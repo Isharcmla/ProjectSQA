@@ -1,0 +1,61 @@
+/tmp/evaluate_claude_Closure_127_osbpdhsl/src/UnreachableCodeEliminationTest.java:40: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_127_osbpdhsl/src/UnreachableCodeEliminationTest.java:50: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_127_osbpdhsl/src/UnreachableCodeEliminationTest.java:60: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_127_osbpdhsl/src/UnreachableCodeEliminationTest.java:70: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_127_osbpdhsl/src/UnreachableCodeEliminationTest.java:86: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_127_osbpdhsl/src/UnreachableCodeEliminationTest.java:96: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_127_osbpdhsl/src/UnreachableCodeEliminationTest.java:106: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_127_osbpdhsl/src/UnreachableCodeEliminationTest.java:116: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_127_osbpdhsl/src/UnreachableCodeEliminationTest.java:126: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_127_osbpdhsl/src/UnreachableCodeEliminationTest.java:137: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_127_osbpdhsl/src/UnreachableCodeEliminationTest.java:147: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_127_osbpdhsl/src/UnreachableCodeEliminationTest.java:158: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+12 errors

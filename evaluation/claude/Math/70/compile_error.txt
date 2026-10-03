@@ -1,0 +1,51 @@
+/tmp/evaluate_claude_Math_70_zc58v3xy/src/BisectionSolverTest.java:13: error: cannot find symbol
+    private BisectionSolver solver;
+            ^
+  symbol:   class BisectionSolver
+  location: class BisectionSolverTest
+/tmp/evaluate_claude_Math_70_zc58v3xy/src/BisectionSolverTest.java:31: error: cannot find symbol
+        solver = new BisectionSolver();
+                     ^
+  symbol:   class BisectionSolver
+  location: class BisectionSolverTest
+/tmp/evaluate_claude_Math_70_zc58v3xy/src/BisectionSolverTest.java:36: error: cannot find symbol
+        BisectionSolver s = new BisectionSolver();
+        ^
+  symbol:   class BisectionSolver
+  location: class BisectionSolverTest
+/tmp/evaluate_claude_Math_70_zc58v3xy/src/BisectionSolverTest.java:36: error: cannot find symbol
+        BisectionSolver s = new BisectionSolver();
+                                ^
+  symbol:   class BisectionSolver
+  location: class BisectionSolverTest
+/tmp/evaluate_claude_Math_70_zc58v3xy/src/BisectionSolverTest.java:42: error: cannot find symbol
+        BisectionSolver s = new BisectionSolver(linearFunction);
+        ^
+  symbol:   class BisectionSolver
+  location: class BisectionSolverTest
+/tmp/evaluate_claude_Math_70_zc58v3xy/src/BisectionSolverTest.java:42: error: cannot find symbol
+        BisectionSolver s = new BisectionSolver(linearFunction);
+                                ^
+  symbol:   class BisectionSolver
+  location: class BisectionSolverTest
+/tmp/evaluate_claude_Math_70_zc58v3xy/src/BisectionSolverTest.java:66: error: cannot find symbol
+        BisectionSolver deprecatedSolver = new BisectionSolver(linearFunction);
+        ^
+  symbol:   class BisectionSolver
+  location: class BisectionSolverTest
+/tmp/evaluate_claude_Math_70_zc58v3xy/src/BisectionSolverTest.java:66: error: cannot find symbol
+        BisectionSolver deprecatedSolver = new BisectionSolver(linearFunction);
+                                               ^
+  symbol:   class BisectionSolver
+  location: class BisectionSolverTest
+/tmp/evaluate_claude_Math_70_zc58v3xy/src/BisectionSolverTest.java:73: error: cannot find symbol
+        BisectionSolver deprecatedSolver = new BisectionSolver(linearFunction);
+        ^
+  symbol:   class BisectionSolver
+  location: class BisectionSolverTest
+/tmp/evaluate_claude_Math_70_zc58v3xy/src/BisectionSolverTest.java:73: error: cannot find symbol
+        BisectionSolver deprecatedSolver = new BisectionSolver(linearFunction);
+                                               ^
+  symbol:   class BisectionSolver
+  location: class BisectionSolverTest
+10 errors

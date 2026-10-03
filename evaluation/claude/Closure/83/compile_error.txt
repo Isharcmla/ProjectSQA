@@ -1,0 +1,365 @@
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:73: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(new String[]{});
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:73: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(new String[]{});
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:84: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:84: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:96: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:96: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:105: error: cannot find symbol
+        new CommandLineRunner(null);
+            ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:116: error: cannot find symbol
+            CommandLineRunner runner = new CommandLineRunner(
+            ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:116: error: cannot find symbol
+            CommandLineRunner runner = new CommandLineRunner(
+                                           ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:130: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:130: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:137: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:137: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:144: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:144: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:151: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:151: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:158: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:158: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:165: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:165: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:172: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:172: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:179: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:179: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:186: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:186: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:193: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:193: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:200: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:200: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:207: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:207: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:220: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:220: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:231: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(new String[]{});
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:231: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(new String[]{});
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:232: error: cannot find symbol
+        CompilerOptions options = runner.createOptions();
+        ^
+  symbol:   class CompilerOptions
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:239: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:239: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:241: error: cannot find symbol
+        CompilerOptions options = runner.createOptions();
+        ^
+  symbol:   class CompilerOptions
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:247: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:247: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:249: error: cannot find symbol
+        CompilerOptions options = runner.createOptions();
+        ^
+  symbol:   class CompilerOptions
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:255: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:255: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:257: error: cannot find symbol
+        CompilerOptions options = runner.createOptions();
+        ^
+  symbol:   class CompilerOptions
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:263: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:263: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:265: error: cannot find symbol
+        CompilerOptions options = runner.createOptions();
+        ^
+  symbol:   class CompilerOptions
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:271: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:271: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:273: error: cannot find symbol
+        CompilerOptions options = runner.createOptions();
+        ^
+  symbol:   class CompilerOptions
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:279: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:279: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:281: error: cannot find symbol
+        CompilerOptions options = runner.createOptions();
+        ^
+  symbol:   class CompilerOptions
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:287: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:287: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:289: error: cannot find symbol
+        CompilerOptions options = runner.createOptions();
+        ^
+  symbol:   class CompilerOptions
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:300: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(new String[]{});
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:300: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(new String[]{});
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:301: warning: [removal] Compiler in java.lang has been deprecated and marked for removal
+        Compiler compiler = runner.createCompiler();
+        ^
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:311: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:311: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:319: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(new String[]{});
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:319: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(new String[]{});
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:337: error: cannot find symbol
+            List<JSSourceFile> externs = CommandLineRunner.getDefaultExterns();
+                                         ^
+  symbol:   variable CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:358: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(new String[]{});
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:358: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(new String[]{});
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:369: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+        ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:369: error: cannot find symbol
+        CommandLineRunner runner = new CommandLineRunner(
+                                       ^
+  symbol:   class CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:390: error: cannot find symbol
+            CommandLineRunner.main(new String[]{"--this_flag_does_not_exist_abc"});
+            ^
+  symbol:   variable CommandLineRunner
+  location: class CommandLineRunnerTest
+/tmp/evaluate_claude_Closure_83_8j7u4b6f/src/CommandLineRunnerTest.java:412: error: cannot find symbol
+            CommandLineRunner.main(new String[]{"--help"});
+            ^
+  symbol:   variable CommandLineRunner
+  location: class CommandLineRunnerTest
+72 errors
+1 warning

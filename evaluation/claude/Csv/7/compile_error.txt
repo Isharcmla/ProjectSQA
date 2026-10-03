@@ -1,0 +1,16 @@
+/tmp/evaluate_claude_Csv_7_lz4952qg/src/CSVParserTest.java:235: error: cannot find symbol
+        parser.nextRecordPublicAccessHelper();
+              ^
+  symbol:   method nextRecordPublicAccessHelper()
+  location: variable parser of type CSVParser
+/tmp/evaluate_claude_Csv_7_lz4952qg/src/CSVParserTest.java:345: error: cannot find symbol
+        CSVFormat format = CSVFormat.DEFAULT.withCommentMarker('#');
+                                            ^
+  symbol:   method withCommentMarker(char)
+  location: variable DEFAULT of type CSVFormat
+/tmp/evaluate_claude_Csv_7_lz4952qg/src/CSVParserTest.java:391: error: cannot find symbol
+        CSVFormat format = CSVFormat.DEFAULT.withQuote('"');
+                                            ^
+  symbol:   method withQuote(char)
+  location: variable DEFAULT of type CSVFormat
+3 errors

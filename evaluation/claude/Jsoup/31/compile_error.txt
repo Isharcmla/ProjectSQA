@@ -1,0 +1,6 @@
+/tmp/evaluate_claude_Jsoup_31_pgakb6x5/src/XmlTreeBuilderTest.java:103: error: cannot find symbol
+        assertTrue(doc.childNodeSize() > 0);
+                      ^
+  symbol:   method childNodeSize()
+  location: variable doc of type Document
+1 error

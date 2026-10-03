@@ -1,0 +1,191 @@
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:11: error: cannot find symbol
+        Document doc = Parser.parse("<html><head><title>Test</title></head><body><p>Hello</p></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:20: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><!-- comment text --></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:28: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><![CDATA[cdata content]]></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:36: error: cannot find symbol
+        Document doc = Parser.parse("<?xml version=\"1.0\"?><html><body>text</body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:43: error: cannot find symbol
+        Document doc = Parser.parse("<!DOCTYPE html><html><body>text</body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:50: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><p>Para1</p><p>Para2</p></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:58: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><br/><img src='test.jpg'/></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:64: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><img src=\"test.jpg\"></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:70: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><div id='test' class='myclass'>content</div></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:77: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><div id=\"test\" class=\"myclass\">content</div></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:84: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><div id=test>content</div></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:91: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><input disabled></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:97: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><script>var x = 1;</script></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:104: error: cannot find symbol
+        Document doc = Parser.parse("<html><head><title>My Title</title></head><body></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:111: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><textarea>Some text</textarea></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:118: error: cannot find symbol
+        Document doc = Parser.parse("<html><head><base href=\"http://newbase.com/\"></head><body></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:124: error: cannot find symbol
+        Document doc = Parser.parse("<html><head><base target=\"_blank\"></head><body></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:130: error: cannot find symbol
+        Document doc = Parser.parseBodyFragment("<p>Fragment content</p>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:138: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><div><span>Nested</span></div></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:145: error: cannot find symbol
+        Document doc = Parser.parse("<html><body>Text1<br/>Text2</body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:153: error: cannot find symbol
+        Document doc = Parser.parse("<p>No html or body tags</p>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:161: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><custom/>text</body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:167: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><img src=test.jpg/></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:175: error: cannot find symbol
+        Document doc = Parser.parse("", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:181: error: cannot find symbol
+        Document doc = Parser.parseBodyFragment("", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:188: error: cannot find symbol
+        Document doc = Parser.parse("<html><body>< notag text</body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:194: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><div =foo>text</div></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:201: error: cannot find symbol
+        Document doc = Parser.parse("<html><body></span>text</body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:208: error: cannot find symbol
+        Document doc = Parser.parse("<html><body></>text</body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:214: error: cannot find symbol
+        Document doc = Parser.parse("   ", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:220: error: cannot find symbol
+        Document doc = Parser.parse("<html><body>text</body></html>", "");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:226: error: cannot find symbol
+        Document doc = Parser.parseBodyFragment("<p>text</p>", "");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:232: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><!--comment--></body></html>", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:239: error: cannot find symbol
+        Document doc = Parser.parse("<html><body><div><span><b>text", "http://example.com/");
+                       ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:248: error: cannot find symbol
+        Parser.parse(null, "http://example.com/");
+        ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:253: error: cannot find symbol
+        Parser.parse("<html></html>", null);
+        ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:258: error: cannot find symbol
+        Parser.parseBodyFragment(null, "http://example.com/");
+        ^
+  symbol:   variable Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Jsoup_3_4twhofxg/src/ParserTest.java:263: error: cannot find symbol
+        Parser.parseBodyFragment("<p>test</p>", null);
+        ^
+  symbol:   variable Parser
+  location: class ParserTest
+38 errors

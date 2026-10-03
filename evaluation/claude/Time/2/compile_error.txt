@@ -1,0 +1,31 @@
+/tmp/evaluate_claude_Time_2_ezjoz8ra/src/PartialTest.java:5: error: cannot find symbol
+import org.joda.time.ISOChronology;
+                    ^
+  symbol:   class ISOChronology
+  location: package org.joda.time
+/tmp/evaluate_claude_Time_2_ezjoz8ra/src/PartialTest.java:43: error: cannot find symbol
+        assertEquals(ISOChronology.getInstanceUTC(), pEmpty.getChronology());
+                     ^
+  symbol:   variable ISOChronology
+  location: class PartialTest
+/tmp/evaluate_claude_Time_2_ezjoz8ra/src/PartialTest.java:48: error: cannot find symbol
+        Partial p = new Partial(ISOChronology.getInstance());
+                                ^
+  symbol:   variable ISOChronology
+  location: class PartialTest
+/tmp/evaluate_claude_Time_2_ezjoz8ra/src/PartialTest.java:49: error: cannot find symbol
+        assertEquals(ISOChronology.getInstanceUTC(), p.getChronology());
+                     ^
+  symbol:   variable ISOChronology
+  location: class PartialTest
+/tmp/evaluate_claude_Time_2_ezjoz8ra/src/PartialTest.java:62: error: cannot find symbol
+        Partial p = new Partial(DateTimeFieldType.year(), 2000, ISOChronology.getInstance());
+                                                                ^
+  symbol:   variable ISOChronology
+  location: class PartialTest
+/tmp/evaluate_claude_Time_2_ezjoz8ra/src/PartialTest.java:146: error: cannot find symbol
+        assertEquals(ISOChronology.getInstanceUTC(), pFull.getChronology());
+                     ^
+  symbol:   variable ISOChronology
+  location: class PartialTest
+6 errors

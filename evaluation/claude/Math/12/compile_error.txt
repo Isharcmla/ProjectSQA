@@ -1,0 +1,188 @@
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:15: error: cannot find symbol
+    private static class TestGenerator extends BitsStreamGenerator {
+                                               ^
+  symbol:   class BitsStreamGenerator
+  location: class BitsStreamGeneratorTest
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:25: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:30: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:39: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:44: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:67: error: cannot find symbol
+        int value = generator.nextInt();
+                             ^
+  symbol:   method nextInt()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:74: error: cannot find symbol
+        int value = generator.nextInt();
+                             ^
+  symbol:   method nextInt()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:81: error: cannot find symbol
+        int value = generator.nextInt();
+                             ^
+  symbol:   method nextInt()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:88: error: cannot find symbol
+        int value = generator.nextInt();
+                             ^
+  symbol:   method nextInt()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:97: error: cannot find symbol
+        boolean result = generator.nextBoolean();
+                                  ^
+  symbol:   method nextBoolean()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:104: error: cannot find symbol
+        boolean result = generator.nextBoolean();
+                                  ^
+  symbol:   method nextBoolean()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:113: error: cannot find symbol
+        generator.nextBytes(bytes);
+                 ^
+  symbol:   method nextBytes(byte[])
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:120: error: cannot find symbol
+        generator.nextBytes(bytes);
+                 ^
+  symbol:   method nextBytes(byte[])
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:127: error: cannot find symbol
+        generator.nextBytes(bytes);
+                 ^
+  symbol:   method nextBytes(byte[])
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:134: error: cannot find symbol
+        generator.nextBytes(bytes);
+                 ^
+  symbol:   method nextBytes(byte[])
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:141: error: cannot find symbol
+        generator.nextBytes(bytes);
+                 ^
+  symbol:   method nextBytes(byte[])
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:148: error: cannot find symbol
+        generator.nextBytes(bytes);
+                 ^
+  symbol:   method nextBytes(byte[])
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:155: error: cannot find symbol
+        generator.nextBytes(bytes);
+                 ^
+  symbol:   method nextBytes(byte[])
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:163: error: cannot find symbol
+        double value = generator.nextDouble();
+                                ^
+  symbol:   method nextDouble()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:170: error: cannot find symbol
+        double value = generator.nextDouble();
+                                ^
+  symbol:   method nextDouble()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:178: error: cannot find symbol
+        float value = generator.nextFloat();
+                               ^
+  symbol:   method nextFloat()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:185: error: cannot find symbol
+        float value = generator.nextFloat();
+                               ^
+  symbol:   method nextFloat()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:195: error: cannot find symbol
+        double value = generator.nextGaussian();
+                                ^
+  symbol:   method nextGaussian()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:201: error: cannot find symbol
+        double first = generator.nextGaussian();
+                                ^
+  symbol:   method nextGaussian()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:202: error: cannot find symbol
+        double second = generator.nextGaussian();
+                                 ^
+  symbol:   method nextGaussian()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:209: error: cannot find symbol
+        generator.nextGaussian();
+                 ^
+  symbol:   method nextGaussian()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:210: error: cannot find symbol
+        generator.clear();
+                 ^
+  symbol:   method clear()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:211: error: cannot find symbol
+        double value = generator.nextGaussian();
+                                ^
+  symbol:   method nextGaussian()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:219: error: cannot find symbol
+        int value = generator.nextInt();
+                             ^
+  symbol:   method nextInt()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:230: error: cannot find symbol
+        int result = generator.nextInt(n);
+                              ^
+  symbol:   method nextInt(int)
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:239: error: cannot find symbol
+        int result = generator.nextInt(n);
+                              ^
+  symbol:   method nextInt(int)
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:251: error: cannot find symbol
+        int result = generator.nextInt(n);
+                              ^
+  symbol:   method nextInt(int)
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:257: error: cannot find symbol
+        generator.nextInt(0);
+                 ^
+  symbol:   method nextInt(int)
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:262: error: cannot find symbol
+        generator.nextInt(-5);
+                 ^
+  symbol:   method nextInt(int)
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:269: error: cannot find symbol
+        long value = generator.nextLong();
+                              ^
+  symbol:   method nextLong()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:276: error: cannot find symbol
+        long result = generator.nextLong();
+                               ^
+  symbol:   method nextLong()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:287: error: cannot find symbol
+        generator.nextGaussian(); // populates cache
+                 ^
+  symbol:   method nextGaussian()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:288: error: cannot find symbol
+        generator.clear();
+                 ^
+  symbol:   method clear()
+  location: variable generator of type TestGenerator
+/tmp/evaluate_claude_Math_12_z4n5newp/src/BitsStreamGeneratorTest.java:291: error: cannot find symbol
+        double value = generator.nextGaussian();
+                                ^
+  symbol:   method nextGaussian()
+  location: variable generator of type TestGenerator
+39 errors

@@ -1,0 +1,4 @@
+/tmp/evaluate_claude_Jsoup_35_un8w4yg0/src/HtmlTreeBuilderStateTest.java:116: error: ';' expected
+        Elements metas(); // placeholder to avoid unused import warnings removed below
+                      ^
+1 error

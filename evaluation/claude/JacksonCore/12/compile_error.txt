@@ -1,0 +1,11 @@
+/tmp/evaluate_claude_JacksonCore_12_c57cvejg/src/UTF8StreamJsonParserTest.java:378: error: cannot find symbol
+        SerializableString ss = new SerializedString("target");
+                                    ^
+  symbol:   class SerializedString
+  location: class UTF8StreamJsonParserTest
+/tmp/evaluate_claude_JacksonCore_12_c57cvejg/src/UTF8StreamJsonParserTest.java:388: error: cannot find symbol
+        SerializableString ss = new SerializedString("target");
+                                    ^
+  symbol:   class SerializedString
+  location: class UTF8StreamJsonParserTest
+2 errors

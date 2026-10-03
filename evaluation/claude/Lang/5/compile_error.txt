@@ -1,0 +1,221 @@
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:11: error: cannot find symbol
+    private LocaleUtils localeUtils;
+            ^
+  symbol:   class LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:15: error: cannot find symbol
+        localeUtils = new LocaleUtils();
+                          ^
+  symbol:   class LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:27: error: cannot find symbol
+        assertNull(LocaleUtils.toLocale(null));
+                   ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:32: error: cannot find symbol
+        Locale locale = LocaleUtils.toLocale("en");
+                        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:39: error: cannot find symbol
+        Locale locale = LocaleUtils.toLocale("en_GB");
+                        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:46: error: cannot find symbol
+        Locale locale = LocaleUtils.toLocale("en_GB_X");
+                        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:54: error: cannot find symbol
+        Locale locale = LocaleUtils.toLocale("en__xxx");
+                        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:62: error: cannot find symbol
+        LocaleUtils.toLocale("");
+        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:67: error: cannot find symbol
+        LocaleUtils.toLocale("a");
+        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:72: error: cannot find symbol
+        LocaleUtils.toLocale("En");
+        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:77: error: cannot find symbol
+        LocaleUtils.toLocale("eN");
+        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:82: error: cannot find symbol
+        LocaleUtils.toLocale("en_");
+        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:87: error: cannot find symbol
+        LocaleUtils.toLocale("enGB");
+        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:92: error: cannot find symbol
+        LocaleUtils.toLocale("enGBX");
+        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:97: error: cannot find symbol
+        LocaleUtils.toLocale("en_Gb");
+        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:102: error: cannot find symbol
+        LocaleUtils.toLocale("en_GB_");
+        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:107: error: cannot find symbol
+        LocaleUtils.toLocale("en_GBxx");
+        ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:113: error: cannot find symbol
+        List<Locale> list = LocaleUtils.localeLookupList(null);
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:120: error: cannot find symbol
+        List<Locale> list = LocaleUtils.localeLookupList(locale);
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:128: error: cannot find symbol
+        List<Locale> list = LocaleUtils.localeLookupList(locale);
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:137: error: cannot find symbol
+        List<Locale> list = LocaleUtils.localeLookupList(new Locale("en"));
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:144: error: cannot find symbol
+        List<Locale> list = LocaleUtils.localeLookupList(null, null);
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:152: error: cannot find symbol
+        List<Locale> list = LocaleUtils.localeLookupList(locale, defaultLocale);
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:164: error: cannot find symbol
+        List<Locale> list = LocaleUtils.localeLookupList(locale, defaultLocale);
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:171: error: cannot find symbol
+        List<Locale> list = LocaleUtils.localeLookupList(null, new Locale("en"));
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:178: error: cannot find symbol
+        List<Locale> list = LocaleUtils.availableLocaleList();
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:185: error: cannot find symbol
+        List<Locale> list = LocaleUtils.availableLocaleList();
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:192: error: cannot find symbol
+        Set<Locale> set = LocaleUtils.availableLocaleSet();
+                          ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:199: error: cannot find symbol
+        Set<Locale> set = LocaleUtils.availableLocaleSet();
+                          ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:206: error: cannot find symbol
+        assertTrue(LocaleUtils.isAvailableLocale(Locale.US));
+                   ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:212: error: cannot find symbol
+        assertFalse(LocaleUtils.isAvailableLocale(fakeLocale));
+                    ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:217: error: cannot find symbol
+        assertFalse(LocaleUtils.isAvailableLocale(null));
+                    ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:223: error: cannot find symbol
+        List<Locale> list = LocaleUtils.languagesByCountry(null);
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:229: error: cannot find symbol
+        List<Locale> list = LocaleUtils.languagesByCountry("US");
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:239: error: cannot find symbol
+        List<Locale> firstCall = LocaleUtils.languagesByCountry("GB");
+                                 ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:240: error: cannot find symbol
+        List<Locale> secondCall = LocaleUtils.languagesByCountry("GB");
+                                  ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:246: error: cannot find symbol
+        List<Locale> list = LocaleUtils.languagesByCountry("XX");
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:253: error: cannot find symbol
+        List<Locale> list = LocaleUtils.languagesByCountry("US");
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:260: error: cannot find symbol
+        List<Locale> list = LocaleUtils.countriesByLanguage(null);
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:266: error: cannot find symbol
+        List<Locale> list = LocaleUtils.countriesByLanguage("en");
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:277: error: cannot find symbol
+        List<Locale> firstCall = LocaleUtils.countriesByLanguage("fr");
+                                 ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:278: error: cannot find symbol
+        List<Locale> secondCall = LocaleUtils.countriesByLanguage("fr");
+                                  ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:284: error: cannot find symbol
+        List<Locale> list = LocaleUtils.countriesByLanguage("zz");
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+/tmp/evaluate_claude_Lang_5_f2bxuvg8/src/LocaleUtilsTest.java:291: error: cannot find symbol
+        List<Locale> list = LocaleUtils.countriesByLanguage("en");
+                            ^
+  symbol:   variable LocaleUtils
+  location: class LocaleUtilsTest
+44 errors

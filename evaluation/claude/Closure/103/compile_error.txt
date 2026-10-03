@@ -1,0 +1,25 @@
+/tmp/evaluate_claude_Closure_103_1ryrcm6n/src/DisambiguatePropertiesTest.java:38: error: cannot find symbol
+    options.setCheckTypes(true);
+           ^
+  symbol:   method setCheckTypes(boolean)
+  location: variable options of type CompilerOptions
+/tmp/evaluate_claude_Closure_103_1ryrcm6n/src/DisambiguatePropertiesTest.java:50: error: no suitable method found for compile(List<SourceFile>,List<SourceFile>,CompilerOptions)
+    compiler.compile(externs, inputs, options);
+            ^
+    method Compiler.compile(JSSourceFile,JSSourceFile,CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile[])
+    method Compiler.compile(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile[])
+/tmp/evaluate_claude_Closure_103_1ryrcm6n/src/DisambiguatePropertiesTest.java:106: error: cannot find symbol
+      compiler.initOptions(new CompilerOptions());
+              ^
+  symbol:   method initOptions(CompilerOptions)
+  location: variable compiler of type Compiler
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+3 errors

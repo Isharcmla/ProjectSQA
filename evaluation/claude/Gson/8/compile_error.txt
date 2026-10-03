@@ -1,0 +1,11 @@
+/tmp/evaluate_claude_Gson_8_btd0sl3i/src/UnsafeAllocatorTest.java:10: error: cannot find symbol
+    private UnsafeAllocator allocator;
+            ^
+  symbol:   class UnsafeAllocator
+  location: class UnsafeAllocatorTest
+/tmp/evaluate_claude_Gson_8_btd0sl3i/src/UnsafeAllocatorTest.java:50: error: cannot find symbol
+        allocator = UnsafeAllocator.create();
+                    ^
+  symbol:   variable UnsafeAllocator
+  location: class UnsafeAllocatorTest
+2 errors

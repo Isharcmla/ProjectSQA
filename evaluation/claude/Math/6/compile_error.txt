@@ -1,0 +1,11 @@
+/tmp/evaluate_claude_Math_6_0y5wc1vb/src/GaussNewtonOptimizerTest.java:134: error: cannot find symbol
+        Assert.assertEquals(0.0, optimizer.getCost(), 1e-9);
+                                          ^
+  symbol:   method getCost()
+  location: variable optimizer of type GaussNewtonOptimizer
+/tmp/evaluate_claude_Math_6_0y5wc1vb/src/GaussNewtonOptimizerTest.java:247: error: cannot find symbol
+        Assert.assertTrue(optimizer.getCost() >= 0.0);
+                                   ^
+  symbol:   method getCost()
+  location: variable optimizer of type GaussNewtonOptimizer
+2 errors

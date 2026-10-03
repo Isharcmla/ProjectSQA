@@ -1,0 +1,358 @@
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:7: error: cannot find symbol
+    private TokenQueue queue;
+            ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:18: error: cannot find symbol
+        TokenQueue tq = new TokenQueue("hello");
+        ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:18: error: cannot find symbol
+        TokenQueue tq = new TokenQueue("hello");
+                            ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:27: error: cannot find symbol
+            new TokenQueue(null);
+                ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:36: error: cannot find symbol
+        TokenQueue tq = new TokenQueue("");
+        ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:36: error: cannot find symbol
+        TokenQueue tq = new TokenQueue("");
+                            ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:44: error: cannot find symbol
+        queue = new TokenQueue("");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:50: error: cannot find symbol
+        queue = new TokenQueue("abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:56: error: cannot find symbol
+        queue = new TokenQueue("a");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:65: error: cannot find symbol
+        queue = new TokenQueue("abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:71: error: cannot find symbol
+        queue = new TokenQueue("");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:79: error: cannot find symbol
+        queue = new TokenQueue("bc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:88: error: cannot find symbol
+        queue = new TokenQueue("world");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:95: error: cannot find symbol
+        queue = new TokenQueue("abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:105: error: cannot find symbol
+        queue = new TokenQueue("Hello World");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:111: error: cannot find symbol
+        queue = new TokenQueue("Hello World");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:117: error: cannot find symbol
+        queue = new TokenQueue("ab");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:125: error: cannot find symbol
+        queue = new TokenQueue("Hello");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:131: error: cannot find symbol
+        queue = new TokenQueue("Hello");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:139: error: cannot find symbol
+        queue = new TokenQueue("test");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:145: error: cannot find symbol
+        queue = new TokenQueue("test");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:153: error: cannot find symbol
+        queue = new TokenQueue("test");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:159: error: cannot find symbol
+        queue = new TokenQueue("test");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:165: error: cannot find symbol
+        queue = new TokenQueue("");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:173: error: cannot find symbol
+        queue = new TokenQueue("<div>");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:179: error: cannot find symbol
+        queue = new TokenQueue("div>");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:185: error: cannot find symbol
+        queue = new TokenQueue("<1div>");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:191: error: cannot find symbol
+        queue = new TokenQueue("<");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:199: error: cannot find symbol
+        queue = new TokenQueue("hello world");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:207: error: cannot find symbol
+        queue = new TokenQueue("hello world");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:217: error: cannot find symbol
+        queue = new TokenQueue(" abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:223: error: cannot find symbol
+        queue = new TokenQueue("abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:229: error: cannot find symbol
+        queue = new TokenQueue("");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:237: error: cannot find symbol
+        queue = new TokenQueue("abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:243: error: cannot find symbol
+        queue = new TokenQueue("!abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:249: error: cannot find symbol
+        queue = new TokenQueue("");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:257: error: cannot find symbol
+        queue = new TokenQueue("abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:264: error: cannot find symbol
+        queue = new TokenQueue("");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:273: error: cannot find symbol
+        queue = new TokenQueue("abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:281: error: cannot find symbol
+        queue = new TokenQueue("");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:295: error: cannot find symbol
+        queue = new TokenQueue("Hello World");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:302: error: cannot find symbol
+        queue = new TokenQueue("Hello World");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:310: error: cannot find symbol
+        queue = new TokenQueue("one two three");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:318: error: cannot find symbol
+        queue = new TokenQueue("one two three");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:328: error: cannot find symbol
+        queue = new TokenQueue("one Two three");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:336: error: cannot find symbol
+        queue = new TokenQueue("abcdef");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:344: error: cannot find symbol
+        queue = new TokenQueue("123-abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:353: error: cannot find symbol
+        queue = new TokenQueue("one,two;three");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:361: error: cannot find symbol
+        queue = new TokenQueue("onetwothree");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:371: error: cannot find symbol
+        queue = new TokenQueue("one two three");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:381: error: cannot find symbol
+        queue = new TokenQueue("one TWO three");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:391: error: cannot find symbol
+        queue = new TokenQueue("(one (two) three) four");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:399: error: cannot find symbol
+        queue = new TokenQueue("no brackets here");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:406: error: cannot find symbol
+        queue = new TokenQueue("(one \\) two) three");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:415: error: cannot find symbol
+        String result = TokenQueue.unescape("one\\ two");
+                        ^
+  symbol:   variable TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:421: error: cannot find symbol
+        String result = TokenQueue.unescape("\\\\");
+                        ^
+  symbol:   variable TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:427: error: cannot find symbol
+        String result = TokenQueue.unescape("");
+                        ^
+  symbol:   variable TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:433: error: cannot find symbol
+        String result = TokenQueue.unescape("plain");
+                        ^
+  symbol:   variable TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:441: error: cannot find symbol
+        queue = new TokenQueue("   abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:449: error: cannot find symbol
+        queue = new TokenQueue("abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:458: error: cannot find symbol
+        queue = new TokenQueue("hello123 world");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:466: error: cannot find symbol
+        queue = new TokenQueue("!!!hello");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:475: error: cannot find symbol
+        queue = new TokenQueue("div-tag:name rest");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:482: error: cannot find symbol
+        queue = new TokenQueue("");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:491: error: cannot find symbol
+        queue = new TokenQueue("div|name_rest more");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:500: error: cannot find symbol
+        queue = new TokenQueue("my-class_1 rest");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:509: error: cannot find symbol
+        queue = new TokenQueue("data-foo:bar=value");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:518: error: cannot find symbol
+        queue = new TokenQueue("abc");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:527: error: cannot find symbol
+        queue = new TokenQueue("");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:536: error: cannot find symbol
+        queue = new TokenQueue("hello");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+/tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java:543: error: cannot find symbol
+        queue = new TokenQueue("full string");
+                    ^
+  symbol:   class TokenQueue
+  location: class TokenQueueTest
+Note: /tmp/evaluate_claude_Jsoup_53_b0l7tsxx/src/TokenQueueTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+71 errors

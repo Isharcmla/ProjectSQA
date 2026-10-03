@@ -1,0 +1,141 @@
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:11: error: cannot find symbol
+    private ShapeList shapeList;
+            ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:15: error: cannot find symbol
+        shapeList = new ShapeList();
+                        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:22: error: cannot find symbol
+        ShapeList list = new ShapeList();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:22: error: cannot find symbol
+        ShapeList list = new ShapeList();
+                             ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:105: error: cannot find symbol
+        ShapeList clone = (ShapeList) shapeList.clone();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:105: error: cannot find symbol
+        ShapeList clone = (ShapeList) shapeList.clone();
+                           ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:114: error: cannot find symbol
+        ShapeList clone = (ShapeList) shapeList.clone();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:114: error: cannot find symbol
+        ShapeList clone = (ShapeList) shapeList.clone();
+                           ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:138: error: cannot find symbol
+        ShapeList list1 = new ShapeList();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:138: error: cannot find symbol
+        ShapeList list1 = new ShapeList();
+                              ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:139: error: cannot find symbol
+        ShapeList list2 = new ShapeList();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:139: error: cannot find symbol
+        ShapeList list2 = new ShapeList();
+                              ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:151: error: cannot find symbol
+        ShapeList list1 = new ShapeList();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:151: error: cannot find symbol
+        ShapeList list1 = new ShapeList();
+                              ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:152: error: cannot find symbol
+        ShapeList list2 = new ShapeList();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:152: error: cannot find symbol
+        ShapeList list2 = new ShapeList();
+                              ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:162: error: cannot find symbol
+        ShapeList list1 = new ShapeList();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:162: error: cannot find symbol
+        ShapeList list1 = new ShapeList();
+                              ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:163: error: cannot find symbol
+        ShapeList list2 = new ShapeList();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:163: error: cannot find symbol
+        ShapeList list2 = new ShapeList();
+                              ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:175: error: cannot find symbol
+        ShapeList list1 = new ShapeList();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:175: error: cannot find symbol
+        ShapeList list1 = new ShapeList();
+                              ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:176: error: cannot find symbol
+        ShapeList list2 = new ShapeList();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:176: error: cannot find symbol
+        ShapeList list2 = new ShapeList();
+                              ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:184: error: cannot find symbol
+        ShapeList list1 = new ShapeList();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:184: error: cannot find symbol
+        ShapeList list1 = new ShapeList();
+                              ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:185: error: cannot find symbol
+        ShapeList list2 = new ShapeList();
+        ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+/tmp/evaluate_claude_Chart_6_6yc37b2t/src/ShapeListTest.java:185: error: cannot find symbol
+        ShapeList list2 = new ShapeList();
+                              ^
+  symbol:   class ShapeList
+  location: class ShapeListTest
+28 errors

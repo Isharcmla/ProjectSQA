@@ -1,0 +1,43 @@
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:111: error: getCodeNoCache() is not public in SourceFile; cannot be accessed from outside package
+    assertEquals("some code", sf.getCodeNoCache());
+                                ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:150: error: setIsExtern(boolean) is not public in SourceFile; cannot be accessed from outside package
+    sf.setIsExtern(true);
+      ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:181: error: getNumLines() is not public in SourceFile; cannot be accessed from outside package
+    assertEquals(3, sf.getNumLines());
+                      ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:187: error: getNumLines() is not public in SourceFile; cannot be accessed from outside package
+    assertEquals(1, sf.getNumLines());
+                      ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:265: error: hasSourceInMemory() is not public in SourceFile; cannot be accessed from outside package
+    assertTrue(sf.hasSourceInMemory());
+                 ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:273: error: hasSourceInMemory() is not public in SourceFile; cannot be accessed from outside package
+    assertTrue(sf.hasSourceInMemory());
+                 ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:287: error: hasSourceInMemory() is not public in SourceFile; cannot be accessed from outside package
+    assertTrue(sf.hasSourceInMemory());
+                 ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:289: error: hasSourceInMemory() is not public in SourceFile; cannot be accessed from outside package
+    assertFalse(sf.hasSourceInMemory());
+                  ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:296: error: hasSourceInMemory() is not public in SourceFile; cannot be accessed from outside package
+    assertFalse(sf.hasSourceInMemory());
+                  ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:298: error: hasSourceInMemory() is not public in SourceFile; cannot be accessed from outside package
+    assertTrue(sf.hasSourceInMemory());
+                 ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:300: error: hasSourceInMemory() is not public in SourceFile; cannot be accessed from outside package
+    assertFalse(sf.hasSourceInMemory());
+                  ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:339: error: hasSourceInMemory() is not public in SourceFile; cannot be accessed from outside package
+    assertFalse(sf.hasSourceInMemory());
+                  ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:347: error: hasSourceInMemory() is not public in SourceFile; cannot be accessed from outside package
+    assertFalse(sf.hasSourceInMemory());
+                  ^
+/tmp/evaluate_claude_Closure_56_g0j8ru31/src/SourceFileTest.java:355: error: hasSourceInMemory() is not public in SourceFile; cannot be accessed from outside package
+    assertTrue(sf.hasSourceInMemory());
+                 ^
+14 errors

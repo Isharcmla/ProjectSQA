@@ -1,0 +1,398 @@
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:11: error: cannot find symbol
+    private Base64 base64;
+            ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:15: error: cannot find symbol
+        base64 = new Base64();
+                     ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:22: error: cannot find symbol
+        Base64 b = new Base64();
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:22: error: cannot find symbol
+        Base64 b = new Base64();
+                       ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:28: error: cannot find symbol
+        Base64 b = new Base64(true);
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:28: error: cannot find symbol
+        Base64 b = new Base64(true);
+                       ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:34: error: cannot find symbol
+        Base64 b = new Base64(false);
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:34: error: cannot find symbol
+        Base64 b = new Base64(false);
+                       ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:40: error: cannot find symbol
+        Base64 b = new Base64(64);
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:40: error: cannot find symbol
+        Base64 b = new Base64(64);
+                       ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:47: error: cannot find symbol
+        Base64 b = new Base64(0);
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:47: error: cannot find symbol
+        Base64 b = new Base64(0);
+                       ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:57: error: cannot find symbol
+        Base64 b = new Base64(-1);
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:57: error: cannot find symbol
+        Base64 b = new Base64(-1);
+                       ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:67: error: cannot find symbol
+        Base64 b = new Base64(4, sep);
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:67: error: cannot find symbol
+        Base64 b = new Base64(4, sep);
+                       ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:73: error: cannot find symbol
+        Base64 b = new Base64(76, null);
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:73: error: cannot find symbol
+        Base64 b = new Base64(76, null);
+                       ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:83: error: cannot find symbol
+        new Base64(4, sep);
+            ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:89: error: cannot find symbol
+        Base64 b = new Base64(4, sep, true);
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:89: error: cannot find symbol
+        Base64 b = new Base64(4, sep, true);
+                       ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:96: error: cannot find symbol
+        Base64 b = new Base64(4, sep, false);
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:96: error: cannot find symbol
+        Base64 b = new Base64(4, sep, false);
+                       ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:109: error: cannot find symbol
+        Base64 b = new Base64(true);
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:109: error: cannot find symbol
+        Base64 b = new Base64(true);
+                       ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:117: error: cannot find symbol
+        assertTrue(Base64.isBase64((byte) 'A'));
+                   ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:118: error: cannot find symbol
+        assertTrue(Base64.isBase64((byte) 'z'));
+                   ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:119: error: cannot find symbol
+        assertTrue(Base64.isBase64((byte) '0'));
+                   ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:120: error: cannot find symbol
+        assertTrue(Base64.isBase64((byte) '+'));
+                   ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:121: error: cannot find symbol
+        assertTrue(Base64.isBase64((byte) '/'));
+                   ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:126: error: cannot find symbol
+        assertTrue(Base64.isBase64((byte) '='));
+                   ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:131: error: cannot find symbol
+        assertFalse(Base64.isBase64((byte) ' '));
+                    ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:132: error: cannot find symbol
+        assertFalse(Base64.isBase64((byte) '!'));
+                    ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:137: error: cannot find symbol
+        assertFalse(Base64.isBase64((byte) -1));
+                    ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:142: error: cannot find symbol
+        assertTrue(Base64.isBase64((byte) '-'));
+                   ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:143: error: cannot find symbol
+        assertTrue(Base64.isBase64((byte) '_'));
+                   ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:151: error: cannot find symbol
+        assertTrue(Base64.isArrayByteBase64(data));
+                   ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:157: error: cannot find symbol
+        assertTrue(Base64.isArrayByteBase64(data));
+                   ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:163: error: cannot find symbol
+        assertTrue(Base64.isArrayByteBase64(data));
+                   ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:169: error: cannot find symbol
+        assertFalse(Base64.isArrayByteBase64(data));
+                    ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:177: error: cannot find symbol
+        byte[] encoded = Base64.encodeBase64(data);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:183: error: cannot find symbol
+        byte[] result = Base64.encodeBase64(null);
+                        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:190: error: cannot find symbol
+        byte[] result = Base64.encodeBase64(data);
+                        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:199: error: cannot find symbol
+        String encoded = Base64.encodeBase64String(data);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:206: error: cannot find symbol
+        String encoded = Base64.encodeBase64String(data);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:215: error: cannot find symbol
+        byte[] encoded = Base64.encodeBase64URLSafe(data);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:223: error: cannot find symbol
+        byte[] result = Base64.encodeBase64URLSafe(data);
+                        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:232: error: cannot find symbol
+        String encoded = Base64.encodeBase64URLSafeString(data);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:244: error: cannot find symbol
+        byte[] encoded = Base64.encodeBase64Chunked(data);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:252: error: cannot find symbol
+        byte[] result = Base64.encodeBase64Chunked(data);
+                        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:261: error: cannot find symbol
+        byte[] encoded = Base64.encodeBase64(data, true);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:269: error: cannot find symbol
+        byte[] encoded = Base64.encodeBase64(data, false);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:279: error: cannot find symbol
+        byte[] encoded = Base64.encodeBase64(data, false, true);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:290: error: cannot find symbol
+        byte[] encoded = Base64.encodeBase64(data, false, false, 100);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:297: error: cannot find symbol
+        Base64.encodeBase64(data, false, false, 10);
+        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:304: error: cannot find symbol
+        byte[] decoded = Base64.decodeBase64("SGVsbG8gV29ybGQ=");
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:310: error: cannot find symbol
+        byte[] decoded = Base64.decodeBase64("");
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:319: error: cannot find symbol
+        byte[] decoded = Base64.decodeBase64(input);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:325: error: cannot find symbol
+        byte[] result = Base64.decodeBase64((byte[]) null);
+                        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:332: error: cannot find symbol
+        byte[] result = Base64.decodeBase64(input);
+                        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:502: error: cannot find symbol
+        Base64 urlSafeB64 = new Base64(true);
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:502: error: cannot find symbol
+        Base64 urlSafeB64 = new Base64(true);
+                                ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:533: error: cannot find symbol
+        byte[] encoded = Base64.encodeInteger(original);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:534: error: cannot find symbol
+        BigInteger decoded = Base64.decodeInteger(encoded);
+                             ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:543: error: cannot find symbol
+        byte[] result = Base64.encodeInteger(bigInt);
+                        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:551: error: cannot find symbol
+        byte[] result = Base64.encodeInteger(bigInt);
+                        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:558: error: cannot find symbol
+        byte[] result = Base64.encodeInteger(bigInt);
+                        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:564: error: cannot find symbol
+        Base64.encodeInteger(null);
+        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:570: error: cannot find symbol
+        byte[] result = Base64.encodeInteger(bigInt);
+                        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:578: error: cannot find symbol
+        byte[] result = Base64.encodeInteger(bigInt);
+                        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:585: error: cannot find symbol
+        byte[] result = Base64.encodeInteger(bigInt);
+                        ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:603: error: cannot find symbol
+        byte[] encoded = Base64.encodeBase64(original.getBytes());
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:604: error: cannot find symbol
+        byte[] decoded = Base64.decodeBase64(encoded);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:611: error: cannot find symbol
+        byte[] encoded = Base64.encodeBase64URLSafe(original.getBytes("ISO-8859-1".equals("ISO-8859-1") ? "ISO-8859-1".length() > 0 ? getIso() : null : null));
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:612: error: cannot find symbol
+        byte[] decoded = Base64.decodeBase64(encoded);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:626: error: cannot find symbol
+        byte[] encoded = Base64.encodeBase64(original);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:627: error: cannot find symbol
+        byte[] decoded = Base64.decodeBase64(encoded);
+                         ^
+  symbol:   variable Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:633: error: cannot find symbol
+        Base64 customB64 = new Base64(4, new byte[]{'\n'});
+        ^
+  symbol:   class Base64
+  location: class Base64Test
+/tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java:633: error: cannot find symbol
+        Base64 customB64 = new Base64(4, new byte[]{'\n'});
+                               ^
+  symbol:   class Base64
+  location: class Base64Test
+Note: /tmp/evaluate_claude_Codec_5_ek8wlltq/src/Base64Test.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+79 errors

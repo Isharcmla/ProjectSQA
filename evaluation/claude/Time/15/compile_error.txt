@@ -1,0 +1,291 @@
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:16: error: cannot find symbol
+        assertEquals(-5, FieldUtils.safeNegate(5));
+                         ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:17: error: cannot find symbol
+        assertEquals(5, FieldUtils.safeNegate(-5));
+                        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:22: error: cannot find symbol
+        assertEquals(0, FieldUtils.safeNegate(0));
+                        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:27: error: cannot find symbol
+        FieldUtils.safeNegate(Integer.MIN_VALUE);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:35: error: cannot find symbol
+        assertEquals(7, FieldUtils.safeAdd(3, 4));
+                        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:36: error: cannot find symbol
+        assertEquals(-7, FieldUtils.safeAdd(-3, -4));
+                         ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:41: error: cannot find symbol
+        FieldUtils.safeAdd(Integer.MAX_VALUE, 1);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:46: error: cannot find symbol
+        FieldUtils.safeAdd(Integer.MIN_VALUE, -1);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:54: error: cannot find symbol
+        assertEquals(7L, FieldUtils.safeAdd(3L, 4L));
+                         ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:55: error: cannot find symbol
+        assertEquals(-7L, FieldUtils.safeAdd(-3L, -4L));
+                          ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:60: error: cannot find symbol
+        FieldUtils.safeAdd(Long.MAX_VALUE, 1L);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:65: error: cannot find symbol
+        FieldUtils.safeAdd(Long.MIN_VALUE, -1L);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:73: error: cannot find symbol
+        assertEquals(1L, FieldUtils.safeSubtract(5L, 4L));
+                         ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:74: error: cannot find symbol
+        assertEquals(-1L, FieldUtils.safeSubtract(4L, 5L));
+                          ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:79: error: cannot find symbol
+        FieldUtils.safeSubtract(Long.MIN_VALUE, 1L);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:87: error: cannot find symbol
+        assertEquals(12, FieldUtils.safeMultiply(3, 4));
+                         ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:88: error: cannot find symbol
+        assertEquals(0, FieldUtils.safeMultiply(0, 100));
+                        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:93: error: cannot find symbol
+        FieldUtils.safeMultiply(Integer.MAX_VALUE, 2);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:101: error: cannot find symbol
+        assertEquals(-5L, FieldUtils.safeMultiply(5L, -1));
+                          ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:106: error: cannot find symbol
+        assertEquals(0L, FieldUtils.safeMultiply(5L, 0));
+                         ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:111: error: cannot find symbol
+        assertEquals(5L, FieldUtils.safeMultiply(5L, 1));
+                         ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:116: error: cannot find symbol
+        assertEquals(20L, FieldUtils.safeMultiply(5L, 4));
+                          ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:121: error: cannot find symbol
+        FieldUtils.safeMultiply(Long.MAX_VALUE, 2);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:129: error: cannot find symbol
+        assertEquals(5L, FieldUtils.safeMultiply(5L, 1L));
+                         ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:134: error: cannot find symbol
+        assertEquals(7L, FieldUtils.safeMultiply(1L, 7L));
+                         ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:139: error: cannot find symbol
+        assertEquals(0L, FieldUtils.safeMultiply(0L, 7L));
+                         ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:144: error: cannot find symbol
+        assertEquals(0L, FieldUtils.safeMultiply(7L, 0L));
+                         ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:149: error: cannot find symbol
+        assertEquals(35L, FieldUtils.safeMultiply(5L, 7L));
+                          ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:154: error: cannot find symbol
+        FieldUtils.safeMultiply(Long.MAX_VALUE, 2L);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:159: error: cannot find symbol
+        FieldUtils.safeMultiply(Long.MIN_VALUE, -1L);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:164: error: cannot find symbol
+        FieldUtils.safeMultiply(-1L, Long.MIN_VALUE);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:172: error: cannot find symbol
+        assertEquals(100, FieldUtils.safeToInt(100L));
+                          ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:177: error: cannot find symbol
+        assertEquals(Integer.MIN_VALUE, FieldUtils.safeToInt((long) Integer.MIN_VALUE));
+                                        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:178: error: cannot find symbol
+        assertEquals(Integer.MAX_VALUE, FieldUtils.safeToInt((long) Integer.MAX_VALUE));
+                                        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:183: error: cannot find symbol
+        FieldUtils.safeToInt((long) Integer.MAX_VALUE + 1L);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:191: error: cannot find symbol
+        assertEquals(20, FieldUtils.safeMultiplyToInt(5L, 4L));
+                         ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:196: error: cannot find symbol
+        FieldUtils.safeMultiplyToInt(Long.MAX_VALUE, 2L);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:205: error: cannot find symbol
+        FieldUtils.verifyValueBounds(field, 5, 0, 10);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:211: error: cannot find symbol
+        FieldUtils.verifyValueBounds(field, -1, 0, 10);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:217: error: cannot find symbol
+        FieldUtils.verifyValueBounds(field, 11, 0, 10);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:226: error: cannot find symbol
+        FieldUtils.verifyValueBounds(type, 5, 0, 10);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:232: error: cannot find symbol
+        FieldUtils.verifyValueBounds(type, -1, 0, 10);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:238: error: cannot find symbol
+        FieldUtils.verifyValueBounds(type, 11, 0, 10);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:246: error: cannot find symbol
+        FieldUtils.verifyValueBounds("myField", 5, 0, 10);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:251: error: cannot find symbol
+        FieldUtils.verifyValueBounds("myField", -1, 0, 10);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:256: error: cannot find symbol
+        FieldUtils.verifyValueBounds("myField", 11, 0, 10);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:265: error: cannot find symbol
+        assertEquals(5, FieldUtils.getWrappedValue(5, 10, 0, 9));
+                        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:270: error: cannot find symbol
+        FieldUtils.getWrappedValue(5, 10, 5, 5);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:279: error: cannot find symbol
+        assertEquals(5, FieldUtils.getWrappedValue(15, 0, 9));
+                        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:286: error: cannot find symbol
+        assertEquals(5, FieldUtils.getWrappedValue(-5, 0, 9));
+                        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:293: error: cannot find symbol
+        assertEquals(0, FieldUtils.getWrappedValue(-10, 0, 9));
+                        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:298: error: cannot find symbol
+        FieldUtils.getWrappedValue(5, 10, 5);
+        ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:307: error: cannot find symbol
+        assertTrue(FieldUtils.equals(obj, obj));
+                   ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:312: error: cannot find symbol
+        assertTrue(FieldUtils.equals(null, null));
+                   ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:317: error: cannot find symbol
+        assertFalse(FieldUtils.equals(null, "test"));
+                    ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:322: error: cannot find symbol
+        assertFalse(FieldUtils.equals("test", null));
+                    ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:327: error: cannot find symbol
+        assertTrue(FieldUtils.equals("test", "test"));
+                   ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+/tmp/evaluate_claude_Time_15_iy7jxhc6/src/FieldUtilsTest.java:332: error: cannot find symbol
+        assertFalse(FieldUtils.equals("test1", "test2"));
+                    ^
+  symbol:   variable FieldUtils
+  location: class FieldUtilsTest
+58 errors

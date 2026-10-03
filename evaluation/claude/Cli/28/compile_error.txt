@@ -1,0 +1,503 @@
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:16: error: cannot find symbol
+    static class TestParser extends Parser
+                                    ^
+  symbol:   class Parser
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:18: error: cannot find symbol
+        protected String[] flatten(Options opts, String[] arguments, boolean stopAtNonOption) throws ParseException
+                                   ^
+  symbol:   class Options
+  location: class TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:18: error: cannot find symbol
+        protected String[] flatten(Options opts, String[] arguments, boolean stopAtNonOption) throws ParseException
+                                                                                                     ^
+  symbol:   class ParseException
+  location: class TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:59: error: cannot find symbol
+    @Test(expected = UnrecognizedOptionException.class)
+                     ^
+  symbol:   class UnrecognizedOptionException
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:69: error: cannot find symbol
+    @Test(expected = MissingOptionException.class)
+                     ^
+  symbol:   class MissingOptionException
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:203: error: cannot find symbol
+    @Test(expected = MissingArgumentException.class)
+                     ^
+  symbol:   class MissingArgumentException
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:248: error: cannot find symbol
+    @Test(expected = UnrecognizedOptionException.class)
+                     ^
+  symbol:   class UnrecognizedOptionException
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:318: error: cannot find symbol
+    @Test(expected = MissingOptionException.class)
+                     ^
+  symbol:   class MissingOptionException
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:37: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:37: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:38: error: cannot find symbol
+        options.addOption(new Option("a", true, "desc a"));
+                              ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:41: error: cannot find symbol
+        CommandLine cmd = parser.parse(options, args);
+        ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:50: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:50: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:51: error: cannot find symbol
+        options.addOption(new Option("a", false, "desc a"));
+                              ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:53: error: cannot find symbol
+        CommandLine cmd = parser.parse(options, null);
+        ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:62: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:62: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:63: error: cannot find symbol
+        options.addOption(new Option("a", false, "desc a"));
+                              ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:72: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:72: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:73: error: cannot find symbol
+        Option required = new Option("r", false, "required option");
+        ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:73: error: cannot find symbol
+        Option required = new Option("r", false, "required option");
+                              ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:84: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:84: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:85: error: cannot find symbol
+        options.addOption(new Option("a", false, "desc a"));
+                              ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:88: error: cannot find symbol
+        CommandLine cmd = parser.parse(options, args);
+        ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:99: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:99: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:102: error: cannot find symbol
+        CommandLine cmd = parser.parse(options, args);
+        ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:112: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:112: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:113: error: cannot find symbol
+        options.addOption(new Option("b", false, "boolean option"));
+                              ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:118: error: cannot find symbol
+        CommandLine cmd = parser.parse(options, new String[0], props);
+        ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:126: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:126: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:127: error: cannot find symbol
+        options.addOption(new Option("c", true, "arg option"));
+                              ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:132: error: cannot find symbol
+        CommandLine cmd = parser.parse(options, new String[0], props);
+        ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:143: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:143: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:144: error: cannot find symbol
+        options.addOption(new Option("a", false, "desc a"));
+                              ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:147: error: cannot find symbol
+        CommandLine cmd = parser.parse(options, args, true);
+        ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:158: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:158: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:161: error: cannot find symbol
+        CommandLine cmd = parser.parse(options, args, true);
+        ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:170: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:170: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:173: error: cannot find symbol
+        CommandLine cmd = parser.parse(options, args, true);
+        ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:185: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:185: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:186: error: cannot find symbol
+        Option optA = new Option("a", false, "a desc");
+        ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:186: error: cannot find symbol
+        Option optA = new Option("a", false, "a desc");
+                          ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:187: error: cannot find symbol
+        Option optB = new Option("b", false, "b desc");
+        ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:187: error: cannot find symbol
+        Option optB = new Option("b", false, "b desc");
+                          ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:188: error: cannot find symbol
+        OptionGroup group = new OptionGroup();
+        ^
+  symbol:   class OptionGroup
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:188: error: cannot find symbol
+        OptionGroup group = new OptionGroup();
+                                ^
+  symbol:   class OptionGroup
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:195: error: cannot find symbol
+        CommandLine cmd = parser.parse(options, args, (Properties) null, false);
+        ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:206: error: cannot find symbol
+        Option opt = new Option("d", true, "desc d");
+        ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:206: error: cannot find symbol
+        Option opt = new Option("d", true, "desc d");
+                         ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:217: error: cannot find symbol
+        Option opt = new Option("e", true, "desc e");
+        ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:217: error: cannot find symbol
+        Option opt = new Option("e", true, "desc e");
+                         ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:231: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:231: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:232: error: cannot find symbol
+        options.addOption(new Option("f", true, "desc f"));
+                              ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:235: error: cannot find symbol
+        Option opt = new Option("f", true, "desc f");
+        ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:235: error: cannot find symbol
+        Option opt = new Option("f", true, "desc f");
+                         ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:251: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:251: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:253: error: cannot find symbol
+        parser.cmd = new CommandLine();
+              ^
+  symbol:   variable cmd
+  location: variable parser of type TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:253: error: cannot find symbol
+        parser.cmd = new CommandLine();
+                         ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:258: error: cannot find symbol
+        parser.processOption("-z", iter);
+              ^
+  symbol:   method processOption(String,ListIterator)
+  location: variable parser of type TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:264: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:264: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:265: error: cannot find symbol
+        Option optA = new Option("g", false, "g desc");
+        ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:265: error: cannot find symbol
+        Option optA = new Option("g", false, "g desc");
+                          ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:266: error: cannot find symbol
+        Option optB = new Option("h", false, "h desc");
+        ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:266: error: cannot find symbol
+        Option optB = new Option("h", false, "h desc");
+                          ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:267: error: cannot find symbol
+        OptionGroup group = new OptionGroup();
+        ^
+  symbol:   class OptionGroup
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:267: error: cannot find symbol
+        OptionGroup group = new OptionGroup();
+                                ^
+  symbol:   class OptionGroup
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:274: error: cannot find symbol
+        parser.cmd = new CommandLine();
+              ^
+  symbol:   variable cmd
+  location: variable parser of type TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:274: error: cannot find symbol
+        parser.cmd = new CommandLine();
+                         ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:279: error: cannot find symbol
+        parser.processOption("-g", iter);
+              ^
+  symbol:   method processOption(String,ListIterator)
+  location: variable parser of type TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:281: error: cannot find symbol
+        assertTrue(parser.cmd.hasOption("g"));
+                         ^
+  symbol:   variable cmd
+  location: variable parser of type TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:282: error: cannot find symbol
+        assertTrue(parser.getRequiredOptions().isEmpty());
+                         ^
+  symbol:   method getRequiredOptions()
+  location: variable parser of type TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:288: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:288: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:289: error: cannot find symbol
+        Option required = new Option("i", false, "required option");
+        ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:289: error: cannot find symbol
+        Option required = new Option("i", false, "required option");
+                              ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:294: error: cannot find symbol
+        parser.cmd = new CommandLine();
+              ^
+  symbol:   variable cmd
+  location: variable parser of type TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:294: error: cannot find symbol
+        parser.cmd = new CommandLine();
+                         ^
+  symbol:   class CommandLine
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:299: error: cannot find symbol
+        parser.processOption("-i", iter);
+              ^
+  symbol:   method processOption(String,ListIterator)
+  location: variable parser of type TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:301: error: cannot find symbol
+        assertTrue(parser.cmd.hasOption("i"));
+                         ^
+  symbol:   variable cmd
+  location: variable parser of type TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:302: error: cannot find symbol
+        assertTrue(parser.getRequiredOptions().isEmpty());
+                         ^
+  symbol:   method getRequiredOptions()
+  location: variable parser of type TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:310: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:310: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:311: error: cannot find symbol
+        options.addOption(new Option("j", false, "desc j"));
+                              ^
+  symbol:   class Option
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:314: error: cannot find symbol
+        parser.checkRequiredOptions();
+              ^
+  symbol:   method checkRequiredOptions()
+  location: variable parser of type TestParser
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:321: error: cannot find symbol
+        Options options = new Options();
+        ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:321: error: cannot find symbol
+        Options options = new Options();
+                              ^
+  symbol:   class Options
+  location: class ParserTest
+/tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java:322: error: cannot find symbol
+        Option required = new Option("k", false, "required option");
+        ^
+  symbol:   class Option
+  location: class ParserTest
+Note: /tmp/evaluate_claude_Cli_28_apmllaei/src/ParserTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+100 errors

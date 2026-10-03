@@ -1,0 +1,141 @@
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:19: error: cannot find symbol
+    private DefaultIntervalCategoryDataset dataset;
+            ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:31: error: cannot find symbol
+        dataset = new DefaultIntervalCategoryDataset(seriesKeys, categoryKeys,
+                      ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:39: error: cannot find symbol
+        DefaultIntervalCategoryDataset ds =
+        ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:40: error: cannot find symbol
+                new DefaultIntervalCategoryDataset(starts, ends);
+                    ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:47: error: cannot find symbol
+        DefaultIntervalCategoryDataset ds =
+        ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:48: error: cannot find symbol
+                new DefaultIntervalCategoryDataset(startsN, endsN);
+                    ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:57: error: cannot find symbol
+        DefaultIntervalCategoryDataset ds =
+        ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:58: error: cannot find symbol
+                new DefaultIntervalCategoryDataset(seriesNames, startsN, endsN);
+                    ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:74: error: cannot find symbol
+        new DefaultIntervalCategoryDataset(s, e);
+            ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:81: error: cannot find symbol
+        new DefaultIntervalCategoryDataset(s, e);
+            ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:87: error: cannot find symbol
+        new DefaultIntervalCategoryDataset(badSeriesKeys, categoryKeys,
+            ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:94: error: cannot find symbol
+        new DefaultIntervalCategoryDataset(seriesKeys, badCategoryKeys,
+            ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:102: error: cannot find symbol
+        DefaultIntervalCategoryDataset ds =
+        ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:103: error: cannot find symbol
+                new DefaultIntervalCategoryDataset(s, e);
+                    ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:183: error: cannot find symbol
+        DefaultIntervalCategoryDataset ds =
+        ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:184: error: cannot find symbol
+                new DefaultIntervalCategoryDataset(s, e);
+                    ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:487: error: cannot find symbol
+        DefaultIntervalCategoryDataset other =
+        ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:488: error: cannot find symbol
+                new DefaultIntervalCategoryDataset(seriesKeys, categoryKeys,
+                    ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:496: error: cannot find symbol
+        DefaultIntervalCategoryDataset other =
+        ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:497: error: cannot find symbol
+                new DefaultIntervalCategoryDataset(otherSeriesKeys, categoryKeys,
+                    ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:505: error: cannot find symbol
+        DefaultIntervalCategoryDataset other =
+        ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:506: error: cannot find symbol
+                new DefaultIntervalCategoryDataset(seriesKeys, otherCategoryKeys,
+                    ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:514: error: cannot find symbol
+        DefaultIntervalCategoryDataset other =
+        ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:515: error: cannot find symbol
+                new DefaultIntervalCategoryDataset(seriesKeys, categoryKeys,
+                    ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:523: error: cannot find symbol
+        DefaultIntervalCategoryDataset other =
+        ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:524: error: cannot find symbol
+                new DefaultIntervalCategoryDataset(seriesKeys, categoryKeys,
+                    ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:539: error: cannot find symbol
+        DefaultIntervalCategoryDataset clone =
+        ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+/tmp/evaluate_claude_Chart_16_eiamm5y4/src/DefaultIntervalCategoryDatasetTest.java:540: error: cannot find symbol
+                (DefaultIntervalCategoryDataset) dataset.clone();
+                 ^
+  symbol:   class DefaultIntervalCategoryDataset
+  location: class DefaultIntervalCategoryDatasetTest
+28 errors

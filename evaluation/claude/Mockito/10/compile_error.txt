@@ -1,0 +1,11 @@
+/tmp/evaluate_claude_Mockito_10_egj1j_j4/src/ReturnsDeepStubsTest.java:38: error: cannot find symbol
+    private ReturnsDeepStubs answer;
+            ^
+  symbol:   class ReturnsDeepStubs
+  location: class ReturnsDeepStubsTest
+/tmp/evaluate_claude_Mockito_10_egj1j_j4/src/ReturnsDeepStubsTest.java:42: error: cannot find symbol
+        answer = new ReturnsDeepStubs();
+                     ^
+  symbol:   class ReturnsDeepStubs
+  location: class ReturnsDeepStubsTest
+2 errors

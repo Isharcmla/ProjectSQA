@@ -1,0 +1,10 @@
+/tmp/evaluate_claude_Cli_40_r8wtfj1d/src/TypeHandlerTest.java:71: error: incompatible types: inference variable T has incompatible bounds
+        Class<?> result = TypeHandler.createValue("java.lang.String", PatternOptionBuilder.CLASS_VALUE);
+                                                 ^
+    equality constraints: CAP#1
+    lower bounds: Class<?>,Object
+  where T is a type-variable:
+    T extends Object declared in method <T>createValue(String,Class<T>)
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Object from capture of ?
+1 error

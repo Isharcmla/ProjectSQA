@@ -1,0 +1,31 @@
+/tmp/evaluate_claude_Gson_9_uqg_w3dn/src/JsonWriterTest.java:12: error: cannot find symbol
+    private JsonWriter jsonWriter;
+            ^
+  symbol:   class JsonWriter
+  location: class JsonWriterTest
+/tmp/evaluate_claude_Gson_9_uqg_w3dn/src/JsonTreeWriterTest.java:88: error: cannot find symbol
+        assertEquals(0, result.getAsJsonObject().size());
+                                                ^
+  symbol:   method size()
+  location: class JsonObject
+/tmp/evaluate_claude_Gson_9_uqg_w3dn/src/JsonWriterTest.java:17: error: cannot find symbol
+        jsonWriter = new JsonWriter(stringWriter);
+                         ^
+  symbol:   class JsonWriter
+  location: class JsonWriterTest
+/tmp/evaluate_claude_Gson_9_uqg_w3dn/src/JsonWriterTest.java:24: error: cannot find symbol
+        new JsonWriter(null);
+            ^
+  symbol:   class JsonWriter
+  location: class JsonWriterTest
+/tmp/evaluate_claude_Gson_9_uqg_w3dn/src/JsonWriterTest.java:30: error: cannot find symbol
+        JsonWriter writer = new JsonWriter(w);
+        ^
+  symbol:   class JsonWriter
+  location: class JsonWriterTest
+/tmp/evaluate_claude_Gson_9_uqg_w3dn/src/JsonWriterTest.java:30: error: cannot find symbol
+        JsonWriter writer = new JsonWriter(w);
+                                ^
+  symbol:   class JsonWriter
+  location: class JsonWriterTest
+6 errors

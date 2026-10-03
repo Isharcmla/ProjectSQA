@@ -1,0 +1,267 @@
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:58: error: cannot find symbol
+    private List<Chromosome> chromosomeList;
+                 ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:20: error: cannot find symbol
+    private static class TestChromosome extends Chromosome {
+                                                ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:36: error: cannot find symbol
+    private static class TestListPopulation extends ListPopulation {
+                                                    ^
+  symbol:   class ListPopulation
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:42: error: cannot find symbol
+        public TestListPopulation(final List<Chromosome> chromosomes, final int populationLimit) {
+                                             ^
+  symbol:   class Chromosome
+  location: class TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:47: error: cannot find symbol
+        public Population nextGeneration() {
+               ^
+  symbol:   class Population
+  location: class TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:53: error: cannot find symbol
+        public List<Chromosome> publicGetChromosomeList() {
+                    ^
+  symbol:   class Chromosome
+  location: class TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:27: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:46: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:54: error: cannot find symbol
+            return getChromosomeList();
+                   ^
+  symbol:   method getChromosomeList()
+  location: class TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:62: error: cannot find symbol
+        chromosomeList = new ArrayList<Chromosome>();
+                                       ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:73: error: cannot find symbol
+        assertEquals(0, population.getPopulationSize());
+                                  ^
+  symbol:   method getPopulationSize()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:74: error: cannot find symbol
+        assertEquals(10, population.getPopulationLimit());
+                                   ^
+  symbol:   method getPopulationLimit()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:90: error: cannot find symbol
+        assertEquals(3, population.getPopulationSize());
+                                  ^
+  symbol:   method getPopulationSize()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:91: error: cannot find symbol
+        assertEquals(10, population.getPopulationLimit());
+                                   ^
+  symbol:   method getPopulationLimit()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:115: error: cannot find symbol
+        assertEquals(3, population.getPopulationSize());
+                                  ^
+  symbol:   method getPopulationSize()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:121: error: cannot find symbol
+        population.setChromosomes(null);
+                  ^
+  symbol:   method setChromosomes(<null>)
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:136: error: cannot find symbol
+        assertEquals(3, population.getPopulationSize());
+                                  ^
+  symbol:   method getPopulationSize()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:148: error: cannot find symbol
+        Collection<Chromosome> emptyColl = new ArrayList<Chromosome>();
+                   ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:148: error: cannot find symbol
+        Collection<Chromosome> emptyColl = new ArrayList<Chromosome>();
+                                                         ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:150: error: cannot find symbol
+        assertEquals(0, population.getPopulationSize());
+                                  ^
+  symbol:   method getPopulationSize()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:158: error: cannot find symbol
+        List<Chromosome> result = population.getChromosomes();
+             ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:158: error: cannot find symbol
+        List<Chromosome> result = population.getChromosomes();
+                                            ^
+  symbol:   method getChromosomes()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:165: error: cannot find symbol
+        List<Chromosome> result = population.getChromosomes();
+             ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:165: error: cannot find symbol
+        List<Chromosome> result = population.getChromosomes();
+                                            ^
+  symbol:   method getChromosomes()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:174: error: cannot find symbol
+        List<Chromosome> internalList = population.publicGetChromosomeList();
+             ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:178: error: cannot find symbol
+        assertEquals(4, population.getPopulationSize());
+                                  ^
+  symbol:   method getPopulationSize()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:186: error: cannot find symbol
+        population.addChromosome(new TestChromosome(1.0));
+                  ^
+  symbol:   method addChromosome(TestChromosome)
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:187: error: cannot find symbol
+        assertEquals(1, population.getPopulationSize());
+                                  ^
+  symbol:   method getPopulationSize()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:193: error: cannot find symbol
+        population.addChromosome(new TestChromosome(1.0));
+                  ^
+  symbol:   method addChromosome(TestChromosome)
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:194: error: cannot find symbol
+        population.addChromosome(new TestChromosome(2.0));
+                  ^
+  symbol:   method addChromosome(TestChromosome)
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:202: error: cannot find symbol
+        Chromosome fittest = population.getFittestChromosome();
+        ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:202: error: cannot find symbol
+        Chromosome fittest = population.getFittestChromosome();
+                                       ^
+  symbol:   method getFittestChromosome()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:208: error: cannot find symbol
+        List<Chromosome> singleList = new ArrayList<Chromosome>();
+             ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:208: error: cannot find symbol
+        List<Chromosome> singleList = new ArrayList<Chromosome>();
+                                                    ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:212: error: cannot find symbol
+        Chromosome fittest = population.getFittestChromosome();
+        ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:212: error: cannot find symbol
+        Chromosome fittest = population.getFittestChromosome();
+                                       ^
+  symbol:   method getFittestChromosome()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:221: error: cannot find symbol
+        assertEquals(15, population.getPopulationLimit());
+                                   ^
+  symbol:   method getPopulationLimit()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:229: error: cannot find symbol
+        population.setPopulationLimit(20);
+                  ^
+  symbol:   method setPopulationLimit(int)
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:230: error: cannot find symbol
+        assertEquals(20, population.getPopulationLimit());
+                                   ^
+  symbol:   method getPopulationLimit()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:236: error: cannot find symbol
+        population.setPopulationLimit(0);
+                  ^
+  symbol:   method setPopulationLimit(int)
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:242: error: cannot find symbol
+        population.setPopulationLimit(-1);
+                  ^
+  symbol:   method setPopulationLimit(int)
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:248: error: cannot find symbol
+        population.setPopulationLimit(1);
+                  ^
+  symbol:   method setPopulationLimit(int)
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:254: error: cannot find symbol
+        population.setPopulationLimit(3);
+                  ^
+  symbol:   method setPopulationLimit(int)
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:255: error: cannot find symbol
+        assertEquals(3, population.getPopulationLimit());
+                                  ^
+  symbol:   method getPopulationLimit()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:263: error: cannot find symbol
+        assertEquals(0, population.getPopulationSize());
+                                  ^
+  symbol:   method getPopulationSize()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:269: error: cannot find symbol
+        assertEquals(3, population.getPopulationSize());
+                                  ^
+  symbol:   method getPopulationSize()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:277: error: cannot find symbol
+        String result = population.toString();
+                                  ^
+  symbol:   method toString()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:284: error: cannot find symbol
+        String result = population.toString();
+                                  ^
+  symbol:   method toString()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:293: error: cannot find symbol
+        Iterator<Chromosome> iterator = population.iterator();
+                 ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:293: error: cannot find symbol
+        Iterator<Chromosome> iterator = population.iterator();
+                                                  ^
+  symbol:   method iterator()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:305: error: cannot find symbol
+        Iterator<Chromosome> iterator = population.iterator();
+                 ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:305: error: cannot find symbol
+        Iterator<Chromosome> iterator = population.iterator();
+                                                  ^
+  symbol:   method iterator()
+  location: variable population of type TestListPopulation
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:313: error: cannot find symbol
+        Iterator<Chromosome> iterator = population.iterator();
+                 ^
+  symbol:   class Chromosome
+  location: class ListPopulationTest
+/tmp/evaluate_claude_Math_34_q0akmqg2/src/ListPopulationTest.java:313: error: cannot find symbol
+        Iterator<Chromosome> iterator = population.iterator();
+                                                  ^
+  symbol:   method iterator()
+  location: variable population of type TestListPopulation
+54 errors

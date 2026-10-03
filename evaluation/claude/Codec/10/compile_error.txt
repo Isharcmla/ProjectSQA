@@ -1,0 +1,11 @@
+/tmp/evaluate_claude_Codec_10_d3x8m0b4/src/CaverphoneTest.java:8: error: cannot find symbol
+    private Caverphone caverphone;
+            ^
+  symbol:   class Caverphone
+  location: class CaverphoneTest
+/tmp/evaluate_claude_Codec_10_d3x8m0b4/src/CaverphoneTest.java:12: error: cannot find symbol
+        caverphone = new Caverphone();
+                         ^
+  symbol:   class Caverphone
+  location: class CaverphoneTest
+2 errors

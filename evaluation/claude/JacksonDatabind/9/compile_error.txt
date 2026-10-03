@@ -1,0 +1,6 @@
+/tmp/evaluate_claude_JacksonDatabind_9_o9l3_yy5/src/StdKeySerializerTest.java:28: error: cannot find symbol
+        provider = mapper.getSerializerProviderInstance();
+                         ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable mapper of type ObjectMapper
+1 error

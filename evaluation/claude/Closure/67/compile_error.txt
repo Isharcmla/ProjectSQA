@@ -1,0 +1,5 @@
+/tmp/evaluate_claude_Closure_67_21wgn134/src/AnalyzePrototypePropertiesTest.java:28: error: incompatible types: SourceFile cannot be converted to JSSourceFile
+    return compiler.parse(input);
+                          ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

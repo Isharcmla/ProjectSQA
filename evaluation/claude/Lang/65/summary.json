@@ -1,0 +1,12 @@
+{
+  "project": "Lang",
+  "bug_id": "65",
+  "tool": "claude",
+  "generated_files": 1,
+  "candidate_tests": 77,
+  "classification_counts": {},
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "compile_failed"
+}

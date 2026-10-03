@@ -1,0 +1,501 @@
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:37: error: cannot find symbol
+        String result = ClassUtils.getShortClassName((Object) null, "NULL");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:43: error: cannot find symbol
+        String result = ClassUtils.getShortClassName(new String("test"), "NULL");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:51: error: cannot find symbol
+        String result = ClassUtils.getShortClassName((Class<?>) null);
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:57: error: cannot find symbol
+        String result = ClassUtils.getShortClassName(String.class);
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:63: error: cannot find symbol
+        String result = ClassUtils.getShortClassName(OuterClass.InnerClass.class);
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:69: error: cannot find symbol
+        String result = ClassUtils.getShortClassName(String[].class);
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:75: error: cannot find symbol
+        String result = ClassUtils.getShortClassName(int[].class);
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:83: error: cannot find symbol
+        String result = ClassUtils.getShortClassName((String) null);
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:89: error: cannot find symbol
+        String result = ClassUtils.getShortClassName("");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:95: error: cannot find symbol
+        String result = ClassUtils.getShortClassName("java.lang.String");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:101: error: cannot find symbol
+        String result = ClassUtils.getShortClassName("String");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:107: error: cannot find symbol
+        String result = ClassUtils.getShortClassName("[Ljava.lang.String;");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:113: error: cannot find symbol
+        String result = ClassUtils.getShortClassName("[I");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:119: error: cannot find symbol
+        String result = ClassUtils.getShortClassName("[[Ljava.lang.String;");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:127: error: cannot find symbol
+        String result = ClassUtils.getPackageName((Object) null, "NULL");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:133: error: cannot find symbol
+        String result = ClassUtils.getPackageName(new String("test"), "NULL");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:141: error: cannot find symbol
+        String result = ClassUtils.getPackageName((Class<?>) null);
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:147: error: cannot find symbol
+        String result = ClassUtils.getPackageName(String.class);
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:155: error: cannot find symbol
+        String result = ClassUtils.getPackageName((String) null);
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:161: error: cannot find symbol
+        String result = ClassUtils.getPackageName("");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:167: error: cannot find symbol
+        String result = ClassUtils.getPackageName("String");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:173: error: cannot find symbol
+        String result = ClassUtils.getPackageName("java.lang.String");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:179: error: cannot find symbol
+        String result = ClassUtils.getPackageName("[Ljava.lang.String;");
+                        ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:187: error: cannot find symbol
+        List<Class<?>> result = ClassUtils.getAllSuperclasses(null);
+                                ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:193: error: cannot find symbol
+        List<Class<?>> result = ClassUtils.getAllSuperclasses(ChildClass.class);
+                                ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:200: error: cannot find symbol
+        List<Class<?>> result = ClassUtils.getAllSuperclasses(Object.class);
+                                ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:208: error: cannot find symbol
+        List<Class<?>> result = ClassUtils.getAllInterfaces(null);
+                                ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:214: error: cannot find symbol
+        List<Class<?>> result = ClassUtils.getAllInterfaces(TestImpl.class);
+                                ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:220: error: cannot find symbol
+        List<Class<?>> result = ClassUtils.getAllInterfaces(ParentClass.class);
+                                ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:228: error: cannot find symbol
+        List<Class<?>> result = ClassUtils.convertClassNamesToClasses(null);
+                                ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:237: error: cannot find symbol
+        List<Class<?>> result = ClassUtils.convertClassNamesToClasses(names);
+                                ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:246: error: cannot find symbol
+        List<Class<?>> result = ClassUtils.convertClassNamesToClasses(names);
+                                ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:253: error: cannot find symbol
+        List<Class<?>> result = ClassUtils.convertClassNamesToClasses(names);
+                                ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:261: error: cannot find symbol
+        List<String> result = ClassUtils.convertClassesToClassNames(null);
+                              ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:270: error: cannot find symbol
+        List<String> result = ClassUtils.convertClassesToClassNames(classes);
+                              ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:279: error: cannot find symbol
+        List<String> result = ClassUtils.convertClassesToClassNames(classes);
+                              ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:289: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(classArray, toClassArray));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:298: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(classArray, toClassArray, true));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:303: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable((Class<?>[]) null, (Class<?>[]) null, true));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:308: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(null, new Class<?>[0], true));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:313: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(new Class<?>[0], null, true));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:320: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(classArray, toClassArray, true));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:327: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(classArray, toClassArray, true));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:334: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Integer.class, Object.class));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:341: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(String.class, null, true));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:346: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(null, String.class, true));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:351: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(null, Integer.TYPE, true));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:356: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Integer.TYPE, Integer.class, true));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:361: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Integer.class, Integer.TYPE, true));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:366: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(Void.TYPE, String.class, true));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:371: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(Integer.class, Integer.TYPE, false));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:376: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(String.class, String.class, true));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:381: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(Integer.TYPE, String.class, false));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:386: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Integer.TYPE, Long.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:391: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Integer.TYPE, Float.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:396: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Integer.TYPE, Double.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:401: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(Integer.TYPE, Boolean.TYPE, false));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:406: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Long.TYPE, Float.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:411: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Long.TYPE, Double.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:416: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(Long.TYPE, Integer.TYPE, false));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:421: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Boolean.TYPE, Boolean.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:426: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(Boolean.TYPE, Integer.TYPE, false));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:431: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Double.TYPE, Double.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:436: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(Double.TYPE, Float.TYPE, false));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:441: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Float.TYPE, Double.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:446: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(Float.TYPE, Integer.TYPE, false));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:451: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Character.TYPE, Integer.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:456: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Character.TYPE, Long.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:461: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Character.TYPE, Float.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:466: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Character.TYPE, Double.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:471: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(Character.TYPE, Boolean.TYPE, false));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:476: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Short.TYPE, Integer.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:481: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Short.TYPE, Long.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:486: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Short.TYPE, Float.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:491: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Short.TYPE, Double.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:496: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(Short.TYPE, Byte.TYPE, false));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:501: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Byte.TYPE, Short.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:506: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Byte.TYPE, Integer.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:511: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Byte.TYPE, Long.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:516: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Byte.TYPE, Float.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:521: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(Byte.TYPE, Double.TYPE, false));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:526: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(Byte.TYPE, Boolean.TYPE, false));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:531: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isAssignable(ChildClass.class, ParentClass.class, true));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:536: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isAssignable(ParentClass.class, ChildClass.class, true));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:543: error: cannot find symbol
+        Assert.assertNull(ClassUtils.primitiveToWrapper(null));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:548: error: cannot find symbol
+        Assert.assertEquals(Integer.class, ClassUtils.primitiveToWrapper(Integer.TYPE));
+                                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:553: error: cannot find symbol
+        Assert.assertEquals(String.class, ClassUtils.primitiveToWrapper(String.class));
+                                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:558: error: cannot find symbol
+        Assert.assertEquals(Void.TYPE, ClassUtils.primitiveToWrapper(Void.TYPE));
+                                       ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:565: error: cannot find symbol
+        Assert.assertNull(ClassUtils.primitivesToWrappers(null));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:571: error: cannot find symbol
+        Class<?>[] result = ClassUtils.primitivesToWrappers(input);
+                            ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:578: error: cannot find symbol
+        Class<?>[] result = ClassUtils.primitivesToWrappers(input);
+                            ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:586: error: cannot find symbol
+        Assert.assertEquals(Integer.TYPE, ClassUtils.wrapperToPrimitive(Integer.class));
+                                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:591: error: cannot find symbol
+        Assert.assertNull(ClassUtils.wrapperToPrimitive(String.class));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:596: error: cannot find symbol
+        Assert.assertNull(ClassUtils.wrapperToPrimitive(null));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:603: error: cannot find symbol
+        Assert.assertNull(ClassUtils.wrappersToPrimitives(null));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:609: error: cannot find symbol
+        Class<?>[] result = ClassUtils.wrappersToPrimitives(input);
+                            ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:616: error: cannot find symbol
+        Class<?>[] result = ClassUtils.wrappersToPrimitives(input);
+                            ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:623: error: cannot find symbol
+        Class<?>[] result = ClassUtils.wrappersToPrimitives(input);
+                            ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:631: error: cannot find symbol
+        Assert.assertFalse(ClassUtils.isInnerClass(null));
+                           ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+/tmp/evaluate_claude_Lang_33_ujd1x9qx/src/ClassUtilsTest.java:636: error: cannot find symbol
+        Assert.assertTrue(ClassUtils.isInnerClass(OuterClass.InnerClass.class));
+                          ^
+  symbol:   variable ClassUtils
+  location: class ClassUtilsTest
+100 errors

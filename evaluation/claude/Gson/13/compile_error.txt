@@ -1,0 +1,501 @@
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:11: error: cannot find symbol
+    private JsonReader newReader(String json) {
+            ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:350: error: cannot find symbol
+    @Test(expected = MalformedJsonException.class)
+                     ^
+  symbol:   class MalformedJsonException
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:619: error: cannot find symbol
+    @Test(expected = MalformedJsonException.class)
+                     ^
+  symbol:   class MalformedJsonException
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:689: error: cannot find symbol
+    @Test(expected = MalformedJsonException.class)
+                     ^
+  symbol:   class MalformedJsonException
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:696: error: cannot find symbol
+    @Test(expected = MalformedJsonException.class)
+                     ^
+  symbol:   class MalformedJsonException
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:716: error: cannot find symbol
+    @Test(expected = MalformedJsonException.class)
+                     ^
+  symbol:   class MalformedJsonException
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:730: error: cannot find symbol
+    @Test(expected = MalformedJsonException.class)
+                     ^
+  symbol:   class MalformedJsonException
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:738: error: cannot find symbol
+    @Test(expected = MalformedJsonException.class)
+                     ^
+  symbol:   class MalformedJsonException
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:747: error: cannot find symbol
+    @Test(expected = MalformedJsonException.class)
+                     ^
+  symbol:   class MalformedJsonException
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:755: error: cannot find symbol
+    @Test(expected = MalformedJsonException.class)
+                     ^
+  symbol:   class MalformedJsonException
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:12: error: cannot find symbol
+        return new JsonReader(new StringReader(json));
+                   ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:19: error: cannot find symbol
+        new JsonReader(null);
+            ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:24: error: cannot find symbol
+        JsonReader reader = newReader("{}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:32: error: cannot find symbol
+        JsonReader reader = newReader("{}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:39: error: cannot find symbol
+        JsonReader reader = newReader("{}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:46: error: cannot find symbol
+        JsonReader reader = newReader("{}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:54: error: cannot find symbol
+        JsonReader reader = newReader("[1,2,3]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:61: error: cannot find symbol
+        JsonReader reader = newReader("{}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:67: error: cannot find symbol
+        JsonReader reader = newReader("[]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:74: error: cannot find symbol
+        JsonReader reader = newReader("[1,2]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:83: error: cannot find symbol
+        JsonReader reader = newReader("{\"a\":1}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:90: error: cannot find symbol
+        JsonReader reader = newReader("[]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:96: error: cannot find symbol
+        JsonReader reader = newReader("{}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:103: error: cannot find symbol
+        JsonReader reader = newReader("{\"a\":1}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:112: error: cannot find symbol
+        JsonReader reader = newReader("[1,2]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:119: error: cannot find symbol
+        JsonReader reader = newReader("[]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:126: error: cannot find symbol
+        JsonReader reader = newReader("{}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:135: error: cannot find symbol
+        JsonReader reader = newReader("[1]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:136: error: cannot find symbol
+        assertEquals(JsonToken.BEGIN_ARRAY, reader.peek());
+                     ^
+  symbol:   variable JsonToken
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:141: error: cannot find symbol
+        JsonReader reader = newReader("{}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:142: error: cannot find symbol
+        assertEquals(JsonToken.BEGIN_OBJECT, reader.peek());
+                     ^
+  symbol:   variable JsonToken
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:147: error: cannot find symbol
+        JsonReader reader = newReader("\"hello\"");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:148: error: cannot find symbol
+        assertEquals(JsonToken.STRING, reader.peek());
+                     ^
+  symbol:   variable JsonToken
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:153: error: cannot find symbol
+        JsonReader reader = newReader("123");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:154: error: cannot find symbol
+        assertEquals(JsonToken.NUMBER, reader.peek());
+                     ^
+  symbol:   variable JsonToken
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:159: error: cannot find symbol
+        JsonReader reader = newReader("true");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:160: error: cannot find symbol
+        assertEquals(JsonToken.BOOLEAN, reader.peek());
+                     ^
+  symbol:   variable JsonToken
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:165: error: cannot find symbol
+        JsonReader reader = newReader("null");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:166: error: cannot find symbol
+        assertEquals(JsonToken.NULL, reader.peek());
+                     ^
+  symbol:   variable JsonToken
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:171: error: cannot find symbol
+        JsonReader reader = newReader("[]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:173: error: cannot find symbol
+        assertEquals(JsonToken.END_ARRAY, reader.peek());
+                     ^
+  symbol:   variable JsonToken
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:178: error: cannot find symbol
+        JsonReader reader = newReader("{}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:180: error: cannot find symbol
+        assertEquals(JsonToken.END_OBJECT, reader.peek());
+                     ^
+  symbol:   variable JsonToken
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:185: error: cannot find symbol
+        JsonReader reader = newReader("{\"a\":1}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:187: error: cannot find symbol
+        assertEquals(JsonToken.NAME, reader.peek());
+                     ^
+  symbol:   variable JsonToken
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:192: error: cannot find symbol
+        JsonReader reader = newReader("1");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:195: error: cannot find symbol
+        assertEquals(JsonToken.END_DOCUMENT, reader.peek());
+                     ^
+  symbol:   variable JsonToken
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:202: error: cannot find symbol
+        JsonReader reader = newReader("{\"key\":1}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:209: error: cannot find symbol
+        JsonReader reader = newReader("{'key':1}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:217: error: cannot find symbol
+        JsonReader reader = newReader("{key:1}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:225: error: cannot find symbol
+        JsonReader reader = newReader("[1]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:234: error: cannot find symbol
+        JsonReader reader = newReader("\"hello\"");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:240: error: cannot find symbol
+        JsonReader reader = newReader("'hello'");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:247: error: cannot find symbol
+        JsonReader reader = newReader("hello");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:254: error: cannot find symbol
+        JsonReader reader = newReader("123");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:260: error: cannot find symbol
+        JsonReader reader = newReader("12345678901234");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:266: error: cannot find symbol
+        JsonReader reader = newReader("1.5");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:272: error: cannot find symbol
+        JsonReader reader = newReader("[]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:280: error: cannot find symbol
+        JsonReader reader = newReader("true");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:286: error: cannot find symbol
+        JsonReader reader = newReader("false");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:292: error: cannot find symbol
+        JsonReader reader = newReader("1");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:300: error: cannot find symbol
+        JsonReader reader = newReader("null");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:306: error: cannot find symbol
+        JsonReader reader = newReader("1");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:314: error: cannot find symbol
+        JsonReader reader = newReader("1.5");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:320: error: cannot find symbol
+        JsonReader reader = newReader("100");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:326: error: cannot find symbol
+        JsonReader reader = newReader("\"1.5\"");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:332: error: cannot find symbol
+        JsonReader reader = newReader("'1.5'");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:339: error: cannot find symbol
+        JsonReader reader = newReader("1.5e2");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:345: error: cannot find symbol
+        JsonReader reader = newReader("\"NaN\"");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:352: error: cannot find symbol
+        JsonReader reader = newReader("\"NaN\"");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:358: error: cannot find symbol
+        JsonReader reader = newReader("[]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:364: error: cannot find symbol
+        JsonReader reader = newReader("\"not-a-number\"");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:373: error: cannot find symbol
+        JsonReader reader = newReader("123");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:379: error: cannot find symbol
+        JsonReader reader = newReader("-123");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:385: error: cannot find symbol
+        JsonReader reader = newReader("\"123\"");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:391: error: cannot find symbol
+        JsonReader reader = newReader("123");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:398: error: cannot find symbol
+        JsonReader reader = newReader("9007199254740993.0");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:405: error: cannot find symbol
+        JsonReader reader = newReader("[]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:411: error: cannot find symbol
+        JsonReader reader = newReader("1.5");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:417: error: cannot find symbol
+        JsonReader reader = newReader("\"123.0\"");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:425: error: cannot find symbol
+        JsonReader reader = newReader("123");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:431: error: cannot find symbol
+        JsonReader reader = newReader("-123");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:437: error: cannot find symbol
+        JsonReader reader = newReader("\"123\"");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:443: error: cannot find symbol
+        JsonReader reader = newReader("hello123");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:454: error: cannot find symbol
+        JsonReader reader = newReader("[]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:460: error: cannot find symbol
+        JsonReader reader = newReader("99999999999999");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:466: error: cannot find symbol
+        JsonReader reader = newReader("\"123.0\"");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:472: error: cannot find symbol
+        JsonReader reader = newReader("\"123.5\"");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:480: error: cannot find symbol
+        JsonReader reader = newReader("{}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:486: error: cannot find symbol
+        JsonReader reader = newReader("{}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:495: error: cannot find symbol
+        JsonReader reader = newReader("[1,2]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:503: error: cannot find symbol
+        JsonReader reader = newReader("[[1,2],3]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:511: error: cannot find symbol
+        JsonReader reader = newReader("[{\"a\":1},2]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:519: error: cannot find symbol
+        JsonReader reader = newReader("[\"hello\",2]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:527: error: cannot find symbol
+        JsonReader reader = newReader("['hello',2]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:536: error: cannot find symbol
+        JsonReader reader = newReader("[hello,2]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:545: error: cannot find symbol
+        JsonReader reader = newReader("{\"a\":1}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:556: error: cannot find symbol
+        JsonReader reader = newReader("{}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:562: error: cannot find symbol
+        JsonReader reader = newReader("[1,2]");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+/tmp/evaluate_claude_Gson_13_25cmrfbx/src/JsonReaderTest.java:570: error: cannot find symbol
+        JsonReader reader = newReader("{\"a\":1}");
+        ^
+  symbol:   class JsonReader
+  location: class JsonReaderTest
+100 errors

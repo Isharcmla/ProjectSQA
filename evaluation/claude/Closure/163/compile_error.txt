@@ -1,0 +1,17 @@
+/tmp/evaluate_claude_Closure_163_uuaxjh4p/src/AnalyzePrototypePropertiesTest.java:34: error: no suitable method found for compile(List<SourceFile>,List<SourceFile>,CompilerOptions)
+    compiler.compile(externsList, inputsList, options);
+            ^
+    method Compiler.compile(JSSourceFile,JSSourceFile,CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile[])
+    method Compiler.compile(List<JSSourceFile>,List<JSSourceFile>,CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to List<JSSourceFile>)
+    method Compiler.compile(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile[])
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

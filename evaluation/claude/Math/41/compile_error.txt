@@ -1,0 +1,201 @@
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:10: error: cannot find symbol
+    private Variance variance;
+            ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:15: error: cannot find symbol
+        variance = new Variance();
+                       ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:22: error: cannot find symbol
+        Variance v = new Variance();
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:22: error: cannot find symbol
+        Variance v = new Variance();
+                         ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:30: error: cannot find symbol
+        Variance v = new Variance(m2);
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:30: error: cannot find symbol
+        Variance v = new Variance(m2);
+                         ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:38: error: cannot find symbol
+        Variance v = new Variance(false);
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:38: error: cannot find symbol
+        Variance v = new Variance(false);
+                         ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:44: error: cannot find symbol
+        Variance v = new Variance(true);
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:44: error: cannot find symbol
+        Variance v = new Variance(true);
+                         ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:51: error: cannot find symbol
+        Variance v = new Variance(false, m2);
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:51: error: cannot find symbol
+        Variance v = new Variance(false, m2);
+                         ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:59: error: cannot find symbol
+        Variance original = new Variance();
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:59: error: cannot find symbol
+        Variance original = new Variance();
+                                ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:63: error: cannot find symbol
+        Variance copyVar = new Variance(original);
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:63: error: cannot find symbol
+        Variance copyVar = new Variance(original);
+                               ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:93: error: cannot find symbol
+        Variance v = new Variance(false);
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:93: error: cannot find symbol
+        Variance v = new Variance(false);
+                         ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:122: error: cannot find symbol
+        Variance v = new Variance(m2);
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:122: error: cannot find symbol
+        Variance v = new Variance(m2);
+                         ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:131: error: cannot find symbol
+        Variance v = new Variance(m2);
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:131: error: cannot find symbol
+        Variance v = new Variance(m2);
+                         ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:216: error: cannot find symbol
+        Variance v = new Variance(false);
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:216: error: cannot find symbol
+        Variance v = new Variance(false);
+                         ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:343: error: cannot find symbol
+        Variance v = new Variance(false);
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:343: error: cannot find symbol
+        Variance v = new Variance(false);
+                         ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:397: error: cannot find symbol
+        Variance v = new Variance(false);
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:397: error: cannot find symbol
+        Variance v = new Variance(false);
+                         ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:442: error: cannot find symbol
+        Variance copyVar = variance.copy();
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:452: error: cannot find symbol
+        Variance source = new Variance();
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:452: error: cannot find symbol
+        Variance source = new Variance();
+                              ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:456: error: cannot find symbol
+        Variance dest = new Variance();
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:456: error: cannot find symbol
+        Variance dest = new Variance();
+                            ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:457: error: cannot find symbol
+        Variance.copy(source, dest);
+        ^
+  symbol:   variable Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:465: error: cannot find symbol
+        Variance dest = new Variance();
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:465: error: cannot find symbol
+        Variance dest = new Variance();
+                            ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:466: error: cannot find symbol
+        Variance.copy(null, dest);
+        ^
+  symbol:   variable Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:471: error: cannot find symbol
+        Variance source = new Variance();
+        ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:471: error: cannot find symbol
+        Variance source = new Variance();
+                              ^
+  symbol:   class Variance
+  location: class VarianceTest
+/tmp/evaluate_claude_Math_41_yoz0dtp3/src/VarianceTest.java:472: error: cannot find symbol
+        Variance.copy(source, null);
+        ^
+  symbol:   variable Variance
+  location: class VarianceTest
+40 errors

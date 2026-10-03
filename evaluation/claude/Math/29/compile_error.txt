@@ -1,0 +1,16 @@
+/tmp/evaluate_claude_Math_29_81zswon8/src/OpenMapRealVectorTest.java:637: error: RealVector.Entry has protected access in RealVector
+        Iterator<org.apache.commons.math3.linear.RealVector.Entry> it = vec1.sparseIterator();
+                                                           ^
+/tmp/evaluate_claude_Math_29_81zswon8/src/OpenMapRealVectorTest.java:640: error: RealVector.Entry has protected access in RealVector
+            org.apache.commons.math3.linear.RealVector.Entry entry = it.next();
+                                                      ^
+/tmp/evaluate_claude_Math_29_81zswon8/src/OpenMapRealVectorTest.java:653: error: RealVector.Entry has protected access in RealVector
+        Iterator<org.apache.commons.math3.linear.RealVector.Entry> it = vec1.sparseIterator();
+                                                           ^
+/tmp/evaluate_claude_Math_29_81zswon8/src/OpenMapRealVectorTest.java:659: error: RealVector.Entry has protected access in RealVector
+        Iterator<org.apache.commons.math3.linear.RealVector.Entry> it = vec1.sparseIterator();
+                                                           ^
+/tmp/evaluate_claude_Math_29_81zswon8/src/OpenMapRealVectorTest.java:661: error: RealVector.Entry has protected access in RealVector
+            org.apache.commons.math3.linear.RealVector.Entry entry = it.next();
+                                                      ^
+5 errors

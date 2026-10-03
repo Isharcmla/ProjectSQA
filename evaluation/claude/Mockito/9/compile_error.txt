@@ -1,0 +1,12 @@
+/tmp/evaluate_claude_Mockito_9_u4h6o5s_/src/CallsRealMethodsTest.java:17: error: FakeInvocationOnMock is not abstract and does not override abstract method <T>getArgumentAt(int,Class<T>) in InvocationOnMock
+    private static class FakeInvocationOnMock implements InvocationOnMock, Serializable {
+                   ^
+  where T is a type-variable:
+    T extends Object declared in method <T>getArgumentAt(int,Class<T>)
+/tmp/evaluate_claude_Mockito_9_u4h6o5s_/src/CallsRealMethodsTest.java:42: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Mockito_9_u4h6o5s_/src/CallsRealMethodsTest.java:47: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+3 errors

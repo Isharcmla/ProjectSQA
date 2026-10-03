@@ -1,0 +1,27 @@
+/tmp/evaluate_claude_Closure_36_nsrzh91q/src/InlineVariablesTest.java:38: error: no suitable method found for compile(SourceFile,SourceFile,CompilerOptions)
+    compiler.compile(externs, input, options);
+            ^
+    method Compiler.compile(JSSourceFile,JSSourceFile,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile,JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method Compiler.compile(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+    method Compiler.compile(List<JSSourceFile>,List<JSSourceFile>,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to List<JSSourceFile>)
+    method Compiler.compile(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile[])
+/tmp/evaluate_claude_Closure_36_nsrzh91q/src/InlineVariablesTest.java:41: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_36_nsrzh91q/src/InlineVariablesTest.java:41: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                    ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+3 errors

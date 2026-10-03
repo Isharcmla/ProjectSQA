@@ -1,0 +1,163 @@
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:43: error: no suitable method found for init(List<SourceFile>,List<SourceFile>,CompilerOptions)
+    compiler.init(externs, inputs, options);
+            ^
+    method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile[])
+    method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile[])
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:45: error: cannot find symbol
+    Node jsRoot = compiler.getJsRoot();
+                          ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:60: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                              ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:60: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                         ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:77: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                              ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:77: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                         ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:94: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                              ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:94: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                         ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:109: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                              ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:109: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                         ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:125: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                              ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:125: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                         ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:138: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                              ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:138: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                         ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:165: error: cannot find symbol
+      normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:165: error: cannot find symbol
+      normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                           ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:179: error: cannot find symbol
+      normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:179: error: cannot find symbol
+      normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                           ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:196: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                              ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:196: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                         ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:205: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                              ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:205: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                         ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:225: error: cannot find symbol
+      pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                           ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:225: error: cannot find symbol
+      pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                      ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:239: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                         ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:239: error: cannot find symbol
+    pass.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                    ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:253: error: cannot find symbol
+      verify.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                             ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:253: error: cannot find symbol
+      verify.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                        ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:264: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                              ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:264: error: cannot find symbol
+    normalize.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                         ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:269: error: cannot find symbol
+      verify.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                             ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_139_158csbwv/src/NormalizeTest.java:269: error: cannot find symbol
+      verify.process(compiler.getExternsRoot(), compiler.getJsRoot());
+                                                        ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+32 errors

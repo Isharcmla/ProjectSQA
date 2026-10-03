@@ -1,0 +1,7 @@
+/tmp/evaluate_claude_Jsoup_6__v5hopxi/src/EntitiesTest.java:63: error: an enclosing instance that contains Document.OutputSettings is required
+        Document.OutputSettings out = new Document.OutputSettings();
+                                      ^
+/tmp/evaluate_claude_Jsoup_6__v5hopxi/src/EntitiesTest.java:72: error: an enclosing instance that contains Document.OutputSettings is required
+        Document.OutputSettings out = new Document.OutputSettings();
+                                      ^
+2 errors

@@ -1,0 +1,7 @@
+/tmp/evaluate_claude_Math_22_ce_6edv1/src/FDistributionTest.java:35: error: getSolverAbsoluteAccuracy() has protected access in FDistribution
+        assertEquals(1e-6, d.getSolverAbsoluteAccuracy(), 0d);
+                            ^
+/tmp/evaluate_claude_Math_22_ce_6edv1/src/FDistributionTest.java:127: error: getSolverAbsoluteAccuracy() has protected access in FDistribution
+                dist.getSolverAbsoluteAccuracy(), 0d);
+                    ^
+2 errors

@@ -1,0 +1,12 @@
+{
+  "project": "JxPath",
+  "bug_id": "7",
+  "tool": "claude",
+  "generated_files": 4,
+  "candidate_tests": 49,
+  "classification_counts": {},
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "compile_failed"
+}

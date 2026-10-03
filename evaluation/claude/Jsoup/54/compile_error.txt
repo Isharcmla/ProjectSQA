@@ -1,0 +1,11 @@
+/tmp/evaluate_claude_Jsoup_54_rhb_tt7y/src/W3CDomTest.java:12: error: cannot find symbol
+    private W3CDom w3cDom;
+            ^
+  symbol:   class W3CDom
+  location: class W3CDomTest
+/tmp/evaluate_claude_Jsoup_54_rhb_tt7y/src/W3CDomTest.java:16: error: cannot find symbol
+        w3cDom = new W3CDom();
+                     ^
+  symbol:   class W3CDom
+  location: class W3CDomTest
+2 errors

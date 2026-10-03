@@ -1,0 +1,461 @@
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:20: error: cannot find symbol
+    private Element el;
+            ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:24: error: cannot find symbol
+        el = new Element("div");
+                 ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:31: error: cannot find symbol
+        Element e = new Element("span");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:31: error: cannot find symbol
+        Element e = new Element("span");
+                        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:37: error: cannot find symbol
+        new Element((Tag) null, "base", new Attributes());
+            ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:37: error: cannot find symbol
+        new Element((Tag) null, "base", new Attributes());
+                                            ^
+  symbol:   class Attributes
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:42: error: cannot find symbol
+        Element e = new Element(Tag.valueOf("p"), "http://example.com");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:42: error: cannot find symbol
+        Element e = new Element(Tag.valueOf("p"), "http://example.com");
+                        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:56: error: cannot find symbol
+        Element e = new Element(Tag.valueOf("a"), "http://foo.com");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:56: error: cannot find symbol
+        Element e = new Element(Tag.valueOf("a"), "http://foo.com");
+                        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:67: error: cannot find symbol
+        el.appendChild(new TextNode("hello"));
+                           ^
+  symbol:   class TextNode
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:105: error: cannot find symbol
+        Element span = new Element("span");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:105: error: cannot find symbol
+        Element span = new Element("span");
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:158: error: cannot find symbol
+        Element parent = new Element("div");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:158: error: cannot find symbol
+        Element parent = new Element("div");
+                             ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:166: error: cannot find symbol
+        Element p = doc.select("p").first();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:175: error: cannot find symbol
+        Element child = new Element("span");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:175: error: cannot find symbol
+        Element child = new Element("span");
+                            ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:187: error: cannot find symbol
+        el.appendChild(new TextNode("text"));
+                           ^
+  symbol:   class TextNode
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:188: error: cannot find symbol
+        el.appendChild(new Element("span"));
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:202: error: cannot find symbol
+        el.appendChild(new TextNode("hello"));
+                           ^
+  symbol:   class TextNode
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:203: error: cannot find symbol
+        el.appendChild(new Element("span"));
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:204: error: cannot find symbol
+        List<TextNode> textNodes = el.textNodes();
+             ^
+  symbol:   class TextNode
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:210: error: cannot find symbol
+        el.appendChild(new DataNode("somedata"));
+                           ^
+  symbol:   class DataNode
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:211: error: cannot find symbol
+        el.appendChild(new Element("span"));
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:212: error: cannot find symbol
+        List<DataNode> dataNodes = el.dataNodes();
+             ^
+  symbol:   class DataNode
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:228: error: cannot find symbol
+        Element first = doc.selectFirst("p");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:258: error: cannot find symbol
+        Element child1 = new Element("p");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:258: error: cannot find symbol
+        Element child1 = new Element("p");
+                             ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:259: error: cannot find symbol
+        Element child2 = new Element("span");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:259: error: cannot find symbol
+        Element child2 = new Element("span");
+                             ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:272: error: cannot find symbol
+        Element parent = new Element("div");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:272: error: cannot find symbol
+        Element parent = new Element("div");
+                             ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:284: error: cannot find symbol
+        Element child1 = new Element("p");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:284: error: cannot find symbol
+        Element child1 = new Element("p");
+                             ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:285: error: cannot find symbol
+        Element child2 = new Element("span");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:285: error: cannot find symbol
+        Element child2 = new Element("span");
+                             ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:300: error: cannot find symbol
+        el.appendChild(new Element("a"));
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:301: error: cannot find symbol
+        el.appendChild(new Element("b"));
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:302: error: cannot find symbol
+        Collection<Node> toInsert = new ArrayList<>();
+                   ^
+  symbol:   class Node
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:303: error: cannot find symbol
+        toInsert.add(new Element("c"));
+                         ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:311: error: cannot find symbol
+        el.appendChild(new Element("a"));
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:312: error: cannot find symbol
+        Collection<Node> toInsert = new ArrayList<>();
+                   ^
+  symbol:   class Node
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:313: error: cannot find symbol
+        toInsert.add(new Element("c"));
+                         ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:320: error: cannot find symbol
+        Collection<Node> toInsert = new ArrayList<>();
+                   ^
+  symbol:   class Node
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:321: error: cannot find symbol
+        toInsert.add(new Element("c"));
+                         ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:327: error: cannot find symbol
+        el.insertChildren(0, (Collection<? extends Node>) null);
+                                                   ^
+  symbol:   class Node
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:332: error: cannot find symbol
+        el.appendChild(new Element("a"));
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:333: error: cannot find symbol
+        el.insertChildren(0, new Element("b"));
+                                 ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:339: error: cannot find symbol
+        el.insertChildren(0, (Node[]) null);
+                              ^
+  symbol:   class Node
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:346: error: cannot find symbol
+        Element child = el.appendElement("p");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:354: error: cannot find symbol
+        Element child = el.prependElement("p");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:413: error: cannot find symbol
+        Element p = doc.select("p").first();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:421: error: cannot find symbol
+        Element p = doc.select("p").first();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:422: error: cannot find symbol
+        p.before(new Element("span"));
+                     ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:429: error: cannot find symbol
+        Element p = doc.select("p").first();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:437: error: cannot find symbol
+        Element p = doc.select("p").first();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:438: error: cannot find symbol
+        p.after(new Element("span"));
+                    ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:446: error: cannot find symbol
+        el.appendChild(new TextNode("hi"));
+                           ^
+  symbol:   class TextNode
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:447: error: cannot find symbol
+        el.appendChild(new Element("span"));
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:457: error: cannot find symbol
+        Element p = doc.select("p").first();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:495: error: cannot find symbol
+        Element b = doc.getElementById("b");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:508: error: cannot find symbol
+        Element a = doc.getElementById("a");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:509: error: cannot find symbol
+        Element next = a.nextElementSibling();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:521: error: cannot find symbol
+        Element a = doc.getElementById("a");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:528: error: cannot find symbol
+        Element b = doc.getElementById("b");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:529: error: cannot find symbol
+        Element prev = b.previousElementSibling();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:541: error: cannot find symbol
+        Element a = doc.getElementById("a");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:548: error: cannot find symbol
+        Element b = doc.getElementById("b");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:549: error: cannot find symbol
+        Element first = b.firstElementSibling();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:556: error: cannot find symbol
+        Element a = doc.getElementById("a");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:563: error: cannot find symbol
+        Element b = doc.getElementById("b");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:575: error: cannot find symbol
+        Element a = doc.getElementById("a");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:576: error: cannot find symbol
+        Element last = a.lastElementSibling();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:583: error: cannot find symbol
+        Element a = doc.getElementById("a");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:604: error: cannot find symbol
+        Element found = doc.getElementById("x");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:794: error: cannot find symbol
+        Element p = doc.select("p").first();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:806: error: cannot find symbol
+        Element p = doc.select("p").first();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:830: error: cannot find symbol
+        Element script = doc.select("script").first();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:843: error: cannot find symbol
+        el.appendChild(new Element("span"));
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:972: error: cannot find symbol
+        Element textarea = new Element("textarea");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:972: error: cannot find symbol
+        Element textarea = new Element("textarea");
+                               ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:979: error: cannot find symbol
+        Element input = new Element("input");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:979: error: cannot find symbol
+        Element input = new Element("input");
+                            ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:986: error: cannot find symbol
+        Element textarea = new Element("textarea");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:986: error: cannot find symbol
+        Element textarea = new Element("textarea");
+                               ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:993: error: cannot find symbol
+        Element input = new Element("input");
+        ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:993: error: cannot find symbol
+        Element input = new Element("input");
+                            ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:1002: error: cannot find symbol
+        el.appendChild(new Element("p"));
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:1008: error: cannot find symbol
+        el.appendChild(new Element("p"));
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:1016: error: cannot find symbol
+        el.appendChild(new Element("span"));
+                           ^
+  symbol:   class Element
+  location: class ElementTest
+/tmp/evaluate_claude_Jsoup_66_lwsbirr8/src/ElementTest.java:1033: error: cannot find symbol
+        Element clone = el.clone();
+        ^
+  symbol:   class Element
+  location: class ElementTest
+92 errors

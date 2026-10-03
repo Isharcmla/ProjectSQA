@@ -1,0 +1,10 @@
+/tmp/evaluate_claude_JxPath_10_4g_9ctye/src/CoreOperationRelationalExpressionTest.java:37: error: ValueExpression is not abstract and does not override abstract method compute(EvalContext) in Expression
+    static class ValueExpression extends Expression {
+           ^
+/tmp/evaluate_claude_JxPath_10_4g_9ctye/src/CoreOperationRelationalExpressionTest.java:56: error: GreaterThanExpr is not abstract and does not override abstract method getSymbol() in CoreOperation
+    static class GreaterThanExpr extends CoreOperationRelationalExpression {
+           ^
+/tmp/evaluate_claude_JxPath_10_4g_9ctye/src/CoreOperationRelationalExpressionTest.java:67: error: LessThanExpr is not abstract and does not override abstract method getSymbol() in CoreOperation
+    static class LessThanExpr extends CoreOperationRelationalExpression {
+           ^
+3 errors

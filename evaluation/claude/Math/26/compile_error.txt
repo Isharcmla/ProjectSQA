@@ -1,0 +1,489 @@
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:11: error: cannot find symbol
+    private Fraction half;
+            ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:12: error: cannot find symbol
+    private Fraction third;
+            ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:13: error: cannot find symbol
+    private Fraction negHalf;
+            ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:17: error: cannot find symbol
+        half = new Fraction(1, 2);
+                   ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:18: error: cannot find symbol
+        third = new Fraction(1, 3);
+                    ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:19: error: cannot find symbol
+        negHalf = new Fraction(-1, 2);
+                      ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:26: error: cannot find symbol
+        Fraction f = new Fraction(2, 4);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:26: error: cannot find symbol
+        Fraction f = new Fraction(2, 4);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:33: error: cannot find symbol
+        Fraction f = new Fraction(1, -2);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:33: error: cannot find symbol
+        Fraction f = new Fraction(1, -2);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:40: error: cannot find symbol
+        Fraction f = new Fraction(-1, 2);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:40: error: cannot find symbol
+        Fraction f = new Fraction(-1, 2);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:47: error: cannot find symbol
+        new Fraction(5, 0);
+            ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:52: error: cannot find symbol
+        new Fraction(Integer.MIN_VALUE, -1);
+            ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:57: error: cannot find symbol
+        new Fraction(5, Integer.MIN_VALUE);
+            ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:62: error: cannot find symbol
+        Fraction f = new Fraction(5);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:62: error: cannot find symbol
+        Fraction f = new Fraction(5);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:69: error: cannot find symbol
+        Fraction f = new Fraction(0.5);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:69: error: cannot find symbol
+        Fraction f = new Fraction(0.5);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:76: error: cannot find symbol
+        Fraction f = new Fraction(3.0);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:76: error: cannot find symbol
+        Fraction f = new Fraction(3.0);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:83: error: cannot find symbol
+        Fraction f = new Fraction(0.3333333333333333, 1.0e-5, 100);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:83: error: cannot find symbol
+        Fraction f = new Fraction(0.3333333333333333, 1.0e-5, 100);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:90: error: cannot find symbol
+        new Fraction(Math.PI, 1.0e-20, 2);
+            ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:95: error: cannot find symbol
+        Fraction f = new Fraction(0.6152, 100);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:95: error: cannot find symbol
+        Fraction f = new Fraction(0.6152, 100);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:101: error: cannot find symbol
+        new Fraction(1.0e20);
+            ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:108: error: cannot find symbol
+        Fraction f = new Fraction(3, 4);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:108: error: cannot find symbol
+        Fraction f = new Fraction(3, 4);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:114: error: cannot find symbol
+        Fraction f = negHalf.abs();
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:133: error: cannot find symbol
+        Fraction anotherHalf = new Fraction(2, 4);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:133: error: cannot find symbol
+        Fraction anotherHalf = new Fraction(2, 4);
+                                   ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:153: error: cannot find symbol
+        Fraction f = new Fraction(1, 2);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:153: error: cannot find symbol
+        Fraction f = new Fraction(1, 2);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:195: error: cannot find symbol
+        Fraction f = new Fraction(1, 2);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:195: error: cannot find symbol
+        Fraction f = new Fraction(1, 2);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:203: error: cannot find symbol
+        Fraction f = new Fraction(7, 2);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:203: error: cannot find symbol
+        Fraction f = new Fraction(7, 2);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:211: error: cannot find symbol
+        Fraction f = new Fraction(7, 2);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:211: error: cannot find symbol
+        Fraction f = new Fraction(7, 2);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:219: error: cannot find symbol
+        Fraction f = half.negate();
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:226: error: cannot find symbol
+        Fraction f = new Fraction(Integer.MIN_VALUE, 1);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:226: error: cannot find symbol
+        Fraction f = new Fraction(Integer.MIN_VALUE, 1);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:234: error: cannot find symbol
+        Fraction f = half.reciprocal();
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:243: error: cannot find symbol
+        Fraction result = half.add(third);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:250: error: cannot find symbol
+        Fraction result = Fraction.ZERO.add(third);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:250: error: package Fraction does not exist
+        Fraction result = Fraction.ZERO.add(third);
+                                  ^
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:257: error: cannot find symbol
+        Fraction result = half.add(Fraction.ZERO);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:257: error: cannot find symbol
+        Fraction result = half.add(Fraction.ZERO);
+                                   ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:264: error: cannot find symbol
+        half.add((Fraction) null);
+                  ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:269: error: cannot find symbol
+        Fraction f1 = new Fraction(1, 6);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:269: error: cannot find symbol
+        Fraction f1 = new Fraction(1, 6);
+                          ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:270: error: cannot find symbol
+        Fraction f2 = new Fraction(1, 10);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:270: error: cannot find symbol
+        Fraction f2 = new Fraction(1, 10);
+                          ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:271: error: cannot find symbol
+        Fraction result = f1.add(f2);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:280: error: cannot find symbol
+        Fraction result = half.add(1);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:289: error: cannot find symbol
+        Fraction result = half.subtract(third);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:296: error: cannot find symbol
+        Fraction result = Fraction.ZERO.subtract(third);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:296: error: package Fraction does not exist
+        Fraction result = Fraction.ZERO.subtract(third);
+                                  ^
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:303: error: cannot find symbol
+        Fraction result = half.subtract(Fraction.ZERO);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:303: error: cannot find symbol
+        Fraction result = half.subtract(Fraction.ZERO);
+                                        ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:310: error: cannot find symbol
+        half.subtract((Fraction) null);
+                       ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:315: error: cannot find symbol
+        Fraction f1 = new Fraction(1, 6);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:315: error: cannot find symbol
+        Fraction f1 = new Fraction(1, 6);
+                          ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:316: error: cannot find symbol
+        Fraction f2 = new Fraction(1, 10);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:316: error: cannot find symbol
+        Fraction f2 = new Fraction(1, 10);
+                          ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:317: error: cannot find symbol
+        Fraction result = f1.subtract(f2);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:326: error: cannot find symbol
+        Fraction result = half.subtract(1);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:335: error: cannot find symbol
+        Fraction result = half.multiply(third);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:342: error: cannot find symbol
+        Fraction result = Fraction.ZERO.multiply(third);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:342: error: package Fraction does not exist
+        Fraction result = Fraction.ZERO.multiply(third);
+                                  ^
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:343: error: cannot find symbol
+        assertEquals(Fraction.ZERO, result);
+                     ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:348: error: cannot find symbol
+        Fraction result = half.multiply(Fraction.ZERO);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:348: error: cannot find symbol
+        Fraction result = half.multiply(Fraction.ZERO);
+                                        ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:349: error: cannot find symbol
+        assertEquals(Fraction.ZERO, result);
+                     ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:354: error: cannot find symbol
+        half.multiply((Fraction) null);
+                       ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:361: error: cannot find symbol
+        Fraction result = half.multiply(4);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:370: error: cannot find symbol
+        Fraction result = half.divide(third);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:377: error: cannot find symbol
+        half.divide((Fraction) null);
+                     ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:382: error: cannot find symbol
+        half.divide(Fraction.ZERO);
+                    ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:389: error: cannot find symbol
+        Fraction result = half.divide(2);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:405: error: cannot find symbol
+        Fraction f = Fraction.getReducedFraction(4, 8);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:405: error: cannot find symbol
+        Fraction f = Fraction.getReducedFraction(4, 8);
+                     ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:412: error: cannot find symbol
+        Fraction f = Fraction.getReducedFraction(0, 5);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:412: error: cannot find symbol
+        Fraction f = Fraction.getReducedFraction(0, 5);
+                     ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:413: error: cannot find symbol
+        assertEquals(Fraction.ZERO, f);
+                     ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:418: error: cannot find symbol
+        Fraction.getReducedFraction(1, 0);
+        ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:423: error: cannot find symbol
+        Fraction f = Fraction.getReducedFraction(1, -2);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:423: error: cannot find symbol
+        Fraction f = Fraction.getReducedFraction(1, -2);
+                     ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:430: error: cannot find symbol
+        Fraction.getReducedFraction(3, Integer.MIN_VALUE);
+        ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:435: error: cannot find symbol
+        Fraction f = Fraction.getReducedFraction(2, Integer.MIN_VALUE);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:435: error: cannot find symbol
+        Fraction f = Fraction.getReducedFraction(2, Integer.MIN_VALUE);
+                     ^
+  symbol:   variable Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:444: error: cannot find symbol
+        Fraction f = new Fraction(5, 1);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:444: error: cannot find symbol
+        Fraction f = new Fraction(5, 1);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:450: error: cannot find symbol
+        Fraction f = new Fraction(0, 5);
+        ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:450: error: cannot find symbol
+        Fraction f = new Fraction(0, 5);
+                         ^
+  symbol:   class Fraction
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:464: error: cannot find symbol
+        assertSame(FractionField.getInstance(), half.getField());
+                   ^
+  symbol:   variable FractionField
+  location: class FractionTest
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:471: error: package Fraction does not exist
+        assertEquals(2, Fraction.TWO.getNumerator());
+                                ^
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:472: error: package Fraction does not exist
+        assertEquals(1, Fraction.TWO.getDenominator());
+                                ^
+/tmp/evaluate_claude_Math_26_u4k1db3n/src/FractionTest.java:473: error: package Fraction does not exist
+        assertEquals(1, Fraction.ONE.getNumerator());
+                                ^
+100 errors

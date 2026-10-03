@@ -1,0 +1,353 @@
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:15: error: cannot find symbol
+            OptionBuilder.create("reset");
+            ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:26: error: cannot find symbol
+        Option option = OptionBuilder.withLongOpt("longoption").create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:26: error: cannot find symbol
+        Option option = OptionBuilder.withLongOpt("longoption").create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:33: error: cannot find symbol
+        Option option = OptionBuilder.hasArg().create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:33: error: cannot find symbol
+        Option option = OptionBuilder.hasArg().create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:41: error: cannot find symbol
+        Option option = OptionBuilder.hasArg(true).create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:41: error: cannot find symbol
+        Option option = OptionBuilder.hasArg(true).create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:48: error: cannot find symbol
+        Option option = OptionBuilder.hasArg(false).create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:48: error: cannot find symbol
+        Option option = OptionBuilder.hasArg(false).create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:49: error: cannot find symbol
+        assertEquals(Option.UNINITIALIZED, option.getArgs());
+                     ^
+  symbol:   variable Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:56: error: cannot find symbol
+        Option option = OptionBuilder.withArgName("myArg").create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:56: error: cannot find symbol
+        Option option = OptionBuilder.withArgName("myArg").create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:63: error: cannot find symbol
+        Option option = OptionBuilder.withArgName(null).create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:63: error: cannot find symbol
+        Option option = OptionBuilder.withArgName(null).create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:70: error: cannot find symbol
+        Option option = OptionBuilder.isRequired().create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:70: error: cannot find symbol
+        Option option = OptionBuilder.isRequired().create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:77: error: cannot find symbol
+        Option option = OptionBuilder.withValueSeparator(':').create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:77: error: cannot find symbol
+        Option option = OptionBuilder.withValueSeparator(':').create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:84: error: cannot find symbol
+        Option option = OptionBuilder.withValueSeparator().create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:84: error: cannot find symbol
+        Option option = OptionBuilder.withValueSeparator().create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:91: error: cannot find symbol
+        Option option = OptionBuilder.isRequired(true).create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:91: error: cannot find symbol
+        Option option = OptionBuilder.isRequired(true).create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:98: error: cannot find symbol
+        Option option = OptionBuilder.isRequired(false).create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:98: error: cannot find symbol
+        Option option = OptionBuilder.isRequired(false).create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:105: error: cannot find symbol
+        Option option = OptionBuilder.hasArgs().create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:105: error: cannot find symbol
+        Option option = OptionBuilder.hasArgs().create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:106: error: cannot find symbol
+        assertEquals(Option.UNLIMITED_VALUES, option.getArgs());
+                     ^
+  symbol:   variable Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:112: error: cannot find symbol
+        Option option = OptionBuilder.hasArgs(3).create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:112: error: cannot find symbol
+        Option option = OptionBuilder.hasArgs(3).create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:119: error: cannot find symbol
+        Option option = OptionBuilder.hasArgs(0).create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:119: error: cannot find symbol
+        Option option = OptionBuilder.hasArgs(0).create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:126: error: cannot find symbol
+        Option option = OptionBuilder.hasOptionalArg().create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:126: error: cannot find symbol
+        Option option = OptionBuilder.hasOptionalArg().create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:134: error: cannot find symbol
+        Option option = OptionBuilder.hasOptionalArgs().create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:134: error: cannot find symbol
+        Option option = OptionBuilder.hasOptionalArgs().create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:136: error: cannot find symbol
+        assertEquals(Option.UNLIMITED_VALUES, option.getArgs());
+                     ^
+  symbol:   variable Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:142: error: cannot find symbol
+        Option option = OptionBuilder.hasOptionalArgs(5).create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:142: error: cannot find symbol
+        Option option = OptionBuilder.hasOptionalArgs(5).create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:151: error: cannot find symbol
+        Option option = OptionBuilder.withType(type).create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:151: error: cannot find symbol
+        Option option = OptionBuilder.withType(type).create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:158: error: cannot find symbol
+        Option option = OptionBuilder.withType(null).create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:158: error: cannot find symbol
+        Option option = OptionBuilder.withType(null).create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:165: error: cannot find symbol
+        Option option = OptionBuilder.withDescription("desc").create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:165: error: cannot find symbol
+        Option option = OptionBuilder.withDescription("desc").create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:172: error: cannot find symbol
+        Option option = OptionBuilder.withDescription(null).create('a');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:172: error: cannot find symbol
+        Option option = OptionBuilder.withDescription(null).create('a');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:179: error: cannot find symbol
+        Option option = OptionBuilder.create('x');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:179: error: cannot find symbol
+        Option option = OptionBuilder.create('x');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:186: error: cannot find symbol
+        OptionBuilder.create();
+        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:194: error: cannot find symbol
+            OptionBuilder.create();
+            ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:204: error: cannot find symbol
+        Option option = OptionBuilder.withLongOpt("newLong").create('b');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:204: error: cannot find symbol
+        Option option = OptionBuilder.withLongOpt("newLong").create('b');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:207: error: cannot find symbol
+        assertEquals(Option.UNINITIALIZED, option.getArgs());
+                     ^
+  symbol:   variable Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:213: error: cannot find symbol
+        Option option = OptionBuilder.withLongOpt("myLongOpt").create();
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:213: error: cannot find symbol
+        Option option = OptionBuilder.withLongOpt("myLongOpt").create();
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:221: error: cannot find symbol
+        Option option = OptionBuilder
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:221: error: cannot find symbol
+        Option option = OptionBuilder
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:244: error: cannot find symbol
+        OptionBuilder.withLongOpt("first")
+        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:250: error: cannot find symbol
+        Option second = OptionBuilder.create('s');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:250: error: cannot find symbol
+        Option second = OptionBuilder.create('s');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:253: error: cannot find symbol
+        assertEquals(Option.UNINITIALIZED, second.getArgs());
+                     ^
+  symbol:   variable Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:260: error: cannot find symbol
+        OptionBuilder.create((String) null);
+        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:266: error: cannot find symbol
+        OptionBuilder.create("");
+        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:274: error: cannot find symbol
+            OptionBuilder.withLongOpt("bad").create((String) null);
+            ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:283: error: cannot find symbol
+        Option option = OptionBuilder.create('z');
+        ^
+  symbol:   class Option
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:283: error: cannot find symbol
+        Option option = OptionBuilder.create('z');
+                        ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:290: error: cannot find symbol
+        OptionBuilder first = OptionBuilder.withLongOpt("a");
+        ^
+  symbol:   class OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:290: error: cannot find symbol
+        OptionBuilder first = OptionBuilder.withLongOpt("a");
+                              ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:291: error: cannot find symbol
+        OptionBuilder second = OptionBuilder.hasArg();
+        ^
+  symbol:   class OptionBuilder
+  location: class OptionBuilderTest
+/tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionBuilderTest.java:291: error: cannot find symbol
+        OptionBuilder second = OptionBuilder.hasArg();
+                               ^
+  symbol:   variable OptionBuilder
+  location: class OptionBuilderTest
+Note: /tmp/evaluate_claude_Cli_31_b5bxodlm/src/OptionTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+70 errors

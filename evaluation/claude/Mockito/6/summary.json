@@ -1,0 +1,14 @@
+{
+  "project": "Mockito",
+  "bug_id": "6",
+  "tool": "claude",
+  "generated_files": 1,
+  "candidate_tests": 64,
+  "classification_counts": {
+    "valid_non_revealing": 64
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "unknown",
+  "evaluation_status": "success"
+}

@@ -1,0 +1,27 @@
+/tmp/evaluate_claude_JacksonDatabind_37_4db9x95r/src/SimpleTypeTest.java:25: error: _class has protected access in JavaType
+        assertEquals(String.class, type._class);
+                                       ^
+/tmp/evaluate_claude_JacksonDatabind_37_4db9x95r/src/SimpleTypeTest.java:35: error: _class has protected access in JavaType
+        assertEquals(int[].class, type._class);
+                                      ^
+/tmp/evaluate_claude_JacksonDatabind_37_4db9x95r/src/SimpleTypeTest.java:49: error: _class has protected access in JavaType
+        assertEquals(String.class, type._class);
+                                       ^
+/tmp/evaluate_claude_JacksonDatabind_37_4db9x95r/src/SimpleTypeTest.java:97: error: _class has protected access in JavaType
+        assertEquals(Number.class, ((SimpleType) narrowed)._class);
+                                                          ^
+/tmp/evaluate_claude_JacksonDatabind_37_4db9x95r/src/SimpleTypeTest.java:150: error: _typeHandler has protected access in JavaType
+        assertEquals(handler, result._typeHandler);
+                                    ^
+/tmp/evaluate_claude_JacksonDatabind_37_4db9x95r/src/SimpleTypeTest.java:175: error: _valueHandler has protected access in JavaType
+        assertEquals(handler, result._valueHandler);
+                                    ^
+/tmp/evaluate_claude_JacksonDatabind_37_4db9x95r/src/SimpleTypeTest.java:188: error: _asStatic has protected access in JavaType
+        assertFalse(type._asStatic);
+                        ^
+/tmp/evaluate_claude_JacksonDatabind_37_4db9x95r/src/SimpleTypeTest.java:191: error: _asStatic has protected access in JavaType
+        assertTrue(staticType._asStatic);
+                             ^
+Note: /tmp/evaluate_claude_JacksonDatabind_37_4db9x95r/src/SimpleTypeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+8 errors

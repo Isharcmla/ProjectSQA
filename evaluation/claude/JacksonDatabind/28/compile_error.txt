@@ -1,0 +1,26 @@
+/tmp/evaluate_claude_JacksonDatabind_28_ggo61o1p/src/JsonNodeDeserializerTest.java:325: error: cannot find symbol
+        buf.writeEmbeddedObject(null);
+           ^
+  symbol:   method writeEmbeddedObject(<null>)
+  location: variable buf of type TokenBuffer
+/tmp/evaluate_claude_JacksonDatabind_28_ggo61o1p/src/JsonNodeDeserializerTest.java:337: error: cannot find symbol
+        buf.writeEmbeddedObject(TextNode.valueOf("embedded-text"));
+           ^
+  symbol:   method writeEmbeddedObject(TextNode)
+  location: variable buf of type TokenBuffer
+/tmp/evaluate_claude_JacksonDatabind_28_ggo61o1p/src/JsonNodeDeserializerTest.java:350: error: cannot find symbol
+        buf.writeEmbeddedObject(raw);
+           ^
+  symbol:   method writeEmbeddedObject(RawValue)
+  location: variable buf of type TokenBuffer
+/tmp/evaluate_claude_JacksonDatabind_28_ggo61o1p/src/JsonNodeDeserializerTest.java:362: error: cannot find symbol
+        buf.writeEmbeddedObject(new Date(0));
+           ^
+  symbol:   method writeEmbeddedObject(Date)
+  location: variable buf of type TokenBuffer
+/tmp/evaluate_claude_JacksonDatabind_28_ggo61o1p/src/JsonNodeDeserializerTest.java:411: error: cannot find symbol
+        buf.writeEmbeddedObject(new byte[]{9, 8, 7});
+           ^
+  symbol:   method writeEmbeddedObject(byte[])
+  location: variable buf of type TokenBuffer
+5 errors

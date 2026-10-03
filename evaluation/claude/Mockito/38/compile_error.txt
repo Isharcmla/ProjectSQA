@@ -1,0 +1,7 @@
+/tmp/evaluate_claude_Mockito_38_ev_i1c1j/src/ArgumentMatchingToolTest.java:26: error: ConfigurableMatcher is not abstract and does not override abstract method withExtraTypeInfo() in ContainsExtraTypeInformation
+    private static class ConfigurableMatcher extends BaseMatcher implements ContainsExtraTypeInformation {
+                   ^
+/tmp/evaluate_claude_Mockito_38_ev_i1c1j/src/ArgumentMatchingToolTest.java:52: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+2 errors

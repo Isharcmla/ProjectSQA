@@ -1,0 +1,487 @@
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:19: error: cannot find symbol
+    private static class SimpleExtraField implements ZipExtraField {
+                                                     ^
+  symbol:   class ZipExtraField
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:20: error: cannot find symbol
+        private final ZipShort headerId;
+                      ^
+  symbol:   class ZipShort
+  location: class SimpleExtraField
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:31: error: cannot find symbol
+        public ZipShort getHeaderId() {
+               ^
+  symbol:   class ZipShort
+  location: class SimpleExtraField
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:36: error: cannot find symbol
+        public ZipShort getLocalFileDataLength() {
+               ^
+  symbol:   class ZipShort
+  location: class SimpleExtraField
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:41: error: cannot find symbol
+        public ZipShort getCentralDirectoryLength() {
+               ^
+  symbol:   class ZipShort
+  location: class SimpleExtraField
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:25: error: cannot find symbol
+            this.headerId = new ZipShort(headerId);
+                                ^
+  symbol:   class ZipShort
+  location: class SimpleExtraField
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:30: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:35: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:37: error: cannot find symbol
+            return new ZipShort(localData.length);
+                       ^
+  symbol:   class ZipShort
+  location: class SimpleExtraField
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:40: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:42: error: cannot find symbol
+            return new ZipShort(centralData.length);
+                       ^
+  symbol:   class ZipShort
+  location: class SimpleExtraField
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:45: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:50: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:55: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:60: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:89: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("test.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:89: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("test.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:96: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("dir/");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:96: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("dir/");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:102: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:102: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:108: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry() {
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:108: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry() {
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:119: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry(javaEntry);
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:119: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry(javaEntry);
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:130: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry(javaEntry);
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:130: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry(javaEntry);
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:136: error: cannot find symbol
+        final ZipArchiveEntry original = new ZipArchiveEntry("bar.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:136: error: cannot find symbol
+        final ZipArchiveEntry original = new ZipArchiveEntry("bar.txt");
+                                             ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:139: error: cannot find symbol
+        original.setPlatform(ZipArchiveEntry.PLATFORM_UNIX);
+                             ^
+  symbol:   variable ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:140: error: cannot find symbol
+        final ZipArchiveEntry copy = new ZipArchiveEntry(original);
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:140: error: cannot find symbol
+        final ZipArchiveEntry copy = new ZipArchiveEntry(original);
+                                         ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:144: error: cannot find symbol
+        assertEquals(ZipArchiveEntry.PLATFORM_UNIX, copy.getPlatform());
+                     ^
+  symbol:   variable ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:149: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry(tempFile, "myfile.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:149: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry(tempFile, "myfile.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:157: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry(tempDir, "mydir");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:157: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry(tempDir, "mydir");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:166: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("clone.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:166: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("clone.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:169: error: cannot find symbol
+        final ZipArchiveEntry cloned = (ZipArchiveEntry) entry.clone();
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:169: error: cannot find symbol
+        final ZipArchiveEntry cloned = (ZipArchiveEntry) entry.clone();
+                                        ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:180: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("m.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:180: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("m.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:181: error: cannot find symbol
+        assertEquals(ZipMethod.UNKNOWN_CODE, entry.getMethod());
+                     ^
+  symbol:   variable ZipMethod
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:186: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("m.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:186: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("m.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:193: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("m.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:193: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("m.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:201: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("a.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:201: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("a.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:208: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("a.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:208: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("a.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:217: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("file.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:217: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("file.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:219: error: cannot find symbol
+        assertEquals(ZipArchiveEntry.PLATFORM_UNIX, entry.getPlatform());
+                     ^
+  symbol:   variable ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:225: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("file.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:225: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("file.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:231: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("file.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:231: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("file.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:238: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("link");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:238: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("link");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:239: error: cannot find symbol
+        entry.setUnixMode(UnixStat.LINK_FLAG | 0755);
+                          ^
+  symbol:   variable UnixStat
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:247: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("p.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:247: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("p.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:248: error: cannot find symbol
+        assertEquals(ZipArchiveEntry.PLATFORM_FAT, entry.getPlatform());
+                     ^
+  symbol:   variable ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:253: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("p.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:253: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("p.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:254: error: cannot find symbol
+        entry.setPlatform(ZipArchiveEntry.PLATFORM_UNIX);
+                          ^
+  symbol:   variable ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:255: error: cannot find symbol
+        assertEquals(ZipArchiveEntry.PLATFORM_UNIX, entry.getPlatform());
+                     ^
+  symbol:   variable ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:262: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("e.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:262: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("e.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:264: error: cannot find symbol
+        entry.setExtraFields(new ZipExtraField[] { field });
+                                 ^
+  symbol:   class ZipExtraField
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:265: error: cannot find symbol
+        final ZipExtraField[] fields = entry.getExtraFields();
+              ^
+  symbol:   class ZipExtraField
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:267: error: cannot find symbol
+        assertEquals(new ZipShort(0x1234), fields[0].getHeaderId());
+                         ^
+  symbol:   class ZipShort
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:272: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("e2.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:272: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("e2.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:273: error: cannot find symbol
+        final ZipExtraField[] fields = entry.getExtraFields();
+              ^
+  symbol:   class ZipExtraField
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:280: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("e3.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:280: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("e3.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:282: error: cannot find symbol
+        entry.setExtraFields(new ZipExtraField[] { field });
+                                 ^
+  symbol:   class ZipExtraField
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:283: error: cannot find symbol
+        final ZipExtraField[] fields = entry.getExtraFields(false);
+              ^
+  symbol:   class ZipExtraField
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:289: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("e4.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:289: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("e4.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:291: error: cannot find symbol
+        entry.setExtraFields(new ZipExtraField[] { field });
+                                 ^
+  symbol:   class ZipExtraField
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:292: error: cannot find symbol
+        final ZipExtraField[] fields = entry.getExtraFields(true);
+              ^
+  symbol:   class ZipExtraField
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:298: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("add.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:298: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("add.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:301: error: cannot find symbol
+        assertNotNull(entry.getExtraField(new ZipShort(0x2000)));
+                                              ^
+  symbol:   class ZipShort
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:306: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("add2.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:306: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("add2.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:311: error: cannot find symbol
+        final ZipExtraField[] fields = entry.getExtraFields();
+              ^
+  symbol:   class ZipExtraField
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:318: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("add3.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:318: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("add3.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:323: error: cannot find symbol
+        final ZipExtraField[] fields = entry.getExtraFields();
+              ^
+  symbol:   class ZipExtraField
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:325: error: cannot find symbol
+        assertEquals(new ZipShort(0x3002), fields[0].getHeaderId());
+                         ^
+  symbol:   class ZipShort
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:330: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("add4.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:330: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("add4.txt");
+                                          ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:337: error: cannot find symbol
+        final ZipExtraField[] fields = entry.getExtraFields();
+              ^
+  symbol:   class ZipExtraField
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:339: error: cannot find symbol
+        assertEquals(new ZipShort(0x4001), fields[0].getHeaderId());
+                         ^
+  symbol:   class ZipShort
+  location: class ZipArchiveEntryTest
+/tmp/evaluate_claude_Compress_42_okvx7sg7/src/ZipArchiveEntryTest.java:344: error: cannot find symbol
+        final ZipArchiveEntry entry = new ZipArchiveEntry("rm.txt");
+              ^
+  symbol:   class ZipArchiveEntry
+  location: class ZipArchiveEntryTest
+100 errors

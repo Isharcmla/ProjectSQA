@@ -1,0 +1,353 @@
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:16: error: cannot find symbol
+    private static class TestIntegrator extends AbstractIntegrator {
+                                                ^
+  symbol:   class AbstractIntegrator
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:27: error: cannot find symbol
+        public void integrate(ExpandableStatefulODE equations, double t)
+                              ^
+  symbol:   class ExpandableStatefulODE
+  location: class TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:54: error: cannot find symbol
+        public void callSanityChecks(ExpandableStatefulODE equations, double t) {
+                                     ^
+  symbol:   class ExpandableStatefulODE
+  location: class TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:62: error: cannot find symbol
+        public void callSetEquations(ExpandableStatefulODE equations) {
+                                     ^
+  symbol:   class ExpandableStatefulODE
+  location: class TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:68: error: cannot find symbol
+    private static class LinearEquations implements FirstOrderDifferentialEquations {
+                                                    ^
+  symbol:   class FirstOrderDifferentialEquations
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:26: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:33: error: cannot find symbol
+            setStateInitialized(false);
+            ^
+  symbol:   method setStateInitialized(boolean)
+  location: class TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:35: error: cannot find symbol
+            stepStart = equations.getTime();
+            ^
+  symbol:   variable stepStart
+  location: class TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:36: error: cannot find symbol
+            stepSize = t - stepStart;
+            ^
+  symbol:   variable stepSize
+  location: class TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:36: error: cannot find symbol
+            stepSize = t - stepStart;
+                           ^
+  symbol:   variable stepStart
+  location: class TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:37: error: cannot find symbol
+            isLastStep = false;
+            ^
+  symbol:   variable isLastStep
+  location: class TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:41: error: cannot find symbol
+            computeDerivatives(stepStart, y, yDot);
+                               ^
+  symbol:   variable stepStart
+  location: class TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:45: error: cannot find symbol
+                y[i] += stepSize * yDot[i];
+                        ^
+  symbol:   variable stepSize
+  location: class TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:50: error: cannot find symbol
+            isLastStep = true;
+            ^
+  symbol:   variable isLastStep
+  location: class TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:59: error: cannot find symbol
+            computeDerivatives(t, y, yDot);
+            ^
+  symbol:   method computeDerivatives(double,double[],double[])
+  location: class TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:80: error: DummyEventHandler is not abstract and does not override abstract method eventOccurred(double,double[],boolean) in EventHandler
+    private static class DummyEventHandler implements EventHandler {
+                   ^
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:89: error: eventOccurred(double,double[],boolean) in DummyEventHandler cannot implement eventOccurred(double,double[],boolean) in EventHandler
+        public int eventOccurred(double t, double[] y, boolean increasing) {
+                   ^
+  return type int is not compatible with Action
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:90: error: cannot find symbol
+            return EventHandler.CONTINUE;
+                               ^
+  symbol:   variable CONTINUE
+  location: interface EventHandler
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:112: error: cannot find symbol
+        assertEquals("myIntegrator", ti.getName());
+                                       ^
+  symbol:   method getName()
+  location: variable ti of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:118: error: cannot find symbol
+        assertNull(ti.getName());
+                     ^
+  symbol:   method getName()
+  location: variable ti of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:127: error: cannot find symbol
+        assertEquals("testIntegrator", integrator.getName());
+                                                 ^
+  symbol:   method getName()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:137: error: <anonymous AbstractIntegratorTest$1> is not abstract and does not override abstract method reset() in StepHandler
+            new org.apache.commons.math.ode.sampling.StepHandler() {
+                                                                   ^
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:142: error: cannot find symbol
+        integrator.addStepHandler(handler);
+                  ^
+  symbol:   method addStepHandler(StepHandler)
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:143: error: cannot find symbol
+        Collection<org.apache.commons.math.ode.sampling.StepHandler> handlers = integrator.getStepHandlers();
+                                                                                          ^
+  symbol:   method getStepHandlers()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:150: error: cannot find symbol
+        Collection<org.apache.commons.math.ode.sampling.StepHandler> handlers = integrator.getStepHandlers();
+                                                                                          ^
+  symbol:   method getStepHandlers()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:157: error: cannot find symbol
+        Collection<org.apache.commons.math.ode.sampling.StepHandler> handlers = integrator.getStepHandlers();
+                                                                                          ^
+  symbol:   method getStepHandlers()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:164: error: <anonymous AbstractIntegratorTest$2> is not abstract and does not override abstract method reset() in StepHandler
+            new org.apache.commons.math.ode.sampling.StepHandler() {
+                                                                   ^
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:169: error: cannot find symbol
+        integrator.addStepHandler(handler);
+                  ^
+  symbol:   method addStepHandler(StepHandler)
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:170: error: cannot find symbol
+        integrator.clearStepHandlers();
+                  ^
+  symbol:   method clearStepHandlers()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:171: error: cannot find symbol
+        assertTrue(integrator.getStepHandlers().isEmpty());
+                             ^
+  symbol:   method getStepHandlers()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:181: error: cannot find symbol
+        integrator.addEventHandler(handler, 1.0, 1.0e-6, 100);
+                  ^
+  symbol:   method addEventHandler(EventHandler,double,double,int)
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:182: error: cannot find symbol
+        Collection<EventHandler> handlers = integrator.getEventHandlers();
+                                                      ^
+  symbol:   method getEventHandlers()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:191: error: cannot find symbol
+        integrator.addEventHandler(handler, 1.0, 1.0e-6, 100, solver);
+                  ^
+  symbol:   method addEventHandler(EventHandler,double,double,int,BracketingNthOrderBrentSolver)
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:192: error: cannot find symbol
+        Collection<EventHandler> handlers = integrator.getEventHandlers();
+                                                      ^
+  symbol:   method getEventHandlers()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:199: error: cannot find symbol
+        Collection<EventHandler> handlers = integrator.getEventHandlers();
+                                                      ^
+  symbol:   method getEventHandlers()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:206: error: cannot find symbol
+        Collection<EventHandler> handlers = integrator.getEventHandlers();
+                                                      ^
+  symbol:   method getEventHandlers()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:213: error: cannot find symbol
+        integrator.addEventHandler(handler, 1.0, 1.0e-6, 100);
+                  ^
+  symbol:   method addEventHandler(EventHandler,double,double,int)
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:214: error: cannot find symbol
+        integrator.clearEventHandlers();
+                  ^
+  symbol:   method clearEventHandlers()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:215: error: cannot find symbol
+        assertTrue(integrator.getEventHandlers().isEmpty());
+                             ^
+  symbol:   method getEventHandlers()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:224: error: cannot find symbol
+        assertTrue(Double.isNaN(integrator.getCurrentStepStart()));
+                                          ^
+  symbol:   method getCurrentStepStart()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:229: error: cannot find symbol
+        assertTrue(Double.isNaN(integrator.getCurrentSignedStepsize()));
+                                          ^
+  symbol:   method getCurrentSignedStepsize()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:237: error: method integrate in class TestIntegrator cannot be applied to given types;
+        integrator.integrate(eqs, 0.0, y0, 1.0, y);
+                  ^
+  required: ExpandableStatefulODE,double
+  found: LinearEquations,double,double[],double,double[]
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:238: error: cannot find symbol
+        assertEquals(0.0, integrator.getCurrentStepStart(), 1.0e-10);
+                                    ^
+  symbol:   method getCurrentStepStart()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:247: error: cannot find symbol
+        integrator.setMaxEvaluations(100);
+                  ^
+  symbol:   method setMaxEvaluations(int)
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:248: error: cannot find symbol
+        assertEquals(100, integrator.getMaxEvaluations());
+                                    ^
+  symbol:   method getMaxEvaluations()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:253: error: cannot find symbol
+        integrator.setMaxEvaluations(-5);
+                  ^
+  symbol:   method setMaxEvaluations(int)
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:254: error: cannot find symbol
+        assertEquals(Integer.MAX_VALUE, integrator.getMaxEvaluations());
+                                                  ^
+  symbol:   method getMaxEvaluations()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:259: error: cannot find symbol
+        integrator.setMaxEvaluations(0);
+                  ^
+  symbol:   method setMaxEvaluations(int)
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:260: error: cannot find symbol
+        assertEquals(0, integrator.getMaxEvaluations());
+                                  ^
+  symbol:   method getMaxEvaluations()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:269: error: cannot find symbol
+        assertEquals(0, integrator.getEvaluations());
+                                  ^
+  symbol:   method getEvaluations()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:275: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+        ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:275: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+                                               ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:284: error: cannot find symbol
+        assertEquals(1, integrator.getEvaluations());
+                                  ^
+  symbol:   method getEvaluations()
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:292: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+        ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:292: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+                                               ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:296: error: cannot find symbol
+        integrator.setMaxEvaluations(1);
+                  ^
+  symbol:   method setMaxEvaluations(int)
+  location: variable integrator of type TestIntegrator
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:314: error: method integrate in class TestIntegrator cannot be applied to given types;
+        double finalT = integrator.integrate(eqs, 0.0, y0, 1.0, y);
+                                  ^
+  required: ExpandableStatefulODE,double
+  found: LinearEquations,double,double[],double,double[]
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:326: error: method integrate in class TestIntegrator cannot be applied to given types;
+        integrator.integrate(eqs, 0.0, y0, 1.0, y);
+                  ^
+  required: ExpandableStatefulODE,double
+  found: LinearEquations,double,double[],double,double[]
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:334: error: method integrate in class TestIntegrator cannot be applied to given types;
+        integrator.integrate(eqs, 0.0, y0, 1.0, y);
+                  ^
+  required: ExpandableStatefulODE,double
+  found: LinearEquations,double,double[],double,double[]
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:343: error: method integrate in class TestIntegrator cannot be applied to given types;
+        integrator.integrate(eqs, 0.0, y0, 0.0, y);
+                  ^
+  required: ExpandableStatefulODE,double
+  found: LinearEquations,double,double[],double,double[]
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:353: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+        ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:353: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+                                               ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:367: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+        ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:367: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+                                               ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:381: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+        ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:381: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+                                               ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:392: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+        ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:392: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+                                               ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:402: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+        ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:402: error: cannot find symbol
+        ExpandableStatefulODE expandable = new ExpandableStatefulODE(eqs);
+                                               ^
+  symbol:   class ExpandableStatefulODE
+  location: class AbstractIntegratorTest
+/tmp/evaluate_claude_Math_44_z3oi7bie/src/AbstractIntegratorTest.java:418: error: method integrate in class TestIntegrator cannot be applied to given types;
+        double finalT = integrator.integrate(eqs, 5.0, y0, 0.0, y);
+                                  ^
+  required: ExpandableStatefulODE,double
+  found: LinearEquations,double,double[],double,double[]
+  reason: actual and formal argument lists differ in length
+71 errors

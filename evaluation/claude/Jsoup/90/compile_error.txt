@@ -1,0 +1,109 @@
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:416: error: Request() is not public in Request; cannot be accessed from outside package
+        Connection.Request newReq = new HttpConnection.Request();
+                                    ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:430: error: constructor Response in class Response cannot be applied to given types;
+        HttpConnection.Response newRes = new HttpConnection.Response();
+                                         ^
+  required: Response
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:483: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:495: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:502: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:510: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:518: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:525: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:533: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:541: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:549: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:558: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:567: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:577: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:583: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:590: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:598: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:606: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:614: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:622: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:629: error: Request() is not public in Request; cannot be accessed from outside package
+        HttpConnection.Request req = new HttpConnection.Request();
+                                     ^
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:684: error: constructor Response in class Response cannot be applied to given types;
+        HttpConnection.Response res = new HttpConnection.Response();
+                                      ^
+  required: Response
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:690: error: constructor Response in class Response cannot be applied to given types;
+        HttpConnection.Response res = new HttpConnection.Response();
+                                      ^
+  required: Response
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:696: error: constructor Response in class Response cannot be applied to given types;
+        HttpConnection.Response res = new HttpConnection.Response();
+                                      ^
+  required: Response
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:702: error: constructor Response in class Response cannot be applied to given types;
+        HttpConnection.Response res = new HttpConnection.Response();
+                                      ^
+  required: Response
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:708: error: constructor Response in class Response cannot be applied to given types;
+        HttpConnection.Response res = new HttpConnection.Response();
+                                      ^
+  required: Response
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:714: error: constructor Response in class Response cannot be applied to given types;
+        HttpConnection.Response res = new HttpConnection.Response();
+                                      ^
+  required: Response
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_claude_Jsoup_90_qb45mgl0/src/HttpConnectionTest.java:721: error: constructor Response in class Response cannot be applied to given types;
+        HttpConnection.Response res = new HttpConnection.Response();
+                                      ^
+  required: Response
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+28 errors

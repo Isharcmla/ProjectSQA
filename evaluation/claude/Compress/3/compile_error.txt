@@ -1,0 +1,9 @@
+/tmp/evaluate_claude_Compress_3_hbtsfe0d/src/TarArchiveOutputStreamTest.java:81: error: no suitable constructor found for TarArchiveEntry(String,boolean)
+        TarArchiveEntry entry = new TarArchiveEntry("mydir/", true);
+                                ^
+    constructor TarArchiveEntry.TarArchiveEntry(String,byte) is not applicable
+      (argument mismatch; boolean cannot be converted to byte)
+    constructor TarArchiveEntry.TarArchiveEntry(File,String) is not applicable
+      (argument mismatch; String cannot be converted to File)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

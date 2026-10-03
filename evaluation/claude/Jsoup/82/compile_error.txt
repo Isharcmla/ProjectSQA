@@ -1,0 +1,43 @@
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:119: error: crossStreams(InputStream,OutputStream) is not public in DataUtil; cannot be accessed from outside package
+        DataUtil.crossStreams(in, out);
+                ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:127: error: parseInputStream(InputStream,String,String,Parser) is not public in DataUtil; cannot be accessed from outside package
+        Document doc = DataUtil.parseInputStream(null, "UTF-8", "http://example.com/", Parser.htmlParser());
+                               ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:141: error: parseInputStream(InputStream,String,String,Parser) is not public in DataUtil; cannot be accessed from outside package
+        Document doc = DataUtil.parseInputStream(is, null, "http://example.com/", Parser.htmlParser());
+                               ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:152: error: parseInputStream(InputStream,String,String,Parser) is not public in DataUtil; cannot be accessed from outside package
+        Document doc = DataUtil.parseInputStream(is, null, "http://example.com/", Parser.htmlParser());
+                               ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:161: error: emptyByteBuffer() is not public in DataUtil; cannot be accessed from outside package
+        ByteBuffer buf = DataUtil.emptyByteBuffer();
+                                 ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:170: error: getCharsetFromContentType(String) is not public in DataUtil; cannot be accessed from outside package
+        String result = DataUtil.getCharsetFromContentType("text/html; charset=UTF-8");
+                                ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:176: error: getCharsetFromContentType(String) is not public in DataUtil; cannot be accessed from outside package
+        String result = DataUtil.getCharsetFromContentType(null);
+                                ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:182: error: getCharsetFromContentType(String) is not public in DataUtil; cannot be accessed from outside package
+        String result = DataUtil.getCharsetFromContentType("text/html");
+                                ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:188: error: getCharsetFromContentType(String) is not public in DataUtil; cannot be accessed from outside package
+        String result = DataUtil.getCharsetFromContentType("text/html; charset=totally-bogus-charset-xyz");
+                                ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:194: error: getCharsetFromContentType(String) is not public in DataUtil; cannot be accessed from outside package
+        String result = DataUtil.getCharsetFromContentType("text/html; charset=\"UTF-8\"");
+                                ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:202: error: mimeBoundary() is not public in DataUtil; cannot be accessed from outside package
+        String boundary = DataUtil.mimeBoundary();
+                                  ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:204: error: boundaryLength is not public in DataUtil; cannot be accessed from outside package
+        assertEquals(DataUtil.boundaryLength, boundary.length());
+                             ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:213: error: mimeBoundary() is not public in DataUtil; cannot be accessed from outside package
+        String b1 = DataUtil.mimeBoundary();
+                            ^
+/tmp/evaluate_claude_Jsoup_82_ku6fenjg/src/DataUtilTest.java:214: error: mimeBoundary() is not public in DataUtil; cannot be accessed from outside package
+        String b2 = DataUtil.mimeBoundary();
+                            ^
+14 errors

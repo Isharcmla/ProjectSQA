@@ -1,0 +1,31 @@
+/tmp/evaluate_claude_Csv_16_obt0vej1/src/CSVParserTest.java:60: error: nextRecord() is not public in CSVParser; cannot be accessed from outside package
+            CSVRecord record = parser.nextRecord();
+                                     ^
+/tmp/evaluate_claude_Csv_16_obt0vej1/src/CSVParserTest.java:229: error: nextRecord() is not public in CSVParser; cannot be accessed from outside package
+            parser.nextRecord();
+                  ^
+/tmp/evaluate_claude_Csv_16_obt0vej1/src/CSVParserTest.java:239: error: nextRecord() is not public in CSVParser; cannot be accessed from outside package
+            parser.nextRecord();
+                  ^
+/tmp/evaluate_claude_Csv_16_obt0vej1/src/CSVParserTest.java:316: error: nextRecord() is not public in CSVParser; cannot be accessed from outside package
+            parser.nextRecord();
+                  ^
+/tmp/evaluate_claude_Csv_16_obt0vej1/src/CSVParserTest.java:318: error: nextRecord() is not public in CSVParser; cannot be accessed from outside package
+            parser.nextRecord();
+                  ^
+/tmp/evaluate_claude_Csv_16_obt0vej1/src/CSVParserTest.java:347: error: nextRecord() is not public in CSVParser; cannot be accessed from outside package
+            CSVRecord record = parser.nextRecord();
+                                     ^
+/tmp/evaluate_claude_Csv_16_obt0vej1/src/CSVParserTest.java:358: error: nextRecord() is not public in CSVParser; cannot be accessed from outside package
+            CSVRecord record = parser.nextRecord();
+                                     ^
+/tmp/evaluate_claude_Csv_16_obt0vej1/src/CSVParserTest.java:368: error: nextRecord() is not public in CSVParser; cannot be accessed from outside package
+            CSVRecord record = parser.nextRecord();
+                                     ^
+/tmp/evaluate_claude_Csv_16_obt0vej1/src/CSVParserTest.java:378: error: nextRecord() is not public in CSVParser; cannot be accessed from outside package
+            CSVRecord record = parser.nextRecord();
+                                     ^
+/tmp/evaluate_claude_Csv_16_obt0vej1/src/CSVParserTest.java:389: error: nextRecord() is not public in CSVParser; cannot be accessed from outside package
+            while ((record = parser.nextRecord()) != null) {
+                                   ^
+10 errors

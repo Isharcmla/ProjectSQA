@@ -1,0 +1,11 @@
+/tmp/evaluate_claude_Closure_3_aeymghi_/src/FlowSensitiveInlineVariablesTest.java:46: error: cannot find symbol
+    Node externsRoot = compiler.getExternsRoot();
+                               ^
+  symbol:   method getExternsRoot()
+  location: variable compiler of type Compiler
+/tmp/evaluate_claude_Closure_3_aeymghi_/src/FlowSensitiveInlineVariablesTest.java:47: error: cannot find symbol
+    Node jsRoot = compiler.getJsRoot();
+                          ^
+  symbol:   method getJsRoot()
+  location: variable compiler of type Compiler
+2 errors

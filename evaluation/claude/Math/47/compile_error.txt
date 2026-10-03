@@ -1,0 +1,467 @@
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:12: error: cannot find symbol
+    private Complex x;
+            ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:13: error: cannot find symbol
+    private Complex y;
+            ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:17: error: cannot find symbol
+        x = new Complex(3.0, 4.0);
+                ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:18: error: cannot find symbol
+        y = new Complex(1.0, 2.0);
+                ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:25: error: cannot find symbol
+        Complex c = new Complex(5.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:25: error: cannot find symbol
+        Complex c = new Complex(5.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:32: error: cannot find symbol
+        Complex c = new Complex(1.0, 2.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:32: error: cannot find symbol
+        Complex c = new Complex(1.0, 2.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:41: error: cannot find symbol
+        Complex c = new Complex(Double.NaN, 1.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:41: error: cannot find symbol
+        Complex c = new Complex(Double.NaN, 1.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:47: error: cannot find symbol
+        Complex c = new Complex(1.0, Double.NaN);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:47: error: cannot find symbol
+        Complex c = new Complex(1.0, Double.NaN);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:53: error: cannot find symbol
+        Complex c = new Complex(Double.POSITIVE_INFINITY, 1.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:53: error: cannot find symbol
+        Complex c = new Complex(Double.POSITIVE_INFINITY, 1.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:60: error: cannot find symbol
+        Complex c = new Complex(1.0, Double.NEGATIVE_INFINITY);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:60: error: cannot find symbol
+        Complex c = new Complex(1.0, Double.NEGATIVE_INFINITY);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:66: error: cannot find symbol
+        Complex c = new Complex(Double.NaN, Double.POSITIVE_INFINITY);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:66: error: cannot find symbol
+        Complex c = new Complex(Double.NaN, Double.POSITIVE_INFINITY);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:75: error: cannot find symbol
+        Complex c = new Complex(3.0, 4.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:75: error: cannot find symbol
+        Complex c = new Complex(3.0, 4.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:81: error: package Complex does not exist
+        assertTrue(Double.isNaN(Complex.NaN.abs()));
+                                       ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:86: error: package Complex does not exist
+        assertEquals(Double.POSITIVE_INFINITY, Complex.INF.abs(), 0.0);
+                                                      ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:91: error: cannot find symbol
+        Complex c = new Complex(0.0, -5.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:91: error: cannot find symbol
+        Complex c = new Complex(0.0, -5.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:99: error: cannot find symbol
+        Complex c = new Complex(1.0, 2.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:99: error: cannot find symbol
+        Complex c = new Complex(1.0, 2.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:106: error: cannot find symbol
+        Complex c = new Complex(0.0, 0.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:106: error: cannot find symbol
+        Complex c = new Complex(0.0, 0.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:112: error: cannot find symbol
+        Complex c = new Complex(5.0, 1.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:112: error: cannot find symbol
+        Complex c = new Complex(5.0, 1.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:120: error: cannot find symbol
+        Complex result = x.add(y);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:127: error: cannot find symbol
+        x.add((Complex) null);
+               ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:132: error: cannot find symbol
+        Complex result = Complex.NaN.add(y);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:132: error: package Complex does not exist
+        Complex result = Complex.NaN.add(y);
+                                ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:138: error: cannot find symbol
+        Complex result = x.add(Complex.NaN);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:138: error: cannot find symbol
+        Complex result = x.add(Complex.NaN);
+                               ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:144: error: cannot find symbol
+        Complex result = x.add(2.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:151: error: package Complex does not exist
+        assertTrue(Complex.NaN.add(2.0).isNaN());
+                          ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:163: error: cannot find symbol
+        Complex result = x.conjugate();
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:170: error: package Complex does not exist
+        assertTrue(Complex.NaN.conjugate().isNaN());
+                          ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:177: error: cannot find symbol
+        Complex a = new Complex(1.0, 1.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:177: error: cannot find symbol
+        Complex a = new Complex(1.0, 1.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:178: error: cannot find symbol
+        Complex b = new Complex(1.0, 0.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:178: error: cannot find symbol
+        Complex b = new Complex(1.0, 0.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:179: error: cannot find symbol
+        Complex result = a.divide(b);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:186: error: cannot find symbol
+        x.divide((Complex) null);
+                  ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:191: error: package Complex does not exist
+        assertTrue(Complex.NaN.divide(y).isNaN());
+                          ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:196: error: cannot find symbol
+        assertTrue(x.divide(Complex.NaN).isNaN());
+                            ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:201: error: cannot find symbol
+        assertTrue(x.divide(Complex.ZERO).isNaN());
+                            ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:206: error: cannot find symbol
+        Complex result = x.divide(Complex.INF);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:206: error: cannot find symbol
+        Complex result = x.divide(Complex.INF);
+                                  ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:207: error: cannot find symbol
+        assertEquals(Complex.ZERO, result);
+                     ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:212: error: cannot find symbol
+        assertTrue(Complex.INF.divide(Complex.INF).isNaN());
+                                      ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:212: error: package Complex does not exist
+        assertTrue(Complex.INF.divide(Complex.INF).isNaN());
+                          ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:217: error: cannot find symbol
+        Complex a = new Complex(1.0, 1.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:217: error: cannot find symbol
+        Complex a = new Complex(1.0, 1.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:218: error: cannot find symbol
+        Complex b = new Complex(1.0, 3.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:218: error: cannot find symbol
+        Complex b = new Complex(1.0, 3.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:219: error: cannot find symbol
+        Complex result = a.divide(b);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:226: error: cannot find symbol
+        Complex a = new Complex(1.0, 1.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:226: error: cannot find symbol
+        Complex a = new Complex(1.0, 1.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:227: error: cannot find symbol
+        Complex b = new Complex(3.0, 1.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:227: error: cannot find symbol
+        Complex b = new Complex(3.0, 1.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:228: error: cannot find symbol
+        Complex result = a.divide(b);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:236: error: cannot find symbol
+        Complex result = x.divide(2.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:243: error: package Complex does not exist
+        assertTrue(Complex.NaN.divide(2.0).isNaN());
+                          ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:258: error: cannot find symbol
+        Complex result = x.divide(Double.POSITIVE_INFINITY);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:259: error: cannot find symbol
+        assertEquals(Complex.ZERO, result);
+                     ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:264: error: package Complex does not exist
+        assertTrue(Complex.INF.divide(Double.POSITIVE_INFINITY).isNaN());
+                          ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:276: error: cannot find symbol
+        Complex a = new Complex(1.0, 2.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:276: error: cannot find symbol
+        Complex a = new Complex(1.0, 2.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:277: error: cannot find symbol
+        Complex b = new Complex(1.0, 2.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:277: error: cannot find symbol
+        Complex b = new Complex(1.0, 2.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:288: error: cannot find symbol
+        Complex a = new Complex(Double.NaN, 1.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:288: error: cannot find symbol
+        Complex a = new Complex(Double.NaN, 1.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:289: error: cannot find symbol
+        assertTrue(a.equals(Complex.NaN));
+                            ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:294: error: cannot find symbol
+        assertFalse(x.equals(Complex.NaN));
+                             ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:311: error: package Complex does not exist
+        assertEquals(7, Complex.NaN.hashCode());
+                               ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:316: error: cannot find symbol
+        Complex a = new Complex(1.0, 2.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:316: error: cannot find symbol
+        Complex a = new Complex(1.0, 2.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:317: error: cannot find symbol
+        Complex b = new Complex(1.0, 2.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:317: error: cannot find symbol
+        Complex b = new Complex(1.0, 2.0);
+                        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:335: error: package Complex does not exist
+        assertTrue(Complex.NaN.isNaN());
+                          ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:345: error: package Complex does not exist
+        assertTrue(Complex.INF.isInfinite());
+                          ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:357: error: cannot find symbol
+        Complex result = x.multiply(y);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:365: error: cannot find symbol
+        x.multiply((Complex) null);
+                    ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:370: error: package Complex does not exist
+        assertTrue(Complex.NaN.multiply(y).isNaN());
+                          ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:375: error: cannot find symbol
+        assertTrue(x.multiply(Complex.NaN).isNaN());
+                              ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:380: error: cannot find symbol
+        assertEquals(Complex.INF, Complex.INF.multiply(y));
+                     ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:380: error: package Complex does not exist
+        assertEquals(Complex.INF, Complex.INF.multiply(y));
+                                         ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:385: error: cannot find symbol
+        assertEquals(Complex.INF, x.multiply(Complex.INF));
+                     ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:385: error: cannot find symbol
+        assertEquals(Complex.INF, x.multiply(Complex.INF));
+                                             ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:392: error: cannot find symbol
+        Complex result = x.multiply(2.0);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:399: error: package Complex does not exist
+        assertTrue(Complex.NaN.multiply(2.0).isNaN());
+                          ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:409: error: cannot find symbol
+        assertEquals(Complex.INF, Complex.INF.multiply(2.0));
+                     ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:409: error: package Complex does not exist
+        assertEquals(Complex.INF, Complex.INF.multiply(2.0));
+                                         ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:414: error: cannot find symbol
+        assertEquals(Complex.INF, x.multiply(Double.POSITIVE_INFINITY));
+                     ^
+  symbol:   variable Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:421: error: cannot find symbol
+        Complex result = x.negate();
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:428: error: package Complex does not exist
+        assertTrue(Complex.NaN.negate().isNaN());
+                          ^
+/tmp/evaluate_claude_Math_47_ot3vggmp/src/ComplexTest.java:435: error: cannot find symbol
+        Complex result = x.subtract(y);
+        ^
+  symbol:   class Complex
+  location: class ComplexTest
+100 errors

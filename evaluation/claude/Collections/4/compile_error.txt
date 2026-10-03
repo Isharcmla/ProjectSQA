@@ -1,0 +1,78 @@
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:18: error: cannot find symbol
+    private MultiValueMap map;
+            ^
+  symbol:   class MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:22: error: cannot find symbol
+        map = new MultiValueMap();
+                  ^
+  symbol:   class MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:30: error: cannot find symbol
+        MultiValueMap result = MultiValueMap.decorate(baseMap);
+        ^
+  symbol:   class MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:30: error: cannot find symbol
+        MultiValueMap result = MultiValueMap.decorate(baseMap);
+                               ^
+  symbol:   variable MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:39: error: cannot find symbol
+        MultiValueMap result = MultiValueMap.decorate(baseMap, LinkedList.class);
+        ^
+  symbol:   class MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:39: error: cannot find symbol
+        MultiValueMap result = MultiValueMap.decorate(baseMap, LinkedList.class);
+                               ^
+  symbol:   variable MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:55: error: cannot find symbol
+        MultiValueMap result = MultiValueMap.decorate(baseMap, factory);
+        ^
+  symbol:   class MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:55: error: cannot find symbol
+        MultiValueMap result = MultiValueMap.decorate(baseMap, factory);
+                               ^
+  symbol:   variable MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:63: error: cannot find symbol
+        MultiValueMap.decorate(baseMap, (Factory) null);
+        ^
+  symbol:   variable MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:70: error: cannot find symbol
+        MultiValueMap m = new MultiValueMap();
+        ^
+  symbol:   class MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:70: error: cannot find symbol
+        MultiValueMap m = new MultiValueMap();
+                              ^
+  symbol:   class MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:177: error: cannot find symbol
+        MultiValueMap source = new MultiValueMap();
+        ^
+  symbol:   class MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:177: error: cannot find symbol
+        MultiValueMap source = new MultiValueMap();
+                                   ^
+  symbol:   class MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:376: error: cannot find symbol
+        MultiValueMap badMap = MultiValueMap.decorate(baseMap, Collection.class);
+        ^
+  symbol:   class MultiValueMap
+  location: class MultiValueMapTest
+/tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java:376: error: cannot find symbol
+        MultiValueMap badMap = MultiValueMap.decorate(baseMap, Collection.class);
+                               ^
+  symbol:   variable MultiValueMap
+  location: class MultiValueMapTest
+Note: /tmp/evaluate_claude_Collections_4_c2mna0nv/src/MultiValueMapTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+15 errors

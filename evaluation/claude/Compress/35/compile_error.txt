@@ -1,0 +1,331 @@
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:17: error: cannot find symbol
+        long result = TarUtils.parseOctal(buf, 0, buf.length);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:24: error: cannot find symbol
+        long result = TarUtils.parseOctal(buf, 0, buf.length);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:31: error: cannot find symbol
+        long result = TarUtils.parseOctal(buf, 0, buf.length);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:38: error: cannot find symbol
+        long result = TarUtils.parseOctal(buf, 0, buf.length);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:45: error: cannot find symbol
+        TarUtils.parseOctal(buf, 0, 1);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:51: error: cannot find symbol
+        TarUtils.parseOctal(buf, 0, buf.length);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:57: error: cannot find symbol
+        long result = TarUtils.parseOctal(buf, 0, buf.length);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:66: error: cannot find symbol
+        long result = TarUtils.parseOctalOrBinary(buf, 0, buf.length);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:75: error: cannot find symbol
+        long result = TarUtils.parseOctalOrBinary(buf, 0, 8);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:85: error: cannot find symbol
+        long result = TarUtils.parseOctalOrBinary(buf, 0, 8);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:95: error: cannot find symbol
+        long result = TarUtils.parseOctalOrBinary(buf, 0, 12);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:105: error: cannot find symbol
+        long result = TarUtils.parseOctalOrBinary(buf, 0, 12);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:116: error: cannot find symbol
+        TarUtils.parseOctalOrBinary(buf, 0, 12);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:124: error: cannot find symbol
+        assertTrue(TarUtils.parseBoolean(buf, 0));
+                   ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:130: error: cannot find symbol
+        assertFalse(TarUtils.parseBoolean(buf, 0));
+                    ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:136: error: cannot find symbol
+        assertFalse(TarUtils.parseBoolean(buf, 0));
+                    ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:144: error: cannot find symbol
+        String name = TarUtils.parseName(buf, 0, buf.length);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:151: error: cannot find symbol
+        String name = TarUtils.parseName(buf, 0, buf.length);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:158: error: cannot find symbol
+        String name = TarUtils.parseName(buf, 0, buf.length);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:165: error: cannot find symbol
+        String name = TarUtils.parseName(buf, 0, buf.length, TarUtils.DEFAULT_ENCODING);
+                                                             ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:165: error: cannot find symbol
+        String name = TarUtils.parseName(buf, 0, buf.length, TarUtils.DEFAULT_ENCODING);
+                      ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:174: error: cannot find symbol
+        int newOffset = TarUtils.formatNameBytes("abc", buf, 0, 10);
+                        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:187: error: cannot find symbol
+        int newOffset = TarUtils.formatNameBytes("abcdef", buf, 0, 3);
+                        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:197: error: cannot find symbol
+        TarUtils.formatNameBytes("", buf, 0, 5);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:206: error: cannot find symbol
+        int newOffset = TarUtils.formatNameBytes("ab", buf, 0, 5, TarUtils.DEFAULT_ENCODING);
+                                                                  ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:206: error: cannot find symbol
+        int newOffset = TarUtils.formatNameBytes("ab", buf, 0, 5, TarUtils.DEFAULT_ENCODING);
+                        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:217: error: cannot find symbol
+        TarUtils.formatUnsignedOctalString(0L, buf, 0, 6);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:226: error: cannot find symbol
+        TarUtils.formatUnsignedOctalString(8L, buf, 0, 6);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:233: error: cannot find symbol
+        TarUtils.formatUnsignedOctalString(8L, buf, 0, 1);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:241: error: cannot find symbol
+        int newOffset = TarUtils.formatOctalBytes(8L, buf, 0, 8);
+                        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:256: error: cannot find symbol
+        TarUtils.formatOctalBytes(8L, buf, 0, 3);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:264: error: cannot find symbol
+        int newOffset = TarUtils.formatLongOctalBytes(8L, buf, 0, 7);
+                        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:273: error: cannot find symbol
+        TarUtils.formatLongOctalBytes(8L, buf, 0, 2);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:281: error: cannot find symbol
+        int newOffset = TarUtils.formatCheckSumOctalBytes(8L, buf, 0, 8);
+                        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:292: error: cannot find symbol
+        byte[] buf = new byte[TarConstants.UIDLEN];
+                              ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:293: error: cannot find symbol
+        int newOffset = TarUtils.formatLongOctalOrBinaryBytes(100L, buf, 0, TarConstants.UIDLEN);
+                                                                            ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:293: error: cannot find symbol
+        int newOffset = TarUtils.formatLongOctalOrBinaryBytes(100L, buf, 0, TarConstants.UIDLEN);
+                        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:294: error: cannot find symbol
+        assertEquals(TarConstants.UIDLEN, newOffset);
+                     ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:296: error: cannot find symbol
+        byte[] expected = new byte[TarConstants.UIDLEN];
+                                   ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:297: error: cannot find symbol
+        TarUtils.formatLongOctalBytes(100L, expected, 0, TarConstants.UIDLEN);
+                                                         ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:297: error: cannot find symbol
+        TarUtils.formatLongOctalBytes(100L, expected, 0, TarConstants.UIDLEN);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:304: error: cannot find symbol
+        int newOffset = TarUtils.formatLongOctalOrBinaryBytes(-5L, buf, 0, 8);
+                        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:312: error: cannot find symbol
+        int newOffset = TarUtils.formatLongOctalOrBinaryBytes(-100L, buf, 0, 12);
+                        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:320: error: cannot find symbol
+        long value = TarConstants.MAXSIZE + 1;
+                     ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:321: error: cannot find symbol
+        int newOffset = TarUtils.formatLongOctalOrBinaryBytes(value, buf, 0, 12);
+                        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:329: error: cannot find symbol
+        TarUtils.formatLongOctalOrBinaryBytes(Long.MAX_VALUE, buf, 0, 8);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:337: error: cannot find symbol
+        assertEquals(0L, TarUtils.computeCheckSum(buf));
+                         ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:343: error: cannot find symbol
+        assertEquals(10L, TarUtils.computeCheckSum(buf));
+                          ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:349: error: cannot find symbol
+        assertEquals(510L, TarUtils.computeCheckSum(buf));
+                           ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:361: error: cannot find symbol
+        for (int i = TarConstants.CHKSUM_OFFSET; i < TarConstants.CHKSUM_OFFSET + TarConstants.CHKSUMLEN; i++) {
+                     ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:361: error: cannot find symbol
+        for (int i = TarConstants.CHKSUM_OFFSET; i < TarConstants.CHKSUM_OFFSET + TarConstants.CHKSUMLEN; i++) {
+                                                     ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:361: error: cannot find symbol
+        for (int i = TarConstants.CHKSUM_OFFSET; i < TarConstants.CHKSUM_OFFSET + TarConstants.CHKSUMLEN; i++) {
+                                                                                  ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:364: error: cannot find symbol
+        long sum = TarUtils.computeCheckSum(header);
+                   ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:365: error: cannot find symbol
+        TarUtils.formatCheckSumOctalBytes(sum, header, TarConstants.CHKSUM_OFFSET, TarConstants.CHKSUMLEN);
+                                                       ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:365: error: cannot find symbol
+        TarUtils.formatCheckSumOctalBytes(sum, header, TarConstants.CHKSUM_OFFSET, TarConstants.CHKSUMLEN);
+                                                                                   ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:365: error: cannot find symbol
+        TarUtils.formatCheckSumOctalBytes(sum, header, TarConstants.CHKSUM_OFFSET, TarConstants.CHKSUMLEN);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:367: error: cannot find symbol
+        assertTrue(TarUtils.verifyCheckSum(header));
+                   ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:376: error: cannot find symbol
+        for (int i = TarConstants.CHKSUM_OFFSET; i < TarConstants.CHKSUM_OFFSET + TarConstants.CHKSUMLEN; i++) {
+                     ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:376: error: cannot find symbol
+        for (int i = TarConstants.CHKSUM_OFFSET; i < TarConstants.CHKSUM_OFFSET + TarConstants.CHKSUMLEN; i++) {
+                                                     ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:376: error: cannot find symbol
+        for (int i = TarConstants.CHKSUM_OFFSET; i < TarConstants.CHKSUM_OFFSET + TarConstants.CHKSUMLEN; i++) {
+                                                                                  ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:379: error: cannot find symbol
+        long sum = TarUtils.computeCheckSum(header);
+                   ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:380: error: cannot find symbol
+        TarUtils.formatCheckSumOctalBytes(sum, header, TarConstants.CHKSUM_OFFSET, TarConstants.CHKSUMLEN);
+                                                       ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:380: error: cannot find symbol
+        TarUtils.formatCheckSumOctalBytes(sum, header, TarConstants.CHKSUM_OFFSET, TarConstants.CHKSUMLEN);
+                                                                                   ^
+  symbol:   variable TarConstants
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:380: error: cannot find symbol
+        TarUtils.formatCheckSumOctalBytes(sum, header, TarConstants.CHKSUM_OFFSET, TarConstants.CHKSUMLEN);
+        ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:385: error: cannot find symbol
+        assertFalse(TarUtils.verifyCheckSum(header));
+                    ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+/tmp/evaluate_claude_Compress_35_vl1xu3hn/src/TarUtilsTest.java:391: error: cannot find symbol
+        assertTrue(TarUtils.verifyCheckSum(header));
+                   ^
+  symbol:   variable TarUtils
+  location: class TarUtilsTest
+66 errors

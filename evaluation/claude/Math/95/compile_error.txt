@@ -1,0 +1,71 @@
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:8: error: cannot find symbol
+    private FDistributionImpl distribution;
+            ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:12: error: cannot find symbol
+        distribution = new FDistributionImpl(5.0, 6.0);
+                           ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:19: error: cannot find symbol
+        FDistributionImpl dist = new FDistributionImpl(1.0, 1.0);
+        ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:19: error: cannot find symbol
+        FDistributionImpl dist = new FDistributionImpl(1.0, 1.0);
+                                     ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:26: error: cannot find symbol
+        new FDistributionImpl(0.0, 5.0);
+            ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:31: error: cannot find symbol
+        new FDistributionImpl(-1.0, 5.0);
+            ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:36: error: cannot find symbol
+        new FDistributionImpl(5.0, 0.0);
+            ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:41: error: cannot find symbol
+        new FDistributionImpl(5.0, -1.0);
+            ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:115: error: cannot find symbol
+        FDistributionImpl dist = new FDistributionImpl(5.0, 6.0);
+        ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:115: error: cannot find symbol
+        FDistributionImpl dist = new FDistributionImpl(5.0, 6.0);
+                                     ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:123: error: cannot find symbol
+        FDistributionImpl dist = new FDistributionImpl(5.0, 2.0);
+        ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:123: error: cannot find symbol
+        FDistributionImpl dist = new FDistributionImpl(5.0, 2.0);
+                                     ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:130: error: cannot find symbol
+        FDistributionImpl dist = new FDistributionImpl(5.0, 1.0);
+        ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+/tmp/evaluate_claude_Math_95_5o6cyt8v/src/FDistributionImplTest.java:130: error: cannot find symbol
+        FDistributionImpl dist = new FDistributionImpl(5.0, 1.0);
+                                     ^
+  symbol:   class FDistributionImpl
+  location: class FDistributionImplTest
+14 errors

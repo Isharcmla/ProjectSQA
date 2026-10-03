@@ -1,0 +1,13 @@
+/tmp/evaluate_claude_Mockito_32_ak5eu9n1/src/SpyAnnotationEngineTest.java:17: error: cannot find symbol
+    private SpyAnnotationEngine engine;
+            ^
+  symbol:   class SpyAnnotationEngine
+  location: class SpyAnnotationEngineTest
+/tmp/evaluate_claude_Mockito_32_ak5eu9n1/src/SpyAnnotationEngineTest.java:21: error: cannot find symbol
+        engine = new SpyAnnotationEngine();
+                     ^
+  symbol:   class SpyAnnotationEngine
+  location: class SpyAnnotationEngineTest
+Note: /tmp/evaluate_claude_Mockito_32_ak5eu9n1/src/SpyAnnotationEngineTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors

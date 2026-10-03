@@ -1,0 +1,161 @@
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:14: error: cannot find symbol
+    private TypeFactory typeFactory;
+            ^
+  symbol:   class TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/CollectionLikeTypeTest.java:151: error: cannot find symbol
+        assertFalse(baseType.isStatic());
+                            ^
+  symbol:   method isStatic()
+  location: variable baseType of type CollectionLikeType
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/CollectionLikeTypeTest.java:154: error: cannot find symbol
+        assertTrue(result.isStatic());
+                         ^
+  symbol:   method isStatic()
+  location: variable result of type CollectionLikeType
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/JavaTypeTest.java:20: error: TestJavaType is not abstract and does not override abstract method toCanonical() in ResolvedType
+    static class TestJavaType extends JavaType {
+           ^
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:18: error: cannot find symbol
+        typeFactory = TypeFactory.defaultInstance();
+                      ^
+  symbol:   variable TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:24: error: cannot find symbol
+        TypeFactory instance1 = TypeFactory.defaultInstance();
+        ^
+  symbol:   class TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:24: error: cannot find symbol
+        TypeFactory instance1 = TypeFactory.defaultInstance();
+                                ^
+  symbol:   variable TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:25: error: cannot find symbol
+        TypeFactory instance2 = TypeFactory.defaultInstance();
+        ^
+  symbol:   class TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:25: error: cannot find symbol
+        TypeFactory instance2 = TypeFactory.defaultInstance();
+                                ^
+  symbol:   variable TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:32: error: cannot find symbol
+        JavaType type = TypeFactory.unknownType();
+                        ^
+  symbol:   variable TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:40: error: cannot find symbol
+        Class<?> result = TypeFactory.rawClass(String.class);
+                          ^
+  symbol:   variable TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:47: error: cannot find symbol
+        Class<?> result = TypeFactory.rawClass(type);
+                          ^
+  symbol:   variable TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:90: error: cannot find symbol
+        TypeFactory tf = typeFactory.withClassLoader(cl);
+        ^
+  symbol:   class TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:97: error: cannot find symbol
+        TypeFactory tf = typeFactory.withModifier(null);
+        ^
+  symbol:   class TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:106: error: cannot find symbol
+        TypeFactory tf = typeFactory.withCache(cache);
+        ^
+  symbol:   class TypeFactory
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:161: error: cannot find symbol
+        JavaType type = typeFactory.constructType(String.class, TypeBindings.emptyBindings());
+                                                                ^
+  symbol:   variable TypeBindings
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:232: error: cannot find symbol
+                TypeBindings.emptyBindings());
+                ^
+  symbol:   variable TypeBindings
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:368: error: cannot find symbol
+        ArrayType type = typeFactory.constructArrayType(String.class);
+        ^
+  symbol:   class ArrayType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:377: error: cannot find symbol
+        ArrayType type = typeFactory.constructArrayType(elementType);
+        ^
+  symbol:   class ArrayType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:385: error: cannot find symbol
+        CollectionType type = typeFactory.constructCollectionType(List.class, String.class);
+        ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:394: error: cannot find symbol
+        CollectionType type = typeFactory.constructCollectionType(ArrayList.class, elementType);
+        ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:401: error: cannot find symbol
+        CollectionLikeType type = typeFactory.constructCollectionLikeType(List.class, String.class);
+        ^
+  symbol:   class CollectionLikeType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:409: error: cannot find symbol
+        CollectionLikeType type = typeFactory.constructCollectionLikeType(TestCollectionLike.class, elementType);
+        ^
+  symbol:   class CollectionLikeType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:416: error: cannot find symbol
+        MapType type = typeFactory.constructMapType(Map.class, String.class, Integer.class);
+        ^
+  symbol:   class MapType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:424: error: cannot find symbol
+        MapType type = typeFactory.constructMapType(Properties.class, Object.class, Object.class);
+        ^
+  symbol:   class MapType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:434: error: cannot find symbol
+        MapType type = typeFactory.constructMapType(HashMap.class, keyType, valueType);
+        ^
+  symbol:   class MapType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:441: error: cannot find symbol
+        MapLikeType type = typeFactory.constructMapLikeType(Map.class, String.class, Integer.class);
+        ^
+  symbol:   class MapLikeType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:450: error: cannot find symbol
+        MapLikeType type = typeFactory.constructMapLikeType(TestMapLike.class, keyType, valueType);
+        ^
+  symbol:   class MapLikeType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:519: error: cannot find symbol
+        CollectionType type = typeFactory.constructRawCollectionType(List.class);
+        ^
+  symbol:   class CollectionType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:526: error: cannot find symbol
+        CollectionLikeType type = typeFactory.constructRawCollectionLikeType(TestCollectionLike.class);
+        ^
+  symbol:   class CollectionLikeType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:533: error: cannot find symbol
+        MapType type = typeFactory.constructRawMapType(Map.class);
+        ^
+  symbol:   class MapType
+  location: class TypeFactoryTest
+/tmp/evaluate_claude_JacksonDatabind_59_wb0dzsni/src/TypeFactoryTest.java:541: error: cannot find symbol
+        MapLikeType type = typeFactory.constructRawMapLikeType(TestMapLike.class);
+        ^
+  symbol:   class MapLikeType
+  location: class TypeFactoryTest
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+32 errors
