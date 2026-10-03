@@ -1,0 +1,5 @@
+﻿tool,common_evaluation_success_cases,bugs_detected,fault_detection_rate_common_pct,bug_revealing_tests
+evosuite,143,1,0.699,1
+kex,143,2,1.399,12
+gemini,143,8,5.594,17
+claude,143,11,7.692,26

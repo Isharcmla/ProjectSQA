@@ -1,0 +1,12 @@
+﻿tool,status,count,percent_of_854
+evosuite,compile_failed,8,0.937
+evosuite,missing,21,2.459
+evosuite,success,825,96.604
+kex,missing,170,19.906
+kex,success,684,80.094
+gemini,compile_failed,208,24.356
+gemini,missing,323,37.822
+gemini,success,323,37.822
+claude,compile_failed,201,23.536
+claude,missing,331,38.759
+claude,success,322,37.705
