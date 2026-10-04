@@ -26,7 +26,7 @@
 ## 👥 รายชื่อสมาชิกและบทบาทหน้าที่ (Team Roles & Responsibilities)
 
 โครงการมีสมาชิก **3 คน** (ปรับหน้าที่หลังจากนายจิรภัทร สีสารออกจากกลุ่ม)
-
+**นักศึกษาทั้งหมดอยู่ SEC 02**
 | ลำดับ | รหัสนักศึกษา | ชื่อ - สกุล | บทบาทในโครงการ | หน้าที่หลัก & สิ่งที่ต้องส่งมอบ (Deliverables) |
 |---|---|---|---|---|
 | 1 | 673380415-5 | นายพัชรพล กองแก้ว | **Member 1: Reanimator/Kex Lead & Infrastructure / Data / Repository Manager** | • รับผิดชอบ **Reanimator ผ่าน Kex** (KEX 0.0.11, mode `concolic`)<br>• จัดเตรียมและดูแล **Defects4J**, การสกัด Metadata, Target Classes และ Frozen Target Dataset<br>• ดูแล **Docker Environment / Workspace** และ **GitHub Repository**<br>• พัฒนา/ดูแล **Universal Runner (`run_benchmark.py`)**, evaluation / coverage / aggregation pipeline และระบบ Resume<br>• **Output:** `Reanimator-Kex/`, `dataset/`, `docker/`, `scripts/`, `evaluation/` |
