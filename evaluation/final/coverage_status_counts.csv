@@ -5,10 +5,9 @@ evosuite,success,798,93.443
 kex,coverage_failed,177,20.726
 kex,missing,170,19.906
 kex,success,507,59.368
-gemini,coverage_failed,212,24.824
-gemini,missing,328,38.407
-gemini,prepare_failed,1,0.117
-gemini,success,312,36.534
+gemini,coverage_failed,371,43.443
+gemini,missing,11,1.288
+gemini,success,471,55.152
 gemini,timeout,1,0.117
 claude,coverage_failed,202,23.653
 claude,missing,331,38.759

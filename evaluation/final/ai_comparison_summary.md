@@ -1,91 +1,113 @@
 # AI Comparison Summary: Gemini vs Claude
 
-## ชุดข้อมูลที่ใช้เปรียบเทียบ
+## 1. ชุดข้อมูลที่ใช้เปรียบเทียบ
 
-การเปรียบเทียบนี้ใช้เฉพาะกรณีที่ทั้ง Gemini และ Claude มีข้อมูล Token ตรงกันจำนวน **534 bugs** เพื่อให้การเปรียบเทียบใช้ชุดข้อมูลเดียวกันและลดความลำเอียงจากจำนวนกรณีที่แตกต่างกัน
+การเปรียบเทียบ Gemini และ Claude ใช้ข้อมูล Token ที่ครอบคลุม benchmark เดียวกันครบ **854/854 bugs สำหรับทั้งสองโมเดล** ดังนั้นการเปรียบเทียบในส่วนนี้สามารถใช้ชุด bugs เดียวกันทั้งหมดได้โดยไม่ต้องลดขนาด Common Set
 
-## 1) การใช้ Token
+จำนวน API calls ที่บันทึกได้คือ 1,070 calls สำหรับ Gemini และ 1,087 calls สำหรับ Claude
 
-### Gemini
-- Total Tokens: **9,381,396**
-- Average Tokens per Bug: **17,568.16**
-- Median Tokens per Bug: **11,665.00**
+## 2. การใช้ Token
 
-### Claude
-- Total Tokens: **15,276,530**
-- Average Tokens per Bug: **28,607.73**
-- Median Tokens per Bug: **22,080.00**
+| Metric | Gemini | Claude |
+|---|---:|---:|
+| Bugs with Token Data | 854/854 | 854/854 |
+| Unique API Calls | 1,070 | 1,087 |
+| Prompt Tokens | 8,355,510 | 12,676,098 |
+| Completion Tokens | 4,870,455 | 13,278,358 |
+| Total Tokens | 14,918,091 | 25,954,456 |
+| Average Tokens / Bug | 17,468.49 | 30,391.63 |
+| Median Tokens / Bug | 12,745.00 | 23,691.00 |
 
-Gemini ใช้ Token เฉลี่ยต่อ bug น้อยกว่า Claude ในชุดข้อมูลเดียวกันจำนวน 534 bugs
+Gemini ใช้ Total Tokens จำนวน 14,918,091 tokens ต่ำกว่า Claude ที่ใช้ 25,954,456 tokens
 
-## 2) ความสำเร็จในการสร้าง TestCode
+เมื่อพิจารณาต่อ bug Gemini ใช้เฉลี่ย 17,468.49 tokens และมีค่ามัธยฐาน 12,745 tokens ขณะที่ Claude ใช้เฉลี่ย 30,391.63 tokens และมีค่ามัธยฐาน 23,691 tokens
 
-### Gemini
-- TestCode available: **525/534**
-- Success Rate: **98.315%**
+ค่า `total_tokens` ในการวิเคราะห์นี้ใช้ค่าที่บันทึกจากข้อมูล usage ของผู้ให้บริการโดยตรง ไม่ได้สมมติว่า `total_tokens = prompt_tokens + completion_tokens` เนื่องจากข้อมูล usage ของแต่ละ provider อาจมีองค์ประกอบอื่นร่วมด้วย
 
-### Claude
-- TestCode available: **370/534**
-- Success Rate: **69.288%**
+## 3. ความสำเร็จของ API Generation
 
-Gemini สามารถสร้าง TestCode ได้สำเร็จในสัดส่วนที่สูงกว่า Claude
+| Metric | Gemini | Claude |
+|---|---:|---:|
+| API Calls | 1,070 | 1,087 |
+| Successful Calls | 1,050 | 600 |
+| Failed/Truncated Calls | 20 | 487 |
+| API Generation Success Rate | 98.131% | 55.198% |
 
-## 3) ความสำเร็จในการ Evaluation
+Gemini มี API Generation Success Rate **98.131%** สูงกว่า Claude ที่ **55.198%** อย่างชัดเจนภายใต้ configuration และ benchmark ของการทดลองนี้
 
-### Gemini
-- Evaluation Success: **317/534**
-- Evaluation Success Rate: **59.363%**
+## 4. ความสำเร็จในการสร้าง TestCode
 
-### Claude
-- Evaluation Success: **232/534**
-- Evaluation Success Rate: **43.446%**
+| Metric | Gemini | Claude |
+|---|---:|---:|
+| TestCode Available | 843/854 | 523/854 |
+| TestCode Availability Rate | 98.712% | 61.241% |
 
-Gemini มีอัตราความสำเร็จในการนำ Test Case ไป Evaluation สูงกว่า Claude
+Gemini สามารถสร้าง TestCode ที่นำไปใช้ในขั้นตอนต่อไปได้ 843 จาก 854 bugs หรือ 98.712% ขณะที่ Claude ได้ 523 bugs หรือ 61.241%
 
-## 4) ความสามารถในการตรวจพบบั๊ก
+## 5. ความสำเร็จในการ Evaluation
 
-### Gemini
-- Bugs Detected: **29/534**
-- Fault Detection Rate: **5.431%**
+| Metric | Gemini | Claude |
+|---|---:|---:|
+| Evaluation Success | 485/854 | 322/854 |
+| Evaluation Success Rate | 56.792% | 37.705% |
 
-### Claude
-- Bugs Detected: **14/534**
-- Fault Detection Rate: **2.622%**
+แม้ Gemini จะสร้าง TestCode ได้ในสัดส่วนสูงมาก แต่มีเพียง 485 bugs ที่ผ่าน Evaluation สำเร็จ เนื่องจากยังมีกรณี Compile Failure จำนวนมาก
 
-ในชุดข้อมูลเดียวกัน Gemini ตรวจพบข้อบกพร่องได้มากกว่า Claude
+อย่างไรก็ตาม Gemini ยังคงมี Evaluation Success Rate สูงกว่า Claude โดยได้ 56.792% เทียบกับ 37.705%
 
-## 5) ประสิทธิภาพด้าน Token
+## 6. ความสามารถในการตรวจพบบั๊ก
 
-### Gemini
-- Tokens per Evaluation Success: **29,594.31**
-- Tokens per Detected Bug: **323,496.41**
-- Detected Bugs per 1M Tokens: **3.0912**
+| Metric | Gemini | Claude |
+|---|---:|---:|
+| Bugs Detected | 56/854 | 19/854 |
+| Fault Detection Rate | 6.557% | 2.225% |
 
-### Claude
-- Tokens per Evaluation Success: **65,847.11**
-- Tokens per Detected Bug: **1,091,180.71**
-- Detected Bugs per 1M Tokens: **0.9164**
+Gemini ตรวจพบข้อบกพร่องได้ **56 bugs** ขณะที่ Claude ตรวจพบ 19 bugs
 
-Gemini ใช้ Token ต่อผลลัพธ์ที่สำเร็จน้อยกว่า และสามารถตรวจพบบั๊กต่อหนึ่งล้าน Token ได้มากกว่า Claude
+เมื่อใช้ benchmark denominator เดียวกัน 854 bugs Gemini มี Overall Fault Detection Rate 6.557% เทียบกับ Claude 2.225%
 
-## 6) ข้อมูล Token ภาพรวม
+## 7. ประสิทธิภาพด้าน Token
 
-ข้อมูลส่วนนี้ไม่ควรนำ Total Token มาเปรียบเทียบโดยตรง เนื่องจากจำนวน bugs ที่มีข้อมูล Token ของแต่ละโมเดลไม่เท่ากัน
+| Metric | Gemini | Claude |
+|---|---:|---:|
+| Tokens / TestCode Bug | 17,696.43 | 49,626.11 |
+| Tokens / Evaluation Success | 30,758.95 | 80,603.90 |
+| Tokens / Detected Bug | 266,394.48 | 1,366,024.00 |
+| Detected Bugs / 1M Tokens | 3.7538 | 0.7321 |
 
-### Gemini
-- Bugs with Token Data: **534/854**
-- Prompt Tokens: **5,211,763**
-- Completion Tokens: **3,113,161**
-- Total Tokens: **9,381,396**
+Gemini ใช้ Token ต่อ Evaluation Success ต่ำกว่า Claude และใช้ Token ต่อการตรวจพบ bug หนึ่งตัวน้อยกว่ามาก
 
-### Claude
-- Bugs with Token Data: **854/854**
-- Prompt Tokens: **12,676,098**
-- Completion Tokens: **13,278,358**
-- Total Tokens: **25,954,456**
+เมื่อวัดเป็น Detected Bugs per 1M Tokens Gemini ตรวจพบได้ **3.7538 bugs ต่อหนึ่งล้าน tokens** ขณะที่ Claude ตรวจพบได้ **0.7321 bugs ต่อหนึ่งล้าน tokens**
 
-## 7) สรุป
+ดังนั้น Gemini มีค่า Detected Bugs per 1M Tokens สูงกว่าประมาณ 5.13 เท่าใน benchmark นี้
 
-เมื่อควบคุมให้ Gemini และ Claude ถูกเปรียบเทียบบนชุดข้อมูลร่วมจำนวน **534 bugs** ผลการทดลองแสดงให้เห็นว่า Gemini ใช้ Token น้อยกว่า Claude ทั้งในด้านค่าเฉลี่ยและค่ามัธยฐานต่อ bug ขณะเดียวกัน Gemini มีอัตราการสร้าง TestCode สำเร็จ อัตราการ Evaluation สำเร็จ และ Fault Detection Rate สูงกว่า Claude
+## 8. Coverage ของ AI
 
-เมื่อพิจารณาความคุ้มค่าด้านทรัพยากร Gemini ตรวจพบข้อบกพร่องได้ **3.0912 bugs ต่อหนึ่งล้าน Token** ขณะที่ Claude ตรวจพบได้ **0.9164 bugs ต่อหนึ่งล้าน Token** ดังนั้นภายใต้เงื่อนไขและชุดข้อมูลของการทดลองนี้ Gemini มีประสิทธิภาพด้านการใช้ Token ต่อผลลัพธ์ที่ดีกว่า Claude
+ผล Coverage จาก benchmark ทั้ง 854 bugs มีดังนี้
+
+| Metric | Gemini | Claude |
+|---|---:|---:|
+| Coverage Success | 471/854 | 321/854 |
+| Coverage Success Rate | 55.152% | 37.588% |
+| Mean Line Coverage* | 85.799% | 79.626% |
+| Mean Condition Coverage* | 80.545% | 71.613% |
+
+\* ค่าเฉลี่ย Coverage คำนวณเฉพาะกรณีที่ Coverage สำเร็จ
+
+Gemini มีทั้ง Coverage Success Rate, Mean Line Coverage และ Mean Condition Coverage สูงกว่า Claude ในผลการทดลองชุดนี้
+
+## 9. ข้อควรระวังในการตีความ
+
+ผลการเปรียบเทียบนี้สะท้อน performance ภายใต้ prompt, model configuration, timeout, Defects4J version และ evaluation protocol ที่ใช้ในการทดลองนี้เท่านั้น
+
+จำนวน Token ที่ต่ำกว่าหรือ Fault Detection ที่สูงกว่าไม่ควรถูกตีความว่าโมเดลหนึ่งเหนือกว่าอีกโมเดลหนึ่งในทุกสถานการณ์ เนื่องจากผลลัพธ์อาจเปลี่ยนได้ตาม prompt, target class, API behavior, model version และสภาพแวดล้อมการทดลอง
+
+นอกจากนี้ การสร้าง TestCode สำเร็จไม่ได้หมายความว่า Test Case ดังกล่าวจะ Compile หรือผ่าน Evaluation ได้สำเร็จเสมอไป จึงควรพิจารณา Generation, Evaluation, Coverage และ Fault Detection แยกเป็นคนละขั้นตอน
+
+## 10. สรุป
+
+บน benchmark เดียวกันจำนวน 854 bugs Gemini ใช้ Total Tokens น้อยกว่า Claude ขณะเดียวกันมี API Generation Success Rate, TestCode Availability, Evaluation Success Rate, Coverage Success Rate และ Overall Fault Detection Rate สูงกว่า
+
+Gemini ตรวจพบข้อบกพร่อง 56 bugs และให้ค่า 3.7538 Detected Bugs per 1M Tokens ขณะที่ Claude ตรวจพบ 19 bugs และให้ค่า 0.7321 Detected Bugs per 1M Tokens
+
+ภายใต้เงื่อนไขของการทดลองนี้ Gemini จึงมีประสิทธิภาพด้าน Token ต่อผลลัพธ์ที่ดีกว่า Claude อย่างไรก็ตาม ผลดังกล่าวควรตีความภายในขอบเขตของ benchmark และ configuration ที่ใช้ในการทดลอง ไม่ควรสรุปเป็นคุณสมบัติทั่วไปของโมเดลนอกบริบทนี้

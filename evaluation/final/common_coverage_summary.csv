@@ -1,5 +1,5 @@
 ﻿tool,common_coverage_success_cases,mean_line_coverage_pct,median_line_coverage_pct,weighted_line_coverage_pct,mean_condition_coverage_pct,median_condition_coverage_pct,weighted_condition_coverage_pct
-evosuite,129,84.505,93.3,84.995,80.071,91.9,80.646
-kex,129,51.782,54.2,44.472,35.526,32.8,32.528
-gemini,129,96.122,98.9,88.177,90.891,95.1,80.471
-claude,129,92.114,96.7,88.693,83.581,89.2,77.571
+evosuite,177,80.272,92.1,80.265,77.216,91.95,76.044
+kex,177,52.126,54.2,44.981,38.959,35.7,34.426
+gemini,177,91.073,98.9,86.009,86.648,95.25,78.364
+claude,177,87.854,96.7,86.473,80.814,91.2,75.878

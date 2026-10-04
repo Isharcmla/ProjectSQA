@@ -1,5 +1,5 @@
 ﻿tool,benchmark_bugs,evaluation_cases_available,evaluation_success,compile_failed,evaluation_success_rate_available_pct,evaluation_success_rate_854_pct,bugs_detected,overall_fault_detection_rate_854_pct,fault_detection_rate_eval_success_pct,candidate_tests,bug_revealing_tests,coverage_cases_attempted,coverage_success,coverage_success_rate_attempted_pct,coverage_success_rate_854_pct,mean_line_coverage_success_pct,median_line_coverage_success_pct,weighted_line_coverage_success_pct,mean_condition_coverage_success_pct,median_condition_coverage_success_pct,weighted_condition_coverage_success_pct
 evosuite,854,833,825,8,99.04,96.604,2,0.234,0.242,46457,2,833,798,95.798,93.443,67.358,80.25,57.977,62.862,75.0,52.446
 kex,854,684,684,0,100.0,80.094,6,0.703,0.877,65099,22,684,507,74.123,59.368,42.011,42.8,34.151,30.501,25.4,24.564
-gemini,854,531,323,208,60.829,37.822,29,3.396,8.978,18328,44,526,312,59.316,36.534,92.695,97.9,86.217,87.43,93.2,79.963
+gemini,854,843,485,358,57.533,56.792,56,6.557,11.546,29285,82,843,471,55.872,55.152,85.799,97.1,81.081,80.545,92.3,72.676
 claude,854,523,322,201,61.568,37.705,19,2.225,5.901,26390,45,523,321,61.377,37.588,79.626,94.6,64.836,71.613,85.05,53.417

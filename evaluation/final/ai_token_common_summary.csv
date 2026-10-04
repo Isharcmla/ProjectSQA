@@ -1,3 +1,3 @@
 ﻿tool,common_token_bugs,api_calls,api_generation_success_calls,api_generation_success_rate_pct,prompt_tokens,completion_tokens,total_tokens,avg_tokens_per_common_bug,median_tokens_per_common_bug,testcode_available,testcode_success_rate_common_pct,evaluation_success,evaluation_success_rate_common_pct,bugs_detected,fault_detection_rate_common_pct,tokens_per_testcode_success,tokens_per_evaluation_success,tokens_per_detected_bug,detected_bugs_per_million_tokens
-gemini,534,668,651,97.455,5211763,3113161,9381396,17568.16,11665.0,525,98.315,317,59.363,29,5.431,17869.33,29594.31,323496.41,3.0912
-claude,534,664,425,64.006,7510760,7765770,15276530,28607.73,22080.0,370,69.288,232,43.446,14,2.622,41287.92,65847.11,1091180.71,0.9164
+gemini,854,1070,1050,98.131,8355510,4870455,14918091,17468.49,12745.0,843,98.712,485,56.792,56,6.557,17696.43,30758.95,266394.48,3.7538
+claude,854,1087,600,55.198,12676098,13278358,25954456,30391.63,23691.0,523,61.241,322,37.705,19,2.225,49626.11,80603.9,1366024.0,0.7321
