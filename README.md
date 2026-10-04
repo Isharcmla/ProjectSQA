@@ -392,15 +392,6 @@ Claude มี call ที่ล้มเหลว/ถูกตัด (truncated)
 - Gemini Math-84 ยัง timeout (600 วินาที) แม้ rerun แล้ว จึงเก็บเป็นผล `timeout` ตาม protocol
 - ผู้ทำซ้ำต้องใช้ API key ที่ตนมีสิทธิ์ใช้งาน (KKU IntelSphere) — ห้าม commit `.env`
 
----
-
-## 📚 เอกสารอื่นใน repository
-
-| ไฟล์ | เนื้อหา |
-|---|---|
-| [`BENCHMARK_PROTOCOL_v2.md`](./BENCHMARK_PROTOCOL_v2.md) | ข้อกำหนดกลางของการทดลอง (dataset, environment, failure classification, results schema) |
-| [`Project_Handover_Context.md`](./Project_Handover_Context.md) | เอกสารส่งต่อบริบทโครงการ จัดทำช่วงต้นโครงการ — **บางส่วนล้าสมัยแล้ว** (เช่น ระบุสมาชิก 4 คน, ใช้ Java 8, ระบุว่ายังไม่เคยรันจริง) ให้ใช้ README นี้และรายงาน PDF เป็นหลัก |
-| รายงาน PDF | รายงานวิชาการฉบับสมบูรณ์ (47 หน้า) รวม Prompt เต็ม, Reproducibility Guide และ Configuration |
 
 ---
 
