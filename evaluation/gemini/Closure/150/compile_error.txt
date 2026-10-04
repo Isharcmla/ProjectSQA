@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Closure_150_epr4idu7/src/TypedScopeCreatorTest.java:94: error: cannot find symbol
+    assertTrue(varX.getType().isNumberType());
+                             ^
+  symbol:   method isNumberType()
+  location: class JSType
+1 error

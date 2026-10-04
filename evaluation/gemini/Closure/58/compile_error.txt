@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_Closure_58_suvlocgc/src/LiveVariablesAnalysisTest.java:48: error: cannot find symbol
+      cfa.process(null, this.functionNode.isFunction() ? this.functionNode.getLastChild() : this.functionNode);
+                                         ^
+  symbol:   method isFunction()
+  location: variable functionNode of type Node
+/tmp/evaluate_gemini_Closure_58_suvlocgc/src/LiveVariablesAnalysisTest.java:55: error: cannot find symbol
+      if (n.isFunction()) {
+           ^
+  symbol:   method isFunction()
+  location: variable n of type Node
+/tmp/evaluate_gemini_Closure_58_suvlocgc/src/LiveVariablesAnalysisTest.java:135: error: cannot find symbol
+    LiveVariableLattice joined = analysis.getJoinOp().apply(lattices);
+                                         ^
+  symbol:   method getJoinOp()
+  location: variable analysis of type LiveVariablesAnalysis
+3 errors

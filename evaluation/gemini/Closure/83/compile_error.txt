@@ -1,0 +1,103 @@
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:108: error: jsOutputFile has private access in CommandLineConfig
+    assertEquals("out.js", runner.getCommandLineConfig().jsOutputFile);
+                                                        ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:248: error: printTree has private access in CommandLineConfig
+    assertTrue(config.printTree);
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:249: error: computePhaseOrdering has private access in CommandLineConfig
+    assertTrue(config.computePhaseOrdering);
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:250: error: printAst has private access in CommandLineConfig
+    assertTrue(config.printAst);
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:251: error: printPassGraph has private access in CommandLineConfig
+    assertTrue(config.printPassGraph);
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:252: error: jscompDevMode has private access in CommandLineConfig
+    assertEquals(CompilerOptions.DevMode.START, config.jscompDevMode);
+                                                      ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:253: error: loggingLevel has private access in CommandLineConfig
+    assertEquals("INFO", config.loggingLevel);
+                               ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:254: error: externs has private access in CommandLineConfig
+    assertTrue(config.externs.contains("my_extern.js"));
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:255: error: js has private access in CommandLineConfig
+    assertTrue(config.js.contains("my_source.js"));
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:256: error: jsOutputFile has private access in CommandLineConfig
+    assertEquals("out.js", config.jsOutputFile);
+                                 ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:257: error: module has private access in CommandLineConfig
+    assertTrue(config.module.contains("mod:1"));
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:258: error: variableMapInputFile has private access in CommandLineConfig
+    assertEquals("var_in.map", config.variableMapInputFile);
+                                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:259: error: propertyMapInputFile has private access in CommandLineConfig
+    assertEquals("prop_in.map", config.propertyMapInputFile);
+                                      ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:260: error: variableMapOutputFile has private access in CommandLineConfig
+    assertEquals("var_out.map", config.variableMapOutputFile);
+                                      ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:261: error: propertyMapOutputFile has private access in CommandLineConfig
+    assertEquals("prop_out.map", config.propertyMapOutputFile);
+                                       ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:262: error: codingConvention has private access in CommandLineConfig
+    assertTrue(config.codingConvention instanceof DefaultCodingConvention);
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:263: error: summaryDetailLevel has private access in CommandLineConfig
+    assertEquals(3, config.summaryDetailLevel);
+                          ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:264: error: outputWrapper has private access in CommandLineConfig
+    assertEquals("%output%", config.outputWrapper);
+                                   ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:265: error: outputWrapperMarker has private access in CommandLineConfig
+    assertEquals("%output%", config.outputWrapperMarker);
+                                   ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:266: error: moduleWrapper has private access in CommandLineConfig
+    assertTrue(config.moduleWrapper.contains("mod:%s"));
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:267: error: moduleOutputPathPrefix has private access in CommandLineConfig
+    assertEquals("prefix_", config.moduleOutputPathPrefix);
+                                  ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:268: error: createSourceMap has private access in CommandLineConfig
+    assertEquals("map.out", config.createSourceMap);
+                                  ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:269: error: jscompError has private access in CommandLineConfig
+    assertTrue(config.jscompError.contains("checkVars"));
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:270: error: jscompWarning has private access in CommandLineConfig
+    assertTrue(config.jscompWarning.contains("undefinedVars"));
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:271: error: jscompOff has private access in CommandLineConfig
+    assertTrue(config.jscompOff.contains("fileoverviewTags"));
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:272: error: define has private access in CommandLineConfig
+    assertTrue(config.define.contains("FLAG=true"));
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:273: error: define has private access in CommandLineConfig
+    assertTrue(config.define.contains("OTHER_FLAG=1"));
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:274: error: define has private access in CommandLineConfig
+    assertTrue(config.define.contains("ANOTHER_FLAG='val'"));
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:275: error: charset has private access in CommandLineConfig
+    assertEquals("UTF-8", config.charset);
+                                ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:276: error: manageClosureDependencies has private access in CommandLineConfig
+    assertTrue(config.manageClosureDependencies);
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:277: error: closureEntryPoints has private access in CommandLineConfig
+    assertTrue(config.closureEntryPoints.contains("my.app"));
+                     ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:278: error: outputManifest has private access in CommandLineConfig
+    assertEquals("manifest.txt", config.outputManifest);
+                                       ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:286: error: codingConvention has private access in CommandLineConfig
+    assertTrue(runner.getCommandLineConfig().codingConvention instanceof ClosureCodingConvention);
+                                            ^
+/tmp/evaluate_gemini_Closure_83_wmyo3499/src/CommandLineRunnerTest.java:294: error: createNameMapFiles has private access in CommandLineConfig
+    assertTrue(runner.getCommandLineConfig().createNameMapFiles);
+                                            ^
+34 errors

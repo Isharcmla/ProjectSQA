@@ -1,0 +1,10 @@
+/tmp/evaluate_gemini_Compress_17_hcq_y3he/src/TarUtilsTest.java:359: error: unreported exception IOException; must be caught or declared to be thrown
+        ByteBuffer encoded = TarUtils.FALLBACK_ENCODING.encode("abc\u00FF");
+                                                              ^
+/tmp/evaluate_gemini_Compress_17_hcq_y3he/src/TarUtilsTest.java:361: error: unreported exception IOException; must be caught or declared to be thrown
+        String decoded = TarUtils.FALLBACK_ENCODING.decode(encoded.array());
+                                                          ^
+/tmp/evaluate_gemini_Compress_17_hcq_y3he/src/TarUtilsTest.java:365: error: unreported exception IOException; must be caught or declared to be thrown
+        String decodedNull = TarUtils.FALLBACK_ENCODING.decode(trailingNullBytes);
+                                                              ^
+3 errors

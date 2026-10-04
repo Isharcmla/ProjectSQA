@@ -1,0 +1,41 @@
+/tmp/evaluate_gemini_Closure_162_auapvpbc/src/ScopeTest.java:107: error: no suitable constructor found for CompilerInput(SourceFile)
+    CompilerInput input = new CompilerInput(SourceFile.fromCode("test.js", "var x;"));
+                          ^
+    constructor CompilerInput.CompilerInput(SourceAst) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_162_auapvpbc/src/ScopeTest.java:277: error: no suitable constructor found for CompilerInput(SourceFile)
+    CompilerInput input = new CompilerInput(sourceFile);
+                          ^
+    constructor CompilerInput.CompilerInput(SourceAst) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_162_auapvpbc/src/ScopeTest.java:283: error: incompatible types: Node cannot be converted to JSTypeExpression
+    docBuilder.recordDefineType(new Node(Token.STRING));
+                                ^
+/tmp/evaluate_gemini_Closure_162_auapvpbc/src/ScopeTest.java:344: error: cannot find symbol
+    fnNode.addChildToBack(new Node(Token.PARAM_LIST));
+                                        ^
+  symbol:   variable PARAM_LIST
+  location: class Token
+/tmp/evaluate_gemini_Closure_162_auapvpbc/src/ScopeTest.java:369: error: no suitable constructor found for CompilerInput(SourceFile)
+    CompilerInput normalInput = new CompilerInput(src);
+                                ^
+    constructor CompilerInput.CompilerInput(SourceAst) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_162_auapvpbc/src/ScopeTest.java:382: error: no suitable constructor found for CompilerInput(SourceFile,boolean)
+    CompilerInput externInput = new CompilerInput(SourceFile.fromCode("extern.js", "var c;"), true);
+                                ^
+    constructor CompilerInput.CompilerInput(SourceAst,boolean) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile,boolean) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_162_auapvpbc/src/ScopedAliasesTest.java:142: error: incompatible types: Node cannot be converted to SimpleSlot
+    assertNotNull(symbolTable.getReferences(root.getFirstChild().getFirstChild().getFirstChild()));
+                                                                                              ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+7 errors

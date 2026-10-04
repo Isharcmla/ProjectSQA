@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_Closure_102_k9wnxaod/src/NormalizeTest.java:243: error: no suitable constructor found for Node(int,String)
+    Node root = new Node(Token.SCRIPT, new Node(Token.NAME, ""));
+                                       ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/tmp/evaluate_gemini_Closure_102_k9wnxaod/src/NormalizeTest.java:263: error: no suitable constructor found for Node(int,String)
+    Node root = new Node(Token.SCRIPT, new Node(Token.NAME, ""));
+                                       ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+2 errors

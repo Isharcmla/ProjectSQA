@@ -1,0 +1,162 @@
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/ArrowTypeTest.java:305: error: <anonymous com.google.javascript.rhino.jstype.ArrowTypeTest$1> is not abstract and does not override abstract method caseParameterizedType(ParameterizedType) in Visitor
+    arrow.visit(new Visitor<Object>() {
+                                      ^
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/ArrowTypeTest.java:324: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/ArrowTypeTest.java:386: error: cannot find symbol
+    TemplateType template = registry.createTemplateType("T");
+                                    ^
+  symbol:   method createTemplateType(String)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/FunctionTypeTest.java:238: error: cannot find symbol
+    assertTrue(Iterables.contains(iface2.getExtendedInterfaces(), iface1.getInstanceType()));
+               ^
+  symbol:   variable Iterables
+  location: class FunctionTypeTest
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/FunctionTypeTest.java:241: error: cannot find symbol
+    assertTrue(Iterables.contains(allExt, iface1.getInstanceType()));
+               ^
+  symbol:   variable Iterables
+  location: class FunctionTypeTest
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/FunctionTypeTest.java:255: error: cannot find symbol
+    assertTrue(Iterables.contains(allImpl, iface1.getInstanceType()));
+               ^
+  symbol:   variable Iterables
+  location: class FunctionTypeTest
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/FunctionTypeTest.java:256: error: cannot find symbol
+    assertTrue(Iterables.contains(allImpl, iface2.getInstanceType()));
+               ^
+  symbol:   variable Iterables
+  location: class FunctionTypeTest
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/FunctionTypeTest.java:512: error: cannot find symbol
+      @Override public String caseTemplatizedType(TemplatizedType type) { return null; }
+                                                  ^
+  symbol: class TemplatizedType
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/FunctionTypeTest.java:496: error: <anonymous com.google.javascript.rhino.jstype.FunctionTypeTest$1> is not abstract and does not override abstract method caseParameterizedType(ParameterizedType) in Visitor
+    Visitor<String> visitor = new Visitor<String>() {
+                                                    ^
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/FunctionTypeTest.java:506: error: method does not override or implement a method from a supertype
+      @Override public String caseNamedType(NamedType type) { return null; }
+      ^
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/FunctionTypeTest.java:507: error: method does not override or implement a method from a supertype
+      @Override public String caseProxyObjectType(ProxyObjectType type) { return null; }
+      ^
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/FunctionTypeTest.java:512: error: method does not override or implement a method from a supertype
+      @Override public String caseTemplatizedType(TemplatizedType type) { return null; }
+      ^
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/JSTypeTest.java:47: error: incompatible types: JSType cannot be converted to ObjectType
+    ObjectType namedType = registry.createNamedType("MyCustomType", null, 0, 0);
+                                                   ^
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/JSTypeTest.java:237: error: cannot find symbol
+    RecordType recordType = registry.createRecordTypeBuilder().build();
+                                    ^
+  symbol:   method createRecordTypeBuilder()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/JSTypeTest.java:250: error: cannot find symbol
+    TemplateType templateType = registry.createTemplateType("T");
+                                        ^
+  symbol:   method createTemplateType(String)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/JSTypeTest.java:390: error: cannot find symbol
+    RecordType rec1 = registry.createRecordTypeBuilder().addProperty("a", numType, null).build();
+                              ^
+  symbol:   method createRecordTypeBuilder()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/JSTypeTest.java:391: error: cannot find symbol
+    RecordType rec2 = registry.createRecordTypeBuilder().addProperty("a", numType, null).build();
+                              ^
+  symbol:   method createRecordTypeBuilder()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/JSTypeTest.java:478: error: cannot find symbol
+    RecordType recType = registry.createRecordTypeBuilder().addProperty("a", numType, null).build();
+                                 ^
+  symbol:   method createRecordTypeBuilder()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/RecordTypeTest.java:238: error: cannot find symbol
+    StaticScope<JSType> scope = new Scope(null, null);
+                                    ^
+  symbol:   class Scope
+  location: class RecordTypeTest
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/RecordTypeTest.java:249: error: cannot find symbol
+    StaticScope<JSType> scope = new Scope(null, null);
+                                    ^
+  symbol:   class Scope
+  location: class RecordTypeTest
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:103: error: cannot find symbol
+    ObjectType record1 = registry.createRecordTypeBuilder()
+                                 ^
+  symbol:   method createRecordTypeBuilder()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:106: error: cannot find symbol
+    ObjectType record2 = registry.createRecordTypeBuilder()
+                                 ^
+  symbol:   method createRecordTypeBuilder()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:127: error: cannot find symbol
+    ObjectType record = registry.createRecordTypeBuilder()
+                                ^
+  symbol:   method createRecordTypeBuilder()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:220: error: cannot find symbol
+    structObj.setStruct();
+             ^
+  symbol:   method setStruct()
+  location: variable structObj of type ObjectType
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:234: error: cannot find symbol
+    dictObj.setDict();
+           ^
+  symbol:   method setDict()
+  location: variable dictObj of type ObjectType
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:280: error: cannot find symbol
+    ObjectType obj1 = registry.createRecordTypeBuilder()
+                              ^
+  symbol:   method createRecordTypeBuilder()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:282: error: cannot find symbol
+    ObjectType obj2 = registry.createRecordTypeBuilder()
+                              ^
+  symbol:   method createRecordTypeBuilder()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:311: error: cannot find symbol
+    ObjectType record = registry.createRecordTypeBuilder()
+                                ^
+  symbol:   method createRecordTypeBuilder()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:405: error: cannot find symbol
+    TypePair pair = union.getTypesUnderEquality(nullType);
+    ^
+  symbol:   class TypePair
+  location: class UnionTypeTest
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:414: error: cannot find symbol
+    TypePair pair = union.getTypesUnderInequality(nullType);
+    ^
+  symbol:   class TypePair
+  location: class UnionTypeTest
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:423: error: cannot find symbol
+    TypePair pair = union.getTypesUnderShallowInequality(numberType);
+    ^
+  symbol:   class TypePair
+  location: class UnionTypeTest
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:432: error: <anonymous com.google.javascript.rhino.jstype.UnionTypeTest$1> is not abstract and does not override abstract method caseParameterizedType(ParameterizedType) in Visitor
+    Visitor<String> visitor = new Visitor<String>() {
+                                                    ^
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:442: error: method does not override or implement a method from a supertype
+      @Override public String caseNamedType(NamedType type) { return "named"; }
+      ^
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:512: error: cannot find symbol
+    ObjectType record1 = registry.createRecordTypeBuilder()
+                                 ^
+  symbol:   method createRecordTypeBuilder()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:514: error: cannot find symbol
+    ObjectType record2 = registry.createRecordTypeBuilder()
+                                 ^
+  symbol:   method createRecordTypeBuilder()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_169_2usj9po_/src/UnionTypeTest.java:533: error: cannot find symbol
+    TemplateType templateType = registry.createTemplateType("T");
+                                        ^
+  symbol:   method createTemplateType(String)
+  location: variable registry of type JSTypeRegistry
+36 errors

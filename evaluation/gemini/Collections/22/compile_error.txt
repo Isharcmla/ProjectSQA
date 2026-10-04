@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Collections_22_535gx9hf/src/ListOrderedMapTest.java:482: error: cannot find symbol
+        it.reset();
+          ^
+  symbol:   method reset()
+  location: variable it of type OrderedMapIterator<String,String>
+1 error

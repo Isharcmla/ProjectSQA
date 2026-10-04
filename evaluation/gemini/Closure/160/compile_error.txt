@@ -1,0 +1,9 @@
+/tmp/evaluate_gemini_Closure_160_s1c1oh1l/src/CompilerTest.java:405: error: cannot find symbol
+    options.addCustomPass(CustomPassExecutionTime.BEFORE_CHECKS, customPass);
+           ^
+  symbol:   method addCustomPass(CustomPassExecutionTime,CompilerPass)
+  location: variable options of type CompilerOptions
+/tmp/evaluate_gemini_Closure_160_s1c1oh1l/src/CompilerTest.java:584: error: <anonymous com.google.javascript.jscomp.CompilerTest$5> is not abstract and does not override abstract method getStyle() in CssRenamingMap
+    CssRenamingMap map = new CssRenamingMap() {
+                                              ^
+2 errors

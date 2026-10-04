@@ -1,0 +1,17 @@
+/tmp/evaluate_gemini_Closure_110_onr7ma0o/src/NodeTest.java:263: error: cannot find symbol
+    n.setType(Token.LET);
+                   ^
+  symbol:   variable LET
+  location: class Token
+/tmp/evaluate_gemini_Closure_110_onr7ma0o/src/NodeTest.java:264: error: cannot find symbol
+    assertEquals(Token.LET, n.getType());
+                      ^
+  symbol:   variable LET
+  location: class Token
+/tmp/evaluate_gemini_Closure_110_onr7ma0o/src/NodeTest.java:526: error: PropListItem.getObjectValue() is defined in an inaccessible class or interface
+    n.getPropListHeadForTesting().getObjectValue();
+                                 ^
+/tmp/evaluate_gemini_Closure_110_onr7ma0o/src/NodeTest.java:533: error: PropListItem.getIntValue() is defined in an inaccessible class or interface
+    n.getPropListHeadForTesting().getIntValue();
+                                 ^
+4 errors

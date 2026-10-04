@@ -1,0 +1,9 @@
+/tmp/evaluate_gemini_Closure_2_d0n48yme/src/TypeCheckTest.java:444: error: no suitable constructor found for Node(int,String)
+    Node exprNode = new Node(Token.EXPR_RESULT, new Node(Token.NAME, "testName"));
+                                                ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

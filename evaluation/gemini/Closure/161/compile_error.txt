@@ -1,0 +1,15 @@
+/tmp/evaluate_gemini_Closure_161_wv9rg8ow/src/PeepholeFoldConstantsTest.java:22: error: incompatible types: Compiler cannot be converted to NodeTraversal
+    peephole.beginTraversal(compiler);
+                            ^
+/tmp/evaluate_gemini_Closure_161_wv9rg8ow/src/PeepholeFoldConstantsTest.java:83: error: cannot find symbol
+    Node fn = new Node(Token.FUNCTION, Node.newString(Token.NAME, "f"), new Node(Token.PARAM_LIST), new Node(Token.BLOCK));
+                                                                                      ^
+  symbol:   variable PARAM_LIST
+  location: class Token
+/tmp/evaluate_gemini_Closure_161_wv9rg8ow/src/PeepholeFoldConstantsTest.java:448: error: cannot find symbol
+    Node fn = new Node(Token.FUNCTION, Node.newString(Token.NAME, ""), new Node(Token.PARAM_LIST), new Node(Token.BLOCK));
+                                                                                     ^
+  symbol:   variable PARAM_LIST
+  location: class Token
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+3 errors

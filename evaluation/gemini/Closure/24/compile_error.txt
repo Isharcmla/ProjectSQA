@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Closure_24_4zy0722v/src/ScopedAliasesTest.java:193: error: cannot find symbol
+    Assert.assertEquals(0, compiler.getChangeStamp());
+                                   ^
+  symbol:   method getChangeStamp()
+  location: variable compiler of type Compiler
+1 error

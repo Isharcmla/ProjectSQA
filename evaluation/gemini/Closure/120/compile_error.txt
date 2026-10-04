@@ -1,0 +1,8 @@
+/tmp/evaluate_gemini_Closure_120__fptpias/src/ReferenceCollectingCallbackTest.java:334: error: no suitable constructor found for Scope(Node,Compiler)
+    Scope clonedScope = new Scope(root, compiler);
+                        ^
+    constructor Scope.Scope(Scope,Node) is not applicable
+      (argument mismatch; Node cannot be converted to Scope)
+    constructor Scope.Scope(Node,boolean) is not applicable
+      (argument mismatch; Compiler cannot be converted to boolean)
+1 error

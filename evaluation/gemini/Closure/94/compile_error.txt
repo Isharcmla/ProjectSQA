@@ -1,0 +1,21 @@
+/tmp/evaluate_gemini_Closure_94_3_lcu6j_/src/NodeUtilTest.java:271: error: cannot find symbol
+    newCustom.setIsNoSideEffectsCall();
+             ^
+  symbol:   method setIsNoSideEffectsCall()
+  location: variable newCustom of type Node
+/tmp/evaluate_gemini_Closure_94_3_lcu6j_/src/NodeUtilTest.java:288: error: cannot find symbol
+    callCustom.setIsNoSideEffectsCall();
+              ^
+  symbol:   method setIsNoSideEffectsCall()
+  location: variable callCustom of type Node
+/tmp/evaluate_gemini_Closure_94_3_lcu6j_/src/NodeUtilTest.java:426: error: cannot find symbol
+    Assert.assertFalse(NodeUtil.isVar(new Node(Token.LET)));
+                                                    ^
+  symbol:   variable LET
+  location: class Token
+/tmp/evaluate_gemini_Closure_94_3_lcu6j_/src/NodeUtilTest.java:791: error: cannot find symbol
+    basis.setSourceName("test.js");
+         ^
+  symbol:   method setSourceName(String)
+  location: variable basis of type Node
+4 errors

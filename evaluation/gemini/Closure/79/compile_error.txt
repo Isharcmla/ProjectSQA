@@ -1,0 +1,86 @@
+/tmp/evaluate_gemini_Closure_79_0kd1utla/src/VarCheckTest.java:19: error: no suitable method found for init(ImmutableList<SourceFile>,ImmutableList<SourceFile>,CompilerOptions)
+    compiler.init(
+            ^
+    method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; no instance(s) of type variable(s) E exist so that ImmutableList<E> conforms to JSSourceFile[])
+    method Compiler.init(List<JSSourceFile>,List<JSSourceFile>,CompilerOptions) is not applicable
+      (argument mismatch; inference variable E has incompatible bounds
+          equality constraints: JSSourceFile
+          lower bounds: SourceFile)
+    method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; no instance(s) of type variable(s) E exist so that ImmutableList<E> conforms to JSSourceFile[])
+  where E is a type-variable:
+    E extends Object declared in method <E>of(E)
+/tmp/evaluate_gemini_Closure_79_0kd1utla/src/VarCheckTest.java:33: error: incompatible types: inference variable E has incompatible bounds
+    compiler.initModules(
+            ^
+    equality constraints: JSSourceFile
+    lower bounds: SourceFile
+  where E is a type-variable:
+    E extends Object declared in method <E>of(E)
+/tmp/evaluate_gemini_Closure_79_0kd1utla/src/VarCheckTest.java:186: error: no suitable method found for add(SourceFile)
+    m1.add(SourceFile.fromCode("m1.js", "var m1Var = 1;"));
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_79_0kd1utla/src/VarCheckTest.java:189: error: no suitable method found for add(SourceFile)
+    m2.add(SourceFile.fromCode("m2.js", "var m2Var = m1Var;"));
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_79_0kd1utla/src/VarCheckTest.java:204: error: no suitable method found for add(SourceFile)
+    m1.add(SourceFile.fromCode("m1.js", "var m1Var = m2Var;"));
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_79_0kd1utla/src/VarCheckTest.java:207: error: no suitable method found for add(SourceFile)
+    m2.add(SourceFile.fromCode("m2.js", "var m2Var = 1;"));
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_79_0kd1utla/src/VarCheckTest.java:221: error: no suitable method found for add(SourceFile)
+    m1.add(SourceFile.fromCode("m1.js", "var m1Var = 1;"));
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_79_0kd1utla/src/VarCheckTest.java:224: error: no suitable method found for add(SourceFile)
+    m2.add(SourceFile.fromCode("m2.js", "var m2Var = m1Var;"));
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_79_0kd1utla/src/VarCheckTest.java:237: error: no suitable method found for add(SourceFile)
+    m1.add(SourceFile.fromCode("m1.js", "var m1Var = 1;"));
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_79_0kd1utla/src/VarCheckTest.java:240: error: no suitable method found for add(SourceFile)
+    m2.add(SourceFile.fromCode("m2.js", "function f() { return m1Var; }"));
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_79_0kd1utla/src/VarCheckTest.java:265: error: cannot find symbol
+    options.setErrorHandler(new ErrorHandler() {
+                                ^
+  symbol:   class ErrorHandler
+  location: class VarCheckTest
+/tmp/evaluate_gemini_Closure_79_0kd1utla/src/VarCheckTest.java:266: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+12 errors

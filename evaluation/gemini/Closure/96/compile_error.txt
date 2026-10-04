@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Closure_96_3ttcyqye/src/TypeCheckTest.java:73: error: cannot find symbol
+    Scope topScope = Scope.createGlobalScope(new Node(Token.BLOCK));
+                          ^
+  symbol:   method createGlobalScope(Node)
+  location: class Scope
+1 error

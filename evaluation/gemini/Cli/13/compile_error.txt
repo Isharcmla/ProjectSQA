@@ -1,0 +1,24 @@
+/tmp/evaluate_gemini_Cli_13_w8mucli3/src/ArgumentImplTest.java:26: error: DummyCommandLine is not abstract and does not override abstract method getOptionTriggers() in CommandLine
+    private static class DummyCommandLine implements WriteableCommandLine {
+                   ^
+/tmp/evaluate_gemini_Cli_13_w8mucli3/src/ArgumentImplTest.java:72: error: getOptions() in DummyCommandLine cannot implement getOptions() in CommandLine
+        public Set getOptions() { return Collections.EMPTY_SET; }
+                   ^
+  return type Set is not compatible with List
+/tmp/evaluate_gemini_Cli_13_w8mucli3/src/WriteableCommandLineTest.java:19: error: StubOption is not abstract and does not override abstract method helpLines(int,Set,Comparator) in Option
+    private static class StubOption implements Option {
+                   ^
+/tmp/evaluate_gemini_Cli_13_w8mucli3/src/WriteableCommandLineTest.java:71: error: helpLines(int,Set,Comparator) in StubOption cannot implement helpLines(int,Set,Comparator) in Option
+        public void helpLines(int depth, Set helpSettings, java.util.Comparator comp) {
+                    ^
+  return type void is not compatible with List
+/tmp/evaluate_gemini_Cli_13_w8mucli3/src/WriteableCommandLineTest.java:75: error: TestWriteableCommandLine is not abstract and does not override abstract method getOptions() in CommandLine
+    private static class TestWriteableCommandLine implements WriteableCommandLine {
+                   ^
+/tmp/evaluate_gemini_Cli_13_w8mucli3/src/WriteableCommandLineTest.java:205: error: getOptions() in TestWriteableCommandLine cannot implement getOptions() in CommandLine
+        public Set getOptions() {
+                   ^
+  return type Set is not compatible with List
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+6 errors

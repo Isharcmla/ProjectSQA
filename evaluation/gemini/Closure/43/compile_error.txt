@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_Closure_43_39ee34t7/src/TypedScopeCreatorTest.java:383: error: cannot find symbol
+    assertTrue(capturedVar.isEscaped());
+                          ^
+  symbol:   method isEscaped()
+  location: variable capturedVar of type Var
+/tmp/evaluate_gemini_Closure_43_39ee34t7/src/TypedScopeCreatorTest.java:391: error: cannot find symbol
+    script1.setSourceFileName(scriptName);
+           ^
+  symbol:   method setSourceFileName(String)
+  location: variable script1 of type Node
+/tmp/evaluate_gemini_Closure_43_39ee34t7/src/TypedScopeCreatorTest.java:402: error: cannot find symbol
+    script2.setSourceFileName(scriptName);
+           ^
+  symbol:   method setSourceFileName(String)
+  location: variable script2 of type Node
+3 errors

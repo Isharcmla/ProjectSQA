@@ -1,0 +1,28 @@
+/tmp/evaluate_gemini_Closure_159_erfwq26t/src/InlineFunctionsTest.java:194: error: constructor SpecializationState in class SpecializationState cannot be applied to given types;
+    SpecializeModule.SpecializationState state = new SpecializeModule.SpecializationState() {
+                                                 ^
+  required: SimpleFunctionAliasAnalysis
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_159_erfwq26t/src/InlineFunctionsTest.java:216: error: constructor SpecializationState in class SpecializationState cannot be applied to given types;
+    SpecializeModule.SpecializationState state = new SpecializeModule.SpecializationState() {
+                                                 ^
+  required: SimpleFunctionAliasAnalysis
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_159_erfwq26t/src/InlineFunctionsTest.java:283: error: FunctionState has private access in InlineFunctions
+    InlineFunctions.FunctionState fs1 = inliner.getOrCreateFunctionState("foo");
+                   ^
+/tmp/evaluate_gemini_Closure_159_erfwq26t/src/InlineFunctionsTest.java:285: error: FunctionState has private access in InlineFunctions
+    InlineFunctions.FunctionState fs2 = inliner.getOrCreateFunctionState("foo");
+                   ^
+/tmp/evaluate_gemini_Closure_159_erfwq26t/src/InlineFunctionsTest.java:317: error: FunctionState has private access in InlineFunctions
+    InlineFunctions.FunctionState fs = inliner.getOrCreateFunctionState("bar");
+                   ^
+/tmp/evaluate_gemini_Closure_159_erfwq26t/src/InlineFunctionsTest.java:333: error: FunctionState has private access in InlineFunctions
+    InlineFunctions.FunctionState fs = inliner.getOrCreateFunctionState("bar");
+                   ^
+/tmp/evaluate_gemini_Closure_159_erfwq26t/src/InlineFunctionsTest.java:349: error: FunctionState has private access in InlineFunctions
+    InlineFunctions.FunctionState fs = inliner.getOrCreateFunctionState("baz");
+                   ^
+7 errors

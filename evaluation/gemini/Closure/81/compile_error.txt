@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_Closure_81_qnl0pb7_/src/IRFactoryTest.java:57: error: cannot find symbol
+    defaultConfig = ParserRunner.createConfig(true, Config.LanguageMode.ECMASCRIPT5, true);
+                                                          ^
+  symbol:   variable LanguageMode
+  location: class Config
+/tmp/evaluate_gemini_Closure_81_qnl0pb7_/src/IRFactoryTest.java:58: error: cannot find symbol
+    es3Config = ParserRunner.createConfig(true, Config.LanguageMode.ECMASCRIPT3, true);
+                                                      ^
+  symbol:   variable LanguageMode
+  location: class Config
+/tmp/evaluate_gemini_Closure_81_qnl0pb7_/src/IRFactoryTest.java:59: error: cannot find symbol
+    noConstConfig = ParserRunner.createConfig(true, Config.LanguageMode.ECMASCRIPT5, false);
+                                                          ^
+  symbol:   variable LanguageMode
+  location: class Config
+3 errors

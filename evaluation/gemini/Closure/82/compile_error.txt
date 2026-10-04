@@ -1,0 +1,60 @@
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:186: error: method createEnumType in class JSTypeRegistry cannot be applied to given types;
+    EnumType enumType = registry.createEnumType("MyEnum", null, numberType);
+                                ^
+  required: String,JSType
+  found: String,<null>,JSType
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:196: error: incompatible types: Map<String,JSType> cannot be converted to Map<String,RecordProperty>
+    RecordType recordType = registry.createRecordType(Collections.<String, JSType>emptyMap());
+                                                                                          ^
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:235: error: cannot find symbol
+    namedType.resolveInternal(new SimpleErrorReporter(), registry.getGlobalScope());
+                                                                 ^
+  symbol:   method getGlobalScope()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:277: error: method defineDeclaredProperty in class ObjectType cannot be applied to given types;
+    numberObjectType.defineDeclaredProperty("foo", stringType, null);
+                    ^
+  required: String,JSType,boolean,Node
+  found: String,JSType,<null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:311: error: method createEnumType in class JSTypeRegistry cannot be applied to given types;
+    EnumType enumType = registry.createEnumType("MyEnum", null, numberType);
+                                ^
+  required: String,JSType
+  found: String,<null>,JSType
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:388: error: incompatible types: Map<String,JSType> cannot be converted to Map<String,RecordProperty>
+    RecordType record = registry.createRecordType(Collections.<String, JSType>emptyMap());
+                                                                                      ^
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:444: error: cannot find symbol
+    namedType.resolveInternal(new SimpleErrorReporter(), registry.getGlobalScope());
+                                                                 ^
+  symbol:   method getGlobalScope()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:451: error: cannot find symbol
+    StaticScope<JSType> scope = registry.getGlobalScope();
+                                        ^
+  symbol:   method getGlobalScope()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:479: error: cannot find symbol
+    loopingType.resolve(new SimpleErrorReporter(), registry.getGlobalScope());
+                                                           ^
+  symbol:   method getGlobalScope()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:481: error: cannot find symbol
+    assertSame(unknownType, loopingType.resolve(new SimpleErrorReporter(), registry.getGlobalScope()));
+                                                                                   ^
+  symbol:   method getGlobalScope()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:502: error: <anonymous com.google.javascript.rhino.jstype.JSTypeTest$2> is not abstract and does not override abstract method caseVoidType() in Visitor
+    Visitor<String> visitor = new Visitor<String>() {
+                                                    ^
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:506: error: method does not override or implement a method from a supertype
+      @Override public String caseValueType(ValueType type) { return "ValueType"; }
+      ^
+/tmp/evaluate_gemini_Closure_82_q26hreil/src/JSTypeTest.java:512: error: method does not override or implement a method from a supertype
+      @Override public String caseTemplateType(TemplateType templateType) { return "TemplateType"; }
+      ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+13 errors

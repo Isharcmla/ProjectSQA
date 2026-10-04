@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Compress_10_4ujmjdoy/src/ZipFileTest.java:257: error: package ZipMethod does not exist
+            unhandled.setMethod(ZipMethod.BZIP2.getCode());
+                                         ^
+1 error

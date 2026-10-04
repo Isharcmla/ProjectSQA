@@ -1,0 +1,13 @@
+/tmp/evaluate_gemini_Collections_9_q5ya8q8l/src/ExtendedPropertiesTest.java:286: error: cannot find symbol
+        ep.addPropertyDirectForTest("key.list", list);
+          ^
+  symbol:   method addPropertyDirectForTest(String,List)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_9_q5ya8q8l/src/ExtendedPropertiesTest.java:316: error: cannot find symbol
+        ep.setDefaultsForTest(defaults);
+          ^
+  symbol:   method setDefaultsForTest(ExtendedProperties)
+  location: variable ep of type ExtendedProperties
+Note: /tmp/evaluate_gemini_Collections_9_q5ya8q8l/src/ExtendedPropertiesTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors

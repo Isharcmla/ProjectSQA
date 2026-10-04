@@ -1,0 +1,95 @@
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:312: error: cannot find symbol
+        ep.addPropertyDirectForTest("objKey", new Object());
+          ^
+  symbol:   method addPropertyDirectForTest(String,Object)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:360: error: cannot find symbol
+        ep.addPropertyDirectForTest("objKey", new Integer(10));
+          ^
+  symbol:   method addPropertyDirectForTest(String,Integer)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:391: error: cannot find symbol
+        ep.addPropertyDirectForTest("objKey", new Integer(10));
+          ^
+  symbol:   method addPropertyDirectForTest(String,Integer)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:422: error: cannot find symbol
+        ep.addPropertyDirectForTest("objKey", new Integer(10));
+          ^
+  symbol:   method addPropertyDirectForTest(String,Integer)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:435: error: cannot find symbol
+        ep.addPropertyDirectForTest("b7", Boolean.TRUE);
+          ^
+  symbol:   method addPropertyDirectForTest(String,Boolean)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:462: error: cannot find symbol
+        ep.addPropertyDirectForTest("objKey", new Integer(1));
+          ^
+  symbol:   method addPropertyDirectForTest(String,Integer)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:470: error: cannot find symbol
+        ep.addPropertyDirectForTest("byte2", new Byte((byte) 34));
+          ^
+  symbol:   method addPropertyDirectForTest(String,Byte)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:488: error: cannot find symbol
+        ep.addPropertyDirectForTest("objKey", Boolean.TRUE);
+          ^
+  symbol:   method addPropertyDirectForTest(String,Boolean)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:496: error: cannot find symbol
+        ep.addPropertyDirectForTest("short2", new Short((short) 456));
+          ^
+  symbol:   method addPropertyDirectForTest(String,Short)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:514: error: cannot find symbol
+        ep.addPropertyDirectForTest("objKey", Boolean.TRUE);
+          ^
+  symbol:   method addPropertyDirectForTest(String,Boolean)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:522: error: cannot find symbol
+        ep.addPropertyDirectForTest("int2", new Integer(5678));
+          ^
+  symbol:   method addPropertyDirectForTest(String,Integer)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:544: error: cannot find symbol
+        ep.addPropertyDirectForTest("objKey", Boolean.TRUE);
+          ^
+  symbol:   method addPropertyDirectForTest(String,Boolean)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:552: error: cannot find symbol
+        ep.addPropertyDirectForTest("long2", new Long(98765432100L));
+          ^
+  symbol:   method addPropertyDirectForTest(String,Long)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:570: error: cannot find symbol
+        ep.addPropertyDirectForTest("objKey", Boolean.TRUE);
+          ^
+  symbol:   method addPropertyDirectForTest(String,Boolean)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:578: error: cannot find symbol
+        ep.addPropertyDirectForTest("f2", new Float(56.78f));
+          ^
+  symbol:   method addPropertyDirectForTest(String,Float)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:596: error: cannot find symbol
+        ep.addPropertyDirectForTest("objKey", Boolean.TRUE);
+          ^
+  symbol:   method addPropertyDirectForTest(String,Boolean)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:604: error: cannot find symbol
+        ep.addPropertyDirectForTest("d2", new Double(789.012));
+          ^
+  symbol:   method addPropertyDirectForTest(String,Double)
+  location: variable ep of type ExtendedProperties
+/tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java:622: error: cannot find symbol
+        ep.addPropertyDirectForTest("objKey", Boolean.TRUE);
+          ^
+  symbol:   method addPropertyDirectForTest(String,Boolean)
+  location: variable ep of type ExtendedProperties
+Note: /tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_gemini_Collections_12_xvbt82ag/src/ExtendedPropertiesTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+18 errors

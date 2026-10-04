@@ -1,0 +1,5 @@
+/tmp/evaluate_gemini_Closure_35_3p_hogvp/src/TypeInferenceTest.java:240: error: incompatible types: Node cannot be converted to int
+    Node script = new Node(Token.SCRIPT, pos, neg, inc, typeof, eq, thisNode);
+                                                                ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

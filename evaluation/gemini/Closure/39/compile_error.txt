@@ -1,0 +1,27 @@
+/tmp/evaluate_gemini_Closure_39_pumffdiz/src/PrototypeObjectTypeTest.java:36: error: cannot find symbol
+    assertEquals("CustomClass", type.getClassName());
+                                    ^
+  symbol:   method getClassName()
+  location: variable type of type PrototypeObjectType
+/tmp/evaluate_gemini_Closure_39_pumffdiz/src/PrototypeObjectTypeTest.java:64: error: cannot find symbol
+    Property slot = proto.getSlot("prop");
+    ^
+  symbol:   class Property
+  location: class PrototypeObjectTypeTest
+/tmp/evaluate_gemini_Closure_39_pumffdiz/src/PrototypeObjectTypeTest.java:99: error: cannot find symbol
+    Property slot = child.getSlot("parentProp");
+    ^
+  symbol:   class Property
+  location: class PrototypeObjectTypeTest
+/tmp/evaluate_gemini_Closure_39_pumffdiz/src/PrototypeObjectTypeTest.java:115: error: cannot find symbol
+    Property slot = childProto.getSlot("ifaceProp");
+    ^
+  symbol:   class Property
+  location: class PrototypeObjectTypeTest
+/tmp/evaluate_gemini_Closure_39_pumffdiz/src/PrototypeObjectTypeTest.java:409: error: incompatible types: JSType cannot be converted to RecordType
+    RecordType matchingRecord = rtb.build();
+                                         ^
+/tmp/evaluate_gemini_Closure_39_pumffdiz/src/PrototypeObjectTypeTest.java:414: error: incompatible types: JSType cannot be converted to RecordType
+    RecordType nonMatchingRecord = rtb2.build();
+                                             ^
+6 errors

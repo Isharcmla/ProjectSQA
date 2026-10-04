@@ -1,0 +1,183 @@
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:37: error: cannot find symbol
+    globalScope = Scope.createGlobalScope(root);
+                       ^
+  symbol:   method createGlobalScope(Node)
+  location: class Scope
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:68: error: cannot find symbol
+    assertEquals("", fn.getDisplayName());
+                       ^
+  symbol:   method getDisplayName()
+  location: variable fn of type FunctionType
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:109: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("x");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:325: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("param1");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:326: error: cannot find symbol
+    infoBuilder.recordParameterType("param1", createNamedTypeExpression("number"));
+               ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable infoBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:338: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("paramNotInArgs");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:339: error: cannot find symbol
+    infoBuilder.recordParameterType("paramNotInArgs", createNamedTypeExpression("number"));
+               ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable infoBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:353: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("opt");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:354: error: cannot find symbol
+    infoBuilder.recordParameterType("opt", createTypeExpression(optTypeNode));
+               ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable infoBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:355: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("rest");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:356: error: cannot find symbol
+    infoBuilder.recordParameterType("rest", createTypeExpression(varargsTypeNode));
+               ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable infoBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:374: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("opt");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:375: error: cannot find symbol
+    infoBuilder.recordParameterType("opt", createTypeExpression(optTypeNode));
+               ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable infoBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:376: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("req");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:377: error: cannot find symbol
+    infoBuilder.recordParameterType("req", createNamedTypeExpression("string"));
+               ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable infoBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:393: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("rest");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:394: error: cannot find symbol
+    infoBuilder.recordParameterType("rest", createTypeExpression(varargsTypeNode));
+               ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable infoBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:395: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("req");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:396: error: cannot find symbol
+    infoBuilder.recordParameterType("req", createNamedTypeExpression("number"));
+               ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable infoBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:412: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("item");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:413: error: cannot find symbol
+    infoBuilder.recordParameterType("item", createNamedTypeExpression("T"));
+               ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable infoBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:429: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("item1");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:430: error: cannot find symbol
+    infoBuilder.recordParameterType("item1", createNamedTypeExpression("T"));
+               ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable infoBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:431: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("item2");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:432: error: cannot find symbol
+    infoBuilder.recordParameterType("item2", createNamedTypeExpression("T"));
+               ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable infoBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:449: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    infoBuilder.recordParameterDescription("item");
+               ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:450: error: cannot find symbol
+    infoBuilder.recordParameterType("item", createNamedTypeExpression("number"));
+               ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable infoBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:471: error: method recordParameterDescription in class JSDocInfoBuilder cannot be applied to given types;
+    info2.recordParameterDescription("x");
+         ^
+  required: String,String
+  found: String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:472: error: cannot find symbol
+    info2.recordParameterType("x", createNamedTypeExpression("number"));
+         ^
+  symbol:   method recordParameterType(String,JSTypeExpression)
+  location: variable info2 of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeBuilderTest.java:486: error: no suitable constructor found for Scope(Node,Scope)
+    Scope localScope = new Scope(script, globalScope);
+                       ^
+    constructor Scope.Scope(Scope,Node) is not applicable
+      (argument mismatch; Node cannot be converted to Scope)
+    constructor Scope.Scope(Node,AbstractCompiler) is not applicable
+      (argument mismatch; Scope cannot be converted to AbstractCompiler)
+    constructor Scope.Scope(Node,ObjectType) is not applicable
+      (argument mismatch; Scope cannot be converted to ObjectType)
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeTest.java:468: error: method does not override or implement a method from a supertype
+      @Override public String caseNamedType(NamedType type) { return "named"; }
+      ^
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeTest.java:473: error: method does not override or implement a method from a supertype
+      @Override public String caseRecordType(RecordType type) { return "record"; }
+      ^
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/FunctionTypeTest.java:474: error: method does not override or implement a method from a supertype
+      @Override public String caseTemplateType(TemplateType templateType) { return "template"; }
+      ^
+/tmp/evaluate_gemini_Closure_144_f31nxkb5/src/TypedScopeCreatorTest.java:27: error: cannot find symbol
+    options.setLanguageIn(CompilerOptions.LanguageMode.ECMASCRIPT5);
+                                         ^
+  symbol:   variable LanguageMode
+  location: class CompilerOptions
+34 errors

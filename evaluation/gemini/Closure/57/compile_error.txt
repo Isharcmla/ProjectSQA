@@ -1,0 +1,238 @@
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:57: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.inherits"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:108: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.mixin"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:165: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.mixin"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:181: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.mixin"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:192: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.inherits"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:197: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.inherits"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:207: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.inherits"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:216: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.foo"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:238: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+    Node callee = NodeUtil.newQualifiedNameNode(conv, "goog.provide");
+                          ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:257: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+    Node callee = NodeUtil.newQualifiedNameNode(conv, "goog.require");
+                          ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:281: error: no suitable constructor found for Node(int,double)
+        new Node(Token.ARRAYLIT, Node.newString("TypeA"), new Node(Token.NUMBER, 1.0), Node.newString("TypeB")),
+                                                          ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; double cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; double cannot be converted to Node[])
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:279: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.addDependency"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:291: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.other"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:296: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.addDependency"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:301: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.addDependency"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:315: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.addSingletonGetter"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:316: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "my.SingletonClass"));
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:321: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "my.SingletonClass"));
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:325: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.addSingletonGetter"));
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:329: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.otherMethod"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:330: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "my.SingletonClass"));
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:338: error: cannot find symbol
+    FunctionType getterType = registry.createFunctionType(functionType, new Node(Token.PARAM_LIST));
+                                                                                      ^
+  symbol:   variable PARAM_LIST
+  location: class Token
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:361: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+      Node call = new Node(Token.CALL, NodeUtil.newQualifiedNameNode(conv, fn));
+                                               ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:365: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+    Node notPropTest = new Node(Token.CALL, NodeUtil.newQualifiedNameNode(conv, "goog.isCustom"));
+                                                    ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:381: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.reflect.object"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:392: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.reflect.other"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:399: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.reflect.object"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:405: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.reflect.object"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:412: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.reflect.object"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:449: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.bind"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:466: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+    Node bindNoArgs = new Node(Token.CALL, NodeUtil.newQualifiedNameNode(conv, "goog.bind"));
+                                                   ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:473: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+        NodeUtil.newQualifiedNameNode(conv, "goog.partial"),
+                ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:490: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+    Node partialNoArgs = new Node(Token.CALL, NodeUtil.newQualifiedNameNode(conv, "goog.partial"));
+                                                      ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_57_w3_zd9he/src/ClosureCodingConventionTest.java:494: error: no suitable method found for newQualifiedNameNode(ClosureCodingConvention,String)
+    Node otherCall = new Node(Token.CALL, NodeUtil.newQualifiedNameNode(conv, "other.func"));
+                                                  ^
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method NodeUtil.newQualifiedNameNode(CodingConvention,String,Node,String) is not applicable
+      (actual and formal argument lists differ in length)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+34 errors

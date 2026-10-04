@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Closure_47_pktkruca/src/SourceMapTest.java:77: error: cannot find symbol
+    Node stringKey = Node.newString(Token.STRING_KEY, "key");
+                                         ^
+  symbol:   variable STRING_KEY
+  location: class Token
+1 error

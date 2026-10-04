@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Chart_25_2_y06vv4/src/StatisticalBarRendererTest.java:240: error: cannot find symbol
+            stateV.setEntityCollection(entities);
+                  ^
+  symbol:   method setEntityCollection(EntityCollection)
+  location: variable stateV of type CategoryItemRendererState
+/tmp/evaluate_gemini_Chart_25_2_y06vv4/src/StatisticalBarRendererTest.java:247: error: cannot find symbol
+            stateH.setEntityCollection(entities);
+                  ^
+  symbol:   method setEntityCollection(EntityCollection)
+  location: variable stateH of type CategoryItemRendererState
+2 errors

@@ -1,0 +1,23 @@
+/tmp/evaluate_gemini_Closure_87_263ht80x/src/PeepholeSubstituteAlternateSyntaxTest.java:22: error: cannot find symbol
+    compiler.setLifeCycleStage(AbstractCompiler.LifeCycleStage.NORMALIZED);
+                                               ^
+  symbol:   variable LifeCycleStage
+  location: class AbstractCompiler
+/tmp/evaluate_gemini_Closure_87_263ht80x/src/PeepholeSubstituteAlternateSyntaxTest.java:24: error: incompatible types: Compiler cannot be converted to NodeTraversal
+    peephole.beginTraversal(compiler);
+                            ^
+/tmp/evaluate_gemini_Closure_87_263ht80x/src/PeepholeSubstituteAlternateSyntaxTest.java:29: error: cannot find symbol
+    c.setLifeCycleStage(AbstractCompiler.LifeCycleStage.NORMALIZED);
+                                        ^
+  symbol:   variable LifeCycleStage
+  location: class AbstractCompiler
+/tmp/evaluate_gemini_Closure_87_263ht80x/src/PeepholeSubstituteAlternateSyntaxTest.java:55: error: cannot find symbol
+    c.setLifeCycleStage(AbstractCompiler.LifeCycleStage.RAW);
+                                        ^
+  symbol:   variable LifeCycleStage
+  location: class AbstractCompiler
+/tmp/evaluate_gemini_Closure_87_263ht80x/src/PeepholeSubstituteAlternateSyntaxTest.java:57: error: incompatible types: Compiler cannot be converted to NodeTraversal
+    rawPeephole.beginTraversal(c);
+                               ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+5 errors

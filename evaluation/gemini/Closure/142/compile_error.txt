@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Closure_142_dhzf0eel/src/JsDocInfoParserTest.java:51: error: cannot find symbol
+  private JsDocInfo parseAndGetDocInfo(String comment) {
+          ^
+  symbol:   class JsDocInfo
+  location: class JsDocInfoParserTest
+/tmp/evaluate_gemini_Closure_142_dhzf0eel/src/JsDocInfoParserTest.java:393: error: cannot find symbol
+    Assert.assertEquals("Simple string param", info.getParameterDescription("p1"));
+                                                   ^
+  symbol:   method getParameterDescription(String)
+  location: variable info of type JSDocInfo
+2 errors

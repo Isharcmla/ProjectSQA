@@ -1,0 +1,64 @@
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:74: error: cannot find symbol
+    Property slot = obj.getSlot("prop");
+    ^
+  symbol:   class Property
+  location: class PrototypeObjectTypeTest
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:87: error: cannot find symbol
+    Property slot = child.getSlot("parentProp");
+    ^
+  symbol:   class Property
+  location: class PrototypeObjectTypeTest
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:102: error: cannot find symbol
+    Property slot = subIfaceProto.getSlot("ifaceProp");
+    ^
+  symbol:   class Property
+  location: class PrototypeObjectTypeTest
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:288: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    PrototypeObjectType numberObj = registry.getNativeObjectType(JSTypeNative.NUMBER_OBJECT_TYPE);
+                                                                ^
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:292: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    PrototypeObjectType dateObj = registry.getNativeObjectType(JSTypeNative.DATE_TYPE);
+                                                              ^
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:296: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    PrototypeObjectType boolObj = registry.getNativeObjectType(JSTypeNative.BOOLEAN_OBJECT_TYPE);
+                                                              ^
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:300: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    PrototypeObjectType strObj = registry.getNativeObjectType(JSTypeNative.STRING_OBJECT_TYPE);
+                                                             ^
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:304: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    PrototypeObjectType regexpObj = registry.getNativeObjectType(JSTypeNative.REGEXP_TYPE);
+                                                                ^
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:325: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    PrototypeObjectType strObj = registry.getNativeObjectType(JSTypeNative.STRING_OBJECT_TYPE);
+                                                             ^
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:328: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    PrototypeObjectType boolObj = registry.getNativeObjectType(JSTypeNative.BOOLEAN_OBJECT_TYPE);
+                                                              ^
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:331: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    PrototypeObjectType numObj = registry.getNativeObjectType(JSTypeNative.NUMBER_OBJECT_TYPE);
+                                                             ^
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:412: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>,<null>)
+    FunctionType ctor = registry.createConstructorType("MyClass", null, null, null, null);
+                                ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:429: error: incompatible types: JSType cannot be converted to RecordType
+    RecordType recordType = rtb.build();
+                                     ^
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:440: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>,<null>)
+    FunctionType ctor = registry.createConstructorType("Impl", null, null, null, null);
+                                ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:478: error: incompatible types: JSType cannot be converted to RecordType
+    RecordType record = rtb.build();
+                                 ^
+/tmp/evaluate_gemini_Closure_166_6sllakde/src/PrototypeObjectTypeTest.java:499: error: incompatible types: JSType cannot be converted to RecordType
+    RecordType record = rtb.build();
+                                 ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+16 errors

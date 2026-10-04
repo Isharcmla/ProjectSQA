@@ -1,0 +1,53 @@
+/tmp/evaluate_gemini_Closure_46_c_1hv8cg/src/RecordTypeTest.java:244: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType source = registry.createAnonymousObjectType(null);
+                                ^
+  required: no arguments
+  found: <null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_46_c_1hv8cg/src/RecordTypeTest.java:253: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType source = registry.createAnonymousObjectType(null);
+                                ^
+  required: no arguments
+  found: <null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_46_c_1hv8cg/src/RecordTypeTest.java:262: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType source = registry.createAnonymousObjectType(null);
+                                ^
+  required: no arguments
+  found: <null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_46_c_1hv8cg/src/RecordTypeTest.java:270: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType source = registry.createAnonymousObjectType(null);
+                                ^
+  required: no arguments
+  found: <null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_46_c_1hv8cg/src/RecordTypeTest.java:276: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType sourceIncompatible = registry.createAnonymousObjectType(null);
+                                            ^
+  required: no arguments
+  found: <null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_46_c_1hv8cg/src/RecordTypeTest.java:284: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType source = registry.createAnonymousObjectType(null);
+                                ^
+  required: no arguments
+  found: <null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_46_c_1hv8cg/src/RecordTypeTest.java:290: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType sourceUnknown = registry.createAnonymousObjectType(null);
+                                       ^
+  required: no arguments
+  found: <null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_46_c_1hv8cg/src/RecordTypeTest.java:301: error: cannot find symbol
+    StaticScope<JSType> scope = registry.getTopScope();
+                                        ^
+  symbol:   method getTopScope()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_46_c_1hv8cg/src/RecordTypeTest.java:310: error: cannot find symbol
+    StaticScope<JSType> scope = registry.getTopScope();
+                                        ^
+  symbol:   method getTopScope()
+  location: variable registry of type JSTypeRegistry
+9 errors

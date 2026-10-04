@@ -1,0 +1,14 @@
+/tmp/evaluate_gemini_Chart_4_ptl68w6a/src/XYPlotTest.java:1069: error: ValueTick is abstract; cannot be instantiated
+        ticks.add(new ValueTick(TickType.MAJOR, 0.0, "0", RectangleEdge.BOTTOM, null, 0.0f));
+                  ^
+/tmp/evaluate_gemini_Chart_4_ptl68w6a/src/XYPlotTest.java:1070: error: ValueTick is abstract; cannot be instantiated
+        ticks.add(new ValueTick(TickType.MINOR, 2.5, "2.5", RectangleEdge.BOTTOM, null, 0.0f));
+                  ^
+/tmp/evaluate_gemini_Chart_4_ptl68w6a/src/XYPlotTest.java:1071: error: ValueTick is abstract; cannot be instantiated
+        ticks.add(new ValueTick(TickType.MAJOR, 5.0, "5", RectangleEdge.BOTTOM, null, 0.0f));
+                  ^
+Note: /tmp/evaluate_gemini_Chart_4_ptl68w6a/src/XYPlotTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_gemini_Chart_4_ptl68w6a/src/XYPlotTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 errors

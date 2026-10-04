@@ -1,0 +1,55 @@
+/tmp/evaluate_gemini_Compress_1_tum756k5/src/CpioArchiveOutputStreamTest.java:35: error: no suitable constructor found for CpioArchiveEntry(short,String,int)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "file1.txt", 4);
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(short) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor CpioArchiveEntry.CpioArchiveEntry(String) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Compress_1_tum756k5/src/CpioArchiveOutputStreamTest.java:61: error: no suitable constructor found for CpioArchiveEntry(short,String,int)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW, "large.txt", 0);
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(short) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor CpioArchiveEntry.CpioArchiveEntry(String) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Compress_1_tum756k5/src/CpioArchiveOutputStreamTest.java:80: error: no suitable constructor found for CpioArchiveEntry(short,String,int)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW_CRC, "crc.txt", data.length);
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(short) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor CpioArchiveEntry.CpioArchiveEntry(String) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Compress_1_tum756k5/src/CpioArchiveOutputStreamTest.java:98: error: no suitable constructor found for CpioArchiveEntry(short,String,int)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_NEW_CRC, "crc_bad.txt", data.length);
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(short) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor CpioArchiveEntry.CpioArchiveEntry(String) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Compress_1_tum756k5/src/CpioArchiveOutputStreamTest.java:111: error: no suitable constructor found for CpioArchiveEntry(short,String,int)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_OLD_ASCII, "old_ascii.txt", 2);
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(short) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor CpioArchiveEntry.CpioArchiveEntry(String) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Compress_1_tum756k5/src/CpioArchiveOutputStreamTest.java:134: error: no suitable constructor found for CpioArchiveEntry(short,String,int)
+        CpioArchiveEntry entry = new CpioArchiveEntry(CpioConstants.FORMAT_OLD_BINARY, "old_bin.txt", 3);
+                                 ^
+    constructor CpioArchiveEntry.CpioArchiveEntry(short) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor CpioArchiveEntry.CpioArchiveEntry(String) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor CpioArchiveEntry.CpioArchiveEntry(String,long) is not applicable
+      (actual and formal argument lists differ in length)
+6 errors

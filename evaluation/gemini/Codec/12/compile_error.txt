@@ -1,0 +1,41 @@
+/tmp/evaluate_gemini_Codec_12_3tn85m3x/src/BaseNCodecInputStreamTest.java:64: error: cannot find symbol
+        byte[] inputData = "Hello World".getBytes(StringUtils.UTF_8);
+                                                             ^
+  symbol:   variable UTF_8
+  location: class StringUtils
+/tmp/evaluate_gemini_Codec_12_3tn85m3x/src/BaseNCodecInputStreamTest.java:72: error: cannot find symbol
+        String encodedString = new String(output, 0, bytesRead, StringUtils.UTF_8);
+                                                                           ^
+  symbol:   variable UTF_8
+  location: class StringUtils
+/tmp/evaluate_gemini_Codec_12_3tn85m3x/src/BaseNCodecInputStreamTest.java:82: error: cannot find symbol
+        byte[] inputData = "SGVsbG8gV29ybGQ=".getBytes(StringUtils.UTF_8);
+                                                                  ^
+  symbol:   variable UTF_8
+  location: class StringUtils
+/tmp/evaluate_gemini_Codec_12_3tn85m3x/src/BaseNCodecInputStreamTest.java:90: error: cannot find symbol
+        String decodedString = new String(output, 0, bytesRead, StringUtils.UTF_8);
+                                                                           ^
+  symbol:   variable UTF_8
+  location: class StringUtils
+/tmp/evaluate_gemini_Codec_12_3tn85m3x/src/BaseNCodecInputStreamTest.java:111: error: cannot find symbol
+        Assert.assertEquals(Base64.encodeBase64String(inputData), new String(out.toByteArray(), StringUtils.UTF_8));
+                                                                                                           ^
+  symbol:   variable UTF_8
+  location: class StringUtils
+/tmp/evaluate_gemini_Codec_12_3tn85m3x/src/BaseNCodecInputStreamTest.java:119: error: cannot find symbol
+        InputStream in = new ByteArrayInputStream(base64Str.getBytes(StringUtils.UTF_8));
+                                                                                ^
+  symbol:   variable UTF_8
+  location: class StringUtils
+/tmp/evaluate_gemini_Codec_12_3tn85m3x/src/BaseNCodecInputStreamTest.java:151: error: cannot find symbol
+        byte[] inputData = "Testing Chunk Read Logic with Base64".getBytes(StringUtils.UTF_8);
+                                                                                      ^
+  symbol:   variable UTF_8
+  location: class StringUtils
+/tmp/evaluate_gemini_Codec_12_3tn85m3x/src/BaseNCodecInputStreamTest.java:162: error: cannot find symbol
+        Assert.assertEquals(Base64.encodeBase64String(inputData), new String(out.toByteArray(), StringUtils.UTF_8));
+                                                                                                           ^
+  symbol:   variable UTF_8
+  location: class StringUtils
+8 errors

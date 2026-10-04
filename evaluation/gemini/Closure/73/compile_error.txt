@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Closure_73_zc0fgis0/src/CodeGeneratorTest.java:15: error: TestCodeConsumer is not abstract and does not override abstract method getLastChar() in CodeConsumer
+  private static class TestCodeConsumer extends CodeConsumer {
+                 ^
+1 error

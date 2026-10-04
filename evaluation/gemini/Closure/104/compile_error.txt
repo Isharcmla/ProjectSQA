@@ -1,0 +1,24 @@
+/tmp/evaluate_gemini_Closure_104_valfy8fo/src/UnionTypeTest.java:116: error: incompatible types: <null> cannot be converted to boolean
+    obj1.defineDeclaredProperty("foo", numberType, null);
+                                                   ^
+/tmp/evaluate_gemini_Closure_104_valfy8fo/src/UnionTypeTest.java:118: error: incompatible types: <null> cannot be converted to boolean
+    obj2.defineDeclaredProperty("foo", stringType, null);
+                                                   ^
+/tmp/evaluate_gemini_Closure_104_valfy8fo/src/UnionTypeTest.java:335: error: method does not override or implement a method from a supertype
+      @Override public String caseNamedType(NamedType type) { return null; }
+      ^
+/tmp/evaluate_gemini_Closure_104_valfy8fo/src/UnionTypeTest.java:340: error: method does not override or implement a method from a supertype
+      @Override public String caseTemplateType(TemplateType templateType) { return null; }
+      ^
+/tmp/evaluate_gemini_Closure_104_valfy8fo/src/UnionTypeTest.java:349: error: cannot find symbol
+    ErrorReporter reporter = registry.getErrorReporter();
+                                     ^
+  symbol:   method getErrorReporter()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_104_valfy8fo/src/UnionTypeTest.java:350: error: cannot find symbol
+    StaticScope<JSType> scope = registry.getTopScope();
+                                        ^
+  symbol:   method getTopScope()
+  location: variable registry of type JSTypeRegistry
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+6 errors

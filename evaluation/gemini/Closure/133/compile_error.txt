@@ -1,0 +1,51 @@
+/tmp/evaluate_gemini_Closure_133_qln9zc5p/src/JsDocInfoParserTest.java:76: error: incompatible types: SimpleErrorReporter cannot be converted to ErrorReporter
+    return new JsDocInfoParser(stream, commentNode, associatedNode, config, errorReporter);
+                                                                            ^
+/tmp/evaluate_gemini_Closure_133_qln9zc5p/src/JsDocInfoParserTest.java:284: error: cannot find symbol
+    assertTrue(info.hasNoSideEffects());
+                   ^
+  symbol:   method hasNoSideEffects()
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_133_qln9zc5p/src/JsDocInfoParserTest.java:286: error: cannot find symbol
+    assertTrue(info.isPreserveTry());
+                   ^
+  symbol:   method isPreserveTry()
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_133_qln9zc5p/src/JsDocInfoParserTest.java:338: error: an enclosing instance that contains Node.FileLevelJsDocBuilder is required
+    parser.setFileLevelJsDocBuilder(new Node.FileLevelJsDocBuilder() {
+                                    ^
+/tmp/evaluate_gemini_Closure_133_qln9zc5p/src/JsDocInfoParserTest.java:338: error: an enclosing instance that contains Node.FileLevelJsDocBuilder is required
+    parser.setFileLevelJsDocBuilder(new Node.FileLevelJsDocBuilder() {
+                                                                     ^
+/tmp/evaluate_gemini_Closure_133_qln9zc5p/src/JsDocInfoParserTest.java:382: error: cannot find symbol
+    assertEquals(2, info.getImplementedInterfacesCount());
+                        ^
+  symbol:   method getImplementedInterfacesCount()
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_133_qln9zc5p/src/JsDocInfoParserTest.java:425: error: cannot find symbol
+    assertEquals("First param", info.getParameterDescription("a"));
+                                    ^
+  symbol:   method getParameterDescription(String)
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_133_qln9zc5p/src/JsDocInfoParserTest.java:426: error: cannot find symbol
+    assertEquals("Optional param", info.getParameterDescription("b"));
+                                       ^
+  symbol:   method getParameterDescription(String)
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_133_qln9zc5p/src/JsDocInfoParserTest.java:427: error: cannot find symbol
+    assertEquals("Bracketed optional", info.getParameterDescription("c"));
+                                           ^
+  symbol:   method getParameterDescription(String)
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_133_qln9zc5p/src/JsDocInfoParserTest.java:549: error: cannot find symbol
+    assertTrue(errorReporter.hasEncounteredWarning());
+                            ^
+  symbol:   method hasEncounteredWarning()
+  location: variable errorReporter of type SimpleErrorReporter
+/tmp/evaluate_gemini_Closure_133_qln9zc5p/src/JsDocInfoParserTest.java:574: error: cannot find symbol
+    assertTrue(errorReporter.hasEncounteredWarning());
+                            ^
+  symbol:   method hasEncounteredWarning()
+  location: variable errorReporter of type SimpleErrorReporter
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+11 errors

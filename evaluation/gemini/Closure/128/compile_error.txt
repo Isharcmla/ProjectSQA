@@ -1,0 +1,5 @@
+/tmp/evaluate_gemini_Closure_128_dynwcln0/src/CodeGeneratorTest.java:260: error: incompatible types: Charset cannot be converted to String
+    options.setOutputCharset(Charset.forName("ISO-8859-1"));
+                                            ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

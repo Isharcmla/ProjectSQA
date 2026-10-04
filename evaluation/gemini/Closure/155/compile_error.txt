@@ -1,0 +1,44 @@
+/tmp/evaluate_gemini_Closure_155_2e6gjafx/src/ReferenceCollectingCallbackTest.java:313: error: no suitable constructor found for Node(int,String)
+    Node funcNode = new Node(Token.FUNCTION, new Node(Token.NAME, "foo"), new Node(Token.LP), new Node(Token.BLOCK));
+                                             ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/tmp/evaluate_gemini_Closure_155_2e6gjafx/src/ReferenceCollectingCallbackTest.java:332: error: incompatible types: Behavior cannot be converted to Callback
+    NodeTraversal t = new NodeTraversal(compiler, ReferenceCollectingCallback.DO_NOTHING_BEHAVIOR);
+                                                                             ^
+/tmp/evaluate_gemini_Closure_155_2e6gjafx/src/ScopeTest.java:111: error: no suitable constructor found for CompilerInput(SourceFile)
+    CompilerInput input = new CompilerInput(SourceFile.fromCode("test.js", "var foo;"));
+                          ^
+    constructor CompilerInput.CompilerInput(SourceAst) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_155_2e6gjafx/src/ScopeTest.java:216: error: incompatible types: Node cannot be converted to JSTypeExpression
+    builder.recordDefineType(new Node(Token.STRING));
+                             ^
+/tmp/evaluate_gemini_Closure_155_2e6gjafx/src/ScopeTest.java:218: error: incompatible types: Node cannot be converted to String
+    JSDocInfo docInfo = builder.build(nameNode);
+                                      ^
+/tmp/evaluate_gemini_Closure_155_2e6gjafx/src/ScopeTest.java:221: error: no suitable constructor found for CompilerInput(SourceFile,boolean)
+    CompilerInput externInput = new CompilerInput(SourceFile.fromCode("externs.js", "var MY_CONST;"), true);
+                                ^
+    constructor CompilerInput.CompilerInput(SourceAst,boolean) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile,boolean) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_155_2e6gjafx/src/ScopeTest.java:259: error: no suitable constructor found for CompilerInput(SourceFile)
+    CompilerInput input = new CompilerInput(SourceFile.fromCode("app.js", "var x;"));
+                          ^
+    constructor CompilerInput.CompilerInput(SourceAst) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_155_2e6gjafx/src/ScopeTest.java:275: error: cannot find symbol
+    ErrorReporter reporter = compiler.getErrorReporter();
+                                     ^
+  symbol:   method getErrorReporter()
+  location: variable compiler of type Compiler
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+8 errors

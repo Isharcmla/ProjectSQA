@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_Closure_21_6zgagxwa/src/CheckSideEffectsTest.java:48: error: cannot find symbol
+    Assert.assertTrue(compiler.getWarnings()[0].getDescription().contains("missing '+'"));
+                                               ^
+  symbol:   method getDescription()
+  location: class JSError
+/tmp/evaluate_gemini_Closure_21_6zgagxwa/src/CheckSideEffectsTest.java:54: error: cannot find symbol
+    Assert.assertTrue(compiler.getWarnings()[0].getDescription().contains("add"));
+                                               ^
+  symbol:   method getDescription()
+  location: class JSError
+/tmp/evaluate_gemini_Closure_21_6zgagxwa/src/CheckSideEffectsTest.java:60: error: cannot find symbol
+    Assert.assertTrue(compiler.getWarnings()[0].getDescription().contains("lacks side-effects"));
+                                               ^
+  symbol:   method getDescription()
+  location: class JSError
+3 errors

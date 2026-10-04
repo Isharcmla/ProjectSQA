@@ -1,0 +1,8 @@
+/tmp/evaluate_gemini_Closure_99_kfxq_70k/src/CheckGlobalThisTest.java:171: error: incompatible types: Node cannot be converted to String
+    JSDocInfo info = builder.build(func);
+                                   ^
+/tmp/evaluate_gemini_Closure_99_kfxq_70k/src/CheckGlobalThisTest.java:183: error: incompatible types: Node cannot be converted to String
+    varNode.setJSDocInfo(varBuilder.build(varNode));
+                                          ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+2 errors

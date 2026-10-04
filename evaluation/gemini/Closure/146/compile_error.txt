@@ -1,0 +1,40 @@
+/tmp/evaluate_gemini_Closure_146_s0kezc40/src/JSTypeTest.java:34: error: DummyErrorReporter is not abstract and does not override abstract method runtimeError(String,String,int,String,int) in ErrorReporter
+  private static class DummyErrorReporter implements ErrorReporter {
+                 ^
+/tmp/evaluate_gemini_Closure_146_s0kezc40/src/JSTypeTest.java:35: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_146_s0kezc40/src/JSTypeTest.java:38: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_146_s0kezc40/src/JSTypeTest.java:203: error: incompatible types: JSType cannot be converted to ObjectType
+    ProxyObjectType proxy = new ProxyObjectType(registry, numberType);
+                                                          ^
+/tmp/evaluate_gemini_Closure_146_s0kezc40/src/JSTypeTest.java:293: error: method createEnumType in class JSTypeRegistry cannot be applied to given types;
+    EnumType enumType = registry.createEnumType("MyEnum", null, numberType);
+                                ^
+  required: String,JSType
+  found: String,<null>,JSType
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_146_s0kezc40/src/JSTypeTest.java:299: error: method addProperty in class RecordTypeBuilder cannot be applied to given types;
+    builder.addProperty("prop", numberType, null);
+           ^
+  required: String,JSType
+  found: String,JSType,<null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_146_s0kezc40/src/JSTypeTest.java:392: error: cannot find symbol
+    namedType.setReferencedTypeForTesting(numberType);
+             ^
+  symbol:   method setReferencedTypeForTesting(JSType)
+  location: variable namedType of type NamedType
+/tmp/evaluate_gemini_Closure_146_s0kezc40/src/JSTypeTest.java:501: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_146_s0kezc40/src/JSTypeTest.java:526: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_146_s0kezc40/src/JSTypeTest.java:531: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+10 errors

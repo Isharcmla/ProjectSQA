@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Closure_136_0y3jyrkk/src/MethodCompilerPassTest.java:347: error: cannot find symbol
+    compiler.initOptions(options);
+            ^
+  symbol:   method initOptions(CompilerOptions)
+  location: variable compiler of type Compiler
+/tmp/evaluate_gemini_Closure_136_0y3jyrkk/src/RenameVarsTest.java:267: error: cannot find symbol
+    compiler.initOptions(new CompilerOptions());
+            ^
+  symbol:   method initOptions(CompilerOptions)
+  location: variable compiler of type Compiler
+2 errors

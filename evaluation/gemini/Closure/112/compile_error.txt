@@ -1,0 +1,45 @@
+/tmp/evaluate_gemini_Closure_112_6at6xex0/src/TypeInferenceTest.java:38: error: cannot find symbol
+    SemanticReverseAbstractInterpreter rai =
+    ^
+  symbol:   class SemanticReverseAbstractInterpreter
+  location: class TypeInferenceTest
+/tmp/evaluate_gemini_Closure_112_6at6xex0/src/TypeInferenceTest.java:39: error: cannot find symbol
+        new SemanticReverseAbstractInterpreter(compiler.getCodingConvention(), registry);
+            ^
+  symbol:   class SemanticReverseAbstractInterpreter
+  location: class TypeInferenceTest
+/tmp/evaluate_gemini_Closure_112_6at6xex0/src/TypeInferenceTest.java:47: error: cannot find symbol
+    ControlFlowGraph<Node> cfg = ControlFlowAnalysis.computeCfg(root, true);
+                                                    ^
+  symbol:   method computeCfg(Node,boolean)
+  location: class ControlFlowAnalysis
+/tmp/evaluate_gemini_Closure_112_6at6xex0/src/TypeInferenceTest.java:48: error: incompatible types: Map<String,AssertionFunctionSpec> cannot be converted to ControlFlowGraph<Node>
+    TypeInference inference = createTypeInference(root, globalScope, assertionMap);
+                                                                     ^
+/tmp/evaluate_gemini_Closure_112_6at6xex0/src/TypeInferenceTest.java:317: error: cannot find symbol
+    ControlFlowGraph<Node> cfg = ControlFlowAnalysis.computeCfg(root, true);
+                                                    ^
+  symbol:   method computeCfg(Node,boolean)
+  location: class ControlFlowAnalysis
+/tmp/evaluate_gemini_Closure_112_6at6xex0/src/TypeInferenceTest.java:320: error: cannot find symbol
+    FlowScope entry = inference.createEntryLattice();
+    ^
+  symbol:   class FlowScope
+  location: class TypeInferenceTest
+/tmp/evaluate_gemini_Closure_112_6at6xex0/src/TypeInferenceTest.java:323: error: cannot find symbol
+    FlowScope initial = inference.createInitialEstimateLattice();
+    ^
+  symbol:   class FlowScope
+  location: class TypeInferenceTest
+/tmp/evaluate_gemini_Closure_112_6at6xex0/src/TypeInferenceTest.java:326: error: cannot find symbol
+    FlowScope result = inference.flowThrough(root, initial);
+    ^
+  symbol:   class FlowScope
+  location: class TypeInferenceTest
+/tmp/evaluate_gemini_Closure_112_6at6xex0/src/TypeInferenceTest.java:329: error: cannot find symbol
+    FlowScope flowScope = inference.flowThrough(root, entry);
+    ^
+  symbol:   class FlowScope
+  location: class TypeInferenceTest
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+9 errors

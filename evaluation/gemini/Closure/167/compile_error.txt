@@ -1,0 +1,30 @@
+/tmp/evaluate_gemini_Closure_167_k5jvwixt/src/SemanticReverseAbstractInterpreterTest.java:10: error: cannot find symbol
+import com.google.javascript.jscomp.DefaultCodingConvention;
+                                   ^
+  symbol:   class DefaultCodingConvention
+  location: package com.google.javascript.jscomp
+/tmp/evaluate_gemini_Closure_167_k5jvwixt/src/SemanticReverseAbstractInterpreterTest.java:34: error: cannot find symbol
+    convention = new DefaultCodingConvention();
+                     ^
+  symbol:   class DefaultCodingConvention
+  location: class SemanticReverseAbstractInterpreterTest
+/tmp/evaluate_gemini_Closure_167_k5jvwixt/src/SemanticReverseAbstractInterpreterTest.java:38: error: Scope(Node,ObjectType) is not public in Scope; cannot be accessed from outside package
+    globalScope = new Scope(root, (ObjectType) null);
+                  ^
+/tmp/evaluate_gemini_Closure_167_k5jvwixt/src/SemanticReverseAbstractInterpreterTest.java:39: error: cannot find symbol
+    blindScope = LinkedFlowScope.createEntryLattice(globalScope);
+                 ^
+  symbol:   variable LinkedFlowScope
+  location: class SemanticReverseAbstractInterpreterTest
+/tmp/evaluate_gemini_Closure_167_k5jvwixt/src/SemanticReverseAbstractInterpreterTest.java:43: error: method declare in class Scope cannot be applied to given types;
+    globalScope.declare(name, null, type, null);
+               ^
+  required: String,Node,JSType,CompilerInput,boolean
+  found: String,<null>,JSType,<null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_167_k5jvwixt/src/SemanticReverseAbstractInterpreterTest.java:44: error: cannot find symbol
+    blindScope = LinkedFlowScope.createEntryLattice(globalScope);
+                 ^
+  symbol:   variable LinkedFlowScope
+  location: class SemanticReverseAbstractInterpreterTest
+6 errors

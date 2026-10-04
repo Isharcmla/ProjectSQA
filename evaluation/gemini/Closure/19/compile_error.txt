@@ -1,0 +1,51 @@
+/tmp/evaluate_gemini_Closure_19_66sfp7ua/src/ChainableReverseAbstractInterpreterTest.java:22: error: cannot find symbol
+import com.google.javascript.jscomp.DefaultCodingConvention;
+                                   ^
+  symbol:   class DefaultCodingConvention
+  location: package com.google.javascript.jscomp
+/tmp/evaluate_gemini_Closure_19_66sfp7ua/src/ChainableReverseAbstractInterpreterTest.java:50: error: SimpleSlot is not abstract and does not override abstract method getJSDocInfo() in StaticSlot
+  private static class SimpleSlot implements StaticSlot<JSType> {
+                 ^
+/tmp/evaluate_gemini_Closure_19_66sfp7ua/src/ChainableReverseAbstractInterpreterTest.java:75: error: getDeclaration() in SimpleSlot cannot implement getDeclaration() in StaticSlot
+    public StaticSlot<JSType> getDeclaration() {
+                              ^
+  return type StaticSlot<JSType> is not compatible with StaticReference<JSType>
+  where T is a type-variable:
+    T extends Object declared in interface StaticSlot
+/tmp/evaluate_gemini_Closure_19_66sfp7ua/src/ChainableReverseAbstractInterpreterTest.java:74: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_19_66sfp7ua/src/ChainableReverseAbstractInterpreterTest.java:79: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_19_66sfp7ua/src/ChainableReverseAbstractInterpreterTest.java:171: error: cannot find symbol
+    convention = new DefaultCodingConvention();
+                     ^
+  symbol:   class DefaultCodingConvention
+  location: class ChainableReverseAbstractInterpreterTest
+/tmp/evaluate_gemini_Closure_19_66sfp7ua/src/ChainableReverseAbstractInterpreterTest.java:409: error: cannot find symbol
+    TemplateType templateType = registry.createTemplateType("T");
+                                        ^
+  symbol:   method createTemplateType(String)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_19_66sfp7ua/src/ChainableReverseAbstractInterpreterTest.java:486: error: cannot find symbol
+    TemplateType templateType = registry.createTemplateType("T2");
+                                        ^
+  symbol:   method createTemplateType(String)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_19_66sfp7ua/src/ChainableReverseAbstractInterpreterTest.java:660: error: cannot find symbol
+    TemplateType templateType = registry.createTemplateType("T3");
+                                        ^
+  symbol:   method createTemplateType(String)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_19_66sfp7ua/src/ChainableReverseAbstractInterpreterTest.java:699: error: cannot find symbol
+    TemplateType templateType = registry.createTemplateType("T4");
+                                        ^
+  symbol:   method createTemplateType(String)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_19_66sfp7ua/src/ChainableReverseAbstractInterpreterTest.java:734: error: cannot find symbol
+    TemplateType templateType = registry.createTemplateType("T5");
+                                        ^
+  symbol:   method createTemplateType(String)
+  location: variable registry of type JSTypeRegistry
+11 errors

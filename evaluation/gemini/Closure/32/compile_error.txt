@@ -1,0 +1,26 @@
+/tmp/evaluate_gemini_Closure_32_87eybwtt/src/JsDocInfoParserTest.java:75: error: cannot find symbol
+    Comment commentNode = new Comment(0, comment.length(), Comment.CommentType.JSDOC, comment);
+                                                                  ^
+  symbol:   variable CommentType
+  location: class Comment
+/tmp/evaluate_gemini_Closure_32_87eybwtt/src/JsDocInfoParserTest.java:431: error: cannot find symbol
+    Assert.assertEquals("First param", info.getParameterDescription("a"));
+                                           ^
+  symbol:   method getParameterDescription(String)
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_32_87eybwtt/src/JsDocInfoParserTest.java:432: error: cannot find symbol
+    Assert.assertEquals("Optional param", info.getParameterDescription("b"));
+                                              ^
+  symbol:   method getParameterDescription(String)
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_32_87eybwtt/src/JsDocInfoParserTest.java:482: error: cannot find symbol
+    Assert.assertTrue(info.hasNoSideEffects());
+                          ^
+  symbol:   method hasNoSideEffects()
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_32_87eybwtt/src/JsDocInfoParserTest.java:487: error: cannot find symbol
+    Assert.assertEquals(ImmutableSet.of("T"), ImmutableSet.copyOf(info.getTemplateTypeNames()));
+                                                                      ^
+  symbol:   method getTemplateTypeNames()
+  location: variable info of type JSDocInfo
+5 errors

@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Compress_20_1d4gor5j/src/CpioArchiveInputStreamTest.java:30: error: cannot find symbol
+            out.putNextEntry(entry);
+               ^
+  symbol:   method putNextEntry(CpioArchiveEntry)
+  location: variable out of type CpioArchiveOutputStream
+1 error

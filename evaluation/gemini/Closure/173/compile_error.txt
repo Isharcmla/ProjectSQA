@@ -1,0 +1,28 @@
+/tmp/evaluate_gemini_Closure_173_dwwpj_b6/src/CodeGeneratorTest.java:73: error: incompatible types: Charset cannot be converted to String
+    options.setOutputCharset(Charsets.US_ASCII);
+                                     ^
+/tmp/evaluate_gemini_Closure_173_dwwpj_b6/src/CodeGeneratorTest.java:182: error: incompatible types: Charset cannot be converted to String
+    options.setOutputCharset(Charset.forName("UTF-8"));
+                                            ^
+/tmp/evaluate_gemini_Closure_173_dwwpj_b6/src/CodeGeneratorTest.java:389: error: no suitable constructor found for Node(int,String)
+        new Node(Token.NAME, "i"),
+        ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/tmp/evaluate_gemini_Closure_173_dwwpj_b6/src/CodeGeneratorTest.java:565: error: cannot find symbol
+    a.setNext(b);
+     ^
+  symbol:   method setNext(Node)
+  location: variable a of type Node
+/tmp/evaluate_gemini_Closure_173_dwwpj_b6/src/CodeGeneratorTest.java:602: error: cannot find symbol
+    Node unknownNode = new Node(Token.LAST_TOKEN + 100);
+                                     ^
+  symbol:   variable LAST_TOKEN
+  location: class Token
+/tmp/evaluate_gemini_Closure_173_dwwpj_b6/src/PeepholeSubstituteAlternateSyntaxTest.java:27: error: incompatible types: NodeTraversal cannot be converted to AbstractCompiler
+    peephole.beginTraversal(t);
+                            ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+6 errors

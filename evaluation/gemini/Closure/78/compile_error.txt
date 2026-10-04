@@ -1,0 +1,10 @@
+/tmp/evaluate_gemini_Closure_78_moz3dpjv/src/PeepholeFoldConstantsTest.java:18: error: incompatible types: Compiler cannot be converted to NodeTraversal
+    peephole.beginTraversal(compiler);
+                            ^
+/tmp/evaluate_gemini_Closure_78_moz3dpjv/src/PeepholeFoldConstantsTest.java:78: error: cannot find symbol
+    Node typeofFunc = fold(new Node(Token.TYPEOF, new Node(Token.FUNCTION, Node.newString(Token.NAME, "f"), new Node(Token.PARAM_LIST), new Node(Token.BLOCK))));
+                                                                                                                          ^
+  symbol:   variable PARAM_LIST
+  location: class Token
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+2 errors

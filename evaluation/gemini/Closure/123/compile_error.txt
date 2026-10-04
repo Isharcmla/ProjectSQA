@@ -1,0 +1,4 @@
+/tmp/evaluate_gemini_Closure_123_u4qpgohi/src/CodeGeneratorTest.java:212: error: illegal escape character
+    Node node = IR.string("\0\u000B\b\f\n\r\t\\\"'\u2028\u2029=&><-->]]><\/script<!--");
+                                                                          ^
+1 error

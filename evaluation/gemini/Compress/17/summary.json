@@ -1,0 +1,12 @@
+{
+  "project": "Compress",
+  "bug_id": "17",
+  "tool": "gemini",
+  "generated_files": 1,
+  "candidate_tests": 44,
+  "classification_counts": {},
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "success",
+  "evaluation_status": "compile_failed"
+}

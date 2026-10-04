@@ -1,0 +1,29 @@
+/tmp/evaluate_gemini_Cli_16__zc2p9ib/src/GroupImplTest.java:25: error: DummyCommandLine is not abstract and does not override abstract method addProperty(String,String) in WriteableCommandLine
+    private static class DummyCommandLine implements WriteableCommandLine {
+                   ^
+/tmp/evaluate_gemini_Cli_16__zc2p9ib/src/GroupImplTest.java:101: error: getProperty(Option,String) in DummyCommandLine cannot implement getProperty(Option,String) in CommandLine
+        public Object getProperty(Option option, String property) {
+                      ^
+  return type Object is not compatible with String
+/tmp/evaluate_gemini_Cli_16__zc2p9ib/src/GroupImplTest.java:97: error: getProperty(String) in DummyCommandLine cannot implement getProperty(String) in CommandLine
+        public Object getProperty(String property) {
+                      ^
+  return type Object is not compatible with String
+/tmp/evaluate_gemini_Cli_16__zc2p9ib/src/GroupImplTest.java:234: error: DummyArgument is not abstract and does not override abstract method getMaximum() in Argument
+    private static class DummyArgument extends DummyOption implements Argument {
+                   ^
+/tmp/evaluate_gemini_Cli_16__zc2p9ib/src/WriteableCommandLineImplTest.java:29: error: DummyOption is not abstract and does not override abstract method defaults(WriteableCommandLine) in Option
+    private static class DummyOption implements Option {
+                   ^
+/tmp/evaluate_gemini_Cli_16__zc2p9ib/src/WriteableCommandLineImplTest.java:93: error: DummyArgument is not abstract and does not override abstract method validate(WriteableCommandLine,Option) in Argument
+    private static class DummyArgument extends DummyOption implements Argument {
+                   ^
+/tmp/evaluate_gemini_Cli_16__zc2p9ib/src/WriteableCommandLineImplTest.java:98: error: getInitialSeparator() in DummyArgument cannot implement getInitialSeparator() in Argument
+        public String getInitialSeparator() {
+                      ^
+  return type String is not compatible with char
+Note: /tmp/evaluate_gemini_Cli_16__zc2p9ib/src/OptionImplTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+7 errors

@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Gson_1_8fxa14n3/src/TypeInfoFactoryTest.java:58: error: cannot find symbol
+    assertEquals(String.class, typeInfoArray.getComponentType());
+                                            ^
+  symbol:   method getComponentType()
+  location: variable typeInfoArray of type TypeInfoArray
+1 error

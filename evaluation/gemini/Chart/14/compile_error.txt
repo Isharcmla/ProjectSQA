@@ -1,0 +1,54 @@
+/tmp/evaluate_gemini_Chart_14_wfteo_7j/src/CategoryPlotTest.java:511: error: no suitable constructor found for LegendItem(String)
+        fixed.add(new LegendItem("Fixed"));
+                  ^
+    constructor LegendItem.LegendItem(String,String,String,String,Shape,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(String,String,String,String,Shape,Paint,Stroke,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(String,String,String,String,Shape,Stroke,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(String,String,String,String,boolean,Shape,boolean,Paint,boolean,Paint,Stroke,boolean,Shape,Stroke,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(AttributedString,String,String,String,Shape,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(AttributedString,String,String,String,Shape,Paint,Stroke,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(AttributedString,String,String,String,Shape,Stroke,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(AttributedString,String,String,String,boolean,Shape,boolean,Paint,boolean,Paint,Stroke,boolean,Shape,Stroke,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Chart_14_wfteo_7j/src/XYPlotTest.java:353: error: cannot find symbol
+        Paint paint = Color.red;
+        ^
+  symbol:   class Paint
+  location: class XYPlotTest
+/tmp/evaluate_gemini_Chart_14_wfteo_7j/src/XYPlotTest.java:394: error: cannot find symbol
+        Paint paint = Color.green;
+        ^
+  symbol:   class Paint
+  location: class XYPlotTest
+/tmp/evaluate_gemini_Chart_14_wfteo_7j/src/XYPlotTest.java:435: error: cannot find symbol
+        Paint paint = Color.cyan;
+        ^
+  symbol:   class Paint
+  location: class XYPlotTest
+/tmp/evaluate_gemini_Chart_14_wfteo_7j/src/XYPlotTest.java:670: error: no suitable constructor found for LegendItem(String)
+        fixedLegends.add(new LegendItem("Fixed"));
+                         ^
+    constructor LegendItem.LegendItem(String,String,String,String,Shape,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(String,String,String,String,Shape,Paint,Stroke,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(String,String,String,String,Shape,Stroke,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(String,String,String,String,boolean,Shape,boolean,Paint,boolean,Paint,Stroke,boolean,Shape,Stroke,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(AttributedString,String,String,String,Shape,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(AttributedString,String,String,String,Shape,Paint,Stroke,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(AttributedString,String,String,String,Shape,Stroke,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor LegendItem.LegendItem(AttributedString,String,String,String,boolean,Shape,boolean,Paint,boolean,Paint,Stroke,boolean,Shape,Stroke,Paint) is not applicable
+      (actual and formal argument lists differ in length)
+5 errors

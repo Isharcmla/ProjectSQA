@@ -1,0 +1,61 @@
+/tmp/evaluate_gemini_Closure_37_mpnwdcon/src/IRFactoryTest.java:61: error: cannot find symbol
+    env.setLanguageMode(
+       ^
+  symbol:   method setLanguageMode(int)
+  location: variable env of type CompilerEnvirons
+/tmp/evaluate_gemini_Closure_37_mpnwdcon/src/NodeTraversalTest.java:91: error: cannot find symbol
+    script.setSourceFileName("test.js");
+          ^
+  symbol:   method setSourceFileName(String)
+  location: variable script of type Node
+/tmp/evaluate_gemini_Closure_37_mpnwdcon/src/NodeTraversalTest.java:200: error: cannot find symbol
+    Scope globalScope = Scope.createGlobalScope(root);
+                             ^
+  symbol:   method createGlobalScope(Node)
+  location: class Scope
+/tmp/evaluate_gemini_Closure_37_mpnwdcon/src/NodeTraversalTest.java:213: error: cannot find symbol
+    Scope globalScope = Scope.createGlobalScope(globalRoot);
+                             ^
+  symbol:   method createGlobalScope(Node)
+  location: class Scope
+/tmp/evaluate_gemini_Closure_37_mpnwdcon/src/NodeTraversalTest.java:226: error: cannot find symbol
+    Scope globalScope = Scope.createGlobalScope(globalRoot);
+                             ^
+  symbol:   method createGlobalScope(Node)
+  location: class Scope
+/tmp/evaluate_gemini_Closure_37_mpnwdcon/src/NodeTraversalTest.java:228: error: cannot find symbol
+    fn.setSourceFileName("func.js");
+      ^
+  symbol:   method setSourceFileName(String)
+  location: variable fn of type Node
+/tmp/evaluate_gemini_Closure_37_mpnwdcon/src/NodeTraversalTest.java:245: error: cannot find symbol
+    Scope globalScope = Scope.createGlobalScope(globalRoot);
+                             ^
+  symbol:   method createGlobalScope(Node)
+  location: class Scope
+/tmp/evaluate_gemini_Closure_37_mpnwdcon/src/NodeTraversalTest.java:259: error: cannot find symbol
+    final Scope globalScope = Scope.createGlobalScope(root);
+                                   ^
+  symbol:   method createGlobalScope(Node)
+  location: class Scope
+/tmp/evaluate_gemini_Closure_37_mpnwdcon/src/NodeTraversalTest.java:400: error: cannot find symbol
+    root.setSourceFileName("test.js");
+        ^
+  symbol:   method setSourceFileName(String)
+  location: variable root of type Node
+/tmp/evaluate_gemini_Closure_37_mpnwdcon/src/NodeTraversalTest.java:408: error: cannot find symbol
+    Assert.assertEquals(CheckLevel.WARNING, err1.getDefaultLevel());
+                                                ^
+  symbol:   method getDefaultLevel()
+  location: variable err1 of type JSError
+/tmp/evaluate_gemini_Closure_37_mpnwdcon/src/NodeTraversalTest.java:412: error: cannot find symbol
+    Assert.assertEquals(CheckLevel.ERROR, err2.getDefaultLevel());
+                                              ^
+  symbol:   method getDefaultLevel()
+  location: variable err2 of type JSError
+/tmp/evaluate_gemini_Closure_37_mpnwdcon/src/NodeTraversalTest.java:422: error: cannot find symbol
+    script.setSourceFileName("error.js");
+          ^
+  symbol:   method setSourceFileName(String)
+  location: variable script of type Node
+12 errors

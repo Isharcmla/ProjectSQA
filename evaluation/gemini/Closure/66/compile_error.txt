@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Closure_66_7h_z3dvn/src/TypeCheckTest.java:6: error: cannot find symbol
+import com.google.javascript.rhino.jstype.SemanticReverseAbstractInterpreter;
+                                         ^
+  symbol:   class SemanticReverseAbstractInterpreter
+  location: package com.google.javascript.rhino.jstype
+1 error

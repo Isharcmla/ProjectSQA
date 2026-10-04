@@ -1,0 +1,27 @@
+/tmp/evaluate_gemini_Closure_118_y14k8vqr/src/DisambiguatePropertiesTest.java:82: error: cannot find symbol
+    Node externs = IR.root();
+                     ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_118_y14k8vqr/src/DisambiguatePropertiesTest.java:83: error: cannot find symbol
+    Node root = IR.root();
+                  ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_118_y14k8vqr/src/DisambiguatePropertiesTest.java:93: error: cannot find symbol
+    Node externs = IR.root();
+                     ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_118_y14k8vqr/src/DisambiguatePropertiesTest.java:94: error: cannot find symbol
+    Node root = IR.root();
+                  ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_118_y14k8vqr/src/DisambiguatePropertiesTest.java:321: error: DisambiguateProperties.Property has private access in DisambiguateProperties
+    DisambiguateProperties<JSType>.Property p1 = pass.getProperty("customProp");
+                                  ^
+/tmp/evaluate_gemini_Closure_118_y14k8vqr/src/DisambiguatePropertiesTest.java:322: error: DisambiguateProperties.Property has private access in DisambiguateProperties
+    DisambiguateProperties<JSType>.Property p2 = pass.getProperty("customProp");
+                                  ^
+6 errors

@@ -1,0 +1,8 @@
+/tmp/evaluate_gemini_Closure_143_nlsh_z1c/src/AbstractCommandLineRunnerTest.java:394: error: no suitable constructor found for Result(JSError[],JSError[],<null>,<null>,<null>,<null>,<null>)
+    Result result = new Result(new JSError[0], new JSError[0], null, null, null, null, null);
+                    ^
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String,Map<String,Integer>) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String) is not applicable
+      (actual and formal argument lists differ in length)
+1 error

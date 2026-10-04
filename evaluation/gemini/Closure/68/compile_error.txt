@@ -1,0 +1,30 @@
+/tmp/evaluate_gemini_Closure_68_yaol4zq_/src/JsDocInfoParserTest.java:117: error: cannot find symbol
+  private JsDocInfo parseAndGetInfo(String comment) {
+          ^
+  symbol:   class JsDocInfo
+  location: class JsDocInfoParserTest
+/tmp/evaluate_gemini_Closure_68_yaol4zq_/src/JsDocInfoParserTest.java:108: error: incompatible types: Map<String,Annotation> cannot be converted to Set<String>
+    return new Config(annotationNames, suppressionNames, parseDoc, LanguageMode.ECMASCRIPT5, false);
+                      ^
+/tmp/evaluate_gemini_Closure_68_yaol4zq_/src/JsDocInfoParserTest.java:113: error: cannot find symbol
+    Comment commentNode = new Comment(0, comment.length(), Comment.CommentType.JSDOC, comment);
+                                                                  ^
+  symbol:   variable CommentType
+  location: class Comment
+/tmp/evaluate_gemini_Closure_68_yaol4zq_/src/JsDocInfoParserTest.java:366: error: cannot find symbol
+    assertEquals("First param", info.getParameterDescription("a"));
+                                    ^
+  symbol:   method getParameterDescription(String)
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_68_yaol4zq_/src/JsDocInfoParserTest.java:416: error: cannot find symbol
+    assertTrue(info.getTemplateTypeNames().contains("T"));
+                   ^
+  symbol:   method getTemplateTypeNames()
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_68_yaol4zq_/src/JsDocInfoParserTest.java:428: error: cannot find symbol
+    assertNotNull(info.getDefineType());
+                      ^
+  symbol:   method getDefineType()
+  location: variable info of type JSDocInfo
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+6 errors

@@ -1,0 +1,19 @@
+/tmp/evaluate_gemini_Chart_23_96vrykm3/src/MinMaxCategoryRendererTest.java:236: error: cannot find symbol
+        state.setElementHinting(false);
+             ^
+  symbol:   method setElementHinting(boolean)
+  location: variable state of type CategoryItemRendererState
+/tmp/evaluate_gemini_Chart_23_96vrykm3/src/MinMaxCategoryRendererTest.java:275: error: incompatible types: DefaultCategoryDataset cannot be converted to int
+        CategoryItemRendererState state = renderer.initialise(g2, dataArea, plot, dataset, null);
+                                                                                  ^
+/tmp/evaluate_gemini_Chart_23_96vrykm3/src/MinMaxCategoryRendererTest.java:305: error: incompatible types: DefaultCategoryDataset cannot be converted to int
+        CategoryItemRendererState state = renderer.initialise(g2, dataArea, plot, dataset, null);
+                                                                                  ^
+/tmp/evaluate_gemini_Chart_23_96vrykm3/src/MinMaxCategoryRendererTest.java:331: error: incompatible types: DefaultCategoryDataset cannot be converted to int
+        CategoryItemRendererState state = renderer.initialise(g2, dataArea, plot, dataset, null);
+                                                                                  ^
+/tmp/evaluate_gemini_Chart_23_96vrykm3/src/MinMaxCategoryRendererTest.java:356: error: incompatible types: DefaultCategoryDataset cannot be converted to int
+        CategoryItemRendererState state = renderer.initialise(g2, dataArea, plot, dataset, null);
+                                                                                  ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+5 errors

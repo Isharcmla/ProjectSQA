@@ -1,0 +1,114 @@
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:209: error: incompatible types: JSType cannot be converted to UnionType
+    UnionType unionWithForward = registry.createUnionType(nullType, noResolvedType);
+                                                         ^
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:222: error: cannot find symbol
+    Node root = IR.root(IR.function(IR.name("fn"), IR.paramList(), IR.block(IR.exprResult(getPropNode))));
+                  ^
+  symbol:   method root(Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:239: error: cannot find symbol
+    Node switchNode = IR.switchSelect(IR.name("a"), IR.caseNode(IR.name("b"), IR.block()));
+                        ^
+  symbol:   method switchSelect(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:256: error: cannot find symbol
+    structType.setStruct();
+              ^
+  symbol:   method setStruct()
+  location: variable structType of type ObjectType
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:283: error: cannot find symbol
+    restrictedObj.setIndexType(registry.getNativeType(NUMBER_TYPE));
+                 ^
+  symbol:   method setIndexType(JSType)
+  location: variable restrictedObj of type ObjectType
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:328: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>)
+    FunctionType ctor1 = registry.createConstructorType("Ctor1", null, null, null);
+                                 ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:329: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>)
+    FunctionType ctor2 = registry.createConstructorType("Ctor2", null, null, null);
+                                 ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:381: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>)
+    FunctionType superCtor = registry.createConstructorType("SuperClass", null, null, null);
+                                     ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:382: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>)
+    FunctionType subCtor = registry.createConstructorType("SubClass", null, null, null);
+                                   ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:389: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>)
+    FunctionType otherSuperCtor = registry.createConstructorType("OtherSuper", null, null, null);
+                                          ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:393: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>)
+    FunctionType noExtendsCtor = registry.createConstructorType("NoExtends", null, null, null);
+                                         ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:414: error: method name in class IR cannot be applied to given types;
+    Node root = IR.root(IR.var(IR.name("x", 1, 0)));
+                                 ^
+  required: String
+  found: String,int,int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:431: error: method name in class IR cannot be applied to given types;
+    Node fn = IR.function(IR.name("x", 1, 0), IR.paramList(), IR.block());
+                            ^
+  required: String
+  found: String,int,int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:432: error: cannot find symbol
+    Node root = IR.root(fn);
+                  ^
+  symbol:   method root(Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:448: error: method name in class IR cannot be applied to given types;
+    Node root = IR.root(IR.var(IR.name("x", 1, 0)));
+                                 ^
+  required: String
+  found: String,int,int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:465: error: cannot find symbol
+    Node root = IR.root(IR.exprResult(IR.getprop(IR.name("a"), IR.string("b"))));
+                  ^
+  symbol:   method root(Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:473: error: incompatible types: no instance(s) of type variable(s) E exist so that ImmutableList<E> conforms to Set<String>
+    builder.recordSuppressions(ImmutableList.of("duplicate"));
+           ^
+  where E is a type-variable:
+    E extends Object declared in method <E>of(E)
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:490: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>)
+    FunctionType impl = registry.createConstructorType("MyClass", null, null, null);
+                                ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+/tmp/evaluate_gemini_Closure_6_gqc279jk/src/TypeValidatorTest.java:516: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>)
+    FunctionType ctor = registry.createConstructorType("MyClass", null, null, null);
+                                ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+19 errors

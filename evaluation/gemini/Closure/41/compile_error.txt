@@ -1,0 +1,168 @@
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:106: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    JSDocInfo emptyInfo = builder.build();
+                                 ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:111: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    assertTrue(FunctionTypeBuilder.isFunctionTypeDeclaration(builder.build()));
+                                                                    ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:115: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    assertTrue(FunctionTypeBuilder.isFunctionTypeDeclaration(builder.build()));
+                                                                    ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:119: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    assertTrue(FunctionTypeBuilder.isFunctionTypeDeclaration(builder.build()));
+                                                                    ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:123: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    assertTrue(FunctionTypeBuilder.isFunctionTypeDeclaration(builder.build()));
+                                                                    ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:127: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    assertTrue(FunctionTypeBuilder.isFunctionTypeDeclaration(builder.build()));
+                                                                    ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:185: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferReturnType(docBuilder.build());
+                                      ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:197: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    JSDocInfo info = templateDoc.build();
+                                ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:205: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferReturnType(returnDoc.build());
+                                     ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:221: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferInheritance(docBuilder.build());
+                                       ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:237: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferInheritance(docBuilder.build());
+                                       ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:256: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferInheritance(docBuilder.build());
+                                       ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:273: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferInheritance(docBuilder.build());
+                                       ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:290: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferInheritance(docBuilder.build());
+                                       ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:307: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferInheritance(docBuilder.build());
+                                       ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:321: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferThisType(docBuilder.build(), registry.getNativeType(JSTypeNative.OBJECT_TYPE));
+                                    ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:347: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferThisType(docBuilder.build());
+                                    ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:360: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    JSDocInfo info = docBuilder.build();
+                               ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:367: error: cannot find symbol
+    assertEquals(2, fnType.getParametersCount());
+                          ^
+  symbol:   method getParametersCount()
+  location: variable fnType of type FunctionType
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:394: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferParameterTypes(args, docBuilder.build());
+                                                ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:413: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferTemplateTypeName(infoBuilder.build());
+                                             ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:414: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferParameterTypes(args, infoBuilder.build());
+                                                 ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:432: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferTemplateTypeName(infoBuilder.build());
+                                             ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:433: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferParameterTypes(args, infoBuilder.build());
+                                                 ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:456: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferParameterTypes(args, docBuilder.build());
+                                                ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:479: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferParameterTypes(args, docBuilder.build());
+                                                ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:513: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferInheritance(doc.build());
+                                ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_41_5ru_ro99/src/FunctionTypeBuilderTest.java:533: error: method build in class JSDocInfoBuilder cannot be applied to given types;
+    builder.inferInheritance(doc.build());
+                                ^
+  required: Node
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+28 errors

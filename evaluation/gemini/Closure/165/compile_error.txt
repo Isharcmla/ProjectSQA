@@ -1,0 +1,17 @@
+/tmp/evaluate_gemini_Closure_165_keqv9yof/src/JSTypeRegistryTest.java:505: error: incompatible types: Node cannot be converted to int
+    Node recordNode = new Node(Token.LC, colonField, quotedField, dblQuotedField, noTypeField, duplicateField);
+                                                                                  ^
+/tmp/evaluate_gemini_Closure_165_keqv9yof/src/ObjectTypeTest.java:37: error: StubObjectType is not abstract and does not override abstract method toStringHelper(boolean) in JSType
+  private static class StubObjectType extends ObjectType {
+                 ^
+/tmp/evaluate_gemini_Closure_165_keqv9yof/src/ObjectTypeTest.java:347: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_165_keqv9yof/src/ObjectTypeTest.java:357: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_165_keqv9yof/src/ObjectTypeTest.java:359: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+5 errors

@@ -1,0 +1,50 @@
+/tmp/evaluate_gemini_Closure_45_mgmsugre/src/RemoveUnusedVarsTest.java:20: error: cannot find symbol
+    Node externs = IR.root();
+                     ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_45_mgmsugre/src/RemoveUnusedVarsTest.java:37: error: cannot find symbol
+    Node externs = IR.root();
+                     ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_45_mgmsugre/src/RemoveUnusedVarsTest.java:52: error: cannot find symbol
+      pass.process(IR.root(), root);
+                     ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_45_mgmsugre/src/RemoveUnusedVarsTest.java:66: error: cannot find symbol
+      pass.process(IR.root(), IR.root(), null);
+                     ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_45_mgmsugre/src/RemoveUnusedVarsTest.java:66: error: cannot find symbol
+      pass.process(IR.root(), IR.root(), null);
+                                ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_45_mgmsugre/src/RemoveUnusedVarsTest.java:227: error: cannot find symbol
+    Node externs = IR.root();
+                     ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_45_mgmsugre/src/RemoveUnusedVarsTest.java:247: error: isExported(String) in <anonymous com.google.javascript.jscomp.RemoveUnusedVarsTest$1> cannot override isExported(String) in Proxy
+      public boolean isExported(String name) {
+                     ^
+  overridden method is final
+/tmp/evaluate_gemini_Closure_45_mgmsugre/src/RemoveUnusedVarsTest.java:251: error: cannot find symbol
+    compiler.setCodingConvention(convention);
+            ^
+  symbol:   method setCodingConvention(CodingConvention)
+  location: variable compiler of type Compiler
+/tmp/evaluate_gemini_Closure_45_mgmsugre/src/RemoveUnusedVarsTest.java:253: error: cannot find symbol
+    Node externs = IR.root();
+                     ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_45_mgmsugre/src/RemoveUnusedVarsTest.java:271: error: cannot find symbol
+    Node externs = IR.root();
+                     ^
+  symbol:   method root()
+  location: class IR
+10 errors

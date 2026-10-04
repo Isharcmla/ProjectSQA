@@ -1,0 +1,20 @@
+/tmp/evaluate_gemini_Closure_33_snczybha/src/PrototypeObjectTypeTest.java:40: error: cannot find symbol
+    numberPrototype = registry.getNativeObjectType(JSTypeNative.NUMBER_PROTOTYPE);
+                                                               ^
+  symbol:   variable NUMBER_PROTOTYPE
+  location: class JSTypeNative
+/tmp/evaluate_gemini_Closure_33_snczybha/src/PrototypeObjectTypeTest.java:41: error: cannot find symbol
+    stringPrototype = registry.getNativeObjectType(JSTypeNative.STRING_PROTOTYPE);
+                                                               ^
+  symbol:   variable STRING_PROTOTYPE
+  location: class JSTypeNative
+/tmp/evaluate_gemini_Closure_33_snczybha/src/PrototypeObjectTypeTest.java:42: error: cannot find symbol
+    booleanPrototype = registry.getNativeObjectType(JSTypeNative.BOOLEAN_PROTOTYPE);
+                                                                ^
+  symbol:   variable BOOLEAN_PROTOTYPE
+  location: class JSTypeNative
+/tmp/evaluate_gemini_Closure_33_snczybha/src/PrototypeObjectTypeTest.java:387: error: incompatible types: HashMap<String,StaticSlot<JSType>> cannot be converted to Map<String,? extends JSType>
+    MapBasedScope scope = new MapBasedScope(new HashMap<String, StaticSlot<JSType>>());
+                                            ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+4 errors

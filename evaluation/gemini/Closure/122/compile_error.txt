@@ -1,0 +1,40 @@
+/tmp/evaluate_gemini_Closure_122_4z7jtbbi/src/IRFactoryTest.java:35: error: TestErrorReporter is not abstract and does not override abstract method runtimeError(String,String,int,String,int) in ErrorReporter
+  private static class TestErrorReporter implements ErrorReporter {
+                 ^
+/tmp/evaluate_gemini_Closure_122_4z7jtbbi/src/IRFactoryTest.java:50: error: runtimeError(String,String,int,String,int) in TestErrorReporter cannot implement runtimeError(String,String,int,String,int) in ErrorReporter
+    public org.junit.runner.notification.Failure runtimeError(String message, String sourceName, int line, String lineSource, int lineOffset) {
+                                                 ^
+  return type Failure is not compatible with EvaluatorException
+/tmp/evaluate_gemini_Closure_122_4z7jtbbi/src/IRFactoryTest.java:49: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_122_4z7jtbbi/src/IRFactoryTest.java:316: error: no suitable constructor found for NumberLiteral(int,double)
+    assign.setLeft(new NumberLiteral(0, 5.0));
+                   ^
+    constructor NumberLiteral.NumberLiteral(int,int) is not applicable
+      (argument mismatch; possible lossy conversion from double to int)
+    constructor NumberLiteral.NumberLiteral(int,String) is not applicable
+      (argument mismatch; double cannot be converted to String)
+/tmp/evaluate_gemini_Closure_122_4z7jtbbi/src/IRFactoryTest.java:317: error: no suitable constructor found for NumberLiteral(int,double)
+    assign.setRight(new NumberLiteral(0, 6.0));
+                    ^
+    constructor NumberLiteral.NumberLiteral(int,int) is not applicable
+      (argument mismatch; possible lossy conversion from double to int)
+    constructor NumberLiteral.NumberLiteral(int,String) is not applicable
+      (argument mismatch; double cannot be converted to String)
+/tmp/evaluate_gemini_Closure_122_4z7jtbbi/src/IRFactoryTest.java:329: error: no suitable constructor found for NumberLiteral(int,double)
+    del.setOperand(new NumberLiteral(0, 1.0));
+                   ^
+    constructor NumberLiteral.NumberLiteral(int,int) is not applicable
+      (argument mismatch; possible lossy conversion from double to int)
+    constructor NumberLiteral.NumberLiteral(int,String) is not applicable
+      (argument mismatch; double cannot be converted to String)
+/tmp/evaluate_gemini_Closure_122_4z7jtbbi/src/IRFactoryTest.java:334: error: no suitable constructor found for NumberLiteral(int,double)
+    inc.setOperand(new NumberLiteral(0, 1.0));
+                   ^
+    constructor NumberLiteral.NumberLiteral(int,int) is not applicable
+      (argument mismatch; possible lossy conversion from double to int)
+    constructor NumberLiteral.NumberLiteral(int,String) is not applicable
+      (argument mismatch; double cannot be converted to String)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+7 errors

@@ -1,0 +1,25 @@
+/tmp/evaluate_gemini_Closure_151_wd8kf_qb/src/CommandLineRunnerTest.java:217: error: Flags has private access in CommandLineRunner
+    CommandLineRunner.Flags.BooleanOptionHandler handler =
+                     ^
+/tmp/evaluate_gemini_Closure_151_wd8kf_qb/src/CommandLineRunnerTest.java:218: error: Flags has private access in CommandLineRunner
+        new CommandLineRunner.Flags.BooleanOptionHandler(null, null, setter);
+                             ^
+/tmp/evaluate_gemini_Closure_151_wd8kf_qb/src/CommandLineRunnerTest.java:255: error: Flags has private access in CommandLineRunner
+    CommandLineRunner.Flags.BooleanOptionHandler handler =
+                     ^
+/tmp/evaluate_gemini_Closure_151_wd8kf_qb/src/CommandLineRunnerTest.java:256: error: Flags has private access in CommandLineRunner
+        new CommandLineRunner.Flags.BooleanOptionHandler(null, null, setter);
+                             ^
+/tmp/evaluate_gemini_Closure_151_wd8kf_qb/src/CommandLineRunnerTest.java:291: error: Flags has private access in CommandLineRunner
+    CommandLineRunner.Flags.BooleanOptionHandler handler =
+                     ^
+/tmp/evaluate_gemini_Closure_151_wd8kf_qb/src/CommandLineRunnerTest.java:292: error: Flags has private access in CommandLineRunner
+        new CommandLineRunner.Flags.BooleanOptionHandler(null, null, setter);
+                             ^
+/tmp/evaluate_gemini_Closure_151_wd8kf_qb/src/CommandLineRunnerTest.java:310: error: Flags has private access in CommandLineRunner
+    CommandLineRunner.Flags.BooleanOptionHandler handler =
+                     ^
+/tmp/evaluate_gemini_Closure_151_wd8kf_qb/src/CommandLineRunnerTest.java:311: error: Flags has private access in CommandLineRunner
+        new CommandLineRunner.Flags.BooleanOptionHandler(new CmdLineParser(new Object()), null, new Setter<Boolean>() {
+                             ^
+8 errors

@@ -1,0 +1,59 @@
+/tmp/evaluate_gemini_Closure_34_07soa7l9/src/CodeGeneratorTest.java:457: error: no suitable constructor found for Node(int,String)
+    Node cond = new Node(Token.NAME, "i");
+                ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/tmp/evaluate_gemini_Closure_34_07soa7l9/src/CodeGeneratorTest.java:709: error: cannot find symbol
+    n1.setNext(n2);
+      ^
+  symbol:   method setNext(Node)
+  location: variable n1 of type Node
+/tmp/evaluate_gemini_Closure_34_07soa7l9/src/CodePrinterTest.java:61: error: cannot find symbol
+    script.setSourceFileName("test.js");
+          ^
+  symbol:   method setSourceFileName(String)
+  location: variable script of type Node
+/tmp/evaluate_gemini_Closure_34_07soa7l9/src/CodePrinterTest.java:64: error: cannot find symbol
+    varNode.setSourceFileName("test.js");
+           ^
+  symbol:   method setSourceFileName(String)
+  location: variable varNode of type Node
+/tmp/evaluate_gemini_Closure_34_07soa7l9/src/CodePrinterTest.java:68: error: constructor SourceMap in class SourceMap cannot be applied to given types;
+    SourceMap sourceMap = new SourceMap();
+                          ^
+  required: SourceMapGenerator
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_34_07soa7l9/src/CodePrinterTest.java:174: error: incompatible types: Node cannot be converted to int
+    Node script = new Node(Token.SCRIPT, ifNode, tryNode, doNode, fnNode, switchNode);
+                                                                  ^
+/tmp/evaluate_gemini_Closure_34_07soa7l9/src/CodePrinterTest.java:211: error: cannot find symbol
+    Node objKey = Node.newString(Token.STRING_KEY, "k");
+                                      ^
+  symbol:   variable STRING_KEY
+  location: class Token
+/tmp/evaluate_gemini_Closure_34_07soa7l9/src/CodePrinterTest.java:228: error: cannot find symbol
+    script.setSourceFileName("foo.js");
+          ^
+  symbol:   method setSourceFileName(String)
+  location: variable script of type Node
+/tmp/evaluate_gemini_Closure_34_07soa7l9/src/CodePrinterTest.java:233: error: cannot find symbol
+      name.setSourceFileName("foo.js");
+          ^
+  symbol:   method setSourceFileName(String)
+  location: variable name of type Node
+/tmp/evaluate_gemini_Closure_34_07soa7l9/src/CodePrinterTest.java:236: error: cannot find symbol
+      varNode.setSourceFileName("foo.js");
+             ^
+  symbol:   method setSourceFileName(String)
+  location: variable varNode of type Node
+/tmp/evaluate_gemini_Closure_34_07soa7l9/src/CodePrinterTest.java:241: error: constructor SourceMap in class SourceMap cannot be applied to given types;
+    SourceMap sourceMap = new SourceMap();
+                          ^
+  required: SourceMapGenerator
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+11 errors

@@ -1,0 +1,15 @@
+/tmp/evaluate_gemini_Closure_137_3jk38046/src/MakeDeclaredNamesUniqueTest.java:121: error: cannot find symbol
+        if (n.isName() && "CONST".equals(n.getString())) {
+             ^
+  symbol:   method isName()
+  location: variable n of type Node
+/tmp/evaluate_gemini_Closure_137_3jk38046/src/MakeDeclaredNamesUniqueTest.java:136: error: cannot find symbol
+        if (n.isName() && n.getString().startsWith("CONST$$in_")) {
+             ^
+  symbol:   method isName()
+  location: variable n of type Node
+/tmp/evaluate_gemini_Closure_137_3jk38046/src/NormalizeTest.java:441: error: incompatible types: Node cannot be converted to int
+    Node root = new Node(Token.BLOCK, blockLabel, whileLabel, forLabel, doLabel, labelLabel);
+                                                                        ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+3 errors

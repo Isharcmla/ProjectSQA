@@ -1,0 +1,121 @@
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:81: error: cannot find symbol
+        SimpleBeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(
+        ^
+  symbol:   class SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:81: error: cannot find symbol
+        SimpleBeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(
+                                               ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:92: error: cannot find symbol
+        SimpleBeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(
+        ^
+  symbol:   class SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:92: error: cannot find symbol
+        SimpleBeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(
+                                               ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:126: error: cannot find symbol
+        BeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(
+                                         ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:171: error: cannot find symbol
+        JsonSerializer<Object> ser1 = _mapper.getSerializerProviderInstance().findValueSerializer(String.class, writer);
+                                             ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable _mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:180: error: cannot find symbol
+        JsonSerializer<Object> ser2 = _mapper.getSerializerProviderInstance().findValueSerializer(Integer.class, writer);
+                                             ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable _mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:194: error: cannot find symbol
+        JsonSerializer<Object> nullSer1 = _mapper.getSerializerProviderInstance().findNullValueSerializer(writer);
+                                                 ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable _mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:255: error: cannot find symbol
+        SimpleBeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(
+        ^
+  symbol:   class SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:255: error: cannot find symbol
+        SimpleBeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(
+                                               ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:298: error: cannot find symbol
+        SerializerProvider prov = _mapper.getSerializerProviderInstance();
+                                         ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable _mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:323: error: cannot find symbol
+        SerializerProvider prov = _mapper.getSerializerProviderInstance();
+                                         ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable _mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:339: error: cannot find symbol
+        SimpleBeanPropertyDefinition cyclePropDef = SimpleBeanPropertyDefinition.construct(
+        ^
+  symbol:   class SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:339: error: cannot find symbol
+        SimpleBeanPropertyDefinition cyclePropDef = SimpleBeanPropertyDefinition.construct(
+                                                    ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:359: error: cannot find symbol
+        SerializerProvider prov = _mapper.getSerializerProviderInstance();
+                                         ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable _mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:386: error: cannot find symbol
+        SerializerProvider prov = _mapper.getSerializerProviderInstance();
+                                         ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable _mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:415: error: cannot find symbol
+        SerializerProvider prov = _mapper.getSerializerProviderInstance();
+                                         ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable _mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:475: error: cannot find symbol
+        SerializerProvider prov = _mapper.getSerializerProviderInstance();
+                                         ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable _mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:500: error: cannot find symbol
+        SimpleBeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(
+        ^
+  symbol:   class SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:500: error: cannot find symbol
+        SimpleBeanPropertyDefinition propDef = SimpleBeanPropertyDefinition.construct(
+                                               ^
+  symbol:   variable SimpleBeanPropertyDefinition
+  location: class BeanPropertyWriterTest
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:508: error: cannot find symbol
+        SerializerProvider prov = _mapper.getSerializerProviderInstance();
+                                         ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable _mapper of type ObjectMapper
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:522: error: incompatible types: PropertyName cannot be converted to String
+        POJOPropertyBuilder propDef = new POJOPropertyBuilder(new PropertyName("getterProp"),
+                                                              ^
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:524: error: method addGetter in class POJOPropertyBuilder cannot be applied to given types;
+        propDef.addGetter(annotatedMember, new PropertyName("getterProp"), false, true, false);
+               ^
+  required: AnnotatedMethod,String,boolean,boolean
+  found: AnnotatedMethod,PropertyName,boolean,boolean,boolean
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_JacksonDatabind_1_nwwsjpu1/src/BeanPropertyWriterTest.java:544: error: cannot find symbol
+        fieldWriter.assignSerializer(_mapper.getSerializerProviderInstance().findValueSerializer(String.class, fieldWriter));
+                                            ^
+  symbol:   method getSerializerProviderInstance()
+  location: variable _mapper of type ObjectMapper
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+24 errors

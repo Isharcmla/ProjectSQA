@@ -1,0 +1,61 @@
+/tmp/evaluate_gemini_Closure_135_7r1w69er/src/DevirtualizePrototypeMethodsTest.java:23: error: cannot find symbol
+    compiler.initOptions(options);
+            ^
+  symbol:   method initOptions(CompilerOptions)
+  location: variable compiler of type Compiler
+/tmp/evaluate_gemini_Closure_135_7r1w69er/src/DevirtualizePrototypeMethodsTest.java:209: error: no suitable constructor found for CompilerInput(SourceFile)
+    CompilerInput input1 = new CompilerInput(
+                           ^
+    constructor CompilerInput.CompilerInput(SourceAst) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_135_7r1w69er/src/DevirtualizePrototypeMethodsTest.java:213: error: no suitable constructor found for CompilerInput(SourceFile)
+    CompilerInput input2 = new CompilerInput(
+                           ^
+    constructor CompilerInput.CompilerInput(SourceAst) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_135_7r1w69er/src/DevirtualizePrototypeMethodsTest.java:222: error: cannot find symbol
+    compiler.initModules(
+            ^
+  symbol:   method initModules(List<SourceFile>,ImmutableList<JSModule>,CompilerOptions)
+  location: variable compiler of type Compiler
+/tmp/evaluate_gemini_Closure_135_7r1w69er/src/DevirtualizePrototypeMethodsTest.java:246: error: no suitable constructor found for CompilerInput(SourceFile)
+    CompilerInput input1 = new CompilerInput(
+                           ^
+    constructor CompilerInput.CompilerInput(SourceAst) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_135_7r1w69er/src/DevirtualizePrototypeMethodsTest.java:250: error: no suitable constructor found for CompilerInput(SourceFile)
+    CompilerInput input2 = new CompilerInput(
+                           ^
+    constructor CompilerInput.CompilerInput(SourceAst) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_135_7r1w69er/src/DevirtualizePrototypeMethodsTest.java:259: error: cannot find symbol
+    compiler.initModules(
+            ^
+  symbol:   method initModules(List<SourceFile>,ImmutableList<JSModule>,CompilerOptions)
+  location: variable compiler of type Compiler
+/tmp/evaluate_gemini_Closure_135_7r1w69er/src/FunctionTypeTest.java:395: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_135_7r1w69er/src/FunctionTypeTest.java:397: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_135_7r1w69er/src/FunctionTypeTest.java:407: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_135_7r1w69er/src/FunctionTypeTest.java:435: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>,ObjectType)
+    FunctionType noObjCtor = registry.createConstructorType(
+                                     ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+11 errors

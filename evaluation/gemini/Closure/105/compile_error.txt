@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Closure_105_4yjb24c0/src/FoldConstantsTest.java:13: error: cannot find symbol
+    compiler.initOptions(options);
+            ^
+  symbol:   method initOptions(CompilerOptions)
+  location: variable compiler of type Compiler
+/tmp/evaluate_gemini_Closure_105_4yjb24c0/src/FoldConstantsTest.java:23: error: cannot find symbol
+    compiler.initOptions(options);
+            ^
+  symbol:   method initOptions(CompilerOptions)
+  location: variable compiler of type Compiler
+2 errors

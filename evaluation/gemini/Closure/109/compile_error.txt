@@ -1,0 +1,29 @@
+/tmp/evaluate_gemini_Closure_109_uhs2t34i/src/JsDocInfoParserTest.java:31: error: cannot find symbol
+    Comment comment = new Comment(0, jsdoc.length(), Comment.CommentType.JSDOC, jsdoc);
+                                                            ^
+  symbol:   variable CommentType
+  location: class Comment
+/tmp/evaluate_gemini_Closure_109_uhs2t34i/src/JsDocInfoParserTest.java:213: error: cannot find symbol
+    Assert.assertTrue(info.makesDictsCreated());
+                          ^
+  symbol:   method makesDictsCreated()
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_109_uhs2t34i/src/JsDocInfoParserTest.java:223: error: cannot find symbol
+    Assert.assertTrue(info.isPreserveTry());
+                          ^
+  symbol:   method isPreserveTry()
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_109_uhs2t34i/src/JsDocInfoParserTest.java:245: error: cannot find symbol
+    Assert.assertTrue(info.makesDictsCreated());
+                          ^
+  symbol:   method makesDictsCreated()
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_109_uhs2t34i/src/JsDocInfoParserTest.java:287: error: cannot find symbol
+    Assert.assertEquals(1, info.getThrows().size());
+                               ^
+  symbol:   method getThrows()
+  location: variable info of type JSDocInfo
+/tmp/evaluate_gemini_Closure_109_uhs2t34i/src/JsDocInfoParserTest.java:426: error: an enclosing instance that contains Node.FileLevelJsDocBuilder is required
+    Node.FileLevelJsDocBuilder fileLevelBuilder = new Node.FileLevelJsDocBuilder();
+                                                  ^
+6 errors

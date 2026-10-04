@@ -1,0 +1,65 @@
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:80: error: cannot find symbol
+    public com.google.javascript.rhino.jstype.StaticTypedScope<JSType> getParentScope() {
+                                             ^
+  symbol:   class StaticTypedScope
+  location: package com.google.javascript.rhino.jstype
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:85: error: cannot find symbol
+    public com.google.javascript.rhino.jstype.StaticTypedSlot<JSType> getSlot(final String name) {
+                                             ^
+  symbol:   class StaticTypedSlot
+  location: package com.google.javascript.rhino.jstype
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:118: error: cannot find symbol
+    public com.google.javascript.rhino.jstype.StaticTypedSlot<JSType> getOwnSlot(String name) {
+                                             ^
+  symbol:   class StaticTypedSlot
+  location: package com.google.javascript.rhino.jstype
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:138: error: cannot find symbol
+    public FlowScope findBestFlowScope(com.google.javascript.rhino.jstype.StaticTypedSlot<JSType> slot) {
+                                                                         ^
+  symbol:   class StaticTypedSlot
+  location: package com.google.javascript.rhino.jstype
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:55: error: SimpleFlowScope is not abstract and does not override abstract method completeScope(StaticScope<JSType>) in FlowScope
+  private static class SimpleFlowScope implements FlowScope {
+                 ^
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:89: error: cannot find symbol
+      return new com.google.javascript.rhino.jstype.StaticTypedSlot<JSType>() {
+                                                   ^
+  symbol:   class StaticTypedSlot
+  location: package com.google.javascript.rhino.jstype
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:90: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:95: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:100: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:105: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:110: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:137: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:142: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:399: error: no suitable constructor found for Node(int,String)
+    Node callWrongArgs = new Node(Token.CALL, new Node(Token.NAME, "goog"), Node.newString(Token.NAME, "a"), Node.newString(Token.NAME, "b"));
+                                              ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/tmp/evaluate_gemini_Closure_111_2cqt3pcy/src/ClosureReverseAbstractInterpreterTest.java:403: error: no suitable constructor found for Node(int,String)
+    Node calleeNotGetProp = new Node(Token.NAME, "fn");
+                            ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+15 errors

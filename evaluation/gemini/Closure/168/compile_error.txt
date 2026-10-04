@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Closure_168_ei_uywx4/src/TypedScopeCreatorTest.java:78: error: cannot find symbol
+    assertTrue(scope.getVar("o").getType().isAnonymousObjectType());
+                                          ^
+  symbol:   method isAnonymousObjectType()
+  location: class JSType
+1 error

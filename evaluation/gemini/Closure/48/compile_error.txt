@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Closure_48_6mhovr7n/src/TypedScopeCreatorTest.java:209: error: cannot find symbol
+    assertTrue(personType.isRecordType() || personType.isObjectType());
+                                                      ^
+  symbol:   method isObjectType()
+  location: variable personType of type JSType
+/tmp/evaluate_gemini_Closure_48_6mhovr7n/src/TypedScopeCreatorTest.java:414: error: cannot find symbol
+    assertTrue(xVar.isEscaped());
+                   ^
+  symbol:   method isEscaped()
+  location: variable xVar of type Var
+2 errors

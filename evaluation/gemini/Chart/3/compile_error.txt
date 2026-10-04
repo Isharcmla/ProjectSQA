@@ -1,0 +1,43 @@
+/tmp/evaluate_gemini_Chart_3_1558nlj8/src/TimeSeriesTest.java:9: error: cannot find symbol
+import org.jfree.data.general.SeriesChangeEvent;
+                             ^
+  symbol:   class SeriesChangeEvent
+  location: package org.jfree.data.general
+/tmp/evaluate_gemini_Chart_3_1558nlj8/src/TimeSeriesTest.java:10: error: cannot find symbol
+import org.jfree.data.general.SeriesChangeListener;
+                             ^
+  symbol:   class SeriesChangeListener
+  location: package org.jfree.data.general
+/tmp/evaluate_gemini_Chart_3_1558nlj8/src/TimeSeriesTest.java:17: error: cannot find symbol
+    private static class TestSeriesChangeListener implements SeriesChangeListener {
+                                                             ^
+  symbol:   class SeriesChangeListener
+  location: class TimeSeriesTest
+/tmp/evaluate_gemini_Chart_3_1558nlj8/src/TimeSeriesTest.java:19: error: cannot find symbol
+        private SeriesChangeEvent lastEvent;
+                ^
+  symbol:   class SeriesChangeEvent
+  location: class TestSeriesChangeListener
+/tmp/evaluate_gemini_Chart_3_1558nlj8/src/TimeSeriesTest.java:21: error: cannot find symbol
+        public void seriesChanged(SeriesChangeEvent event) {
+                                  ^
+  symbol:   class SeriesChangeEvent
+  location: class TestSeriesChangeListener
+/tmp/evaluate_gemini_Chart_3_1558nlj8/src/TimeSeriesTest.java:282: error: incompatible types: TestSeriesChangeListener cannot be converted to SeriesChangeListener
+        series.addChangeListener(listener);
+                                 ^
+/tmp/evaluate_gemini_Chart_3_1558nlj8/src/TimeSeriesTest.java:372: error: incompatible types: TestSeriesChangeListener cannot be converted to SeriesChangeListener
+        series.addChangeListener(listener);
+                                 ^
+/tmp/evaluate_gemini_Chart_3_1558nlj8/src/TimeSeriesTest.java:513: error: incompatible types: TestSeriesChangeListener cannot be converted to SeriesChangeListener
+        series.addChangeListener(listener);
+                                 ^
+/tmp/evaluate_gemini_Chart_3_1558nlj8/src/TimeSeriesTest.java:528: error: incompatible types: TestSeriesChangeListener cannot be converted to SeriesChangeListener
+        series.addChangeListener(listener);
+                                 ^
+Note: /tmp/evaluate_gemini_Chart_3_1558nlj8/src/TimeSeriesTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_gemini_Chart_3_1558nlj8/src/TimeSeriesTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+9 errors

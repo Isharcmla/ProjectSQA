@@ -1,0 +1,66 @@
+/tmp/evaluate_gemini_Closure_138_h5cyv3yw/src/ClosureReverseAbstractInterpreterTest.java:35: error: cannot find symbol
+    Scope globalScope = Scope.createGlobalScope(root);
+                             ^
+  symbol:   method createGlobalScope(Node)
+  location: class Scope
+/tmp/evaluate_gemini_Closure_138_h5cyv3yw/src/ClosureReverseAbstractInterpreterTest.java:37: error: no suitable constructor found for Node(int,String)
+      globalScope.declare(varName, new Node(Token.NAME, varName), type, null);
+                                   ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/tmp/evaluate_gemini_Closure_138_h5cyv3yw/src/TypeInferenceTest.java:42: error: cannot find symbol
+    compiler.initOptions(options);
+            ^
+  symbol:   method initOptions(CompilerOptions)
+  location: variable compiler of type Compiler
+/tmp/evaluate_gemini_Closure_138_h5cyv3yw/src/TypeInferenceTest.java:49: error: constructor ControlFlowAnalysis in class ControlFlowAnalysis cannot be applied to given types;
+    ControlFlowAnalysis cfa = new ControlFlowAnalysis(compiler, false, true);
+                              ^
+  required: AbstractCompiler,boolean
+  found: Compiler,boolean,boolean
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_138_h5cyv3yw/src/TypeInferenceTest.java:57: error: constructor ControlFlowAnalysis in class ControlFlowAnalysis cannot be applied to given types;
+    ControlFlowAnalysis cfa = new ControlFlowAnalysis(compiler, false, true);
+                              ^
+  required: AbstractCompiler,boolean
+  found: Compiler,boolean,boolean
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_138_h5cyv3yw/src/TypeInferenceTest.java:289: error: cannot find symbol
+    assertTrue(objLit.getJSType().isObjectType());
+                                 ^
+  symbol:   method isObjectType()
+  location: class JSType
+/tmp/evaluate_gemini_Closure_138_h5cyv3yw/src/TypeInferenceTest.java:401: error: no suitable method found for createFunctionType(JSType,Node)
+    FunctionType higherOrderFn = registry.createFunctionType(
+                                         ^
+    method JSTypeRegistry.createFunctionType(JSType,JSType...) is not applicable
+      (varargs mismatch; Node cannot be converted to JSType)
+    method JSTypeRegistry.createFunctionType(JSType,List<JSType>) is not applicable
+      (argument mismatch; Node cannot be converted to List<JSType>)
+    method JSTypeRegistry.createFunctionType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; Node cannot be converted to boolean)
+/tmp/evaluate_gemini_Closure_138_h5cyv3yw/src/TypeInferenceTest.java:446: error: constructor JSTypeExpression in class JSTypeExpression cannot be applied to given types;
+    builder.recordType(new JSTypeExpression(Node.newString("number"), "test"));
+                       ^
+  required: Node,String,JSTypeRegistry
+  found: Node,String
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_138_h5cyv3yw/src/TypeInferenceTest.java:447: error: incompatible types: Node cannot be converted to String
+    JSDocInfo jsdoc = builder.build(name);
+                                    ^
+/tmp/evaluate_gemini_Closure_138_h5cyv3yw/src/TypeInferenceTest.java:461: error: constructor ControlFlowAnalysis in class ControlFlowAnalysis cannot be applied to given types;
+    ControlFlowAnalysis cfa = new ControlFlowAnalysis(compiler, false, true);
+                              ^
+  required: AbstractCompiler,boolean
+  found: Compiler,boolean,boolean
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_138_h5cyv3yw/src/TypeInferenceTest.java:477: error: constructor ControlFlowAnalysis in class ControlFlowAnalysis cannot be applied to given types;
+    ControlFlowAnalysis cfa = new ControlFlowAnalysis(compiler, false, true);
+                              ^
+  required: AbstractCompiler,boolean
+  found: Compiler,boolean,boolean
+  reason: actual and formal argument lists differ in length
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+11 errors

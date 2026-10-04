@@ -1,0 +1,27 @@
+/tmp/evaluate_gemini_Closure_100_rnccp7zu/src/CheckGlobalThisTest.java:11: error: cannot find symbol
+import com.google.javascript.rhino.jstype.JSTypeExpression;
+                                         ^
+  symbol:   class JSTypeExpression
+  location: package com.google.javascript.rhino.jstype
+/tmp/evaluate_gemini_Closure_100_rnccp7zu/src/CheckGlobalThisTest.java:32: error: incompatible types: Node cannot be converted to String
+    fnNode.setJSDocInfo(builder.build(fnNode));
+                                      ^
+/tmp/evaluate_gemini_Closure_100_rnccp7zu/src/CheckGlobalThisTest.java:44: error: cannot find symbol
+    builder.recordThisType(new JSTypeExpression(new Node(Token.STAR), "test"));
+                               ^
+  symbol:   class JSTypeExpression
+  location: class CheckGlobalThisTest
+/tmp/evaluate_gemini_Closure_100_rnccp7zu/src/CheckGlobalThisTest.java:45: error: incompatible types: Node cannot be converted to String
+    fnNode.setJSDocInfo(builder.build(fnNode));
+                                      ^
+/tmp/evaluate_gemini_Closure_100_rnccp7zu/src/CheckGlobalThisTest.java:70: error: incompatible types: Node cannot be converted to String
+    assignNode.setJSDocInfo(builder.build(assignNode));
+                                          ^
+/tmp/evaluate_gemini_Closure_100_rnccp7zu/src/CheckGlobalThisTest.java:86: error: incompatible types: Node cannot be converted to String
+    nameNode.setJSDocInfo(builder.build(nameNode));
+                                        ^
+/tmp/evaluate_gemini_Closure_100_rnccp7zu/src/CheckGlobalThisTest.java:103: error: incompatible types: Node cannot be converted to String
+    varNode.setJSDocInfo(builder.build(varNode));
+                                       ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+7 errors

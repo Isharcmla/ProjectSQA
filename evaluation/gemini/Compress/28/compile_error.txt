@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Compress_28_1nnmfahk/src/TarArchiveInputStreamTest.java:355: error: cannot find symbol
+        TarArchiveEntry paxEntry = new TarArchiveEntry("PaxHeader/test", TarConstants.LF_PAX_EXTENDED_HEADER);
+                                                                                     ^
+  symbol:   variable LF_PAX_EXTENDED_HEADER
+  location: interface TarConstants
+1 error

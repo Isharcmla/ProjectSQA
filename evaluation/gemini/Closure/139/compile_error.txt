@@ -1,0 +1,22 @@
+/tmp/evaluate_gemini_Closure_139_vvvnes6x/src/NormalizeTest.java:188: error: no suitable constructor found for Node(int,String)
+    Node emptyName = new Node(Token.NAME, "");
+                     ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/tmp/evaluate_gemini_Closure_139_vvvnes6x/src/NormalizeTest.java:208: error: incompatible types: Node cannot be converted to String
+    JSDocInfo info = builder.build(varNode);
+                                   ^
+/tmp/evaluate_gemini_Closure_139_vvvnes6x/src/NormalizeTest.java:240: error: no suitable constructor found for Node(int,String)
+    Node emptyName = new Node(Token.NAME, "");
+                     ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/tmp/evaluate_gemini_Closure_139_vvvnes6x/src/NormalizeTest.java:303: error: incompatible types: Node cannot be converted to String
+    varNode.setJSDocInfo(builder.build(varNode));
+                                       ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+4 errors

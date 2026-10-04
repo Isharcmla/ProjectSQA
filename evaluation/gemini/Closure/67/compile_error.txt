@@ -1,0 +1,76 @@
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:3: error: cannot find symbol
+import com.google.javascript.rhino.IR;
+                                  ^
+  symbol:   class IR
+  location: package com.google.javascript.rhino
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:195: error: no suitable constructor found for CompilerInput(SourceFile)
+    CompilerInput input1 = new CompilerInput(SourceFile.fromCode("m1.js", js1));
+                           ^
+    constructor CompilerInput.CompilerInput(SourceAst) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:196: error: no suitable constructor found for CompilerInput(SourceFile)
+    CompilerInput input2 = new CompilerInput(SourceFile.fromCode("m2.js", js2));
+                           ^
+    constructor CompilerInput.CompilerInput(SourceAst) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:201: error: cannot find symbol
+    Node root = IR.root(root1, root2);
+                ^
+  symbol:   variable IR
+  location: class AnalyzePrototypePropertiesTest
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:288: error: cannot find symbol
+    Node key = IR.stringKey("foo", IR.number(123));
+               ^
+  symbol:   variable IR
+  location: class AnalyzePrototypePropertiesTest
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:288: error: cannot find symbol
+    Node key = IR.stringKey("foo", IR.number(123));
+                                   ^
+  symbol:   variable IR
+  location: class AnalyzePrototypePropertiesTest
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:289: error: cannot find symbol
+    Node map = IR.objectlit(key);
+               ^
+  symbol:   variable IR
+  location: class AnalyzePrototypePropertiesTest
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:290: error: cannot find symbol
+    Node getprop = IR.getprop(IR.name("Foo"), IR.string("prototype"));
+                   ^
+  symbol:   variable IR
+  location: class AnalyzePrototypePropertiesTest
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:290: error: cannot find symbol
+    Node getprop = IR.getprop(IR.name("Foo"), IR.string("prototype"));
+                              ^
+  symbol:   variable IR
+  location: class AnalyzePrototypePropertiesTest
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:290: error: cannot find symbol
+    Node getprop = IR.getprop(IR.name("Foo"), IR.string("prototype"));
+                                              ^
+  symbol:   variable IR
+  location: class AnalyzePrototypePropertiesTest
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:291: error: cannot find symbol
+    Node assign = IR.assign(getprop, map);
+                  ^
+  symbol:   variable IR
+  location: class AnalyzePrototypePropertiesTest
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:369: error: cannot find symbol
+    Node name = IR.name("test");
+                ^
+  symbol:   variable IR
+  location: class AnalyzePrototypePropertiesTest
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:370: error: cannot find symbol
+    Node invalidParent = IR.exprResult(name);
+                         ^
+  symbol:   variable IR
+  location: class AnalyzePrototypePropertiesTest
+/tmp/evaluate_gemini_Closure_67_gvhfqioh/src/AnalyzePrototypePropertiesTest.java:375: error: cannot find symbol
+    pass.new GlobalFunction(name, invalidParent, IR.root(), module);
+                                                 ^
+  symbol:   variable IR
+  location: class AnalyzePrototypePropertiesTest
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+14 errors

@@ -1,0 +1,21 @@
+/tmp/evaluate_gemini_Closure_171_wqwrqh08/src/TypedScopeCreatorTest.java:53: error: cannot find symbol
+        child.putProp(Node.SOURCENAME_PROP, "externs");
+                          ^
+  symbol:   variable SOURCENAME_PROP
+  location: class Node
+/tmp/evaluate_gemini_Closure_171_wqwrqh08/src/TypedScopeCreatorTest.java:61: error: cannot find symbol
+      child.putProp(Node.SOURCENAME_PROP, "input");
+                        ^
+  symbol:   variable SOURCENAME_PROP
+  location: class Node
+/tmp/evaluate_gemini_Closure_171_wqwrqh08/src/TypedScopeCreatorTest.java:347: error: cannot find symbol
+    newScript.putProp(Node.SOURCENAME_PROP, "input");
+                          ^
+  symbol:   variable SOURCENAME_PROP
+  location: class Node
+/tmp/evaluate_gemini_Closure_171_wqwrqh08/src/TypedScopeCreatorTest.java:349: error: cannot find symbol
+      child.putProp(Node.SOURCENAME_PROP, "input");
+                        ^
+  symbol:   variable SOURCENAME_PROP
+  location: class Node
+4 errors

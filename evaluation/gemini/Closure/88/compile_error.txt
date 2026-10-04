@@ -1,0 +1,5 @@
+/tmp/evaluate_gemini_Closure_88_zg4nmhyf/src/DeadAssignmentsEliminationTest.java:21: error: incompatible types: SyntacticScopeCreator cannot be converted to Callback
+    NodeTraversal.traverse(compiler, root, new SyntacticScopeCreator(compiler));
+                                           ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

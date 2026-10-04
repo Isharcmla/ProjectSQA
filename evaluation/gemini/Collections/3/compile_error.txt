@@ -1,0 +1,12 @@
+/tmp/evaluate_gemini_Collections_3_d29qhc6j/src/CollectionUtilsTest.java:179: error: DummyBag is not abstract and does not override abstract method add(Object,int) in Bag
+    private static class DummyBag implements Bag {
+                   ^
+/tmp/evaluate_gemini_Collections_3_d29qhc6j/src/CollectionUtilsTest.java:182: error: add(Object,int) in DummyBag cannot implement add(Object,int) in Bag
+        public void add(Object object, int count) {
+                    ^
+  return type void is not compatible with boolean
+Note: /tmp/evaluate_gemini_Collections_3_d29qhc6j/src/CollectionUtilsTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_gemini_Collections_3_d29qhc6j/src/CollectionUtilsTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+2 errors

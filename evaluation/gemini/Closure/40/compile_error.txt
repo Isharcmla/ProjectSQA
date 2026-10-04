@@ -1,0 +1,26 @@
+/tmp/evaluate_gemini_Closure_40_q3sfcgtn/src/NameAnalyzerTest.java:25: error: cannot find symbol
+    Node mainRoot = IR.root(externs, root);
+                      ^
+  symbol:   method root(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_40_q3sfcgtn/src/NameAnalyzerTest.java:186: error: cannot find symbol
+    Node mainRoot = IR.root(externs, root);
+                      ^
+  symbol:   method root(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_40_q3sfcgtn/src/NameAnalyzerTest.java:201: error: cannot find symbol
+    Node mainRoot = IR.root(externs, root);
+                      ^
+  symbol:   method root(Node,Node)
+  location: class IR
+/tmp/evaluate_gemini_Closure_40_q3sfcgtn/src/NameAnalyzerTest.java:227: error: cannot find symbol
+    Node externs = IR.root();
+                     ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_40_q3sfcgtn/src/NameAnalyzerTest.java:228: error: cannot find symbol
+    Node root = IR.root();
+                  ^
+  symbol:   method root()
+  location: class IR
+5 errors

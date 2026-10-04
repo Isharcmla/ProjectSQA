@@ -1,0 +1,25 @@
+/tmp/evaluate_gemini_Closure_152__55vo0tt/src/FunctionTypeTest.java:31: error: <anonymous com.google.javascript.rhino.jstype.FunctionTypeTest$1> is not abstract and does not override abstract method runtimeError(String,String,int,String,int) in ErrorReporter
+    errorReporter = new ErrorReporter() {
+                                        ^
+/tmp/evaluate_gemini_Closure_152__55vo0tt/src/FunctionTypeTest.java:32: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_152__55vo0tt/src/FunctionTypeTest.java:34: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_152__55vo0tt/src/FunctionTypeTest.java:529: error: method does not override or implement a method from a supertype
+      @Override public String caseNamedType(NamedType type) { return null; }
+      ^
+/tmp/evaluate_gemini_Closure_152__55vo0tt/src/FunctionTypeTest.java:530: error: method does not override or implement a method from a supertype
+      @Override public String caseRecordType(RecordType type) { return null; }
+      ^
+/tmp/evaluate_gemini_Closure_152__55vo0tt/src/FunctionTypeTest.java:535: error: method does not override or implement a method from a supertype
+      @Override public String caseParameterizedType(ParameterizedType type) { return null; }
+      ^
+/tmp/evaluate_gemini_Closure_152__55vo0tt/src/FunctionTypeTest.java:536: error: method does not override or implement a method from a supertype
+      @Override public String caseTemplateType(TemplateType templateType) { return null; }
+      ^
+/tmp/evaluate_gemini_Closure_152__55vo0tt/src/FunctionTypeTest.java:565: error: method does not override or implement a method from a supertype
+      @Override public Node getRootNode() { return null; }
+      ^
+8 errors

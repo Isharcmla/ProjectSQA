@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Closure_14_f7t30oqj/src/ControlFlowAnalysisTest.java:255: error: cannot find symbol
+    Node forNode = IR.forNode(IR.var(IR.name("i")), IR.name("cond"), IR.inc(IR.name("i"), false), IR.block());
+                                                                       ^
+  symbol:   method inc(Node,boolean)
+  location: class IR
+1 error

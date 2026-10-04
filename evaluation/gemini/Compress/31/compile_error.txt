@@ -1,0 +1,7 @@
+/tmp/evaluate_gemini_Compress_31_6icllx8a/src/TarUtilsTest.java:429: error: unreported exception IOException; must be caught or declared to be thrown
+        ByteBuffer buf = fallback.encode("ABC\u00FF");
+                                        ^
+/tmp/evaluate_gemini_Compress_31_6icllx8a/src/TarUtilsTest.java:437: error: unreported exception IOException; must be caught or declared to be thrown
+        String decoded = fallback.decode(decodeBuf);
+                                        ^
+2 errors

@@ -1,0 +1,124 @@
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:38: error: cannot find symbol
+    Node externs = IR.root();
+                     ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:39: error: cannot find symbol
+    Node main = IR.root();
+                  ^
+  symbol:   method root()
+  location: class IR
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:56: error: no suitable method found for add(SourceFile)
+    m1.add(s1);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:78: error: no suitable method found for add(SourceFile)
+    m1.add(s1);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:83: error: no suitable method found for add(SourceFile)
+    m2.add(s2);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:107: error: no suitable method found for add(SourceFile)
+    m1.add(s1);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:112: error: no suitable method found for add(SourceFile)
+    m2.add(s2);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:137: error: no suitable method found for add(SourceFile)
+    m1.add(s1);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:142: error: no suitable method found for add(SourceFile)
+    m2.add(s2);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:173: error: no suitable method found for add(SourceFile)
+    m1.add(s1);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:178: error: no suitable method found for add(SourceFile)
+    m2.add(s2);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:209: error: no suitable method found for add(SourceFile)
+    m1.add(s1);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:214: error: no suitable method found for add(SourceFile)
+    m2.add(s2);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:238: error: no suitable method found for add(SourceFile)
+    m1.add(s1);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:243: error: no suitable method found for add(SourceFile)
+    m2.add(s2);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:272: error: no suitable method found for add(SourceFile)
+    m1.add(s1);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:277: error: no suitable method found for add(SourceFile)
+    m2.add(s2);
+      ^
+    method JSModule.add(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+    method JSModule.add(CompilerInput) is not applicable
+      (argument mismatch; SourceFile cannot be converted to CompilerInput)
+/tmp/evaluate_gemini_Closure_163_zjlzuvzt/src/CrossModuleMethodMotionTest.java:283: error: incompatible types: inference variable T has incompatible bounds
+    compiler.initModules(Collections.singletonList(externsFile), modules, options);
+            ^
+    equality constraints: JSSourceFile
+    lower bounds: SourceFile
+  where T is a type-variable:
+    T extends Object declared in method <T>singletonList(T)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+18 errors

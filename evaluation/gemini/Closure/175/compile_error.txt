@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Closure_175_5obnetdj/src/FunctionInjectorTest.java:488: error: cannot find symbol
+    compiler.setModuleGraphForTesting(graph);
+            ^
+  symbol:   method setModuleGraphForTesting(JSModuleGraph)
+  location: variable compiler of type Compiler
+1 error

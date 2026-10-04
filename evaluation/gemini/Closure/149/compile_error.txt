@@ -1,0 +1,150 @@
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/AbstractCommandLineRunnerTest.java:145: error: cannot find symbol
+          .setSourceMapDetailLevel(SourceMap.DetailLevel.DEFAULT)
+                                                        ^
+  symbol:   variable DEFAULT
+  location: class DetailLevel
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/AbstractCommandLineRunnerTest.java:323: error: cannot find symbol
+        .setSourceMapDetailLevel(SourceMap.DetailLevel.DEFAULT)
+                                                      ^
+  symbol:   variable DEFAULT
+  location: class DetailLevel
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/AbstractCommandLineRunnerTest.java:376: error: no suitable constructor found for Result(JSError[],JSError[],String,<null>,<null>,<null>,<null>)
+    Result result = new Result(new JSError[0], new JSError[0], "", null, null, null, null);
+                    ^
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String,Map<String,Integer>) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/AbstractCommandLineRunnerTest.java:388: error: no suitable constructor found for Result(JSError[],JSError[],String,<null>,<null>,<null>,<null>)
+    Result result = new Result(new JSError[0], new JSError[0], "", null, null, null, null);
+                    ^
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String,Map<String,Integer>) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/AbstractCommandLineRunnerTest.java:401: error: no suitable constructor found for Result(JSError[],JSError[],String,<null>,<null>,<null>,<null>)
+    Result result = new Result(new JSError[0], new JSError[0], "", null, null, null, null);
+                    ^
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String,Map<String,Integer>) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/AbstractCommandLineRunnerTest.java:413: error: no suitable constructor found for Result(JSError[],JSError[],String,<null>,<null>,<null>,<null>)
+    Result result = new Result(new JSError[0], new JSError[0], "", null, null, null, null);
+                    ^
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String,Map<String,Integer>) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/AbstractCommandLineRunnerTest.java:428: error: no suitable constructor found for Result(JSError[],JSError[],String,<null>,<null>,<null>,<null>)
+    Result result = new Result(new JSError[0], new JSError[0], "", null, null, null, null);
+                    ^
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String,Map<String,Integer>) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/AbstractCommandLineRunnerTest.java:447: error: no suitable constructor found for Result(JSError[],JSError[],String,<null>,<null>,<null>,<null>)
+    Result result = new Result(new JSError[0], new JSError[0], "", null, null, null, null);
+                    ^
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String,Map<String,Integer>) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor Result.Result(JSError[],JSError[],String,VariableMap,VariableMap,VariableMap,FunctionInformationMap,SourceMap,String) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/AbstractCommandLineRunnerTest.java:566: error: cannot find symbol
+    Assert.assertEquals(1, externs.length > 0 ? externs.size() : 0);
+                                  ^
+  symbol:   variable length
+  location: variable externs of type List<JSSourceFile>
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CommandLineRunnerTest.java:231: error: Flags has private access in CommandLineRunner
+    CommandLineRunner.Flags.BooleanOptionHandler handler =
+                     ^
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CommandLineRunnerTest.java:232: error: Flags has private access in CommandLineRunner
+        new CommandLineRunner.Flags.BooleanOptionHandler(parser, null, setter);
+                             ^
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CommandLineRunnerTest.java:240: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CommandLineRunnerTest.java:258: error: Flags has private access in CommandLineRunner
+      CommandLineRunner.Flags.BooleanOptionHandler handler =
+                       ^
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CommandLineRunnerTest.java:259: error: Flags has private access in CommandLineRunner
+          new CommandLineRunner.Flags.BooleanOptionHandler(parser, null, setter);
+                               ^
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CommandLineRunnerTest.java:267: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CommandLineRunnerTest.java:285: error: Flags has private access in CommandLineRunner
+      CommandLineRunner.Flags.BooleanOptionHandler handler =
+                       ^
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CommandLineRunnerTest.java:286: error: Flags has private access in CommandLineRunner
+          new CommandLineRunner.Flags.BooleanOptionHandler(parser, null, setter);
+                               ^
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CommandLineRunnerTest.java:294: error: method does not override or implement a method from a supertype
+        @Override
+        ^
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CommandLineRunnerTest.java:310: error: Flags has private access in CommandLineRunner
+    CommandLineRunner.Flags.BooleanOptionHandler handler =
+                     ^
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CommandLineRunnerTest.java:311: error: Flags has private access in CommandLineRunner
+        new CommandLineRunner.Flags.BooleanOptionHandler(parser, null, setter);
+                             ^
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CommandLineRunnerTest.java:319: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CompilerOptionsTest.java:208: error: no suitable constructor found for DiagnosticGroup(String,DiagnosticType)
+    DiagnosticGroup group = new DiagnosticGroup("testGroup", DiagnosticType.error("TEST_ERR", "description"));
+                            ^
+    constructor DiagnosticGroup.DiagnosticGroup(DiagnosticType...) is not applicable
+      (varargs mismatch; String cannot be converted to DiagnosticType)
+    constructor DiagnosticGroup.DiagnosticGroup(DiagnosticGroup...) is not applicable
+      (varargs mismatch; String cannot be converted to DiagnosticGroup)
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CompilerOptionsTest.java:216: error: no suitable constructor found for DiagnosticGroup(String,DiagnosticType)
+    DiagnosticGroup groupOn = new DiagnosticGroup("groupOn", DiagnosticType.error("ERR_ON", "msg"));
+                              ^
+    constructor DiagnosticGroup.DiagnosticGroup(DiagnosticType...) is not applicable
+      (varargs mismatch; String cannot be converted to DiagnosticType)
+    constructor DiagnosticGroup.DiagnosticGroup(DiagnosticGroup...) is not applicable
+      (varargs mismatch; String cannot be converted to DiagnosticGroup)
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CompilerOptionsTest.java:217: error: no suitable constructor found for DiagnosticGroup(String,DiagnosticType)
+    DiagnosticGroup groupOff = new DiagnosticGroup("groupOff", DiagnosticType.error("ERR_OFF", "msg"));
+                               ^
+    constructor DiagnosticGroup.DiagnosticGroup(DiagnosticType...) is not applicable
+      (varargs mismatch; String cannot be converted to DiagnosticType)
+    constructor DiagnosticGroup.DiagnosticGroup(DiagnosticGroup...) is not applicable
+      (varargs mismatch; String cannot be converted to DiagnosticGroup)
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CompilerOptionsTest.java:233: error: no suitable constructor found for DiagnosticGroup(String,DiagnosticType)
+    DiagnosticGroup group1 = new DiagnosticGroup("group1", DiagnosticType.error("ERR_1", "msg"));
+                             ^
+    constructor DiagnosticGroup.DiagnosticGroup(DiagnosticType...) is not applicable
+      (varargs mismatch; String cannot be converted to DiagnosticType)
+    constructor DiagnosticGroup.DiagnosticGroup(DiagnosticGroup...) is not applicable
+      (varargs mismatch; String cannot be converted to DiagnosticGroup)
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CompilerOptionsTest.java:234: error: no suitable constructor found for DiagnosticGroup(String,DiagnosticType)
+    DiagnosticGroup group2 = new DiagnosticGroup("group2", DiagnosticType.error("ERR_2", "msg"));
+                             ^
+    constructor DiagnosticGroup.DiagnosticGroup(DiagnosticType...) is not applicable
+      (varargs mismatch; String cannot be converted to DiagnosticType)
+    constructor DiagnosticGroup.DiagnosticGroup(DiagnosticGroup...) is not applicable
+      (varargs mismatch; String cannot be converted to DiagnosticGroup)
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CompilerOptionsTest.java:255: error: cannot find symbol
+    options.setRenamingPolicy(VariableRenamingPolicy.LOCAL, PropertyRenamingPolicy.UNTYPED);
+                                                                                  ^
+  symbol:   variable UNTYPED
+  location: class PropertyRenamingPolicy
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CompilerOptionsTest.java:257: error: cannot find symbol
+    Assert.assertEquals(PropertyRenamingPolicy.UNTYPED, options.propertyRenaming);
+                                              ^
+  symbol:   variable UNTYPED
+  location: class PropertyRenamingPolicy
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CompilerTest.java:519: error: cannot find symbol
+    docInfo.addLicense("My License");
+           ^
+  symbol:   method addLicense(String)
+  location: variable docInfo of type JSDocInfo
+/tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/CompilerTest.java:858: error: incompatible types: ImmutableMap<CustomPassExecutionTime,List<CompilerPass>> cannot be converted to Multimap<CustomPassExecutionTime,CompilerPass>
+    options.customPasses = ImmutableMap.<CustomPassExecutionTime, List<CompilerPass>>of(
+                                                                                       ^
+Note: /tmp/evaluate_gemini_Closure_149_k2zr_6t5/src/AbstractCommandLineRunnerTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+30 errors

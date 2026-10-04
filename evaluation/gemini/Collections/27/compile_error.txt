@@ -1,0 +1,10 @@
+/tmp/evaluate_gemini_Collections_27_ds8w44q3/src/MultiValueMapTest.java:94: error: cannot find symbol
+        MultiValueMap<String, String> map = MultiValueMap.multiValueMap(new HashMap<String, Object>(), AbstractCollection.class);
+                                                                                                       ^
+  symbol:   class AbstractCollection
+  location: class MultiValueMapTest
+Note: /tmp/evaluate_gemini_Collections_27_ds8w44q3/src/MultiValueMapTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /tmp/evaluate_gemini_Collections_27_ds8w44q3/src/MultiValueMapTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error

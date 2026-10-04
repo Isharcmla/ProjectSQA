@@ -1,0 +1,16 @@
+{
+  "project": "Closure",
+  "bug_id": "174",
+  "tool": "gemini",
+  "generated_files": 2,
+  "candidate_tests": 30,
+  "classification_counts": {
+    "valid_non_revealing": 17,
+    "bug_revealing": 4,
+    "invalid_or_unstable": 9
+  },
+  "bug_revealing_tests": 4,
+  "bug_detected": true,
+  "generation_status": "unknown",
+  "evaluation_status": "success"
+}

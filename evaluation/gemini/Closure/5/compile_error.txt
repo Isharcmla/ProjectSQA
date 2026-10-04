@@ -1,0 +1,15 @@
+/tmp/evaluate_gemini_Closure_5_9d5cgqzj/src/InlineObjectLiteralsTest.java:39: error: isExported(String) in <anonymous com.google.javascript.jscomp.InlineObjectLiteralsTest$2> cannot override isExported(String) in Proxy
+        public boolean isExported(String name) {
+                       ^
+  overridden method is final
+/tmp/evaluate_gemini_Closure_5_9d5cgqzj/src/InlineObjectLiteralsTest.java:236: error: cannot find symbol
+    Node externs = compiler.parseTestCode("");
+    ^
+  symbol:   class Node
+  location: class InlineObjectLiteralsTest
+/tmp/evaluate_gemini_Closure_5_9d5cgqzj/src/InlineObjectLiteralsTest.java:237: error: cannot find symbol
+    Node root = compiler.parseTestCode("function f() { var a = {x: 1}; return a.x; }");
+    ^
+  symbol:   class Node
+  location: class InlineObjectLiteralsTest
+3 errors

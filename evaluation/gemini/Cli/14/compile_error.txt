@@ -1,0 +1,33 @@
+/tmp/evaluate_gemini_Cli_14_b_d503wg/src/GroupImplTest.java:26: error: DummyCommandLine is not abstract and does not override abstract method getOptionCount(Option) in CommandLine
+    private static class DummyCommandLine implements WriteableCommandLine {
+                   ^
+/tmp/evaluate_gemini_Cli_14_b_d503wg/src/GroupImplTest.java:94: error: getProperty(String) in DummyCommandLine cannot implement getProperty(String) in CommandLine
+        public Object getProperty(String property) {
+                      ^
+  return type Object is not compatible with String
+/tmp/evaluate_gemini_Cli_14_b_d503wg/src/GroupImplTest.java:139: error: DummyOption is not abstract and does not override abstract method canProcess(WriteableCommandLine,ListIterator) in Option
+    private static class DummyOption implements Option {
+                   ^
+/tmp/evaluate_gemini_Cli_14_b_d503wg/src/GroupImplTest.java:243: error: DummyArgument is not abstract and does not override abstract method validate(WriteableCommandLine,Option) in Argument
+    private static class DummyArgument extends DummyOption implements Argument {
+                   ^
+/tmp/evaluate_gemini_Cli_14_b_d503wg/src/GroupImplTest.java:252: error: getInitialSeparator() in DummyArgument cannot implement getInitialSeparator() in Argument
+        public Object getInitialSeparator() {
+                      ^
+  return type Object is not compatible with char
+/tmp/evaluate_gemini_Cli_14_b_d503wg/src/GroupImplTest.java:300: error: reference to canProcess is ambiguous
+        Assert.assertFalse(group.canProcess(cmd, null));
+                                ^
+  both method canProcess(WriteableCommandLine,ListIterator) in OptionImpl and method canProcess(WriteableCommandLine,String) in GroupImpl match
+/tmp/evaluate_gemini_Cli_14_b_d503wg/src/GroupImplTest.java:469: error: processed has private access in DummyOption
+        Assert.assertTrue(arg.processed);
+                             ^
+/tmp/evaluate_gemini_Cli_14_b_d503wg/src/GroupImplTest.java:547: error: validated has private access in DummyOption
+        Assert.assertTrue(arg.validated);
+                             ^
+/tmp/evaluate_gemini_Cli_14_b_d503wg/src/GroupImplTest.java:683: error: defaulted has private access in DummyOption
+        Assert.assertTrue(arg.defaulted);
+                             ^
+Note: /tmp/evaluate_gemini_Cli_14_b_d503wg/src/GroupImplTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+9 errors

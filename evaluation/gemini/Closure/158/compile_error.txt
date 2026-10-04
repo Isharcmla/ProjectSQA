@@ -1,0 +1,169 @@
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/AbstractCommandLineRunnerTest.java:163: error: cannot find symbol
+        .setSourceMapFormat(SourceMap.Format.V3)
+                                            ^
+  symbol:   variable V3
+  location: class Format
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:133: error: jsOutputFile has private access in CommandLineConfig
+        Assert.assertEquals("test_out.js", runner.getCommandLineConfig().jsOutputFile);
+                                                                        ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:134: error: outputWrapper has private access in CommandLineConfig
+        Assert.assertEquals("(function(){%output%})();", runner.getCommandLineConfig().outputWrapper);
+                                                                                      ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:135: error: charset has private access in CommandLineConfig
+        Assert.assertEquals("UTF-8", runner.getCommandLineConfig().charset);
+                                                                  ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:242: error: printTree has private access in CommandLineConfig
+        Assert.assertTrue(config.printTree);
+                                ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:243: error: computePhaseOrdering has private access in CommandLineConfig
+        Assert.assertTrue(config.computePhaseOrdering);
+                                ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:244: error: printAst has private access in CommandLineConfig
+        Assert.assertTrue(config.printAst);
+                                ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:245: error: printPassGraph has private access in CommandLineConfig
+        Assert.assertTrue(config.printPassGraph);
+                                ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:246: error: jscompDevMode has private access in CommandLineConfig
+        Assert.assertEquals(CompilerOptions.DevMode.START, config.jscompDevMode);
+                                                                 ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:247: error: loggingLevel has private access in CommandLineConfig
+        Assert.assertEquals("INFO", config.loggingLevel);
+                                          ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:248: error: externs has private access in CommandLineConfig
+        Assert.assertEquals(2, config.externs.size());
+                                     ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:249: error: js has private access in CommandLineConfig
+        Assert.assertEquals(2, config.js.size());
+                                     ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:250: error: jsOutputFile has private access in CommandLineConfig
+        Assert.assertEquals("out.js", config.jsOutputFile);
+                                            ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:251: error: module has private access in CommandLineConfig
+        Assert.assertEquals(1, config.module.size());
+                                     ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:252: error: variableMapInputFile has private access in CommandLineConfig
+        Assert.assertEquals("var_in.map", config.variableMapInputFile);
+                                                ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:253: error: propertyMapInputFile has private access in CommandLineConfig
+        Assert.assertEquals("prop_in.map", config.propertyMapInputFile);
+                                                 ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:254: error: variableMapOutputFile has private access in CommandLineConfig
+        Assert.assertEquals("var_out.map", config.variableMapOutputFile);
+                                                 ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:255: error: createNameMapFiles has private access in CommandLineConfig
+        Assert.assertTrue(config.createNameMapFiles);
+                                ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:256: error: propertyMapOutputFile has private access in CommandLineConfig
+        Assert.assertEquals("prop_out.map", config.propertyMapOutputFile);
+                                                  ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:257: error: codingConvention has private access in CommandLineConfig
+        Assert.assertTrue(config.codingConvention instanceof DefaultCodingConvention);
+                                ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:258: error: summaryDetailLevel has private access in CommandLineConfig
+        Assert.assertEquals(3, config.summaryDetailLevel);
+                                     ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:259: error: outputWrapper has private access in CommandLineConfig
+        Assert.assertEquals("wrap_%output%", config.outputWrapper);
+                                                   ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:260: error: moduleWrapper has private access in CommandLineConfig
+        Assert.assertEquals(1, config.moduleWrapper.size());
+                                     ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:261: error: moduleOutputPathPrefix has private access in CommandLineConfig
+        Assert.assertEquals("prefix_", config.moduleOutputPathPrefix);
+                                             ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:262: error: createSourceMap has private access in CommandLineConfig
+        Assert.assertEquals("map.out", config.createSourceMap);
+                                             ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:263: error: jscompError has private access in CommandLineConfig
+        Assert.assertEquals(1, config.jscompError.size());
+                                     ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:264: error: jscompWarning has private access in CommandLineConfig
+        Assert.assertEquals(1, config.jscompWarning.size());
+                                     ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:265: error: jscompOff has private access in CommandLineConfig
+        Assert.assertEquals(1, config.jscompOff.size());
+                                     ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:266: error: define has private access in CommandLineConfig
+        Assert.assertEquals(3, config.define.size());
+                                     ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:267: error: charset has private access in CommandLineConfig
+        Assert.assertEquals("UTF-8", config.charset);
+                                           ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:268: error: manageClosureDependencies has private access in CommandLineConfig
+        Assert.assertTrue(config.manageClosureDependencies);
+                                ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:269: error: cannot find symbol
+        Assert.assertEquals(1, config.closureEntryPoint.size());
+                                     ^
+  symbol:   variable closureEntryPoint
+  location: variable config of type CommandLineConfig
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:270: error: outputManifest has private access in CommandLineConfig
+        Assert.assertEquals("manifest.out", config.outputManifest);
+                                                  ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:271: error: acceptConstKeyword has private access in CommandLineConfig
+        Assert.assertTrue(config.acceptConstKeyword);
+                                ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:272: error: languageIn has private access in CommandLineConfig
+        Assert.assertEquals("ECMASCRIPT5", config.languageIn);
+                                                 ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:279: error: codingConvention has private access in CommandLineConfig
+        Assert.assertTrue(runner.getCommandLineConfig().codingConvention instanceof ClosureCodingConvention);
+                                                       ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:333: error: Flags has private access in CommandLineRunner
+        CommandLineRunner.Flags.BooleanOptionHandler handler =
+                         ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:334: error: Flags has private access in CommandLineRunner
+            new CommandLineRunner.Flags.BooleanOptionHandler(parser, (OptionDef) null, setter);
+                                 ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:342: error: incompatible types: CmdLineParser cannot be converted to String
+                throw new CmdLineException(parser, "No param");
+                                           ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:344: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:361: error: method does not override or implement a method from a supertype
+                @Override
+                ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:379: error: method does not override or implement a method from a supertype
+                @Override
+                ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/CommandLineRunnerTest.java:395: error: method does not override or implement a method from a supertype
+            @Override
+            ^
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/DiagnosticGroupsTest.java:89: error: reference to DiagnosticGroup is ambiguous
+    DiagnosticGroup customGroup = new DiagnosticGroup("customGroupInstance");
+                                  ^
+  both constructor DiagnosticGroup(String,DiagnosticType...) in DiagnosticGroup and constructor DiagnosticGroup(String,DiagnosticGroup...) in DiagnosticGroup match
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/DiagnosticGroupsTest.java:105: error: no suitable constructor found for JSError(<null>,int,int,DiagnosticType)
+    Assert.assertTrue(registered.matches(new JSError(null, -1, -1, type1)));
+                                         ^
+    constructor JSError.JSError(String,Node,int,int,DiagnosticType,CheckLevel,String...) is not applicable
+      (argument mismatch; int cannot be converted to Node)
+    constructor JSError.JSError(String,Node,DiagnosticType,String...) is not applicable
+      (argument mismatch; int cannot be converted to Node)
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/DiagnosticGroupsTest.java:106: error: no suitable constructor found for JSError(<null>,int,int,DiagnosticType)
+    Assert.assertTrue(registered.matches(new JSError(null, -1, -1, type2)));
+                                         ^
+    constructor JSError.JSError(String,Node,int,int,DiagnosticType,CheckLevel,String...) is not applicable
+      (argument mismatch; int cannot be converted to Node)
+    constructor JSError.JSError(String,Node,DiagnosticType,String...) is not applicable
+      (argument mismatch; int cannot be converted to Node)
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/DiagnosticGroupsTest.java:128: error: no suitable constructor found for JSError(<null>,int,int,DiagnosticType)
+    Assert.assertTrue(registered.matches(new JSError(null, -1, -1, type1)));
+                                         ^
+    constructor JSError.JSError(String,Node,int,int,DiagnosticType,CheckLevel,String...) is not applicable
+      (argument mismatch; int cannot be converted to Node)
+    constructor JSError.JSError(String,Node,DiagnosticType,String...) is not applicable
+      (argument mismatch; int cannot be converted to Node)
+/tmp/evaluate_gemini_Closure_158_dj72my_j/src/DiagnosticGroupsTest.java:129: error: no suitable constructor found for JSError(<null>,int,int,DiagnosticType)
+    Assert.assertTrue(registered.matches(new JSError(null, -1, -1, type2)));
+                                         ^
+    constructor JSError.JSError(String,Node,int,int,DiagnosticType,CheckLevel,String...) is not applicable
+      (argument mismatch; int cannot be converted to Node)
+    constructor JSError.JSError(String,Node,DiagnosticType,String...) is not applicable
+      (argument mismatch; int cannot be converted to Node)
+Note: /tmp/evaluate_gemini_Closure_158_dj72my_j/src/AbstractCommandLineRunnerTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+48 errors

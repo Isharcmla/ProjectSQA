@@ -1,0 +1,16 @@
+/tmp/evaluate_gemini_Closure_141_h9s5kdhd/src/NodeUtilTest.java:442: error: cannot find symbol
+    assertFalse(NodeUtil.isVar(new Node(Token.LET)));
+                                             ^
+  symbol:   variable LET
+  location: class Token
+/tmp/evaluate_gemini_Closure_141_h9s5kdhd/src/PureFunctionIdentifierTest.java:37: error: cannot find symbol
+    if (n.isCall() || n.isNew()) {
+         ^
+  symbol:   method isCall()
+  location: variable n of type Node
+/tmp/evaluate_gemini_Closure_141_h9s5kdhd/src/PureFunctionIdentifierTest.java:37: error: cannot find symbol
+    if (n.isCall() || n.isNew()) {
+                       ^
+  symbol:   method isNew()
+  location: variable n of type Node
+3 errors

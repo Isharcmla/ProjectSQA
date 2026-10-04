@@ -1,0 +1,94 @@
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:20: error: SimpleSlotImpl is not abstract and does not override abstract method getJSDocInfo() in StaticSlot
+  private static class SimpleSlotImpl implements StaticSlot<JSType> {
+                 ^
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:51: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:130: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType objectType = registry.createAnonymousObjectType();
+                                    ^
+  required: JSDocInfo
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:131: error: incompatible types: String cannot be converted to JSType
+    registry.register("MyResolvedType", objectType);
+                      ^
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:154: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType targetType = registry.createAnonymousObjectType();
+                                    ^
+  required: JSDocInfo
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:155: error: incompatible types: String cannot be converted to JSType
+    registry.register("ValidatedType", targetType);
+                      ^
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:170: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType targetType = registry.createAnonymousObjectType();
+                                    ^
+  required: JSDocInfo
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:171: error: incompatible types: String cannot be converted to JSType
+    registry.register("RegisteredType", targetType);
+                      ^
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:184: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType targetType = registry.createAnonymousObjectType();
+                                    ^
+  required: JSDocInfo
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:185: error: incompatible types: String cannot be converted to JSType
+    registry.register("RegisteredType", targetType);
+                      ^
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:195: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>)
+    FunctionType ctor = registry.createConstructorType("Ctor", null, null, null);
+                                ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:245: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType rootObj = registry.createAnonymousObjectType();
+                                 ^
+  required: JSDocInfo
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:246: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType childObj = registry.createAnonymousObjectType();
+                                  ^
+  required: JSDocInfo
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:247: error: no suitable method found for createConstructorType(String,<null>,<null>,<null>)
+    FunctionType ctor = registry.createConstructorType("ChildCtor", null, null, null);
+                                ^
+    method JSTypeRegistry.createConstructorType(JSType,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+    method JSTypeRegistry.createConstructorType(JSType,boolean,JSType...) is not applicable
+      (argument mismatch; String cannot be converted to JSType)
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:269: error: method createAnonymousObjectType in class JSTypeRegistry cannot be applied to given types;
+    ObjectType rootObj = registry.createAnonymousObjectType();
+                                 ^
+  required: JSDocInfo
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:319: error: cannot find symbol
+    Assert.assertEquals(1, errorReporter.getWarnings().size());
+                                        ^
+  symbol:   method getWarnings()
+  location: variable errorReporter of type SimpleErrorReporter
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:342: error: cannot find symbol
+    Assert.assertEquals(0, errorReporter.getWarnings().size());
+                                        ^
+  symbol:   method getWarnings()
+  location: variable errorReporter of type SimpleErrorReporter
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:375: error: incompatible types: String cannot be converted to JSType
+    registry.register("CycleEnum", enumElementType);
+                      ^
+/tmp/evaluate_gemini_Closure_4_s7y9lekc/src/NamedTypeTest.java:378: error: cannot find symbol
+    Assert.assertEquals(1, errorReporter.getWarnings().size());
+                                        ^
+  symbol:   method getWarnings()
+  location: variable errorReporter of type SimpleErrorReporter
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+19 errors

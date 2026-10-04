@@ -1,0 +1,76 @@
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:221: error: no suitable method found for createObjectType(String,<null>)
+    ObjectType objWithIndex = registry.createObjectType("CustomIndexObj", null);
+                                      ^
+    method JSTypeRegistry.createObjectType(ObjectType) is not applicable
+      (actual and formal argument lists differ in length)
+    method JSTypeRegistry.createObjectType(String,Node,ObjectType) is not applicable
+      (actual and formal argument lists differ in length)
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:222: error: method defineDeclaredProperty in class ObjectType cannot be applied to given types;
+    objWithIndex.defineDeclaredProperty("dummy", strType, null);
+                ^
+  required: String,JSType,boolean,Node
+  found: String,JSType,<null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:223: error: cannot find symbol
+    objWithIndex.setPropertyJSType("0", numType);
+                ^
+  symbol:   method setPropertyJSType(String,JSType)
+  location: variable objWithIndex of type ObjectType
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:225: error: cannot find symbol
+    restricted.setIndexType(numType);
+              ^
+  symbol:   method setIndexType(JSType)
+  location: variable restricted of type ObjectType
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:363: error: constructor Var in class Var cannot be applied to given types;
+    Scope.Var nativeVar = new Scope.Var(false, "nativeVar", nameNode, strType, null, 0, null);
+                          ^
+  required: boolean,String,Node,JSType,Scope,int,CompilerInput,boolean,JSDocInfo
+  found: boolean,String,Node,JSType,<null>,int,<null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:371: error: constructor Var in class Var cannot be applied to given types;
+    Scope.Var nativeFnVar = new Scope.Var(false, "fn", fnNameNode, strType, null, 0, null);
+                            ^
+  required: boolean,String,Node,JSType,Scope,int,CompilerInput,boolean,JSDocInfo
+  found: boolean,String,Node,JSType,<null>,int,<null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:376: error: no suitable constructor found for CompilerInput(SourceFile)
+    CompilerInput compInput = new CompilerInput(SourceFile.fromCode("input.js", "var x;"));
+                              ^
+    constructor CompilerInput.CompilerInput(SourceAst) is not applicable
+      (argument mismatch; SourceFile cannot be converted to SourceAst)
+    constructor CompilerInput.CompilerInput(JSSourceFile) is not applicable
+      (argument mismatch; SourceFile cannot be converted to JSSourceFile)
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:380: error: constructor Var in class Var cannot be applied to given types;
+    Scope.Var userVar = new Scope.Var(false, "userVar", userVarNode, strType, compInput, 0, null);
+                        ^
+  required: boolean,String,Node,JSType,Scope,int,CompilerInput,boolean,JSDocInfo
+  found: boolean,String,Node,JSType,CompilerInput,int,<null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:387: error: cannot find symbol
+    docBuilder.recordSuppression("duplicate");
+              ^
+  symbol:   method recordSuppression(String)
+  location: variable docBuilder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:388: error: incompatible types: Node cannot be converted to String
+    JSDocInfo info = docBuilder.build(getPropNode);
+                                      ^
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:392: error: constructor Var in class Var cannot be applied to given types;
+    Scope.Var propVar = new Scope.Var(false, "obj.dupProp", getPropNode, strType, compInput, 0, null);
+                        ^
+  required: boolean,String,Node,JSType,Scope,int,CompilerInput,boolean,JSDocInfo
+  found: boolean,String,Node,JSType,CompilerInput,int,<null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:401: error: method defineDeclaredProperty in class ObjectType cannot be applied to given types;
+    ifaceType.getImplicitPrototype().defineDeclaredProperty("missingProp", getNativeType(STRING_TYPE), null);
+                                    ^
+  required: String,JSType,boolean,Node
+  found: String,JSType,<null>
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Closure_154_0t62ei66/src/TypeValidatorTest.java:425: error: method defineDeclaredProperty in class ObjectType cannot be applied to given types;
+    instance.defineDeclaredProperty("myProp", getNativeType(STRING_TYPE), null);
+            ^
+  required: String,JSType,boolean,Node
+  found: String,JSType,<null>
+  reason: actual and formal argument lists differ in length
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+13 errors

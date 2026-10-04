@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Closure_30_uysal0b7/src/MustBeReachingVariableDefTest.java:91: error: cannot find symbol
+    Assert.assertEquals(2, defA.getLastChild().getInt());
+                                              ^
+  symbol:   method getInt()
+  location: class Node
+1 error

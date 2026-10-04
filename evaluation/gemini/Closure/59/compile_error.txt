@@ -1,0 +1,14 @@
+/tmp/evaluate_gemini_Closure_59_5h7uledo/src/CompilerTest.java:62: error: cannot find symbol
+    BasicErrorManager customManager = new LoggerErrorManager(new TextErrorFormatter(new Compiler()), Compiler.logger);
+                                                                 ^
+  symbol:   class TextErrorFormatter
+  location: class CompilerTest
+/tmp/evaluate_gemini_Closure_59_5h7uledo/src/CompilerTest.java:62: error: logger has private access in Compiler
+    BasicErrorManager customManager = new LoggerErrorManager(new TextErrorFormatter(new Compiler()), Compiler.logger);
+                                                                                                             ^
+/tmp/evaluate_gemini_Closure_59_5h7uledo/src/CompilerTest.java:490: error: cannot find symbol
+    options.setExternExportsPath("exports.js");
+           ^
+  symbol:   method setExternExportsPath(String)
+  location: variable options of type CompilerOptions
+3 errors

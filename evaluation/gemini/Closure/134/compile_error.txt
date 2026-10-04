@@ -1,0 +1,143 @@
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:30: error: cannot find symbol
+    compiler.initOptions(options);
+            ^
+  symbol:   method initOptions(CompilerOptions)
+  location: variable compiler of type Compiler
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:77: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:80: error: cannot find symbol
+    FunctionType barCtor = registry.buildConstructor("Bar", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:104: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:124: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:152: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:177: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:198: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:241: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:244: error: cannot find symbol
+    FunctionType barCtor = registry.buildConstructor("Bar", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:247: error: cannot find symbol
+    compiler.getTypeValidator().addTypeMismatch(fooType, barType, null);
+                               ^
+  symbol:   method addTypeMismatch(ObjectType,ObjectType,<null>)
+  location: class TypeValidator
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:263: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:265: error: cannot find symbol
+    FunctionType barCtor = registry.buildConstructor("Bar", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:269: error: cannot find symbol
+    FunctionType bazCtor = registry.buildConstructor("Baz", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:272: error: cannot find symbol
+    compiler.getTypeValidator().addTypeMismatch(union, bazType, null);
+                               ^
+  symbol:   method addTypeMismatch(UnionType,ObjectType,<null>)
+  location: class TypeValidator
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:288: error: cannot find symbol
+    FunctionType ifaceCtor = registry.buildConstructor("MyInterface", null, null, null, null, true);
+                                     ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:291: error: cannot find symbol
+    FunctionType parentCtor = registry.buildConstructor("Parent", null, null, null, null, false);
+                                      ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:294: error: cannot find symbol
+    FunctionType childCtor = registry.buildConstructor("Child", null, null, null, null, false);
+                                     ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:321: error: cannot find symbol
+    FunctionType fnType = registry.buildConstructor("MyFn", null, null, null, null, false);
+                                  ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:342: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:344: error: cannot find symbol
+    FunctionType barCtor = registry.buildConstructor("Bar", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:386: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:409: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:427: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/AmbiguatePropertiesTest.java:451: error: cannot find symbol
+    FunctionType fooCtor = registry.buildConstructor("Foo", null, null, null, null, false);
+                                   ^
+  symbol:   method buildConstructor(String,<null>,<null>,<null>,<null>,boolean)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/TypedScopeCreatorTest.java:31: error: cannot find symbol
+    compiler.initOptions(options);
+            ^
+  symbol:   method initOptions(CompilerOptions)
+  location: variable compiler of type Compiler
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/TypedScopeCreatorTest.java:44: error: cannot find symbol
+    compiler.initOptions(options);
+            ^
+  symbol:   method initOptions(CompilerOptions)
+  location: variable compiler of type Compiler
+/tmp/evaluate_gemini_Closure_134_ojjw79b5/src/TypedScopeCreatorTest.java:47: error: no suitable method found for init(List<SourceFile>,List<SourceFile>,CompilerOptions)
+    compiler.init(externInputs, jsInputs, options);
+            ^
+    method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile[])
+    method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; List<SourceFile> cannot be converted to JSSourceFile[])
+28 errors

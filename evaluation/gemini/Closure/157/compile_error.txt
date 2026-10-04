@@ -1,0 +1,142 @@
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/CodeGeneratorTest.java:18: error: TestCodeConsumer is not abstract and does not override abstract method getLastChar() in CodeConsumer
+  private static class TestCodeConsumer extends CodeConsumer {
+                 ^
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/CodeGeneratorTest.java:650: error: cannot find symbol
+    n1.setNext(n2);
+      ^
+  symbol:   method setNext(Node)
+  location: variable n1 of type Node
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/CodeGeneratorTest.java:659: error: cannot find symbol
+    n1.setNext(n2);
+      ^
+  symbol:   method setNext(Node)
+  location: variable n1 of type Node
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/IRFactoryTest.java:451: error: <anonymous com.google.javascript.jscomp.parsing.IRFactoryTest$1> is not abstract and does not override abstract method visit(NodeVisitor) in AstNode
+    AstNode illegalNode = new AstNode(com.google.javascript.jscomp.mozilla.rhino.Token.RESERVED) {
+                                                                                                 ^
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:44: error: cannot find symbol
+    Assert.assertTrue(rp.getPropertyMap().toMap().isEmpty());
+                                         ^
+  symbol:   method toMap()
+  location: class VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:58: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("simple"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:59: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("another"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:82: error: cannot find symbol
+    Assert.assertFalse(map.toMap().containsKey("alllower"));
+                          ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:83: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("camelCase"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:84: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("with_underscore"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:85: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("with1digit"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:98: error: cannot find symbol
+    Assert.assertFalse(map.toMap().containsKey("externProp"));
+                          ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:99: error: cannot find symbol
+    Assert.assertFalse(map.toMap().containsKey("externElem"));
+                          ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:100: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("localProp"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:113: error: cannot find symbol
+    Assert.assertFalse(map.toMap().containsKey("toString"));
+                          ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:114: error: cannot find symbol
+    Assert.assertFalse(map.toMap().containsKey("indexOf"));
+                          ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:130: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("methodA"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:131: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("methodB"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:146: error: cannot find symbol
+    Assert.assertFalse(map.toMap().containsKey("normalKey"));
+                          ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:147: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("privateKey_"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:162: error: cannot find symbol
+    Assert.assertFalse(map.toMap().containsKey("sharedPublic"));
+                          ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:163: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("sharedPrivate_"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:177: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("runtimeProp_"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:178: error: cannot find symbol
+    Assert.assertFalse(map.toMap().containsKey("normalRuntime"));
+                          ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:217: error: cannot find symbol
+    for (String newName : map.toMap().values()) {
+                             ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:240: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("propZ"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:241: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("propA"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:242: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("propB"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+/tmp/evaluate_gemini_Closure_157_4e2fl6u1/src/RenamePrototypesTest.java:256: error: cannot find symbol
+    Assert.assertTrue(map.toMap().containsKey("computedProp"));
+                         ^
+  symbol:   method toMap()
+  location: variable map of type VariableMap
+29 errors

@@ -1,0 +1,14 @@
+/tmp/evaluate_gemini_Closure_65_m9be5dq4/src/CodeGeneratorTest.java:760: error: cannot find symbol
+    n1.setNext(n2);
+      ^
+  symbol:   method setNext(Node)
+  location: variable n1 of type Node
+/tmp/evaluate_gemini_Closure_65_m9be5dq4/src/CodeGeneratorTest.java:776: error: cannot find symbol
+    empty1.setNext(empty2);
+          ^
+  symbol:   method setNext(Node)
+  location: variable empty1 of type Node
+/tmp/evaluate_gemini_Closure_65_m9be5dq4/src/CodeGeneratorTest.java:834: error: addExpr(Node,int,Context) has private access in CodeGenerator
+    generator.addExpr(inNode, 0, CodeGenerator.Context.IN_FOR_INIT_CLAUSE);
+             ^
+3 errors

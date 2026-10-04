@@ -1,0 +1,25 @@
+/tmp/evaluate_gemini_Closure_22_16p81nbv/src/CheckSideEffectsTest.java:34: error: cannot find symbol
+    Assert.assertTrue(compiler.getWarnings()[0].getDescription().contains("Is there a missing '+' on the previous line?"));
+                                               ^
+  symbol:   method getDescription()
+  location: class JSError
+/tmp/evaluate_gemini_Closure_22_16p81nbv/src/CheckSideEffectsTest.java:44: error: cannot find symbol
+    Assert.assertTrue(compiler.getWarnings()[0].getDescription().contains("The result of the 'sheq' operator is not being used.")
+                                               ^
+  symbol:   method getDescription()
+  location: class JSError
+/tmp/evaluate_gemini_Closure_22_16p81nbv/src/CheckSideEffectsTest.java:45: error: cannot find symbol
+        || compiler.getWarnings()[0].getDescription().contains("The result of the 'eq' operator is not being used."));
+                                    ^
+  symbol:   method getDescription()
+  location: class JSError
+/tmp/evaluate_gemini_Closure_22_16p81nbv/src/CheckSideEffectsTest.java:55: error: cannot find symbol
+    Assert.assertTrue(compiler.getWarnings()[0].getDescription().contains("This code lacks side-effects. Is there a bug?"));
+                                               ^
+  symbol:   method getDescription()
+  location: class JSError
+/tmp/evaluate_gemini_Closure_22_16p81nbv/src/CheckSideEffectsTest.java:153: error: incompatible types: Node cannot be converted to JSTypeExpression
+    builder.recordType(new Node(Token.STAR));
+                       ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+5 errors

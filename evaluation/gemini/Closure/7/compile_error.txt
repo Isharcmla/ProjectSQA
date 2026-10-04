@@ -1,0 +1,42 @@
+/tmp/evaluate_gemini_Closure_7_853xe1_3/src/ChainableReverseAbstractInterpreterTest.java:44: error: SimpleStaticSlot is not abstract and does not override abstract method getJSDocInfo() in StaticSlot
+  private static class SimpleStaticSlot implements StaticSlot<JSType> {
+                 ^
+/tmp/evaluate_gemini_Closure_7_853xe1_3/src/ChainableReverseAbstractInterpreterTest.java:69: error: getDeclaration() in SimpleStaticSlot cannot implement getDeclaration() in StaticSlot
+    public Object getDeclaration() {
+                  ^
+  return type Object is not compatible with StaticReference<JSType>
+  where T is a type-variable:
+    T extends Object declared in interface StaticSlot
+/tmp/evaluate_gemini_Closure_7_853xe1_3/src/ChainableReverseAbstractInterpreterTest.java:68: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_7_853xe1_3/src/ChainableReverseAbstractInterpreterTest.java:73: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_7_853xe1_3/src/ChainableReverseAbstractInterpreterTest.java:79: error: TestFlowScope is not abstract and does not override abstract method completeScope(StaticScope<JSType>) in FlowScope
+  private static class TestFlowScope implements FlowScope {
+                 ^
+/tmp/evaluate_gemini_Closure_7_853xe1_3/src/ChainableReverseAbstractInterpreterTest.java:127: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_7_853xe1_3/src/ChainableReverseAbstractInterpreterTest.java:367: error: cannot find symbol
+    TemplateType templateType = registry.createTemplateType("T");
+                                        ^
+  symbol:   method createTemplateType(String)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_7_853xe1_3/src/ChainableReverseAbstractInterpreterTest.java:417: error: cannot find symbol
+    TemplateType templateType = registry.createTemplateType("T");
+                                        ^
+  symbol:   method createTemplateType(String)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_7_853xe1_3/src/ChainableReverseAbstractInterpreterTest.java:545: error: cannot find symbol
+    TemplateType templateType = registry.createTemplateType("T");
+                                        ^
+  symbol:   method createTemplateType(String)
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_7_853xe1_3/src/ChainableReverseAbstractInterpreterTest.java:592: error: cannot find symbol
+    TemplateType templateType = registry.createTemplateType("T");
+                                        ^
+  symbol:   method createTemplateType(String)
+  location: variable registry of type JSTypeRegistry
+10 errors

@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Closure_176_rsb3wrbk/src/TypeInferenceTest.java:45: error: cannot find symbol
+    SemanticReverseAbstractInterpreter rai = new SemanticReverseAbstractInterpreter(
+    ^
+  symbol:   class SemanticReverseAbstractInterpreter
+  location: class TypeInferenceTest
+/tmp/evaluate_gemini_Closure_176_rsb3wrbk/src/TypeInferenceTest.java:45: error: cannot find symbol
+    SemanticReverseAbstractInterpreter rai = new SemanticReverseAbstractInterpreter(
+                                                 ^
+  symbol:   class SemanticReverseAbstractInterpreter
+  location: class TypeInferenceTest
+2 errors

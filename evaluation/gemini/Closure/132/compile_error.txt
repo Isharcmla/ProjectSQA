@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Closure_132_2y5x441v/src/PeepholeSubstituteAlternateSyntaxTest.java:17: error: cannot find symbol
+      NodeUtil.markNewScopesRoot(root, compiler);
+              ^
+  symbol:   method markNewScopesRoot(Node,Compiler)
+  location: class NodeUtil
+/tmp/evaluate_gemini_Closure_132_2y5x441v/src/PeepholeSubstituteAlternateSyntaxTest.java:18: error: cannot find symbol
+      compiler.setNormalized();
+              ^
+  symbol:   method setNormalized()
+  location: variable compiler of type Compiler
+2 errors

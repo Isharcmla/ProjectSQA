@@ -1,0 +1,58 @@
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:38: error: no suitable method found for init(List<SourceFile>,List<SourceFile>,CompilerOptions)
+    compiler.init(
+            ^
+    method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; no instance(s) of type variable(s) T exist so that List<T> conforms to JSSourceFile[])
+    method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; no instance(s) of type variable(s) T exist so that List<T> conforms to JSSourceFile[])
+  where T is a type-variable:
+    T extends Object declared in method <T>singletonList(T)
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:291: error: incompatible types: <null> cannot be converted to boolean
+    objType.defineDeclaredProperty("prototype", registry.getNativeType(JSTypeNative.OBJECT_TYPE), null);
+                                                                                                  ^
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:321: error: incompatible types: <null> cannot be converted to boolean
+    parentInstance.defineDeclaredProperty("inheritedProp", registry.getNativeType(JSTypeNative.NUMBER_TYPE), null);
+                                                                                                             ^
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:325: error: cannot find symbol
+    childInstance.setImplicitPrototype(parentInstance);
+                 ^
+  symbol:   method setImplicitPrototype(ObjectType)
+  location: variable childInstance of type ObjectType
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:363: error: cannot find symbol
+    assertTrue(resultNone.isUnique());
+                         ^
+  symbol:   method isUnique()
+  location: variable resultNone of type ConcreteType
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:381: error: cannot find symbol
+    ConcreteType unionType = ConcreteType.createUnion(resultNone, funcType);
+                                         ^
+  symbol:   method createUnion(ConcreteType,ConcreteType)
+  location: class ConcreteType
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:397: error: incompatible types: <null> cannot be converted to boolean
+    fooType.defineDeclaredProperty("field", registry.getNativeType(JSTypeNative.NUMBER_TYPE), null);
+                                                                                              ^
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:399: error: DisambiguateProperties.Property has private access in DisambiguateProperties
+    DisambiguateProperties<JSType>.Property prop = pass.getProperty("testField");
+                                  ^
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:407: error: DisambiguateProperties.Property has private access in DisambiguateProperties
+    DisambiguateProperties<JSType>.Property prop2 = pass.getProperty("testInvalid");
+                                  ^
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:421: error: DisambiguateProperties.Property has private access in DisambiguateProperties
+    DisambiguateProperties<JSType>.Property prop = pass.getProperty("thrownField");
+                                  ^
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:434: error: DisambiguateProperties.Property has private access in DisambiguateProperties
+    DisambiguateProperties<JSType>.Property prop = pass.getProperty("scheduled");
+                                  ^
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:457: error: DisambiguateProperties.Property has private access in DisambiguateProperties
+    DisambiguateProperties<JSType>.Property prop = pass.getProperty("expandField");
+                                  ^
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:483: error: cannot find symbol
+    namedType.resolve(null, registry.getEmptyScope());
+                                    ^
+  symbol:   method getEmptyScope()
+  location: variable registry of type JSTypeRegistry
+/tmp/evaluate_gemini_Closure_103_0zy6u7s9/src/DisambiguatePropertiesTest.java:488: error: DisambiguateProperties.Property has private access in DisambiguateProperties
+    DisambiguateProperties<JSType>.Property prop = pass.getProperty("namedProp");
+                                  ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+14 errors

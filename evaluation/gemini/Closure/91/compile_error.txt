@@ -1,0 +1,50 @@
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:19: error: TestCompiler is not abstract and does not override abstract method getErrorLevel(JSError) in AbstractCompiler
+  private static class TestCompiler extends AbstractCompiler {
+                 ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:32: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:37: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:42: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:47: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:52: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:67: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:85: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:102: error: incompatible types: Node cannot be converted to String
+    fnNode.setJSDocInfo(builder.build(fnNode));
+                                      ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:114: error: incompatible types: Node cannot be converted to String
+    fnNode.setJSDocInfo(builder.build(fnNode));
+                                      ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:125: error: incompatible types: Node cannot be converted to JSTypeExpression
+    builder.recordThisType(new Node(Token.STRING));
+                           ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:126: error: incompatible types: Node cannot be converted to String
+    fnNode.setJSDocInfo(builder.build(fnNode));
+                                      ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:138: error: incompatible types: Node cannot be converted to String
+    fnNode.setJSDocInfo(builder.build(fnNode));
+                                      ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:153: error: incompatible types: Node cannot be converted to String
+    nameNode.setJSDocInfo(builder.build(nameNode));
+                                        ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:170: error: incompatible types: Node cannot be converted to String
+    varNode.setJSDocInfo(builder.build(varNode));
+                                       ^
+/tmp/evaluate_gemini_Closure_91_l2l_m5s_/src/CheckGlobalThisTest.java:187: error: incompatible types: Node cannot be converted to String
+    assignNode.setJSDocInfo(builder.build(assignNode));
+                                          ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+16 errors

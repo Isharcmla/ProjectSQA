@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_Closure_52_wq9w0tgg/src/CodeGeneratorTest.java:690: error: cannot find symbol
+    n1.setNext(n2);
+      ^
+  symbol:   method setNext(Node)
+  location: variable n1 of type Node
+/tmp/evaluate_gemini_Closure_52_wq9w0tgg/src/CodeGeneratorTest.java:704: error: cannot find symbol
+    n1.setNext(empty);
+      ^
+  symbol:   method setNext(Node)
+  location: variable n1 of type Node
+2 errors

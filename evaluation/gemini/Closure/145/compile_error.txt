@@ -1,0 +1,54 @@
+/tmp/evaluate_gemini_Closure_145_e10qoio1/src/CodeGeneratorTest.java:15: error: DummyCodeConsumer is not abstract and does not override abstract method getCurrentLineIndex() in CodeConsumer
+  private static class DummyCodeConsumer extends CodeConsumer {
+                 ^
+/tmp/evaluate_gemini_Closure_145_e10qoio1/src/CodeGeneratorTest.java:224: error: cannot find symbol
+    elem1.setNext(elem2);
+         ^
+  symbol:   method setNext(Node)
+  location: variable elem1 of type Node
+/tmp/evaluate_gemini_Closure_145_e10qoio1/src/CodeGeneratorTest.java:557: error: cannot find symbol
+    newTarget.setNext(arg);
+             ^
+  symbol:   method setNext(Node)
+  location: variable newTarget of type Node
+/tmp/evaluate_gemini_Closure_145_e10qoio1/src/CodeGeneratorTest.java:587: error: cannot find symbol
+    k1.setNext(v1);
+      ^
+  symbol:   method setNext(Node)
+  location: variable k1 of type Node
+/tmp/evaluate_gemini_Closure_145_e10qoio1/src/CodeGeneratorTest.java:591: error: cannot find symbol
+    v1.setNext(k2);
+      ^
+  symbol:   method setNext(Node)
+  location: variable v1 of type Node
+/tmp/evaluate_gemini_Closure_145_e10qoio1/src/CodeGeneratorTest.java:592: error: cannot find symbol
+    k2.setNext(v2);
+      ^
+  symbol:   method setNext(Node)
+  location: variable k2 of type Node
+/tmp/evaluate_gemini_Closure_145_e10qoio1/src/CodeGeneratorTest.java:610: error: cannot find symbol
+    switchVal.setNext(caseNode);
+             ^
+  symbol:   method setNext(Node)
+  location: variable switchVal of type Node
+/tmp/evaluate_gemini_Closure_145_e10qoio1/src/CodeGeneratorTest.java:611: error: cannot find symbol
+    caseNode.setNext(defNode);
+            ^
+  symbol:   method setNext(Node)
+  location: variable caseNode of type Node
+/tmp/evaluate_gemini_Closure_145_e10qoio1/src/CodeGeneratorTest.java:703: error: cannot find symbol
+    n1.setNext(n2);
+      ^
+  symbol:   method setNext(Node)
+  location: variable n1 of type Node
+/tmp/evaluate_gemini_Closure_145_e10qoio1/src/CodeGeneratorTest.java:704: error: cannot find symbol
+    n2.setNext(n3);
+      ^
+  symbol:   method setNext(Node)
+  location: variable n2 of type Node
+/tmp/evaluate_gemini_Closure_145_e10qoio1/src/CodeGeneratorTest.java:717: error: cannot find symbol
+    n1.setNext(n2);
+      ^
+  symbol:   method setNext(Node)
+  location: variable n1 of type Node
+11 errors

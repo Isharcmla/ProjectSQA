@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Collections_20_3qox5mmf/src/TreeListTest.java:524: error: AVLNode(int,E,AVLNode<E>,AVLNode<E>) has private access in AVLNode
+        TreeList.AVLNode<String> node = new TreeList.AVLNode<String>(0, "test", null, null);
+                                        ^
+  where E is a type-variable:
+    E extends Object declared in class AVLNode
+1 error

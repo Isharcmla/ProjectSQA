@@ -1,0 +1,16 @@
+{
+  "project": "Cli",
+  "bug_id": "34",
+  "tool": "gemini",
+  "generated_files": 2,
+  "candidate_tests": 56,
+  "classification_counts": {
+    "fixed_regression_or_unstable": 4,
+    "valid_non_revealing": 51,
+    "invalid_or_unstable": 1
+  },
+  "bug_revealing_tests": 0,
+  "bug_detected": false,
+  "generation_status": "unknown",
+  "evaluation_status": "success"
+}

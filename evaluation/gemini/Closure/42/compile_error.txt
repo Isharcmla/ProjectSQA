@@ -1,0 +1,17 @@
+/tmp/evaluate_gemini_Closure_42_qjs1e8k4/src/IRFactoryTest.java:30: error: package com.google.javascript.rhino.head.ast.Token does not exist
+import com.google.javascript.rhino.head.ast.Token.CommentType;
+                                                 ^
+/tmp/evaluate_gemini_Closure_42_qjs1e8k4/src/IRFactoryTest.java:217: error: cannot find symbol
+    arrayLit.setDestructuring(true);
+            ^
+  symbol:   method setDestructuring(boolean)
+  location: variable arrayLit of type ArrayLiteral
+/tmp/evaluate_gemini_Closure_42_qjs1e8k4/src/IRFactoryTest.java:451: error: cannot find symbol
+    objLit.setDestructuring(true);
+          ^
+  symbol:   method setDestructuring(boolean)
+  location: variable objLit of type ObjectLiteral
+/tmp/evaluate_gemini_Closure_42_qjs1e8k4/src/IRFactoryTest.java:582: error: <anonymous com.google.javascript.jscomp.parsing.IRFactoryTest$2> is not abstract and does not override abstract method visit(NodeVisitor) in AstNode
+    AstNode unknownNode = new AstNode() {
+                                        ^
+4 errors

@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Closure_17_empmfoe2/src/TypedScopeCreatorTest.java:469: error: cannot find symbol
+    assertTrue(xVar.isEscaped());
+                   ^
+  symbol:   method isEscaped()
+  location: variable xVar of type Var
+1 error

@@ -1,0 +1,46 @@
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:186: error: <anonymous com.google.javascript.jscomp.FunctionInjectorTest$4> is not abstract and does not override abstract method visit(NodeTraversal,Node,Node) in Callback
+    NodeTraversal t = new NodeTraversal(compiler, new NodeTraversal.AbstractPostOrderCallback() {});
+                                                                                                ^
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:201: error: <anonymous com.google.javascript.jscomp.FunctionInjectorTest$5> is not abstract and does not override abstract method visit(NodeTraversal,Node,Node) in Callback
+    NodeTraversal t = new NodeTraversal(compiler, new NodeTraversal.AbstractPostOrderCallback() {});
+                                                                                                ^
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:214: error: <anonymous com.google.javascript.jscomp.FunctionInjectorTest$6> is not abstract and does not override abstract method visit(NodeTraversal,Node,Node) in Callback
+    NodeTraversal t = new NodeTraversal(compiler, new NodeTraversal.AbstractPostOrderCallback() {});
+                                                                                                ^
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:227: error: <anonymous com.google.javascript.jscomp.FunctionInjectorTest$7> is not abstract and does not override abstract method visit(NodeTraversal,Node,Node) in Callback
+    NodeTraversal t = new NodeTraversal(compiler, new NodeTraversal.AbstractPostOrderCallback() {});
+                                                                                                ^
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:240: error: <anonymous com.google.javascript.jscomp.FunctionInjectorTest$8> is not abstract and does not override abstract method visit(NodeTraversal,Node,Node) in Callback
+    NodeTraversal t = new NodeTraversal(compiler, new NodeTraversal.AbstractPostOrderCallback() {});
+                                                                                                ^
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:293: error: <anonymous com.google.javascript.jscomp.FunctionInjectorTest$11> is not abstract and does not override abstract method visit(NodeTraversal,Node,Node) in Callback
+    NodeTraversal t = new NodeTraversal(compiler, new NodeTraversal.AbstractPostOrderCallback() {});
+                                                                                                ^
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:306: error: <anonymous com.google.javascript.jscomp.FunctionInjectorTest$12> is not abstract and does not override abstract method visit(NodeTraversal,Node,Node) in Callback
+    NodeTraversal t = new NodeTraversal(compiler, new NodeTraversal.AbstractPostOrderCallback() {});
+                                                                                                ^
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:319: error: <anonymous com.google.javascript.jscomp.FunctionInjectorTest$13> is not abstract and does not override abstract method visit(NodeTraversal,Node,Node) in Callback
+    NodeTraversal t = new NodeTraversal(compiler, new NodeTraversal.AbstractPostOrderCallback() {});
+                                                                                                ^
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:332: error: <anonymous com.google.javascript.jscomp.FunctionInjectorTest$14> is not abstract and does not override abstract method visit(NodeTraversal,Node,Node) in Callback
+    NodeTraversal t = new NodeTraversal(compiler, new NodeTraversal.AbstractPostOrderCallback() {});
+                                                                                                ^
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:345: error: <anonymous com.google.javascript.jscomp.FunctionInjectorTest$15> is not abstract and does not override abstract method visit(NodeTraversal,Node,Node) in Callback
+    NodeTraversal t = new NodeTraversal(compiler, new NodeTraversal.AbstractPostOrderCallback() {});
+                                                                                                ^
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:358: error: <anonymous com.google.javascript.jscomp.FunctionInjectorTest$16> is not abstract and does not override abstract method visit(NodeTraversal,Node,Node) in Callback
+    NodeTraversal t = new NodeTraversal(compiler, new NodeTraversal.AbstractPostOrderCallback() {});
+                                                                                                ^
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:371: error: <anonymous com.google.javascript.jscomp.FunctionInjectorTest$17> is not abstract and does not override abstract method visit(NodeTraversal,Node,Node) in Callback
+    NodeTraversal t = new NodeTraversal(compiler, new NodeTraversal.AbstractPostOrderCallback() {});
+                                                                                                ^
+/tmp/evaluate_gemini_Closure_116_m760mwa3/src/FunctionInjectorTest.java:558: error: method initModules in class Compiler cannot be applied to given types;
+    compiler.initModules(ImmutableList.of(mod1, mod2), new CompilerOptions());
+            ^
+  required: List<T>,List<JSModule>,CompilerOptions
+  found: ImmutableList<JSModule>,CompilerOptions
+  reason: cannot infer type-variable(s) T
+    (actual and formal argument lists differ in length)
+  where T is a type-variable:
+    T extends SourceFile declared in method <T>initModules(List<T>,List<JSModule>,CompilerOptions)
+13 errors

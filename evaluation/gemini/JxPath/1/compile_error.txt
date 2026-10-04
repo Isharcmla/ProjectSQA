@@ -1,0 +1,11 @@
+/tmp/evaluate_gemini_JxPath_1_m7ggvw4f/src/DOMNodePointerTest.java:544: error: illegal character: '`'
+```
+^
+/tmp/evaluate_gemini_JxPath_1_m7ggvw4f/src/DOMNodePointerTest.java:544: error: illegal character: '`'
+```
+ ^
+/tmp/evaluate_gemini_JxPath_1_m7ggvw4f/src/DOMNodePointerTest.java:544: error: illegal character: '`'
+```
+  ^
+/tmp/evaluate_gemini_JxPath_1_m7ggvw4f/src/DOMNodePointerTest.java:545: error: reached end of file while parsing
+4 errors

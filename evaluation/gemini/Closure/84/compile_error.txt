@@ -1,0 +1,19 @@
+/tmp/evaluate_gemini_Closure_84_3jewo86w/src/IRFactoryTest.java:72: error: cannot find symbol
+    defaultConfig = new Config(annotations, suppressions, true, Config.LanguageMode.ECMASCRIPT5, true);
+                                                                      ^
+  symbol:   variable LanguageMode
+  location: class Config
+/tmp/evaluate_gemini_Closure_84_3jewo86w/src/IRFactoryTest.java:73: error: cannot find symbol
+    es5Config = new Config(annotations, suppressions, true, Config.LanguageMode.ECMASCRIPT5, true);
+                                                                  ^
+  symbol:   variable LanguageMode
+  location: class Config
+/tmp/evaluate_gemini_Closure_84_3jewo86w/src/IRFactoryTest.java:74: error: cannot find symbol
+    es3Config = new Config(annotations, suppressions, true, Config.LanguageMode.ECMASCRIPT3, false);
+                                                                  ^
+  symbol:   variable LanguageMode
+  location: class Config
+/tmp/evaluate_gemini_Closure_84_3jewo86w/src/IRFactoryTest.java:443: error: <anonymous com.google.javascript.jscomp.parsing.IRFactoryTest$1> is not abstract and does not override abstract method visit(NodeVisitor) in AstNode
+    AstNode dummy = new AstNode(com.google.javascript.jscomp.mozilla.rhino.Token.RESERVED) {
+                                                                                           ^
+4 errors

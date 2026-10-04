@@ -1,0 +1,26 @@
+/tmp/evaluate_gemini_Chart_1_myx9gjvq/src/AbstractCategoryItemRendererTest.java:79: error: ConcreteCategoryItemRenderer is not abstract and does not override abstract method drawItem(Graphics2D,CategoryItemRendererState,Rectangle2D,CategoryPlot,CategoryAxis,ValueAxis,CategoryDataset,int,int,boolean,int) in CategoryItemRenderer
+    private static class ConcreteCategoryItemRenderer extends AbstractCategoryItemRenderer {
+                   ^
+/tmp/evaluate_gemini_Chart_1_myx9gjvq/src/AbstractCategoryItemRendererTest.java:350: error: Layer(String) has private access in Layer
+        renderer.addAnnotation(new CategoryTextAnnotation("A", "C", 1.0), new Layer("OTHER") {});
+                                                                          ^
+/tmp/evaluate_gemini_Chart_1_myx9gjvq/src/AbstractCategoryItemRendererTest.java:350: error: cannot inherit from final Layer
+        renderer.addAnnotation(new CategoryTextAnnotation("A", "C", 1.0), new Layer("OTHER") {});
+                                                                              ^
+/tmp/evaluate_gemini_Chart_1_myx9gjvq/src/AbstractCategoryItemRendererTest.java:357: error: Layer(String) has private access in Layer
+        renderer.drawAnnotations(g2, dataArea, domainAxis, rangeAxis, new Layer("INVALID") {}, null);
+                                                                      ^
+/tmp/evaluate_gemini_Chart_1_myx9gjvq/src/AbstractCategoryItemRendererTest.java:357: error: cannot inherit from final Layer
+        renderer.drawAnnotations(g2, dataArea, domainAxis, rangeAxis, new Layer("INVALID") {}, null);
+                                                                          ^
+/tmp/evaluate_gemini_Chart_1_myx9gjvq/src/AbstractCategoryItemRendererTest.java:735: error: cannot find symbol
+        renderer.setPositiveItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.CENTER));
+                ^
+  symbol:   method setPositiveItemLabelPosition(ItemLabelPosition)
+  location: variable renderer of type ConcreteCategoryItemRenderer
+/tmp/evaluate_gemini_Chart_1_myx9gjvq/src/AbstractCategoryItemRendererTest.java:736: error: cannot find symbol
+        renderer.setNegativeItemLabelPosition(new ItemLabelPosition(ItemLabelAnchor.CENTER, TextAnchor.CENTER));
+                ^
+  symbol:   method setNegativeItemLabelPosition(ItemLabelPosition)
+  location: variable renderer of type ConcreteCategoryItemRenderer
+7 errors

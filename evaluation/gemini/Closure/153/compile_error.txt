@@ -1,0 +1,38 @@
+/tmp/evaluate_gemini_Closure_153_zkiqcg2h/src/NormalizeTest.java:281: error: incompatible types: Node cannot be converted to String
+    JSDocInfo info = builder.build(varNode);
+                                   ^
+/tmp/evaluate_gemini_Closure_153_zkiqcg2h/src/NormalizeTest.java:302: error: incompatible types: Node cannot be converted to String
+    JSDocInfo info = builder.build(varNode);
+                                   ^
+/tmp/evaluate_gemini_Closure_153_zkiqcg2h/src/NormalizeTest.java:320: error: no suitable constructor found for Node(int,String)
+    Node emptyName = new Node(Token.NAME, "");
+                     ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/tmp/evaluate_gemini_Closure_153_zkiqcg2h/src/NormalizeTest.java:374: error: no suitable constructor found for Node(int,String)
+    Node emptyName = new Node(Token.NAME, "");
+                     ^
+    constructor Node.Node(int,Node) is not applicable
+      (argument mismatch; String cannot be converted to Node)
+    constructor Node.Node(int,Node[]) is not applicable
+      (argument mismatch; String cannot be converted to Node[])
+/tmp/evaluate_gemini_Closure_153_zkiqcg2h/src/SyntacticScopeCreatorTest.java:135: error: cannot find symbol
+    builder.recordSuppression("duplicate");
+           ^
+  symbol:   method recordSuppression(String)
+  location: variable builder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_153_zkiqcg2h/src/SyntacticScopeCreatorTest.java:136: error: incompatible types: Node cannot be converted to String
+    var2.setJSDocInfo(builder.build(var2));
+                                    ^
+/tmp/evaluate_gemini_Closure_153_zkiqcg2h/src/SyntacticScopeCreatorTest.java:153: error: cannot find symbol
+    builder.recordSuppression("duplicate");
+           ^
+  symbol:   method recordSuppression(String)
+  location: variable builder of type JSDocInfoBuilder
+/tmp/evaluate_gemini_Closure_153_zkiqcg2h/src/SyntacticScopeCreatorTest.java:154: error: incompatible types: Node cannot be converted to String
+    nameNode2.setJSDocInfo(builder.build(nameNode2));
+                                         ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+8 errors

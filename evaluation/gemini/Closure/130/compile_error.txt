@@ -1,0 +1,26 @@
+/tmp/evaluate_gemini_Closure_130_nxigc5mo/src/CollapsePropertiesTest.java:59: error: cannot find symbol
+    testWarning("var a = {}; a.b = function() { return this.x; };",
+    ^
+  symbol:   method testWarning(String,DiagnosticType)
+  location: class CollapsePropertiesTest
+/tmp/evaluate_gemini_Closure_130_nxigc5mo/src/CollapsePropertiesTest.java:77: error: cannot find symbol
+    testWarning("var a = { b: function() { return this.x; } };",
+    ^
+  symbol:   method testWarning(String,DiagnosticType)
+  location: class CollapsePropertiesTest
+/tmp/evaluate_gemini_Closure_130_nxigc5mo/src/CollapsePropertiesTest.java:83: error: cannot find symbol
+    testWarning("/** @const */ var ns = {}; /** @const */ ns = {};",
+    ^
+  symbol:   method testWarning(String,DiagnosticType)
+  location: class CollapsePropertiesTest
+/tmp/evaluate_gemini_Closure_130_nxigc5mo/src/CollapsePropertiesTest.java:90: error: cannot find symbol
+    testWarning("/** @const */ var ns = {}; var alias = ns;",
+    ^
+  symbol:   method testWarning(String,DiagnosticType)
+  location: class CollapsePropertiesTest
+/tmp/evaluate_gemini_Closure_130_nxigc5mo/src/CollapsePropertiesTest.java:174: error: cannot find symbol
+    testWarning("/** @const */ var a = {}; delete a;",
+    ^
+  symbol:   method testWarning(String,DiagnosticType)
+  location: class CollapsePropertiesTest
+5 errors

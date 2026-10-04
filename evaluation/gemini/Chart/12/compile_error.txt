@@ -1,0 +1,5 @@
+/tmp/evaluate_gemini_Chart_12__jm42vb1/src/MultiplePiePlotTest.java:181: error: incompatible types: ChartRenderingInfo cannot be converted to PlotRenderingInfo
+        plot.draw(g2, area, new Point2D.Double(0, 0), null, info);
+                                                            ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

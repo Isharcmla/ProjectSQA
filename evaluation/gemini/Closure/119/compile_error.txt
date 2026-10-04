@@ -1,0 +1,126 @@
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:436: error: cannot find symbol
+    Ref dummyRef = new Ref(null, null, dummyVar.getFirstChild(), name, Ref.Type.SET_FROM_GLOBAL, 0);
+    ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:436: error: cannot find symbol
+    Ref dummyRef = new Ref(null, null, dummyVar.getFirstChild(), name, Ref.Type.SET_FROM_GLOBAL, 0);
+                       ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:436: error: package Ref does not exist
+    Ref dummyRef = new Ref(null, null, dummyVar.getFirstChild(), name, Ref.Type.SET_FROM_GLOBAL, 0);
+                                                                          ^
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:446: error: cannot find symbol
+    Ref subRef = new Ref(null, null, subGetProp, sub, Ref.Type.SET_FROM_GLOBAL, 1);
+    ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:446: error: cannot find symbol
+    Ref subRef = new Ref(null, null, subGetProp, sub, Ref.Type.SET_FROM_GLOBAL, 1);
+                     ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:446: error: package Ref does not exist
+    Ref subRef = new Ref(null, null, subGetProp, sub, Ref.Type.SET_FROM_GLOBAL, 1);
+                                                         ^
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:467: error: cannot find symbol
+    Ref ref1 = new Ref(null, null, node, name, Ref.Type.SET_FROM_GLOBAL, 0);
+    ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:467: error: cannot find symbol
+    Ref ref1 = new Ref(null, null, node, name, Ref.Type.SET_FROM_GLOBAL, 0);
+                   ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:467: error: package Ref does not exist
+    Ref ref1 = new Ref(null, null, node, name, Ref.Type.SET_FROM_GLOBAL, 0);
+                                                  ^
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:477: error: cannot find symbol
+    Ref ref2 = new Ref(null, null, node, name, Ref.Type.ALIASING_GET, 1);
+    ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:477: error: cannot find symbol
+    Ref ref2 = new Ref(null, null, node, name, Ref.Type.ALIASING_GET, 1);
+                   ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:477: error: package Ref does not exist
+    Ref ref2 = new Ref(null, null, node, name, Ref.Type.ALIASING_GET, 1);
+                                                  ^
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:480: error: cannot find symbol
+    Ref.markTwins(ref1, ref2);
+    ^
+  symbol:   variable Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:484: error: cannot find symbol
+    Ref cloned = ref1.cloneAndReclassify(Ref.Type.DIRECT_GET);
+    ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:484: error: package Ref does not exist
+    Ref cloned = ref1.cloneAndReclassify(Ref.Type.DIRECT_GET);
+                                            ^
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:485: error: package Ref does not exist
+    Assert.assertEquals(Ref.Type.DIRECT_GET, cloned.type);
+                           ^
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:492: error: cannot find symbol
+    Ref r1 = Ref.createRefForTesting(Ref.Type.DIRECT_GET);
+    ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:492: error: package Ref does not exist
+    Ref r1 = Ref.createRefForTesting(Ref.Type.DIRECT_GET);
+                                        ^
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:492: error: cannot find symbol
+    Ref r1 = Ref.createRefForTesting(Ref.Type.DIRECT_GET);
+             ^
+  symbol:   variable Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:493: error: cannot find symbol
+    Ref r2 = Ref.createRefForTesting(Ref.Type.CALL_GET);
+    ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:493: error: package Ref does not exist
+    Ref r2 = Ref.createRefForTesting(Ref.Type.CALL_GET);
+                                        ^
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:493: error: cannot find symbol
+    Ref r2 = Ref.createRefForTesting(Ref.Type.CALL_GET);
+             ^
+  symbol:   variable Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:494: error: cannot find symbol
+    Ref.markTwins(r1, r2);
+    ^
+  symbol:   variable Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:502: error: cannot find symbol
+    Ref ref = new Ref(null, null, nameNode, name, Ref.Type.DIRECT_GET, 0);
+    ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:502: error: cannot find symbol
+    Ref ref = new Ref(null, null, nameNode, name, Ref.Type.DIRECT_GET, 0);
+                  ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:502: error: package Ref does not exist
+    Ref ref = new Ref(null, null, nameNode, name, Ref.Type.DIRECT_GET, 0);
+                                                     ^
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:509: error: cannot find symbol
+    Ref ref2 = new Ref(null, null, varNode.getFirstChild(), name, Ref.Type.SET_FROM_GLOBAL, 1);
+    ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:509: error: cannot find symbol
+    Ref ref2 = new Ref(null, null, varNode.getFirstChild(), name, Ref.Type.SET_FROM_GLOBAL, 1);
+                   ^
+  symbol:   class Ref
+  location: class GlobalNamespaceTest
+/tmp/evaluate_gemini_Closure_119_il8eppzu/src/GlobalNamespaceTest.java:509: error: package Ref does not exist
+    Ref ref2 = new Ref(null, null, varNode.getFirstChild(), name, Ref.Type.SET_FROM_GLOBAL, 1);
+                                                                     ^
+29 errors

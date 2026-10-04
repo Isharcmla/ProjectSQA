@@ -1,0 +1,31 @@
+/tmp/evaluate_gemini_Closure_147_w13fwqwe/src/CheckGlobalThisTest.java:28: error: cannot find symbol
+    return new Node(Token.FUNCTION, Node.newString(Token.NAME, "foo"), new Node(Token.PARAM_LIST), new Node(Token.BLOCK));
+                                                                                     ^
+  symbol:   variable PARAM_LIST
+  location: class Token
+/tmp/evaluate_gemini_Closure_147_w13fwqwe/src/CheckGlobalThisTest.java:44: error: incompatible types: Node cannot be converted to String
+    fn.setJSDocInfo(builder.build(fn));
+                                  ^
+/tmp/evaluate_gemini_Closure_147_w13fwqwe/src/CheckGlobalThisTest.java:57: error: incompatible types: Node cannot be converted to String
+    fn.setJSDocInfo(builder.build(fn));
+                                  ^
+/tmp/evaluate_gemini_Closure_147_w13fwqwe/src/CheckGlobalThisTest.java:70: error: incompatible types: Node cannot be converted to String
+    fn.setJSDocInfo(builder.build(fn));
+                                  ^
+/tmp/evaluate_gemini_Closure_147_w13fwqwe/src/CheckGlobalThisTest.java:83: error: incompatible types: Node cannot be converted to String
+    fn.setJSDocInfo(builder.build(fn));
+                                  ^
+/tmp/evaluate_gemini_Closure_147_w13fwqwe/src/CheckGlobalThisTest.java:98: error: incompatible types: Node cannot be converted to String
+    nameNode.setJSDocInfo(builder.build(nameNode));
+                                        ^
+/tmp/evaluate_gemini_Closure_147_w13fwqwe/src/CheckGlobalThisTest.java:113: error: incompatible types: Node cannot be converted to String
+    varNode.setJSDocInfo(builder.build(varNode));
+                                       ^
+/tmp/evaluate_gemini_Closure_147_w13fwqwe/src/CheckGlobalThisTest.java:138: error: incompatible types: Node cannot be converted to String
+    assignNode.setJSDocInfo(builder.build(assignNode));
+                                          ^
+/tmp/evaluate_gemini_Closure_147_w13fwqwe/src/CheckGlobalThisTest.java:161: error: incompatible types: Node cannot be converted to String
+    fn.setJSDocInfo(builder.build(fn));
+                                  ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+9 errors

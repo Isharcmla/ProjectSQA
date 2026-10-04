@@ -1,0 +1,5 @@
+/tmp/evaluate_gemini_Closure_98_2pveo5df/src/ReferenceCollectingCallbackTest.java:259: error: incompatible types: Behavior cannot be converted to Callback
+    NodeTraversal t = new NodeTraversal(compiler, ReferenceCollectingCallback.DO_NOTHING_BEHAVIOR);
+                                                                             ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error

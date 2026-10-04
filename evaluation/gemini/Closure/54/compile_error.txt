@@ -1,0 +1,76 @@
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:35: error: <anonymous com.google.javascript.rhino.jstype.FunctionTypeTest$1> is not abstract and does not override abstract method runtimeError(String,String,int,String,int) in ErrorReporter
+    errorReporter = new ErrorReporter() {
+                                        ^
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:36: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:39: error: method does not override or implement a method from a supertype
+      @Override
+      ^
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:296: error: cannot find symbol
+    subCtor.getPrototype().setImplicitPrototype(superCtor.getInstanceType());
+                          ^
+  symbol:   method setImplicitPrototype(ObjectType)
+  location: class ObjectType
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:297: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    assertTrue(subCtor.setPrototype(subCtor.getPrototype()));
+                                                        ^
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:313: error: cannot find symbol
+    subCtor.getPrototype().setImplicitPrototype(superCtor.getInstanceType());
+                          ^
+  symbol:   method setImplicitPrototype(ObjectType)
+  location: class ObjectType
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:314: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    subCtor.setPrototype(subCtor.getPrototype());
+                                             ^
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:363: error: cannot find symbol
+    ifaceSub.getInstanceType().setCtorExtendedInterfaces(ImmutableList.of(ifaceBase.getInstanceType()));
+                              ^
+  symbol:   method setCtorExtendedInterfaces(ImmutableList<ObjectType>)
+  location: class ObjectType
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:373: error: cannot find symbol
+    subCtor.getPrototype().setImplicitPrototype(superCtor.getInstanceType());
+                          ^
+  symbol:   method setImplicitPrototype(ObjectType)
+  location: class ObjectType
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:374: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    subCtor.setPrototype(subCtor.getPrototype());
+                                             ^
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:514: error: method does not override or implement a method from a supertype
+      @Override public String caseNamedType(NamedType type) { return "named"; }
+      ^
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:519: error: method does not override or implement a method from a supertype
+      @Override public String caseTemplateType(TemplateType templateType) { return "template"; }
+      ^
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:543: error: cannot find symbol
+    sub.getPrototype().setImplicitPrototype(ctor.getInstanceType());
+                      ^
+  symbol:   method setImplicitPrototype(ObjectType)
+  location: class ObjectType
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:544: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    sub.setPrototype(sub.getPrototype());
+                                     ^
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:558: error: cannot find symbol
+    subCtor.getPrototype().setImplicitPrototype(ctor.getInstanceType());
+                          ^
+  symbol:   method setImplicitPrototype(ObjectType)
+  location: class ObjectType
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/FunctionTypeTest.java:559: error: incompatible types: ObjectType cannot be converted to PrototypeObjectType
+    subCtor.setPrototype(subCtor.getPrototype());
+                                             ^
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/TypedScopeCreatorTest.java:38: error: no suitable method found for init(SourceFile[],SourceFile[],CompilerOptions)
+    compiler.init(externFiles, inputs, new CompilerOptions());
+            ^
+    method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile[] cannot be converted to JSSourceFile[])
+    method Compiler.init(List<JSSourceFile>,List<JSSourceFile>,CompilerOptions) is not applicable
+      (argument mismatch; SourceFile[] cannot be converted to List<JSSourceFile>)
+    method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable
+      (argument mismatch; SourceFile[] cannot be converted to JSSourceFile[])
+/tmp/evaluate_gemini_Closure_54_6x9mh8uy/src/TypedScopeCreatorTest.java:101: error: cannot find symbol
+    Assert.assertTrue(objVar.getType().isObjectType());
+                                      ^
+  symbol:   method isObjectType()
+  location: class JSType
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+18 errors

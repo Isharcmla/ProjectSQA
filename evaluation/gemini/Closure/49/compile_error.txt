@@ -1,0 +1,6 @@
+/tmp/evaluate_gemini_Closure_49_0lels32i/src/MakeDeclaredNamesUniqueTest.java:169: error: cannot find symbol
+    Node nameNode = NodeUtil.findNameNode(root, "CONST_VAL");
+                            ^
+  symbol:   method findNameNode(Node,String)
+  location: class NodeUtil
+1 error

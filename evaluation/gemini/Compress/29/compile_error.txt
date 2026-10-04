@@ -1,0 +1,128 @@
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/CpioArchiveInputStreamTest.java:32: error: cannot find symbol
+            out.putNextEntry(entry);
+               ^
+  symbol:   method putNextEntry(CpioArchiveEntry)
+  location: variable out of type CpioArchiveOutputStream
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:28: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(ino, header, 16);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:30: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(NFS_MAGIC, header, 20);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:33: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(type, header, 28);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:36: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(mode, header, 32);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:38: error: method convert16 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert16(1, header, 36);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:40: error: method convert64 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert64(size, header, 40);
+                       ^
+  required: byte[],int
+  found: long,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:42: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(count, header, 160);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:44: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(holes, header, 164);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:52: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(checksum, header, 24);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:59: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(NFS_MAGIC, header, 20);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:60: error: cannot find symbol
+        DumpArchiveUtil.convert32(DumpArchiveConstants.SEGMENT_TYPE.VOLUME.code, header, 28);
+                                                                   ^
+  symbol:   variable VOLUME
+  location: class SEGMENT_TYPE
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:62: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(ntrec, header, 160);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:65: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(flags, header, 144);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:68: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(checksum, header, 24);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:74: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(ino, record, 0);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:75: error: method convert16 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert16(reclen, record, 4);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/DumpArchiveInputStreamTest.java:88: error: method convert32 in class DumpArchiveUtil cannot be applied to given types;
+        DumpArchiveUtil.convert32(NFS_MAGIC, buffer, 24);
+                       ^
+  required: byte[],int
+  found: int,byte[],int
+  reason: actual and formal argument lists differ in length
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/TarArchiveOutputStreamTest.java:359: error: incompatible types: possible lossy conversion from long to int
+        entry.setGroupId(TarConstants.MAXID + 1L);
+                                            ^
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/TarArchiveOutputStreamTest.java:374: error: incompatible types: possible lossy conversion from long to int
+        entry.setUserId(TarConstants.MAXID + 1L);
+                                           ^
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/TarArchiveOutputStreamTest.java:450: error: incompatible types: possible lossy conversion from long to int
+        entry.setGroupId(TarConstants.MAXID + 1L);
+                                            ^
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/TarArchiveOutputStreamTest.java:451: error: incompatible types: possible lossy conversion from long to int
+        entry.setUserId(TarConstants.MAXID + 1L);
+                                           ^
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/TarArchiveOutputStreamTest.java:485: error: incompatible types: possible lossy conversion from long to int
+        entry.setGroupId(TarConstants.MAXID + 1L);
+                                            ^
+/tmp/evaluate_gemini_Compress_29_h684a3eb/src/TarArchiveOutputStreamTest.java:486: error: incompatible types: possible lossy conversion from long to int
+        entry.setUserId(TarConstants.MAXID + 1L);
+                                           ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+24 errors
